@@ -11,4 +11,5 @@ local.properties
 third_party/**/build/
 dist/
 logs/
+reference/
 reference/*.html
