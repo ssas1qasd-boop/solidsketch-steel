@@ -1,0 +1,55 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {}
+  ]
+ ],
+ "description": "HEA300 column, IPE360 beam level at +7500, End plate 144 with default dialog values.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     7500
+    ],
+    "prof": "HEA300"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7500
+    ],
+    "p2": [
+     6000,
+     0,
+     7500
+    ],
+    "prof": "IPE360"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t144_standard",
+ "pageErrors": []
+}

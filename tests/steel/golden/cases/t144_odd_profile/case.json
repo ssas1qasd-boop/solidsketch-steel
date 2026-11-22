@@ -1,0 +1,59 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "rows": 3,
+    "stiff": 12
+   }
+  ]
+ ],
+ "description": "HEM300 column (rot Top) running past an IPE450 beam framing into its flange at +7000, End plate 144 with 3 bolt rows and 12 mm column stiffeners.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     8000
+    ],
+    "prof": "HEM300",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     6000,
+     0,
+     7000
+    ],
+    "prof": "IPE450"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t144_odd_profile",
+ "pageErrors": []
+}

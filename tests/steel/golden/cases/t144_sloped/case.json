@@ -1,0 +1,55 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {}
+  ]
+ ],
+ "description": "R10 portal geometry: HEA300 column, IPE360 rafter eave +7500 to apex +9000 over 13195, End plate 144.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     7500
+    ],
+    "prof": "HEA300"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7500
+    ],
+    "p2": [
+     13195,
+     0,
+     9000
+    ],
+    "prof": "IPE360"
+   },
+   "set": "RAFTER"
+  }
+ ],
+ "name": "t144_sloped",
+ "pageErrors": []
+}

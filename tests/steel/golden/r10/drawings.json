@@ -1,0 +1,3772 @@
+{
+ "byType": {
+  "A": 162,
+  "G": 13,
+  "W": 243
+ },
+ "list": [
+  {
+   "file": "GA Drawings/3 - Base Plate Plan",
+   "key": "G:tk:3",
+   "mark": "3",
+   "n": null,
+   "size": "A1",
+   "title": "Base Plate Plan",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/5 - Plan View",
+   "key": "G:tk:5",
+   "mark": "5",
+   "n": null,
+   "size": "A1",
+   "title": "Plan View",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/6 - Bracing and Struts",
+   "key": "G:tk:6",
+   "mark": "6",
+   "n": null,
+   "size": "A1",
+   "title": "Bracing and Struts",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/7 - Purlins Plan",
+   "key": "G:tk:7",
+   "mark": "7",
+   "n": null,
+   "size": "A1",
+   "title": "Purlins Plan",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/8 - Mezzanine Floor Plan",
+   "key": "G:tk:8",
+   "mark": "8",
+   "n": null,
+   "size": "A1",
+   "title": "Mezzanine Floor Plan",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/9 - Stairs View",
+   "key": "G:tk:9",
+   "mark": "9",
+   "n": null,
+   "size": "A1",
+   "title": "Stairs View",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/10 - Frame Sections 1",
+   "key": "G:tk:10",
+   "mark": "10",
+   "n": null,
+   "size": "A1",
+   "title": "Frame Sections 1",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/11 - Frame Sections 2",
+   "key": "G:tk:11",
+   "mark": "11",
+   "n": null,
+   "size": "A1",
+   "title": "Frame Sections 2",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/12 - Side View",
+   "key": "G:tk:12",
+   "mark": "12",
+   "n": null,
+   "size": "A1",
+   "title": "Side View",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/13 - Frame Connections 1",
+   "key": "G:tk:13",
+   "mark": "13",
+   "n": null,
+   "size": "A1",
+   "title": "Frame Connections 1",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/14 - Frame Connections 2",
+   "key": "G:tk:14",
+   "mark": "14",
+   "n": null,
+   "size": "A1",
+   "title": "Frame Connections 2",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/15 - 3D View",
+   "key": "G:tk:15",
+   "mark": "15",
+   "n": null,
+   "size": "A1",
+   "title": "3D View",
+   "type": "G"
+  },
+  {
+   "file": "GA Drawings/16 - Rafter Plan",
+   "key": "G:tk:16",
+   "mark": "16",
+   "n": null,
+   "size": "A1",
+   "title": "Rafter Plan",
+   "type": "G"
+  },
+  {
+   "file": "Assembly Drawings/1 - Assembly Drawings",
+   "key": "A:1",
+   "mark": "1",
+   "n": 15,
+   "size": "",
+   "title": "GROUT",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/2 - Assembly Drawings",
+   "key": "A:2",
+   "mark": "2",
+   "n": 15,
+   "size": "",
+   "title": "CASTPLATE",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/3 - Assembly Drawings",
+   "key": "A:3",
+   "mark": "3",
+   "n": 17,
+   "size": "",
+   "title": "GROUT",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/4 - Assembly Drawings",
+   "key": "A:4",
+   "mark": "4",
+   "n": 17,
+   "size": "",
+   "title": "CASTPLATE",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/5 - Assembly Drawings",
+   "key": "A:5",
+   "mark": "5",
+   "n": 16,
+   "size": "",
+   "title": "GROUT",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/6 - Assembly Drawings",
+   "key": "A:6",
+   "mark": "6",
+   "n": 16,
+   "size": "",
+   "title": "CASTPLATE",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/7 - Assembly Drawings",
+   "key": "A:7",
+   "mark": "7",
+   "n": 4,
+   "size": "",
+   "title": "GROUT",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/8 - Assembly Drawings",
+   "key": "A:8",
+   "mark": "8",
+   "n": 2,
+   "size": "",
+   "title": "RAILING",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/9 - Assembly Drawings",
+   "key": "A:9",
+   "mark": "9",
+   "n": 2,
+   "size": "",
+   "title": "RAILING",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/10 - Assembly Drawings",
+   "key": "A:10",
+   "mark": "10",
+   "n": 2,
+   "size": "",
+   "title": "RAILING",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/11 - Assembly Drawings",
+   "key": "A:11",
+   "mark": "11",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/12 - Assembly Drawings",
+   "key": "A:12",
+   "mark": "12",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/13 - Assembly Drawings",
+   "key": "A:13",
+   "mark": "13",
+   "n": 8,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/14 - Assembly Drawings",
+   "key": "A:14",
+   "mark": "14",
+   "n": 1,
+   "size": "",
+   "title": "PLATE",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/1001 - Assembly Drawings",
+   "key": "A:1001",
+   "mark": "1001",
+   "n": 192,
+   "size": "",
+   "title": "Anchor Bolt",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/1002 - Assembly Drawings",
+   "key": "A:1002",
+   "mark": "1002",
+   "n": 16,
+   "size": "",
+   "title": "Anchor Bolt",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/A1 - Assembly Drawings",
+   "key": "A:A1",
+   "mark": "A1",
+   "n": 5,
+   "size": "",
+   "title": "Cap Plate",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/A2 - Assembly Drawings",
+   "key": "A:A2",
+   "mark": "A2",
+   "n": 6,
+   "size": "",
+   "title": "Cap Plate",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/A3 - Assembly Drawings",
+   "key": "A:A3",
+   "mark": "A3",
+   "n": 6,
+   "size": "",
+   "title": "Cap Plate",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/A4 - Assembly Drawings",
+   "key": "A:A4",
+   "mark": "A4",
+   "n": 6,
+   "size": "",
+   "title": "Cap Plate",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2001 - Assembly Drawings",
+   "key": "A:C2001",
+   "mark": "C2001",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2002 - Assembly Drawings",
+   "key": "A:C2002",
+   "mark": "C2002",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2003 - Assembly Drawings",
+   "key": "A:C2003",
+   "mark": "C2003",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2004 - Assembly Drawings",
+   "key": "A:C2004",
+   "mark": "C2004",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2005 - Assembly Drawings",
+   "key": "A:C2005",
+   "mark": "C2005",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2006 - Assembly Drawings",
+   "key": "A:C2006",
+   "mark": "C2006",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2007 - Assembly Drawings",
+   "key": "A:C2007",
+   "mark": "C2007",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2008 - Assembly Drawings",
+   "key": "A:C2008",
+   "mark": "C2008",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2009 - Assembly Drawings",
+   "key": "A:C2009",
+   "mark": "C2009",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2010 - Assembly Drawings",
+   "key": "A:C2010",
+   "mark": "C2010",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2011 - Assembly Drawings",
+   "key": "A:C2011",
+   "mark": "C2011",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2012 - Assembly Drawings",
+   "key": "A:C2012",
+   "mark": "C2012",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2013 - Assembly Drawings",
+   "key": "A:C2013",
+   "mark": "C2013",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2014 - Assembly Drawings",
+   "key": "A:C2014",
+   "mark": "C2014",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2015 - Assembly Drawings",
+   "key": "A:C2015",
+   "mark": "C2015",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2016 - Assembly Drawings",
+   "key": "A:C2016",
+   "mark": "C2016",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2017 - Assembly Drawings",
+   "key": "A:C2017",
+   "mark": "C2017",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2018 - Assembly Drawings",
+   "key": "A:C2018",
+   "mark": "C2018",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2019 - Assembly Drawings",
+   "key": "A:C2019",
+   "mark": "C2019",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2020 - Assembly Drawings",
+   "key": "A:C2020",
+   "mark": "C2020",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2021 - Assembly Drawings",
+   "key": "A:C2021",
+   "mark": "C2021",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2022 - Assembly Drawings",
+   "key": "A:C2022",
+   "mark": "C2022",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2023 - Assembly Drawings",
+   "key": "A:C2023",
+   "mark": "C2023",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/C2024 - Assembly Drawings",
+   "key": "A:C2024",
+   "mark": "C2024",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EB4001 - Assembly Drawings",
+   "key": "A:EB4001",
+   "mark": "EB4001",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EB4002 - Assembly Drawings",
+   "key": "A:EB4002",
+   "mark": "EB4002",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EB4003 - Assembly Drawings",
+   "key": "A:EB4003",
+   "mark": "EB4003",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EB4004 - Assembly Drawings",
+   "key": "A:EB4004",
+   "mark": "EB4004",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EB4005 - Assembly Drawings",
+   "key": "A:EB4005",
+   "mark": "EB4005",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EB4006 - Assembly Drawings",
+   "key": "A:EB4006",
+   "mark": "EB4006",
+   "n": 3,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EB4007 - Assembly Drawings",
+   "key": "A:EB4007",
+   "mark": "EB4007",
+   "n": 5,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EB4008 - Assembly Drawings",
+   "key": "A:EB4008",
+   "mark": "EB4008",
+   "n": 3,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EB4009 - Assembly Drawings",
+   "key": "A:EB4009",
+   "mark": "EB4009",
+   "n": 2,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EG3501 - Assembly Drawings",
+   "key": "A:EG3501",
+   "mark": "EG3501",
+   "n": 1,
+   "size": "",
+   "title": "PLATE",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EG3502 - Assembly Drawings",
+   "key": "A:EG3502",
+   "mark": "EG3502",
+   "n": 1,
+   "size": "",
+   "title": "PLATE",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EGC2001 - Assembly Drawings",
+   "key": "A:EGC2001",
+   "mark": "EGC2001",
+   "n": 14,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/EGC2002 - Assembly Drawings",
+   "key": "A:EGC2002",
+   "mark": "EGC2002",
+   "n": 2,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HR9001 - Assembly Drawings",
+   "key": "A:HR9001",
+   "mark": "HR9001",
+   "n": 2,
+   "size": "",
+   "title": "Hand Rail",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HR9002 - Assembly Drawings",
+   "key": "A:HR9002",
+   "mark": "HR9002",
+   "n": 2,
+   "size": "",
+   "title": "Hand Rail",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HR9003 - Assembly Drawings",
+   "key": "A:HR9003",
+   "mark": "HR9003",
+   "n": 2,
+   "size": "",
+   "title": "Hand Rail",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6001 - Assembly Drawings",
+   "key": "A:HZ6001",
+   "mark": "HZ6001",
+   "n": 4,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6002 - Assembly Drawings",
+   "key": "A:HZ6002",
+   "mark": "HZ6002",
+   "n": 16,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6003 - Assembly Drawings",
+   "key": "A:HZ6003",
+   "mark": "HZ6003",
+   "n": 12,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6004 - Assembly Drawings",
+   "key": "A:HZ6004",
+   "mark": "HZ6004",
+   "n": 8,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6005 - Assembly Drawings",
+   "key": "A:HZ6005",
+   "mark": "HZ6005",
+   "n": 5,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6006 - Assembly Drawings",
+   "key": "A:HZ6006",
+   "mark": "HZ6006",
+   "n": 8,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6007 - Assembly Drawings",
+   "key": "A:HZ6007",
+   "mark": "HZ6007",
+   "n": 4,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6008 - Assembly Drawings",
+   "key": "A:HZ6008",
+   "mark": "HZ6008",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6009 - Assembly Drawings",
+   "key": "A:HZ6009",
+   "mark": "HZ6009",
+   "n": 5,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6010 - Assembly Drawings",
+   "key": "A:HZ6010",
+   "mark": "HZ6010",
+   "n": 4,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6011 - Assembly Drawings",
+   "key": "A:HZ6011",
+   "mark": "HZ6011",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6012 - Assembly Drawings",
+   "key": "A:HZ6012",
+   "mark": "HZ6012",
+   "n": 1,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6013 - Assembly Drawings",
+   "key": "A:HZ6013",
+   "mark": "HZ6013",
+   "n": 1,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6014 - Assembly Drawings",
+   "key": "A:HZ6014",
+   "mark": "HZ6014",
+   "n": 9,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6015 - Assembly Drawings",
+   "key": "A:HZ6015",
+   "mark": "HZ6015",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6016 - Assembly Drawings",
+   "key": "A:HZ6016",
+   "mark": "HZ6016",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6017 - Assembly Drawings",
+   "key": "A:HZ6017",
+   "mark": "HZ6017",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6018 - Assembly Drawings",
+   "key": "A:HZ6018",
+   "mark": "HZ6018",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/HZ6019 - Assembly Drawings",
+   "key": "A:HZ6019",
+   "mark": "HZ6019",
+   "n": 1,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/MB4001 - Assembly Drawings",
+   "key": "A:MB4001",
+   "mark": "MB4001",
+   "n": 34,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/MBC2001 - Assembly Drawings",
+   "key": "A:MBC2001",
+   "mark": "MBC2001",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PC7001 - Assembly Drawings",
+   "key": "A:PC7001",
+   "mark": "PC7001",
+   "n": 24,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PLSTR9001 - Assembly Drawings",
+   "key": "A:PLSTR9001",
+   "mark": "PLSTR9001",
+   "n": 2,
+   "size": "",
+   "title": "Stair Plate",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PR7001 - Assembly Drawings",
+   "key": "A:PR7001",
+   "mark": "PR7001",
+   "n": 1,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PR7002 - Assembly Drawings",
+   "key": "A:PR7002",
+   "mark": "PR7002",
+   "n": 23,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8001 - Assembly Drawings",
+   "key": "A:PU8001",
+   "mark": "PU8001",
+   "n": 4,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8002 - Assembly Drawings",
+   "key": "A:PU8002",
+   "mark": "PU8002",
+   "n": 12,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8003 - Assembly Drawings",
+   "key": "A:PU8003",
+   "mark": "PU8003",
+   "n": 20,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8004 - Assembly Drawings",
+   "key": "A:PU8004",
+   "mark": "PU8004",
+   "n": 60,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8005 - Assembly Drawings",
+   "key": "A:PU8005",
+   "mark": "PU8005",
+   "n": 12,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8006 - Assembly Drawings",
+   "key": "A:PU8006",
+   "mark": "PU8006",
+   "n": 36,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8007 - Assembly Drawings",
+   "key": "A:PU8007",
+   "mark": "PU8007",
+   "n": 4,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8008 - Assembly Drawings",
+   "key": "A:PU8008",
+   "mark": "PU8008",
+   "n": 20,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8009 - Assembly Drawings",
+   "key": "A:PU8009",
+   "mark": "PU8009",
+   "n": 12,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8010 - Assembly Drawings",
+   "key": "A:PU8010",
+   "mark": "PU8010",
+   "n": 8,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8011 - Assembly Drawings",
+   "key": "A:PU8011",
+   "mark": "PU8011",
+   "n": 24,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/PU8012 - Assembly Drawings",
+   "key": "A:PU8012",
+   "mark": "PU8012",
+   "n": 8,
+   "size": "",
+   "title": "Purlin",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3001 - Assembly Drawings",
+   "key": "A:R3001",
+   "mark": "R3001",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3002 - Assembly Drawings",
+   "key": "A:R3002",
+   "mark": "R3002",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3003 - Assembly Drawings",
+   "key": "A:R3003",
+   "mark": "R3003",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3004 - Assembly Drawings",
+   "key": "A:R3004",
+   "mark": "R3004",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3005 - Assembly Drawings",
+   "key": "A:R3005",
+   "mark": "R3005",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3006 - Assembly Drawings",
+   "key": "A:R3006",
+   "mark": "R3006",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3007 - Assembly Drawings",
+   "key": "A:R3007",
+   "mark": "R3007",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3008 - Assembly Drawings",
+   "key": "A:R3008",
+   "mark": "R3008",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3009 - Assembly Drawings",
+   "key": "A:R3009",
+   "mark": "R3009",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3010 - Assembly Drawings",
+   "key": "A:R3010",
+   "mark": "R3010",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3011 - Assembly Drawings",
+   "key": "A:R3011",
+   "mark": "R3011",
+   "n": 4,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3012 - Assembly Drawings",
+   "key": "A:R3012",
+   "mark": "R3012",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3013 - Assembly Drawings",
+   "key": "A:R3013",
+   "mark": "R3013",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3014 - Assembly Drawings",
+   "key": "A:R3014",
+   "mark": "R3014",
+   "n": 4,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3015 - Assembly Drawings",
+   "key": "A:R3015",
+   "mark": "R3015",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3016 - Assembly Drawings",
+   "key": "A:R3016",
+   "mark": "R3016",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3017 - Assembly Drawings",
+   "key": "A:R3017",
+   "mark": "R3017",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3018 - Assembly Drawings",
+   "key": "A:R3018",
+   "mark": "R3018",
+   "n": 4,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3019 - Assembly Drawings",
+   "key": "A:R3019",
+   "mark": "R3019",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3020 - Assembly Drawings",
+   "key": "A:R3020",
+   "mark": "R3020",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3021 - Assembly Drawings",
+   "key": "A:R3021",
+   "mark": "R3021",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3022 - Assembly Drawings",
+   "key": "A:R3022",
+   "mark": "R3022",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3023 - Assembly Drawings",
+   "key": "A:R3023",
+   "mark": "R3023",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3024 - Assembly Drawings",
+   "key": "A:R3024",
+   "mark": "R3024",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3025 - Assembly Drawings",
+   "key": "A:R3025",
+   "mark": "R3025",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/R3026 - Assembly Drawings",
+   "key": "A:R3026",
+   "mark": "R3026",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/SGR9001 - Assembly Drawings",
+   "key": "A:SGR9001",
+   "mark": "SGR9001",
+   "n": 23,
+   "size": "",
+   "title": "THREAD",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/SR9001 - Assembly Drawings",
+   "key": "A:SR9001",
+   "mark": "SR9001",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/SR9002 - Assembly Drawings",
+   "key": "A:SR9002",
+   "mark": "SR9002",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/SR9003 - Assembly Drawings",
+   "key": "A:SR9003",
+   "mark": "SR9003",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/SR9004 - Assembly Drawings",
+   "key": "A:SR9004",
+   "mark": "SR9004",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5001 - Assembly Drawings",
+   "key": "A:ST5001",
+   "mark": "ST5001",
+   "n": 17,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5002 - Assembly Drawings",
+   "key": "A:ST5002",
+   "mark": "ST5002",
+   "n": 1,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5003 - Assembly Drawings",
+   "key": "A:ST5003",
+   "mark": "ST5003",
+   "n": 5,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5004 - Assembly Drawings",
+   "key": "A:ST5004",
+   "mark": "ST5004",
+   "n": 24,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5005 - Assembly Drawings",
+   "key": "A:ST5005",
+   "mark": "ST5005",
+   "n": 3,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5006 - Assembly Drawings",
+   "key": "A:ST5006",
+   "mark": "ST5006",
+   "n": 4,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5007 - Assembly Drawings",
+   "key": "A:ST5007",
+   "mark": "ST5007",
+   "n": 2,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5008 - Assembly Drawings",
+   "key": "A:ST5008",
+   "mark": "ST5008",
+   "n": 4,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5009 - Assembly Drawings",
+   "key": "A:ST5009",
+   "mark": "ST5009",
+   "n": 4,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5010 - Assembly Drawings",
+   "key": "A:ST5010",
+   "mark": "ST5010",
+   "n": 4,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5011 - Assembly Drawings",
+   "key": "A:ST5011",
+   "mark": "ST5011",
+   "n": 3,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/ST5012 - Assembly Drawings",
+   "key": "A:ST5012",
+   "mark": "ST5012",
+   "n": 1,
+   "size": "",
+   "title": "Strut",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/STB9001 - Assembly Drawings",
+   "key": "A:STB9001",
+   "mark": "STB9001",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/STB9002 - Assembly Drawings",
+   "key": "A:STB9002",
+   "mark": "STB9002",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/STR9001 - Assembly Drawings",
+   "key": "A:STR9001",
+   "mark": "STR9001",
+   "n": 1,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/STR9002 - Assembly Drawings",
+   "key": "A:STR9002",
+   "mark": "STR9002",
+   "n": 1,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/STR9003 - Assembly Drawings",
+   "key": "A:STR9003",
+   "mark": "STR9003",
+   "n": 1,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/STR9004 - Assembly Drawings",
+   "key": "A:STR9004",
+   "mark": "STR9004",
+   "n": 1,
+   "size": "",
+   "title": "Top flange",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/TR8001 - Assembly Drawings",
+   "key": "A:TR8001",
+   "mark": "TR8001",
+   "n": 80,
+   "size": "",
+   "title": "Tie Rod THREAD100MM",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/TR8002 - Assembly Drawings",
+   "key": "A:TR8002",
+   "mark": "TR8002",
+   "n": 60,
+   "size": "",
+   "title": "Tie Rod THREAD100MM",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6001 - Assembly Drawings",
+   "key": "A:VL6001",
+   "mark": "VL6001",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6002 - Assembly Drawings",
+   "key": "A:VL6002",
+   "mark": "VL6002",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6003 - Assembly Drawings",
+   "key": "A:VL6003",
+   "mark": "VL6003",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6004 - Assembly Drawings",
+   "key": "A:VL6004",
+   "mark": "VL6004",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6005 - Assembly Drawings",
+   "key": "A:VL6005",
+   "mark": "VL6005",
+   "n": 10,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6006 - Assembly Drawings",
+   "key": "A:VL6006",
+   "mark": "VL6006",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6007 - Assembly Drawings",
+   "key": "A:VL6007",
+   "mark": "VL6007",
+   "n": 6,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6008 - Assembly Drawings",
+   "key": "A:VL6008",
+   "mark": "VL6008",
+   "n": 1,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6009 - Assembly Drawings",
+   "key": "A:VL6009",
+   "mark": "VL6009",
+   "n": 3,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6010 - Assembly Drawings",
+   "key": "A:VL6010",
+   "mark": "VL6010",
+   "n": 3,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6011 - Assembly Drawings",
+   "key": "A:VL6011",
+   "mark": "VL6011",
+   "n": 4,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6012 - Assembly Drawings",
+   "key": "A:VL6012",
+   "mark": "VL6012",
+   "n": 2,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6013 - Assembly Drawings",
+   "key": "A:VL6013",
+   "mark": "VL6013",
+   "n": 4,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Assembly Drawings/VL6014 - Assembly Drawings",
+   "key": "A:VL6014",
+   "mark": "VL6014",
+   "n": 2,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "A"
+  },
+  {
+   "file": "Single Part Drawings/1 - Standard",
+   "key": "W:1",
+   "mark": "1",
+   "n": 794,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2 - Standard",
+   "key": "W:2",
+   "mark": "2",
+   "n": 15,
+   "size": "",
+   "title": "GROUT",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3 - Standard",
+   "key": "W:3",
+   "mark": "3",
+   "n": 15,
+   "size": "",
+   "title": "CASTPLATE",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4 - Standard",
+   "key": "W:4",
+   "mark": "4",
+   "n": 192,
+   "size": "",
+   "title": "WASHER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5 - Standard",
+   "key": "W:5",
+   "mark": "5",
+   "n": 192,
+   "size": "",
+   "title": "NUT",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6 - Standard",
+   "key": "W:6",
+   "mark": "6",
+   "n": 17,
+   "size": "",
+   "title": "GROUT",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7 - Standard",
+   "key": "W:7",
+   "mark": "7",
+   "n": 17,
+   "size": "",
+   "title": "CASTPLATE",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8 - Standard",
+   "key": "W:8",
+   "mark": "8",
+   "n": 16,
+   "size": "",
+   "title": "GROUT",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9 - Standard",
+   "key": "W:9",
+   "mark": "9",
+   "n": 16,
+   "size": "",
+   "title": "CASTPLATE",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/10 - Standard",
+   "key": "W:10",
+   "mark": "10",
+   "n": 3,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/11 - Standard",
+   "key": "W:11",
+   "mark": "11",
+   "n": 6,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/12 - Standard",
+   "key": "W:12",
+   "mark": "12",
+   "n": 6,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/13 - Standard",
+   "key": "W:13",
+   "mark": "13",
+   "n": 10,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/14 - Standard",
+   "key": "W:14",
+   "mark": "14",
+   "n": 12,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/15 - Standard",
+   "key": "W:15",
+   "mark": "15",
+   "n": 4,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/16 - Standard",
+   "key": "W:16",
+   "mark": "16",
+   "n": 32,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/17 - Standard",
+   "key": "W:17",
+   "mark": "17",
+   "n": 32,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/18 - Standard",
+   "key": "W:18",
+   "mark": "18",
+   "n": 2,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/19 - Standard",
+   "key": "W:19",
+   "mark": "19",
+   "n": 2,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/20 - Plate",
+   "key": "W:20",
+   "mark": "20",
+   "n": 24,
+   "size": "",
+   "title": "PLATE",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/21 - Standard",
+   "key": "W:21",
+   "mark": "21",
+   "n": 3,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/22 - Standard",
+   "key": "W:22",
+   "mark": "22",
+   "n": 4,
+   "size": "",
+   "title": "Endplate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/23 - Standard",
+   "key": "W:23",
+   "mark": "23",
+   "n": 4,
+   "size": "",
+   "title": "Stanchion",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/24 - Standard",
+   "key": "W:24",
+   "mark": "24",
+   "n": 4,
+   "size": "",
+   "title": "GROUT",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/25 - Standard",
+   "key": "W:25",
+   "mark": "25",
+   "n": 12,
+   "size": "",
+   "title": "Stanchion",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/26 - Standard",
+   "key": "W:26",
+   "mark": "26",
+   "n": 2,
+   "size": "",
+   "title": "RAILING",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/27 - Standard",
+   "key": "W:27",
+   "mark": "27",
+   "n": 2,
+   "size": "",
+   "title": "RAILING",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/28 - Standard",
+   "key": "W:28",
+   "mark": "28",
+   "n": 2,
+   "size": "",
+   "title": "RAILING",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/1501 - Standard",
+   "key": "W:1501",
+   "mark": "1501",
+   "n": 192,
+   "size": "",
+   "title": "Anchor Bolt",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/1502 - Standard",
+   "key": "W:1502",
+   "mark": "1502",
+   "n": 16,
+   "size": "",
+   "title": "Anchor Bolt",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2501 - Standard",
+   "key": "W:2501",
+   "mark": "2501",
+   "n": 15,
+   "size": "",
+   "title": "Base Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2502 - Standard",
+   "key": "W:2502",
+   "mark": "2502",
+   "n": 17,
+   "size": "",
+   "title": "Base Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2503 - Standard",
+   "key": "W:2503",
+   "mark": "2503",
+   "n": 16,
+   "size": "",
+   "title": "Base Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2504 - Standard",
+   "key": "W:2504",
+   "mark": "2504",
+   "n": 48,
+   "size": "",
+   "title": "Stiff.",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2505 - Standard",
+   "key": "W:2505",
+   "mark": "2505",
+   "n": 6,
+   "size": "",
+   "title": "Cap Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2506 - Standard",
+   "key": "W:2506",
+   "mark": "2506",
+   "n": 6,
+   "size": "",
+   "title": "Cap Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2507 - Standard",
+   "key": "W:2507",
+   "mark": "2507",
+   "n": 9,
+   "size": "",
+   "title": "Cap Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2508 - Standard",
+   "key": "W:2508",
+   "mark": "2508",
+   "n": 9,
+   "size": "",
+   "title": "Cap Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2509 - Standard",
+   "key": "W:2509",
+   "mark": "2509",
+   "n": 2,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2510 - Standard",
+   "key": "W:2510",
+   "mark": "2510",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2511 - Standard",
+   "key": "W:2511",
+   "mark": "2511",
+   "n": 2,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2512 - Standard",
+   "key": "W:2512",
+   "mark": "2512",
+   "n": 12,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2513 - Standard",
+   "key": "W:2513",
+   "mark": "2513",
+   "n": 6,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2514 - Standard",
+   "key": "W:2514",
+   "mark": "2514",
+   "n": 6,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2515 - Standard",
+   "key": "W:2515",
+   "mark": "2515",
+   "n": 6,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2516 - Standard",
+   "key": "W:2516",
+   "mark": "2516",
+   "n": 6,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2517 - Standard",
+   "key": "W:2517",
+   "mark": "2517",
+   "n": 9,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2518 - Standard",
+   "key": "W:2518",
+   "mark": "2518",
+   "n": 9,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2519 - Standard",
+   "key": "W:2519",
+   "mark": "2519",
+   "n": 9,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2520 - Standard",
+   "key": "W:2520",
+   "mark": "2520",
+   "n": 9,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2521 - Standard",
+   "key": "W:2521",
+   "mark": "2521",
+   "n": 9,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2522 - Standard",
+   "key": "W:2522",
+   "mark": "2522",
+   "n": 9,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2523 - Standard",
+   "key": "W:2523",
+   "mark": "2523",
+   "n": 16,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2524 - Standard",
+   "key": "W:2524",
+   "mark": "2524",
+   "n": 16,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/2525 - Standard",
+   "key": "W:2525",
+   "mark": "2525",
+   "n": 16,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3001 - Plate",
+   "key": "W:3001",
+   "mark": "3001",
+   "n": 7,
+   "size": "",
+   "title": "PLATE",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3002 - Plate",
+   "key": "W:3002",
+   "mark": "3002",
+   "n": 8,
+   "size": "",
+   "title": "PLATE",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3501 - Standard",
+   "key": "W:3501",
+   "mark": "3501",
+   "n": 48,
+   "size": "",
+   "title": "End Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3502 - Standard",
+   "key": "W:3502",
+   "mark": "3502",
+   "n": 12,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3503 - Standard",
+   "key": "W:3503",
+   "mark": "3503",
+   "n": 24,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3504 - Standard",
+   "key": "W:3504",
+   "mark": "3504",
+   "n": 24,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3505 - Standard",
+   "key": "W:3505",
+   "mark": "3505",
+   "n": 12,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3506 - Standard",
+   "key": "W:3506",
+   "mark": "3506",
+   "n": 18,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3507 - Standard",
+   "key": "W:3507",
+   "mark": "3507",
+   "n": 18,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3508 - Standard",
+   "key": "W:3508",
+   "mark": "3508",
+   "n": 12,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3509 - Standard",
+   "key": "W:3509",
+   "mark": "3509",
+   "n": 6,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3510 - Standard",
+   "key": "W:3510",
+   "mark": "3510",
+   "n": 6,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3511 - Standard",
+   "key": "W:3511",
+   "mark": "3511",
+   "n": 6,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3512 - Standard",
+   "key": "W:3512",
+   "mark": "3512",
+   "n": 6,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3513 - Standard",
+   "key": "W:3513",
+   "mark": "3513",
+   "n": 24,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3514 - Standard",
+   "key": "W:3514",
+   "mark": "3514",
+   "n": 24,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3515 - Standard",
+   "key": "W:3515",
+   "mark": "3515",
+   "n": 48,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3516 - Standard",
+   "key": "W:3516",
+   "mark": "3516",
+   "n": 48,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3517 - Standard",
+   "key": "W:3517",
+   "mark": "3517",
+   "n": 24,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/3518 - Standard",
+   "key": "W:3518",
+   "mark": "3518",
+   "n": 24,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4501 - Standard",
+   "key": "W:4501",
+   "mark": "4501",
+   "n": 4,
+   "size": "",
+   "title": "Shear Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4502 - Standard",
+   "key": "W:4502",
+   "mark": "4502",
+   "n": 2,
+   "size": "",
+   "title": "Top NS",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4503 - Standard",
+   "key": "W:4503",
+   "mark": "4503",
+   "n": 2,
+   "size": "",
+   "title": "Bot Ns",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4504 - Standard",
+   "key": "W:4504",
+   "mark": "4504",
+   "n": 2,
+   "size": "",
+   "title": "Top FS",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4505 - Standard",
+   "key": "W:4505",
+   "mark": "4505",
+   "n": 2,
+   "size": "",
+   "title": "Bot FS",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4506 - Standard",
+   "key": "W:4506",
+   "mark": "4506",
+   "n": 6,
+   "size": "",
+   "title": "Shear Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4507 - Standard",
+   "key": "W:4507",
+   "mark": "4507",
+   "n": 15,
+   "size": "",
+   "title": "Top NS",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4508 - Standard",
+   "key": "W:4508",
+   "mark": "4508",
+   "n": 15,
+   "size": "",
+   "title": "Bot Ns",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4509 - Standard",
+   "key": "W:4509",
+   "mark": "4509",
+   "n": 15,
+   "size": "",
+   "title": "Top FS",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4510 - Standard",
+   "key": "W:4510",
+   "mark": "4510",
+   "n": 15,
+   "size": "",
+   "title": "Bot FS",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4511 - Standard",
+   "key": "W:4511",
+   "mark": "4511",
+   "n": 10,
+   "size": "",
+   "title": "Shear Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4512 - Plate",
+   "key": "W:4512",
+   "mark": "4512",
+   "n": 8,
+   "size": "",
+   "title": "PLATE",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4513 - Standard",
+   "key": "W:4513",
+   "mark": "4513",
+   "n": 8,
+   "size": "",
+   "title": "Top Stiff.",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4514 - Standard",
+   "key": "W:4514",
+   "mark": "4514",
+   "n": 8,
+   "size": "",
+   "title": "Bot Stiff.",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4515 - Standard",
+   "key": "W:4515",
+   "mark": "4515",
+   "n": 72,
+   "size": "",
+   "title": "Shear Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4516 - Standard",
+   "key": "W:4516",
+   "mark": "4516",
+   "n": 10,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4517 - Standard",
+   "key": "W:4517",
+   "mark": "4517",
+   "n": 7,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4518 - Standard",
+   "key": "W:4518",
+   "mark": "4518",
+   "n": 10,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4519 - Standard",
+   "key": "W:4519",
+   "mark": "4519",
+   "n": 34,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4520 - Standard",
+   "key": "W:4520",
+   "mark": "4520",
+   "n": 34,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4521 - Standard",
+   "key": "W:4521",
+   "mark": "4521",
+   "n": 34,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4522 - Standard",
+   "key": "W:4522",
+   "mark": "4522",
+   "n": 2,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4523 - Standard",
+   "key": "W:4523",
+   "mark": "4523",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4524 - Standard",
+   "key": "W:4524",
+   "mark": "4524",
+   "n": 2,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4525 - Standard",
+   "key": "W:4525",
+   "mark": "4525",
+   "n": 1,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4526 - Standard",
+   "key": "W:4526",
+   "mark": "4526",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4527 - Standard",
+   "key": "W:4527",
+   "mark": "4527",
+   "n": 1,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4528 - Standard",
+   "key": "W:4528",
+   "mark": "4528",
+   "n": 1,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4529 - Standard",
+   "key": "W:4529",
+   "mark": "4529",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4530 - Standard",
+   "key": "W:4530",
+   "mark": "4530",
+   "n": 1,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4531 - Standard",
+   "key": "W:4531",
+   "mark": "4531",
+   "n": 1,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4532 - Standard",
+   "key": "W:4532",
+   "mark": "4532",
+   "n": 1,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4533 - Standard",
+   "key": "W:4533",
+   "mark": "4533",
+   "n": 1,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/4534 - Standard",
+   "key": "W:4534",
+   "mark": "4534",
+   "n": 4,
+   "size": "",
+   "title": "Shear Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5501 - Standard",
+   "key": "W:5501",
+   "mark": "5501",
+   "n": 18,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5502 - Standard",
+   "key": "W:5502",
+   "mark": "5502",
+   "n": 34,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5503 - Standard",
+   "key": "W:5503",
+   "mark": "5503",
+   "n": 34,
+   "size": "",
+   "title": "Connection Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5504 - Standard",
+   "key": "W:5504",
+   "mark": "5504",
+   "n": 4,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5505 - Standard",
+   "key": "W:5505",
+   "mark": "5505",
+   "n": 3,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5506 - Standard",
+   "key": "W:5506",
+   "mark": "5506",
+   "n": 5,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5507 - Standard",
+   "key": "W:5507",
+   "mark": "5507",
+   "n": 8,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5508 - Standard",
+   "key": "W:5508",
+   "mark": "5508",
+   "n": 4,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5509 - Standard",
+   "key": "W:5509",
+   "mark": "5509",
+   "n": 3,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5510 - Standard",
+   "key": "W:5510",
+   "mark": "5510",
+   "n": 24,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5511 - Standard",
+   "key": "W:5511",
+   "mark": "5511",
+   "n": 2,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/5512 - Standard",
+   "key": "W:5512",
+   "mark": "5512",
+   "n": 1,
+   "size": "",
+   "title": "Strut",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6501 - Standard",
+   "key": "W:6501",
+   "mark": "6501",
+   "n": 3,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6502 - Standard",
+   "key": "W:6502",
+   "mark": "6502",
+   "n": 3,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6503 - Standard",
+   "key": "W:6503",
+   "mark": "6503",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6504 - Standard",
+   "key": "W:6504",
+   "mark": "6504",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6505 - Standard",
+   "key": "W:6505",
+   "mark": "6505",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6506 - Standard",
+   "key": "W:6506",
+   "mark": "6506",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6507 - Standard",
+   "key": "W:6507",
+   "mark": "6507",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6508 - Standard",
+   "key": "W:6508",
+   "mark": "6508",
+   "n": 380,
+   "size": "",
+   "title": "Connection Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6509 - Standard",
+   "key": "W:6509",
+   "mark": "6509",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6510 - Standard",
+   "key": "W:6510",
+   "mark": "6510",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6511 - Standard",
+   "key": "W:6511",
+   "mark": "6511",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6512 - Standard",
+   "key": "W:6512",
+   "mark": "6512",
+   "n": 42,
+   "size": "",
+   "title": "Connection Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6513 - Standard",
+   "key": "W:6513",
+   "mark": "6513",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6514 - Standard",
+   "key": "W:6514",
+   "mark": "6514",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6515 - Standard",
+   "key": "W:6515",
+   "mark": "6515",
+   "n": 10,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6516 - Standard",
+   "key": "W:6516",
+   "mark": "6516",
+   "n": 10,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6517 - Standard",
+   "key": "W:6517",
+   "mark": "6517",
+   "n": 4,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6518 - Standard",
+   "key": "W:6518",
+   "mark": "6518",
+   "n": 5,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6519 - Standard",
+   "key": "W:6519",
+   "mark": "6519",
+   "n": 4,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6520 - Standard",
+   "key": "W:6520",
+   "mark": "6520",
+   "n": 6,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6521 - Standard",
+   "key": "W:6521",
+   "mark": "6521",
+   "n": 20,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6522 - Standard",
+   "key": "W:6522",
+   "mark": "6522",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6523 - Standard",
+   "key": "W:6523",
+   "mark": "6523",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6524 - Standard",
+   "key": "W:6524",
+   "mark": "6524",
+   "n": 8,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6525 - Standard",
+   "key": "W:6525",
+   "mark": "6525",
+   "n": 34,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6526 - Standard",
+   "key": "W:6526",
+   "mark": "6526",
+   "n": 5,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6527 - Standard",
+   "key": "W:6527",
+   "mark": "6527",
+   "n": 16,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6528 - Standard",
+   "key": "W:6528",
+   "mark": "6528",
+   "n": 12,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6529 - Standard",
+   "key": "W:6529",
+   "mark": "6529",
+   "n": 13,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6530 - Standard",
+   "key": "W:6530",
+   "mark": "6530",
+   "n": 9,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6531 - Standard",
+   "key": "W:6531",
+   "mark": "6531",
+   "n": 8,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6532 - Standard",
+   "key": "W:6532",
+   "mark": "6532",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6533 - Standard",
+   "key": "W:6533",
+   "mark": "6533",
+   "n": 32,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6534 - Standard",
+   "key": "W:6534",
+   "mark": "6534",
+   "n": 16,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6535 - Standard",
+   "key": "W:6535",
+   "mark": "6535",
+   "n": 4,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6536 - Standard",
+   "key": "W:6536",
+   "mark": "6536",
+   "n": 12,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6537 - Standard",
+   "key": "W:6537",
+   "mark": "6537",
+   "n": 4,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6538 - Standard",
+   "key": "W:6538",
+   "mark": "6538",
+   "n": 5,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6539 - Standard",
+   "key": "W:6539",
+   "mark": "6539",
+   "n": 4,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6540 - Standard",
+   "key": "W:6540",
+   "mark": "6540",
+   "n": 5,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6541 - Standard",
+   "key": "W:6541",
+   "mark": "6541",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6542 - Standard",
+   "key": "W:6542",
+   "mark": "6542",
+   "n": 4,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6543 - Standard",
+   "key": "W:6543",
+   "mark": "6543",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6544 - Standard",
+   "key": "W:6544",
+   "mark": "6544",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6545 - Standard",
+   "key": "W:6545",
+   "mark": "6545",
+   "n": 48,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6546 - Standard",
+   "key": "W:6546",
+   "mark": "6546",
+   "n": 1,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6547 - Standard",
+   "key": "W:6547",
+   "mark": "6547",
+   "n": 2,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6548 - Standard",
+   "key": "W:6548",
+   "mark": "6548",
+   "n": 2,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6549 - Standard",
+   "key": "W:6549",
+   "mark": "6549",
+   "n": 2,
+   "size": "",
+   "title": "VL Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6550 - Standard",
+   "key": "W:6550",
+   "mark": "6550",
+   "n": 8,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6551 - Standard",
+   "key": "W:6551",
+   "mark": "6551",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6552 - Standard",
+   "key": "W:6552",
+   "mark": "6552",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6553 - Standard",
+   "key": "W:6553",
+   "mark": "6553",
+   "n": 3,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6554 - Standard",
+   "key": "W:6554",
+   "mark": "6554",
+   "n": 4,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6555 - Standard",
+   "key": "W:6555",
+   "mark": "6555",
+   "n": 3,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6556 - Standard",
+   "key": "W:6556",
+   "mark": "6556",
+   "n": 3,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6557 - Standard",
+   "key": "W:6557",
+   "mark": "6557",
+   "n": 3,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6558 - Standard",
+   "key": "W:6558",
+   "mark": "6558",
+   "n": 1,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6559 - Standard",
+   "key": "W:6559",
+   "mark": "6559",
+   "n": 1,
+   "size": "",
+   "title": "HZ Bracing",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6560 - Standard",
+   "key": "W:6560",
+   "mark": "6560",
+   "n": 4,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/6561 - Standard",
+   "key": "W:6561",
+   "mark": "6561",
+   "n": 1,
+   "size": "",
+   "title": "Gusset Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7501 - Standard",
+   "key": "W:7501",
+   "mark": "7501",
+   "n": 24,
+   "size": "",
+   "title": "End plate Post",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7502 - Standard",
+   "key": "W:7502",
+   "mark": "7502",
+   "n": 24,
+   "size": "",
+   "title": "Haunch_plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7503 - Standard",
+   "key": "W:7503",
+   "mark": "7503",
+   "n": 24,
+   "size": "",
+   "title": "Haunch_plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7504 - Standard",
+   "key": "W:7504",
+   "mark": "7504",
+   "n": 24,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7505 - Standard",
+   "key": "W:7505",
+   "mark": "7505",
+   "n": 24,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7506 - Standard",
+   "key": "W:7506",
+   "mark": "7506",
+   "n": 24,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7507 - Standard",
+   "key": "W:7507",
+   "mark": "7507",
+   "n": 24,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7508 - Standard",
+   "key": "W:7508",
+   "mark": "7508",
+   "n": 24,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/7509 - Standard",
+   "key": "W:7509",
+   "mark": "7509",
+   "n": 24,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8501 - Standard",
+   "key": "W:8501",
+   "mark": "8501",
+   "n": 4,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8502 - Standard",
+   "key": "W:8502",
+   "mark": "8502",
+   "n": 12,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8503 - Standard",
+   "key": "W:8503",
+   "mark": "8503",
+   "n": 264,
+   "size": "",
+   "title": "Cleat Angle",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8504 - Standard",
+   "key": "W:8504",
+   "mark": "8504",
+   "n": 264,
+   "size": "",
+   "title": "Stiff.",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8505 - Standard",
+   "key": "W:8505",
+   "mark": "8505",
+   "n": 20,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8506 - Standard",
+   "key": "W:8506",
+   "mark": "8506",
+   "n": 60,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8507 - Standard",
+   "key": "W:8507",
+   "mark": "8507",
+   "n": 12,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8508 - Standard",
+   "key": "W:8508",
+   "mark": "8508",
+   "n": 36,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8509 - Standard",
+   "key": "W:8509",
+   "mark": "8509",
+   "n": 4,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8510 - Standard",
+   "key": "W:8510",
+   "mark": "8510",
+   "n": 20,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8511 - Standard",
+   "key": "W:8511",
+   "mark": "8511",
+   "n": 12,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8512 - Standard",
+   "key": "W:8512",
+   "mark": "8512",
+   "n": 8,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8513 - Standard",
+   "key": "W:8513",
+   "mark": "8513",
+   "n": 24,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8514 - Standard",
+   "key": "W:8514",
+   "mark": "8514",
+   "n": 8,
+   "size": "",
+   "title": "Purlin",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8515 - Standard",
+   "key": "W:8515",
+   "mark": "8515",
+   "n": 80,
+   "size": "",
+   "title": "Tie Rod THREAD100MM",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/8516 - Standard",
+   "key": "W:8516",
+   "mark": "8516",
+   "n": 60,
+   "size": "",
+   "title": "Tie Rod THREAD100MM",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9501 - Standard",
+   "key": "W:9501",
+   "mark": "9501",
+   "n": 23,
+   "size": "",
+   "title": "Bracket",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9502 - Standard",
+   "key": "W:9502",
+   "mark": "9502",
+   "n": 23,
+   "size": "",
+   "title": "Bracket",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9503 - Standard",
+   "key": "W:9503",
+   "mark": "9503",
+   "n": 23,
+   "size": "",
+   "title": "THREAD",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9504 - Standard",
+   "key": "W:9504",
+   "mark": "9504",
+   "n": 8,
+   "size": "",
+   "title": "Stair Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9505 - Standard",
+   "key": "W:9505",
+   "mark": "9505",
+   "n": 2,
+   "size": "",
+   "title": "Stair Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9506 - Standard",
+   "key": "W:9506",
+   "mark": "9506",
+   "n": 4,
+   "size": "",
+   "title": "Base Plate",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9507 - Stringer",
+   "key": "W:9507",
+   "mark": "9507",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9508 - Stringer",
+   "key": "W:9508",
+   "mark": "9508",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9509 - Stringer",
+   "key": "W:9509",
+   "mark": "9509",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9510 - Stringer",
+   "key": "W:9510",
+   "mark": "9510",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9511 - Stringer",
+   "key": "W:9511",
+   "mark": "9511",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9512 - Stringer",
+   "key": "W:9512",
+   "mark": "9512",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9513 - Stringer",
+   "key": "W:9513",
+   "mark": "9513",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9514 - Stringer",
+   "key": "W:9514",
+   "mark": "9514",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9515 - Stringer",
+   "key": "W:9515",
+   "mark": "9515",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9516 - Stringer",
+   "key": "W:9516",
+   "mark": "9516",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9517 - Stringer",
+   "key": "W:9517",
+   "mark": "9517",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9518 - Stringer",
+   "key": "W:9518",
+   "mark": "9518",
+   "n": 1,
+   "size": "",
+   "title": "STRINGER",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9519 - Standard",
+   "key": "W:9519",
+   "mark": "9519",
+   "n": 10,
+   "size": "",
+   "title": "Stanchion",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9520 - Standard",
+   "key": "W:9520",
+   "mark": "9520",
+   "n": 2,
+   "size": "",
+   "title": "Hand Rail",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9521 - Standard",
+   "key": "W:9521",
+   "mark": "9521",
+   "n": 2,
+   "size": "",
+   "title": "Hand Rail",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9522 - Standard",
+   "key": "W:9522",
+   "mark": "9522",
+   "n": 2,
+   "size": "",
+   "title": "Hand Rail",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9523 - Standard",
+   "key": "W:9523",
+   "mark": "9523",
+   "n": 2,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9524 - Standard",
+   "key": "W:9524",
+   "mark": "9524",
+   "n": 4,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9525 - Standard",
+   "key": "W:9525",
+   "mark": "9525",
+   "n": 2,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9526 - Standard",
+   "key": "W:9526",
+   "mark": "9526",
+   "n": 2,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9527 - Standard",
+   "key": "W:9527",
+   "mark": "9527",
+   "n": 2,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9528 - Standard",
+   "key": "W:9528",
+   "mark": "9528",
+   "n": 2,
+   "size": "",
+   "title": "Top flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9529 - Standard",
+   "key": "W:9529",
+   "mark": "9529",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9530 - Standard",
+   "key": "W:9530",
+   "mark": "9530",
+   "n": 2,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9531 - Plate",
+   "key": "W:9531",
+   "mark": "9531",
+   "n": 2,
+   "size": "",
+   "title": "PLATE",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9532 - Standard",
+   "key": "W:9532",
+   "mark": "9532",
+   "n": 2,
+   "size": "",
+   "title": "Web",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/9533 - Standard",
+   "key": "W:9533",
+   "mark": "9533",
+   "n": 2,
+   "size": "",
+   "title": "Bottom flange",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/F1 - Standard",
+   "key": "W:F1",
+   "mark": "F1",
+   "n": 1,
+   "size": "",
+   "title": "D",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/F3501 - Plate",
+   "key": "W:F3501",
+   "mark": "F3501",
+   "n": 48,
+   "size": "",
+   "title": "PLATE",
+   "type": "W"
+  },
+  {
+   "file": "Single Part Drawings/F7501 - Plate",
+   "key": "W:F7501",
+   "mark": "F7501",
+   "n": 24,
+   "size": "",
+   "title": "PLATE",
+   "type": "W"
+  }
+ ],
+ "total": 418
+}

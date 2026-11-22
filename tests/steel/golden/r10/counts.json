@@ -1,0 +1,13 @@
+{
+ "bodies": 6638,
+ "connTypes": {
+  "TKBOLT": 3035,
+  "TKCUT": 645
+ },
+ "connections": 3680,
+ "kinds": {
+  "bolts": 1693,
+  "member": 1546,
+  "plate": 3399
+ }
+}
