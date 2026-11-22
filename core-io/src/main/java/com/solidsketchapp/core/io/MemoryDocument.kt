@@ -20,9 +20,25 @@ class MemoryDocument : DocumentApi {
     )
 
     private var bodies = LinkedHashMap<BodyId, Body>()
-    private var fields = LinkedHashMap<String, String>()
+    private var fields = LinkedHashMap<String, String>().apply { V69_DEFAULTS.forEach { (k, v) -> put(k, v) } }
     private var nextId = 1L
     private val listeners = mutableListOf<DocumentApi.Listener>()
+
+    companion object {
+        /**
+         * Every `doc` field web v69 writes (docObject + ssDocument's `kept`), in its order, with the
+         * values of a new v69 document. `bodies` goes at [V69_BODIES_INDEX]. A new document starts
+         * with these, so a file made in this app has the same doc fields as one made in v69.
+         */
+        val V69_DEFAULTS: List<Pair<String, String>> = listOf(
+            "v" to "1", "nextId" to "1", "colorIdx" to "0", "sketchLines" to "[]", "sketchPlane" to "null",
+            "paths" to "[]", "nextPathId" to "1", "profiles" to "[]", "nextProfileId" to "1",
+            "folders" to "[]", "notes28" to "[]", "refModels28" to "[]", "furn28" to "[]",
+            "stGrid" to "null", "stGen" to "null", "stConns" to "[]", "stNextConn" to "1", "stNum" to "null",
+            "stDwg" to "null", "curType" to "null", "curTag" to "\"\"", "unit" to "\"mm\"", "kept" to "[]",
+        )
+        const val V69_BODIES_INDEX = 9
+    }
 
     /** Top-level `.ss` fields other than `doc` (format, version, app, unit, name, rev, savedAt, unknown ones), raw, in order. */
     var header: List<Pair<String, String>> = emptyList()
@@ -30,7 +46,7 @@ class MemoryDocument : DocumentApi {
     /** Position of `doc` among the top-level fields, and of `bodies` among the `doc` fields. */
     var headerDocIndex = 0
         internal set
-    var bodiesIndex = 0
+    var bodiesIndex = V69_BODIES_INDEX
         internal set
 
     /** The id the next new body gets (the web build's `nextId`). */
@@ -68,6 +84,8 @@ class MemoryDocument : DocumentApi {
     override fun addBody(json: String, mesh: Mesh?): BodyId {
         val id = BodyId((nextId++).toString())
         bodies[id] = Body(json, mesh)
+        // v69's makeBodyRecord advances colorIdx with every new body (nextId++ and colorIdx++ together).
+        fields["colorIdx"]?.toLongOrNull()?.let { fields["colorIdx"] = (it + 1).toString() }
         changed()
         return id
     }

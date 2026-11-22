@@ -34,5 +34,23 @@
    ]
   },
   "ok": true
+ },
+ "v69 adds a body to the app-saved file": {
+  "detail": {
+   "docFields": 24,
+   "errs": [],
+   "ids": [
+    1,
+    2,
+    3
+   ],
+   "names": [
+    "COLUMN",
+    "BEAM",
+    "COLUMN 3"
+   ],
+   "nextId": 4
+  },
+  "ok": true
  }
 }
