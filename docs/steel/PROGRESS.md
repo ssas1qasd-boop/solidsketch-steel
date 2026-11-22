@@ -1,7 +1,7 @@
 # Steel progress
 
 ## Current milestone
-S3 done in code and tests (2026-11-22); R10 on the phone (frame rate, memory) to be checked by the owner (see "S3 phone check"). Next: S4 (data: `ST_CAT`, `ST_SETS`, `ST_CLASS`, materials, `TK` catalog as JSON assets).
+S3 done in code and tests (2026-11-22), with the fixes from the owner's check; R10 on the phone (open time, frame rate, memory) still to be checked (see "S3 phone check"). Next: S4 (data: `ST_CAT`, `ST_SETS`, `ST_CLASS`, materials, `TK` catalog as JSON assets).
 
 ## S3 (2026-11-22)
 - **`.ss` codec** (`core-io/SsCodec.kt`): streaming reader (never holds the whole file as text): `shape.vp` / `shape.tv` (93 % of R10's 62 MB of JSON) go straight into float / int arrays; every other value is kept as its exact JSON text, so unknown fields round-trip at every level (top level, `doc`, body, `st`). Writer puts the raw text back and writes `vp` the way JavaScript prints Float32 values (`JsNumber`, ECMA-262 Number::toString, done with BigDecimal so it does not depend on the platform's `Double.toString`). Gzip on save (as v69); gzip or plain JSON on load; refuses non-SolidSketch files and newer versions with v69's messages.
@@ -21,8 +21,22 @@ S3 done in code and tests (2026-11-22); R10 on the phone (frame rate, memory) to
 - **`:app`:** Open / Save (`.ss` through the system file picker), status text with v69's wording ("Opened R10.ss · 6638 bodies" plus triangles and seconds); the S2 checks stay.
 - **Tests:** 38 JVM + 3 host JNI = 41 unit tests (new: JsNumber 3, SsCodec 5 incl. the R10 byte round trip and unknown fields everywhere, SsInterop 2, BatchBuilder 2, R10 render data 1, replaceAllFrom 1, UndoStack.clear 1), shader check, native host test. All pass.
 
-## S3 phone check (owner)
-Copy `tests/steel/models/Frame_28x53m_R10.ss` to the phone, install `dist/solidsketch-steel-s3-debug.apk`, Open → R10. Note: the time in the status line, whether all 6,638 bodies show, the overlay while orbiting (fps, frame ms, heap, native), tap-select on a plate, Save to a new file and Open it again (same count). Then open the saved file in web v69 if convenient.
+## S3 fixes from the owner's check (2026-11-22)
+The owner saved a file from the phone ("Unttitled.ss"): header and body shapes matched v69, but `doc` had only `bodies` (R10 has 24 doc fields).
+1. **New documents write every v69 doc field with v69's defaults** (`MemoryDocument.V69_DEFAULTS`, from v69's initial state and `docObject` + `ssDocument`): `v` 1, `nextId`, `colorIdx`, `sketchLines` [], `sketchPlane` null, `paths` [], `nextPathId` 1, `profiles` [], `nextProfileId` 1, `bodies`, `folders` [], `notes28` [], `refModels28` [], `furn28` [], `stGrid` null, `stGen` null, `stConns` [], `stNextConn` 1, `stNum` null, `stDwg` null, `curType` null, `curTag` "", `unit` "mm", `kept` [] — same order as v69. `nextId` stays above every body id; `colorIdx` goes up with every new body, like v69's `makeBodyRecord`. Opened files keep every field, known or unknown (unchanged since S3; now also tested against R10's 24 names). The header `name` is the file name without `.ss`, like v69 (`ssBase(ssFileName)`).
+2. **Golden test, app file through v69 and back** (`tools/golden/ss_interop.js` step "v69 adds a body to the app-saved file" + `SsInteropTest.reopenAppFileAfterV69AddedABody`): v69 opens the app-saved file (24 doc fields), adds a column with its batch API (`COLUMN 3`, id 3, `nextId` 4) and saves; the app reopens it with no error, ids 1, 2, 3 unique, all bodies with meshes, v69's new folder kept, the next app body gets id 4, and app read → write gives v69's bytes back.
+3. **Buttons stay on one line:** all toolbar buttons go through `ToolButton` (`maxLines = 1`, `softWrap = false`, tighter padding); button rows scroll sideways instead of wrapping. `UiRulesTest` fails if a screen uses a raw Button.
+4. **File name spelling:** the code's default is `Untitled.ss` (spelled right). "Unttitled" was the name typed in the save dialog; the app then suggests the last saved name, and Android adds " (1)" when that file exists. Naming moved to `SsNames` (tested, including that case).
+- Unit tests: 42 JVM + 3 host JNI = 45, all pass. APK: `dist/solidsketch-steel-s3b-debug.apk`.
+
+## S3 phone check (owner) — R10 not opened on the phone yet
+Copy `tests/steel/models/Frame_28x53m_R10.ss` to the phone, install `dist/solidsketch-steel-s3b-debug.apk`, then:
+1. **Open time:** Open → R10. The status line ends with the seconds it took ("Opened Frame_28x53m_R10.ss · 6638 bodies · 1.83 M triangles · N s"). Note N, and whether all 6,638 bodies show (overlay "6638 bodies · 5 chunks").
+2. **Frame rate:** orbit with one finger for about 5 s and read the overlay: fps and "frame … ms cpu". Usable: about 30 fps or more while orbiting. Also pinch-zoom close to a node and pan (two fingers).
+3. **Memory:** read "GPU … MB · heap used/max MB · native … MB" after opening (expect GPU about 35 MB). Open R10 a second time and check that heap and native do not keep growing.
+4. **Picking:** tap a plate and a bolt: the name shows and the part lights up. Delete one, Undo.
+5. **Save and reopen:** Save as a new name, Open it again: same body count. Optionally open that file in web v69.
+6. Leave the app and come back (home button, then reopen): the model is still drawn (GL context restore).
 
 ## S2 (2026-11-22)
 - **Booleans:** `native/sscore-lite` now runs on Manifold v3.5.4 (Apache-2.0, pinned commit `ce50d780`; CrossSection/Clipper2, TBB, tests and bindings off). C API: box, extrude (either winding), cylinder, subtract / union / intersect, `ss_subtract_many`, `ss_union_many`, closed-solid check, volume. Flat-shaded input is welded first. Manifold is fetched by the Gradle task `:fetchManifold` (or `tools/native/fetch_manifold.sh`) into `third_party/manifold` (git-ignored); both native modules depend on it.
