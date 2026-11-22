@@ -1,7 +1,22 @@
 # Steel progress
 
 ## Current milestone
-S3 done and accepted on the owner's phone (2026-11-22). Now: S4 (data: `ST_CAT`, `ST_SETS`, `ST_CLASS`, materials, `TK` catalog as JSON assets), started on the owner's instruction (CLAUDE.md had assigned S4 to the local model).
+S4 done in code and tests (2026-11-22; done here on the owner's instruction, CLAUDE.md had assigned S4 to the local model). Next: S5 (Steel mode: grid and levels, member placement with property sets, profile solids with the Tekla position rules, class colours, Exit Steel).
+
+## S4 (2026-11-22)
+- **Export from the running v69** (`tools/golden/data_export.js`, live values after every chapter's patches, not parsed source) to `steel/src/main/assets/steel/`:
+  - `profiles.json`: `ST_CAT` (500 rows in v69's order: 90 I, 248 rectangular hollow, 162 round hollow) + v41 channel tables `UPN_T` (16) and `UPE_T` (14).
+  - `property_sets.json`: `ST_SETS` (7: COLUMN, BEAM, RAFTER, PURLIN, GIRT, BRACING, PLATE) + `ST_TYPE`.
+  - `classes.json`: `ST_CLASS` (15 colours).
+  - `materials.json`: grades from the Property sheet (`S235`, `S275`, `S355`); density as v66 `tkDensity` (7850 kg/m³, `TK_DENS` overrides such as GRATING 1383, 0 for concrete/grout names); Tekla kg/m (`TK_KGM`) and round areas (`TK_RAREA`) for S11.
+  - `tk_catalog.json`: `TK` (246 components in **17 groups**, 18 families), the catalog sheet `ST_CATALOG` (18 groups, 252 items), `TK_FAMNAME`, `TK_PICK`, `TK_ICON`, the 2 applications, and the 4 catalog items that are `CONN` components, not `TK` entries (`Ttgx` tube crossing, `Ttg` tube gusset, `Tsag` sag rod, `Tcl` purlin cleat: 246 + 4 + 2 = 252).
+  - Golden: `tests/steel/golden/data/profile_cases.json` (636 names → v69 `stProf` result: every catalog row, every channel, all R10 `prof`/`tprof` names, and names for each branch of the stProf chain), `manifest.json` (counts and SHA-256 of each asset).
+  - `node tools/golden/data_export.js --check` re-reads v69 and fails if any committed file differs ("all data files match v69").
+  - The harness patch line now also exposes `data()` (v69 tables it does not export: `ST_CLASS`, `ST_TYPE`, `TK_FAMNAME`, `TK_PICK`, `TK_ICON`, `UPN_T`, `UPE_T`). R10 and T144 golden output are byte-identical with it.
+- **`:steel` readers** (`steel/data/SteelData.kt`, pure Kotlin; `SteelAssets` reads the APK assets): `ProfileCatalog.lookup` (exact port of the table branches of v69's stProf chain: catalog key match and v41 UPN/UPE/U with `P = (2h + 4b − 2tw)/1000`), property sets, class colours, `Materials.density`, `TkCatalog` (components, groups, sheet, families, pick orders, icons, CONN items, apps). JSON via kotlinx-serialization-json (tree API only; Apache-2.0).
+- **Found:** v69's stProf returns nothing for `pl12x150` (base PL rule needs `*`; the v41 wrapper that turns `x` into `*` has no PL branch) and for `M10`–`M20` (bolt sizes R10 keeps in `prof`). Kept as v69 does in the golden corpus.
+- **Tests** (`steel/src/test/.../SteelDataTest.kt`, 5): assets equal the v69 export (SHA-256); counts (500 / 7 / 15 / 246 in 17 groups / 252 sheet items / 18 families); **532 profile names equal v69 field for field** through the tables, 97 need the name rules (PL, FLT, D/ROD, L, parametric SHS/RHS/CHS, C/Z, BI, PHI) and are ported in S5 against the same golden corpus; every sheet item resolves (TK, CONN item or application); materials and property sets as v69.
+- App: bottom line shows the loaded data ("data: 500 profiles · 7 property sets · 246 components in 17 groups"); version 0.4.0-s4. Unit tests: 49 JVM + 3 host JNI = 52, all pass. APK: `dist/solidsketch-steel-s4-debug.apk`.
 
 ## S3 accepted on the phone (owner, 2026-11-22, screen recordings)
 1. **Save / Open / New** work on the phone: a beam with a cut hole saved as `9d.ss` reopens with the hole; selection and Undo are cleared after Open.
@@ -124,7 +139,7 @@ When it comes back, the rules given by the owner (from the main port's CLAUDE.md
 - A started (untested, not compiled) port of these rules is on the branch `license-gate-draft` under `drafts/license/` (pushed 2026-11-22).
 
 ## Next step
-S4 (in progress): `ST_CAT` (with the v41 profiles), `ST_SETS`, `ST_CLASS`, materials and the `TK` catalog as JSON assets, with a test that they match the HTML.
+S5: Steel mode (grid and levels in Tekla syntax, member placement with `stPropSheet` property sets, profile solids with the Tekla position rules, class colours, Exit Steel). Port the stProf name rules first, against `tests/steel/golden/data/profile_cases.json`.
 
 ## How to build
 Golden data: `node tools/golden/r10_totals.js` and `node tools/golden/run_cases.js` (needs the reference HTML and Playwright; see `tools/golden/README.md`).
@@ -136,6 +151,7 @@ Unit tests with the real native code on the host: `./gradlew test -PhostJni` (ne
 Host native test: `tools/native/fetch_manifold.sh && cmake -S native/tests -B build/native-tests -G Ninja && cmake --build build/native-tests && ctest --test-dir build/native-tests`.
 Shader check: `node tools/native/check_shaders.js`.
 .ss both ways with v69: three steps in `tools/golden/README.md` (".ss both ways").
+Data assets (S4): `node tools/golden/data_export.js` (write) and `--check` (compare with v69).
 Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in the cloud session; `--no-parallel` on the first build helped.
 
 ## NOT VERIFIED
@@ -148,7 +164,7 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 - Own DWG writer, clean-room, R2000 (owner, 2026-11-21).
 - Repo: `ssas1qasd-boop/solidsketch-steel` (owner, 2026-11-21).
 - License gate postponed; always-allow `LicenseGate` for now (owner, 2026-11-21).
-- `sscore-lite` and `sssteel` are static libraries; each JNI .so links its own copy, so modules never clash on shared-library names (S0).
+- `sscore-lite` and `sscore-lite` and `sssteel` are static libraries; each JNI .so links its own copy, so modules never clash on shared-library names (S0).
 - Manifold 3.5.4 (pinned, fetched at build time, not vendored) rather than the web's ~2.3–2.4 (S2).
 
 ## Open (owner)
