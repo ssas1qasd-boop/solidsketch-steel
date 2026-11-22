@@ -1,0 +1,49 @@
+{
+ "assemblies": 162,
+ "bodies": 6638,
+ "boltGroups": 1693,
+ "bolts": 5376,
+ "drawings": 418,
+ "drawingsByType": {
+  "A": 162,
+  "G": 13,
+  "W": 243
+ },
+ "grossKg": 64750,
+ "model": "Frame_28x53m_R10.ss",
+ "modelSha256": "16dc3dcd88a20504637af6a4e9855a8a211462159e5cf780095b75478297ee36",
+ "ncByDir": {
+  "DSTV_Plates": 160,
+  "DSTV_Profiles": 81,
+  "NC_dxf": 241
+ },
+ "ncError": null,
+ "ncFiles": 482,
+ "netKg": 63697,
+ "oracle": "web v69 (reference/solidsketch_v69.html, 20,495,043 bytes), headless Chromium",
+ "pageErrors": [],
+ "partMarks": 243,
+ "vsTarget": {
+  "assemblies": [
+   162,
+   162
+  ],
+  "drawings": [
+   418,
+   418
+  ],
+  "ga": [
+   13,
+   13
+  ],
+  "partMarks": [
+   243,
+   243
+  ],
+  "weightKg": [
+   63722,
+   63722
+  ]
+ },
+ "weightKg": 63722
+}

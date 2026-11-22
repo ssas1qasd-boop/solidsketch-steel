@@ -1,0 +1,2902 @@
+{
+ "byDir": {
+  "DSTV_Plates": 160,
+  "DSTV_Profiles": 81,
+  "NC_dxf": 241
+ },
+ "files": [
+  {
+   "bytes": 612,
+   "lines": 34,
+   "path": "DSTV_Plates/1.nc1",
+   "sha256": "45aff4f9aca01cc0e4714385f2228440ca89e6528f223e9e1635bc13d13a1e58"
+  },
+  {
+   "bytes": 950,
+   "lines": 187,
+   "path": "NC_dxf/1.dxf",
+   "sha256": "b3992489856965ca494f76c47a35d6183b70b07829950f0e19796c4452bedd90"
+  },
+  {
+   "bytes": 611,
+   "lines": 34,
+   "path": "DSTV_Plates/2.nc1",
+   "sha256": "2a5154bf7ac11b67ecb82ae81a755f16e1735553fb6d3137262d0851810941cb"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/2.dxf",
+   "sha256": "102af6228c93aadfa4634df69e5e7d4ac66a94df4f22b5041f66468f22905d6e"
+  },
+  {
+   "bytes": 760,
+   "lines": 39,
+   "path": "DSTV_Plates/3.nc1",
+   "sha256": "d37b01303240fcd0f0f09abdf15744548c2ff6cf2d064609043827c4f2ae9b01"
+  },
+  {
+   "bytes": 1922,
+   "lines": 371,
+   "path": "NC_dxf/3.dxf",
+   "sha256": "e8f4b977942c2c5259cd941096c665368adf3dc965d71abe958e6bc5f5b7a46f"
+  },
+  {
+   "bytes": 611,
+   "lines": 34,
+   "path": "DSTV_Plates/6.nc1",
+   "sha256": "809d9cac1360ac20fab27b9a8958383f6a2383fe6e37c8795835f75aa1af4670"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/6.dxf",
+   "sha256": "0e1bec3d66a1b454633fbdefe680c5c294c6c735e77dfd34b88ff689c9ae4f93"
+  },
+  {
+   "bytes": 760,
+   "lines": 39,
+   "path": "DSTV_Plates/7.nc1",
+   "sha256": "60879619b3f6ea94c9c83c6facd149ba2539d843236a3082e9db0f402881c01b"
+  },
+  {
+   "bytes": 1926,
+   "lines": 371,
+   "path": "NC_dxf/7.dxf",
+   "sha256": "29d6113e28272fcc27e9315db374d4a5147973eabfd6545e6137d1f8e1c87c84"
+  },
+  {
+   "bytes": 612,
+   "lines": 34,
+   "path": "DSTV_Plates/8.nc1",
+   "sha256": "7533a58747a4d3be83ffff94a7db5f815209d6e372c926ed920234ce91812032"
+  },
+  {
+   "bytes": 953,
+   "lines": 187,
+   "path": "NC_dxf/8.dxf",
+   "sha256": "c6c3265a20efb93cd26dcbe4f34b8fa9bd2f07318ad5ae5dbc3dcff83db78f06"
+  },
+  {
+   "bytes": 760,
+   "lines": 39,
+   "path": "DSTV_Plates/9.nc1",
+   "sha256": "c7b16ff93c3451c4570671e7b125439334a64d1aad75b7b1c4d6a1bce83377c1"
+  },
+  {
+   "bytes": 1922,
+   "lines": 371,
+   "path": "NC_dxf/9.dxf",
+   "sha256": "ac87b6de2b98ace0e0c10501586df9d9109db577a9e36225ad61b22d4afaafa1"
+  },
+  {
+   "bytes": 613,
+   "lines": 34,
+   "path": "DSTV_Plates/10.nc1",
+   "sha256": "17724665adb4a685ec9921383998c7e612d23d3bb1a87dd3496de89066069a38"
+  },
+  {
+   "bytes": 948,
+   "lines": 187,
+   "path": "NC_dxf/10.dxf",
+   "sha256": "3a6e00b598dbdfa58f622b9f2f9ddf4e0cecf2cd8afa88c642fe107a2b24e31d"
+  },
+  {
+   "bytes": 613,
+   "lines": 34,
+   "path": "DSTV_Plates/11.nc1",
+   "sha256": "0cb799f97e2033bd86a346c9efac6509df7c0c7b72684237a6931df645bc9728"
+  },
+  {
+   "bytes": 948,
+   "lines": 187,
+   "path": "NC_dxf/11.dxf",
+   "sha256": "3ffca5f7cdc1c19ab7b02c3c40d92acdacc9dbb4ab56bc5067ec2292235fe237"
+  },
+  {
+   "bytes": 613,
+   "lines": 34,
+   "path": "DSTV_Plates/12.nc1",
+   "sha256": "3d24160128c59be87c3586c1f3c574ff2c716bed6d40493e984b3ab36fead14a"
+  },
+  {
+   "bytes": 948,
+   "lines": 187,
+   "path": "NC_dxf/12.dxf",
+   "sha256": "7f2cbb2f45a8daad4d2c8536d46f0d6b548bc7a656316339aba133cc77a442c7"
+  },
+  {
+   "bytes": 614,
+   "lines": 34,
+   "path": "DSTV_Plates/13.nc1",
+   "sha256": "d1491c2e638a25276148dca3aa658ee2e074e4ab22b4bc6f08bd14c9db99b44d"
+  },
+  {
+   "bytes": 949,
+   "lines": 187,
+   "path": "NC_dxf/13.dxf",
+   "sha256": "3a16657ea00850eb4a8b05c4a5baccf35bf8594cca281530621ba469eeacc661"
+  },
+  {
+   "bytes": 613,
+   "lines": 34,
+   "path": "DSTV_Plates/14.nc1",
+   "sha256": "3e6359f16113122bfa299263b98305e0c99cce609f6970f94efcb1ce34223008"
+  },
+  {
+   "bytes": 948,
+   "lines": 187,
+   "path": "NC_dxf/14.dxf",
+   "sha256": "60dd366087d056f28d793812dc8560cd380ee2f262a23b7424df2737809c53ae"
+  },
+  {
+   "bytes": 612,
+   "lines": 34,
+   "path": "DSTV_Plates/15.nc1",
+   "sha256": "17dc6336e8714dfe2e0b4bd32241b33edcb2789ceb5dc0abb54c094305b522b7"
+  },
+  {
+   "bytes": 948,
+   "lines": 187,
+   "path": "NC_dxf/15.dxf",
+   "sha256": "938c3001b9f588fd473de293492d622cc630ab52b0c09d90395b8f254e51e3d5"
+  },
+  {
+   "bytes": 614,
+   "lines": 34,
+   "path": "DSTV_Plates/16.nc1",
+   "sha256": "1d967b69707712a60e8eea209cf217c3fc51a289a94108bfdc3201721eca9ade"
+  },
+  {
+   "bytes": 949,
+   "lines": 187,
+   "path": "NC_dxf/16.dxf",
+   "sha256": "fc7dec86dc835591a9e60a6603ae4153401b51bc9652aec098d97a87a2d11fcd"
+  },
+  {
+   "bytes": 614,
+   "lines": 34,
+   "path": "DSTV_Plates/17.nc1",
+   "sha256": "d7d7089bd2d77b74bd274c5d9058ae83645cc2d75285ae352d958f336b592dee"
+  },
+  {
+   "bytes": 949,
+   "lines": 187,
+   "path": "NC_dxf/17.dxf",
+   "sha256": "329b3c510fb6fea7d3a907e07f11c6467adcbb1f1d9e8ecc2bc25cf90e5e583e"
+  },
+  {
+   "bytes": 612,
+   "lines": 34,
+   "path": "DSTV_Plates/18.nc1",
+   "sha256": "1665b24c19887a4e98a1bf2563fd41b6b1c7c0720686a0f7de33cac283286693"
+  },
+  {
+   "bytes": 948,
+   "lines": 187,
+   "path": "NC_dxf/18.dxf",
+   "sha256": "1095c98ac94b1191b31945030a9edb4ccb4fabe3de988348fa6a9150281c21d3"
+  },
+  {
+   "bytes": 612,
+   "lines": 34,
+   "path": "DSTV_Plates/19.nc1",
+   "sha256": "a79a466950e6fce0f154be43169248bf749c94139c0a5b984fda085f624add29"
+  },
+  {
+   "bytes": 947,
+   "lines": 187,
+   "path": "NC_dxf/19.dxf",
+   "sha256": "041b12fe2b0e103f15348ea882eadae6f4d0c66d170bf9096174655ab52f455a"
+  },
+  {
+   "bytes": 764,
+   "lines": 39,
+   "path": "DSTV_Plates/20.nc1",
+   "sha256": "926e407cf22e9ef74b15c33eac767198abb3c36cad1b59a64990e2177bcff512"
+  },
+  {
+   "bytes": 1923,
+   "lines": 371,
+   "path": "NC_dxf/20.dxf",
+   "sha256": "d110d57055ce576a35275820e4bbea6c7ab51a918cbfec30afc4761c8320cbf7"
+  },
+  {
+   "bytes": 613,
+   "lines": 34,
+   "path": "DSTV_Plates/21.nc1",
+   "sha256": "29e4da432104ecf00643b583502af66e73daabae1ef125cc1acc7c38fd24ae70"
+  },
+  {
+   "bytes": 948,
+   "lines": 187,
+   "path": "NC_dxf/21.dxf",
+   "sha256": "d661e2f8c42c2de4cee2673dd9d9ef6b0aee23e2fb532381c0ec0ec2b654452b"
+  },
+  {
+   "bytes": 838,
+   "lines": 41,
+   "path": "DSTV_Plates/22.nc1",
+   "sha256": "036b22e0957da7eb9c3b8bafdb3cd5ae6ad0dc4e942272f914d84edc6ac99078"
+  },
+  {
+   "bytes": 2411,
+   "lines": 463,
+   "path": "NC_dxf/22.dxf",
+   "sha256": "1dc7a8e5ac92c0465c8a01188d0ac688dca182886745fde1c1a56af6eb32b9c7"
+  },
+  {
+   "bytes": 616,
+   "lines": 34,
+   "path": "DSTV_Profiles/23.nc1",
+   "sha256": "ae9e9b633c29f16d1e6c2618cb474cbb9f0d1c66e433e5fcf46a832b5520972c"
+  },
+  {
+   "bytes": 957,
+   "lines": 187,
+   "path": "NC_dxf/23.dxf",
+   "sha256": "fbc2fd405495208701c72bcbaecaeaa84b948bf7d637c384f9727fd1a39fcec2"
+  },
+  {
+   "bytes": 613,
+   "lines": 34,
+   "path": "DSTV_Plates/24.nc1",
+   "sha256": "b254bb15791f567bff072aa1d73e248256700402969c9e03917e5a81a22b73f9"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/24.dxf",
+   "sha256": "88acc58cd8bce77406d97f7f1cf4ebf880b08b2a9a9f8e784bb235e9b05ffab9"
+  },
+  {
+   "bytes": 617,
+   "lines": 34,
+   "path": "DSTV_Profiles/25.nc1",
+   "sha256": "6556296c4e4d3be2cef7c03a5011d59ee4a87a9577f7813c991a10cb7b87536f"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/25.dxf",
+   "sha256": "e0aa982b8af25476abfac13034a9cb879162e94fc44271570aaeac0756540600"
+  },
+  {
+   "bytes": 614,
+   "lines": 34,
+   "path": "DSTV_Profiles/26.nc1",
+   "sha256": "68b4802c77d1c6af73296973c1e5fc6c3b3229a4454e7700385841ac549097bc"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/26.dxf",
+   "sha256": "7a4a4347d2e316b7562f2aa7a3aef0921934e8649daa3bd515be7bcb144a5eba"
+  },
+  {
+   "bytes": 614,
+   "lines": 34,
+   "path": "DSTV_Profiles/27.nc1",
+   "sha256": "5fe714a3f485d967f12a044e146513cf99132e5e49096a07042f6f3538e46b6f"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/27.dxf",
+   "sha256": "faa905d6a9597a47bea00d3b93ad40c54d6df2b9962bdee0b7c7aff6249d60f7"
+  },
+  {
+   "bytes": 614,
+   "lines": 34,
+   "path": "DSTV_Profiles/28.nc1",
+   "sha256": "c0313e0ab6efc30cd875d485b4184ef45c5c3957520751dbcee8565b6265907b"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/28.dxf",
+   "sha256": "bf50a0932cd00b060ce4e49b95aa247d0eb57f899f30f4e81b2a75495a070978"
+  },
+  {
+   "bytes": 623,
+   "lines": 34,
+   "path": "DSTV_Profiles/1501.nc1",
+   "sha256": "f354b104f8afbc234c36fddef28c218e71f19cb338d548a9585061136cd54e65"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/1501.dxf",
+   "sha256": "a36c49163668d88f316b605d9e3b93e8d0ff44439a5794d2568b309bdf224bb7"
+  },
+  {
+   "bytes": 622,
+   "lines": 34,
+   "path": "DSTV_Profiles/1502.nc1",
+   "sha256": "38876abef252456957e19dfdb7648d8af765abb9a6c6f60f75015c8e1fc87130"
+  },
+  {
+   "bytes": 948,
+   "lines": 187,
+   "path": "NC_dxf/1502.dxf",
+   "sha256": "ff177cc3cbb15593609d322e5e7f2b5ede69c1bfb8c8ce713a90cfeb8186d6b7"
+  },
+  {
+   "bytes": 772,
+   "lines": 39,
+   "path": "DSTV_Plates/2501.nc1",
+   "sha256": "6d203714111aca5d66b7d57cfe5d2591a5e0c27921a495d4318399eace859359"
+  },
+  {
+   "bytes": 1925,
+   "lines": 371,
+   "path": "NC_dxf/2501.dxf",
+   "sha256": "aba117431bb7d9b88c04221217ead25d6f3f9e65cb83672742bdab173132fac4"
+  },
+  {
+   "bytes": 772,
+   "lines": 39,
+   "path": "DSTV_Plates/2502.nc1",
+   "sha256": "fa9990534d338036b00c47037dbb4236a5954cafc98df1741a48af03548ae2a3"
+  },
+  {
+   "bytes": 1929,
+   "lines": 371,
+   "path": "NC_dxf/2502.dxf",
+   "sha256": "984bec7286748e6ba3acbc01793d3547e2ddadb56f6ab6ac1855a55676814e31"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/2503.nc1",
+   "sha256": "17f21427296faa1499530ad039c37b1a6d96a458a85bfdb8795d2475d0da0914"
+  },
+  {
+   "bytes": 1924,
+   "lines": 371,
+   "path": "NC_dxf/2503.dxf",
+   "sha256": "261063a2ad940a17184fcafdf1e6a3fe6ff82c6530beaa2e4ba3c7551372f4ef"
+  },
+  {
+   "bytes": 702,
+   "lines": 35,
+   "path": "DSTV_Plates/2504.nc1",
+   "sha256": "ad38827624816b9f47895afd2d6b9a8e61480f3168bb191e878aac9dc62fcf6e"
+  },
+  {
+   "bytes": 1008,
+   "lines": 199,
+   "path": "NC_dxf/2504.dxf",
+   "sha256": "d5acb944ebaf19bde8df13ed5d3cb2079539a1f7e78623f60bd4f489ecc44325"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/2505.nc1",
+   "sha256": "12657ae198c2008777bf838dd79d5f5dd9a61bbb0e9857d3b4d6cb25df561bfc"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/2505.dxf",
+   "sha256": "045eb85646226628964d5ff8458a29d79b38bea23002d6493282c0317a90ce78"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/2506.nc1",
+   "sha256": "8410c5ffaf0afe416aace668f587e8e97b4c4801d909e5255d22e6b2cfd51699"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/2506.dxf",
+   "sha256": "02bb695b8c70c87d337f2201440cd6e4f9e423f4d2c09ab98b5703b3f596bf21"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/2507.nc1",
+   "sha256": "451d425bb5671e2d8d25be071cf157ee460f5d45cecbc922a01eeed6487b005a"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/2507.dxf",
+   "sha256": "d48666424906403e7f5697353ad7b729267afd306bfaf9291b49a4361cea376b"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/2508.nc1",
+   "sha256": "94ac4bd7b8488d3031fd87d277560ceb46b291f627e615dbe82a6f93ee29cec2"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/2508.dxf",
+   "sha256": "9f9bcbdbfdea67e5650bec42b9f42bacff73869b1a048ac7011ba4cd5b039790"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/2509.nc1",
+   "sha256": "328c6a078fc8262a78389a953d2b796def6be1f55c3aad3dc2f6d9f2c3bba0c8"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/2509.dxf",
+   "sha256": "1193e250fe92aaffe686ecf55c3267eaa3fff6c9576d431b4450a0224beb2c35"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/2510.nc1",
+   "sha256": "3d522b520fb325812db29f4a526947bd939ab91ea7ce9685fe24a71772f2fe82"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/2510.dxf",
+   "sha256": "6860f00cf34088058c3e1171bc4365dff8bda2eeb8494fe6004b62aeb965f131"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/2511.nc1",
+   "sha256": "56b5d29ff62551d7ea62c796b0c0bf9f53e888785c328bbc38da69032eaab648"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/2511.dxf",
+   "sha256": "1193e250fe92aaffe686ecf55c3267eaa3fff6c9576d431b4450a0224beb2c35"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/2512.nc1",
+   "sha256": "7004ccc1f93394e437f923e86dd683ab212e26d6fcf2c3d2fd93db3a8720bd08"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/2512.dxf",
+   "sha256": "23af69302afe5787b19218c6d26eb34f658876fb3ab1020c56a6f18fb01034fa"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/2513.nc1",
+   "sha256": "0147fcf20488650ed6d873a424e3e1188594fd6dc4dff643edbc14d4f04020d1"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/2513.dxf",
+   "sha256": "ed72e1beadd097a03f7a5aa1bfdf611afdd3662f656509938412580e0160e29f"
+  },
+  {
+   "bytes": 919,
+   "lines": 43,
+   "path": "DSTV_Plates/2514.nc1",
+   "sha256": "c53205afad140e31580965af05df5eeaadb26a0a29bad4858b6e8ddfa7eca137"
+  },
+  {
+   "bytes": 2919,
+   "lines": 555,
+   "path": "NC_dxf/2514.dxf",
+   "sha256": "f6d9407fdb9f594355675d6606d0dba7804c3ae845ed9fbdeac3fc884bccd47e"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/2515.nc1",
+   "sha256": "a0ff8a5f4213e952cd644753307179fce5a603498dbf4df20c4aa884f2257d41"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/2515.dxf",
+   "sha256": "128d502cdb4bd766526ada5be4b2c14eec58702333d5c3de0dcc4fd8ede559e9"
+  },
+  {
+   "bytes": 1215,
+   "lines": 51,
+   "path": "DSTV_Plates/2516.nc1",
+   "sha256": "a54a1a5a2094802b950c2a93f5c2be964ce002dd1936d7dc147ea89361a61414"
+  },
+  {
+   "bytes": 4883,
+   "lines": 923,
+   "path": "NC_dxf/2516.dxf",
+   "sha256": "b8120fa28f08e2e9a7772430fd0ea0edcad9b9656a42b22375c3f500151bbe83"
+  },
+  {
+   "bytes": 919,
+   "lines": 43,
+   "path": "DSTV_Plates/2517.nc1",
+   "sha256": "6c36922467e99b4e32ccbb71613ebb50091b71b91240d50c84698f8b183c79c4"
+  },
+  {
+   "bytes": 2919,
+   "lines": 555,
+   "path": "NC_dxf/2517.dxf",
+   "sha256": "490beb48d8e11ea6d3a8550e104f0d605cd5087bc74a643c0ab0ddb5f28bc725"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/2518.nc1",
+   "sha256": "41f260c100a10e4c60e3b04fd86ae2a13481294d249e308eba9c83c1c18860d1"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/2518.dxf",
+   "sha256": "7fb3a5312e60e9eb1db6d807508a2ffe514b0ed77a71cb28a9c6c90e42b7027e"
+  },
+  {
+   "bytes": 919,
+   "lines": 43,
+   "path": "DSTV_Plates/2519.nc1",
+   "sha256": "48548689f3a2c8bfe4668fac6c8a9232f8b1eb0b932fad50031596650c6a180e"
+  },
+  {
+   "bytes": 2919,
+   "lines": 555,
+   "path": "NC_dxf/2519.dxf",
+   "sha256": "490beb48d8e11ea6d3a8550e104f0d605cd5087bc74a643c0ab0ddb5f28bc725"
+  },
+  {
+   "bytes": 1215,
+   "lines": 51,
+   "path": "DSTV_Plates/2520.nc1",
+   "sha256": "1940dcb3baad46ec8d70e23c34c4fa57fb80a2214c7a974ec9fae410fd3741f4"
+  },
+  {
+   "bytes": 4883,
+   "lines": 923,
+   "path": "NC_dxf/2520.dxf",
+   "sha256": "1dd5532ce9b740d0e7b6fa12a4d5093aba9d3fdc3cad8c1415c73e18d0b69aa4"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/2521.nc1",
+   "sha256": "640ea137f9bb08a4eddc733eae78c10d737c4c14794c7100a48765618b29fa84"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/2521.dxf",
+   "sha256": "4c7ae398d70666e1bcb43f965515e31872912d72a8962704d9196102f31123ca"
+  },
+  {
+   "bytes": 1215,
+   "lines": 51,
+   "path": "DSTV_Plates/2522.nc1",
+   "sha256": "c1456dd7aaf88dcfb2e2da4644f33058b8b5fb88e828429ab8f8f97ce87d0643"
+  },
+  {
+   "bytes": 4883,
+   "lines": 923,
+   "path": "NC_dxf/2522.dxf",
+   "sha256": "1dd5532ce9b740d0e7b6fa12a4d5093aba9d3fdc3cad8c1415c73e18d0b69aa4"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/2523.nc1",
+   "sha256": "4fc93a1d8c76778ce4bb40ce35656046049903bb50d1f124bba03c74a6c93535"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/2523.dxf",
+   "sha256": "b3de48a4dbe757c42b51a59c190eb566acb764fb0ad1d46c4b81e5bf80c2ce1b"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/2524.nc1",
+   "sha256": "87a8a94601e1a62d74d27c192cef89925e2fa7c17b49d44e879582218725598f"
+  },
+  {
+   "bytes": 1941,
+   "lines": 371,
+   "path": "NC_dxf/2524.dxf",
+   "sha256": "bc15226818597309bd379417be23e4a28d39b84c10ecb3acdf90868f49b90299"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/2525.nc1",
+   "sha256": "36718b9a39c21c75f993372e095308c2efc0570bf2bf0512a3da346673a7998d"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/2525.dxf",
+   "sha256": "b3de48a4dbe757c42b51a59c190eb566acb764fb0ad1d46c4b81e5bf80c2ce1b"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/3001.nc1",
+   "sha256": "21aa34e7d74a8a805cbf25e5491fe2c21791c8c9de4a0b7c8b56e47a6e5e8f93"
+  },
+  {
+   "bytes": 1920,
+   "lines": 371,
+   "path": "NC_dxf/3001.dxf",
+   "sha256": "6067b802ce9817b800065bb27bebbf7a81127f8621009ec7ed3b5f8658d383fa"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/3002.nc1",
+   "sha256": "252891d43f836130807becbea564ea1c1c9ab1ee065a4c1e42e36a263c2f7250"
+  },
+  {
+   "bytes": 1920,
+   "lines": 371,
+   "path": "NC_dxf/3002.dxf",
+   "sha256": "604afdeee2d78742eee0522a4bf76b2c72ef3f6c86bdf518843fa37685e208c8"
+  },
+  {
+   "bytes": 920,
+   "lines": 43,
+   "path": "DSTV_Plates/3501.nc1",
+   "sha256": "c043b35d8df302d969ace2bd73b881b1d4385743f87998d913c64ee735cf43fc"
+  },
+  {
+   "bytes": 2901,
+   "lines": 555,
+   "path": "NC_dxf/3501.dxf",
+   "sha256": "a94a0c52624430288218aaf68fd8a9ab7b5fe3c7055b6716c39cc5d6d5be2567"
+  },
+  {
+   "bytes": 920,
+   "lines": 43,
+   "path": "DSTV_Plates/3502.nc1",
+   "sha256": "061db1ee965c7118c5198b1d25f4434a504dfe8921e69bf4634afc3d520ad01d"
+  },
+  {
+   "bytes": 2912,
+   "lines": 555,
+   "path": "NC_dxf/3502.dxf",
+   "sha256": "4fd4b2b25e37c5684a0b7419cd5d725030a990478daa8689fdebdac460bd69e6"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/3503.nc1",
+   "sha256": "022ab4b953cde168fd4169d572465c882bd887fd3bd9308c0d933b1c9e4660f8"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/3503.dxf",
+   "sha256": "b0ba992268a572d5d5935757ba3f2a7c5efd883e4acd676aa5307ee7f8a72108"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/3504.nc1",
+   "sha256": "14fe50e1be68d5929b1721bc1b2150cff6405e817cf5ec4333a33e22684e55a1"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/3504.dxf",
+   "sha256": "112c2ded2c2c95212b6b8012d38623139a51b16d13d087e0c39bbd70e8c55dca"
+  },
+  {
+   "bytes": 920,
+   "lines": 43,
+   "path": "DSTV_Plates/3505.nc1",
+   "sha256": "d5e0289f1529b57cc53c5b36f40f41d389cd791be79bc0b6b71e7cf8cecee642"
+  },
+  {
+   "bytes": 2912,
+   "lines": 555,
+   "path": "NC_dxf/3505.dxf",
+   "sha256": "e4f4e82bede4f05d7d2e8c5b8d721808b8090ecf7c56a6b00b513912bab30a21"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/3506.nc1",
+   "sha256": "39381a957294140850e6852ac62ff679f1e988c316a5fe1ab882788714f5457d"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/3506.dxf",
+   "sha256": "3b133da9be5f16deca282b08431ed18827d43ca4623cead6ce70018d62b85b05"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/3507.nc1",
+   "sha256": "76abda571a553808c0f7e84f1213113e56d9f0991d3c13e5c965dc8522b383e0"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/3507.dxf",
+   "sha256": "ede653be8a97aaf1cee587355df475bd820fe364e40883b51a7600ba23c4144a"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/3508.nc1",
+   "sha256": "9e0b766e779eca09eab4178af2be72d0d54314e6034abf2f35b7d1a955c83990"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/3508.dxf",
+   "sha256": "9f6fa52d37e76c17235b1546909cfb2dbbbb5d74b7a5c3ff3b03eae80d71f5fb"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/3509.nc1",
+   "sha256": "1862eff3a2499e6192a74824debcefaf77e3e951c973f4fe1503a0f508e76231"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/3509.dxf",
+   "sha256": "9d478e46a665be0b456518271f39420a45e07c191e8e1b2aa72a323bde582796"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/3510.nc1",
+   "sha256": "97e3074d6af8218157f7c429166db6d1120f892077445bd8d0d4cf0ea6462b05"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/3510.dxf",
+   "sha256": "926b42422d1bcc7e722257a069c110b746c21238b169e74a60043aa860ac94d9"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/3511.nc1",
+   "sha256": "3e507a4350f287fb499d3e969ec2d57a4cae8c893094516cc8568d73ae2bf739"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/3511.dxf",
+   "sha256": "9d478e46a665be0b456518271f39420a45e07c191e8e1b2aa72a323bde582796"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/3512.nc1",
+   "sha256": "caab05deb37d6cce7ff6cfa649377aa254cac71e87301e451febaa45200a6ab0"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/3512.dxf",
+   "sha256": "64c995bbc4684f973c2e981e780fe9a2e07ea03948e1aa6d084fba7cc026e6de"
+  },
+  {
+   "bytes": 539,
+   "lines": 33,
+   "path": "DSTV_Plates/3513.nc1",
+   "sha256": "600ecebde6313bad366d1330d6bce35f358c7090b6168043c8fb7201ff6d0e36"
+  },
+  {
+   "bytes": 891,
+   "lines": 175,
+   "path": "NC_dxf/3513.dxf",
+   "sha256": "82c540797b3197f89520ec5dae914f1c46ef1a2f13a313323622e42303bc6dc7"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/3514.nc1",
+   "sha256": "b8c0f90e86516e128ed02c7930d18cfa2f34217635e223e52e8354197af3ed71"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/3514.dxf",
+   "sha256": "0ab8c0a716f430dd562c671d101123421186698ec2159c8064dc91895c591b36"
+  },
+  {
+   "bytes": 539,
+   "lines": 33,
+   "path": "DSTV_Plates/3515.nc1",
+   "sha256": "3084d39b094766980191d0d537d74df1d6600963a071227f702e144b212bfbd5"
+  },
+  {
+   "bytes": 892,
+   "lines": 175,
+   "path": "NC_dxf/3515.dxf",
+   "sha256": "1df4b5aa1fa091d20139cf1425505ea029cf4cfb05260c7a36a1617e21551c0f"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/3516.nc1",
+   "sha256": "8114bd4fa3ade74fd8e55dc908dde0135c5a6b6249cf165ba18f66a8331852c6"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/3516.dxf",
+   "sha256": "9918a6bda311bfdafb7caba521017a90e197778104d9f6e12eea37f94eb5315a"
+  },
+  {
+   "bytes": 539,
+   "lines": 33,
+   "path": "DSTV_Plates/3517.nc1",
+   "sha256": "dd21963b8084de2ade58f080a120b5d07d8d6f2ad877dac8769881465b6f7aff"
+  },
+  {
+   "bytes": 891,
+   "lines": 175,
+   "path": "NC_dxf/3517.dxf",
+   "sha256": "6b3f291488722f949787cbc2c08c3d175917a8543522a00d1e2b25b8f04f06f1"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/3518.nc1",
+   "sha256": "99547f79f80a9e594a755c1912cb8a59b3104691542c9290e216d752d5f0fae6"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/3518.dxf",
+   "sha256": "1a8b35b588bbf8c72a27345951440f407bf18ba412ab5aa1dd5f130346a3b29a"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/4501.nc1",
+   "sha256": "f4a5ce328fa2f99b60629b09bd3c14d41689f9ad8b0a582e15ccff0bb6d53636"
+  },
+  {
+   "bytes": 1920,
+   "lines": 371,
+   "path": "NC_dxf/4501.dxf",
+   "sha256": "c8d654b8d50a69225fbf77ea0475de88930b01bf3de902742de533b31d683632"
+  },
+  {
+   "bytes": 782,
+   "lines": 36,
+   "path": "DSTV_Plates/4502.nc1",
+   "sha256": "f8284c91cf6c70f48faf7d0c7243041addda956f7802ef6bff8b0ae1c5ce44cb"
+  },
+  {
+   "bytes": 1072,
+   "lines": 211,
+   "path": "NC_dxf/4502.dxf",
+   "sha256": "c0dd9db90754d2d6d5ba8e4044b214c5a0d49d60babeaca4bf0083ccf91e179a"
+  },
+  {
+   "bytes": 782,
+   "lines": 36,
+   "path": "DSTV_Plates/4503.nc1",
+   "sha256": "4611a3f3a9e0624ea8e32f48d218e156b266c4f4e37fe99159aa87dae34fea7b"
+  },
+  {
+   "bytes": 1072,
+   "lines": 211,
+   "path": "NC_dxf/4503.dxf",
+   "sha256": "c0dd9db90754d2d6d5ba8e4044b214c5a0d49d60babeaca4bf0083ccf91e179a"
+  },
+  {
+   "bytes": 782,
+   "lines": 36,
+   "path": "DSTV_Plates/4504.nc1",
+   "sha256": "1e0e6d6eb6d685222da68732ef6c6db82f544dc4b5c43ed91bbb5a3cad759d05"
+  },
+  {
+   "bytes": 1070,
+   "lines": 211,
+   "path": "NC_dxf/4504.dxf",
+   "sha256": "ba0bd6433f13eca3cd2c58e4b5dfe065b30f55b84f976497d89ed30d739e64fb"
+  },
+  {
+   "bytes": 782,
+   "lines": 36,
+   "path": "DSTV_Plates/4505.nc1",
+   "sha256": "88455ef848d3eaed6d69e00199904d66a4e685cfb686b68663e54704cb7b2e1f"
+  },
+  {
+   "bytes": 1070,
+   "lines": 211,
+   "path": "NC_dxf/4505.dxf",
+   "sha256": "ba0bd6433f13eca3cd2c58e4b5dfe065b30f55b84f976497d89ed30d739e64fb"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/4506.nc1",
+   "sha256": "ec99c3964dff01881a3a637f3ddf229cd9f704a211f400b9c7411130ad573645"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/4506.dxf",
+   "sha256": "7c607b2edcd3f5ce401758e4aec82c816d587e30f8b57ff08c1338d9564a221d"
+  },
+  {
+   "bytes": 783,
+   "lines": 36,
+   "path": "DSTV_Plates/4507.nc1",
+   "sha256": "c50e1a1d702fef5745b3e52c69d03ae56f553b66ea6e57ca88225efed47c1b3b"
+  },
+  {
+   "bytes": 1072,
+   "lines": 211,
+   "path": "NC_dxf/4507.dxf",
+   "sha256": "6cca02d239afb6a0ab5df7878a94a358cebc9c7c3a3f7caa138306965633ecd0"
+  },
+  {
+   "bytes": 783,
+   "lines": 36,
+   "path": "DSTV_Plates/4508.nc1",
+   "sha256": "13ef040f2bd089a3a9dd1beaa61e2bbb2de1ec48930c897b73cec24a0188d9ab"
+  },
+  {
+   "bytes": 1072,
+   "lines": 211,
+   "path": "NC_dxf/4508.dxf",
+   "sha256": "6cca02d239afb6a0ab5df7878a94a358cebc9c7c3a3f7caa138306965633ecd0"
+  },
+  {
+   "bytes": 783,
+   "lines": 36,
+   "path": "DSTV_Plates/4509.nc1",
+   "sha256": "5c367f8cd67b767e9b6b424edebdcd3b0d2eb1e7eaca31f407fd2e8f5e8879a1"
+  },
+  {
+   "bytes": 1070,
+   "lines": 211,
+   "path": "NC_dxf/4509.dxf",
+   "sha256": "409efd6d7a07705eb1d22bb6448d30241340d55ee8bb838dfdb1315e8155da80"
+  },
+  {
+   "bytes": 783,
+   "lines": 36,
+   "path": "DSTV_Plates/4510.nc1",
+   "sha256": "726d5ce2b73c5a35afae311b9a859aed848904df0d8c1d8c25276ee8df86a633"
+  },
+  {
+   "bytes": 1070,
+   "lines": 211,
+   "path": "NC_dxf/4510.dxf",
+   "sha256": "409efd6d7a07705eb1d22bb6448d30241340d55ee8bb838dfdb1315e8155da80"
+  },
+  {
+   "bytes": 920,
+   "lines": 43,
+   "path": "DSTV_Plates/4511.nc1",
+   "sha256": "9bc5dd09fcf9abd23952ca1565feb35a7e0ecd6da02ff35b5ad0491aac9d6bf3"
+  },
+  {
+   "bytes": 2897,
+   "lines": 555,
+   "path": "NC_dxf/4511.dxf",
+   "sha256": "ee1ba81d3b382d45b65d4822e3934248880bbb97294480829bb20ecee7d62ec9"
+  },
+  {
+   "bytes": 918,
+   "lines": 43,
+   "path": "DSTV_Plates/4512.nc1",
+   "sha256": "0fb83a213ac5d5bf477381907804d12941f4b316f2a9b9de01253485191268ae"
+  },
+  {
+   "bytes": 2891,
+   "lines": 555,
+   "path": "NC_dxf/4512.dxf",
+   "sha256": "f675f0981b8edb16406ca64e25b1ac56541d4ec128399e434ff4c8c64869233b"
+  },
+  {
+   "bytes": 782,
+   "lines": 36,
+   "path": "DSTV_Plates/4513.nc1",
+   "sha256": "730df2ed78b58364ee5bc19bd961f33d6a0d1c96be1dcc0044a9f3f79e2747b7"
+  },
+  {
+   "bytes": 1068,
+   "lines": 211,
+   "path": "NC_dxf/4513.dxf",
+   "sha256": "431647c01c43aa01f7e95f748b5e7c9c206ccbb68e537ffdc036bf9e3bacdb53"
+  },
+  {
+   "bytes": 782,
+   "lines": 36,
+   "path": "DSTV_Plates/4514.nc1",
+   "sha256": "3e9f0cfae32b21868a14b61a0289bc960e3aa237fe3beb10a7e035edb1135c59"
+  },
+  {
+   "bytes": 1068,
+   "lines": 211,
+   "path": "NC_dxf/4514.dxf",
+   "sha256": "d3a5ccae8a2c29a8bb695fecf9424365e48ed83f80871d03fd445ac6c618700c"
+  },
+  {
+   "bytes": 772,
+   "lines": 39,
+   "path": "DSTV_Plates/4515.nc1",
+   "sha256": "65704ee00e2839b007a44c9d2812478a7bc39800851a1746f9046893e8486ed1"
+  },
+  {
+   "bytes": 1919,
+   "lines": 371,
+   "path": "NC_dxf/4515.dxf",
+   "sha256": "9ddb31c8eb8fce2ad6c3d5d7170c79b8af9297eef909cebdae044a2019c21fbf"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/4516.nc1",
+   "sha256": "c77e18701198dfa33f43d82d6d837618728250412e65ac144bce9f637d3d4429"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/4516.dxf",
+   "sha256": "f6ae19d05cd0ba4822c804ce0cfaae1b45a68e1a09d78399e28d327e496c6854"
+  },
+  {
+   "bytes": 2186,
+   "lines": 63,
+   "path": "DSTV_Plates/4517.nc1",
+   "sha256": "d2bad52351676185963035f05ddae9bca44221335c2ffb68678b3e49c6df0a34"
+  },
+  {
+   "bytes": 5362,
+   "lines": 1019,
+   "path": "NC_dxf/4517.dxf",
+   "sha256": "9a3e933f9fc0cd9b7eb4d2f8e6867f4ea2374bd76310731a5a852be8b17b6a45"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/4518.nc1",
+   "sha256": "2a37a5b33f37c45aa8abd1789676bf753c1493d271142b1cf968579b09d9469f"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/4518.dxf",
+   "sha256": "f6ae19d05cd0ba4822c804ce0cfaae1b45a68e1a09d78399e28d327e496c6854"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/4519.nc1",
+   "sha256": "f3bf676ae50f8a8778c87d0e574ee4093bb76fc27310cb82d28c006c8fc93cdf"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/4519.dxf",
+   "sha256": "7244ef757bc4dfce6f9a2691e5e35aae005acd0e6ae2b8fbf06449cbc641a313"
+  },
+  {
+   "bytes": 1405,
+   "lines": 49,
+   "path": "DSTV_Plates/4520.nc1",
+   "sha256": "eca3a69905b50acc87c71a47b96362b3c8175c6e036cd23f98017b98a3b080e5"
+  },
+  {
+   "bytes": 3155,
+   "lines": 603,
+   "path": "NC_dxf/4520.dxf",
+   "sha256": "5ff3e704213539854c79cee567840473a4efebe3a7aa1dc81f9a3f40222eeee8"
+  },
+  {
+   "bytes": 621,
+   "lines": 34,
+   "path": "DSTV_Plates/4521.nc1",
+   "sha256": "6a97a149c99ff6d8c44881439856500a0782423ee123e6b83a7f96e838a3b0e0"
+  },
+  {
+   "bytes": 956,
+   "lines": 187,
+   "path": "NC_dxf/4521.dxf",
+   "sha256": "51e9b83b7ef0ff8d2bd6495e926edc704ac569be00e0089f5783e08702d67ef1"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/4522.nc1",
+   "sha256": "17998b53004ee4f62db10c9ccf2a238e72ede8786eae91a396b53e5b0da62075"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/4522.dxf",
+   "sha256": "479f6bd7548ac33a03c98bac812188702975d6cf12944f25661cc4ddf97a6200"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/4523.nc1",
+   "sha256": "b57ccd13dbff028e65b3dc2fa20b1bc422925ebcfe8c6b7f0e38d2cc2e161b30"
+  },
+  {
+   "bytes": 957,
+   "lines": 187,
+   "path": "NC_dxf/4523.dxf",
+   "sha256": "c80c182f7fe1ebb17536827bb081b03bf44a8b8f9ef78b96c6cd8e9dac9592b1"
+  },
+  {
+   "bytes": 919,
+   "lines": 43,
+   "path": "DSTV_Plates/4524.nc1",
+   "sha256": "c088ea837b574cd1d752c1d326c02f8bdc48e0a216be4afac5f7544d6d393feb"
+  },
+  {
+   "bytes": 2918,
+   "lines": 555,
+   "path": "NC_dxf/4524.dxf",
+   "sha256": "961356d79c82cfc17cc988fa823b2bac5d709f57f17e90386ef69970affb04f2"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/4525.nc1",
+   "sha256": "8fc7a55ef9aeeabb572e2b8c1e14efbee4a5c4efb2a59ae30a50fe46ac2a0d80"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/4525.dxf",
+   "sha256": "df5ca72945a785511fa2c5d0333eb7cb57c07f23bffd187c5fd99d799da8d3c1"
+  },
+  {
+   "bytes": 1256,
+   "lines": 45,
+   "path": "DSTV_Plates/4526.nc1",
+   "sha256": "7626330bf1b26ec03edc6f57b0dc42e02a9f2a379845cef4f3ffdfc639e7f926"
+  },
+  {
+   "bytes": 2192,
+   "lines": 419,
+   "path": "NC_dxf/4526.dxf",
+   "sha256": "b0d56624243825e813c1d8fccf2b9f587ce38801b5218ba10d24c7002cb11771"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/4527.nc1",
+   "sha256": "d47f07bf00c98cc82c3cfb1b6fd791649bc60cbb93ca5034d7cbeabca61af66e"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/4527.dxf",
+   "sha256": "df5ca72945a785511fa2c5d0333eb7cb57c07f23bffd187c5fd99d799da8d3c1"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/4528.nc1",
+   "sha256": "a0532ebef323abfd2afe072951d6d5cfd3ae2ac91a14d4052da81600302590e5"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/4528.dxf",
+   "sha256": "e0c2cd6933b92fd99b4e4db7728f2d262f3f90b99859c88335b1eded2ad3ecca"
+  },
+  {
+   "bytes": 1890,
+   "lines": 55,
+   "path": "DSTV_Plates/4529.nc1",
+   "sha256": "99ff72acb8dedbbe71bd688fd40230c6f7ed6f05388a83a350d23716e77189b7"
+  },
+  {
+   "bytes": 3406,
+   "lines": 651,
+   "path": "NC_dxf/4529.dxf",
+   "sha256": "a0e384fc8f0e2dcc7e88a83eb021c376a7aba2d0924fe03443a64940d61e74dc"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/4530.nc1",
+   "sha256": "a7d6ee139e1117de75353a354a5faaeaab8ae63c744e357e88839ad6f274ce98"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/4530.dxf",
+   "sha256": "e0c2cd6933b92fd99b4e4db7728f2d262f3f90b99859c88335b1eded2ad3ecca"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/4531.nc1",
+   "sha256": "506e48d1e38afe06fade67d091faa969119b12b0925099d8f5073f386c17d33e"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/4531.dxf",
+   "sha256": "20cc1d1d57889d3348350d82ff50cd0d0fddeaec296ee209b9f05c088f0fa83b"
+  },
+  {
+   "bytes": 1256,
+   "lines": 45,
+   "path": "DSTV_Plates/4532.nc1",
+   "sha256": "c30997f5e1451b588e24fce40198f7ecf75269608e6beb3e44050e5bba2b5ad2"
+  },
+  {
+   "bytes": 2168,
+   "lines": 419,
+   "path": "NC_dxf/4532.dxf",
+   "sha256": "d3c16faff48a76c189d055797da8742c081964b6ce7bcc4edece61b0b84f9a24"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/4533.nc1",
+   "sha256": "4b0a2977cfda623298284b64bb165e774555d345e8d018f60ccc6e932796d730"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/4533.dxf",
+   "sha256": "20cc1d1d57889d3348350d82ff50cd0d0fddeaec296ee209b9f05c088f0fa83b"
+  },
+  {
+   "bytes": 919,
+   "lines": 43,
+   "path": "DSTV_Plates/4534.nc1",
+   "sha256": "03cad9c704e67a605c2b1474f47f2c332cc3dbd5b574dd9fd466acbb23720115"
+  },
+  {
+   "bytes": 2896,
+   "lines": 555,
+   "path": "NC_dxf/4534.dxf",
+   "sha256": "0afff686c614a84362b9f3aea36c4ce9fc8322e3890b78e0873b48c213976e27"
+  },
+  {
+   "bytes": 3792,
+   "lines": 76,
+   "path": "DSTV_Profiles/5501.nc1",
+   "sha256": "209d98d9f0fa0b88c554f9baa6f686a46671db13e7f925032106ed3c6af7c52e"
+  },
+  {
+   "bytes": 959,
+   "lines": 187,
+   "path": "NC_dxf/5501.dxf",
+   "sha256": "af277c13b554d50e7adfa95ffbe44977f55012028177d591acbb3a96f22dc474"
+  },
+  {
+   "bytes": 772,
+   "lines": 39,
+   "path": "DSTV_Plates/5502.nc1",
+   "sha256": "8e1ec50317c4880e6ae3a75f703987d0cbcca0b8f362e3c56e214a8535de25a3"
+  },
+  {
+   "bytes": 1923,
+   "lines": 371,
+   "path": "NC_dxf/5502.dxf",
+   "sha256": "a16c94c1a4088263ee2fa7c7cdfd06e8ce1a8cd4a1191d0decfac09610fc6109"
+  },
+  {
+   "bytes": 772,
+   "lines": 39,
+   "path": "DSTV_Plates/5503.nc1",
+   "sha256": "70413bc77d2fe32f901e692a53ca04c43c73a856de59bb907a99b81d61a0e902"
+  },
+  {
+   "bytes": 1923,
+   "lines": 371,
+   "path": "NC_dxf/5503.dxf",
+   "sha256": "df4399e364588a99cb3c2395701b1c9c0bb97290c25d671cff128964f3d9318f"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/5504.nc1",
+   "sha256": "a8cf1cf537146c8cead3810ffcc31c120141a0a04f365e3f32ca0e5d68a2c636"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/5504.dxf",
+   "sha256": "2110b22eb6c4ecce71a8e0c4c13c75711db45bfb2c3095928f9958b12de56439"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/5505.nc1",
+   "sha256": "c970da81f1aeb571cca2124f29230d4a23c63ef75b694b8aede44d5dcebfac69"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/5505.dxf",
+   "sha256": "0d4b766abb3ae43cb57e3de7ff60ff27f22233ed93c99544ead41ed657516f05"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/5506.nc1",
+   "sha256": "74200765c549818f9992d55cebef827c57c62fdeec4d53201cad48e42f00ebe8"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/5506.dxf",
+   "sha256": "a61c4c8f8ecc2d30c6af225a9cfdcc2f1c9ea5ea2ce020bfeb8e9fca14b3c5b0"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/5507.nc1",
+   "sha256": "acd684744a2073247827901af82afa19822dcc8ee14593e7eb763b88a06c1c9f"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/5507.dxf",
+   "sha256": "8482731c0778ea091b3340f4af0d44bb9e9834070543ce4e83a7ecd63760d1b1"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/5508.nc1",
+   "sha256": "15236ed9ea09741c157f341998aefc5c2ea6a234e00259558bc796e1fc810244"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/5508.dxf",
+   "sha256": "b9ce9b4e8fd799da3b11ad9829d1cd6941456c4624a3e079e189bd6197a193c7"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/5509.nc1",
+   "sha256": "8e02f870b6cdae8d39fa7e8dbe4ea343e867e12adc705294fd608dee817230bd"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/5509.dxf",
+   "sha256": "1bff478a996ef80f4eeed061c85ccd1d1a59aa1e5f1bee88de08dc8b640d7745"
+  },
+  {
+   "bytes": 3792,
+   "lines": 76,
+   "path": "DSTV_Profiles/5510.nc1",
+   "sha256": "b0928cf60e8b0877c45f20c4b4e950fa57802d170a7355af95eaf61aaa9c7165"
+  },
+  {
+   "bytes": 959,
+   "lines": 187,
+   "path": "NC_dxf/5510.dxf",
+   "sha256": "b5cdeecd58902494307efd61269d1eb0953b7e7ca2d916b519e2850e76a0ea8e"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/5511.nc1",
+   "sha256": "a4e6b392a174deba6af6c8bb0979c186490198968de21290f63346ac2901f788"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/5511.dxf",
+   "sha256": "4de21093786b5ad0f319de5961f4c8cb1668aedde6444c2a65e66809d7646837"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/5512.nc1",
+   "sha256": "d3f9c63c88e29613286e5f76f710d69f87ab0b2e76ee19b62a1147fdbe0c7568"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/5512.dxf",
+   "sha256": "8a6157c45c229967ecb14bc9e7b2cf2a83b0b0ebaa9d35908f95cf3e498b39a8"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6501.nc1",
+   "sha256": "004eabedb17e6a66228c68597c67129601bba4a49527df4013fda624391db77e"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6501.dxf",
+   "sha256": "ca598b3dcc1f4a5214d9db71472aa2c0b0b7123310184289fda914ed205d1444"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6502.nc1",
+   "sha256": "53abb91493bb60b0c4227152f48f426bbd091d5e604b1a92adc8dc00d83b6df3"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6502.dxf",
+   "sha256": "a363bd6589edfc068a3d9832302529582a3cdf9dc1ee37d92ee40cd6552eb8b2"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6503.nc1",
+   "sha256": "f95e0c65d63bb73fadafce2ee0e5803c6470be9141d281a500c07904de4b58bc"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6503.dxf",
+   "sha256": "369f18704cc61bd720b927156aab2e0bb50232847aca22aeec5beb5e4ab1ff68"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6504.nc1",
+   "sha256": "08c37ee6ba82135e58d84fd9bd2c9aa6d4544bda7cfcff1052c5ee635a79ae6e"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6504.dxf",
+   "sha256": "2b3d78f36fd049520e0eda292bd0c49269df9f067f9b66c2fd69679c714aad76"
+  },
+  {
+   "bytes": 2819,
+   "lines": 64,
+   "path": "DSTV_Profiles/6505.nc1",
+   "sha256": "155816f2a94b795df5ca9e7eab3d976d5602f8fd47cbdacba8f502d00b7e62a9"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6505.dxf",
+   "sha256": "7a58b4a5ccb785e73ae5d5f9dd5b664ceb3caa0482ea67a2d61d2419004f822d"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6506.nc1",
+   "sha256": "e907b236eb0c6172afa40f1230f3bf9d57de243590a2d1d8c7caaa0efb9f28a1"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6506.dxf",
+   "sha256": "5aeb48d6cacf439a4cdc96a5d2f529756bf4c72f494f8c22277707960eb910fd"
+  },
+  {
+   "bytes": 1080,
+   "lines": 45,
+   "path": "DSTV_Plates/6507.nc1",
+   "sha256": "6931aadfdbca5603999582d2be15e9e379d15cd7086629c15ed3446bc67c3e2c"
+  },
+  {
+   "bytes": 3029,
+   "lines": 579,
+   "path": "NC_dxf/6507.dxf",
+   "sha256": "6b9a82026a7c2622458ac05a4b56cd9480aa4597de7be685c77f280dbe4449b7"
+  },
+  {
+   "bytes": 773,
+   "lines": 39,
+   "path": "DSTV_Plates/6508.nc1",
+   "sha256": "38cc97a0dae8b51a15b1064825195bb9a40a0659fd4804afd994ef744e864794"
+  },
+  {
+   "bytes": 1922,
+   "lines": 371,
+   "path": "NC_dxf/6508.dxf",
+   "sha256": "eb1c7da5d8c78682bba567bc19482707499538cefec8a84a5cab863e5b01ddad"
+  },
+  {
+   "bytes": 999,
+   "lines": 44,
+   "path": "DSTV_Plates/6509.nc1",
+   "sha256": "709e73027e94256d8afd78b0617a5eaa5c818861056fe1a232e9e9d832d5a6f3"
+  },
+  {
+   "bytes": 2968,
+   "lines": 567,
+   "path": "NC_dxf/6509.dxf",
+   "sha256": "5a42945d592a7b243adf05043ff26e70a49cbf2aca33d5113d2db096011438ce"
+  },
+  {
+   "bytes": 999,
+   "lines": 44,
+   "path": "DSTV_Plates/6510.nc1",
+   "sha256": "5c8a79a83068422f78eb3610fbd0ad56654bcaadde3b4a1b1985d554b0dd1482"
+  },
+  {
+   "bytes": 2968,
+   "lines": 567,
+   "path": "NC_dxf/6510.dxf",
+   "sha256": "9506338ea226a4bef9d0b26b13926e701306f769b4948f5bf8fefd49775bf627"
+  },
+  {
+   "bytes": 1309,
+   "lines": 50,
+   "path": "DSTV_Plates/6511.nc1",
+   "sha256": "94bb015499b0619271a82c55af387f6f787778726639fff6e82f8b7c5fa7c496"
+  },
+  {
+   "bytes": 4069,
+   "lines": 775,
+   "path": "NC_dxf/6511.dxf",
+   "sha256": "03bc49184c692f6b1d656dc046e86d7071d04a4c8be66c3294d3583c8670944b"
+  },
+  {
+   "bytes": 772,
+   "lines": 39,
+   "path": "DSTV_Plates/6512.nc1",
+   "sha256": "75a5234f9cd529529e136e99f7897fe7d35302523ac1131f05d726c5bbc8cc60"
+  },
+  {
+   "bytes": 1919,
+   "lines": 371,
+   "path": "NC_dxf/6512.dxf",
+   "sha256": "36b117924b9b5ed3d3f310452ab9c254a8953fdb343f5707edbc32f37e644536"
+  },
+  {
+   "bytes": 1309,
+   "lines": 50,
+   "path": "DSTV_Plates/6513.nc1",
+   "sha256": "320ec35edf4dab5fd8090d24c2c295bb05435c8342598d0800f9067136be73f8"
+  },
+  {
+   "bytes": 4072,
+   "lines": 775,
+   "path": "NC_dxf/6513.dxf",
+   "sha256": "0176ef5e50328d488b4ec0752e37a4ecf629549c7d2f341105752c80c6d3297a"
+  },
+  {
+   "bytes": 1080,
+   "lines": 45,
+   "path": "DSTV_Plates/6514.nc1",
+   "sha256": "4e62e52f9578965a9641d7afa74c3a12473d8a4f633d3bc00aa1254035a99eb8"
+  },
+  {
+   "bytes": 3029,
+   "lines": 579,
+   "path": "NC_dxf/6514.dxf",
+   "sha256": "2c05f4688679c8c14941dce1b1edf85d24bcee1968a77d6f7aa28874b32d86cb"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/6515.nc1",
+   "sha256": "c355bca9c7d192561c2e67d9db4b1a2856a1186868529c5402d97b97be7b1e68"
+  },
+  {
+   "bytes": 1928,
+   "lines": 371,
+   "path": "NC_dxf/6515.dxf",
+   "sha256": "67e8c0fb6de5d605466e514a818d4571fe99e10bd3bd2b507c01989b7a0ff79f"
+  },
+  {
+   "bytes": 3792,
+   "lines": 76,
+   "path": "DSTV_Profiles/6516.nc1",
+   "sha256": "cef18dd8365485b97ba55cf4e9ee881330ff86a58abdcef3d1481867a598c37c"
+  },
+  {
+   "bytes": 959,
+   "lines": 187,
+   "path": "NC_dxf/6516.dxf",
+   "sha256": "0e3589fcfb2719bf3d8be45d728481fe7463c9e48fe2be431047acb67eeb9bd4"
+  },
+  {
+   "bytes": 2819,
+   "lines": 64,
+   "path": "DSTV_Profiles/6517.nc1",
+   "sha256": "57803d2a52868cb59e7c6c96183c76e05b1be65c11cbc15357eb41aae6e261ce"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6517.dxf",
+   "sha256": "6eb13032b398cf0fce8ee8afae4c8414122accfb6ba84718ef7126b2a63d829b"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6518.nc1",
+   "sha256": "2bbb63961c2304465aa164cc4fa4a9ae198c6aa212f1c8d5c32f804042ebd9a2"
+  },
+  {
+   "bytes": 1325,
+   "lines": 257,
+   "path": "NC_dxf/6518.dxf",
+   "sha256": "6a2393ed858005fdc689920a426c660560508f723509487fafa481020b979488"
+  },
+  {
+   "bytes": 4043,
+   "lines": 82,
+   "path": "DSTV_Profiles/6519.nc1",
+   "sha256": "bd1c12f2a3e4ddd2557fab1e4d23c0b1dd3688b2e83892388510d2ea60fbfb89"
+  },
+  {
+   "bytes": 1325,
+   "lines": 257,
+   "path": "NC_dxf/6519.dxf",
+   "sha256": "c2929d0d119de6adaf50926fb8da369cb4fc8651b9084c7c3e624e9d3f04de9a"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6520.nc1",
+   "sha256": "33f047c920888ebd235aad72b1f93022decbfddb723deaf14dac7885bd6cff2d"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6520.dxf",
+   "sha256": "5679b86b0300e2b0af85acc508e572f2cff84d2ce4b34cbae4f46a785c0dc4a4"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/6521.nc1",
+   "sha256": "f8eeab12fc24c835f00b35727f519dbfb63991ac4e72e6d0f21ccc9ef870051c"
+  },
+  {
+   "bytes": 1928,
+   "lines": 371,
+   "path": "NC_dxf/6521.dxf",
+   "sha256": "90821028dda29fe9bc372d45b9967238b7841cdade289a590ae81fd285e9883b"
+  },
+  {
+   "bytes": 1080,
+   "lines": 45,
+   "path": "DSTV_Plates/6522.nc1",
+   "sha256": "748e329f12d144859fce9e7f68ecc8705d6dcdbbf667ec9526c47d79b1419769"
+  },
+  {
+   "bytes": 3029,
+   "lines": 579,
+   "path": "NC_dxf/6522.dxf",
+   "sha256": "167297b3e3cda329eb022f62e8d95276ccdc27085ca226044392777ff8b68402"
+  },
+  {
+   "bytes": 1080,
+   "lines": 45,
+   "path": "DSTV_Plates/6523.nc1",
+   "sha256": "e4d5407674dc0f909ff74751e38180965a3bd2edd3ac957a33e8e4959593a499"
+  },
+  {
+   "bytes": 3029,
+   "lines": 579,
+   "path": "NC_dxf/6523.dxf",
+   "sha256": "63549f1514342260cec0f06687180e87611f51adf351c0495639262852086d6f"
+  },
+  {
+   "bytes": 1080,
+   "lines": 45,
+   "path": "DSTV_Plates/6524.nc1",
+   "sha256": "1ecbbd898988ccf07f2b3579292f82dfcbc6570b28d442760578f3591e60525e"
+  },
+  {
+   "bytes": 3019,
+   "lines": 579,
+   "path": "NC_dxf/6524.dxf",
+   "sha256": "bf0cadee6011ffc3705cbe29b88836dfd4d6a317b90b3aca96a1c4b360e38558"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/6525.nc1",
+   "sha256": "711d7c60947c6b8f52dec3e78b20688cd654ad9ff8c00cdb95542af86c1b336d"
+  },
+  {
+   "bytes": 1928,
+   "lines": 371,
+   "path": "NC_dxf/6525.dxf",
+   "sha256": "a14a32006cbd38e021988b1edd5a0e101c4be9051178dffc4c5618d8a9b0f5e4"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6526.nc1",
+   "sha256": "b57b7bbd74b639897e5716d4399631e32066d502828d92bf3996c58acf0fa990"
+  },
+  {
+   "bytes": 1325,
+   "lines": 257,
+   "path": "NC_dxf/6526.dxf",
+   "sha256": "d001bb16fce168517cc13a105deb14189d6150fc819bc8033f9647a729aac262"
+  },
+  {
+   "bytes": 3792,
+   "lines": 76,
+   "path": "DSTV_Profiles/6527.nc1",
+   "sha256": "32f734ece0c52c8b9973d778b2053e4928ac453994bfd89a5f22a26550d12e89"
+  },
+  {
+   "bytes": 959,
+   "lines": 187,
+   "path": "NC_dxf/6527.dxf",
+   "sha256": "53f0ef035458f61d6ac849e15cdb255e16883a55dffc82863dc042371a15fb73"
+  },
+  {
+   "bytes": 3792,
+   "lines": 76,
+   "path": "DSTV_Profiles/6528.nc1",
+   "sha256": "2ed514cd4583db5184fec437e84ec4fc5079db4bcec4365821838d013c2cb76f"
+  },
+  {
+   "bytes": 959,
+   "lines": 187,
+   "path": "NC_dxf/6528.dxf",
+   "sha256": "a3ae41d189f879cc02e73a7989427ebc0884f446ccefc4b80a379653d68b56e6"
+  },
+  {
+   "bytes": 4608,
+   "lines": 88,
+   "path": "DSTV_Profiles/6529.nc1",
+   "sha256": "0d0ebade76465975aa88ba4fd0fc83280e8193fd117f7bb97e50cb55ba567179"
+  },
+  {
+   "bytes": 1326,
+   "lines": 257,
+   "path": "NC_dxf/6529.dxf",
+   "sha256": "4c7f54acaa7650a5379b159f66f68fce988453c46fdfffb4c761bf1073e9895d"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6530.nc1",
+   "sha256": "5cbbfa6189cee79eb3ef331e317c0e9c91be0f7fab2f2396f48253bae38d3992"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6530.dxf",
+   "sha256": "a8a873e0e606189f0e1e993c5c1514f6515f82c3b62a013c67e464de548b00a1"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6531.nc1",
+   "sha256": "c43a93ecd4543b44b9ef90f2a2442261107570e0f9ff0ecfaf4b59691885e56e"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6531.dxf",
+   "sha256": "8603610fe2708795776a272fd29fbaba0d54613146b13dc305261bd2209d92c8"
+  },
+  {
+   "bytes": 1309,
+   "lines": 50,
+   "path": "DSTV_Plates/6532.nc1",
+   "sha256": "9b230c788b9a36c517ff169bc14821448086af2f082c6634fd4f5af5e61c161a"
+  },
+  {
+   "bytes": 4074,
+   "lines": 775,
+   "path": "NC_dxf/6532.dxf",
+   "sha256": "21f6e58e0c05b30b81a31cb370774344ea5e203e06f5fbd4149c7d3568507688"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/6533.nc1",
+   "sha256": "fac3fdea01df7679392dadf9774d83c0cb0704da89e5c233b936eeb035d5e6dc"
+  },
+  {
+   "bytes": 1928,
+   "lines": 371,
+   "path": "NC_dxf/6533.dxf",
+   "sha256": "80759bc9d09ac7ec7d61410c156916ee62c118719e11c3ed6e7cf859e2d241b8"
+  },
+  {
+   "bytes": 1081,
+   "lines": 45,
+   "path": "DSTV_Plates/6534.nc1",
+   "sha256": "7e5ac9058b23e5b5b0c5c5d6d96b6480dbc9b1feca1c64715b1fc5d89365d5a1"
+  },
+  {
+   "bytes": 3030,
+   "lines": 579,
+   "path": "NC_dxf/6534.dxf",
+   "sha256": "a3a65828185045ec77cf5bf226faae752da9df9737aa318f6344e3c35d0c49ce"
+  },
+  {
+   "bytes": 1309,
+   "lines": 50,
+   "path": "DSTV_Plates/6535.nc1",
+   "sha256": "cb1460c4f311178699164ec172bb9e762b6b109caaf43a39ba3380e11854dba1"
+  },
+  {
+   "bytes": 4075,
+   "lines": 775,
+   "path": "NC_dxf/6535.dxf",
+   "sha256": "2ab8a1a0db85b931e55c92ade1ababdd9aaf31de2220b0010e66a40528c91db0"
+  },
+  {
+   "bytes": 1081,
+   "lines": 45,
+   "path": "DSTV_Plates/6536.nc1",
+   "sha256": "928758d22c55f735d6276e08e8e2921a3984470271024b7fa975ad097cc3376b"
+  },
+  {
+   "bytes": 3030,
+   "lines": 579,
+   "path": "NC_dxf/6536.dxf",
+   "sha256": "b8ba3dc87003b3f0cab43dd7a489c8bb848ad77156f7997f7e8501b4702a8c0c"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6537.nc1",
+   "sha256": "e4a8d3d9532b08a85591dc43d705dc77c6d04b60314b2b9afc7e48d981d66742"
+  },
+  {
+   "bytes": 1325,
+   "lines": 257,
+   "path": "NC_dxf/6537.dxf",
+   "sha256": "9e79cbfa381c3c85bf165de8c3d8d99a1f1074bf669e2b12379659e3fb626a1c"
+  },
+  {
+   "bytes": 2663,
+   "lines": 64,
+   "path": "DSTV_Profiles/6538.nc1",
+   "sha256": "4a0f9a2eb97a6e67f3db6e135d70392fbc2b92db42faaf951439441dfa7ef0fd"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6538.dxf",
+   "sha256": "79fd282a19550493fda0635607bc458dc9824acc38e27ed5dadfdac4a4d979f1"
+  },
+  {
+   "bytes": 1228,
+   "lines": 49,
+   "path": "DSTV_Plates/6539.nc1",
+   "sha256": "968d47b7e1fc78e3475e100021982f82f792af7c15804a22180cf35cea61d1e8"
+  },
+  {
+   "bytes": 4011,
+   "lines": 763,
+   "path": "NC_dxf/6539.dxf",
+   "sha256": "4d12169df5ef61847acd91cfab0d95fdba35a74c0fd1975c293236fd84a55c6a"
+  },
+  {
+   "bytes": 1309,
+   "lines": 50,
+   "path": "DSTV_Plates/6540.nc1",
+   "sha256": "3839d2c6d09aabbf5814c2cb4ba2321b6c598c07287798daf984ff18c55fcec4"
+  },
+  {
+   "bytes": 4076,
+   "lines": 775,
+   "path": "NC_dxf/6540.dxf",
+   "sha256": "a7bc79de1aa72b9e51f5d04a0a6bde47d86203c4bd8d2f6874ad1ace0a80bb4b"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6541.nc1",
+   "sha256": "798f04663b23e540424b5e003e0ebb17a31a5fe3d0a5f19e0ba7bd95290db26d"
+  },
+  {
+   "bytes": 1325,
+   "lines": 257,
+   "path": "NC_dxf/6541.dxf",
+   "sha256": "9caf7212863ad97c544fd08e980aa0e3c5fa1cfa7e7466d11b4aa330942538ce"
+  },
+  {
+   "bytes": 2663,
+   "lines": 64,
+   "path": "DSTV_Profiles/6542.nc1",
+   "sha256": "ea0a8df0a5fde1711da267ea376097079cd0d8fb90c02a03873de60805835983"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6542.dxf",
+   "sha256": "8000b5eeb4512ac2c494df8f8a89a8bd6607fb33c9845cd51424ba12375ac439"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6543.nc1",
+   "sha256": "092c3ec3ac921862531cb3c7fc918b30b87be18822d0852d0c2533212a3f373a"
+  },
+  {
+   "bytes": 1325,
+   "lines": 257,
+   "path": "NC_dxf/6543.dxf",
+   "sha256": "464aa537fe89821d9a1d48de8a8c415497a5fa27540a036e9a5b3c145e1f8825"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6544.nc1",
+   "sha256": "30ef81774862626b58e535d7fb614373cf0389ff1a901b8db4db2651a5540221"
+  },
+  {
+   "bytes": 1325,
+   "lines": 257,
+   "path": "NC_dxf/6544.dxf",
+   "sha256": "3edd20dcae3904f77d73aed48a402e7dd3efee3775e2fa6a2092d8c4b9daec53"
+  },
+  {
+   "bytes": 772,
+   "lines": 39,
+   "path": "DSTV_Plates/6545.nc1",
+   "sha256": "10cd7097f0895f35df9e458a10973792bb1172f3411636726d11a8eefafba0f4"
+  },
+  {
+   "bytes": 1923,
+   "lines": 371,
+   "path": "NC_dxf/6545.dxf",
+   "sha256": "8505c8f3d7b58b428318b361ce8dbe6b80b8525a3532e3665dc74f905e7935cd"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6546.nc1",
+   "sha256": "0776aad2d2ca6b16e16f1375f3c65e9b5f8b52df709739a11f8b4110b45039c0"
+  },
+  {
+   "bytes": 1325,
+   "lines": 257,
+   "path": "NC_dxf/6546.dxf",
+   "sha256": "221c4d7bb612971c1b55507a676444476565f158a3efe069e51bd4f296b2746f"
+  },
+  {
+   "bytes": 999,
+   "lines": 44,
+   "path": "DSTV_Plates/6547.nc1",
+   "sha256": "a88884a97194dddc1d2213514f6b02edd2ce2802b866ff1a2051508b71be1bac"
+  },
+  {
+   "bytes": 2968,
+   "lines": 567,
+   "path": "NC_dxf/6547.dxf",
+   "sha256": "d03378ba971044528ecf29b8368dde2bd34aea55b870531143480a9ef0cee548"
+  },
+  {
+   "bytes": 4121,
+   "lines": 82,
+   "path": "DSTV_Profiles/6548.nc1",
+   "sha256": "e66ef83a4913a4fced5839cad5e1474a95b9f1c2f67999b55b61ba55423c1c04"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6548.dxf",
+   "sha256": "88365e60787187efe758cef5cf1af209bc62f83286390daae7732124dbdfdf25"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6549.nc1",
+   "sha256": "000072d032c385ec760c57c65279e4bcaf7b8eac8c97596a42dd1ac4219b1dfc"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6549.dxf",
+   "sha256": "6db4c63ed98a149b73579b0364f2573452cf0f36c13f2ed39f611c37118524b0"
+  },
+  {
+   "bytes": 770,
+   "lines": 39,
+   "path": "DSTV_Plates/6550.nc1",
+   "sha256": "0f9d35f4caeacb559cdaeb00faf6d46fdd493a01649ac1a8c642a0408b0510b2"
+  },
+  {
+   "bytes": 1921,
+   "lines": 371,
+   "path": "NC_dxf/6550.dxf",
+   "sha256": "7521e3d0d1336a39762b5a2024e1565d00f209b51733d1074bde644232e6960b"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6551.nc1",
+   "sha256": "43f2f3053170c8c3e59f485d93f0189a90edd18bb36b1839da25e4243988ee7d"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6551.dxf",
+   "sha256": "a0066515a4e3b397d1a2bb176e29aacd60529a75e807f9358c57109fd6384845"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6552.nc1",
+   "sha256": "da0f9531bb60a1229fe9bcd1052e241d4602e9c1946c2675423dc18296216178"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6552.dxf",
+   "sha256": "de9cf64b1691311a457953ffdfac402d72c0d1619c5001c5d4842cd5c973f6cd"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6553.nc1",
+   "sha256": "c859de533790b57b422688c711f47e271f0921b5eff3cc552727a3a2d7948f5c"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6553.dxf",
+   "sha256": "aa276d6fe1ee6714f22d350021db913f6c68b093bfa556df3f16314a4033a279"
+  },
+  {
+   "bytes": 1080,
+   "lines": 45,
+   "path": "DSTV_Plates/6554.nc1",
+   "sha256": "98c8772164f84c0ee885dbc139c4fe6c19a29c2d790f326784023212edf53f52"
+  },
+  {
+   "bytes": 3029,
+   "lines": 579,
+   "path": "NC_dxf/6554.dxf",
+   "sha256": "9fd3df942b2f9b9f50c128440c35235260fa06e53fab040b342599f9b240bdb5"
+  },
+  {
+   "bytes": 1309,
+   "lines": 50,
+   "path": "DSTV_Plates/6555.nc1",
+   "sha256": "283e4b05f1ed20034d471c4a5ab63fee2b809450f918d0940ce99a4776c01690"
+  },
+  {
+   "bytes": 4076,
+   "lines": 775,
+   "path": "NC_dxf/6555.dxf",
+   "sha256": "124ffea302ea1c6da9fe29da33e2c4f54205a79bdab65adf196fd4237e946cb5"
+  },
+  {
+   "bytes": 1309,
+   "lines": 50,
+   "path": "DSTV_Plates/6556.nc1",
+   "sha256": "b0225608c56e7f29e017583e22deccd9689f44d8a5227331ebd44ab30fadf978"
+  },
+  {
+   "bytes": 4074,
+   "lines": 775,
+   "path": "NC_dxf/6556.dxf",
+   "sha256": "b63aaa09f5cb08c2f10e46ba1bbc35dc1cbd8db0fa596d0e6faa8bfb728f4e41"
+  },
+  {
+   "bytes": 1309,
+   "lines": 50,
+   "path": "DSTV_Plates/6557.nc1",
+   "sha256": "237e4f4c40077272bfb7744be837aa21d5a4612b5fb545447b4e2dbc20ff353d"
+  },
+  {
+   "bytes": 4074,
+   "lines": 775,
+   "path": "NC_dxf/6557.dxf",
+   "sha256": "b2916431a8dbabadc473172ef7be29f2e2b5d22857c625ab99657bd88ef39fee"
+  },
+  {
+   "bytes": 4607,
+   "lines": 88,
+   "path": "DSTV_Profiles/6558.nc1",
+   "sha256": "6ef74c2483af89645d151ae5c83ccbd370fb97c5c0d6ab71deab10be0306e634"
+  },
+  {
+   "bytes": 1325,
+   "lines": 257,
+   "path": "NC_dxf/6558.dxf",
+   "sha256": "6a13b585d6419f3ea3a42b2669ee5f7d5b678771c5014d353e04d0dbca540636"
+  },
+  {
+   "bytes": 3791,
+   "lines": 76,
+   "path": "DSTV_Profiles/6559.nc1",
+   "sha256": "c3637d95db2e7ef95ad082285bbdfaad978a00792e3fc82fccc85f1da7cac9da"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/6559.dxf",
+   "sha256": "85e17e989a07fffd85f59914a3b1272eeaedc3171bc9c0242fa51909fee01a39"
+  },
+  {
+   "bytes": 1309,
+   "lines": 50,
+   "path": "DSTV_Plates/6560.nc1",
+   "sha256": "e1ded9a061dd0d2b182bb723e84154e413bd6382a3a367564eb3e6dc4982d70d"
+  },
+  {
+   "bytes": 4076,
+   "lines": 775,
+   "path": "NC_dxf/6560.dxf",
+   "sha256": "0dc601dc8735bcdc9a7abb535a5609b0fdccac71d3b11f1866b32e1b3562eff5"
+  },
+  {
+   "bytes": 3587,
+   "lines": 78,
+   "path": "DSTV_Plates/6561.nc1",
+   "sha256": "fe6c8241ea2833af444bec004b887fea33a031785fed4dd73e8be67ffaf37639"
+  },
+  {
+   "bytes": 5248,
+   "lines": 1005,
+   "path": "NC_dxf/6561.dxf",
+   "sha256": "db029b16c3fd96755785f076064e04d9472dccbaefe2ed7be178ce77e884f88f"
+  },
+  {
+   "bytes": 919,
+   "lines": 43,
+   "path": "DSTV_Plates/7501.nc1",
+   "sha256": "b2c8791598b2acbefef9b386a0ee07155100eca502bf3ae8067e594e9b20881b"
+  },
+  {
+   "bytes": 2896,
+   "lines": 555,
+   "path": "NC_dxf/7501.dxf",
+   "sha256": "54a1aa6ee0eb3e8a07ebcbdb7507e9d1a9ed9023d1afdad6953b38a3f8efbac9"
+  },
+  {
+   "bytes": 780,
+   "lines": 36,
+   "path": "DSTV_Plates/7502.nc1",
+   "sha256": "ef5cd56570c5ce1d7fc4473c5e9965e511b38f0e2dd0d2ce72e5bebcbbfaaf87"
+  },
+  {
+   "bytes": 1066,
+   "lines": 211,
+   "path": "NC_dxf/7502.dxf",
+   "sha256": "bbe303ef76ec527dacdee1a753cda2a81183420a61a0a198ba3791468cdd3922"
+  },
+  {
+   "bytes": 781,
+   "lines": 36,
+   "path": "DSTV_Plates/7503.nc1",
+   "sha256": "76aa110148604ef302e6c63b94061d94285e060f630d8245b1e7928931a3e1cd"
+  },
+  {
+   "bytes": 1067,
+   "lines": 211,
+   "path": "NC_dxf/7503.dxf",
+   "sha256": "04578b65b7656c7d00cbfff38a3677d5addb0f627cea1230bcafdd6943401f07"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/7504.nc1",
+   "sha256": "8b83f2070a207dee20a8063087bcc3dc3cae210c45fe6c89be515b9183744e55"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/7504.dxf",
+   "sha256": "6cc1b2c2a728849de620f8fb60870d6e59362697ea1e93dc30ef577b66064706"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/7505.nc1",
+   "sha256": "fc8f813582b871180e23da9d6d11d1833525627b6c8361e8849356f73ca24af8"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/7505.dxf",
+   "sha256": "afab79d98c7d25247d4e553d4008e9d7a1f7f5a263959a141411a224087a7c0e"
+  },
+  {
+   "bytes": 845,
+   "lines": 41,
+   "path": "DSTV_Plates/7506.nc1",
+   "sha256": "d6015c6abfa21a4d2651d3b8d7d2c777f244f5f0c7132cdb22868bf2c3aa24a6"
+  },
+  {
+   "bytes": 2410,
+   "lines": 463,
+   "path": "NC_dxf/7506.dxf",
+   "sha256": "447bfddbab770460d86e05f34bd21e0c04a75707ee911a5b8d525876112ae5ca"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/7507.nc1",
+   "sha256": "cc229ce4aa068c4f21cd587414a06e5883b6f997f805b385885081a8b1eb0ad5"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/7507.dxf",
+   "sha256": "75a27fcadf7a2c45f9b9fd5f96d85a78497586869a1fd0dcf88ead40ad2ed2fa"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/7508.nc1",
+   "sha256": "1bf53d1a13451b288d40011be2b294bd3f456007b84315c99b036ca6b5d09720"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/7508.dxf",
+   "sha256": "65366da228d53c99b08388609ff386ee6d4910c4c2d8a068884b9926e88cd9ac"
+  },
+  {
+   "bytes": 620,
+   "lines": 34,
+   "path": "DSTV_Plates/7509.nc1",
+   "sha256": "02f8c7d8068ac7f714095a0de53e9a3dd0a22c5eaf482f3e625a5b29f590dd07"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/7509.dxf",
+   "sha256": "75a27fcadf7a2c45f9b9fd5f96d85a78497586869a1fd0dcf88ead40ad2ed2fa"
+  },
+  {
+   "bytes": 2522,
+   "lines": 66,
+   "path": "DSTV_Profiles/8501.nc1",
+   "sha256": "40f1d5c9f2138f049ac938fa36d82bc8c5017778d79a456198ac8892b78022b6"
+  },
+  {
+   "bytes": 967,
+   "lines": 187,
+   "path": "NC_dxf/8501.dxf",
+   "sha256": "1ffc8f01e0f913d5004e2e0bce69cffb7413525000cbff146f201d876b5d59a9"
+  },
+  {
+   "bytes": 2449,
+   "lines": 64,
+   "path": "DSTV_Profiles/8502.nc1",
+   "sha256": "1ddb9c70e6e10c57a2ec75702cfd7d69c725d6e435ac3aaaf03f5c53946977c0"
+  },
+  {
+   "bytes": 968,
+   "lines": 187,
+   "path": "NC_dxf/8502.dxf",
+   "sha256": "6aef45862f191ff9365afec248dbff5ae61540bec38ab568d6f7e0582c118de7"
+  },
+  {
+   "bytes": 1185,
+   "lines": 45,
+   "path": "DSTV_Profiles/8503.nc1",
+   "sha256": "f4a07d3e48b39cb0623a83f0acf12ff060ba0abdda92d1927217f8192619eae5"
+  },
+  {
+   "bytes": 1924,
+   "lines": 371,
+   "path": "NC_dxf/8503.dxf",
+   "sha256": "258a760ca047b645661419107c8de43d1e784a1bf4c29bc5ee575406709d3218"
+  },
+  {
+   "bytes": 782,
+   "lines": 36,
+   "path": "DSTV_Plates/8504.nc1",
+   "sha256": "256b875ffa23ad56d078748c3e240c4a773e3937f5b8a81300bfd32c62f143cf"
+  },
+  {
+   "bytes": 1073,
+   "lines": 211,
+   "path": "NC_dxf/8504.dxf",
+   "sha256": "25e00e41186cd1155ab9fe174a34afea96daaed837681f51fea7a2836e8ffe31"
+  },
+  {
+   "bytes": 2560,
+   "lines": 67,
+   "path": "DSTV_Profiles/8505.nc1",
+   "sha256": "4cf22fca35160bc76d04534e30c56fb978b48f79e73a05d48f97cff1a5a4ce64"
+  },
+  {
+   "bytes": 961,
+   "lines": 187,
+   "path": "NC_dxf/8505.dxf",
+   "sha256": "4f13bdb414c8c8bd099433f8074168b0305e0f567a266912f8d251ac6e637fa2"
+  },
+  {
+   "bytes": 2486,
+   "lines": 65,
+   "path": "DSTV_Profiles/8506.nc1",
+   "sha256": "e8d68db4b143bad18391061725b2269164d49c9ad8225b1ec213501caca963e5"
+  },
+  {
+   "bytes": 961,
+   "lines": 187,
+   "path": "NC_dxf/8506.dxf",
+   "sha256": "64f1caad7184a0df8efaace7b6842ecc085c78ff1618a7ffd5270dd2c6c0cd3b"
+  },
+  {
+   "bytes": 2523,
+   "lines": 66,
+   "path": "DSTV_Profiles/8507.nc1",
+   "sha256": "af7c3fc2f7713fa9bca82226a96f90784be0f62d2fff6de7150e83d704295164"
+  },
+  {
+   "bytes": 968,
+   "lines": 187,
+   "path": "NC_dxf/8507.dxf",
+   "sha256": "8832b648db2b2956d6b3964e7e4918f512ea34bad5e2d334f7eaf553159ab944"
+  },
+  {
+   "bytes": 2449,
+   "lines": 64,
+   "path": "DSTV_Profiles/8508.nc1",
+   "sha256": "39618ecb2ecdfefd8d12c9c74e493767a202e259f8624df536f0d53cd05493ae"
+  },
+  {
+   "bytes": 968,
+   "lines": 187,
+   "path": "NC_dxf/8508.dxf",
+   "sha256": "41391561ed081ae685a1650169155a86e9e38b3d441260e7f217aef64b0903f3"
+  },
+  {
+   "bytes": 2522,
+   "lines": 66,
+   "path": "DSTV_Profiles/8509.nc1",
+   "sha256": "e420758d871f03a7624988aea8a2d593c7637d055e38e299fb722e825f3f9e6b"
+  },
+  {
+   "bytes": 967,
+   "lines": 187,
+   "path": "NC_dxf/8509.dxf",
+   "sha256": "1ffc8f01e0f913d5004e2e0bce69cffb7413525000cbff146f201d876b5d59a9"
+  },
+  {
+   "bytes": 2560,
+   "lines": 67,
+   "path": "DSTV_Profiles/8510.nc1",
+   "sha256": "148154bd4533a6733d7574bf1ff1be6cd8e050169651b9473f5d71206dbce632"
+  },
+  {
+   "bytes": 961,
+   "lines": 187,
+   "path": "NC_dxf/8510.dxf",
+   "sha256": "4f13bdb414c8c8bd099433f8074168b0305e0f567a266912f8d251ac6e637fa2"
+  },
+  {
+   "bytes": 2523,
+   "lines": 66,
+   "path": "DSTV_Profiles/8511.nc1",
+   "sha256": "a68bafe1466db8ffa9b22771c3d3ff335a7497b8de3916d3bd37e56b1dee372b"
+  },
+  {
+   "bytes": 968,
+   "lines": 187,
+   "path": "NC_dxf/8511.dxf",
+   "sha256": "8832b648db2b2956d6b3964e7e4918f512ea34bad5e2d334f7eaf553159ab944"
+  },
+  {
+   "bytes": 2485,
+   "lines": 65,
+   "path": "DSTV_Profiles/8512.nc1",
+   "sha256": "cd9411530f93dd3a27913bc82469aa5095465cdac52af2c180ef2dbac2aaf34f"
+  },
+  {
+   "bytes": 967,
+   "lines": 187,
+   "path": "NC_dxf/8512.dxf",
+   "sha256": "3494dcfee98d5e82e6e4e3c396c4640eabb27686502bdbe8c88a07b1f7420b02"
+  },
+  {
+   "bytes": 2412,
+   "lines": 63,
+   "path": "DSTV_Profiles/8513.nc1",
+   "sha256": "695d4a0298edcd09803d8216e30044876e16fdd6b3d37aab525049820c7046c2"
+  },
+  {
+   "bytes": 968,
+   "lines": 187,
+   "path": "NC_dxf/8513.dxf",
+   "sha256": "bb6e8937053128891e69bcf8043003348b96d03aa6fcd5a3259f6872273ae84b"
+  },
+  {
+   "bytes": 2485,
+   "lines": 65,
+   "path": "DSTV_Profiles/8514.nc1",
+   "sha256": "c74e513eda1cffe5f16b9b62fce304d6f9f0133df7b4e9e7d0e5b5d16b63baa4"
+  },
+  {
+   "bytes": 967,
+   "lines": 187,
+   "path": "NC_dxf/8514.dxf",
+   "sha256": "3494dcfee98d5e82e6e4e3c396c4640eabb27686502bdbe8c88a07b1f7420b02"
+  },
+  {
+   "bytes": 622,
+   "lines": 34,
+   "path": "DSTV_Profiles/8515.nc1",
+   "sha256": "eeaf758f9d38c2c86c20b06290d06deb761abdb72dc134cbd0124619876cab84"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/8515.dxf",
+   "sha256": "95ad0329076457bd40e98d540c96e2c20fa79d0677b6bce5072d1afb1cf0d710"
+  },
+  {
+   "bytes": 622,
+   "lines": 34,
+   "path": "DSTV_Profiles/8516.nc1",
+   "sha256": "0c1cdf587264f8b2cc25ee6a889737b30320a648fa405df328d42ce500d7ad50"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/8516.dxf",
+   "sha256": "6afbd1616338b956b50d293495f97e56ff4c19a84896baf7dacbe62d282a49f1"
+  },
+  {
+   "bytes": 1106,
+   "lines": 43,
+   "path": "DSTV_Profiles/9501.nc1",
+   "sha256": "d71f5823813574e605f61b0832b84e9d7ab2ada6b2606ea0f600373d287d0dba"
+  },
+  {
+   "bytes": 950,
+   "lines": 187,
+   "path": "NC_dxf/9501.dxf",
+   "sha256": "31a263e757e09a03f31a6cf4ef9c36720614301dacc191e9521b72aa7e7d3304"
+  },
+  {
+   "bytes": 1106,
+   "lines": 43,
+   "path": "DSTV_Profiles/9502.nc1",
+   "sha256": "5f19ea4f8988c7e2182348dc91485c36b87d6f250cbfa2fbf6cfa86f5574e3ae"
+  },
+  {
+   "bytes": 950,
+   "lines": 187,
+   "path": "NC_dxf/9502.dxf",
+   "sha256": "ed9495f7f676a98d8c61dc9bbbbb53ae93751639f08f22fab06a83009da7ed82"
+  },
+  {
+   "bytes": 622,
+   "lines": 34,
+   "path": "DSTV_Plates/9503.nc1",
+   "sha256": "9175106943c812db020e5cb4c49ed39718a581189452b6acd4667e8ce899b95c"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/9503.dxf",
+   "sha256": "5802882cd466bba466267d3f1e46882f20ba6a89df9afa1ae62b8151f12a2a21"
+  },
+  {
+   "bytes": 919,
+   "lines": 43,
+   "path": "DSTV_Plates/9504.nc1",
+   "sha256": "a395e478fbac48ad05029a09a3d77dfd88b0d2d792fb469dd1c6ed275949b383"
+  },
+  {
+   "bytes": 2900,
+   "lines": 555,
+   "path": "NC_dxf/9504.dxf",
+   "sha256": "9c1a8708ce7a6b118bb241fb4c78cdf9491fe19c4c8e6bca90c806dfa6e9845a"
+  },
+  {
+   "bytes": 771,
+   "lines": 39,
+   "path": "DSTV_Plates/9505.nc1",
+   "sha256": "bc68448856d7ab42afa3ea3fc0d721e78e4ceac863dead51127a946b41adba25"
+  },
+  {
+   "bytes": 1924,
+   "lines": 371,
+   "path": "NC_dxf/9505.dxf",
+   "sha256": "b50e4ad4a6c3f1c044dd68319f43ea3688c8bd62681ee1355119d7d5aeb2a99f"
+  },
+  {
+   "bytes": 770,
+   "lines": 39,
+   "path": "DSTV_Plates/9506.nc1",
+   "sha256": "47e75ef6e221cf13ec8634e8f09f56099fb208456e4bf2e1615b44c60a6a1c23"
+  },
+  {
+   "bytes": 1923,
+   "lines": 371,
+   "path": "NC_dxf/9506.dxf",
+   "sha256": "d6b2ab2739c3f8507ccbb44523f294efabae03039303fa03817a5325f26d68f6"
+  },
+  {
+   "bytes": 2328,
+   "lines": 71,
+   "path": "DSTV_Profiles/9507.nc1",
+   "sha256": "9b819359776e53d245f9ba642a7cac58a7feb64dd7276c1820110e0539b5124c"
+  },
+  {
+   "bytes": 6862,
+   "lines": 1291,
+   "path": "NC_dxf/9507.dxf",
+   "sha256": "c9118dbcc55f905b6b1f326de3ecd525b72f71a7112c0be9104b96e5c62f7b17"
+  },
+  {
+   "bytes": 2328,
+   "lines": 71,
+   "path": "DSTV_Profiles/9508.nc1",
+   "sha256": "158656fcb05f64de1be3d93679d4a1e9a6263122ff0edb132d6c90fd7bd044b3"
+  },
+  {
+   "bytes": 6861,
+   "lines": 1291,
+   "path": "NC_dxf/9508.dxf",
+   "sha256": "9415230ca2c185ac957d89f4fec1c17d84de6d4e547e918239a1a87c4de46270"
+  },
+  {
+   "bytes": 1437,
+   "lines": 46,
+   "path": "DSTV_Profiles/9509.nc1",
+   "sha256": "5c72a9a474a11789b3f80434bcdcb937e961812702ecc5a151afd3b67772041f"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/9509.dxf",
+   "sha256": "491d4f3734b6df6a4500a34628734edd64a73741486d2634a4aa36681ea996f9"
+  },
+  {
+   "bytes": 1437,
+   "lines": 46,
+   "path": "DSTV_Profiles/9510.nc1",
+   "sha256": "ea9de4b3a2b78dbff11a7f7fd74f69720b13ca5223dae6547c988ead98023481"
+  },
+  {
+   "bytes": 955,
+   "lines": 187,
+   "path": "NC_dxf/9510.dxf",
+   "sha256": "89aa8fe7b189d8eeca32ad26311a42d322734eef2eaf01a09aa47dabebc3eef7"
+  },
+  {
+   "bytes": 1437,
+   "lines": 46,
+   "path": "DSTV_Profiles/9511.nc1",
+   "sha256": "17f5a6572189c42b3aaffc18512e5d4c24cb4a683055412a51edd1b6f321f6eb"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/9511.dxf",
+   "sha256": "31024180073a82a29bc04d6b294bc9a1a73e3425da0b0f641b88bad1154ae53d"
+  },
+  {
+   "bytes": 1437,
+   "lines": 46,
+   "path": "DSTV_Profiles/9512.nc1",
+   "sha256": "bbcdfa0255c0f7e0952b9e7e5830b8744f629cc5ad531c76e40668095560c1d4"
+  },
+  {
+   "bytes": 953,
+   "lines": 187,
+   "path": "NC_dxf/9512.dxf",
+   "sha256": "47fc6149dcc0f2bb885cee20151c4a7ff660c99fe34714f34ae8fe3f370d0548"
+  },
+  {
+   "bytes": 2254,
+   "lines": 69,
+   "path": "DSTV_Profiles/9513.nc1",
+   "sha256": "c804af63b8b217234aa62aa18fcd20a298135153ec63eb15ed4312190f9ea85b"
+  },
+  {
+   "bytes": 6370,
+   "lines": 1199,
+   "path": "NC_dxf/9513.dxf",
+   "sha256": "3ab9216f93cde9e475c9e2b2f116707d4a38cf84d58ea0c862e9ece0fac5323d"
+  },
+  {
+   "bytes": 2254,
+   "lines": 69,
+   "path": "DSTV_Profiles/9514.nc1",
+   "sha256": "508c6d06cf93037d1f1ad0e15ed368de6a3e567a4a4d097cbdf792a8d767df77"
+  },
+  {
+   "bytes": 6368,
+   "lines": 1199,
+   "path": "NC_dxf/9514.dxf",
+   "sha256": "47b64ba29bd05d29955e7f9c53df12354de8fedf03d00afa6234ad6c26b8245d"
+  },
+  {
+   "bytes": 1437,
+   "lines": 46,
+   "path": "DSTV_Profiles/9515.nc1",
+   "sha256": "9f2a907e6fd04e92dd550f2849bf6eac79dde12619a7b35cd419ad657f66da96"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/9515.dxf",
+   "sha256": "486f368efc78dfbc1800d7c996f3709a45463275d6fec49472ad809ea2286c47"
+  },
+  {
+   "bytes": 1437,
+   "lines": 46,
+   "path": "DSTV_Profiles/9516.nc1",
+   "sha256": "07a6a9d233f5555644bbeb7c1297797c975bfb0f55190882f7a95171fad2e0bf"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/9516.dxf",
+   "sha256": "536656a10dc4535d3d39480e7d4c445efc59c72d9bd09a509bcb39d5cad1fec2"
+  },
+  {
+   "bytes": 1437,
+   "lines": 46,
+   "path": "DSTV_Profiles/9517.nc1",
+   "sha256": "d2535d386cd521a048616f796933c1c8810a0114dd39e74bef1c1e4682bc33cc"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/9517.dxf",
+   "sha256": "4893a13481c136b28a87714ff8ddefd3e9c564dbdb25f12bb77d12adde791079"
+  },
+  {
+   "bytes": 1437,
+   "lines": 46,
+   "path": "DSTV_Profiles/9518.nc1",
+   "sha256": "4576ac81f084f2c7643ef10e71ce1db49cce8607e6b8f504d4f85978d372acd5"
+  },
+  {
+   "bytes": 952,
+   "lines": 187,
+   "path": "NC_dxf/9518.dxf",
+   "sha256": "e775d697145c918b1c1521dc12d4ccfb39c635c8c6c233cec681cd900b113c28"
+  },
+  {
+   "bytes": 623,
+   "lines": 34,
+   "path": "DSTV_Profiles/9519.nc1",
+   "sha256": "f7b920790ec2806e8904e5959a7aa3feb97ce3a2ea0a631df9d23a5028fe48ec"
+  },
+  {
+   "bytes": 958,
+   "lines": 187,
+   "path": "NC_dxf/9519.dxf",
+   "sha256": "5eb7fa743f00e3b1079e433cc3c7f4a11bdec448b0a90464a2aabcbc7db0fd7b"
+  },
+  {
+   "bytes": 622,
+   "lines": 34,
+   "path": "DSTV_Profiles/9520.nc1",
+   "sha256": "3b75af1e5f8cf95bd0953bc454bd98a2d018d21148afa1dffefbef6a06170ac0"
+  },
+  {
+   "bytes": 957,
+   "lines": 187,
+   "path": "NC_dxf/9520.dxf",
+   "sha256": "dde10a8f23f667d67343b120e86c31e641986c5ca126e5d43ac96baf97eef7ae"
+  },
+  {
+   "bytes": 622,
+   "lines": 34,
+   "path": "DSTV_Profiles/9521.nc1",
+   "sha256": "7c02cc0f5e768d6e8df61cbee366aeaeac2d207aef9a0f70296f05df0f38ca31"
+  },
+  {
+   "bytes": 957,
+   "lines": 187,
+   "path": "NC_dxf/9521.dxf",
+   "sha256": "c8114d5a1772ec2f7adb5807a0a370bb2dd5334338adb797ba58df2e8b5e473d"
+  },
+  {
+   "bytes": 622,
+   "lines": 34,
+   "path": "DSTV_Profiles/9522.nc1",
+   "sha256": "dfa69d4f4f33044ffcc1c5cb86f5fc13a3e5a183e04c5939f0095b380c1d16a6"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/9522.dxf",
+   "sha256": "092804fb1ffaf586832cbd9301497c7e371e98d9eba868e49393c6e7058434e5"
+  },
+  {
+   "bytes": 844,
+   "lines": 41,
+   "path": "DSTV_Plates/9523.nc1",
+   "sha256": "6d79b1a95635a17d4b97472b60e9792fe1ff13d00e02ed1445969aa31cb50b99"
+  },
+  {
+   "bytes": 2414,
+   "lines": 463,
+   "path": "NC_dxf/9523.dxf",
+   "sha256": "584033d041cbcaaac7480cd6275e16abb7b61967ae987721daa918245c0996b9"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/9524.nc1",
+   "sha256": "bfdc76c3ae238a03a5d4efde5ec87a813f45ba4f59074151b1971561ca02c2f4"
+  },
+  {
+   "bytes": 954,
+   "lines": 187,
+   "path": "NC_dxf/9524.dxf",
+   "sha256": "89e1c9e246204d543e9c083e9f89e7286386d7a0e5e82941d3c5e285ae26f384"
+  },
+  {
+   "bytes": 918,
+   "lines": 43,
+   "path": "DSTV_Plates/9525.nc1",
+   "sha256": "b4f12a58c86aaecddd0bfba9834106cb0e6c50b11a95b94df6a7c7c450687859"
+  },
+  {
+   "bytes": 2902,
+   "lines": 555,
+   "path": "NC_dxf/9525.dxf",
+   "sha256": "ace91f857312732ee518d0ccf033bce06658a9e50d7a71ea88dceb6ea3427861"
+  },
+  {
+   "bytes": 918,
+   "lines": 43,
+   "path": "DSTV_Plates/9526.nc1",
+   "sha256": "9b884ffae62d0cc3fce462f54fc88a7b7d4838562218c28aec2fb4af6a7711d2"
+  },
+  {
+   "bytes": 2902,
+   "lines": 555,
+   "path": "NC_dxf/9526.dxf",
+   "sha256": "3fdb3c5d97451a359193780c5141a7c9c54996f9e97524212b2a702366a6b713"
+  },
+  {
+   "bytes": 844,
+   "lines": 41,
+   "path": "DSTV_Plates/9527.nc1",
+   "sha256": "58b9ecc00ee6acf1377b89e204acb28529caabb1ab09ed8b8e163e950fc069cf"
+  },
+  {
+   "bytes": 2414,
+   "lines": 463,
+   "path": "NC_dxf/9527.dxf",
+   "sha256": "584033d041cbcaaac7480cd6275e16abb7b61967ae987721daa918245c0996b9"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/9528.nc1",
+   "sha256": "cb5775439c5afe739685d3435cdf2cd315f7c358bb2b0b56c4c2df6fa8983926"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/9528.dxf",
+   "sha256": "7349d687da3211cb4ecddf2e66fcc67b6e159f70f597b193f7a666dffb044ea6"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/9529.nc1",
+   "sha256": "8f2ec254d53727873ede8a0302fd10daf3099a632f856e0b63458d080b0c99ce"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/9529.dxf",
+   "sha256": "028fe13038e9bcd8b0c989f41f99950bc41db75fd9cfd88f02b50e38459f4167"
+  },
+  {
+   "bytes": 619,
+   "lines": 34,
+   "path": "DSTV_Plates/9530.nc1",
+   "sha256": "653e0f109d41b6584f5fecbf6e0a721473322508c72b6a7c9422b20633d4038a"
+  },
+  {
+   "bytes": 951,
+   "lines": 187,
+   "path": "NC_dxf/9530.dxf",
+   "sha256": "7349d687da3211cb4ecddf2e66fcc67b6e159f70f597b193f7a666dffb044ea6"
+  },
+  {
+   "bytes": 1591,
+   "lines": 46,
+   "path": "DSTV_Plates/9531.nc1",
+   "sha256": "40af26b5034401b290ba9196a7fb94cc480e9f1530b727b7e280099f3fc9ac27"
+  },
+  {
+   "bytes": 1447,
+   "lines": 283,
+   "path": "NC_dxf/9531.dxf",
+   "sha256": "daa5ee73dcb4b99e1dd41a0fd0047ea054b21b64a3fc5793d0224c1a6e515428"
+  },
+  {
+   "bytes": 918,
+   "lines": 43,
+   "path": "DSTV_Plates/9532.nc1",
+   "sha256": "92c983dede00e0719656dfb3ddf591949ebb582381a9414e297b08413eb6d997"
+  },
+  {
+   "bytes": 2895,
+   "lines": 555,
+   "path": "NC_dxf/9532.dxf",
+   "sha256": "1c4151eab5136e7ad97f408a4ba4fefed63c3b02ce96691f69e6f16f29ed769f"
+  },
+  {
+   "bytes": 1591,
+   "lines": 46,
+   "path": "DSTV_Plates/9533.nc1",
+   "sha256": "f8afea5f605695bbecf328091b89e082805c134b61a1589dd27de89765428c69"
+  },
+  {
+   "bytes": 1447,
+   "lines": 283,
+   "path": "NC_dxf/9533.dxf",
+   "sha256": "daa5ee73dcb4b99e1dd41a0fd0047ea054b21b64a3fc5793d0224c1a6e515428"
+  },
+  {
+   "bytes": 764,
+   "lines": 39,
+   "path": "DSTV_Plates/F1.nc1",
+   "sha256": "575a3ad164224e60f260d6b68e86533619c4c8a9fec797f34c8783a29caa7e63"
+  },
+  {
+   "bytes": 1919,
+   "lines": 371,
+   "path": "NC_dxf/F1.dxf",
+   "sha256": "9fafa60a647634a9a7a1ea4c0781ce57f5cc393cc382ce98d25c7db04ae7747d"
+  },
+  {
+   "bytes": 923,
+   "lines": 43,
+   "path": "DSTV_Plates/F3501.nc1",
+   "sha256": "cf6b918f15b3077589afd2f9136bf4abe0085bd95100fa6e86660ba372712ace"
+  },
+  {
+   "bytes": 2897,
+   "lines": 555,
+   "path": "NC_dxf/F3501.dxf",
+   "sha256": "12fb958ddf93241df5c985f6b1726b54581143d797bc666857a4a7144328610e"
+  },
+  {
+   "bytes": 849,
+   "lines": 41,
+   "path": "DSTV_Plates/F7501.nc1",
+   "sha256": "9f256d5fa14f9b910cd11735938c2512e3019d83ea6c8e0f57d9b1d0930c3978"
+  },
+  {
+   "bytes": 2407,
+   "lines": 463,
+   "path": "NC_dxf/F7501.dxf",
+   "sha256": "0176368f33c54c0cb85ffc194cf6b75f7fc48a1c2489588ecfa41a1ca01c1571"
+  }
+ ],
+ "warnings": []
+}
