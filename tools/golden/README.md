@@ -34,8 +34,9 @@ call an early link of the chain, not the live one:
 | `__st.dwg.holes` (`dwHoles`) | L14852 | L15933 |
 
 The server adds ONE line after line 14039 of the page it serves:
-`Object.assign(window.__st, { live: { connGeom, build, portalParts, dwHoles } })`. Each entry is a
-wrapper that looks the name up when called, so it always reaches the end of the chain. The file
+`Object.assign(window.__st, { live: { connGeom, build, portalParts, dwHoles, data } })`. Each entry is a
+wrapper that looks the name up when called, so it always reaches the end of the chain; `data()` returns
+the S4 tables that v69 does not export (`ST_CLASS`, `ST_TYPE`, `TK_FAMNAME`, `TK_PICK`, `TK_ICON`, `UPN_T`, `UPE_T`). The file
 on disk is not changed. Check: R10 totals are byte-identical with and without the patch.
 Use `__st.live.*`, never the stale exports. `__st.checks` and `__st.list` are fine (re-exported live, or wrappers).
 
@@ -57,3 +58,10 @@ node tools/golden/ss_interop.js                                   # 2. v69 opens
 ```
 Step 2 checks, in v69: the native resave of R10 opens with the golden totals (6,638 bodies, 162 assemblies, 243 part marks, 63,722 kg, 418 drawings, 3,680 connections); a native edit (body 1 deleted, a new box added) opens with the box as id 8297, `nextId` 8298, and the weight down by body 1's weight; a file made only in the app opens with both bodies and their volumes; v69 adds one body to that app file and saves it (`web/native_new_web_added.ss`). Report: `tests/steel/golden/ss_interop/report.json`.
 Step 3 checks that the app reopens the file v69 added a body to (no error, unique ids, all bodies), that native read → write of v69's files gives v69's exact bytes, that every body and doc field has the same JSON value as the original R10, and the geometry (see PROGRESS.md, S3, about v69's `clean()` on load).
+
+## Data assets (S4)
+```
+node tools/golden/data_export.js           # write steel/src/main/assets/steel/*.json and tests/steel/golden/data/*
+node tools/golden/data_export.js --check   # fail if any of them differs from what v69 gives now
+```
+Tables are read from the running page (live values after every chapter's patches): `ST_CAT`, `UPN_T`, `UPE_T`, `ST_SETS`, `ST_TYPE`, `ST_CLASS`, materials (Property sheet grades + v66 density rules), `TK`, `ST_CATALOG`, `TK_FAMNAME`, `TK_PICK`, `TK_ICON`, and the `CONN` entries of catalog items that are not `TK`. `profile_cases.json` holds `__st.prof(name)` for 636 names (every catalog row and channel, every R10 `prof`/`tprof`, and each stProf rule) as the golden for the S5 profile parser.

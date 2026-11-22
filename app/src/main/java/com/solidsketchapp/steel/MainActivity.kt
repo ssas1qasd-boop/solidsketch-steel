@@ -50,6 +50,7 @@ import com.solidsketchapp.core.view.ViewportView
 import com.solidsketchapp.steel.license.LicenseGate
 import com.solidsketchapp.steel.license.OpenLicenseGate
 import com.solidsketchapp.steel.mode.NativeSteel
+import com.solidsketchapp.steel.data.SteelAssets
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -73,6 +74,7 @@ class MainActivity : ComponentActivity() {
     private var busy by mutableStateOf(false)
     private var fileName by mutableStateOf<String?>(null)
     private var tick by mutableIntStateOf(0)
+    private var dataLine by mutableStateOf("data: loading…")
 
     private val openLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri -> uri?.let(::openSs) }
     private val saveLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("application/octet-stream")) { uri -> uri?.let(::saveSs) }
@@ -91,6 +93,13 @@ class MainActivity : ComponentActivity() {
             viewport.setOverlay("grid", CoreDemo.grid(), 0xFFA3ABB8.toInt())
             viewport.fitAll()
             status = Fmt.f("Plate with 8 holes: %.0f mm³ (built in %.0f ms)", engine.volume(parts.plate), ms)
+        }
+        // S4: the steel tables from v69 (assets/steel/*.json).
+        lifecycleScope.launch {
+            dataLine = runCatching { withContext(Dispatchers.IO) { SteelAssets.load(assets) } }.fold(
+                { d -> Fmt.f("data: %d profiles · %d property sets · %d components in %d groups", d.profiles.cat.size, d.propertySets.size, d.tk.components.size, d.tk.groups.size) },
+                { "data: could not load (${it.message})" },
+            )
         }
         if (BuildConfig.DEBUG) lifecycleScope.launch { while (true) { debugLine = debugText(); delay(500) } }
         // The app is LTR like the web build, whatever the phone's language (owner, S2 phone check).
@@ -125,6 +134,7 @@ class MainActivity : ComponentActivity() {
                 Text(if (sel.isEmpty()) "Tap a part to select it. Double tap: fit." else "Selected: $name (${sel.first().value})", fontSize = 13.sp)
                 Text(status, fontSize = 12.sp)
                 Text("Steel ${BuildConfig.VERSION_NAME} · ${NativeCore.version()} · ${NativeSteel.version()} · license: ${if (gate.isUnlocked) "open" else "locked"}", fontSize = 11.sp, color = Color(0xFF5B6270))
+                Text(dataLine, fontSize = 11.sp, color = Color(0xFF5B6270))
             }
             if (BuildConfig.DEBUG && debugLine.isNotEmpty()) {
                 Text(debugLine, fontSize = 10.sp, fontFamily = FontFamily.Monospace, color = Color(0xFF262B34),

@@ -34,6 +34,8 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.material3)
+    // S4 data assets: only the JSON tree API (no serialization plugin), so it also runs in JVM tests.
+    implementation(libs.kotlinx.serialization.json)
     testImplementation(libs.junit)
 }
 

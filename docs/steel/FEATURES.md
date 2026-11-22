@@ -81,3 +81,5 @@ T144, Tcl, Tsag, Ttg, Ttgx, T146, T1042, T1004, T1014, T39
 
 ## Steel UI buttons (`stBtn` labels)
 Apply · CSV · Cancel · Catalog · Checks · Clear marks · Close · Components · Create · Create / update · DWG · DXF · Delete · Delivery package · Done · Drawing properties · Drawings · Exit Steel · Export DWG · Export DXF · Finish · Fit · Full package · Get · Grid · Help · IFC model · Load · Modify · NC files (DSTV) · Number the model · Numbering · OK · Open · PDF · PDF (one file) · Pick parts · Place · Portal frame · Print · Print / PDF · Print → PDF · Properties · Run checks · SVG · Save · Save as · Save as  · Steel list · Welds… · on/off
+
+Note (S4, from the live page): the catalog sheet (`ST_CATALOG`) has 18 groups and 252 items: the 246 `TK` components (17 groups), plus 4 `CONN` components v69 lists on the sheet itself (`Ttgx`, `Ttg`, `Tsag`, `Tcl`) and 2 applications (`@numbering`, `@checks`) in an 18th group, "Applications".

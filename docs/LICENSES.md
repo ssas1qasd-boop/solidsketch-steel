@@ -21,6 +21,7 @@ Add a row before adding any dependency.
 | AndroidX activity-compose | 1.9.3 | Apache-2.0 | app | yes |
 | Jetpack Compose (BOM: ui, material3, ui-tooling debug only) | 2024.12.01 | Apache-2.0 | app, steel | yes |
 | kotlinx-coroutines (transitive via Compose/lifecycle) | per BOM | Apache-2.0 | app | yes |
+| kotlinx-serialization-json (JSON tree API only, no compiler plugin) | 1.7.3 | Apache-2.0 | steel (S4 data assets) | yes |
 | JUnit | 4.13.2 | EPL-1.0 | unit tests only | no |
 | Android NDK (libc++ runtime) | 30.0.16248370 | Apache-2.0 / Apache-2.0 with LLVM exception | native | yes (libc++ static) |
 | Manifold | v3.5.4 (`ce50d780`), fetched by `:fetchManifold`, CrossSection/TBB off | Apache-2.0; `src/svd.h` MIT; quickhull and linalg derived from public-domain code | `native/sscore-lite` (static, in both JNI libraries) | yes |
@@ -28,4 +29,4 @@ Add a row before adding any dependency.
 | Node.js (runs the harness) | 22 | MIT | `tools/golden` (tests only) | no |
 
 ## Notices to ship
-Apache-2.0 and MIT need their notices in the app (an About / licences screen or a bundled NOTICE file): Manifold (Apache-2.0 + MIT for `svd.h`), AndroidX / Compose / Kotlin (Apache-2.0), LLVM libc++ (Apache-2.0 with LLVM exception). TODO before the first release build.
+Apache-2.0 and MIT need their notices in the app (an About / licences screen or a bundled NOTICE file): Manifold (Apache-2.0 + MIT for `svd.h`), AndroidX / Compose / Kotlin / kotlinx-serialization (Apache-2.0), LLVM libc++ (Apache-2.0 with LLVM exception). TODO before the first release build.

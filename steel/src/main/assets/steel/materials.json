@@ -1,0 +1,34 @@
+{
+ "source": "web v69: grades from stPropSheet (Material select); density from tkDensity (v66 Tekla weights)",
+ "grades": [
+  "S235",
+  "S275",
+  "S355"
+ ],
+ "density": {
+  "defaultKgM3": 7850,
+  "overrides": {
+   "GROUT": 0,
+   "CONCRETE": 0,
+   "ANTIMATERIAL": 0,
+   "MISC_UNDEFINED": 0,
+   "GRATING": 1383
+  },
+  "zeroIfMatches": "^C\\d{2}/\\d{2}|CONCRETE|GROUT",
+  "caseInsensitive": true
+ },
+ "teklaKgPerM": {
+  "UPN240": 33.2,
+  "CC200-2-20-60": 5.53,
+  "L60*6": 5.42,
+  "L140*60*6": 9.14
+ },
+ "teklaRoundAreaMm2": {
+  "ROD12": 101.9,
+  "ROD16": 188.4,
+  "ROD20": 287,
+  "CHS48*3": 405,
+  "PD50*5": 689.3,
+  "PD40*10": 942.5
+ }
+}
