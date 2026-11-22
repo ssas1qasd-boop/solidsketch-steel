@@ -38,4 +38,12 @@ class UndoStackTest {
         stack.group("b") { doc = doc + "b" }
         assertFalse(stack.canRedo())
     }
+
+    @Test
+    fun clearForgetsEverything() {
+        stack.group("a") { doc = doc + "a" }
+        stack.undo()
+        stack.clear()
+        assertFalse(stack.canUndo()); assertFalse(stack.canRedo())
+    }
 }

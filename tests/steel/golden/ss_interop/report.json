@@ -1,0 +1,38 @@
+{
+ "R10_edited opens with the native edit": {
+  "detail": {
+   "bodies": 6638,
+   "body1": 103.89,
+   "box": "NATIVE BOX",
+   "nextId": 8298,
+   "weightAfter": 63618,
+   "weightBefore": 63722
+  },
+  "ok": true
+ },
+ "R10_resaved opens with the golden totals": {
+  "detail": {
+   "assemblies": 162,
+   "bodies": 6638,
+   "conns": 3680,
+   "drawings": 418,
+   "partMarks": 243,
+   "weightKg": 63722
+  },
+  "ok": true
+ },
+ "native_new opens": {
+  "detail": {
+   "bodies": 2,
+   "names": [
+    "COLUMN",
+    "BEAM"
+   ],
+   "volumes": [
+    27000000,
+    8000000
+   ]
+  },
+  "ok": true
+ }
+}

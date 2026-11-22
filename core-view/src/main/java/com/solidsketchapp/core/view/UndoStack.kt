@@ -49,6 +49,9 @@ class UndoStack<S>(
         undo.addLast(s)
     }
 
+    /** Forgets every step (after opening a file). */
+    fun clear() { undo.clear(); redo.clear() }
+
     /** Label of the step [undo] would revert, for the UI. */
     fun undoLabel(): String? = undo.lastOrNull()?.label
 }

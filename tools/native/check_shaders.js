@@ -25,13 +25,13 @@ const get = n => { const m = new RegExp(n + ' = """([\\s\\S]*?)"""').exec(kt); i
       for (const u of uniforms) if (!gl.getUniformLocation(pr, u)) out.push(`${name}: uniform ${u} not found`);
       return pr;
     };
-    const s = prog(sv, sf, 'solid', ['uVP', 'uView', 'uColor', 'uEmissive']);
+    const s = prog(sv, sf, 'solid', ['uVP', 'uView', 'uEmissive']);
     prog(lv, lf, 'line', ['uVP', 'uColor']);
     if (out.length) return out;
     gl.useProgram(s);
     const id = new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
     gl.uniformMatrix4fv(gl.getUniformLocation(s, 'uVP'), false, id); gl.uniformMatrix4fv(gl.getUniformLocation(s, 'uView'), false, id);
-    gl.uniform3f(gl.getUniformLocation(s, 'uColor'), 0.75, 0.22, 0.17); gl.uniform3f(gl.getUniformLocation(s, 'uEmissive'), 0, 0, 0);
+    gl.vertexAttrib4f(1, 0.75, 0.22, 0.17, 1); gl.uniform3f(gl.getUniformLocation(s, 'uEmissive'), 0, 0, 0);   // body colour as a constant attribute
     gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer()); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 0, 1, -1, 0, 0, 1, 0]), gl.STATIC_DRAW);
     gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 12, 0);
     gl.drawArrays(gl.TRIANGLES, 0, 3);

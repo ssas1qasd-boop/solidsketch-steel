@@ -38,4 +38,15 @@ class MemoryDocumentTest {
         assertNull(d.field("x"))
         assertEquals(b, d.addBody("{}", null)) // same id is handed out again after undo
     }
+
+    @Test
+    fun replaceAllFromCopiesAndNotifiesOnce() {
+        val src = MemoryDocument(); val a = src.addBody("{}", tri); src.setField("stGrid", "{}")
+        val dst = MemoryDocument(); dst.addBody("{\"old\":1}", null)
+        var n = 0; dst.addListener { n++ }
+        dst.replaceAllFrom(src)
+        assertEquals(listOf(a), dst.bodyIds()); assertSame(tri, dst.bodyMesh(a)); assertEquals("{}", dst.field("stGrid"))
+        assertEquals(1, n)
+        src.removeBody(a); assertEquals(listOf(a), dst.bodyIds())   // independent maps
+    }
 }

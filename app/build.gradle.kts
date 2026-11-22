@@ -50,3 +50,6 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     testImplementation(libs.junit)
 }
+
+// R10 is loaded in unit tests.
+tasks.withType<Test>().configureEach { maxHeapSize = "2g" }

@@ -34,7 +34,8 @@ class LocaleTest {
         val bad = listOf("app", "steel", "core-view", "core-io", "core-api").flatMap { m ->
             File(root, "$m/src/main").walkTopDown().filter { it.extension == "kt" }.flatMap { f ->
                 f.readLines().mapIndexedNotNull { i, line ->
-                    val code = line.substringBefore("//")
+                    // JsNumber.format is the locale-free JavaScript number writer of the .ss codec.
+                    val code = line.substringBefore("//").replace("JsNumber.format(", "")
                     if (Regex("""(String\.format\(|"\s*\.format\(|\.format\()""").containsMatchIn(code) && !code.contains("Locale.ROOT")) "${f.relativeTo(root)}:${i + 1}: $line" else null
                 }
             }.toList()

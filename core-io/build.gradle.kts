@@ -26,3 +26,10 @@ dependencies {
     api(project(":core-api"))
     testImplementation(libs.junit)
 }
+
+// R10 (62 MB of JSON, 1.8 M triangles) is loaded in unit tests.
+tasks.withType<Test>().configureEach {
+    maxHeapSize = "2g"
+    // SsInteropTest reads the file web v69 saved (tools/golden/ss_interop.js): rerun when it changes.
+    inputs.files(fileTree(layout.buildDirectory.dir("ss-interop/web"))).withPropertyName("webSavedFiles").optional()
+}

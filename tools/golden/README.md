@@ -48,3 +48,12 @@ Rounding: positions and volumes to 0.01. Native tests compare positions with 0.1
 
 ## Adding a case
 Add an entry to a file in `cases/` (`members: [{ set, extra }]`, `conns: [[key, [memberIndex…], q]]`). Every component needs at least three cases: a standard one, an odd profile, and a skewed or sloped one.
+
+## .ss both ways (S3)
+```
+./gradlew :core-io:testDebugUnitTest --tests '*SsInteropTest*'   # 1. native writes core-io/build/ss-interop/native/*.ss
+node tools/golden/ss_interop.js                                   # 2. v69 opens them and checks; v69 saves R10 (web/R10_web.ss)
+./gradlew :core-io:testDebugUnitTest --tests '*SsInteropTest*'   # 3. native reads the v69 file
+```
+Step 2 checks, in v69: the native resave of R10 opens with the golden totals (6,638 bodies, 162 assemblies, 243 part marks, 63,722 kg, 418 drawings, 3,680 connections); a native edit (body 1 deleted, a new box added) opens with the box as id 8297, `nextId` 8298, and the weight down by body 1's weight; a file made only in the app opens with both bodies and their volumes. Report: `tests/steel/golden/ss_interop/report.json`.
+Step 3 checks that native read → write of v69's file gives v69's exact bytes, that every body and doc field has the same JSON value as the original R10, and the geometry (see PROGRESS.md, S3, about v69's `clean()` on load).

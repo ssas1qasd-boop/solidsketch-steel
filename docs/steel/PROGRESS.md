@@ -1,7 +1,28 @@
 # Steel progress
 
 ## Current milestone
-S2 done and verified on the owner's phone (2026-11-22), locale fix applied. Next: S3 (`core-io`: .ss load/save, R10 opens and renders).
+S3 done in code and tests (2026-11-22); R10 on the phone (frame rate, memory) to be checked by the owner (see "S3 phone check"). Next: S4 (data: `ST_CAT`, `ST_SETS`, `ST_CLASS`, materials, `TK` catalog as JSON assets).
+
+## S3 (2026-11-22)
+- **`.ss` codec** (`core-io/SsCodec.kt`): streaming reader (never holds the whole file as text): `shape.vp` / `shape.tv` (93 % of R10's 62 MB of JSON) go straight into float / int arrays; every other value is kept as its exact JSON text, so unknown fields round-trip at every level (top level, `doc`, body, `st`). Writer puts the raw text back and writes `vp` the way JavaScript prints Float32 values (`JsNumber`, ECMA-262 Number::toString, done with BigDecimal so it does not depend on the platform's `Double.toString`). Gzip on save (as v69); gzip or plain JSON on load; refuses non-SolidSketch files and newer versions with v69's messages.
+  - Bodies made in this app get a numeric `id` first (v69 needs it) and `nextId` is kept ahead of every id.
+  - `MemoryDocument` now keeps the file header and the field order (`header`, `headerDocIndex`, `bodiesIndex`), `nextBodyId`, `replaceAllFrom` (swap in a document read off the UI thread / copy one to save off it). `UndoStack.clear()` after opening a file.
+- **Results on R10:** load → save is **byte-identical** to the original JSON (except `savedAt`); 6,638 bodies, 1,825,326 triangles, 910,719 vertices. JVM on the build machine: load 0.9–1.3 s, save 2.1–4.4 s.
+- **Both ways with v69** (`tools/golden/ss_interop.js` + `SsInteropTest`, see `tools/golden/README.md`):
+  - v69 opens the native resave of R10 with the golden totals (6,638 bodies, 162 assemblies, 243 part marks, 63,722 kg, 418 drawings, 3,680 connections).
+  - v69 opens a native edit (body 1 deleted, a box added): box id 8297, `nextId` 8298, weight 63,722 → 63,618 kg (body 1 = 103.89 kg; totals are whole kg).
+  - v69 opens a file made only in the app (2 bodies, exact volumes).
+  - Native reads the file v69 saved: read → write gives v69's exact bytes; every body and doc field has the same JSON value as the original.
+- **Found:**
+  - R10 was written by Python, not by v69: 769 numbers are in Python's form (e.g. `1e-06`); v69 rewrites them as `0.000001` when it saves. Native keeps whatever text the file has.
+  - v69 runs `clean()` on every body it loads ("seam scraps removed"), so a v69 save changes geometry: 668 of 1,693 bolt groups (volume up to 1.8 %, overlapping bolt solids) and 110 members re-triangulated (volume ≤ 7.4e-5); plates unchanged. Native keeps the file's geometry. Bolts are not in the weights, so totals do not move. Whether native should also clean on load: decide in S6 (bolts).
+- **Renderer for big models:** bodies are packed into chunks (`gl/BatchBuilder`, 16-byte vertices with colour, up to 196,608 vertices per chunk, per-body index ranges); an edit rebuilds only its chunk; the selection is drawn again from its range with the v69 emissive. R10 = 5 chunks, 34.8 MB of GPU buffers, packed in 94 ms (JVM). `largeHeap` on.
+- **Debug overlay** (debug builds, bottom left): CPU frame time, frame rate while frames keep coming, draw calls, triangles, bodies, chunks, GPU buffer MB, Java heap used/max, native heap.
+- **`:app`:** Open / Save (`.ss` through the system file picker), status text with v69's wording ("Opened R10.ss · 6638 bodies" plus triangles and seconds); the S2 checks stay.
+- **Tests:** 38 JVM + 3 host JNI = 41 unit tests (new: JsNumber 3, SsCodec 5 incl. the R10 byte round trip and unknown fields everywhere, SsInterop 2, BatchBuilder 2, R10 render data 1, replaceAllFrom 1, UndoStack.clear 1), shader check, native host test. All pass.
+
+## S3 phone check (owner)
+Copy `tests/steel/models/Frame_28x53m_R10.ss` to the phone, install `dist/solidsketch-steel-s3-debug.apk`, Open → R10. Note: the time in the status line, whether all 6,638 bodies show, the overlay while orbiting (fps, frame ms, heap, native), tap-select on a plate, Save to a new file and Open it again (same count). Then open the saved file in web v69 if convenient.
 
 ## S2 (2026-11-22)
 - **Booleans:** `native/sscore-lite` now runs on Manifold v3.5.4 (Apache-2.0, pinned commit `ce50d780`; CrossSection/Clipper2, TBB, tests and bindings off). C API: box, extrude (either winding), cylinder, subtract / union / intersect, `ss_subtract_many`, `ss_union_many`, closed-solid check, volume. Flat-shaded input is welded first. Manifold is fetched by the Gradle task `:fetchManifold` (or `tools/native/fetch_manifold.sh`) into `third_party/manifold` (git-ignored); both native modules depend on it.
@@ -76,7 +97,7 @@ When it comes back, the rules given by the owner (from the main port's CLAUDE.md
 - A started (untested, not compiled) port of these rules is on the branch `license-gate-draft` under `drafts/license/` (pushed 2026-11-22).
 
 ## Next step
-S3: `core-io` .ss load/save both ways with web v69 (every field kept, unknown fields round-trip), R10 must open and render (6,638 bodies; batching in the renderer, debug overlay for frame time and memory).
+S4: data export: `ST_CAT` (with the v41 profiles), `ST_SETS`, `ST_CLASS`, materials and the `TK` catalog as JSON assets, with a test that they match the HTML (CLAUDE.md assigns S4 to the local model).
 
 ## How to build
 Golden data: `node tools/golden/r10_totals.js` and `node tools/golden/run_cases.js` (needs the reference HTML and Playwright; see `tools/golden/README.md`).
@@ -87,11 +108,13 @@ Manifold source: `./gradlew fetchManifold` (runs automatically before native bui
 Unit tests with the real native code on the host: `./gradlew test -PhostJni` (needs cmake, ninja, a C++ compiler and a JDK).
 Host native test: `tools/native/fetch_manifold.sh && cmake -S native/tests -B build/native-tests -G Ninja && cmake --build build/native-tests && ctest --test-dir build/native-tests`.
 Shader check: `node tools/native/check_shaders.js`.
+.ss both ways with v69: three steps in `tools/golden/README.md` (".ss both ways").
 Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in the cloud session; `--no-parallel` on the first build helped.
 
 ## NOT VERIFIED
 - UI look: the placeholder screens are not the web build's UI (that starts in S5).
 - S2 on a device: two-finger pan (not shown in the recordings) and the locale fix (ASCII digits, LTR) on the phone.
+- S3 on a device: R10 load time, frame rate and memory on a mid-range phone; Open/Save through the system file picker.
 - Shading is a simple headlight, not three.js's lighting; edge lines (`0x262b34`) are not drawn yet. Both are look items for S5.
 
 ## Decisions

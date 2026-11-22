@@ -6,7 +6,9 @@ import com.solidsketchapp.core.api.Mesh
 
 /**
  * In-memory document. Bodies are immutable values, so a snapshot is a cheap map copy;
- * [snapshot] / [restore] back the undo stack. S3 adds .ss load/save on top.
+ * [snapshot] / [restore] back the undo stack. [SsCodec] loads and saves it as `.ss`.
+ * Every top-level and `doc` field is kept as raw JSON in its original order, so fields this
+ * app does not know round-trip unchanged.
  * Not thread-safe: use it from one thread (the UI thread).
  */
 class MemoryDocument : DocumentApi {
@@ -21,6 +23,43 @@ class MemoryDocument : DocumentApi {
     private var fields = LinkedHashMap<String, String>()
     private var nextId = 1L
     private val listeners = mutableListOf<DocumentApi.Listener>()
+
+    /** Top-level `.ss` fields other than `doc` (format, version, app, unit, name, rev, savedAt, unknown ones), raw, in order. */
+    var header: List<Pair<String, String>> = emptyList()
+        internal set
+    /** Position of `doc` among the top-level fields, and of `bodies` among the `doc` fields. */
+    var headerDocIndex = 0
+        internal set
+    var bodiesIndex = 0
+        internal set
+
+    /** The id the next new body gets (the web build's `nextId`). */
+    val nextBodyId: Long get() = nextId
+
+    /** Replaces everything with a loaded file (no undo step; listeners are told once). */
+    internal fun loadFrom(
+        header: List<Pair<String, String>>, headerDocIndex: Int,
+        fields: List<Pair<String, String>>, bodiesIndex: Int,
+        bodies: List<Triple<BodyId, String, Mesh?>>, nextId: Long,
+    ) {
+        this.header = header; this.headerDocIndex = headerDocIndex; this.bodiesIndex = bodiesIndex
+        this.fields = LinkedHashMap<String, String>().apply { fields.forEach { (k, v) -> put(k, v) } }
+        this.bodies = LinkedHashMap<BodyId, Body>().apply { bodies.forEach { (id, j, m) -> put(id, Body(j, m)) } }
+        this.nextId = nextId
+        changed()
+    }
+
+    /**
+     * Makes this document a copy of [other] (bodies and meshes are shared: they are immutable).
+     * Use it to swap in a file read on a background thread, or to take a copy to save off the UI thread.
+     */
+    fun replaceAllFrom(other: MemoryDocument) {
+        loadFrom(other.header, other.headerDocIndex, other.fields.entries.map { it.key to it.value }, other.bodiesIndex,
+            other.bodies.entries.map { Triple(it.key, it.value.json, it.value.mesh) }, other.nextId)
+    }
+
+    /** Field names in their order (for the writer). */
+    fun fieldNames(): List<String> = fields.keys.toList()
 
     override fun bodyIds(): List<BodyId> = bodies.keys.toList()
     override fun bodyJson(id: BodyId): String? = bodies[id]?.json
@@ -45,7 +84,7 @@ class MemoryDocument : DocumentApi {
 
     override fun field(name: String): String? = fields[name]
     override fun setField(name: String, json: String?) {
-        if (json == null) fields.remove(name) else fields[name] = json
+        if (json == null) fields.remove(name) else fields[name] = json   // a new field goes at the end
         changed()
     }
 

@@ -1,8 +1,12 @@
 package com.solidsketchapp.steel
 
+import android.net.Uri
 import android.os.Bundle
+import android.os.Debug
+import android.provider.OpenableColumns
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,6 +37,7 @@ import androidx.lifecycle.lifecycleScope
 import com.solidsketchapp.core.api.Fmt
 import com.solidsketchapp.core.api.Vec3
 import com.solidsketchapp.core.io.MemoryDocument
+import com.solidsketchapp.core.io.SsCodec
 import com.solidsketchapp.core.view.Aabb
 import com.solidsketchapp.core.view.ManifoldBooleanEngine
 import com.solidsketchapp.core.view.MeshOps
@@ -43,10 +49,14 @@ import com.solidsketchapp.steel.license.LicenseGate
 import com.solidsketchapp.steel.license.OpenLicenseGate
 import com.solidsketchapp.steel.mode.NativeSteel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** S2: viewport, free orbit, picking, undo/redo and Manifold booleans on the demo scene. */
+/**
+ * S3: open and save `.ss` files (web v69 format), render big models (R10) with a debug overlay
+ * for frame time and memory; plus the S2 checks (orbit, picking, undo/redo, booleans).
+ */
 class MainActivity : ComponentActivity() {
     // License gate postponed (owner, 2026-11-21): always allows.
     private val gate: LicenseGate = OpenLicenseGate
@@ -56,7 +66,13 @@ class MainActivity : ComponentActivity() {
     private lateinit var viewport: ViewportController
 
     private var status by mutableStateOf("Building…")
+    private var debugLine by mutableStateOf("")
+    private var busy by mutableStateOf(false)
+    private var fileName by mutableStateOf<String?>(null)
     private var tick by mutableIntStateOf(0)
+
+    private val openLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri -> uri?.let(::openSs) }
+    private val saveLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("application/octet-stream")) { uri -> uri?.let(::saveSs) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +88,7 @@ class MainActivity : ComponentActivity() {
             viewport.fitAll()
             status = Fmt.f("Plate with 8 holes: %.0f mm³ (built in %.0f ms)", engine.volume(parts.plate), ms)
         }
+        if (BuildConfig.DEBUG) lifecycleScope.launch { while (true) { debugLine = debugText(); delay(500) } }
         // The app is LTR like the web build, whatever the phone's language (owner, S2 phone check).
         setContent { CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) { MaterialTheme { Screen() } } }
     }
@@ -89,19 +106,80 @@ class MainActivity : ComponentActivity() {
             AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize())
             Column(Modifier.safeDrawingPadding().padding(8.dp).fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                    OutlinedButton(enabled = !busy, onClick = { openLauncher.launch(arrayOf("*/*")) }) { Text("Open") }
+                    OutlinedButton(enabled = !busy, onClick = { saveLauncher.launch(suggestedName()) }) { Text("Save") }
                     OutlinedButton(onClick = { viewport.fitAll() }) { Text("Fit") }
-                    OutlinedButton(enabled = undo.canUndo(), onClick = { undo.undo() }) { Text("Undo") }
-                    OutlinedButton(enabled = undo.canRedo(), onClick = { undo.redo() }) { Text("Redo") }
                 }
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    OutlinedButton(enabled = sel.isNotEmpty(), onClick = { cutHole() }) { Text("Cut hole") }
-                    OutlinedButton(enabled = sel.isNotEmpty(), onClick = { undo.group("Delete") { sel.forEach(doc::removeBody) } }) { Text("Delete") }
+                    OutlinedButton(enabled = !busy && undo.canUndo(), onClick = { undo.undo() }) { Text("Undo") }
+                    OutlinedButton(enabled = !busy && undo.canRedo(), onClick = { undo.redo() }) { Text("Redo") }
+                    OutlinedButton(enabled = !busy && sel.isNotEmpty(), onClick = { cutHole() }) { Text("Cut hole") }
+                    OutlinedButton(enabled = !busy && sel.isNotEmpty(), onClick = { undo.group("Delete") { sel.forEach(doc::removeBody) } }) { Text("Delete") }
                 }
                 val name = sel.firstOrNull()?.let { doc.bodyJson(it) }?.let { Regex("\"name\":\"([^\"]*)\"").find(it)?.groupValues?.get(1) }
                 Text(if (sel.isEmpty()) "Tap a part to select it. Double tap: fit." else "Selected: $name (${sel.first().value})", fontSize = 13.sp)
                 Text(status, fontSize = 12.sp)
                 Text("${NativeCore.version()} · ${NativeSteel.version()} · license: ${if (gate.isUnlocked) "open" else "locked"}", fontSize = 11.sp, color = Color(0xFF5B6270))
             }
+            if (BuildConfig.DEBUG && debugLine.isNotEmpty()) {
+                Text(debugLine, fontSize = 10.sp, fontFamily = FontFamily.Monospace, color = Color(0xFF262B34),
+                    modifier = Modifier.align(Alignment.BottomStart).safeDrawingPadding().padding(8.dp).background(Color(0xCCFFFFFF)).padding(4.dp))
+            }
+        }
+    }
+
+    /** Debug overlay: frame time, frame rate, draw calls, triangles, GPU buffers and memory. */
+    private fun debugText(): String {
+        val s = viewport.renderer.stats
+        val rt = Runtime.getRuntime()
+        val heap = (rt.totalMemory() - rt.freeMemory()) / 1048576.0
+        return Fmt.f(
+            "frame %.1f ms cpu · %.0f fps · %d calls\n%.2f M tris · %d bodies · %d chunks\nGPU %.0f MB · heap %.0f/%.0f MB · native %.0f MB",
+            s.cpuMs, s.fps, s.drawCalls, s.triangles / 1e6, s.bodies, s.chunks,
+            s.gpuBytes / 1048576.0, heap, rt.maxMemory() / 1048576.0, Debug.getNativeHeapAllocatedSize() / 1048576.0,
+        )
+    }
+
+    private fun suggestedName(): String {
+        val n = doc.header.firstOrNull { it.first == "name" }?.second?.trim('"')?.takeIf { it.isNotBlank() }
+        return (fileName ?: n?.let { "$it.ss" } ?: "Untitled.ss").let { if (it.endsWith(".ss")) it else "$it.ss" }
+    }
+
+    private fun displayName(uri: Uri): String = runCatching {
+        contentResolver.query(uri, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null }
+    }.getOrNull() ?: uri.lastPathSegment ?: "file.ss"
+
+    private fun openSs(uri: Uri) {
+        val name = displayName(uri)
+        busy = true; status = "Opening $name…"
+        lifecycleScope.launch {
+            val t0 = System.nanoTime()
+            val loaded = runCatching { withContext(Dispatchers.IO) { contentResolver.openInputStream(uri)!!.use { SsCodec.read(it) } } }
+            loaded.onSuccess { d ->
+                viewport.removeOverlay("grid")
+                doc.replaceAllFrom(d)
+                undo.clear()
+                viewport.fitAll()
+                fileName = name
+                val n = doc.bodyIds().size
+                val tris = doc.bodyIds().sumOf { doc.bodyMesh(it)?.triangleCount?.toLong() ?: 0L }
+                // Web v69 toast: "Opened <file> · <n> bodies"; plus the time for the S3 check.
+                status = Fmt.f("Opened %s · %d bod%s · %.2f M triangles · %.1f s", name, n, if (n == 1) "y" else "ies", tris / 1e6, (System.nanoTime() - t0) / 1e9)
+            }.onFailure { status = "Could not open $name: ${it.message}" }
+            busy = false
+        }
+    }
+
+    private fun saveSs(uri: Uri) {
+        val name = displayName(uri)
+        val copy = MemoryDocument().also { it.replaceAllFrom(doc) }   // cheap: meshes are shared, maps copied
+        busy = true; status = "Saving $name…"
+        lifecycleScope.launch {
+            val t0 = System.nanoTime()
+            runCatching { withContext(Dispatchers.IO) { contentResolver.openOutputStream(uri, "wt")!!.use { SsCodec.write(copy, it) } } }
+                .onSuccess { fileName = name; status = Fmt.f("Saved %s (%.1f s)", name, (System.nanoTime() - t0) / 1e9) }
+                .onFailure { status = "Could not save $name: ${it.message}" }
+            busy = false
         }
     }
 
