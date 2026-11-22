@@ -24,4 +24,5 @@ Add a row before adding any dependency.
 | JUnit | 4.13.2 | EPL-1.0 | unit tests only | no |
 | Android NDK (libc++ runtime) | 30.0.16248370 | Apache-2.0 / Apache-2.0 with LLVM exception | native | yes (libc++ static) |
 | Manifold | (pin at S2) | Apache-2.0 | `native/sscore-lite` | yes |
-| Playwright | (pin at S1) | Apache-2.0 | `tools/golden` (tests only) | no |
+| Playwright (+ Chromium it drives) | 1.63.0 | Apache-2.0 (Chromium: BSD-3-Clause) | `tools/golden` (tests only) | no |
+| Node.js (runs the harness) | 22 | MIT | `tools/golden` (tests only) | no |

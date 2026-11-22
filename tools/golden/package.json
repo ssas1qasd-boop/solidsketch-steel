@@ -1,0 +1,13 @@
+{
+  "name": "solidsketch-steel-golden",
+  "private": true,
+  "description": "Runs web build v69 headless and dumps golden data for the native tests. Test-only; never ships in the APK.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "r10": "node r10_totals.js",
+    "cases": "node run_cases.js"
+  },
+  "dependencies": {
+    "playwright": "1.63.0"
+  }
+}

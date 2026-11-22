@@ -30,3 +30,6 @@ Line numbers refer to `reference/solidsketch_v69.html` (DEV copy, 17,999 lines).
 | `dwHoles` | 2 | def L14553 (v39) → reassign L15933 (v56) |
 | `stSymPos` | 2 | def L15658 (v49) → reassign L16071 (v58) |
 | `stSymHit` | 2 | def L15669 (v49) → reassign L16099 (v58) |
+
+## Stale `window.__st` exports (found in S1)
+Some exports were captured before the last reassign, so they call an early link of the chain: `__st.connGeom` (L14039, v34 version; live chain ends L17091), `__st.build` (L13827; ends L15228), `__st.portalParts` (L13880; ends L15354), `__st.dwg.holes` (L14852; ends L15933). Do not use them as reference behaviour. The golden harness adds live wrappers as `__st.live.*` (see `tools/golden/README.md`).

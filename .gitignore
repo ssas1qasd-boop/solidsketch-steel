@@ -13,3 +13,4 @@ dist/
 logs/
 reference/
 reference/*.html
+tools/golden/node_modules/
