@@ -55,6 +55,21 @@ const totals = page => page.evaluate(() => {
   await v.browser.close();
   check('native_new opens', t3.bodies === 2 && t3.names.join() === 'COLUMN,BEAM' && vols.join() === '27000000,8000000', { bodies: t3.bodies, names: t3.names, volumes: vols });
 
+  // 4. The app-saved file in v69: add one body there and save it (step 3 reopens it in the app).
+  v = await openV69({ log: false });
+  await openSS(v.page, path.join(DIR, 'native', 'native_new.ss'));
+  const added = await v.page.evaluate(() => {
+    const S = __ss.S;
+    const docKeys = Object.keys(__ss.ssDocument().doc);
+    const r = __st.addMany([Object.assign({ kind: 'member' }, __st.ST_SETS.COLUMN, { prof: 'HEA300', p1: [1000, 0, 0], p2: [1000, 0, 3000] })], 'web add');
+    return { errs: r.errs, ids: S.bodies.map(b => b.id), names: S.bodies.map(b => b.name), nextId: S.nextId, docKeys };
+  });
+  const b64n = await v.page.evaluate(() => __st.ssExport('native_new_web_added'));
+  fs.writeFileSync(path.join(DIR, 'web', 'native_new_web_added.ss'), Buffer.from(b64n, 'base64'));
+  await v.browser.close();
+  check('v69 adds a body to the app-saved file', added.errs.length === 0 && added.ids.join() === '1,2,3' && new Set(added.ids).size === 3 && added.nextId === 4 && added.docKeys.length === 24,
+    { ids: added.ids, names: added.names, nextId: added.nextId, docFields: added.docKeys.length, errs: added.errs });
+
   writeGolden('ss_interop/report.json', report);
   console.log(failed ? `${failed} check(s) failed` : 'all checks passed; now run step 3');
   process.exit(failed ? 1 : 0);

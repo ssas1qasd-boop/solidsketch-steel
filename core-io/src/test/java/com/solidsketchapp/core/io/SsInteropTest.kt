@@ -83,6 +83,30 @@ class SsInteropTest {
         assertTrue("member volume changed by ${worst["member"]}", (worst["member"] ?: 0.0) < 1e-4)
     }
 
+    @Test
+    fun reopenAppFileAfterV69AddedABody() {
+        val web = File(dir, "web/native_new_web_added.ss")
+        assumeTrue("run node tools/golden/ss_interop.js first", web.exists())
+        val doc = SsCodec.read(web.inputStream())   // no error
+        val ids = doc.bodyIds()
+        assertEquals(listOf("1", "2", "3"), ids.map { it.value })
+        assertEquals(ids.size, ids.toSet().size)
+        assertTrue(ids.all { doc.bodyMesh(it) != null && doc.bodyMesh(it)!!.triangleCount > 0 })
+        assertTrue(doc.bodyJson(BodyId("1"))!!.contains("\"name\":\"COLUMN\""))
+        assertTrue(doc.bodyJson(BodyId("2"))!!.contains("\"name\":\"BEAM\""))
+        assertTrue(doc.bodyJson(BodyId("3"))!!.contains("\"kind\":\"member\""))   // the v69 column
+        assertEquals(MemoryDocument.V69_DEFAULTS.map { it.first }, doc.fieldNames())
+        assertTrue(doc.field("folders")!!.contains("stColumn"))                  // v69 added its folder
+        // A body added in the app after that gets a new, unique id.
+        assertEquals(BodyId("4"), doc.addBody("{}", null))
+        // And the app writes v69's file back byte for byte.
+        val webText = java.util.zip.GZIPInputStream(web.inputStream()).readBytes().toString(Charsets.UTF_8)
+        val again = SsCodec.read(web.inputStream())
+        val sw = java.io.StringWriter()
+        SsCodec.writeJson(again, sw, Regex("\"savedAt\":\"([^\"]*)\"").find(webText)!!.groupValues[1])
+        assertEquals(webText, sw.toString())
+    }
+
     private fun vol(m: Mesh): Double {
         val p = m.positions; val ix = m.indices; var v = 0.0
         for (t in 0 until m.triangleCount) {
