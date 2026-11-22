@@ -124,7 +124,7 @@ class MainActivity : ComponentActivity() {
                 val name = sel.firstOrNull()?.let { doc.bodyJson(it) }?.let { Regex("\"name\":\"([^\"]*)\"").find(it)?.groupValues?.get(1) }
                 Text(if (sel.isEmpty()) "Tap a part to select it. Double tap: fit." else "Selected: $name (${sel.first().value})", fontSize = 13.sp)
                 Text(status, fontSize = 12.sp)
-                Text("${NativeCore.version()} · ${NativeSteel.version()} · license: ${if (gate.isUnlocked) "open" else "locked"}", fontSize = 11.sp, color = Color(0xFF5B6270))
+                Text("Steel ${BuildConfig.VERSION_NAME} · ${NativeCore.version()} · ${NativeSteel.version()} · license: ${if (gate.isUnlocked) "open" else "locked"}", fontSize = 11.sp, color = Color(0xFF5B6270))
             }
             if (BuildConfig.DEBUG && debugLine.isNotEmpty()) {
                 Text(debugLine, fontSize = 10.sp, fontFamily = FontFamily.Monospace, color = Color(0xFF262B34),

@@ -1,7 +1,13 @@
 # Steel progress
 
 ## Current milestone
-S3 done in code and tests (2026-11-22), with the fixes from the owner's two checks; R10 on the phone (open time, frame rate, memory) still to be checked (see "S3 phone check"). Next: S4 (data: `ST_CAT`, `ST_SETS`, `ST_CLASS`, materials, `TK` catalog as JSON assets).
+S3 done and accepted on the owner's phone (2026-11-22). Now: S4 (data: `ST_CAT`, `ST_SETS`, `ST_CLASS`, materials, `TK` catalog as JSON assets), started on the owner's instruction (CLAUDE.md had assigned S4 to the local model).
+
+## S3 accepted on the phone (owner, 2026-11-22, screen recordings)
+1. **Save / Open / New** work on the phone: a beam with a cut hole saved as `9d.ss` reopens with the hole; selection and Undo are cleared after Open.
+2. **R10 on the phone:** opens in **5.2 s**; 6,638 bodies, 1.83 M triangles, **5 draw calls**; frame CPU 0.1–20 ms while orbiting (**about 50+ fps**); **GPU 35 MB, heap 46–73 / 512 MB, native 17 MB**; bolts, plates, holes and cuts visible up close; no crash.
+3. **The app-saved file opens in v69** (Chrome on the phone): 3 bodies with the cut hole, all shown correctly.
+- The owner again saw a saved `doc` with only `bodies`. That is the first S3 build's behaviour; s3b and later write all 24 v69 doc fields. Re-checked on the current code (2026-11-22): a new app file has `v`, `nextId`, `colorIdx`, `sketchLines`, `sketchPlane`, `paths`, `nextPathId`, `profiles`, `nextProfileId`, `bodies`, `folders`, `notes28`, `refModels28`, `furn28`, `stGrid`, `stGen`, `stConns`, `stNextConn`, `stNum`, `stDwg`, `curType`, `curTag`, `unit`, `kept`; the golden round trip (v69 opens the app file, adds a body, saves; the app reopens it: no error, ids 1–3 unique, all bodies) passes 3/3. To tell builds apart, the app now shows its version in the bottom line ("Steel 0.3.4-s3"; versionCode 4). APK: `dist/solidsketch-steel-s3d-debug.apk`.
 
 ## S3 (2026-11-22)
 - **`.ss` codec** (`core-io/SsCodec.kt`): streaming reader (never holds the whole file as text): `shape.vp` / `shape.tv` (93 % of R10's 62 MB of JSON) go straight into float / int arrays; every other value is kept as its exact JSON text, so unknown fields round-trip at every level (top level, `doc`, body, `st`). Writer puts the raw text back and writes `vp` the way JavaScript prints Float32 values (`JsNumber`, ECMA-262 Number::toString, done with BigDecimal so it does not depend on the platform's `Double.toString`). Gzip on save (as v69); gzip or plain JSON on load; refuses non-SolidSketch files and newer versions with v69's messages.
@@ -35,7 +41,7 @@ The owner saved a file from the phone ("Unttitled.ss"): header and body shapes m
 - **Fixed: the selection stayed after Open** ("Selected: BEAM (2)" and the highlight): the new file had a body 2 too, and the selection only dropped ids that disappeared. `DocumentSession` (app) now clears the selection and highlight, then replaces the document and clears undo, for Open and for the new **New** button (empty document with v69's default fields). `DocumentSessionTest` (2 tests): without the clear, 1 of 2 fails; with it, both pass.
 - Unit tests: 44 JVM + 3 host JNI = 47, all pass. APK: `dist/solidsketch-steel-s3c-debug.apk`.
 
-## S3 phone check (owner) — R10 not opened on the phone yet
+## S3 phone check (owner) — done 2026-11-22, see "S3 accepted on the phone"
 Copy `tests/steel/models/Frame_28x53m_R10.ss` to the phone, install `dist/solidsketch-steel-s3c-debug.apk`, then:
 1. **Open time:** Open → R10. The status line ends with the seconds it took ("Opened Frame_28x53m_R10.ss · 6638 bodies · 1.83 M triangles · N s"). Note N, and whether all 6,638 bodies show (overlay "6638 bodies · 5 chunks").
 2. **Frame rate:** orbit with one finger for about 5 s and read the overlay: fps and "frame … ms cpu". Usable: about 30 fps or more while orbiting. Also pinch-zoom close to a node and pan (two fingers).
@@ -102,6 +108,7 @@ Samsung, Arabic locale, two screen recordings of `solidsketch-steel-s2-debug.apk
 ## Notes for S5
 - ~~The owner's phone is set to Arabic, so the layout flipped to RTL. Force LTR for the whole app.~~ Done in the locale fix (2026-11-22).
 - "Plan:" on the placeholder screen shows "-" (empty value). (The placeholder screen is no longer shown since S2.)
+- The model draws over the buttons and text when zoomed in: give the top bar (buttons and status lines) a solid background (owner, S3 phone check).
 
 ## Postponed: license gate (owner decision, 2026-11-21)
 `:app` has only `LicenseGate` (`app/src/main/java/com/solidsketchapp/steel/license/LicenseGate.kt`), an interface that always allows, and `OpenLicenseGate`. No network permission, no key UI.
@@ -117,7 +124,7 @@ When it comes back, the rules given by the owner (from the main port's CLAUDE.md
 - A started (untested, not compiled) port of these rules is on the branch `license-gate-draft` under `drafts/license/` (pushed 2026-11-22).
 
 ## Next step
-S4: data export: `ST_CAT` (with the v41 profiles), `ST_SETS`, `ST_CLASS`, materials and the `TK` catalog as JSON assets, with a test that they match the HTML (CLAUDE.md assigns S4 to the local model).
+S4 (in progress): `ST_CAT` (with the v41 profiles), `ST_SETS`, `ST_CLASS`, materials and the `TK` catalog as JSON assets, with a test that they match the HTML.
 
 ## How to build
 Golden data: `node tools/golden/r10_totals.js` and `node tools/golden/run_cases.js` (needs the reference HTML and Playwright; see `tools/golden/README.md`).
@@ -133,8 +140,7 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 
 ## NOT VERIFIED
 - UI look: the placeholder screens are not the web build's UI (that starts in S5).
-- S2 on a device: two-finger pan (not shown in the recordings) and the locale fix (ASCII digits, LTR) on the phone.
-- S3 on a device: R10 load time, frame rate and memory on a mid-range phone; Open/Save through the system file picker.
+- Two-finger pan on the phone (not shown in the recordings; Latin digits and LTR were confirmed in the S3 check).
 - Shading is a simple headlight, not three.js's lighting; edge lines (`0x262b34`) are not drawn yet. Both are look items for S5.
 
 ## Decisions
