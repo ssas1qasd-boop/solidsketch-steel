@@ -164,7 +164,7 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 - Own DWG writer, clean-room, R2000 (owner, 2026-11-21).
 - Repo: `ssas1qasd-boop/solidsketch-steel` (owner, 2026-11-21).
 - License gate postponed; always-allow `LicenseGate` for now (owner, 2026-11-21).
-- `sscore-lite` and `sscore-lite` and `sssteel` are static libraries; each JNI .so links its own copy, so modules never clash on shared-library names (S0).
+- `sscore-lite` and `sssteel` are static libraries; each JNI .so links its own copy, so modules never clash on shared-library names (S0).
 - Manifold 3.5.4 (pinned, fetched at build time, not vendored) rather than the web's ~2.3–2.4 (S2).
 
 ## Open (owner)
