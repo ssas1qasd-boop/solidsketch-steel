@@ -1,7 +1,24 @@
 # Steel progress
 
 ## Current milestone
-S1 done (2026-11-22). Next: S2 (`core-view` + `sscore-lite`: viewport, free orbit, picking, undo/redo, Manifold booleans).
+S2 done in code and tests (2026-11-22); on-device check by the owner pending (see "S2 phone check"). Next: S3 (`core-io`: .ss load/save, R10 opens and renders).
+
+## S2 (2026-11-22)
+- **Booleans:** `native/sscore-lite` now runs on Manifold v3.5.4 (Apache-2.0, pinned commit `ce50d780`; CrossSection/Clipper2, TBB, tests and bindings off). C API: box, extrude (either winding), cylinder, subtract / union / intersect, `ss_subtract_many`, `ss_union_many`, closed-solid check, volume. Flat-shaded input is welded first. Manifold is fetched by the Gradle task `:fetchManifold` (or `tools/native/fetch_manifold.sh`) into `third_party/manifold` (git-ignored); both native modules depend on it.
+  - v69 bundles manifold-3d ~2.3–2.4 (has `hull`/`levelSet`, no `setTolerance`/`minGap`); native uses 3.5.4. Volumes and boxes agree within the golden tolerances; triangle layouts can differ, so golden tests must not compare vertex counts.
+- **`:core-api`:** `DocumentApi` carries meshes (`bodyMesh`, `addBody(json, mesh)`, `replaceBody(id, json, mesh)`). Noted in `MERGE.md`.
+- **`:core-io`:** `MemoryDocument` (bodies as immutable values, cheap snapshots for undo; ids from a counter that undo restores).
+- **`:core-view`:**
+  - `OrbitCamera`: perspective, quaternion orbit about the camera's own axes: unlimited turns in every direction, no clamping (owner rule); pan, zoom, fit, `screenRay`, `worldToScreen`.
+  - `Picker` (AABB, then Moller-Trumbore on every triangle; nearest hit), `CoreSelection` (`SelectionApi`), `GestureTracker` (1 finger orbit, 2 fingers pan + pinch, tap pick, double tap fit).
+  - `ViewportController` (`ViewportApi`, document → renderer and picker sync, named line overlays), `ViewportView` (GLSurfaceView, ES 3.0), `gl/SceneRenderer` (flat shading from screen-space derivatives; clear colour `0xeef1f5` and selection emissive `0x6b4a10` from v69).
+  - `NativeCore` JNI and `ManifoldBooleanEngine` (`BooleanEngine`), `MeshOps` (rigid transforms, volume).
+- **`:app`:** S2 check screen: HEA300 column, IPE360 beam, 20 mm end plate with 8 M20 holes cut by Manifold; Fit / Undo / Redo / Cut hole (boolean on the selected part) / Delete; grid overlay.
+- **Tests:** 23 JVM unit tests (camera incl. 10 full turns each way and the half turn upside down, picking, gestures, controller, document, undo with the document) + 3 host JNI tests that run the real JNI glue and Manifold on the build machine (`./gradlew test -PhostJni`); 1 native host test binary (`native/tests`, 15 checks: exact boolean volumes, plate with 4 holes in one pass, CW/CCW extrude, welded flat-shaded input, open mesh refused). `tools/native/check_shaders.js` compiles and links the GLSL ES 3.00 shaders in WebGL2 and draws a pixel. All pass.
+- APK: 24 MB debug; each JNI library is about 3.6 MB per ABI because each statically links Manifold (`sssteel` too). Worth trimming later (one shared core library, or `--gc-sections`).
+
+## S2 phone check (owner)
+Install `dist/solidsketch-steel-s2-debug.apk` and check: the scene shows (red column, green beam, blue-green plate with 8 holes, grey grid); one finger orbits freely past upside down; two fingers pan and pinch; tap selects (brownish highlight) and names the part; double tap fits; Cut hole on the beam makes a hole; Undo / Redo step back and forth; Delete removes the part and Undo brings it back. Note the frame feel and any crash.
 
 ## S1 (2026-11-22)
 - `tests/steel/models/Frame_28x53m_R10.ss` added (from the owner; 10.6 MB, sha256 16dc3dcd…ee36). The workflow video is not in the repo.
@@ -52,18 +69,23 @@ When it comes back, the rules given by the owner (from the main port's CLAUDE.md
 - A started (untested, not compiled) port of these rules is on the branch `license-gate-draft` under `drafts/license/` (pushed 2026-11-22).
 
 ## Next step
-S2: `core-view` + `sscore-lite` (Manifold pinned in LICENSES.md): viewport, free orbit, picking, undo/redo, booleans. Only what Steel needs.
+S3: `core-io` .ss load/save both ways with web v69 (every field kept, unknown fields round-trip), R10 must open and render (6,638 bodies; batching in the renderer, debug overlay for frame time and memory).
 
 ## How to build
 Golden data: `node tools/golden/r10_totals.js` and `node tools/golden/run_cases.js` (needs the reference HTML and Playwright; see `tools/golden/README.md`).
 
 Android SDK with platform 35, build-tools 35.0.0, NDK 30.0.16248370, CMake 4.1.2; `local.properties` with `sdk.dir`.
 `./gradlew test assembleDebug` → `app/build/outputs/apk/debug/app-debug.apk`.
-Host native test: `cmake -S native/tests -B build/native-tests && cmake --build build/native-tests && ctest --test-dir build/native-tests`.
+Manifold source: `./gradlew fetchManifold` (runs automatically before native builds; needs git and network once).
+Unit tests with the real native code on the host: `./gradlew test -PhostJni` (needs cmake, ninja, a C++ compiler and a JDK).
+Host native test: `tools/native/fetch_manifold.sh && cmake -S native/tests -B build/native-tests -G Ninja && cmake --build build/native-tests && ctest --test-dir build/native-tests`.
+Shader check: `node tools/native/check_shaders.js`.
 Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in the cloud session; `--no-parallel` on the first build helped.
 
 ## NOT VERIFIED
 - UI look: the placeholder screens are not the web build's UI (that starts in S5).
+- S2 on a device: GL rendering, touch feel, JNI with Manifold on ARM, frame rate. Built and unit-tested only; no emulator in the build session (no KVM).
+- Shading is a simple headlight, not three.js's lighting; edge lines (`0x262b34`) are not drawn yet. Both are look items for S5.
 
 ## Decisions
 - Separate app until the merge (owner, 2026-11-21).
@@ -71,6 +93,7 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 - Repo: `ssas1qasd-boop/solidsketch-steel` (owner, 2026-11-21).
 - License gate postponed; always-allow `LicenseGate` for now (owner, 2026-11-21).
 - `sscore-lite` and `sssteel` are static libraries; each JNI .so links its own copy, so modules never clash on shared-library names (S0).
+- Manifold 3.5.4 (pinned, fetched at build time, not vendored) rather than the web's ~2.3–2.4 (S2).
 
 ## Open (owner)
 - applicationId (proposed `com.solidsketchapp.steel`).

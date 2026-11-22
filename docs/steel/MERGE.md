@@ -8,7 +8,7 @@ Steel is built as its own app now and merged into the main native port when that
 ## Kotlin interfaces (`:core-api`)
 | Interface | What Steel uses it for | Expected from the main port |
 |---|---|---|
-| `DocumentApi` | bodies list, add/remove/replace body, folders, extra document fields (`stGrid`, `stConns`, `stNum`, `stDwg`, `stProject`…) kept as raw JSON | its document model + a map for unknown fields |
+| `DocumentApi` | bodies list, add/remove/replace body (JSON + optional `Mesh`, S2), `bodyMesh`, folders, extra document fields (`stGrid`, `stConns`, `stNum`, `stDwg`, `stProject`…) kept as raw JSON | its document model + a map for unknown fields + the body's triangle mesh |
 | `ViewportApi` | add/remove overlay groups (grid, preview, handles, welds, marks, issues, symbols), camera fit, screen↔world rays, request redraw | its GL renderer with named overlay layers |
 | `SelectionApi` | pick body / face / point under a touch, listen to selection changes, highlight | its picking |
 | `UndoApi` | group several changes into one undo step | its undo stack |
@@ -19,7 +19,14 @@ Steel is built as its own app now and merged into the main native port when that
 ## C API (`native/sscore-lite/include/sscore_lite.h`)
 Mesh in/out (float positions, uint32 indices), box/prism/extrude from a 2D outline, boolean subtract/union/intersect, closed-solid check, volume. Same function names and types as the main port's `sscore` where they overlap. At merge time `sscore-lite` is deleted and `sssteel` links `sscore` (set the CMake cache variable `SSCORE_DIR` in `native/sssteel/CMakeLists.txt`).
 
-S0 functions: `sscore_lite_version`, `ss_box`, `ss_extrude`, `ss_subtract`, `ss_union`, `ss_intersect`, `ss_is_closed_solid`, `ss_volume`, `ss_mesh_free`; types `ss_mesh`, `ss_status`. Check these names against the main port's `sscore.h` before S2 and rename to match.
+Functions (S2, Manifold 3.5.4 underneath): `sscore_lite_version`, `ss_box`, `ss_extrude`, `ss_cylinder`, `ss_subtract`, `ss_union`, `ss_intersect`, `ss_subtract_many` (a part minus all its cuts in one pass), `ss_union_many`, `ss_is_closed_solid`, `ss_volume`, `ss_mesh_free`; types `ss_mesh`, `ss_status`. Inputs may be flat-shaded (duplicated vertices); they are welded before a boolean. **TODO at merge:** compare these names with the main port's `sscore.h` (not available to this plan) and rename here, not in `:steel`.
+
+Kotlin side: `BooleanEngine` is implemented by `ManifoldBooleanEngine` (`:core-view`, JNI `NativeCore`). `:steel` must only see `BooleanEngine`.
+
+## Core behaviour Steel relies on (S2)
+- Viewport overlays are named line groups (`ViewportApi.setOverlay(name, xyz pairs, argb)`); Steel uses names starting with `st.`.
+- Orbit is fully free (quaternion, no clamping; owner rule). Selection draws the body with v69's emissive `0x6b4a10`. Tap picks the nearest triangle; double tap fits all.
+- Undo is snapshot-based (`UndoStack` over the document snapshot): one `UndoApi.group` = one step.
 
 ## Where Steel gets them
 `:steel` receives the interfaces in one object, `SteelHost` (`steel/src/main/java/com/solidsketchapp/steel/mode/SteelHost.kt`). The host app builds it. At merge the main app builds the same object from its own implementations.

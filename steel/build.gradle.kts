@@ -36,3 +36,8 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     testImplementation(libs.junit)
 }
+
+// Native builds need the Manifold source (see :fetchManifold in the root build).
+tasks.matching { it.name.startsWith("configureCMake") || it.name.startsWith("buildCMake") }.configureEach {
+    dependsOn(":fetchManifold")
+}
