@@ -66,6 +66,7 @@ class MainActivity : ComponentActivity() {
     private val undo = UndoStack(capture = doc::snapshot, restore = doc::restore)
     private val engine = ManifoldBooleanEngine()
     private lateinit var viewport: ViewportController
+    private lateinit var session: DocumentSession
 
     private var status by mutableStateOf("Building…")
     private var debugLine by mutableStateOf("")
@@ -79,6 +80,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewport = ViewportController(doc)
+        session = DocumentSession(doc, undo, viewport)
         viewport.selection.addListener { tick++ }
         doc.addListener { tick++ }
         lifecycleScope.launch {
@@ -108,6 +110,7 @@ class MainActivity : ComponentActivity() {
             AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize())
             Column(Modifier.safeDrawingPadding().padding(8.dp).fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                    ToolButton("New", enabled = !busy) { newDocument() }
                     ToolButton("Open", enabled = !busy) { openLauncher.launch(arrayOf("*/*")) }
                     ToolButton("Save", enabled = !busy) { saveLauncher.launch(suggestedName()) }
                     ToolButton("Fit") { viewport.fitAll() }
@@ -157,9 +160,7 @@ class MainActivity : ComponentActivity() {
             val loaded = runCatching { withContext(Dispatchers.IO) { contentResolver.openInputStream(uri)!!.use { SsCodec.read(it) } } }
             loaded.onSuccess { d ->
                 viewport.removeOverlay("grid")
-                doc.replaceAllFrom(d)
-                undo.clear()
-                viewport.fitAll()
+                session.replaceWith(d)   // also clears the selection and the undo history
                 fileName = name
                 val n = doc.bodyIds().size
                 val tris = doc.bodyIds().sumOf { doc.bodyMesh(it)?.triangleCount?.toLong() ?: 0L }
@@ -168,6 +169,13 @@ class MainActivity : ComponentActivity() {
             }.onFailure { status = "Could not open $name: ${it.message}" }
             busy = false
         }
+    }
+
+    private fun newDocument() {
+        viewport.removeOverlay("grid")
+        session.newDocument()
+        fileName = null
+        status = "New document"
     }
 
     private fun saveSs(uri: Uri) {

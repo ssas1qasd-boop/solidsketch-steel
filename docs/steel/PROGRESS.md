@@ -1,7 +1,7 @@
 # Steel progress
 
 ## Current milestone
-S3 done in code and tests (2026-11-22), with the fixes from the owner's check; R10 on the phone (open time, frame rate, memory) still to be checked (see "S3 phone check"). Next: S4 (data: `ST_CAT`, `ST_SETS`, `ST_CLASS`, materials, `TK` catalog as JSON assets).
+S3 done in code and tests (2026-11-22), with the fixes from the owner's two checks; R10 on the phone (open time, frame rate, memory) still to be checked (see "S3 phone check"). Next: S4 (data: `ST_CAT`, `ST_SETS`, `ST_CLASS`, materials, `TK` catalog as JSON assets).
 
 ## S3 (2026-11-22)
 - **`.ss` codec** (`core-io/SsCodec.kt`): streaming reader (never holds the whole file as text): `shape.vp` / `shape.tv` (93 % of R10's 62 MB of JSON) go straight into float / int arrays; every other value is kept as its exact JSON text, so unknown fields round-trip at every level (top level, `doc`, body, `st`). Writer puts the raw text back and writes `vp` the way JavaScript prints Float32 values (`JsNumber`, ECMA-262 Number::toString, done with BigDecimal so it does not depend on the platform's `Double.toString`). Gzip on save (as v69); gzip or plain JSON on load; refuses non-SolidSketch files and newer versions with v69's messages.
@@ -29,8 +29,14 @@ The owner saved a file from the phone ("Unttitled.ss"): header and body shapes m
 4. **File name spelling:** the code's default is `Untitled.ss` (spelled right). "Unttitled" was the name typed in the save dialog; the app then suggests the last saved name, and Android adds " (1)" when that file exists. Naming moved to `SsNames` (tested, including that case).
 - Unit tests: 42 JVM + 3 host JNI = 45, all pass. APK: `dist/solidsketch-steel-s3b-debug.apk`.
 
+## S3 owner phone check 2 (2026-11-22, recordings of the first S3 build)
+- Works: Save through the Android file picker (default name "Untitled.ss"; "Unttitled"/"Uted" were typed); Open ("Opened Uted.ss · 3 bodies · 0.0 s"); Undo cleared after Open; Latin digits, LTR, buttons on one line; 55–60 fps with 3 bodies; Cut hole.
+- "doc has only bodies" and the v69 round trip: already fixed in the s3b build (GitHub `fdba1a6`), which the recordings did not use; re-checked on the current code: the app-saved file has all 24 doc fields, v69 adds a body to it and the app reopens it (3/3 interop tests).
+- **Fixed: the selection stayed after Open** ("Selected: BEAM (2)" and the highlight): the new file had a body 2 too, and the selection only dropped ids that disappeared. `DocumentSession` (app) now clears the selection and highlight, then replaces the document and clears undo, for Open and for the new **New** button (empty document with v69's default fields). `DocumentSessionTest` (2 tests): without the clear, 1 of 2 fails; with it, both pass.
+- Unit tests: 44 JVM + 3 host JNI = 47, all pass. APK: `dist/solidsketch-steel-s3c-debug.apk`.
+
 ## S3 phone check (owner) — R10 not opened on the phone yet
-Copy `tests/steel/models/Frame_28x53m_R10.ss` to the phone, install `dist/solidsketch-steel-s3b-debug.apk`, then:
+Copy `tests/steel/models/Frame_28x53m_R10.ss` to the phone, install `dist/solidsketch-steel-s3c-debug.apk`, then:
 1. **Open time:** Open → R10. The status line ends with the seconds it took ("Opened Frame_28x53m_R10.ss · 6638 bodies · 1.83 M triangles · N s"). Note N, and whether all 6,638 bodies show (overlay "6638 bodies · 5 chunks").
 2. **Frame rate:** orbit with one finger for about 5 s and read the overlay: fps and "frame … ms cpu". Usable: about 30 fps or more while orbiting. Also pinch-zoom close to a node and pan (two fingers).
 3. **Memory:** read "GPU … MB · heap used/max MB · native … MB" after opening (expect GPU about 35 MB). Open R10 a second time and check that heap and native do not keep growing.
