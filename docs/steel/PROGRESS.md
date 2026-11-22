@@ -1,7 +1,7 @@
 # Steel progress
 
 ## Current milestone
-S0 done (2026-11-21), apart from the postponed license gate. Next: S1.
+S0 done (2026-11-21) and verified on a phone (2026-11-22), apart from the postponed license gate. Next: S1.
 
 ## Done (2026-11-21)
 - Repo created; `CLAUDE.md` (the plan) pushed.
@@ -20,6 +20,13 @@ S0 done (2026-11-21), apart from the postponed license gate. Next: S1.
   - `native/sscore-lite` (static; C API `sscore_lite.h`: box, volume work; extrude/booleans return `SS_ERR_NOT_IMPLEMENTED` until S2), `native/sssteel` (static, links sscore-lite via `SSCORE_DIR`), `native/ssdwg` (placeholder README for S12b), `native/tests` (host smoke test, passes).
 - `./gradlew test assembleDebug` passes; APK copied to `dist/solidsketch-steel-s0-debug.apk` (dist/ is git-ignored). `assembleRelease` also built (unsigned) before the gate was postponed.
 
+## Verified on a phone (owner, 2026-11-22)
+- `dist/solidsketch-steel-s0-debug.apk` installed on the owner's phone: the app starts without a crash, both native libraries load (`sssteel 0.0.1` links `sscore-lite 0.0.1`), and the JNI call returns box 10×20×30 volume = 6000.0.
+
+## Notes for S5
+- The owner's phone is set to Arabic, so the layout flipped to RTL (text right-aligned, "Plan:" shown as "- :Plan"). Force LTR for the whole app, like the web build (for example `android:supportsRtl="false"` or `LocalLayoutDirection provides LayoutDirection.Ltr` at the root).
+- "Plan:" on the placeholder screen shows "-" (empty value).
+
 ## Postponed: license gate (owner decision, 2026-11-21)
 `:app` has only `LicenseGate` (`app/src/main/java/com/solidsketchapp/steel/license/LicenseGate.kt`), an interface that always allows, and `OpenLicenseGate`. No network permission, no key UI.
 
@@ -31,7 +38,7 @@ When it comes back, the rules given by the owner (from the main port's CLAUDE.md
 - While open: re-validate if last check > 6 h (look every 30 min and on return to foreground). Invalid → delete, lock. Offline → keep working until 7-day grace ends.
 - Lock screen buy links (from the v69 gate script): Monthly $4.99 `https://solidsketch.lemonsqueezy.com/checkout/buy/900d7ea4-d7a7-4e41-b821-799d6c94393f?enabled=2224187`, Yearly $34.99 `https://solidsketch.lemonsqueezy.com/checkout/buy/0c0cde4e-72e9-40f8-854a-c4d752364db7?enabled=2224132`, `https://solidsketchapp.com/#pricing`. Lock-screen CSS is `#ss-lock` in the same script. The web text "The browser version is for Pro members…" needs app wording (TODO(owner)).
 - Debug-only bypass in the debug source set, `BuildConfig.DEBUG` only, red "DEBUG – license skipped" banner, a way to run the real gate; `scripts/verify_release_no_bypass.sh`; unit tests with a fake HTTP layer (activate, validate, grace, wrong variant).
-- A started (untested, not compiled) port of these rules is kept on the local branch `license-gate-draft` under `drafts/license/` (not pushed unless the owner asks).
+- A started (untested, not compiled) port of these rules is on the branch `license-gate-draft` under `drafts/license/` (pushed 2026-11-22).
 
 ## Next step
 S1: golden harness in `tools/golden/` (Playwright, pin version in LICENSES.md), dump R10 totals. Needs `tests/steel/models/Frame_28x53m_R10.ss` from the owner (not in the repo yet).
@@ -43,7 +50,6 @@ Host native test: `cmake -S native/tests -B build/native-tests && cmake --build 
 Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in the cloud session; `--no-parallel` on the first build helped.
 
 ## NOT VERIFIED
-- The APK has not been run on a device or emulator (no emulator in the build session). Start-up, JNI loading on device and the placeholder screen are unverified.
 - UI look: the placeholder screens are not the web build's UI (that starts in S5).
 
 ## Decisions
