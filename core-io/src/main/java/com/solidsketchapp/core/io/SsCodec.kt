@@ -213,19 +213,23 @@ object SsCodec {
     /** ISO time as JavaScript's toISOString(): milliseconds, Z. */
     fun nowIso(): String = Instant.now().truncatedTo(ChronoUnit.MILLIS).toString().let { if (it.length == 20) it.dropLast(1) + ".000Z" else it }
 
-    /** Writes [doc] gzipped (as the web build does). [savedAt] replaces the header's savedAt. */
-    fun write(doc: MemoryDocument, out: OutputStream, savedAt: String = nowIso()) {
+    /**
+     * Writes [doc] gzipped (as the web build does). [savedAt] replaces the header's savedAt.
+     * [name] (the file name without `.ss`, like v69's `ssBase(ssFileName)`) replaces the header's name;
+     * null keeps it.
+     */
+    fun write(doc: MemoryDocument, out: OutputStream, savedAt: String = nowIso(), name: String? = null) {
         val gz = GZIPOutputStream(out, 1 shl 16)
         val w = OutputStreamWriter(gz, Charsets.UTF_8).buffered(1 shl 16)
-        writeJson(doc, w, savedAt)
+        writeJson(doc, w, savedAt, name)
         w.flush()
         gz.finish()
     }
 
     /** Writes the plain JSON text (no gzip). */
-    fun writeJson(doc: MemoryDocument, w: Writer, savedAt: String = nowIso()) {
+    fun writeJson(doc: MemoryDocument, w: Writer, savedAt: String = nowIso(), name: String? = null) {
         val header = doc.header.ifEmpty {
-            listOf("format" to "\"$FORMAT\"", "version" to "1", "app" to "\"$APP_NAME\"", "unit" to "\"mm\"", "name" to "\"Untitled\"", "rev" to "0", "savedAt" to "\"\"")
+            listOf("format" to "\"$FORMAT\"", "version" to "1", "app" to "\"$APP_NAME\"", "unit" to "\"mm\"", "name" to "\"${SsNames.DEFAULT_BASE}\"", "rev" to "0", "savedAt" to "\"\"")
         }
         val docIndex = if (doc.header.isEmpty()) header.size else doc.headerDocIndex
         w.write("{")
@@ -234,7 +238,11 @@ object SsCodec {
         for ((i, kv) in header.withIndex()) {
             if (i == docIndex) { sep(); w.write("\"doc\":"); writeDoc(doc, w) }
             sep(); w.write("\""); w.write(escapeKey(kv.first)); w.write("\":")
-            w.write(if (kv.first == "savedAt") "\"$savedAt\"" else kv.second)
+            w.write(when {
+                kv.first == "savedAt" -> "\"$savedAt\""
+                kv.first == "name" && name != null -> "\"" + escapeKey(name) + "\""
+                else -> kv.second
+            })
         }
         if (docIndex >= header.size) { sep(); w.write("\"doc\":"); writeDoc(doc, w) }
         w.write("}")
@@ -242,7 +250,7 @@ object SsCodec {
 
     private fun writeDoc(doc: MemoryDocument, w: Writer) {
         val names = doc.fieldNames()
-        val bodiesAt = if (doc.header.isEmpty() && names.isEmpty()) 0 else doc.bodiesIndex.coerceIn(0, names.size)
+        val bodiesAt = doc.bodiesIndex.coerceIn(0, names.size)
         w.write("{")
         var first = true
         fun sep() { if (!first) w.write(","); first = false }

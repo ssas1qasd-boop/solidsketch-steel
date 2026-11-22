@@ -56,17 +56,48 @@ class SsCodecTest {
     }
 
     @Test
-    fun gzipRoundTripAndNewBodyGetsWebId() {
+    fun newDocumentWritesEveryV69DocFieldWithDefaults() {
         val doc = MemoryDocument()
         val tri = Mesh(floatArrayOf(0f, 0f, 0f, 1f, 0f, 0f, 0f, 1f, 0f), intArrayOf(0, 1, 2))
         doc.addBody("""{"name":"COLUMN","color":12597547,"hidden":false}""", tri)
-        val bytes = ByteArrayOutputStream().also { SsCodec.write(doc, it, "2026-11-22T00:00:00.000Z") }.toByteArray()
+        val bytes = ByteArrayOutputStream().also { SsCodec.write(doc, it, "2026-11-22T00:00:00.000Z", name = "Frame A") }.toByteArray()
         assertEquals(0x1f, bytes[0].toInt() and 0xff)
         val text = GZIPInputStream(ByteArrayInputStream(bytes)).readBytes().toString(Charsets.UTF_8)
-        assertTrue(text, text.startsWith("""{"format":"solidsketch","version":1,"app":"SolidSketch Steel Android","unit":"mm","name":"Untitled","rev":0,"savedAt":"2026-11-22T00:00:00.000Z","doc":{"bodies":[{"id":1,"name":"COLUMN""""))
+        // Same doc fields, order and defaults as a new v69 document (docObject + kept); nextId/colorIdx advanced by the body.
+        assertEquals(
+            """{"format":"solidsketch","version":1,"app":"SolidSketch Steel Android","unit":"mm","name":"Frame A","rev":0,"savedAt":"2026-11-22T00:00:00.000Z",""" +
+                """"doc":{"v":1,"nextId":2,"colorIdx":1,"sketchLines":[],"sketchPlane":null,"paths":[],"nextPathId":1,"profiles":[],"nextProfileId":1,""" +
+                """"bodies":[{"id":1,"name":"COLUMN","color":12597547,"hidden":false,"shape":{"vp":[0,0,0,1,0,0,0,1,0],"tv":[0,1,2]}}],""" +
+                """"folders":[],"notes28":[],"refModels28":[],"furn28":[],"stGrid":null,"stGen":null,"stConns":[],"stNextConn":1,"stNum":null,"stDwg":null,"curType":null,"curTag":"","unit":"mm","kept":[]}}""",
+            text)
+        assertEquals(24, MemoryDocument.V69_DEFAULTS.size + 1)   // + bodies = R10's 24 doc fields
         val back = SsCodec.read(ByteArrayInputStream(bytes))
         assertArrayEquals(tri.positions, back.bodyMesh(BodyId("1"))!!.positions, 0f)
         assertEquals(2L, back.nextBodyId)
+    }
+
+    @Test
+    fun openedFileKeepsEveryDocFieldAndHeaderNameFollowsTheFile() {
+        val doc = SsCodec.read(r10.inputStream())
+        val r10Fields = listOf("v", "nextId", "colorIdx", "sketchLines", "sketchPlane", "paths", "nextPathId", "profiles", "nextProfileId",
+            "folders", "notes28", "refModels28", "furn28", "stGrid", "stGen", "stConns", "stNextConn", "stNum", "stDwg", "curType", "curTag", "unit", "kept")
+        assertEquals(r10Fields, doc.fieldNames()); assertEquals(9, doc.bodiesIndex)
+        assertEquals(MemoryDocument.V69_DEFAULTS.map { it.first }, r10Fields)   // a new document has the same names
+        val sw = StringWriter(); SsCodec.writeJson(doc, sw, "x", name = "R10 copy")
+        assertTrue(sw.toString().startsWith("""{"format":"solidsketch","version":1,"app":"SolidSketch Web","unit":"mm","name":"R10 copy","rev":0,"savedAt":"x","doc":{"v":1,"nextId":8297,"colorIdx":8296,"""))
+        // A body added in the app advances nextId and colorIdx like v69.
+        doc.addBody("{}", null)
+        val sw2 = StringWriter(); SsCodec.writeJson(doc, sw2, "x")
+        assertTrue(sw2.toString().contains(""""doc":{"v":1,"nextId":8298,"colorIdx":8297,"""))
+    }
+
+    @Test
+    fun saveNames() {
+        assertEquals("Untitled.ss", SsNames.suggest(null, null))
+        assertEquals("R10_try9.ss", SsNames.suggest(null, "R10_try9"))
+        assertEquals("Unttitled.ss", SsNames.suggest("Unttitled.ss", "x"))   // the last name the owner typed is reused
+        assertEquals("Frame.ss", SsNames.suggest("Frame", null))
+        assertEquals("Frame", SsNames.base("Frame.SS")); assertEquals("Untitled", SsNames.base(" "))
     }
 
     @Test

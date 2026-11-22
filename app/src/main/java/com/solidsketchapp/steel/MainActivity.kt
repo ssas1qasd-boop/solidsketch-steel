@@ -16,8 +16,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -38,6 +39,7 @@ import com.solidsketchapp.core.api.Fmt
 import com.solidsketchapp.core.api.Vec3
 import com.solidsketchapp.core.io.MemoryDocument
 import com.solidsketchapp.core.io.SsCodec
+import com.solidsketchapp.core.io.SsNames
 import com.solidsketchapp.core.view.Aabb
 import com.solidsketchapp.core.view.ManifoldBooleanEngine
 import com.solidsketchapp.core.view.MeshOps
@@ -105,16 +107,16 @@ class MainActivity : ComponentActivity() {
         Box(Modifier.fillMaxSize().background(Color(0xFFEEF1F5))) {
             AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize())
             Column(Modifier.safeDrawingPadding().padding(8.dp).fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                    OutlinedButton(enabled = !busy, onClick = { openLauncher.launch(arrayOf("*/*")) }) { Text("Open") }
-                    OutlinedButton(enabled = !busy, onClick = { saveLauncher.launch(suggestedName()) }) { Text("Save") }
-                    OutlinedButton(onClick = { viewport.fitAll() }) { Text("Fit") }
+                Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                    ToolButton("Open", enabled = !busy) { openLauncher.launch(arrayOf("*/*")) }
+                    ToolButton("Save", enabled = !busy) { saveLauncher.launch(suggestedName()) }
+                    ToolButton("Fit") { viewport.fitAll() }
                 }
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    OutlinedButton(enabled = !busy && undo.canUndo(), onClick = { undo.undo() }) { Text("Undo") }
-                    OutlinedButton(enabled = !busy && undo.canRedo(), onClick = { undo.redo() }) { Text("Redo") }
-                    OutlinedButton(enabled = !busy && sel.isNotEmpty(), onClick = { cutHole() }) { Text("Cut hole") }
-                    OutlinedButton(enabled = !busy && sel.isNotEmpty(), onClick = { undo.group("Delete") { sel.forEach(doc::removeBody) } }) { Text("Delete") }
+                Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    ToolButton("Undo", enabled = !busy && undo.canUndo()) { undo.undo() }
+                    ToolButton("Redo", enabled = !busy && undo.canRedo()) { undo.redo() }
+                    ToolButton("Cut hole", enabled = !busy && sel.isNotEmpty()) { cutHole() }
+                    ToolButton("Delete", enabled = !busy && sel.isNotEmpty()) { undo.group("Delete") { sel.forEach(doc::removeBody) } }
                 }
                 val name = sel.firstOrNull()?.let { doc.bodyJson(it) }?.let { Regex("\"name\":\"([^\"]*)\"").find(it)?.groupValues?.get(1) }
                 Text(if (sel.isEmpty()) "Tap a part to select it. Double tap: fit." else "Selected: $name (${sel.first().value})", fontSize = 13.sp)
@@ -140,10 +142,8 @@ class MainActivity : ComponentActivity() {
         )
     }
 
-    private fun suggestedName(): String {
-        val n = doc.header.firstOrNull { it.first == "name" }?.second?.trim('"')?.takeIf { it.isNotBlank() }
-        return (fileName ?: n?.let { "$it.ss" } ?: "Untitled.ss").let { if (it.endsWith(".ss")) it else "$it.ss" }
-    }
+    private fun suggestedName(): String =
+        SsNames.suggest(fileName, doc.header.firstOrNull { it.first == "name" }?.second?.trim('"'))
 
     private fun displayName(uri: Uri): String = runCatching {
         contentResolver.query(uri, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null }
@@ -176,7 +176,7 @@ class MainActivity : ComponentActivity() {
         busy = true; status = "Saving $name…"
         lifecycleScope.launch {
             val t0 = System.nanoTime()
-            runCatching { withContext(Dispatchers.IO) { contentResolver.openOutputStream(uri, "wt")!!.use { SsCodec.write(copy, it) } } }
+            runCatching { withContext(Dispatchers.IO) { contentResolver.openOutputStream(uri, "wt")!!.use { SsCodec.write(copy, it, name = SsNames.base(name)) } } }
                 .onSuccess { fileName = name; status = Fmt.f("Saved %s (%.1f s)", name, (System.nanoTime() - t0) / 1e9) }
                 .onFailure { status = "Could not save $name: ${it.message}" }
             busy = false
