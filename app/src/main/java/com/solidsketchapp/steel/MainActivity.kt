@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -22,10 +23,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.lifecycleScope
+import com.solidsketchapp.core.api.Fmt
 import com.solidsketchapp.core.api.Vec3
 import com.solidsketchapp.core.io.MemoryDocument
 import com.solidsketchapp.core.view.Aabb
@@ -66,9 +70,10 @@ class MainActivity : ComponentActivity() {
             CoreDemo.addTo(doc, parts)
             viewport.setOverlay("grid", CoreDemo.grid(), 0xFFA3ABB8.toInt())
             viewport.fitAll()
-            status = "Plate with 8 holes: %.0f mm³ (built in %.0f ms)".format(engine.volume(parts.plate), ms)
+            status = Fmt.f("Plate with 8 holes: %.0f mm³ (built in %.0f ms)", engine.volume(parts.plate), ms)
         }
-        setContent { MaterialTheme { Screen() } }
+        // The app is LTR like the web build, whatever the phone's language (owner, S2 phone check).
+        setContent { CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) { MaterialTheme { Screen() } } }
     }
 
     override fun onDestroy() {
@@ -110,7 +115,7 @@ class MainActivity : ComponentActivity() {
         val json = doc.bodyJson(id) ?: return
         lifecycleScope.launch {
             val result = runCatching { withContext(Dispatchers.Default) { engine.subtract(mesh, listOf(cutter)) } }
-            result.onSuccess { r -> undo.group("Cut hole") { doc.replaceBody(id, json, r) }; status = "Cut: %.0f → %.0f mm³".format(engine.volume(mesh), engine.volume(r)) }
+            result.onSuccess { r -> undo.group("Cut hole") { doc.replaceBody(id, json, r) }; status = Fmt.f("Cut: %.0f → %.0f mm³", engine.volume(mesh), engine.volume(r)) }
                 .onFailure { status = "Cut failed: ${it.message}" }
         }
     }
