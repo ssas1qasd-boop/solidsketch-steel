@@ -4,14 +4,15 @@
 S1 done (2026-11-22). Next: S2 (`core-view` + `sscore-lite`: viewport, free orbit, picking, undo/redo, Manifold booleans).
 
 ## S1 (2026-11-22)
-- `tests/steel/models/Frame_28x53m_R10.ss` added (from the owner; 10.6 MB, sha256 16dc3dcd…ee36). `Frame_28x53m_R04_vs_Tekla.md` and the workflow video are still not in the repo.
+- `tests/steel/models/Frame_28x53m_R10.ss` added (from the owner; 10.6 MB, sha256 16dc3dcd…ee36). The workflow video is not in the repo.
 - Golden harness `tools/golden/` (Playwright 1.63.0, headless Chromium, offline): `r10_totals.js`, `run_cases.js`, `lib/v69.js` (serve + open + load .ss), `lib/dump.js` (page-side dumper), `cases/t144.js`. Details in `tools/golden/README.md`.
 - **R10 totals from v69** (`tests/steel/golden/r10/`): 6,638 bodies, 3,680 connections (3,035 TKBOLT, 645 TKCUT); **162 assemblies, 243 part marks, weight 63,722 kg** (net 63,697, gross 64,750); 5,376 bolts in 1,693 groups (per size in `bolts.json`); **418 drawings (13 GA, 162 assembly, 243 single part)**; NC 482 files (81 DSTV_Profiles, 160 DSTV_Plates, 241 NC_dxf), no warnings. All headline numbers equal the CLAUDE.md targets.
 - First golden cases, End plate 144: `t144_standard` (HEA300 + IPE360 level), `t144_odd_profile` (HEM300 rot Top + IPE450 into the flange, 3 rows, 12 mm stiffeners → 4 stiffeners), `t144_sloped` (R10 eave-to-apex rafter). Each dumps parts, holes, bolts, welds, cut solids, marks, weights, drawings with data, NC.
 - Runs are deterministic (two runs byte-identical, for R10 and cases).
 - Found: four stale `__st` exports (`connGeom`, `build`, `portalParts`, `dwg.holes`) that call early links of their chains. The harness serves the page with one added line exposing live wrappers (`__st.live.*`); R10 output is identical with and without it. Noted in `LIVE-FUNCTIONS.md`.
 - Native side does not read the golden files yet; that starts with S3 (R10 load) and S5/S6 (parts).
-- Not on GitHub yet (too big or binary for the GitHub tool push): `tests/steel/models/Frame_28x53m_R10.ss` (binary, 10.6 MB) and `tests/steel/golden/**` (515 text files, 2.4 MB). They are in the local commit and the bundle, and `tools/golden/` regenerates the golden files. Push them with git once credentials are set.
+- `tests/steel/models/Frame_28x53m_R10.ss` and `tests/steel/golden/**` (515 files) were pushed by the owner from a bundle (GitHub `e1dd149`, `tests/` tree `4fa9377`, identical to the harness output).
+- `tests/steel/models/Frame_28x53m_R04_vs_Tekla.md` added (owner, 2026-11-22): connection-by-connection comparison of R04 (v56h) against the Tekla package, with model totals and open differences. Use it as the checklist for S6–S12.
 
 ## S0 (2026-11-21)
 - Repo created; `CLAUDE.md` (the plan) pushed.
@@ -75,4 +76,4 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 - applicationId (proposed `com.solidsketchapp.steel`).
 - License gate: when to bring it back, and which variants unlock Steel (TODO(owner)).
 - Tekla `.db1` import: in or out of this plan.
-- `Frame_28x53m_R04_vs_Tekla.md` and the workflow video into the repo (R10 itself arrived 2026-11-22).
+- The workflow video (R10 and the R04 comparison arrived 2026-11-22).
