@@ -1,0 +1,1084 @@
+{
+ "source": "web v69: the live stCompDialog driven through its DOM (tools/golden/s7_dialog.js)",
+ "cases": {
+  "t144_modify_unchanged": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "steps": [],
+   "action": "Modify",
+   "q": {
+    "cols": 2,
+    "gauge2": 0,
+    "pitches": "",
+    "tp": 10,
+    "ext": -10,
+    "extb": -10,
+    "side": 30,
+    "gauge": 90,
+    "rows": "",
+    "pitch": 70,
+    "e": 35,
+    "bolt": 20,
+    "grade": "8.8",
+    "a": 6,
+    "gap": 2,
+    "shim": 0,
+    "front": 0,
+    "seat": 0,
+    "stiff": 0,
+    "comp": 0,
+    "two": 0,
+    "shared": 0,
+    "P": {
+     "END PLATE": {},
+     "SHIM": {},
+     "FRONT PLATE": {},
+     "SEAT ANGLE": {},
+     "STIFFENER": {},
+     "FLANGE PLATE": {}
+    },
+    "posH": 0,
+    "posV": "",
+    "refH": "Middle",
+    "refV": "Top",
+    "bdel": "",
+    "tol": "",
+    "thr": 1,
+    "sw": "Site",
+    "cutlen": "",
+    "bcmt": "",
+    "sl1": 0,
+    "sl2": 0,
+    "htype": "Slotted",
+    "srot": 0,
+    "sin": "All",
+    "ba_b": 1,
+    "ba_w": 1,
+    "ba_n": 1,
+    "blen": 0,
+    "bdir": 1,
+    "stag": 0,
+    "hn": 0,
+    "hx1": 0,
+    "hx2": 0,
+    "hy1": 60,
+    "hy2": 60,
+    "hd2": 18,
+    "hd1": 18,
+    "locked": 0,
+    "cls": 1,
+    "code": "",
+    "adrule": "None",
+    "acrule": "None",
+    "W": {
+     "Beam to end plate": {
+      "around": 1
+     }
+    }
+   },
+   "welds": [
+    {
+     "name": "Beam to end plate",
+     "a": 6,
+     "len": 1400,
+     "loop": [
+      [
+       16.25,
+       -85,
+       6640
+      ],
+      [
+       16.25,
+       85,
+       6640
+      ],
+      [
+       16.25,
+       85,
+       7000
+      ],
+      [
+       16.25,
+       -85,
+       7000
+      ]
+     ],
+     "around": 1
+    }
+   ],
+   "connDef": null,
+   "bolts": {
+    "n": 8,
+    "d": 20,
+    "L": 63,
+    "pts": [
+     [
+      16.35,
+      45,
+      6955
+     ],
+     [
+      16.35,
+      -45,
+      6955
+     ],
+     [
+      16.35,
+      45,
+      6885
+     ],
+     [
+      16.35,
+      -45,
+      6885
+     ],
+     [
+      16.35,
+      45,
+      6815
+     ],
+     [
+      16.35,
+      -45,
+      6815
+     ],
+     [
+      16.35,
+      45,
+      6745
+     ],
+     [
+      16.35,
+      -45,
+      6745
+     ]
+    ]
+   },
+   "plates": [
+    {
+     "name": "END PLATE",
+     "prof": "PL10",
+     "mat": "S275",
+     "cls": 1
+    }
+   ]
+  },
+  "t144_modify_fields": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "steps": [
+    [
+     "Picture",
+     "dim",
+     "t",
+     "15"
+    ],
+    [
+     "Picture",
+     "dim",
+     "1",
+     "20"
+    ],
+    [
+     "Bolts",
+     "dim",
+     "4",
+     4
+    ],
+    [
+     "Bolts",
+     "dim",
+     "5",
+     "60 100 60"
+    ],
+    [
+     "Bolts",
+     "dim",
+     "6",
+     "50"
+    ],
+    [
+     "Bolts",
+     "row",
+     "Staggering of bolts",
+     0
+    ],
+    [
+     "Bolts",
+     "row",
+     "Tolerance",
+     "3"
+    ],
+    [
+     "Bolts",
+     "off",
+     "Comment",
+     null
+    ],
+    [
+     "Welds",
+     "weld",
+     "Beam to end plate",
+     "8"
+    ],
+    [
+     "General",
+     "row",
+     "Class",
+     "4"
+    ]
+   ],
+   "action": "Modify",
+   "q": {
+    "cols": 4,
+    "gauge2": 60,
+    "pitches": "",
+    "tp": 15,
+    "ext": -20,
+    "extb": -10,
+    "side": 30,
+    "gauge": 100,
+    "rows": "",
+    "pitch": 70,
+    "e": 50,
+    "bolt": 20,
+    "grade": "8.8",
+    "a": 6,
+    "gap": 2,
+    "shim": 0,
+    "front": 0,
+    "seat": 0,
+    "stiff": 0,
+    "comp": 0,
+    "two": 0,
+    "shared": 0,
+    "P": {
+     "END PLATE": {},
+     "SHIM": {},
+     "FRONT PLATE": {},
+     "SEAT ANGLE": {},
+     "STIFFENER": {},
+     "FLANGE PLATE": {}
+    },
+    "posH": 0,
+    "posV": "",
+    "refH": "Middle",
+    "refV": "Top",
+    "bdel": "",
+    "tol": 3,
+    "thr": 1,
+    "sw": "Site",
+    "cutlen": "",
+    "sl1": 0,
+    "sl2": 0,
+    "htype": "Slotted",
+    "srot": 0,
+    "sin": "All",
+    "ba_b": 1,
+    "ba_w": 1,
+    "ba_n": 1,
+    "blen": 0,
+    "bdir": 1,
+    "stag": 0,
+    "hn": 0,
+    "hx1": 0,
+    "hx2": 0,
+    "hy1": 60,
+    "hy2": 60,
+    "hd2": 18,
+    "hd1": 18,
+    "locked": 0,
+    "cls": 4,
+    "code": "",
+    "adrule": "None",
+    "acrule": "None",
+    "W": {
+     "Beam to end plate": {
+      "a": 8,
+      "around": 1
+     }
+    }
+   },
+   "welds": [
+    {
+     "name": "Beam to end plate",
+     "a": 8,
+     "len": 1400,
+     "loop": [
+      [
+       21.25,
+       -85,
+       6640
+      ],
+      [
+       21.25,
+       85,
+       6640
+      ],
+      [
+       21.25,
+       85,
+       7000
+      ],
+      [
+       21.25,
+       -85,
+       7000
+      ]
+     ],
+     "around": 1
+    }
+   ],
+   "connDef": null,
+   "bolts": {
+    "n": 12,
+    "d": 20,
+    "L": 68,
+    "pts": [
+     [
+      21.35,
+      110,
+      6930
+     ],
+     [
+      21.35,
+      50,
+      6930
+     ],
+     [
+      21.35,
+      -50,
+      6930
+     ],
+     [
+      21.35,
+      -110,
+      6930
+     ],
+     [
+      21.35,
+      110,
+      6860
+     ],
+     [
+      21.35,
+      50,
+      6860
+     ],
+     [
+      21.35,
+      -50,
+      6860
+     ],
+     [
+      21.35,
+      -110,
+      6860
+     ],
+     [
+      21.35,
+      110,
+      6790
+     ],
+     [
+      21.35,
+      50,
+      6790
+     ],
+     [
+      21.35,
+      -50,
+      6790
+     ],
+     [
+      21.35,
+      -110,
+      6790
+     ]
+    ]
+   },
+   "plates": [
+    {
+     "name": "END PLATE",
+     "prof": "PL15",
+     "mat": "S275",
+     "cls": 4
+    }
+   ]
+  },
+  "t144_modify_pitches": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "steps": [
+    [
+     "Bolts",
+     "dim",
+     "n",
+     "4"
+    ],
+    [
+     "Bolts",
+     "dim",
+     "s",
+     "80 70 90"
+    ],
+    [
+     "Plates",
+     "part",
+     "END PLATE.mat",
+     "S355"
+    ],
+    [
+     "Plates",
+     "part",
+     "END PLATE.name",
+     "EP"
+    ],
+    [
+     "Holes",
+     "row",
+     "Number of holes",
+     2
+    ]
+   ],
+   "action": "Modify",
+   "q": {
+    "cols": 2,
+    "gauge2": 0,
+    "pitches": "80 70 90",
+    "tp": 10,
+    "ext": -10,
+    "extb": -10,
+    "side": 30,
+    "gauge": 90,
+    "rows": 4,
+    "pitch": 70,
+    "e": 35,
+    "bolt": 20,
+    "grade": "8.8",
+    "a": 6,
+    "gap": 2,
+    "shim": 0,
+    "front": 0,
+    "seat": 0,
+    "stiff": 0,
+    "comp": 0,
+    "two": 0,
+    "shared": 0,
+    "P": {
+     "END PLATE": {
+      "mat": "S355",
+      "name": "EP"
+     },
+     "SHIM": {},
+     "FRONT PLATE": {},
+     "SEAT ANGLE": {},
+     "STIFFENER": {},
+     "FLANGE PLATE": {}
+    },
+    "posH": 0,
+    "posV": "",
+    "refH": "Middle",
+    "refV": "Top",
+    "bdel": "",
+    "tol": "",
+    "thr": 1,
+    "sw": "Site",
+    "cutlen": "",
+    "bcmt": "",
+    "sl1": 0,
+    "sl2": 0,
+    "htype": "Slotted",
+    "srot": 0,
+    "sin": "All",
+    "ba_b": 1,
+    "ba_w": 1,
+    "ba_n": 1,
+    "blen": 0,
+    "bdir": 1,
+    "stag": 0,
+    "hn": 2,
+    "hx1": 0,
+    "hx2": 0,
+    "hy1": 60,
+    "hy2": 60,
+    "hd2": 18,
+    "hd1": 18,
+    "locked": 0,
+    "cls": 1,
+    "code": "",
+    "adrule": "None",
+    "acrule": "None",
+    "W": {
+     "Beam to end plate": {
+      "around": 1
+     }
+    }
+   },
+   "welds": [
+    {
+     "name": "Beam to end plate",
+     "a": 6,
+     "len": 1400,
+     "loop": [
+      [
+       16.25,
+       -85,
+       6640
+      ],
+      [
+       16.25,
+       85,
+       6640
+      ],
+      [
+       16.25,
+       85,
+       7000
+      ],
+      [
+       16.25,
+       -85,
+       7000
+      ]
+     ],
+     "around": 1
+    }
+   ],
+   "connDef": null,
+   "bolts": {
+    "n": 8,
+    "d": 20,
+    "L": 63,
+    "pts": [
+     [
+      16.35,
+      45,
+      6955
+     ],
+     [
+      16.35,
+      -45,
+      6955
+     ],
+     [
+      16.35,
+      45,
+      6875
+     ],
+     [
+      16.35,
+      -45,
+      6875
+     ],
+     [
+      16.35,
+      45,
+      6805
+     ],
+     [
+      16.35,
+      -45,
+      6805
+     ],
+     [
+      16.35,
+      45,
+      6715
+     ],
+     [
+      16.35,
+      -45,
+      6715
+     ]
+    ]
+   },
+   "plates": [
+    {
+     "name": "EP",
+     "prof": "PL10",
+     "mat": "S355",
+     "cls": 1
+    }
+   ]
+  },
+  "t144_apply_defaults": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "steps": [
+    [
+     "Picture",
+     "dim",
+     "2",
+     "15"
+    ],
+    [
+     "Picture",
+     "dim",
+     "3",
+     "5"
+    ],
+    [
+     "Bolts",
+     "row",
+     "Bolt size",
+     24
+    ]
+   ],
+   "action": "Apply",
+   "q": {
+    "cols": 2,
+    "gauge2": 0,
+    "pitches": "",
+    "tp": 10,
+    "ext": -10,
+    "extb": -15,
+    "side": 30,
+    "gauge": 90,
+    "rows": "",
+    "pitch": 70,
+    "e": 35,
+    "bolt": 24,
+    "grade": "8.8",
+    "a": 6,
+    "gap": 5,
+    "shim": 0,
+    "front": 0,
+    "seat": 0,
+    "stiff": 0,
+    "comp": 0,
+    "two": 0,
+    "shared": 0,
+    "P": {
+     "END PLATE": {},
+     "SHIM": {},
+     "FRONT PLATE": {},
+     "SEAT ANGLE": {},
+     "STIFFENER": {},
+     "FLANGE PLATE": {}
+    },
+    "posH": 0,
+    "posV": "",
+    "refH": "Middle",
+    "refV": "Top",
+    "bdel": "",
+    "tol": "",
+    "thr": 1,
+    "sw": "Site",
+    "cutlen": "",
+    "bcmt": "",
+    "sl1": 0,
+    "sl2": 0,
+    "htype": "Slotted",
+    "srot": 0,
+    "sin": "All",
+    "ba_b": 1,
+    "ba_w": 1,
+    "ba_n": 1,
+    "blen": 0,
+    "bdir": 1,
+    "stag": 0,
+    "hn": 0,
+    "hx1": 0,
+    "hx2": 0,
+    "hy1": 60,
+    "hy2": 60,
+    "hd2": 18,
+    "hd1": 18,
+    "locked": 0,
+    "cls": 1,
+    "code": "",
+    "adrule": "None",
+    "acrule": "None",
+    "W": {
+     "*": {
+      "around": 1
+     }
+    }
+   },
+   "welds": [
+    {
+     "name": "Beam to end plate",
+     "a": 6,
+     "len": 1400,
+     "loop": [
+      [
+       19.25,
+       -85,
+       6640
+      ],
+      [
+       19.25,
+       85,
+       6640
+      ],
+      [
+       19.25,
+       85,
+       7000
+      ],
+      [
+       19.25,
+       -85,
+       7000
+      ]
+     ],
+     "around": 1
+    }
+   ],
+   "connDef": {
+    "T144": {
+     "cols": 2,
+     "gauge2": 0,
+     "pitches": "",
+     "tp": 10,
+     "ext": -10,
+     "extb": -15,
+     "side": 30,
+     "gauge": 90,
+     "rows": "",
+     "pitch": 70,
+     "e": 35,
+     "bolt": 24,
+     "grade": "8.8",
+     "a": 6,
+     "gap": 5,
+     "shim": 0,
+     "front": 0,
+     "seat": 0,
+     "stiff": 0,
+     "comp": 0,
+     "two": 0,
+     "shared": 0,
+     "P": {
+      "END PLATE": {},
+      "SHIM": {},
+      "FRONT PLATE": {},
+      "SEAT ANGLE": {},
+      "STIFFENER": {},
+      "FLANGE PLATE": {}
+     },
+     "posH": 0,
+     "posV": "",
+     "refH": "Middle",
+     "refV": "Top",
+     "bdel": "",
+     "tol": "",
+     "thr": 1,
+     "sw": "Site",
+     "cutlen": "",
+     "bcmt": "",
+     "sl1": 0,
+     "sl2": 0,
+     "htype": "Slotted",
+     "srot": 0,
+     "sin": "All",
+     "ba_b": 1,
+     "ba_w": 1,
+     "ba_n": 1,
+     "blen": 0,
+     "bdir": 1,
+     "stag": 0,
+     "hn": 0,
+     "hx1": 0,
+     "hx2": 0,
+     "hy1": 60,
+     "hy2": 60,
+     "hd2": 18,
+     "hd1": 18,
+     "locked": 0,
+     "cls": 1,
+     "code": "",
+     "adrule": "None",
+     "acrule": "None",
+     "W": {
+      "*": {
+       "around": 1
+      }
+     }
+    }
+   },
+   "bolts": {
+    "n": 8,
+    "d": 24,
+    "L": 74,
+    "pts": [
+     [
+      19.35,
+      45,
+      6955
+     ],
+     [
+      19.35,
+      -45,
+      6955
+     ],
+     [
+      19.35,
+      45,
+      6885
+     ],
+     [
+      19.35,
+      -45,
+      6885
+     ],
+     [
+      19.35,
+      45,
+      6815
+     ],
+     [
+      19.35,
+      -45,
+      6815
+     ],
+     [
+      19.35,
+      45,
+      6745
+     ],
+     [
+      19.35,
+      -45,
+      6745
+     ]
+    ]
+   },
+   "plates": [
+    {
+     "name": "END PLATE",
+     "prof": "PL10",
+     "mat": "S275",
+     "cls": 1
+    }
+   ]
+  }
+ },
+ "search": {
+  "144": [
+   "T144"
+  ],
+  "1042": [
+   "T1042"
+  ],
+  "end plate": [
+   "T24",
+   "T27s",
+   "T29",
+   "T32",
+   "T34",
+   "T65",
+   "T97",
+   "T101",
+   "T111",
+   "T112",
+   "T115",
+   "T142",
+   "T144",
+   "T1002"
+  ],
+  "base": [
+   "T55",
+   "T71",
+   "T1004",
+   "T1014",
+   "T1016",
+   "T1031",
+   "T1042",
+   "T1047",
+   "T1052",
+   "T1053",
+   "T1066",
+   "T1068",
+   "T1020"
+  ],
+  "tube": [
+   "T47",
+   "T189",
+   "T100",
+   "T104",
+   "T6",
+   "Ttgx",
+   "Ttg",
+   "T20",
+   "T22",
+   "T56",
+   "TS46",
+   "TS47",
+   "TS48",
+   "TS49",
+   "T113",
+   "T102t",
+   "T103t",
+   "Ttc",
+   "Tts",
+   "Ttm",
+   "Tth",
+   "Ttsl",
+   "T23",
+   "T47p"
+  ],
+  "S7": [
+   "TS78",
+   "TS71",
+   "TS77"
+  ],
+  "clip angle": [
+   "T31",
+   "T33",
+   "T44",
+   "T82",
+   "T116",
+   "T117",
+   "T141",
+   "T143"
+  ],
+  "zzz": [],
+  "Purlin": [
+   "Tsag",
+   "Tcl",
+   "T15",
+   "T50p",
+   "T61p",
+   "T93",
+   "Tpc"
+  ],
+  "20 ": [
+   "T1020",
+   "T20"
+  ]
+ }
+}
