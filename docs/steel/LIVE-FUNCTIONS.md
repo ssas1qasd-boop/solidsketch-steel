@@ -33,3 +33,21 @@ Line numbers refer to `reference/solidsketch_v69.html` (DEV copy, 17,999 lines).
 
 ## Stale `window.__st` exports (found in S1)
 Some exports were captured before the last reassign, so they call an early link of the chain: `__st.connGeom` (L14039, v34 version; live chain ends L17091), `__st.build` (L13827; ends L15228), `__st.portalParts` (L13880; ends L15354), `__st.dwg.holes` (L14852; ends L15933). Do not use them as reference behaviour. The golden harness adds live wrappers as `__st.live.*` (see `tools/golden/README.md`).
+
+## Ported in S7 / S8 (what the app follows)
+| Function / table | Live definition | Port |
+|---|---|---|
+| catalog sheet `stCatalog` | L14383 (v38, only definition); groups ST_CATALOG rebuilt L15193 (v40), Tcl / Ttg / Ttgx added L15640, Tsag L15653 | `comp/Components.kt` (groups, search, recently used); data `tk_ui.json` |
+| `stCatPick`, `stCatPrompt`, pick taps | L14402–14411 (v38) | `SteelMode.catPick` / `catTap` |
+| `stCompDialog` | L16304 (v58; earlier L14420 v38, L15680 v49) | `comp/Components.kt` `CompDialog` + `comp/CompUi.kt` |
+| `tkSpec` / `tkGeneric` / `TKD` | L16257 / L16245 / L16184 (v58) | exported per component to `tk_ui.json` (`specs`) |
+| field accessors `neg`, `gaugeList`, `pitchList` | v58 (L16176–16181) | `comp/TkUi.kt` `Acc` (matched by source text) |
+| `tkBoltPic` | L16274 (v58) | `comp/BoltPic.kt` |
+| `stConnOK` | L14413 (v38) | `Components.ok` |
+| `tkStatus` (+ tkPierce, tkSlice, tkSegDist, tkThick, tkSkipPlate, TK_RULE) | L16034 (v58) | `comp/TkCheck.kt` |
+| `stSymPos` / `stSymDraw` / `stSymHit` / `tkSelect` / `tkFanDraw` / `tkCheckStep` | L16071 / L16082 / L16099 / L16106 / L16088 / L16111 (v58) | `TkCheck.symPos`, `TkCheck.fan`, `SteelMode.symbolsOnScreen` / `symAt` / `checkStep`, `SteelPanel` |
+| `stOwner` | L15885 (v58) → L15638 (v49) → L15531 → … → L15168 (v40) → L14113 | `StRegen.owner` |
+| `CONN` family / def | built L14881 (v40); T102t / T103t → GU L15458, Ttc → WF L15461; v58 EP def additions | live CONN exported to `tk_ui.json` (`conn`), used by regen |
+| v58 geometry wrapper (bolt info, Holes tab, Welds tab) | L15992 (v58) | `Fam.geom` |
+| `FAM.EP` | L15547 (v48; earlier L14918) | `Fam.ep` |
+| `FAM.ST` | L14939 (v40, only definition) | `Fam.st` |

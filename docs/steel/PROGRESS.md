@@ -3,13 +3,26 @@
 History: S0–S4 in `docs/steel/PROGRESS-S0-S4.md` (incl. the postponed license gate rules); S5–S6 in `docs/steel/PROGRESS-S5-S6.md` (incl. the S5 and S6 phone check lists).
 
 ## Current milestone
-**S7 done; S8 next** (owner plan 2026-11-23: S7, S8 and S9 without waiting for phone checks, push after every step, stop before S10; Claude does all of S8 and S9). S7 APK: `dist/solidsketch-steel-s7-debug.apk` (0.7.0-s7, phone check below). S5 and S6 APKs: `dist/solidsketch-steel-s5-debug.apk`, `dist/solidsketch-steel-s6-debug.apk` (phone checks in `PROGRESS-S5-S6.md`).
+**S8 in progress** (S7 done) (owner plan 2026-11-23: S7, S8 and S9 without waiting for phone checks, push after every step, stop before S10; Claude does all of S8 and S9). S7 APK: `dist/solidsketch-steel-s7-debug.apk` (0.7.0-s7, phone check below). S5 and S6 APKs: `dist/solidsketch-steel-s5-debug.apk`, `dist/solidsketch-steel-s6-debug.apk` (phone checks in `PROGRESS-S5-S6.md`).
 
 ## S7 plan (component framework)
 1. Component engine: v69 `famGeom` context, the v58 geometry wrapper (bolt options reach `stBolts`, bolt info d0 / std / thr / sw, Welds tab), the live EP family (v48), component plates and bolts in regen (`tkKidSt` part fields, class colours, assembly owner), welds kept on the connection. **Done.**
 2. Catalog sheet (18 groups / 252 items, search by name or number, recently used), pick order (TK_PICK prompts), component dialog with Modify / Get / on-off / Apply, saved presets. **Done.**
 3. Symbols (cones green / yellow / red, lines to the joined parts) and the rule checks per component (`tkStatus`). **Done.**
 Then the S7 APK and phone check list. **Done.**
+
+## S8 plan (the 10 full Tekla dialogs and their families)
+The dialogs themselves (Picture with input boxes, every tab and field, presets, on/off) are data from v69 since S7 step 2 (`tkSpec` → tk_ui.json) and the same dialog code shows all 10. S8 is the geometry behind them, compared with v69 per component (`tools/golden/comp_cases.js` + `CompGoldenTest`; at least 3 cases each: standard, odd profile, skewed or sloped):
+1. ST family (Shear plate 146), Holes tab, the live owner chain, the generic component golden; v58 bolt options through End plate 144. **Done.**
+2. BP (base plates 1042, 1004, 1014 and the other 10), CP (Seating 39 and the other 8), CL (purlin cleat), SR (sag rod), TG (tube gusset, tube crossing): one file per family (`conn/Fam<XX>.kt`), ported in parallel.
+3. Marks: Tekla marks come from numbering (S11); S8 checks the part fields marks are made from (Pos_No prefix / start, name, material, profile).
+Then the S8 APK and phone check list.
+
+## S8 step 1 (2026-11-23): ST family, Holes tab, owner chain, component golden, bolt options
+- `conn/Fam.kt`: **ST** (v69 FAM.ST L14939, its only definition): shear tab(s) on the main part (one side, other side or two sided; shaped corners; through a tube / column), bolt rows fitted between the secondary's flanges (or full depth / up to the top flange), several bolt columns, the secondary's end cut back and its flanges notched over the tab, welded tee, column stiffeners / web stiffeners; v58 **Holes tab** (1, 2 or 4 sinkholes in the first plate from the first bolt group's centre); bolt groups recorded in order (v69 TKB_G). One file per family for the rest (`conn/Fam<XX>.kt`, a stub until ported: regen leaves components of unported families as the file has them).
+- `conn/StRegen.kt`: the live `stOwner` chain (v40 family rules, v49 TG / CL and T133 / T135 stubs, v58 TG gussets) for every family.
+- **Generic component golden**: `tools/golden/comp_cases.js <cases.js> <out.json>` runs cases `{component, members, q}` through v69 (`__st.connect`) and dumps every body (members after their cuts, plates, bolt groups: volume, box), plate fields, bolt groups, welds and the rule-check status; `CompGoldenTest` rebuilds each case through the app's framework and compares body by body in v69's order (`COMP_ONLY=<file>` runs one file; run with `--rerun`, Gradle does not see the JSON as an input); `known*.json` lists cases that cannot be matched (they are the NOT VERIFIED list); report `build/comp-golden-report.txt`.
+- **Acceptance:** Shear plate 146 equals v69 in 5/5 cases (standard; HEM300 turned with IPE240, two sided; skewed 20° into a main beam IPE500; full depth with column stiffeners and 2 bolt columns; shaped with tee and gap 20). **v58 bolt options**: 16/16 cases through End plate 144 equal v69 (staggering 1–4, deleted bolts `2 5`, slotted, slotted rotated, oversized, tapped, no hole, no washers, no nuts, no bolt, bolting direction 2, length increase, tolerance 3 with M24).
 
 ## S7 phone check (owner) — `dist/solidsketch-steel-s7-debug.apk`
 1. Start: the bottom line says `Steel 0.7.0-s7`. Everything in the S6 check still works.
@@ -78,7 +91,6 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 - S5 look on a phone: edge lines and v69's lights are written to v69's numbers and checked with one pixel in WebGL2, not compared side by side with v69 on the owner's phone. Edge cost on R10 on a phone (time until they appear, GPU memory) not measured.
 - S6 on a phone: Modify on R10 parts with their cuts and bolt groups (built and tested on the build machine with Manifold, not tried on a phone).
 - Welds: End plate welds (name, a, length, loop, Welds tab size / around) equal v69 (S7T144Test 3/3, S7DialogTest 4/4, the weld rule check S7StatusTest). The other families' welds, the weld list and `weldonly` are checked with their families (S8–S9).
-- The v58 Tekla bolt options (staggering, deleted bolts, slotted / oversized / tapped holes, bolt direction, washers / nuts off) are ported but have no v69 golden yet: v69's TKBOLT ignores them (see S6, found), and the components that use them are S7–S9. Checked then.
 - Fittings with copes (a beam into a main beam's web) are ported (`stJoint` cope) but none of the 3 golden cases has a cope.
 - Edges in v69 also go through `smoothEdgeLines` (drops seams of smooth surfaces); not ported (the 12° rule already keeps smooth round tubes and bolts without side lines).
 
