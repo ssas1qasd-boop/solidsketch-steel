@@ -2,7 +2,8 @@
 // overrides) and the settings q; v69 adds the members, connects the component (__st.connect: stCQ(k) + q) and rebuilds.
 // Dumped per case: every body the component touches (members after their cuts, its plates, its bolt groups) with
 // volume and box, the plates' part fields, the bolt groups (points in v69's order, n, d, d0, L, axis), the welds, and
-// the rule-check status.
+// the rule-check status. Optional: n (the main component joins only the first n members), pre / more (further components
+// connected before / after it: [[key, [member indexes], q], ...]); the welds of every component are then dumped too (cwelds).
 //   node tools/golden/comp_cases.js <cases.js> <out.json>     e.g. tools/golden/cases/s8_st.js -> tests/steel/golden/comp/s8_st.json
 'use strict';
 const fs = require('fs');
@@ -21,14 +22,16 @@ async function run(cases) {
         let ids;
         try { ids = c.members.map(([set, o]) => st.add(Object.assign({ kind: 'member' }, st.ST_SETS[set], o), 'golden').id); }
         catch (e) { out[name] = { k: c.k, members: c.members, q: c.q, error: 'members: ' + e }; continue; }
-        let r; try { r = st.connect(c.k, ids, c.q || {}); } catch (e) { out[name] = { k: c.k, members: c.members, q: c.q, error: 'connect: ' + e }; continue; }
-        let cn = S.stConns[S.stConns.length - 1];
-        if (c.pt) { cn.pt = c.pt.slice(); st.regen(ids); cn = S.stConns[S.stConns.length - 1]; }   // v69 c.pt: the point picked on the first part
+        // optional pre / more: [[key, [member indexes], q], ...] = further components connected before / after the main one
+        const extra = (l, tag) => { for (const [k2, ix, q2] of l || []) { const r2 = st.connect(k2, ix.map(i => ids[i]), q2 || {}); if (!r2.ok) throw new Error(tag + ' ' + k2 + ' not built'); } };
+        let r, cn; try { extra(c.pre, 'pre'); r = st.connect(c.k, ids.slice(0, c.n || ids.length), c.q || {}); cn = S.stConns[S.stConns.length - 1]; extra(c.more, 'more'); cn = S.stConns.find(x => x.id === cn.id); } catch (e) { out[name] = { k: c.k, members: c.members, q: c.q, error: 'connect: ' + e }; continue; }
+        if (c.pt) { cn.pt = c.pt.slice(); st.regen(ids); cn = S.stConns.find(x => x.id === cn.id); }   // v69 c.pt: the point picked on the first part
         const bodies = S.bodies.map(b => Object.assign({ id: b.id, kind: b.st && b.st.kind, name: b.st && b.st.name }, info(b.man),
           b.st && b.st.kind === 'conn' ? { role: b.st.role, prof: b.st.prof, mat: b.st.mat, cls: b.st.cls, asm: b.st.asm } : {},
           b.st && b.st.kind === 'bolts' ? { n: b.st.n, d: b.st.d, d0: b.st.d0, L: b.st.L, grade: b.st.grade, ax: b.st.ax.map(R), pts: b.st.pts.map(p => p.map(R)) } : {}));
         let s = null; try { s = st.status(cn.id); } catch (e) { s = { s: 0, msgs: ['status: ' + e] }; }
         out[name] = { k: c.k, members: c.members, q: c.q || {}, pt: c.pt, ok: r.ok, bodies, welds: (cn.welds || []).map(w => ({ name: w.name, a: w.a, len: w.len, type: w.type, ws: w.ws, around: w.around })), status: s.s, msgs: s.msgs };
+        if (c.n || c.pre || c.more) Object.assign(out[name], { n: c.n, pre: c.pre, more: c.more, cwelds: S.stConns.map(k2 => (k2.welds || []).map(w => ({ name: w.name, a: w.a, len: w.len, type: w.type, ws: w.ws, around: w.around }))) });
       }
       return out;
     }, { cases });
