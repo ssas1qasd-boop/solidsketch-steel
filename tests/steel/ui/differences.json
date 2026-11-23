@@ -1,0 +1,33 @@
+{
+ "general": [
+  "3D view: the screenshot test has no OpenGL, so the app's 3D view is drawn as a flat sketch of the grids; on the phone it is the real view. v69 draws its ground grid with a shader (minor and major lines); the app draws grid lines in v69's major colour (0x434a56 dark / 0xa3abb8 light). The default camera differs (S5).",
+  "Fonts: the app uses the phone's Roboto, v69 in Chrome uses the system font of the capture; text widths differ by a few px and the emoji glyphs (🗑, 🚶) look different.",
+  "System bars: the v69 shots are Chrome's page area (no status / navigation bar). The app draws edge to edge (targetSdk 35) and pads every bar, panel, sheet, dialog, menu and toast with the phone's insets, so on a phone they sit below the status bar and above the navigation bar.",
+  "The red 'DEV · license skipped' badge belongs to the owner's DEV copy of v69 and is not in the app.",
+  "Toasts: v69 fades and slides them in (0.2 s); the app shows and hides them without the animation.",
+  "Theme override: v69 never sets data-theme (it always follows the phone); the app keeps that as the default and adds a choice in About (as the phone / dark / light)."
+ ],
+ "01_main": [
+  "v69 shows the engine toast 'Exact engine ready · new shapes are exact' at start; the app has no such engine step.",
+  "The ⋮ menu has one more item in the app: 'About SolidSketch Steel' (version, data, theme, debug overlay)."
+ ],
+ "02_steel_grid": [
+  "v69 adds a weight line under the Steel panel for a selected part (v66 Tekla weights); it comes with Tekla weights (S11).",
+  "Grid level lines are dashed in v69 and solid in the app (S5 decision)."
+ ],
+ "03_grid_sheet": [],
+ "04_catalog": [
+  "The catalog's footer (component count, Symbols, Close) stays at the bottom of the sheet in the app; in v69 the whole sheet scrolls, so they are at the end of the 252-item list (owner: Symbols / Close were hidden)."
+ ],
+ "05_dialog_t144": [
+  "Preset picker: v69's select shows only its caret; the app shows the chosen preset's name ('standard') and the 'preset name' box next to it, so 'ignore other types' and 'Welds…' sit further right (the top bar scrolls in both).",
+  "In dark mode v69 keeps the dialog pane's text at #1d2330 on the #2b3038 pane (barely readable); the app copies this exactly."
+ ],
+ "06_dialog_t144_bolts": [
+  "The bottom bar wraps after a different button (the app's buttons are a few px narrower with Roboto): v69 'OK Apply Modify Get on/off' then 'all of this type · Pick parts · Cancel'."
+ ],
+ "07_menu": [
+  "v69's menu has no height limit and runs under the Steel panel or off the screen on a phone; the app's menu stays inside the screen and scrolls.",
+  "'Exact engine (beta)' shows v69's state after its engine loaded ('on'); the app has no such switch yet (it says it comes later)."
+ ]
+}

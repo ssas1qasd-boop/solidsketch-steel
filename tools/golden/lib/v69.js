@@ -47,10 +47,10 @@ async function serve() {
 }
 
 /** Opens v69 with #auto (exposes window.__ss) and waits until the steel API is up. */
-async function openV69({ timeoutMs = 300000, log = true } = {}) {
+async function openV69({ timeoutMs = 300000, log = true, pageOptions = null } = {}) {
   checkReference();
   const browser = await chromium.launch({ args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] });
-  const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
+  const page = await browser.newPage(pageOptions || { viewport: { width: 1280, height: 800 } });
   page.setDefaultTimeout(timeoutMs);
   const errors = [];
   page.on('pageerror', e => errors.push(String(e && e.message || e)));

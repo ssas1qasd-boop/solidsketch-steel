@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steel UI vs v69</title><style>
+:root{--bg:#eef1f5;--fg:#1a1d24;--muted:#5b6270;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1e23;--fg:#eef0f4;--muted:#a2a9b6;--card:#22252c}}
+body{margin:0;padding:16px;background:var(--bg);color:var(--fg);font:15px system-ui,sans-serif}
+h1{font-size:20px;margin:0 0 4px} p.note{color:var(--muted);margin:0 0 16px}
+section{background:var(--card);border-radius:12px;padding:12px;margin:0 0 16px} h2{font-size:16px;margin:0 0 8px}
+.pair{display:flex;gap:12px;overflow-x:auto} figure{margin:0;flex:1 1 0;min-width:180px} img{width:100%;max-width:360px;display:block;border-radius:8px;border:1px solid rgba(127,127,127,.3)}
+figcaption{font-size:12px;color:var(--muted);margin-top:4px} ul{margin:10px 0 0;padding-left:20px} li{margin:3px 0} .ok{color:#2f9e44;margin:8px 0 0}
+</style></head><body><h1>Steel UI vs web v69</h1><p class="note">Same screens on the owner's phone size (1080 × 2340 px). Left: v69 rendered by tools/golden/ui_capture.js. Right: the app rendered by UiScreensTest (no OpenGL in the test: the 3D view is a flat sketch). Differences that remain are listed under each pair (tests/steel/ui/differences.json).</p>
+<section><h2>Main screen</h2><div class="pair">
+<figure><img src="v69/01_main.png" alt="v69 Main screen"><figcaption>web v69 (Chrome, 412 × 891 CSS px, DPR 2.625, dark)</figcaption></figure>
+<figure><img src="app/01_main.png" alt="app Main screen"><figcaption>app (412 × 891 dp, 420 dpi, dark)</figcaption></figure></div>
+<ul><li>v69 shows the engine toast 'Exact engine ready · new shapes are exact' at start; the app has no such engine step.</li><li>The ⋮ menu has one more item in the app: 'About SolidSketch Steel' (version, data, theme, debug overlay).</li></ul></section>
+<section><h2>Steel mode with the grid</h2><div class="pair">
+<figure><img src="v69/02_steel_grid.png" alt="v69 Steel mode with the grid"><figcaption>web v69 (Chrome, 412 × 891 CSS px, DPR 2.625, dark)</figcaption></figure>
+<figure><img src="app/02_steel_grid.png" alt="app Steel mode with the grid"><figcaption>app (412 × 891 dp, 420 dpi, dark)</figcaption></figure></div>
+<ul><li>v69 adds a weight line under the Steel panel for a selected part (v66 Tekla weights); it comes with Tekla weights (S11).</li><li>Grid level lines are dashed in v69 and solid in the app (S5 decision).</li></ul></section>
+<section><h2>Grid sheet</h2><div class="pair">
+<figure><img src="v69/03_grid_sheet.png" alt="v69 Grid sheet"><figcaption>web v69 (Chrome, 412 × 891 CSS px, DPR 2.625, dark)</figcaption></figure>
+<figure><img src="app/03_grid_sheet.png" alt="app Grid sheet"><figcaption>app (412 × 891 dp, 420 dpi, dark)</figcaption></figure></div>
+<p class="ok">No difference found.</p></section>
+<section><h2>Catalog</h2><div class="pair">
+<figure><img src="v69/04_catalog.png" alt="v69 Catalog"><figcaption>web v69 (Chrome, 412 × 891 CSS px, DPR 2.625, dark)</figcaption></figure>
+<figure><img src="app/04_catalog.png" alt="app Catalog"><figcaption>app (412 × 891 dp, 420 dpi, dark)</figcaption></figure></div>
+<ul><li>The catalog's footer (component count, Symbols, Close) stays at the bottom of the sheet in the app; in v69 the whole sheet scrolls, so they are at the end of the 252-item list (owner: Symbols / Close were hidden).</li></ul></section>
+<section><h2>End plate 144 dialog</h2><div class="pair">
+<figure><img src="v69/05_dialog_t144.png" alt="v69 End plate 144 dialog"><figcaption>web v69 (Chrome, 412 × 891 CSS px, DPR 2.625, dark)</figcaption></figure>
+<figure><img src="app/05_dialog_t144.png" alt="app End plate 144 dialog"><figcaption>app (412 × 891 dp, 420 dpi, dark)</figcaption></figure></div>
+<ul><li>Preset picker: v69's select shows only its caret; the app shows the chosen preset's name ('standard') and the 'preset name' box next to it, so 'ignore other types' and 'Welds…' sit further right (the top bar scrolls in both).</li><li>In dark mode v69 keeps the dialog pane's text at #1d2330 on the #2b3038 pane (barely readable); the app copies this exactly.</li></ul></section>
+<section><h2>End plate 144 · Bolts tab</h2><div class="pair">
+<figure><img src="v69/06_dialog_t144_bolts.png" alt="v69 End plate 144 · Bolts tab"><figcaption>web v69 (Chrome, 412 × 891 CSS px, DPR 2.625, dark)</figcaption></figure>
+<figure><img src="app/06_dialog_t144_bolts.png" alt="app End plate 144 · Bolts tab"><figcaption>app (412 × 891 dp, 420 dpi, dark)</figcaption></figure></div>
+<ul><li>The bottom bar wraps after a different button (the app's buttons are a few px narrower with Roboto): v69 'OK Apply Modify Get on/off' then 'all of this type · Pick parts · Cancel'.</li></ul></section>
+<section><h2>⋮ menu</h2><div class="pair">
+<figure><img src="v69/07_menu.png" alt="v69 ⋮ menu"><figcaption>web v69 (Chrome, 412 × 891 CSS px, DPR 2.625, dark)</figcaption></figure>
+<figure><img src="app/07_menu.png" alt="app ⋮ menu"><figcaption>app (412 × 891 dp, 420 dpi, dark)</figcaption></figure></div>
+<ul><li>v69's menu has no height limit and runs under the Steel panel or off the screen on a phone; the app's menu stays inside the screen and scrolls.</li><li>'Exact engine (beta)' shows v69's state after its engine loaded ('on'); the app has no such switch yet (it says it comes later).</li></ul></section>
+<section><h2>General</h2><ul><li>3D view: the screenshot test has no OpenGL, so the app's 3D view is drawn as a flat sketch of the grids; on the phone it is the real view. v69 draws its ground grid with a shader (minor and major lines); the app draws grid lines in v69's major colour (0x434a56 dark / 0xa3abb8 light). The default camera differs (S5).</li><li>Fonts: the app uses the phone's Roboto, v69 in Chrome uses the system font of the capture; text widths differ by a few px and the emoji glyphs (🗑, 🚶) look different.</li><li>System bars: the v69 shots are Chrome's page area (no status / navigation bar). The app draws edge to edge (targetSdk 35) and pads every bar, panel, sheet, dialog, menu and toast with the phone's insets, so on a phone they sit below the status bar and above the navigation bar.</li><li>The red 'DEV · license skipped' badge belongs to the owner's DEV copy of v69 and is not in the app.</li><li>Toasts: v69 fades and slides them in (0.2 s); the app shows and hides them without the animation.</li><li>Theme override: v69 never sets data-theme (it always follows the phone); the app keeps that as the default and adds a choice in About (as the phone / dark / light).</li></ul></section>
+</body></html>

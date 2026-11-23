@@ -27,6 +27,9 @@ Add a row before adding any dependency.
 | Manifold | v3.5.4 (`ce50d780`), fetched by `:fetchManifold`, CrossSection/TBB off | Apache-2.0; `src/svd.h` MIT; quickhull and linalg derived from public-domain code | `native/sscore-lite` (static, in both JNI libraries) | yes |
 | Playwright (+ Chromium it drives) | 1.63.0 | Apache-2.0 (Chromium: BSD-3-Clause) | `tools/golden` (tests only) | no |
 | Node.js (runs the harness) | 22 | MIT | `tools/golden` (tests only) | no |
+| Robolectric (incl. its native graphics runtime) | 4.14.1 | MIT | `:app` unit tests only (S9b screenshots) | no |
+| Roborazzi (roborazzi, roborazzi-compose) | 1.39.0 | Apache-2.0 | `:app` unit tests only (S9b screenshots) | no |
+| Compose ui-test-junit4 / ui-test-manifest | per BOM | Apache-2.0 | `:app` unit tests (manifest: debug builds only) | no (debug only) |
 
 ## Notices to ship
 Apache-2.0 and MIT need their notices in the app (an About / licences screen or a bundled NOTICE file): Manifold (Apache-2.0 + MIT for `svd.h`), AndroidX / Compose / Kotlin / kotlinx-serialization (Apache-2.0), LLVM libc++ (Apache-2.0 with LLVM exception). TODO before the first release build.
