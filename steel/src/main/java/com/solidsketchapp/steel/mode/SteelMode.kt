@@ -40,7 +40,7 @@ class SteelMode(
     private val ray: (Float, Float) -> Pair<Vec3, Vec3>?,
     private val px: Float = 1f,
     private val changed: () -> Unit = {},
-    regen: com.solidsketchapp.steel.conn.StRegen? = null,
+    private val regen: com.solidsketchapp.steel.conn.StRegen? = null,
     /** S7: the component catalog, dialogs and presets (null until the UI data is loaded). */
     var comps: com.solidsketchapp.steel.comp.Components? = null,
 ) {
@@ -121,8 +121,12 @@ class SteelMode(
         if (hit.body in pick) { say = "Already picked · " + c.prompt(k, pick.size); changed(); return true }
         pick += hit.body; pickPts += doubleArrayOf(hit.point.x, hit.point.y, hit.point.z)
         if (pick.size < d.parts.size) { say = c.prompt(k, pick.size); changed(); return true }
-        val parts = pick.toList(); val p0 = pickPts.firstOrNull(); pick.clear(); pickPts.clear()
-        if (d.gen) { say = "${d.label}: this generator comes with the applications (S10) · ${c.prompt(k, 0)} · Done to stop"; changed(); return true }
+        val parts = pick.toList(); val pps = pickPts.toList(); val p0 = pps.firstOrNull(); pick.clear(); pickPts.clear()
+        if (d.gen) { val g = com.solidsketchapp.steel.comp.GenRun(data, doc, undo, this.parts, c, regen)
+            if (g.s10(k)) { say = "${d.label}: this generator comes with the applications (S10) · ${c.prompt(k, 0)} · Done to stop"; changed(); return true }
+            // v69 stGenRun (L15170), then L14409's prompt
+            runCatching { g.run(k, parts, pps) }.fold({ t -> if (t != null) lastToast = t }, { lastToast = it.message ?: "Error" })
+            say = "${d.label} done · ${c.prompt(k, 0)} · Done to stop"; changed(); return true }
         val cn = runCatching { c.add(k, parts, c.cq(k), p0) }.getOrElse { say = it.message ?: "Error"; changed(); return true }
         val ok = c.ok(cn)
         say = "${d.label} ${if (ok) "created" else "failed (red symbol): check the parts"} · ${c.prompt(k, 0)} · Done to stop"
