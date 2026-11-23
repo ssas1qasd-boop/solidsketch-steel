@@ -14,8 +14,8 @@ android {
         applicationId = "com.solidsketchapp.steel"
         minSdk = 24
         targetSdk = 35
-        versionCode = 11
-        versionName = "0.9.0-s9"
+        versionCode = 12
+        versionName = "0.9.1-s9b"
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
     }
 
@@ -34,6 +34,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions { jvmTarget = "17" }
+    testOptions { unitTests.isIncludeAndroidResources = true }
 }
 
 dependencies {
@@ -50,10 +51,21 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.serialization.json)   // S6 golden JSON in tests
+    // S9b: app screenshots without a device (Robolectric, MIT; Roborazzi, Apache-2.0; test only, never in the APK)
+    testImplementation("org.robolectric:robolectric:4.14.1")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi:1.39.0")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi-compose:1.39.0")
+    testImplementation(platform(libs.androidx.compose.bom))
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
 
-// R10 is loaded in unit tests.
-tasks.withType<Test>().configureEach { maxHeapSize = "2g" }
+// S9b: with -PlocalM2=<dir>, Robolectric runs offline from <dir>/robolectric-deps (Maven Central answered 429 in the cloud session).
+providers.gradleProperty("localM2").orNull?.let { dir -> tasks.withType<Test>().configureEach {
+    systemProperty("robolectric.offline", "true"); systemProperty("robolectric.dependency.dir", "$dir/robolectric-deps") } }
+
+// R10 is loaded in unit tests. S9b: Roborazzi writes the app screenshots (tests/steel/ui/app) on every run.
+tasks.withType<Test>().configureEach { maxHeapSize = "2g"; systemProperty("roborazzi.test.record", "true") }
 
 // S6: R10 regenerated with the real Manifold booleans on this machine (same host library as :core-view).
 //   ./gradlew :app:testDebugUnitTest -PhostJni
@@ -63,3 +75,6 @@ if (providers.gradleProperty("hostJni").isPresent) tasks.withType<Test>().config
     systemProperty("sscore.hostJni", "1")
     maxHeapSize = "4g"
 }
+
+// S9b: the screenshots need the Compose test activity from ui-test-manifest, which only the debug build has.
+tasks.matching { it.name == "testReleaseUnitTest" }.configureEach { (this as Test).filter { excludeTestsMatching("*UiScreensTest*") } }
