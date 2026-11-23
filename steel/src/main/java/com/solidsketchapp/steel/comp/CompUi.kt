@@ -20,6 +20,12 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInParent
+import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -80,11 +86,12 @@ private fun Icon(pics: CompPics, k: String, big: Boolean = false) {
 @Composable
 fun CatalogSheet(mode: SteelMode, comps: Components, pics: CompPics, symbolsOn: Boolean, toggleSymbols: () -> Unit, openDialog: (String) -> Unit, app: (String) -> Unit, close: () -> Unit) {
     var filter by remember { mutableStateOf("") }
-    Column(Modifier.fillMaxSize().padding(8.dp).background(Color.White, RoundedCornerShape(16.dp)).border(1.dp, Color(0xFFDDDDDD), RoundedCornerShape(16.dp)).padding(12.dp)) {
-        Text("Applications & components", fontSize = 16.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(top = 4.dp, bottom = 10.dp))
-        Box(Modifier.fillMaxWidth().border(1.dp, Color(0xFFCCCCCC), RoundedCornerShape(8.dp)).padding(horizontal = 8.dp, vertical = 8.dp)) {
-            if (filter.isEmpty()) Text("Search: name or number, e.g. end plate, 144", color = Color(0x80111111), fontSize = 14.sp)
-            BasicTextField(filter, { filter = it }, singleLine = true, textStyle = TextStyle(fontSize = 14.sp), modifier = Modifier.fillMaxWidth())
+    val sc = com.solidsketchapp.steel.ui.LocalSs.current
+    // v69 stCatalog: an #st-sheet titled "Applications & components" with a search input (.srch: full width, margin 0 0 8)
+    com.solidsketchapp.steel.ui.StSheet("Applications & components", scroll = false) {
+        Box(Modifier.fillMaxWidth().border(1.dp, sc.border, RoundedCornerShape(8.dp)).padding(horizontal = 8.dp, vertical = 6.dp)) {
+            if (filter.isEmpty()) Text("Search: name or number, e.g. end plate, 144", color = sc.fg.copy(alpha = 0.5f), fontSize = 14.sp, maxLines = 1)
+            BasicTextField(filter, { filter = it }, singleLine = true, textStyle = TextStyle(fontSize = 14.sp, color = sc.fg), cursorBrush = androidx.compose.ui.graphics.SolidColor(sc.fg), modifier = Modifier.fillMaxWidth())
         }
         val open = remember { mutableStateOf(setOf<String>()) }   // v69 <details open>: closed ones listed here
         LazyColumn(Modifier.weight(1f).padding(top = 8.dp)) {
@@ -100,7 +107,7 @@ fun CatalogSheet(mode: SteelMode, comps: Components, pics: CompPics, symbolsOn: 
         }
         val n = comps.countInModel()
         Text("Tap a component, then pick its parts in the model. $n component${if (n == 1) "" else "s"} in the model.", fontSize = 13.sp, modifier = Modifier.padding(vertical = 6.dp))
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.End)) {
+        com.solidsketchapp.steel.ui.StBar {
             StBtn(if (symbolsOn) "Symbols ✓" else "Symbols", symbolsOn) { toggleSymbols() }
             StBtn("Close") { close() }
         }
@@ -112,8 +119,8 @@ private fun CatRow(comps: Components, pics: CompPics, k: String, pick: () -> Uni
     Row(Modifier.fillMaxWidth().clickable { pick() }.padding(horizontal = 6.dp, vertical = 5.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         Icon(pics, k)
         Column(Modifier.weight(1f)) {
-            Text(comps.ui.label(k), fontWeight = FontWeight.SemiBold, fontSize = 14.sp, maxLines = 2, overflow = TextOverflow.Ellipsis)
-            Text(comps.ui.tekla(k), fontSize = 12.sp, color = Color(0xB3111111), maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Text(comps.ui.label(k), fontWeight = FontWeight.SemiBold, fontSize = 14.sp, maxLines = 2, overflow = TextOverflow.Ellipsis, color = com.solidsketchapp.steel.ui.LocalSs.current.fg)
+            Text(comps.ui.tekla(k), fontSize = 12.sp, color = com.solidsketchapp.steel.ui.LocalSs.current.fg.copy(alpha = 0.7f), maxLines = 2, overflow = TextOverflow.Ellipsis)
         }
         if (k in comps.ui.conn) StBtn("Properties") { props() }
     }
@@ -132,7 +139,8 @@ private fun TkBtn(label: String, on: Boolean = false, onClick: () -> Unit) {
 }
 
 @Composable
-private fun TkCheck(checked: Boolean, onChange: (Boolean) -> Unit) = Checkbox(checked, onChange, Modifier.size(28.dp))
+private fun TkCheck(checked: Boolean, onChange: (Boolean) -> Unit) = Checkbox(checked, onChange, Modifier.size(28.dp),   // v69: accent-color #2a6fd1, 18 px
+    colors = androidx.compose.material3.CheckboxDefaults.colors(checkedColor = Color(0xFF2A6FD1), uncheckedColor = Color(0xFF767676), checkmarkColor = Color.White))
 
 @Composable
 private fun TkText(value: String, onChange: (String) -> Unit, placeholder: String?, numeric: Boolean, modifier: Modifier, enabled: Boolean = true) {
@@ -171,16 +179,19 @@ private fun InputBox(d: CompDialog, pics: CompPics, i: CompDialog.Input, rev: In
 }
 
 /** v58 stCompDialog (L16304): header with status, presets bar, Tekla tabs (picture with input boxes, parts table, fields with on/off, welds table), OK / Apply / Modify / Get / on/off / Pick parts / Cancel / Delete. */
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
-fun CompDialogSheet(mode: SteelMode, comps: Components, pics: CompPics, key: String, conn0: StConn?, status: (StConn) -> Pair<Int, List<String>>, toast: (String) -> Unit, close: () -> Unit) {
+fun CompDialogSheet(mode: SteelMode, comps: Components, pics: CompPics, key: String, conn0: StConn?, status: (StConn) -> Pair<Int, List<String>>, toast: (String) -> Unit, close: () -> Unit, initialTab: String? = null) {
     val d = remember(key, conn0?.id) { CompDialog(comps, key, conn0) }
     var rev by remember { mutableIntStateOf(0) }; val bump: () -> Unit = { rev++ }
-    var tab by remember(key) { mutableStateOf(d.spec.tabs.first().name) }
+    var tab by remember(key) { mutableStateOf(initialTab?.takeIf { t -> d.spec.tabs.any { it.name == t } } ?: d.spec.tabs.first().name) }
     var presetName by remember { mutableStateOf("") }; var preset by remember { mutableStateOf("standard") }
     var allOfType by remember { mutableStateOf(false) }; var ignoreOther by remember { mutableStateOf(true) }
     val uri = LocalUriHandler.current
     @Suppress("UNUSED_EXPRESSION") rev
-    Column(Modifier.fillMaxSize().padding(top = 28.dp).background(BG, RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))) {
+    val dk = com.solidsketchapp.steel.ui.LocalSs.current.dark
+    Column(Modifier.fillMaxSize().windowInsetsPadding(androidx.compose.foundation.layout.WindowInsets.safeDrawing.only(androidx.compose.foundation.layout.WindowInsetsSides.Top + androidx.compose.foundation.layout.WindowInsetsSides.Horizontal))
+        .padding(top = 28.dp).background(if (dk) Color(0xFF23272E) else BG, RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))) {
         // header
         val c = d.conn; val st = c?.let(status)
         Row(Modifier.fillMaxWidth().background(Color(0xFFF0F2F5)).padding(horizontal = 10.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -206,21 +217,25 @@ fun CompDialogSheet(mode: SteelMode, comps: Components, pics: CompPics, key: Str
             TkBtn("Help") { val u = "https://support.tekla.com/doc/tekla-structures/2025/" + d.spec.help; runCatching { uri.openUri(u) }.onFailure { toast(u) } }
         }
         // tabs
-        Row(Modifier.fillMaxWidth().background(Color(0xFFDFE3E8)).horizontalScroll(rememberScrollState()).padding(start = 8.dp, end = 8.dp, top = 6.dp), horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-            for (t in d.spec.tabs) TkBtn(t.name, t.name == tab) { tab = t.name }
+        // v69 show(): the selected tab is scrolled into view (scrollIntoView, inline centre)
+        val tabScroll = rememberScrollState(); val tabX = remember { HashMap<String, Int>() }; val dens = androidx.compose.ui.platform.LocalDensity.current
+        androidx.compose.runtime.LaunchedEffect(tab, tabX.size) { tabX[tab]?.let { x -> tabScroll.animateScrollTo(maxOf(0, x - with(dens) { 150.dp.roundToPx() })) } }
+        Row(Modifier.fillMaxWidth().background(Color(0xFFDFE3E8)).horizontalScroll(tabScroll).padding(start = 8.dp, end = 8.dp, top = 6.dp), horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+            for (t in d.spec.tabs) Box(Modifier.onGloballyPositioned { tabX[t.name] = it.positionInParent().x.toInt() }) { TkBtn(t.name, t.name == tab) { tab = t.name } }
         }
         // pane
         val t = d.spec.tabs.first { it.name == tab }
-        Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(8.dp).background(PANE, RoundedCornerShape(4.dp)).border(1.dp, LINE, RoundedCornerShape(4.dp)).padding(8.dp)) {
+        Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(8.dp).background(if (dk) Color(0xFF2B3038) else PANE, RoundedCornerShape(4.dp)).border(1.dp, LINE, RoundedCornerShape(4.dp)).padding(8.dp)) {
             if (t.pic != null) Picture(d, pics, t, rev, bump)
             t.parts?.let { rows -> PartsTable(d, pics, rows, rev, bump) }
             for ((h, fs) in t.groups) { if (fs.isEmpty()) continue
-                Text(h, fontSize = 12.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFF2A3A52), modifier = Modifier.padding(top = 10.dp, bottom = 4.dp))
+                Text(h.uppercase(), fontSize = 13.sp, fontWeight = FontWeight.Bold, letterSpacing = 0.52.sp, color = Color(0xFF2A3A52).copy(alpha = 0.75f), modifier = Modifier.padding(top = 14.dp, bottom = 6.dp))
                 for (f in fs) FieldRow(d, pics, f, rev, bump) }
             if (t.welds) WeldsTable(d, pics, rev, bump)
         }
         // bottom bar
-        Row(Modifier.fillMaxWidth().background(Color(0xFFF6F7F9)).horizontalScroll(rememberScrollState()).padding(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 14.dp), horizontalArrangement = Arrangement.spacedBy(5.dp), verticalAlignment = Alignment.CenterVertically) {
+        // v69 .tkbar: #f6f7f9, padding 8 8 14, wraps; here it also covers the navigation bar
+        androidx.compose.foundation.layout.FlowRow(Modifier.fillMaxWidth().background(Color(0xFFF6F7F9)).windowInsetsPadding(com.solidsketchapp.steel.ui.panelInsets()).padding(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 14.dp), horizontalArrangement = Arrangement.spacedBy(5.dp, Alignment.End), verticalArrangement = Arrangement.spacedBy(6.dp)) {
             fun modify() { val locked = d.conn?.let { Js.num(it.q["locked"]).let { v -> v != 0.0 && !v.isNaN() } } == true
                 if (!allOfType && d.conn == null || (!allOfType && locked)) { toast(if (locked) "This component is locked (General tab)" else "Select a component of this type in the model, or tick “all of this type”"); return }
                 val n = d.modify(allOfType); if (n == 0) { toast("Select a component of this type in the model, or tick “all of this type”"); return }
@@ -244,7 +259,7 @@ private fun Picture(d: CompDialog, pics: CompPics, t: TkTab, rev: Int, bump: () 
     val th = pics.ui.thumbs[d.key]
     val fields = d.picFields(t); val inputs = fields.mapNotNull { f -> d.inputs.firstOrNull { it.f.k == f.k && (it.f.at != null || f.at != null) }?.let { f to it } }
     // v69: the 3D render above the picture on the Picture tab
-    if (t.name == "Picture" && th?.p != null && !(t.pic == "icon" && th.a.isNotEmpty() && t.anchors.isNotEmpty())) pics.img(th.p)?.let { Image(it, null, Modifier.fillMaxWidth().height(200.dp).padding(bottom = 6.dp), contentScale = ContentScale.Fit) }
+    if (t.name == "Picture" && th?.p != null && !(t.pic == "icon" && th.a.isNotEmpty() && t.anchors.isNotEmpty())) pics.img(th.p)?.let { Image(it, null, Modifier.fillMaxWidth().height(minOf(240.dp, androidx.compose.ui.platform.LocalConfiguration.current.screenHeightDp.dp * 0.26f)).padding(bottom = 6.dp), contentScale = ContentScale.Fit) }   // v69 .tk3d: height min(26vh, 240px)
     val ratio = if (t.pic == "icon" && th?.p != null && th.a.isNotEmpty() && t.anchors.isNotEmpty()) 520f / 360f else 400f / 260f
     BoxWithConstraints(Modifier.fillMaxWidth().aspectRatio(ratio).background(Color.White).border(1.dp, Color(0xFFDDE1E6), RoundedCornerShape(4.dp))) {
         val w = maxWidth; val h = maxHeight
@@ -263,18 +278,22 @@ private fun Picture(d: CompDialog, pics: CompPics, t: TkTab, rev: Int, bump: () 
             }
         }
     }
-    if (fields.isNotEmpty()) Text(fields.joinToString("   ") { "${it.lbl} ${it.tip ?: ""}" }, fontSize = 11.5.sp, color = Color(0xCC1D2330), modifier = Modifier.padding(6.dp))
+    // v69 .tklegend: one span per field (wrap, gap 3 × 12, 11.5 px at 80 %, label in #c0392b)
+    if (fields.isNotEmpty()) Column(Modifier.padding(6.dp), verticalArrangement = Arrangement.spacedBy(3.dp)) { for (f in fields) Text(androidx.compose.ui.text.buildAnnotatedString {
+        withStyle(androidx.compose.ui.text.SpanStyle(color = RED, fontWeight = FontWeight.Bold)) { append(f.lbl) }; append(" " + (f.tip ?: "")) }, fontSize = 11.5.sp, color = Color(0xCC1D2330)) }
 }
 
 @Composable
 private fun FieldRow(d: CompDialog, pics: CompPics, f: TkField, rev: Int, bump: () -> Unit) {
     val i = d.inputs.firstOrNull { it.f === f }
+    val narrow = androidx.compose.ui.platform.LocalConfiguration.current.screenWidthDp < 560
     Column(Modifier.fillMaxWidth().padding(vertical = 2.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             TkCheck(i?.on ?: false) { if (i != null) { i.on = it; bump() } }
             Text(f.lbl, fontSize = 13.sp, color = if (f.off != null) Color(0x801D2330) else INK, modifier = Modifier.weight(1.2f))
-            if (i != null) InputBox(d, pics, i, rev, bump, Modifier.weight(1f)) else Text("—", modifier = Modifier.weight(1f), color = Color(0x801D2330))
+            if (!narrow) { if (i != null) InputBox(d, pics, i, rev, bump, Modifier.weight(1f)) else Text("—", modifier = Modifier.weight(1f), color = Color(0x801D2330)) }
         }
+        if (narrow && i != null) InputBox(d, pics, i, rev, bump, Modifier.padding(start = 34.dp).fillMaxWidth())
         (f.note ?: f.off)?.let { Text(it, fontSize = 11.sp, color = Color(0x991D2330), modifier = Modifier.padding(start = 34.dp)) }
     }
 }
