@@ -14,8 +14,8 @@ android {
         applicationId = "com.solidsketchapp.steel"
         minSdk = 24
         targetSdk = 35
-        versionCode = 7
-        versionName = "0.5.0-s5"
+        versionCode = 8
+        versionName = "0.6.0-s6"
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
     }
 
@@ -49,7 +49,17 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     debugImplementation(libs.androidx.compose.ui.tooling)
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.serialization.json)   // S6 golden JSON in tests
 }
 
 // R10 is loaded in unit tests.
 tasks.withType<Test>().configureEach { maxHeapSize = "2g" }
+
+// S6: R10 regenerated with the real Manifold booleans on this machine (same host library as :core-view).
+//   ./gradlew :app:testDebugUnitTest -PhostJni
+if (providers.gradleProperty("hostJni").isPresent) tasks.withType<Test>().configureEach {
+    dependsOn(":core-view:buildHostJni")
+    systemProperty("java.library.path", project(":core-view").layout.buildDirectory.dir("host-jni").get().asFile.absolutePath)
+    systemProperty("sscore.hostJni", "1")
+    maxHeapSize = "4g"
+}
