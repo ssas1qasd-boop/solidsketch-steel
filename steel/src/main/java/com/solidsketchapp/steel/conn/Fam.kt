@@ -35,7 +35,11 @@ fun jsInt(d: Double): Int = if (d.isNaN() || d.isInfinite()) 0 else d.toLong().t
  * The context v69's `famGeom` (v40 L14906) hands each family generator: the merged settings q (CONN def + c.q), the parts
  * (A main, B / B2 secondaries), and the output collectors `cut`, `plate`, `bolts`, `weld`. Units are mm (U = 1).
  */
-class FamCtx(val q: JsonObject, val a: JsonObject, val aId: String, val b: JsonObject?, val bId: String?, val b2: JsonObject?, val b2Id: String?, val profiles: ProfileCatalog) {
+class FamCtx(val q: JsonObject, val a: JsonObject, val aId: String, val b: JsonObject?, val bId: String?, val b2: JsonObject?, val b2Id: String?, val profiles: ProfileCatalog,
+               /** v69 X.c.pt: the point picked on the first part (null when the component was made without one). */ val pt: D3? = null,
+               /** v69 X.c (this component; null in isolated use) and S.stConns (every component in the document), for families that look at their neighbours (v54 TG node gusset). */
+               val conn: StConn? = null, val conns: List<StConn> = emptyList(),
+               /** A body's st by id (v69 stBody(id).st). */ val stOf: (String) -> JsonObject? = { null }) {
     val parts = ArrayList<ConnPart>(); val cuts = LinkedHashMap<String, MutableList<Mesh>>(); val welds = ArrayList<Weld>()
     /** v69 TKB_G: every bolt group the component builds, in order (the Holes tab uses the first). */
     val groups = ArrayList<BoltGroup>()
@@ -199,10 +203,10 @@ object Fam {
     }
 
     /** v69 famGeom + the v58 wrapper (bolt info d0 / std / thr / sw, Welds tab). Returns null when the family is not ported or a part is missing. */
-    fun geom(fam: String, q: JsonObject, parts: List<String>, stOf: (String) -> JsonObject?, profiles: ProfileCatalog): ConnGeom? {
+    fun geom(fam: String, q: JsonObject, parts: List<String>, stOf: (String) -> JsonObject?, profiles: ProfileCatalog, pt: D3? = null, conn: StConn? = null, conns: List<StConn> = emptyList()): ConnGeom? {
         if (fam !in PORTED) return null
         val a = parts.getOrNull(0)?.let(stOf) ?: return null
-        val x = FamCtx(q, a, parts[0], parts.getOrNull(1)?.let(stOf), parts.getOrNull(1), parts.getOrNull(2)?.let(stOf), parts.getOrNull(2), profiles)
+        val x = FamCtx(q, a, parts[0], parts.getOrNull(1)?.let(stOf), parts.getOrNull(1), parts.getOrNull(2)?.let(stOf), parts.getOrNull(2), profiles, pt, conn, conns, stOf)
         if ((fam == "EP" || fam == "ST") && x.b == null) return null
         GEN.getValue(fam)(x)
         // v58: bolt groups carry d0 / std / thr / sw (L15997); Welds tab (q.W) sets a / type / ws / around per weld.
