@@ -18,6 +18,7 @@ class ViewportView(context: Context, private val controller: ViewportController)
         setRenderer(controller.renderer)
         renderMode = RENDERMODE_WHEN_DIRTY
         controller.requestRender = ::requestRender
+        controller.renderer.requestRender = ::requestRender
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {

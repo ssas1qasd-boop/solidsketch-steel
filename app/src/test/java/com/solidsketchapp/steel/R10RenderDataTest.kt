@@ -25,6 +25,13 @@ class R10RenderDataTest {
         assertEquals(6638, chunks.sumOf { it.ranges.size })
         assertTrue(chunks.all { it.vertexCount <= BatchBuilder.CHUNK_VERTICES || it.ids.size == 1 })
         // Every index stays inside its chunk.
+        // S5: v69 feature edges for every R10 body (computed once per mesh when a chunk is first drawn).
+        val te = System.nanoTime()
+        val edged = BatchBuilder.group(items).map { BatchBuilder.build(it, com.solidsketchapp.core.view.gl.FeatureEdges::of) }
+        val ems = (System.nanoTime() - te) / 1e6
+        val segs = edged.sumOf { it.edgeVertexCount } / 2
+        println("R10 feature edges: $segs segments in ${ems.toLong()} ms (JVM)")
+        assertTrue(segs in 100_000..1_825_326)
         for (c in chunks) { val ib = c.indices.duplicate().order(java.nio.ByteOrder.nativeOrder()); while (ib.hasRemaining()) { val i = ib.getInt(); assertTrue(i in 0 until c.vertexCount) } }
         val box = items.mapNotNull { Aabb.of(it.mesh) }.reduce(Aabb::union)
         val gpuMb = chunks.sumOf { it.vertices.capacity().toLong() + it.indices.capacity() } / 1048576.0

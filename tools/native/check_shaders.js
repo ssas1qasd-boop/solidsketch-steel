@@ -25,19 +25,19 @@ const get = n => { const m = new RegExp(n + ' = """([\\s\\S]*?)"""').exec(kt); i
       for (const u of uniforms) if (!gl.getUniformLocation(pr, u)) out.push(`${name}: uniform ${u} not found`);
       return pr;
     };
-    const s = prog(sv, sf, 'solid', ['uVP', 'uView', 'uEmissive']);
-    prog(lv, lf, 'line', ['uVP', 'uColor']);
+    const s = prog(sv, sf, 'solid', ['uVP', 'uEye', 'uEmissive']);
+    prog(lv, lf, 'line', ['uVP', 'uColor', 'uBias']);
     if (out.length) return out;
     gl.useProgram(s);
     const id = new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
-    gl.uniformMatrix4fv(gl.getUniformLocation(s, 'uVP'), false, id); gl.uniformMatrix4fv(gl.getUniformLocation(s, 'uView'), false, id);
+    gl.uniformMatrix4fv(gl.getUniformLocation(s, 'uVP'), false, id); gl.uniform3f(gl.getUniformLocation(s, 'uEye'), 0, 0, 5);
     gl.vertexAttrib4f(1, 0.75, 0.22, 0.17, 1); gl.uniform3f(gl.getUniformLocation(s, 'uEmissive'), 0, 0, 0);   // body colour as a constant attribute
     gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer()); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 0, 1, -1, 0, 0, 1, 0]), gl.STATIC_DRAW);
     gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 12, 0);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     const px = new Uint8Array(4); gl.readPixels(gl.canvas.width / 2, gl.canvas.height / 2, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
-    // Face-on light: colour * (0.35 + 0.65 * 1) = colour.
-    if (Math.abs(px[0] - 191) > 2 || Math.abs(px[1] - 56) > 2 || Math.abs(px[2] - 43) > 2) out.push('unexpected pixel ' + Array.from(px));
+    // Face-on (normal +Z, eye on +Z), v69's lights and Phong worked out by hand with three.js r15x formulas: (205, 68, 56).
+    if (Math.abs(px[0] - 205) > 2 || Math.abs(px[1] - 68) > 2 || Math.abs(px[2] - 56) > 2) out.push('unexpected pixel ' + Array.from(px));
     if (gl.getError()) out.push('GL error ' + gl.getError());
     return out;
   }, { sv: get('SOLID_VS'), sf: get('SOLID_FS'), lv: get('LINE_VS'), lf: get('LINE_FS') });

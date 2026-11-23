@@ -18,7 +18,9 @@ object BatchBuilder {
 
     class Item(val id: BodyId, val mesh: Mesh, val rgb: Int)
     class Range(val firstIndex: Int, val count: Int)
-    class Chunk(val ids: List<BodyId>, val vertices: ByteBuffer, val indices: ByteBuffer, val vertexCount: Int, val indexCount: Int, val ranges: Map<BodyId, Range>)
+    class Chunk(val ids: List<BodyId>, val vertices: ByteBuffer, val indices: ByteBuffer, val vertexCount: Int, val indexCount: Int, val ranges: Map<BodyId, Range>,
+                /** Feature edges of every body (v69 12° rule), xyz pairs as float32: GL_LINES. */
+                val edges: ByteBuffer = ByteBuffer.allocateDirect(0), val edgeVertexCount: Int = 0)
 
     /** Splits [items] (in order) into groups that each fit one chunk. A huge body gets a chunk of its own. */
     fun group(items: List<Item>, maxVertices: Int = CHUNK_VERTICES): List<List<Item>> {
@@ -33,7 +35,7 @@ object BatchBuilder {
         return out
     }
 
-    fun build(items: List<Item>): Chunk {
+    fun build(items: List<Item>, edgesOf: ((Mesh) -> FloatArray)? = null): Chunk {
         val vc = items.sumOf { it.mesh.vertexCount }
         val ic = items.sumOf { it.mesh.indices.size }
         val vb = ByteBuffer.allocateDirect(vc * STRIDE).order(ByteOrder.nativeOrder())
@@ -53,6 +55,11 @@ object BatchBuilder {
             base += it.mesh.vertexCount; first += idx.size
         }
         vb.flip(); ib.flip()
-        return Chunk(items.map { it.id }, vb, ib, vc, ic, ranges)
+        if (edgesOf == null) return Chunk(items.map { it.id }, vb, ib, vc, ic, ranges)
+        val lines = items.map { edgesOf(it.mesh) }
+        val eb = ByteBuffer.allocateDirect(lines.sumOf { it.size } * 4).order(ByteOrder.nativeOrder())
+        for (l in lines) for (f in l) eb.putFloat(f)
+        eb.flip()
+        return Chunk(items.map { it.id }, vb, ib, vc, ic, ranges, eb, lines.sumOf { it.size } / 3)
     }
 }

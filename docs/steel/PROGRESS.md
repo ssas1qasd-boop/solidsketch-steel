@@ -3,15 +3,40 @@
 History of S0–S4 (milestone notes, phone checks, the postponed license gate rules): `docs/steel/PROGRESS-S0-S4.md`.
 
 ## Current milestone
-S5 in progress (owner plan 2026-11-23: finish S5 and S6 without waiting for phone checks, push after every step, stop before S7). Done: step 1 (profile name rules, top bar), step 2 (grid), step 3 (member solids, part records). Next: step 4, the Steel mode screen.
+**S5 done** (2026-11-23; owner plan: finish S5 and S6 without waiting for phone checks, push after every step, stop before S7). APK `dist/solidsketch-steel-s5-debug.apk` (0.5.0-s5); phone check list below. Next: S6.
 
 ## S5 plan (steps; each one is tested, committed and pushed)
 1. stProf name rules for the 97 names S4 left; top bar with its own solid background. **Done.**
 2. Grid and levels in Tekla syntax (`stGrid`), drawn as overlays. **Done.**
 3. Profile sections and member / plate solids with the Tekla position rules (plane, rotation, depth, offsets, dx1/dx2; live `stSection` and `stBuild` chains), class colours; golden: member solids within 0.1 mm of v69. **Done.**
-4. Steel mode screen: Grid sheet, work levels, Column / Beam / Plate tools picking grid points, property sets (`stPropSheet`), handles to move part ends, Exit Steel.
-5. Look: edge lines `0x262b34` (v69 feature edges, 12°), v69's lights (hemisphere + three directional) and Phong material.
+4. Steel mode screen: Grid sheet, work levels, Column / Beam / Plate tools picking grid points, property sets (`stPropSheet`), handles to move part ends, Exit Steel. **Done.**
+5. Look: edge lines `0x262b34` (v69 feature edges, 12°), v69's lights (hemisphere + three directional) and Phong material. **Done.**
 Then the S5 APK `dist/solidsketch-steel-s5-debug.apk` and the S5 phone check list.
+
+## S5 phone check (owner) — `dist/solidsketch-steel-s5-debug.apk`
+1. Start: the bottom line says `Steel 0.5.0-s5`. The demo parts now have dark edge lines (0x262b34) and v69's shading (top faces light, sides darker, a soft highlight).
+2. Tap **Steel**: v69's default grid appears (`0 6*6000` / `0 20000` / `0 7000`): lines 1–7 and A–B with circled labels, levels `+0` and `+7000`, and the panel at the bottom (Grid · Column · Beam · Plate · Properties · Exit Steel; Work level; hint line).
+3. **Grid** → X `0 4*13195`, Y `0 5*5570`, Z `0 7500 1500` → Apply. Expect "Grid 5 × 6 lines, 3 levels", labels 1–5 and A–F, levels `+0 +7500 +9000`. Same grid in v69: the same lines.
+4. **Column** → tap grid point 1/A: an HEA300 column from +0 to +7500, red (class 2), named `COLUMN <id>`. v69 with the same taps: the same column (Properties shows the same profile, rotation Front, Middle/Middle).
+5. **Beam** → Set **Rafter** → tap the column's top (part ends snap), then type `13195 0 1500` → Place: an IPE360 rafter from +7500 to +9000 (green, class 3), undo label "Rafter IPE360".
+6. Tap the rafter (no tool) → yellow and magenta handles at its ends; tap the magenta one, then grid point 3/A: the end moves (Undo brings it back).
+7. **Properties** with the rafter selected → profile `IPE400` → Modify: the part is rebuilt deeper. With nothing selected: Saved settings buttons, Apply for the next parts.
+8. **Plate** → tap 3 points on the work level, then the first again: a PL20 contour plate.
+9. **Exit Steel**: the grid and panel go away; taps select bodies again. **Save**, then open the file in v69: the same parts with the same properties.
+10. **R10**: open it; the parts show first, the edge lines follow a few seconds later (computed in the background: 1.34 M segments, 2.2 s on the build machine). Read the debug overlay: fps while orbiting (S3: about 50), GPU MB (S3: 35 MB; edges add about 32 MB).
+
+## S5 step 5 (2026-11-23): edge lines and lighting
+- `core-view/gl/FeatureEdges.kt`: v69 `featureEdges` (EDGE_ANGLE 12°: vertices welded by position, an edge drawn when two of its non-degenerate triangles bend more than 12°; open edges not drawn). Test: a box has 12 edges, a 48-sided cylinder only its two rims, a hexagonal prism its 6 sides too.
+- Renderer: edges per chunk in 0x262b34, drawn 6e-5·w in front in depth only (v69 `edgeMaterial`), faces with polygon offset 1/1 (v69 `bodyMaterial`). Edges are computed on a background thread (cached per mesh) and appear when ready, so a big model's first frame does not wait.
+- Lighting as v69 (three.js r15x, physical units, sRGB, no tone mapping): HemisphereLight 0xffffff / 0x3a4250 at 2.4 from +Y (three's default up), DirectionalLights 2.2 at (6, −9, 14), 0.8 at (−8, 6, 4), 0.55 at (−3, 9, 7); Phong shininess 48, specular 0x3c3c3c; selection emissive 0x6b4a10 added in linear light like three. `tools/native/check_shaders.js` now checks a face-on pixel against the same formulas worked out by hand: (205, 68, 56).
+- R10: 1,341,118 edge segments in 2.2 s (JVM), +32 MB of GPU buffers.
+
+## S5 step 4 (2026-11-23): Steel mode screen
+- `steel/mode/SteelMode.kt` (plain Kotlin, ports v69 v32 L13692–13826): `stToggle` (a document without a grid gets v69's `0 6*6000` / `0 20000` / `0 7000`), Grid apply (`X and Y need at least one line each`; "Grid 5 × 6 lines, 3 levels"), work levels, tools Column / Beam / Plate (tapping the active tool turns it off; Column uses COLUMN, Plate PLATE, Beam keeps a beam-like set), `stPick` (part ends with a 4 px bonus, part middles, grid points on every level within 26 px; else the work plane on a 10 mm raster), `stTap` (column from the picked point to the next level up or the typed column top, else +3000; beam from two picks; plate corners, finished by tapping the first corner or Finish; handles: with no tool, tap the selected member's yellow / magenta end, then the new point → "Move part end"), typed points `dx dy dz`, `stPropsFor` (st fields in v69's order), `stHint` texts, undo labels as v69 ("Column HEA300", "Rafter IPE360", "Contour plate PL20").
+- `steel/mode/SteelPanel.kt` (Compose): v69 `#st-panel` (Grid · Column · Beam · Plate · Properties · Exit Steel; Work level buttons; Set buttons; typed point row; hint line), Grid sheet and Part properties sheet (`stPropSheet`: saved settings, attributes with the profile info line, material, class, finish, numbering series, position, end offsets, column top; Close / Save as / Get / Modify / Apply), v69 wording and pill buttons (`StBtn`, one line, "on" = #c0392b). Grid labels (circled 1, 2, 3… / A, B, C…, level labels) and the picked points / handles are drawn over the view and follow the camera.
+- `:app`: a **Steel** button in the top bar; the viewport gives taps to Steel first (`ViewportApi.setTapHandler`, new; MERGE.md updated) and grid lines are overlays (`st.grid`, `st.grid.work`). Tapered profiles are unioned with Manifold through `BooleanEngine`.
+- Not ported in S5 (later milestones, as in CLAUDE.md): the panel's Portal frame (S10), Components (S7), Numbering / Checks / Steel list (S11), Drawings (S12), Marks.
+- Tests: `SteelModeTest` (3: column to the next level with v69's st field order and name; beam from two picks with the Rafter set, then moving its end by the handle; plate from a work-plane pick, typed points and tapping the first corner; Exit Steel gives taps back). `UiRulesTest` also checks the :steel buttons.
 
 ## Large generated files (owner bundle)
 Owner rule: big generated files do not go through the GitHub tool; they come in a bundle for the owner to push. Until they are on GitHub, the tests that read them fail there.
@@ -55,13 +80,16 @@ Android modules: run one test class with `./gradlew :steel:testDebugUnitTest --t
 Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in the cloud session; `--no-parallel` on the first build helped.
 
 ## NOT VERIFIED
-- UI look of the S2/S3 check screen: not the web build's UI (Steel mode UI is S5 step 4).
+- Steel mode screen on a phone (built and unit-tested, not yet tried by the owner): tap targets, the sheets' scrolling, the labels' positions.
 - Two-finger pan on the phone (not shown in the recordings; Latin digits and LTR were confirmed in the S3 check).
-- Shading is a simple headlight, not three.js's lighting; edge lines (`0x262b34`) are not drawn yet (S5 step 5).
+- S5 look on a phone: edge lines and v69's lights are written to v69's numbers and checked with one pixel in WebGL2, not compared side by side with v69 on the owner's phone. Edge cost on R10 on a phone (time until they appear, GPU memory) not measured.
+- Edges in v69 also go through `smoothEdgeLines` (drops seams of smooth surfaces); not ported (the 12° rule already keeps smooth round tubes and bolts without side lines).
 
 ## Decisions for the owner to review
 Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, note it here, continue).
-- (none yet)
+- Saved property sets ("Save as column", …) last for the session only; v69 keeps them in the browser's localStorage. Persisting them on the phone needs a storage decision (S7 has presets too).
+- Grid level lines are solid (v69 dashes them); our overlay lines have no dash pattern yet.
+- The edges of a big model are computed in the background and appear a few seconds after the parts (v69 computes them when the body is made). Chosen so that opening R10 stays fast.
 
 ## Decisions
 - Separate app until the merge (owner, 2026-11-21).

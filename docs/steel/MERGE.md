@@ -9,7 +9,7 @@ Steel is built as its own app now and merged into the main native port when that
 | Interface | What Steel uses it for | Expected from the main port |
 |---|---|---|
 | `DocumentApi` | bodies list, add/remove/replace body (JSON + optional `Mesh`, S2), `bodyMesh`, folders, extra document fields (`stGrid`, `stConns`, `stNum`, `stDwg`, `stProject`…) kept as raw JSON | its document model + a map for unknown fields + the body's triangle mesh |
-| `ViewportApi` | add/remove overlay groups (grid, preview, handles, welds, marks, issues, symbols), camera fit, screen↔world rays, request redraw | its GL renderer with named overlay layers |
+| `ViewportApi` | add/remove overlay groups (grid, preview, handles, welds, marks, issues, symbols), camera fit, screen↔world rays, request redraw; S5: `setTapHandler` (Steel tools get a tap first and can keep it from body picking), `addViewListener` / `removeViewListener` (called after every camera change, for screen-space labels) | its GL renderer with named overlay layers, a tap hook before its own picking, a camera-changed callback |
 | `SelectionApi` | pick body / face / point under a touch, listen to selection changes, highlight | its picking |
 | `UndoApi` | group several changes into one undo step | its undo stack |
 | `BooleanEngine` | subtract cut solids from parts, union for assemblies | Manifold first, CGAL fallback (main-port rule) |
