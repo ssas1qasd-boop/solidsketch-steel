@@ -1,0 +1,401 @@
+{
+ "source": "web v69: __st.connect, __st.status (tkStatus, deep), __st.symPos (tools/golden/s7_status.js)",
+ "cases": {
+  "ok": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "q": {},
+   "ok": true,
+   "status": 1,
+   "msgs": [],
+   "symPos": [
+    0,
+    0,
+    6820
+   ]
+  },
+  "edge": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "q": {
+    "side": 15
+   },
+   "ok": true,
+   "status": 2,
+   "msgs": [
+    "End plate (144) #1: Bolt edge distance of the bolts 1, 2, 3, 4, 5, 6, 7, 8 (M20) in END PLATE is too small: 15 mm < 30 mm (1.5·d)"
+   ],
+   "symPos": [
+    0,
+    0,
+    6820
+   ]
+  },
+  "spacing": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "q": {
+    "pitch": 40,
+    "rows": 3
+   },
+   "ok": true,
+   "status": 2,
+   "msgs": [
+    "End plate (144) #1: Bolt spacing is too small: 40 mm < 48 mm (2.2·d0, M20)"
+   ],
+   "symPos": [
+    0,
+    0,
+    6820
+   ]
+  },
+  "weld": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "q": {
+    "a": 10
+   },
+   "ok": true,
+   "status": 2,
+   "msgs": [
+    "End plate (144) #1: Weld “Beam to end plate” a=10 mm is too big for a 10 mm plate (max 7.0)"
+   ],
+   "symPos": [
+    0,
+    0,
+    6820
+   ]
+  },
+  "outside": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "q": {
+    "e": -100
+   },
+   "ok": true,
+   "status": 3,
+   "msgs": [
+    "End plate (144) #1: 4 bolts are outside the plates (BOLTS M20)"
+   ],
+   "symPos": [
+    0,
+    0,
+    6820
+   ]
+  },
+  "overlap": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "q": {
+    "gap": -5
+   },
+   "ok": true,
+   "status": 2,
+   "msgs": [
+    "End plate (144) #1: END PLATE overlaps COLUMN HEA300 (240 cm³)"
+   ],
+   "symPos": [
+    0,
+    0,
+    6820
+   ]
+  },
+  "sloped": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "RAFTER",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7500
+      ],
+      "p2": [
+       13195,
+       0,
+       9000
+      ]
+     }
+    ]
+   ],
+   "q": {},
+   "ok": true,
+   "status": 1,
+   "msgs": [],
+   "symPos": [
+    10.17,
+    0,
+    7321.15
+   ]
+  },
+  "sloped_edge_weld": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ]
+     }
+    ],
+    [
+     "RAFTER",
+     {
+      "prof": "IPE360",
+      "p1": [
+       0,
+       0,
+       7500
+      ],
+      "p2": [
+       13195,
+       0,
+       9000
+      ]
+     }
+    ]
+   ],
+   "q": {
+    "side": 20,
+    "a": 9,
+    "e": 25
+   },
+   "ok": true,
+   "status": 2,
+   "msgs": [
+    "End plate (144) #1: Bolt edge distance of the bolts 1, 2, 3, 4, 5, 6, 7, 8 (M20) in END PLATE is too small: 20 mm < 30 mm (1.5·d)",
+    "End plate (144) #1: Weld “Beam to end plate” a=9 mm is too big for a 10 mm plate (max 7.0)"
+   ],
+   "symPos": [
+    10.17,
+    0,
+    7321.15
+   ]
+  }
+ }
+}

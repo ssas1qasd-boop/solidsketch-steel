@@ -3,13 +3,30 @@
 History: S0–S4 in `docs/steel/PROGRESS-S0-S4.md` (incl. the postponed license gate rules); S5–S6 in `docs/steel/PROGRESS-S5-S6.md` (incl. the S5 and S6 phone check lists).
 
 ## Current milestone
-**S7 in progress** (owner plan 2026-11-23: S7, S8 and S9 without waiting for phone checks, push after every step, stop before S10; Claude does all of S8 and S9). Done: S7 step 1 (component engine, End plate 144 equals golden), S7 step 2 (catalog sheet, pick order, component dialog, presets). S5 and S6 APKs: `dist/solidsketch-steel-s5-debug.apk`, `dist/solidsketch-steel-s6-debug.apk` (phone checks in `PROGRESS-S5-S6.md`).
+**S7 done; S8 next** (owner plan 2026-11-23: S7, S8 and S9 without waiting for phone checks, push after every step, stop before S10; Claude does all of S8 and S9). S7 APK: `dist/solidsketch-steel-s7-debug.apk` (0.7.0-s7, phone check below). S5 and S6 APKs: `dist/solidsketch-steel-s5-debug.apk`, `dist/solidsketch-steel-s6-debug.apk` (phone checks in `PROGRESS-S5-S6.md`).
 
 ## S7 plan (component framework)
 1. Component engine: v69 `famGeom` context, the v58 geometry wrapper (bolt options reach `stBolts`, bolt info d0 / std / thr / sw, Welds tab), the live EP family (v48), component plates and bolts in regen (`tkKidSt` part fields, class colours, assembly owner), welds kept on the connection. **Done.**
 2. Catalog sheet (18 groups / 252 items, search by name or number, recently used), pick order (TK_PICK prompts), component dialog with Modify / Get / on-off / Apply, saved presets. **Done.**
-3. Symbols (cones green / yellow / red, lines to the joined parts) and the rule checks per component (`tkStatus`).
-Then the S7 APK and phone check list.
+3. Symbols (cones green / yellow / red, lines to the joined parts) and the rule checks per component (`tkStatus`). **Done.**
+Then the S7 APK and phone check list. **Done.**
+
+## S7 phone check (owner) — `dist/solidsketch-steel-s7-debug.apk`
+1. Start: the bottom line says `Steel 0.7.0-s7`. Everything in the S6 check still works.
+2. **Steel** → place a column (HEA300, grid point 1/A) and a beam into it (Beam, set Beam, from the column's side at +7000 to the next grid line), as in v69.
+3. **Components**: the sheet "Applications & components" with a search box and 18 groups (Base plates 13, End plates 23, Shear tabs 32, …, Generators 5, Applications 2); each line has a picture, the name and the Tekla name (e.g. "End plate (144)") and a **Properties** button. Type `144`: End plate (144) and the others whose name or number contains 144 (same list as v69 with the same search).
+4. Tap **End plate (144)**: the panel shows `End plate · Properties · Catalog · Done` and the hint `End plate (144): pick the main part`. Tap the column, then the beam: the end plate, its 8 bolts and the welds are made (toast "End plate created"; one Undo removes it). A green cone appears at the joint.
+5. Tap the cone (no tool): the component is selected (yellow halo, dashed yellow lines to the column and the beam, green status line "End plate (144) #1: OK"), and its dialog opens: header with OK, tabs Picture · Plates · Stiffeners · Haunch · Notch · Bolts · Holes · Angle box · General · Design · Welds; red input boxes on the picture (1, 2, 3, t); the Bolts tab draws the real bolt pattern, numbered 1–8.
+6. In the dialog: t = 15, Bolts tab box 4 = 4 columns, box 5 = `60 100 60` → **Modify**: the plate is PL15 and has 12 bolts (toast "1 component rebuilt"). Same values in v69's dialog give the same plate and bolts (checked on the build machine).
+7. Bolts tab box 3 (side) = 15 → Modify: the cone turns yellow, the status says "Bolt edge distance of the bolts 1, … (M20) in END PLATE is too small: 15 mm < 30 mm (1.5·d)" — v69 says the same.
+8. Presets: type a name next to **Save as**, Save as; close the app, open it again: the preset is in the list (Load brings the values back). **Recently used** at the top of the catalog shows the last 5 components picked.
+9. A component whose family comes in S9 (e.g. Shear plate (146) before S8 is done) can be picked but is answered "could not be built for these parts" with a red cone (v69 makes it; the app does once its family is ported).
+
+## S7 step 3 (2026-11-23): symbols and rule checks
+- `steel/comp/TkCheck.kt`: v69 `tkStatus` (v58 L16034) exactly: for each bolt group, where each bolt passes through the component's plates (`tkPierce`: mesh vertices within the hole radius + 1.2 of the bolt line), the plate's outline in that plane (`tkSlice`), the edge distance to the nearest edge that is not a hole (rule 1.5·d), bolts that pass through no plate (error unless they all pass through a joined part), the smallest bolt spacing across the axis (2.2·d0); the first plate's thickness against every weld (a ≤ 0.7·t); and (deep) each plate's overlap with the joined parts by Manifold intersection (> 3 % of the plate, at least 125 mm³). Messages and rounding as v69 ("Bolt spacing is too small: 40 mm < 48 mm (2.2·d0, M20)"). Results are cached per component until the document changes (v69 `TK_ST`). `stSymPos` (at the joint: the secondary part's end on the main part, halfway when closer than 600 mm; a detail at its part's end) and `tkFanDraw` lines.
+- Steel mode: v58 symbols — v69's cone texture in green / yellow / red, constant size (three.js sprite 0.026, fov 45°), one per 24 px cell with errors then warnings first, the selected one always; checks run 1.5 s after a change, 30 ms at a time (`tkCheckStep`), and recolour the cones. A tap on a cone (no tool) selects the component (yellow halo, dashed yellow lines to its parts, the status line `#tk-status` in green / yellow / red; tap it to clear) and opens its dialog with v69's toast "End plate (144) · connection 1"; a tap elsewhere clears the selection. The dialog header shows OK / Warning / Error and the messages.
+- **Golden** `tests/steel/golden/s7/status.json` (`tools/golden/s7_status.js`): 8 cases on End plate 144: OK; side 15 (edge distance); pitch 40 (spacing); a = 10 (weld); e = −100 (4 bolts outside the plates, error); gap −5 (END PLATE overlaps COLUMN HEA300, 240 cm³); sloped rafter OK; sloped with side 20 and a = 9 (two warnings).
+- **Acceptance:** `S7StatusTest` (Manifold): **all 8 equal v69: status, every message word for word, symbol position (0.1 mm)**. `S7PickTest`: pick order, prompts, "Pick a steel part", "Already picked", the component made on the last pick in one undo step named after it, "created" + toast, Done, then a tap on its symbol selects it, asks for its dialog and draws its 2 lines. App 0.7.0-s7 (versionCode 9). Unit tests: 164 runs, all pass.
 
 ## S7 step 1 (2026-11-23): component engine, End plate 144
 - `steel/conn/Fam.kt`: `FamCtx` (v69 `famGeom`: q = CONN def + c.q; cut / plate / bolts / weld collectors), `Fam.DEF` (v69 FAM_DEF with the v58 EP additions), helpers `tkRows`, `v49Pitches`, `v58Span`, `stStiffPair`, `stLAngle`, and **EP** (live v48 definition: plate flush on the main part's face, rows / pitches / posV / refV, cols 2 or 4, gauge2, posH / refH, cope limits, shim, front / stub plate, compensating flange plates, seat angle, column stiffeners, two-sided with shared grip), then the v58 wrapper (bolt info `d0`, `std`, `thr`, `sw`, `cmt`, `blen`; Welds tab `q.W`). The component's settings reach `stBolts` here (v58 TKB_Q), unlike TKBOLT.
@@ -26,6 +43,11 @@ Then the S7 APK and phone check list.
 - Steel panel: **Components** (v69 `stConnSheet`: a selected component plate opens its dialog, else the catalog); while picking: `<name> · Properties · Catalog · Done`; the hint line shows `End plate (144): pick the main part` …; taps on a member are picked (`Already picked`, `Pick a steel part`); toasts `End plate created` / `could not be built for these parts`. Generators (family GEN) and the Numbering / Checks entries say which later milestone brings them.
 - **Golden** `tests/steel/golden/s7/dialog.json` (`tools/golden/s7_dialog.js`): v69's live dialog driven through its own DOM: 4 cases on End plate 144 (Modify with nothing changed; Modify with t, the negated boxes 1/2, 4 bolt columns with the gauge list `60 100 60`, edge distance, tolerance, an unticked row, the Welds table size, class; Modify with 4 rows and pitches `80 70 90`, the Parts table material / name, Holes; Apply then a new component), plus 10 catalog searches.
 - **Acceptance:** `S7CatalogTest` (5): 18 groups, 252 items, every one of the 246 TK components with v69's label / family / group / pick prompts, search equals v69 for all 10 filters, recently used, presets, every dialog spec / accessor / icon / picture / pictogram / thumbnail loads. `S7DialogTest` (Manifold): **the app's dialog gives v69's settings (c.q, compared key by key), welds, plates and bolt group in all 4 cases** (mutation check: with the `neg` accessor broken the test fails). Unit tests: 160 runs (debug and release variants), all pass.
+
+## S7 summary
+- Catalog sheet (18 groups, 252 items: the 246 Tekla components + 4 dialogs + 2 applications), search by name or number, recently used, pick order, symbols (green / yellow / red cones, lines to the joined parts), the v58 dialog with Modify / Get / on-off / Apply / presets, rule checks per component — each compared with v69 (search 10/10, dialog 4/4, checks 8/8).
+- Acceptance: 246 components in the catalog (`S7CatalogTest`); End plate 144 through the framework equals golden (`S7T144Test` 3/3, `S7DialogTest` 4/4).
+- Only the EP family builds geometry so far; the other families come with S8 (the 10 dialogs' families) and S9. Until then those components are added and answered "could not be built" with a red cone.
 
 ## Large generated files (owner bundle)
 Owner rule: big generated files do not go through the GitHub tool; they come in a bundle for the owner to push. Until they are on GitHub, the tests that read them fail there.
@@ -45,7 +67,7 @@ Shader check: `node tools/native/check_shaders.js`.
 .ss both ways with v69: three steps in `tools/golden/README.md` (".ss both ways").
 Data assets (S4): `node tools/golden/data_export.js` (write) and `--check` (compare with v69).
 S5 golden (grid, member solids): `node tools/golden/s5_geometry.js` → `tests/steel/golden/s5/`.
-S7 data and golden: `node tools/golden/s7_catalog.js` (tk_ui.json + thumbs; `--check`), `node tools/golden/s7_dialog.js` → `tests/steel/golden/s7/dialog.json`.
+S7 data and golden: `node tools/golden/s7_catalog.js` (tk_ui.json + thumbs; `--check`), `node tools/golden/s7_dialog.js` → `tests/steel/golden/s7/dialog.json`, `node tools/golden/s7_status.js` → `status.json`.
 S6 golden: `node tools/golden/s6_cuts_bolts.js` (bolt / cut cases and R10 regenerated by v69, about 1 min) and `node tools/golden/s6_fittings.js` → `tests/steel/golden/s6/`. R10 acceptance: `./gradlew :app:testDebugUnitTest --tests '*S6R10RegenTest*' -PhostJni`.
 Android modules: run one test class with `./gradlew :steel:testDebugUnitTest --tests '*StGridTest*'` (`:steel:test --tests` is refused by Gradle).
 Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in the cloud session; `--no-parallel` on the first build helped.
@@ -55,7 +77,7 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 - Two-finger pan on the phone (not shown in the recordings; Latin digits and LTR were confirmed in the S3 check).
 - S5 look on a phone: edge lines and v69's lights are written to v69's numbers and checked with one pixel in WebGL2, not compared side by side with v69 on the owner's phone. Edge cost on R10 on a phone (time until they appear, GPU memory) not measured.
 - S6 on a phone: Modify on R10 parts with their cuts and bolt groups (built and tested on the build machine with Manifold, not tried on a phone).
-- Welds: no S6 connection type makes welds (TKCUT, TKBOLT and fitting have none in v69); weld data, the weld list and `weldonly` come with the components (S7–S9) and are not verified yet.
+- Welds: End plate welds (name, a, length, loop, Welds tab size / around) equal v69 (S7T144Test 3/3, S7DialogTest 4/4, the weld rule check S7StatusTest). The other families' welds, the weld list and `weldonly` are checked with their families (S8–S9).
 - The v58 Tekla bolt options (staggering, deleted bolts, slotted / oversized / tapped holes, bolt direction, washers / nuts off) are ported but have no v69 golden yet: v69's TKBOLT ignores them (see S6, found), and the components that use them are S7–S9. Checked then.
 - Fittings with copes (a beam into a main beam's web) are ported (`stJoint` cope) but none of the 3 golden cases has a cope.
 - Edges in v69 also go through `smoothEdgeLines` (drops seams of smooth surfaces); not ported (the 12° rule already keeps smooth round tubes and bolts without side lines).
@@ -63,6 +85,8 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 ## Decisions for the owner to review
 Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, note it here, continue).
 - Saved property sets ("Save as column", …) last for the session only; v69 keeps them in the browser's localStorage. S7 component presets and defaults are kept in the app's SharedPreferences with v69's keys and JSON (`ss.connDef`, `ss.connSets`, `ss.connRecent`); the part property sets can move there too.
+- Component symbols are drawn over the model (v69 draws them in the scene with depth test, lifted 320 mm towards the camera, so steel in front can hide them). On a phone the cones stay visible behind steel; chosen so they can always be tapped.
+- Component checks run for the components that have symbols (not for R10's TKBOLT / TKCUT, which v69 also checks in the background for its Checks sheet; that sheet is S11).
 - Component picking uses the app's normal body pick: a component plate in front of a member is hit first and answered "Pick a steel part" (v69 casts its ray against members only). Rarely matters; noted.
 - Grid level lines are solid (v69 dashes them); our overlay lines have no dash pattern yet.
 - **Sloped fitting:** v69 builds the right cut box (equal to ours), but its Manifold leaves the sloped rafter uncut (the 120 m cut box loses precision in v69's older Manifold; the volume is unchanged to 12 digits). The native app makes the intended cut (9.2 mm). Matching v69 here would mean copying a precision failure, so the app cuts; the straight cases equal v69.
