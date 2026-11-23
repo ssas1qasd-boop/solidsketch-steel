@@ -317,6 +317,19 @@ class SteelMode(
     private fun str(o: JsonObject, k: String) = (o[k] as? JsonPrimitive)?.contentOrNull ?: ""
 
     /** v69 "Work level" buttons: "+0", "+7500", … */
+    /** A grid label (v69 stGridDraw sprites) at its model point: circled line numbers / letters, level labels. */
+    class GridLabel(val text: String, val p: Vec3, val ring: Boolean)
+    /** v69 stGridDraw: X labels 0.6 × 900 mm beyond the start of each X line (the lines run 1500 mm past the outer Y lines), Y labels
+     *  likewise at each Y line's start, level labels 900 mm past the far corner of each level. Projected when drawn. */
+    fun gridLabels(): List<GridLabel> {
+        val g = grid ?: return emptyList(); if (g.xs.isEmpty() || g.ys.isEmpty()) return emptyList()
+        val zs = g.zs.ifEmpty { listOf(0.0) }; val sz = 900.0; val ext = 1500.0
+        val x0 = g.xs.min() - ext; val x1 = g.xs.max() + ext; val y0 = g.ys.min() - ext; val y1 = g.ys.max() + ext
+        return g.xs.mapIndexed { i, x -> GridLabel(g.xLabel(i), Vec3(x, y0 - sz * 0.6, zs[0]), true) } +
+            g.ys.mapIndexed { i, y -> GridLabel(g.yLabel(i), Vec3(x0 - sz * 0.6, y, zs[0]), true) } +
+            g.zs.mapIndexed { i, z -> GridLabel(g.levelLabel(i), Vec3(x1 + sz, y1, z), false) }
+    }
+
     fun levelLabels(): List<String> = grid?.let { g -> g.zs.indices.map(g::levelLabel) } ?: listOf("+0")
 
     /** Picked points, the selected member's handles (yellow p1, magenta p2), for the screen overlay. */

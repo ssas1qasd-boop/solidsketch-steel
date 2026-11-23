@@ -64,26 +64,26 @@ fun StBtn(label: String, on: Boolean = false, enabled: Boolean = true, onClick: 
 
 /** Grid labels (v69 sprites: circled 1, 2, 3… / A, B, C… at the ends of the lines; level labels) and the picked points / handles. */
 @Composable
-fun SteelOverlay(mode: SteelMode, tick: Int, project: (Vec3) -> Pair<Float, Float>?, modifier: Modifier = Modifier) {
+fun SteelOverlay(mode: SteelMode, tick: Int, project: (Vec3) -> Pair<Float, Float>?, modifier: Modifier = Modifier,
+                 /** The camera's revision. Read while drawing, so every camera change (orbit, pan, zoom, resize) redraws the labels,
+                  *  handles and cones even when this composable itself is skipped (S9b regression: they stayed where they were first drawn). */
+                 viewRev: () -> Int = { 0 },
+                 /** Test hook: the grid labels as drawn (text, x, y in px). */ onDrawn: ((List<Triple<String, Float, Float>>) -> Unit)? = null) {
     @Suppress("UNUSED_EXPRESSION") tick
     val tm = rememberTextMeasurer()
     if (!mode.on) return
-    val g = mode.grid
     Canvas(modifier.fillMaxSize()) {
+        viewRev()
         val r = 13.dp.toPx()
+        val drawn = ArrayList<Triple<String, Float, Float>>()
         fun label(p: Vec3, text: String, ring: Boolean) {
-            val s = project(p) ?: return; val c = Offset(s.first, s.second)
+            val s = project(p) ?: return; val c = Offset(s.first, s.second); drawn += Triple(text, c.x, c.y)
             if (ring) { drawCircle(Color.White, r, c); drawCircle(Color(0xFF3A4250), r, c, style = Stroke(1.5.dp.toPx())) }
             val lay = tm.measure(text, TextStyle(fontSize = if (text.length > 3) 10.sp else 13.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFF1D2330)))
             drawText(lay, topLeft = Offset(c.x - lay.size.width / 2f, c.y - lay.size.height / 2f))
         }
-        if (g != null && g.xs.isNotEmpty() && g.ys.isNotEmpty()) {
-            val zs = g.zs.ifEmpty { listOf(0.0) }; val sz = 900.0; val ext = 1500.0
-            val x0 = g.xs.min() - ext; val x1 = g.xs.max() + ext; val y0 = g.ys.min() - ext; val y1 = g.ys.max() + ext
-            g.xs.forEachIndexed { i, x -> label(Vec3(x, y0 - sz * 0.6, zs[0]), g.xLabel(i), true) }
-            g.ys.forEachIndexed { i, y -> label(Vec3(x0 - sz * 0.6, y, zs[0]), g.yLabel(i), true) }
-            g.zs.forEachIndexed { i, z -> label(Vec3(x1 + sz, y1, z), g.levelLabel(i), false) }
-        }
+        for (l in mode.gridLabels()) label(l.p, l.text, l.ring)
+        onDrawn?.invoke(drawn)
         for ((p, argb) in mode.markers()) project(Vec3(p.x, p.y, p.z))?.let { drawCircle(Color(argb), 6.dp.toPx(), Offset(it.first, it.second)) }
         // v58 tkFanDraw: dashed yellow lines from the selected component's symbol to its parts
         for ((a, b) in mode.fanLines()) { val sa = project(Vec3(a.x, a.y, a.z)) ?: continue; val sb = project(Vec3(b.x, b.y, b.z)) ?: continue
