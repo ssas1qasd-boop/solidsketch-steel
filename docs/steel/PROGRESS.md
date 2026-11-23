@@ -22,7 +22,7 @@ Then the S8 APK and phone check list. **Done.**
 | Family | Components done / total | Golden cases passed |
 |---|---|---|
 | EP | 16 / 16 | 80 / 80 (incl. 16 bolt-option cases) |
-| ST | 1 / 35 | 5 / 5 (others in progress) |
+| ST | 35 / 35 | 122 / 122 |
 | BP | 13 / 13 | 73 / 73 |
 | CP | 9 / 9 | 41 / 41 |
 | CL | 1 / 1 | 8 / 8 |
@@ -30,10 +30,10 @@ Then the S8 APK and phone check list. **Done.**
 | TG | 2 / 2 | 24 / 24 (incl. 9 node gusset) |
 | CA | 11 / 11 | 45 / 48 (3 known) |
 | BE | 2 / 2 | 10 / 10 |
-| SE | 0 / 11 | in progress |
-| JO | 0 / 6 | in progress |
+| SE | 11 / 11 | 42 / 42 |
+| JO | 6 / 6 | 27 / 27 |
 | GU | 0 / 32 | in progress |
-| SD | 0 / 26 | — |
+| SD | 0 / 26 | in progress |
 | WF | 0 / 20 | — |
 | SP | 0 / 19 | — |
 | GEN | 0 / 17 | — |
@@ -144,6 +144,7 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 - Edges in v69 also go through `smoothEdgeLines` (drops seams of smooth surfaces); not ported (the 12° rule already keeps smooth round tubes and bolts without side lines).
 
 ## Decisions for the owner to review
+- `Joints.box3` / `poly3` with the bounds reversed now extrude upward from the first bound as v69's extrudeRegions does (|height| from z0), found by a two-sided shear tab on an SHS stanchion (T87); every earlier case still equals v69.
 - Tube gusset node: the shared gusset reads the other tongue braces' settings with a copy of v69's Ttg defaults in FamTG.kt (the family code has no catalog access); same values as v69 today.
 Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, note it here, continue).
 - Saved property sets ("Save as column", …) last for the session only; v69 keeps them in the browser's localStorage. S7 component presets and defaults are kept in the app's SharedPreferences with v69's keys and JSON (`ss.connDef`, `ss.connSets`, `ss.connRecent`); the part property sets can move there too.

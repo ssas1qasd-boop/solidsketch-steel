@@ -40,7 +40,7 @@ object Joints {
     /** v69 stPoly3: a polygon in the frame (O; X, Y) extruded z0..z1 along X × Y (counter-clockwise as v69 makes it). */
     fun poly3(o: D3, x: D3, y: D3, poly: List<DoubleArray>, z0: Double, z1: Double): Mesh {
         val n = (x cross y).normalize()
-        return Prism.extrude(Region(poly), z1 - z0, Prism.Frame(o.add(n, z0), x, y, n))
+        return Prism.extrude(Region(poly), abs(z1 - z0), Prism.Frame(o.add(n, z0), x, y, n))   // v69 extrudeRegions: |height| from z0
     }
 
     /** v69 stFrame3: P(x, y, z), box (sorted bounds), poly in the frame (O; X, Y, Z = X × Y). */
@@ -54,7 +54,8 @@ object Joints {
     /** v69 stBox3: a box in the frame (O; X, Y, N = X × Y), from x0..x1, y0..y1, z0..z1. */
     fun box3(o: D3, x: D3, y: D3, x0: Double, x1: Double, y0: Double, y1: Double, z0: Double, z1: Double): Mesh {
         val n = (x cross y).normalize()
-        return Prism.extrude(Region(listOf(doubleArrayOf(x0, y0), doubleArrayOf(x1, y0), doubleArrayOf(x1, y1), doubleArrayOf(x0, y1))), z1 - z0, Prism.Frame(o.add(n, z0), x, y, n))
+        // v69 extrudeRegions takes |height| and stBox3 starts at z0: z1 < z0 gives z0 .. 2·z0 − z1, not z1 .. z0 (J.box with sg = −1)
+        return Prism.extrude(Region(listOf(doubleArrayOf(x0, y0), doubleArrayOf(x1, y0), doubleArrayOf(x1, y1), doubleArrayOf(x0, y1))), abs(z1 - z0), Prism.Frame(o.add(n, z0), x, y, n))
     }
 
     /** v69 stJoint (v38 L14257): where a secondary member meets the main part: its near end E, axis X out of the joint, the face it lands on (xFace), copes. */
