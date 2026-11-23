@@ -181,7 +181,7 @@ class MainActivity : ComponentActivity() {
             "Tap a body to select · drag to orbit · pinch to zoom", menuOpen)
         com.solidsketchapp.steel.ui.AppLayout(state,
             view = { AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize()) },
-            steel = if (m != null && m.on) ({ SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }, viewRev = { viewTick }); SteelPanel(m, tick, pics = compPics) }) else null,
+            steel = if (m != null && m.on) ({ SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }, viewRev = { viewTick }, scaleAt = { viewport.camera.pxPerUnit(it)?.toFloat() }); SteelPanel(m, tick, pics = compPics) }) else null,
             onUndo = { undo.undo() }, onRedo = { undo.redo() }, onDelete = { undo.group("Delete") { sel.forEach(doc::removeBody) } },
             onSoon = { toast("$it comes with the main SolidSketch port") }, onMore = { menuOpen = !menuOpen }, onTool = ::pickTool,
             toast = toastMsg?.first,

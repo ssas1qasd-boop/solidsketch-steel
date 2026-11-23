@@ -68,9 +68,9 @@ val V69_MENU = listOf("open" to "Open model (.ss)…", "walk" to "Walkthrough", 
     "keepsketch" to "Keep sketch when leaving: on", "autoturn" to "Auto view turn: on", "clear" to "Clear all", "units" to "Units: mm", "about" to "About SolidSketch Steel")
 
 /** Insets every top-anchored piece of chrome keeps clear of (status bar, cutout). */
-val TopInsets @Composable get() = WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal)
+val TopInsets @Composable get() = com.solidsketchapp.steel.ui.topInsets()
 /** Insets every bottom-anchored piece keeps clear of (navigation bar, 3-button or gesture, and the keyboard). */
-val BottomInsets @Composable get() = WindowInsets.safeDrawing.only(WindowInsetsSides.Bottom + WindowInsetsSides.Horizontal).union(WindowInsets.ime.only(WindowInsetsSides.Bottom))
+val BottomInsets @Composable get() = com.solidsketchapp.steel.ui.panelInsets()
 
 /** v69 `.btn` (14 px 600, accent; disabled: muted at 50 %); `.btn.icon` 18 px. */
 @Composable
