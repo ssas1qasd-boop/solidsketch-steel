@@ -14,8 +14,8 @@ android {
         applicationId = "com.solidsketchapp.steel"
         minSdk = 24
         targetSdk = 35
-        versionCode = 12
-        versionName = "0.9.1-s9b"
+        versionCode = 13
+        versionName = "0.9.2-s9b"
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
     }
 
@@ -76,5 +76,5 @@ if (providers.gradleProperty("hostJni").isPresent) tasks.withType<Test>().config
     maxHeapSize = "4g"
 }
 
-// S9b: the screenshots need the Compose test activity from ui-test-manifest, which only the debug build has.
-tasks.matching { it.name == "testReleaseUnitTest" }.configureEach { (this as Test).filter { excludeTestsMatching("*UiScreensTest*") } }
+// S9b: the screenshots and the grid-label test need the Compose test activity from ui-test-manifest, which only the debug build has.
+tasks.matching { it.name == "testReleaseUnitTest" }.configureEach { (this as Test).filter { excludeTestsMatching("*UiScreensTest*"); excludeTestsMatching("*GridLabelsFollowViewTest*") } }
