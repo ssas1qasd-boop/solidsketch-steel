@@ -22,6 +22,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInParent
 import androidx.compose.foundation.layout.only
@@ -89,20 +92,28 @@ fun CatalogSheet(mode: SteelMode, comps: Components, pics: CompPics, symbolsOn: 
     val sc = com.solidsketchapp.steel.ui.LocalSs.current
     // v69 stCatalog: an #st-sheet titled "Applications & components" with a search input (.srch: full width, margin 0 0 8)
     com.solidsketchapp.steel.ui.StSheet("Applications & components", scroll = false) {
-        Box(Modifier.fillMaxWidth().border(1.dp, sc.border, RoundedCornerShape(8.dp)).padding(horizontal = 8.dp, vertical = 6.dp)) {
-            if (filter.isEmpty()) Text("Search: name or number, e.g. end plate, 144", color = sc.fg.copy(alpha = 0.5f), fontSize = 14.sp, maxLines = 1)
-            BasicTextField(filter, { filter = it }, singleLine = true, textStyle = TextStyle(fontSize = 14.sp, color = sc.fg), cursorBrush = androidx.compose.ui.graphics.SolidColor(sc.fg), modifier = Modifier.fillMaxWidth())
-        }
         val open = remember { mutableStateOf(setOf<String>()) }   // v69 <details open>: closed ones listed here
-        LazyColumn(Modifier.weight(1f).padding(top = 8.dp)) {
+        // v69 .srch: full width, margin 0 0 8. (v69's whole sheet scrolls; here the search stays on top and the footer at the
+        // bottom, S9b decision after the owner found Symbols / Close hidden; the rows start where v69's do: UI golden.)
+        com.solidsketchapp.steel.ui.SsInput(filter, { filter = it }, "Search: name or number, e.g. end plate, 144", Modifier.fillMaxWidth().padding(bottom = 8.dp))
+        LazyColumn(Modifier.weight(1f)) {
             fun row(k: String) = item(key = "${filter}:${k}:${System.identityHashCode(k)}") { CatRow(comps, pics, k, { if (k.startsWith("@")) app(k) else mode.catPick(k) }, { openDialog(k) }) }
             if (filter.isNotBlank()) {
                 val keys = comps.search(filter)
                 if (keys.isEmpty()) item { Text("Nothing matches.", fontSize = 14.sp, modifier = Modifier.padding(6.dp)) }
                 for (k in keys) item(key = "s:$k") { CatRow(comps, pics, k, { if (k.startsWith("@")) app(k) else mode.catPick(k) }, { openDialog(k) }) }
             } else for ((g, items) in comps.groups()) {
-                item(key = "g:$g") { Text("${if (g in open.value) "▸" else "▾"} $g (${items.size})", fontSize = 13.5.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.fillMaxWidth().clickable { open.value = if (g in open.value) open.value - g else open.value + g }.padding(horizontal = 2.dp, vertical = 6.dp)) }
+                // v69 details: margin 2 0 6; summary: 600, padding 6 × 2, 13.5 px
+                // the open / closed marker is drawn, as Chrome draws a summary's marker (a ▾ glyph is not in Roboto, and the
+                // fallback font's taller line made each group header 2.5 dp too high: UI golden)
+                item(key = "g:$g") { val closed = g in open.value; val ink = sc.fg
+                    Text("$g (${items.size})", fontSize = 13.5.sp, fontWeight = FontWeight.SemiBold, style = com.solidsketchapp.steel.ui.cssLine(16),
+                        modifier = Modifier.padding(top = 2.dp).fillMaxWidth().clickable { open.value = if (closed) open.value - g else open.value + g }.padding(horizontal = 2.dp, vertical = 6.dp)
+                            .drawBehind { val s = 8.dp.toPx(); val x0 = 1.dp.toPx(); val cy = size.height / 2
+                                val p = androidx.compose.ui.graphics.Path().apply { if (closed) { moveTo(x0, cy - s / 2); lineTo(x0 + s * 0.87f, cy); lineTo(x0, cy + s / 2) } else { moveTo(x0, cy - s * 0.43f); lineTo(x0 + s, cy - s * 0.43f); lineTo(x0 + s / 2, cy + s * 0.43f) }; this.close() }   // this.close(): the Path's, not the sheet's close
+                                drawPath(p, ink) }.padding(start = 13.dp)) }
                 if (g !in open.value) items(items, key = { "$g:$it" }) { k -> CatRow(comps, pics, k, { if (k.startsWith("@")) app(k) else mode.catPick(k) }, { openDialog(k) }) }
+                item(key = "g6:$g") { androidx.compose.foundation.layout.Spacer(Modifier.height(6.dp)) }
             }
         }
         val n = comps.countInModel()
@@ -116,13 +127,14 @@ fun CatalogSheet(mode: SteelMode, comps: Components, pics: CompPics, symbolsOn: 
 
 @Composable
 private fun CatRow(comps: Components, pics: CompPics, k: String, pick: () -> Unit, props: () -> Unit) {
-    Row(Modifier.fillMaxWidth().clickable { pick() }.padding(horizontal = 6.dp, vertical = 5.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+    // v69 .ci: padding 5 × 6 and a 1 px transparent border, gap 10; its button padding 5 × 9
+    Row(Modifier.fillMaxWidth().height(66.dp).clickable { pick() }.padding(horizontal = 7.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         Icon(pics, k)
         Column(Modifier.weight(1f)) {
             Text(comps.ui.label(k), fontWeight = FontWeight.SemiBold, fontSize = 14.sp, maxLines = 2, overflow = TextOverflow.Ellipsis, color = com.solidsketchapp.steel.ui.LocalSs.current.fg)
             Text(comps.ui.tekla(k), fontSize = 12.sp, color = com.solidsketchapp.steel.ui.LocalSs.current.fg.copy(alpha = 0.7f), maxLines = 2, overflow = TextOverflow.Ellipsis)
         }
-        if (k in comps.ui.conn) StBtn("Properties") { props() }
+        if (k in comps.ui.conn) StBtn("Properties", padH = 9, padV = 5) { props() }
     }
 }
 
@@ -133,8 +145,26 @@ private val PANE = Color(0xFFFFFFFF); private val BG = Color(0xFFEEF0F3); privat
 /** A Tekla dialog button (v69 `.tkdlg button`): square-ish, grey gradient look, one line. */
 @Composable
 private fun TkBtn(label: String, on: Boolean = false, onClick: () -> Unit) {
-    Box(Modifier.heightIn(min = 32.dp).background(if (on) Color.White else Color(0xFFEEF0F3), RoundedCornerShape(4.dp)).border(1.dp, Color(0xFFAAB2BD), RoundedCornerShape(4.dp)).clickable { onClick() }.padding(horizontal = 10.dp, vertical = 6.dp), contentAlignment = Alignment.Center) {
-        Text(label, fontSize = 13.sp, color = INK, maxLines = 1, softWrap = false, fontWeight = if (on) FontWeight.SemiBold else FontWeight.Normal)
+    // v69 .tkdlg button: padding 6 × 10 plus the 1 px border, min-height 32 (border box), 13 px
+    Box(Modifier.height(32.dp).background(if (on) Color.White else Color(0xFFEEF0F3), RoundedCornerShape(4.dp)).border(1.dp, Color(0xFFAAB2BD), RoundedCornerShape(4.dp)).clickable { onClick() }, contentAlignment = Alignment.Center) {
+        com.solidsketchapp.steel.ui.CssText(label, com.solidsketchapp.steel.ui.cssLine(15).copy(fontSize = 13.sp, color = INK, fontWeight = if (on) FontWeight.SemiBold else FontWeight.Normal), pad = 11.dp)
+    }
+}
+
+/** v69 `label.tkchk` (12 px, gap 4) with an 18 px checkbox (Chrome's margins 3 3 3 4, accent #2a6fd1): 24 px high, as in the
+ *  dialog's top bar and bottom bar. The whole label toggles. */
+@Composable
+private fun TkChkLabel(text: String, checked: Boolean, onChange: (Boolean) -> Unit) {
+    Row(Modifier.height(24.dp).clickable { onChange(!checked) }, verticalAlignment = Alignment.CenterVertically) {
+        androidx.compose.foundation.Canvas(Modifier.padding(start = 4.dp, end = 3.dp).size(18.dp)) {
+            val r = androidx.compose.ui.geometry.CornerRadius(2.dp.toPx())
+            if (checked) { drawRoundRect(Color(0xFF2A6FD1), cornerRadius = r)
+                val p = androidx.compose.ui.graphics.Path().apply { moveTo(size.width * 0.22f, size.height * 0.52f); lineTo(size.width * 0.42f, size.height * 0.72f); lineTo(size.width * 0.78f, size.height * 0.30f) }
+                drawPath(p, Color.White, style = androidx.compose.ui.graphics.drawscope.Stroke(2.dp.toPx())) }
+            else { drawRoundRect(Color.White, cornerRadius = r); drawRoundRect(Color(0xFF767676), cornerRadius = r, style = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx())) }
+        }
+        // v69: the label's text node " all of this type" is an anonymous flex item, so its leading space is dropped
+        com.solidsketchapp.steel.ui.CssText(text, com.solidsketchapp.steel.ui.cssLine(14).copy(fontSize = 12.sp, color = INK), Modifier.padding(start = 4.dp))
     }
 }
 
@@ -190,11 +220,13 @@ fun CompDialogSheet(mode: SteelMode, comps: Components, pics: CompPics, key: Str
     val uri = LocalUriHandler.current
     @Suppress("UNUSED_EXPRESSION") rev
     val dk = com.solidsketchapp.steel.ui.LocalSs.current.dark
-    Column(Modifier.fillMaxSize().windowInsetsPadding(androidx.compose.foundation.layout.WindowInsets.safeDrawing.only(androidx.compose.foundation.layout.WindowInsetsSides.Top + androidx.compose.foundation.layout.WindowInsetsSides.Horizontal))
-        .padding(top = 28.dp).background(if (dk) Color(0xFF23272E) else BG, RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))) {
+    Column(Modifier.fillMaxSize().windowInsetsPadding(com.solidsketchapp.steel.ui.topInsets())
+        .padding(top = 28.dp).testTag("tkdlg").background(if (dk) Color(0xFF23272E) else BG, RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))
+        .border(1.dp, com.solidsketchapp.steel.ui.LocalSs.current.border, RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp)).padding(1.dp)) {   // #st-sheet's 1 px border
         // header
         val c = d.conn; val st = c?.let(status)
-        Row(Modifier.fillMaxWidth().background(Color(0xFFF0F2F5)).padding(horizontal = 10.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+        // v69 .tkhd: padding 8 × 10, border-bottom 1 #c5cad1 (65 px with the 48 px picture)
+        Row(Modifier.fillMaxWidth().background(Color(0xFFF0F2F5)).drawBehind { drawLine(LINE, Offset(0f, size.height - 0.5.dp.toPx()), Offset(size.width, size.height - 0.5.dp.toPx()), 1.dp.toPx()) }.padding(start = 10.dp, end = 10.dp, top = 8.dp, bottom = 9.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             Box(Modifier.size(64.dp, 48.dp)) { Icon(pics, key) }
             Column(Modifier.weight(1f)) {
                 Text(d.def.tekla.ifEmpty { d.def.label }, fontWeight = FontWeight.Bold, fontSize = 14.sp, color = INK)
@@ -205,14 +237,21 @@ fun CompDialogSheet(mode: SteelMode, comps: Components, pics: CompPics, key: Str
         }
         if (st != null && st.second.isNotEmpty()) Text(st.second.joinToString(" · "), fontSize = 12.sp, color = if (st.first == 2) Color(0xFF5C4400) else Color(0xFF7A1010), modifier = Modifier.fillMaxWidth().background(if (st.first == 2) Color(0xFFFFF8DB) else Color(0xFFFFE3E3)).padding(horizontal = 10.dp, vertical = 6.dp))
         // top bar
-        Row(Modifier.fillMaxWidth().background(Color(0xFFF6F7F9)).horizontalScroll(rememberScrollState()).padding(horizontal = 8.dp, vertical = 6.dp), horizontalArrangement = Arrangement.spacedBy(5.dp), verticalAlignment = Alignment.CenterVertically) {
+        // v69 .tktop: flex, gap 5, padding 6 × 8, border-bottom 1 #c5cad1. On a phone the row is wider than the screen, so the
+        // preset list and the preset name (110 px, flex-shrink 1, min-width 0) shrink to their padding and border: 18 px each
+        // (the list shows only its arrow); the buttons and the check do not shrink, and the row scrolls (UI golden).
+        Row(Modifier.fillMaxWidth().background(Color(0xFFF6F7F9)).drawBehind { drawLine(LINE, Offset(0f, size.height - 0.5.dp.toPx()), Offset(size.width, size.height - 0.5.dp.toPx()), 1.dp.toPx()) }.horizontalScroll(rememberScrollState()).padding(start = 8.dp, end = 8.dp, top = 6.dp, bottom = 7.dp), horizontalArrangement = Arrangement.spacedBy(5.dp), verticalAlignment = Alignment.CenterVertically) {
             TkBtn("Save") { d.save(preset); toast(if (preset == "standard") "Saved as the standard for new components" else "Saved “$preset”") }
             TkBtn("Load") { if (d.load(preset)) { bump(); toast("Loaded “$preset”") } }
             val names = listOf("standard") + comps.presets(key)
-            TkPicker(pics, TkField("_preset", "", "sel", names.map { TkOpt(kotlinx.serialization.json.JsonPrimitive(it), it, null) }, null, null, null, null, null, null, null), kotlinx.serialization.json.JsonPrimitive(preset), { preset = Js.str(it) }, Modifier.width(120.dp))
+            Box { var open by remember { mutableStateOf(false) }
+                Box(Modifier.size(18.dp, 31.dp).background(Color.White, RoundedCornerShape(4.dp)).border(1.dp, Color(0xFFB7BEC8), RoundedCornerShape(4.dp)).clickable { open = true }, contentAlignment = Alignment.Center) {
+                    Text("⌄", fontSize = 13.sp, color = Color(0xFF111111), maxLines = 1, softWrap = false) }
+                androidx.compose.material3.DropdownMenu(open, { open = false }) { for (n in names) androidx.compose.material3.DropdownMenuItem({ Text(n) }, { preset = n; open = false }) } }
             TkBtn("Save as") { val n = presetName.trim(); if (n.isEmpty()) toast("Type a preset name first") else { comps.savePreset(key, n, d.read(true)); preset = n; toast("Saved “$n”") } }
-            TkText(presetName, { presetName = it }, "preset name", false, Modifier.width(110.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) { TkCheck(ignoreOther) { ignoreOther = it }; Text("ignore other types", fontSize = 12.sp, color = INK, maxLines = 1) }
+            BasicTextField(presetName, { presetName = it }, singleLine = true, textStyle = TextStyle(fontSize = 13.sp, color = Color(0xFF111111)), modifier = Modifier.size(18.dp, 29.dp),
+                decorationBox = { inner -> Box(Modifier.background(Color.White, RoundedCornerShape(4.dp)).border(1.dp, Color(0xFFB7BEC8), RoundedCornerShape(4.dp)).padding(horizontal = 1.dp, vertical = 6.dp)) { inner() } })
+            TkChkLabel("ignore other types", ignoreOther) { ignoreOther = it }
             TkBtn("Welds…") { if (d.spec.tabs.any { it.name == "Welds" }) tab = "Welds" }
             TkBtn("Help") { val u = "https://support.tekla.com/doc/tekla-structures/2025/" + d.spec.help; runCatching { uri.openUri(u) }.onFailure { toast(u) } }
         }
@@ -220,7 +259,8 @@ fun CompDialogSheet(mode: SteelMode, comps: Components, pics: CompPics, key: Str
         // v69 show(): the selected tab is scrolled into view (scrollIntoView, inline centre)
         val tabScroll = rememberScrollState(); val tabX = remember { HashMap<String, Int>() }; val dens = androidx.compose.ui.platform.LocalDensity.current
         androidx.compose.runtime.LaunchedEffect(tab, tabX.size) { tabX[tab]?.let { x -> tabScroll.animateScrollTo(maxOf(0, x - with(dens) { 150.dp.roundToPx() })) } }
-        Row(Modifier.fillMaxWidth().background(Color(0xFFDFE3E8)).horizontalScroll(tabScroll).padding(start = 8.dp, end = 8.dp, top = 6.dp), horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+        // v69 .tktabs: gap 2, padding 6 8 0, border-bottom 1 #aab2bd
+        Row(Modifier.fillMaxWidth().background(Color(0xFFDFE3E8)).drawBehind { drawLine(Color(0xFFAAB2BD), Offset(0f, size.height - 0.5.dp.toPx()), Offset(size.width, size.height - 0.5.dp.toPx()), 1.dp.toPx()) }.horizontalScroll(tabScroll).padding(start = 8.dp, end = 8.dp, top = 6.dp, bottom = 1.dp), horizontalArrangement = Arrangement.spacedBy(2.dp)) {
             for (t in d.spec.tabs) Box(Modifier.onGloballyPositioned { tabX[t.name] = it.positionInParent().x.toInt() }) { TkBtn(t.name, t.name == tab) { tab = t.name } }
         }
         // pane
@@ -234,8 +274,9 @@ fun CompDialogSheet(mode: SteelMode, comps: Components, pics: CompPics, key: Str
             if (t.welds) WeldsTable(d, pics, rev, bump)
         }
         // bottom bar
-        // v69 .tkbar: #f6f7f9, padding 8 8 14, wraps; here it also covers the navigation bar
-        androidx.compose.foundation.layout.FlowRow(Modifier.fillMaxWidth().background(Color(0xFFF6F7F9)).windowInsetsPadding(com.solidsketchapp.steel.ui.panelInsets()).padding(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 14.dp), horizontalArrangement = Arrangement.spacedBy(5.dp, Alignment.End), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        // v69 .tkbar: #f6f7f9, border-top 1 #c5cad1, padding 8 8 14, wraps; gap 6 and justify-content flex-end (from
+        // #st-sheet .bar, which wins over .tkbar's flex-start); here it also covers the navigation bar
+        androidx.compose.foundation.layout.FlowRow(Modifier.fillMaxWidth().background(Color(0xFFF6F7F9)).drawBehind { drawLine(LINE, Offset(0f, 0.5.dp.toPx()), Offset(size.width, 0.5.dp.toPx()), 1.dp.toPx()) }.windowInsetsPadding(com.solidsketchapp.steel.ui.panelInsets()).padding(start = 8.dp, end = 9.dp, top = 9.dp, bottom = 14.dp), horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.End), verticalArrangement = Arrangement.spacedBy(6.dp)) {
             fun modify() { val locked = d.conn?.let { Js.num(it.q["locked"]).let { v -> v != 0.0 && !v.isNaN() } } == true
                 if (!allOfType && d.conn == null || (!allOfType && locked)) { toast(if (locked) "This component is locked (General tab)" else "Select a component of this type in the model, or tick “all of this type”"); return }
                 val n = d.modify(allOfType); if (n == 0) { toast("Select a component of this type in the model, or tick “all of this type”"); return }
@@ -246,7 +287,7 @@ fun CompDialogSheet(mode: SteelMode, comps: Components, pics: CompPics, key: Str
             TkBtn("Get") { val c0 = mode.selectionFirst()?.let { comps.connOfBody(it) } ?: d.conn
                 if (c0 == null || c0.type != key) toast("Select a ${d.def.label.lowercase()} in the model first") else { d.getFrom(c0); bump(); toast("Got the values of #${c0.id}") } }
             TkBtn("on/off") { d.toggleAll(); bump() }
-            Row(verticalAlignment = Alignment.CenterVertically) { TkCheck(allOfType) { allOfType = it }; Text("all of this type", fontSize = 12.sp, color = INK, maxLines = 1) }
+            Box(Modifier.align(Alignment.CenterVertically)) { TkChkLabel("all of this type", allOfType) { allOfType = it } }
             TkBtn("Pick parts") { d.apply(); close(); mode.catPick(key) }
             TkBtn("Cancel") { close() }
             d.conn?.let { c0 -> TkBtn("Delete") { comps.delete(c0); close() } }
