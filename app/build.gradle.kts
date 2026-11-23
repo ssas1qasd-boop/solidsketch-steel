@@ -14,8 +14,8 @@ android {
         applicationId = "com.solidsketchapp.steel"
         minSdk = 24
         targetSdk = 35
-        versionCode = 13
-        versionName = "0.9.2-s9b"
+        versionCode = 14
+        versionName = "0.9.3-s9b"
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
     }
 
@@ -77,4 +77,13 @@ if (providers.gradleProperty("hostJni").isPresent) tasks.withType<Test>().config
 }
 
 // S9b: the screenshots and the grid-label test need the Compose test activity from ui-test-manifest, which only the debug build has.
-tasks.matching { it.name == "testReleaseUnitTest" }.configureEach { (this as Test).filter { excludeTestsMatching("*UiScreensTest*"); excludeTestsMatching("*GridLabelsFollowViewTest*") } }
+tasks.matching { it.name == "testReleaseUnitTest" }.configureEach { (this as Test).filter { excludeTestsMatching("*UiScreensTest*"); excludeTestsMatching("*GridLabelsFollowViewTest*"); excludeTestsMatching("*UiGoldenTest*") } }
+
+// UI golden (owner, 2026-11-23): no APK without the UI check against web v69. Every assemble / bundle of the app first runs the
+// debug unit tests, which include UiGoldenTest (labels, handles and cones within 2 px of v69 in every camera state; button and
+// sheet boxes within 4 px; every control above the navigation bar), GridLabelsFollowViewTest, UiRulesTest and UiScreensTest.
+// v69's side is recorded by tools/golden/ui_golden.js into tests/steel/ui/golden/ui_golden.json (see docs/steel/UI-GOLDEN.md).
+// -PskipUiGolden builds without it (never for an APK that goes to the owner).
+if (!providers.gradleProperty("skipUiGolden").isPresent) tasks.matching { it.name.matches(Regex("(assemble|bundle)(Debug|Release)")) }.configureEach { dependsOn("testDebugUnitTest") }
+// the UI golden reads v69's numbers from the repo: a new recording must rerun the tests (not "up to date")
+tasks.matching { it.name == "testDebugUnitTest" }.configureEach { inputs.dir(rootProject.file("tests/steel/ui/golden")).withPropertyName("uiGolden").optional() }

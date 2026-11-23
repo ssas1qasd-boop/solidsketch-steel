@@ -25,7 +25,9 @@ class UiRulesTest {
         val dir = File(root, "steel/src/main/java")
         val panel = dir.walkTopDown().first { it.name == "SteelPanel.kt" }.readText()
         val btn = panel.substringAfter("fun StBtn(").substringBefore("\n}")
-        assertTrue(btn.contains("maxLines = 1") && btn.contains("softWrap = false"))
+        // its label is a CssText (SsChrome.kt: one line at v69's width), which keeps it on one line
+        val css = dir.walkTopDown().first { it.name == "SsChrome.kt" }.readText().substringAfter("fun CssText(").substringBefore("\n}")
+        assertTrue(btn.contains("maxLines = 1") && btn.contains("softWrap = false") || btn.contains("CssText(") && css.contains("maxLines = 1") && css.contains("softWrap = false"))
         val raw = dir.walkTopDown().filter { it.extension == "kt" }.flatMap { f ->
             f.readLines().mapIndexedNotNull { i, l -> if (Regex("""\b(Text|Filled)?Button\(""").containsMatchIn(l.substringBefore("//"))) "${f.name}:${i + 1}: $l" else null }
         }.filter { !it.contains("OutlinedButton(onClick = onClick") }.toList()

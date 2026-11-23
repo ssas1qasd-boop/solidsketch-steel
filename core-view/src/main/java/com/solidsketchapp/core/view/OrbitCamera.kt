@@ -62,6 +62,14 @@ class OrbitCamera {
         this.target = target; this.distance = distance.coerceIn(1.0, 1e8); this.rotation = rotation.normalized()
     }
 
+    /** Looks from [eye] at [target] with Z up on screen (three.js camera.lookAt, as web v69 places its camera). */
+    fun lookAt(target: Vec3, eye: Vec3) {
+        val b = (eye - target).normalized(); var r = Vec3(0.0, 0.0, 1.0) cross b
+        if ((r dot r) < 1e-12) r = Vec3(1.0, 0.0, 0.0)
+        r = r.normalized(); val u = b cross r
+        setView(target, (eye - target).let { kotlin.math.sqrt(it dot it) }, Quat.fromAxes(r, u, b))
+    }
+
     /** Frames the box [min]..[max] keeping the current direction. */
     fun fit(min: Vec3, max: Vec3) {
         target = (min + max) * 0.5
@@ -93,6 +101,12 @@ class OrbitCamera {
         val t = tan(fovY / 2)
         val dir = (right * (nx * t * aspect) + up * (ny * t) - back).normalized()
         return Ray(eye, dir)
+    }
+
+    /** Screen pixels per model unit at [p] (perspective: what a 1-unit sprite at [p] measures on screen), or null behind the camera. */
+    fun pxPerUnit(p: Vec3): Double? {
+        val zc = -((p - eye) dot back); if (zc <= 1e-9) return null
+        return viewportHeight / (2 * tan(fovY / 2) * zc)
     }
 
     /** Pixel of a model point, or null if it is behind the camera. */

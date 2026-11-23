@@ -41,4 +41,7 @@ class SsColors(
 val LocalSs = staticCompositionLocalOf { SsColors.Light }
 
 @Composable
-fun SsTheme(colors: SsColors, content: @Composable () -> Unit) = CompositionLocalProvider(LocalSs provides colors, androidx.compose.material3.LocalContentColor provides colors.fg, content = content)
+fun SsTheme(colors: SsColors, content: @Composable () -> Unit) = CompositionLocalProvider(LocalSs provides colors, androidx.compose.material3.LocalContentColor provides colors.fg,
+    // text laid out as Chrome lays out v69's: linear glyph advances, no extra font padding (UI golden)
+    androidx.compose.material3.LocalTextStyle provides androidx.compose.material3.LocalTextStyle.current.merge(androidx.compose.ui.text.TextStyle(textMotion = androidx.compose.ui.text.style.TextMotion.Animated,
+        platformStyle = androidx.compose.ui.text.PlatformTextStyle(includeFontPadding = false))), content = content)
