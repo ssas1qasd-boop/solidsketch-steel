@@ -32,14 +32,14 @@ Then the S8 APK and phone check list. **Done.**
 | BE | 2 / 2 | 10 / 10 |
 | SE | 11 / 11 | 42 / 42 |
 | JO | 6 / 6 | 27 / 27 |
-| GU | 0 / 32 | in progress |
+| GU | 32 / 32 | 109 / 109 |
 | SD | 0 / 26 | in progress |
-| WF | 0 / 20 | — |
+| WF | 0 / 20 | in progress |
 | SP | 0 / 19 | — |
 | GEN | 0 / 17 | — |
 | PU | 0 / 9 | — |
-| TU | 0 / 7 | — |
-| OP | 0 / 5 | — |
+| TU | 0 / 7 | in progress |
+| OP | 0 / 5 | in progress |
 | MF | 0 / 4 | — |
 | HA | 0 / 4 | — |
 (Family counts are v69's live CONN: 250 components incl. the 4 S8 dialogs; the 3 tube components v69 moves to GU / WF are counted there.)
