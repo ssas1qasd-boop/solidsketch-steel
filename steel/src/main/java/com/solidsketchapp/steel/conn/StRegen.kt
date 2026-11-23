@@ -4,6 +4,7 @@ import com.solidsketchapp.core.api.BodyId
 import com.solidsketchapp.core.api.BooleanEngine
 import com.solidsketchapp.core.api.DocumentApi
 import com.solidsketchapp.core.api.Mesh
+import com.solidsketchapp.steel.geom.D3
 import com.solidsketchapp.steel.geom.StBuild
 import com.solidsketchapp.steel.model.jsNum
 import kotlinx.serialization.json.Json
@@ -44,7 +45,9 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
     fun defOf(type: String): JsonObject = ui?.conn?.get(type)?.def ?: tk?.byId(type)?.let { c -> JsonObject(LinkedHashMap(Fam.DEF[c.family] ?: JsonObject(emptyMap())).apply { putAll(c.options) }) } ?: DEFS[type] ?: JsonObject(emptyMap())
     fun ported(type: String) = type in PORTED || famOf(type) != null
 
-    fun geom(c: StConn): ConnGeom? = geomCache.getOrPut(c.id) { runCatching { TkConns.geom(c.type, c.parts, c.q, build, defOf(c.type), stOf, profiles, famOf(c.type)) }.getOrNull() }
+    /** Every component in the document (v69 S.stConns), set by [regen]; families that look at their neighbours read it. */
+    var allConns: List<StConn> = emptyList()
+    fun geom(c: StConn): ConnGeom? = geomCache.getOrPut(c.id) { runCatching { TkConns.geom(c.type, c.parts, c.q, build, defOf(c.type), stOf, profiles, famOf(c.type), (c.raw["pt"] as? JsonArray)?.takeIf { it.size >= 3 }?.let { D3(StBuild.jsNum(it[0]), StBuild.jsNum(it[1]), StBuild.jsNum(it[2])) }, c, allConns) }.getOrNull() }
 
     /** v69 stApplyCuts: the part's solid with the cuts of every connection that lists it. */
     fun cutPart(id: String, st: JsonObject, conns: List<StConn>): Mesh {
@@ -60,7 +63,7 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
      */
     fun regen(doc: DocumentApi, ids: Collection<BodyId>): Int {
         geomCache.clear(); stOf = { id -> stOf(doc, BodyId(id)) }
-        val all = conns(doc); val touched = ids.map { it.value }.toSet()
+        val all = conns(doc); allConns = all; val touched = ids.map { it.value }.toSet()
         val cs = all.filter { c -> c.parts.any { it in touched } && ported(c.type) }
         if (cs.isEmpty()) return 0
         val cids = cs.map { it.id }.toSet()
