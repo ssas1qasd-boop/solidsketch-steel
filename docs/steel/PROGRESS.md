@@ -40,8 +40,8 @@ Then the S8 APK and phone check list. **Done.**
 | PU | 9 / 9 | 31 / 31 |
 | TU | 7 / 7 | 22 / 22 |
 | OP | 5 / 5 | 18 / 18 |
-| MF | 0 / 4 | in progress |
-| HA | 0 / 4 | in progress |
+| MF | 4 / 4 | 16 / 16 |
+| HA | 4 / 4 | 15 / 15 |
 (Family counts are v69's live CONN: 250 components incl. the 4 S8 dialogs; the 3 tube components v69 moves to GU / WF are counted there.)
 
 ## S8 summary
@@ -144,6 +144,7 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 - Edges in v69 also go through `smoothEdgeLines` (drops seams of smooth surfaces); not ported (the 12° rule already keeps smooth round tubes and bolts without side lines).
 
 ## Decisions for the owner to review
+- Haunches (HA) with haunch length 0: v69 takes span/20 from the portal frame generator's span (`S.stGen.span`, S10); without a portal it is 1000 mm, which the app uses until S10 brings the portal frame. Models made with v69's portal generator and length 0 would differ.
 - Tube slotted hole (Ttsl) shows a red symbol in v69 every time (it only cuts, and v69's built check exempts welded / opening families but not tubes); the app matches v69 (status "could not be created").
 - `Joints.box3` / `poly3` with the bounds reversed now extrude upward from the first bound as v69's extrudeRegions does (|height| from z0), found by a two-sided shear tab on an SHS stanchion (T87); every earlier case still equals v69.
 - Tube gusset node: the shared gusset reads the other tongue braces' settings with a copy of v69's Ttg defaults in FamTG.kt (the family code has no catalog access); same values as v69 today.
