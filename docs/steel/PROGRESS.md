@@ -3,7 +3,7 @@
 History: S0–S4 in `docs/steel/PROGRESS-S0-S4.md` (incl. the postponed license gate rules); S5–S6 in `docs/steel/PROGRESS-S5-S6.md` (incl. the S5 and S6 phone check lists).
 
 ## Current milestone
-**S8 done; S9 in progress** (owner plan 2026-11-23: S7, S8 and S9 without waiting for phone checks, push after every step, stop before S10; Claude does all of S8 and S9). S8 APK: `dist/solidsketch-steel-s8-debug.apk` (0.8.0-s8, phone check below). S7 APK: `dist/solidsketch-steel-s7-debug.apk` (0.7.0-s7). S5 and S6 APKs: `dist/solidsketch-steel-s5-debug.apk`, `dist/solidsketch-steel-s6-debug.apk` (phone checks in `PROGRESS-S5-S6.md`).
+**S9 done. Stopped before S10** (owner plan 2026-11-23) (owner plan 2026-11-23: S7, S8 and S9 without waiting for phone checks, push after every step, stop before S10; Claude does all of S8 and S9). S9 APK: `dist/solidsketch-steel-s9-debug.apk` (0.9.0-s9, phone check below). S8 APK: `dist/solidsketch-steel-s8-debug.apk` (0.8.0-s8). S7 APK: `dist/solidsketch-steel-s7-debug.apk` (0.7.0-s7). S5 and S6 APKs: `dist/solidsketch-steel-s5-debug.apk`, `dist/solidsketch-steel-s6-debug.apk` (phone checks in `PROGRESS-S5-S6.md`).
 
 ## S7 plan (component framework)
 1. Component engine: v69 `famGeom` context, the v58 geometry wrapper (bolt options reach `stBolts`, bolt info d0 / std / thr / sw, Welds tab), the live EP family (v48), component plates and bolts in regen (`tkKidSt` part fields, class colours, assembly owner), welds kept on the connection. **Done.**
@@ -17,6 +17,18 @@ The dialogs themselves (Picture with input boxes, every tab and field, presets, 
 2. BP (base plates 1042, 1004, 1014 and the other 10), CP (Seating 39 and the other 8), CL (purlin cleat), SR (sag rod), TG (tube gusset, tube crossing): one file per family (`conn/Fam<XX>.kt`), ported in parallel. **Done.**
 3. Marks: Tekla marks come from numbering (S11); S8 checks the part fields marks are made from (Pos_No prefix / start, name, material, profile). **Done** (marks themselves: NOT VERIFIED until S11).
 Then the S8 APK and phone check list. **Done.**
+
+## S9 summary
+- All 250 catalog components have their family generator ported (21 families, one file each in `conn/Fam<XX>.kt`; GEN generators in `comp/GenRun.kt`), except the three generators that are S10 applications (TS71 Stairs, TS77 Railing, Tpf Portal frame).
+- **Golden: 959 component cases (`CompGoldenTest`, at least 3 per component: standard, odd profile, skewed or sloped, plus option cases) — 956 equal v69, 3 NOT VERIFIED (rule-check message only); 41 / 41 generator cases (`S9GenTest`).** Unit tests: 168, all pass. Families were ported in parallel worktrees, each against v69's own output, and every merge re-ran all families.
+- Shared fixes found by golden cases: `Joints.box3` / `poly3` extrude like v69's extrudeRegions (reversed bounds); components get the picked point (`c.pt`) and the document's components (TG node gusset).
+
+## S9 phone check (owner) — `dist/solidsketch-steel-s9-debug.apk`
+1. Start: the bottom line says `Steel 0.9.0-s9`. Everything in the S8 check still works.
+2. **Components** → any group: every component now builds when its parts are picked (green cone), e.g. Clip angle (141) on a beam into a column web, Seat type 5 (60) under a beam, Bolted moment connection (134), Haunch (40) on a column and a rafter, Splice cover (42) between two beams, Gusset bracing (11) with a brace between a column and a beam, Stiffener (1030) on one beam (picked point = where it goes), Fitting (13), Notch (76), Duct hole (1029).
+3. Generators: Vertical bracing (TS56) between two columns makes two braces and their gusset components; Generation of purlins (T50p) between two rafters makes IPE160 purlins with cleats; Truss (TS78) between two column tops; Dividing part (1054) splits a beam in two. One Undo removes each.
+4. Stairs (TS71), Railing (TS77) and Portal frame (Tpf) say they come with the applications (S10).
+5. Open a component's dialog (tap its cone): tabs and fields as in v69; Modify rebuilds; the rule checks colour the cone.
 
 ## S9 table (families; golden = `CompGoldenTest`, cases equal v69 / total; "known" = NOT VERIFIED)
 | Family | Components done / total | Golden cases passed |
@@ -36,7 +48,7 @@ Then the S8 APK and phone check list. **Done.**
 | SD | 26 / 26 | 136 / 136 |
 | WF | 20 / 20 | 66 / 66 |
 | SP | 19 / 19 | 64 / 64 |
-| GEN | 0 / 17 | in progress |
+| GEN | 14 / 17 | 41 / 41 (stairs, railing, portal frame: S10) |
 | PU | 9 / 9 | 31 / 31 |
 | TU | 7 / 7 | 22 / 22 |
 | OP | 5 / 5 | 18 / 18 |
@@ -111,6 +123,7 @@ Then the S8 APK and phone check list. **Done.**
 ## Large generated files (owner bundle)
 Owner rule: big generated files do not go through the GitHub tool; they come in a bundle for the owner to push. Until they are on GitHub, the tests that read them fail there.
 - From S4 (bundle `steel-s4-data.bundle`, sent 2026-11-22): `steel/src/main/assets/steel/profiles.json` (f822a133…76e5), `steel/src/main/assets/steel/tk_catalog.json` (dd1ec06b…ffe0), `tests/steel/golden/data/profile_cases.json` (94e2dba7…9205).
+- From S9 (bundle `steel-s9-data.bundle`, branch `s9-data`): `tests/steel/golden/comp/s9_ep_ca_be.json`, `s9_st_se_jo.json`, `s9_gu.json`, `s9_sd.json`, `s9_wf_op_tu.json`, `s9_sp_pu.json`, `s9_mf_ha.json`, `tests/steel/golden/gen/s9_gen.json` (v69 golden; `CompGoldenTest` / `S9GenTest` read them). Blobs: s9_ep_ca_be.json 9e8bb045…, s9_gu.json 87d003a9…, s9_mf_ha.json 2c290f88…, s9_sd.json 5083f5ed…, s9_sp_pu.json 27d18da7…, s9_st_se_jo.json 6bb53864…, s9_wf_op_tu.json d261d4e1…, s9_gen.json a29da5f8….
 - From S8 (bundle `steel-s8-data.bundle`, branch `s8-data`): `tests/steel/golden/comp/s8_bp.json` (fe215e25…), `s8_cp_cl_sr_tg.json` (95cf9d84…), `s8_tgnode.json` (d2de31f1…) (v69 golden for the base plates, CP / CL / SR / TG and the node gusset; `CompGoldenTest` reads them).
 - From S7 (bundle `steel-s7-data.bundle`, 841 KB, branch `s7-data`; fetch it and copy the files to main): `steel/src/main/assets/steel/tk_ui.json` (5d88a4c5…3b9b3f), `steel/src/main/assets/steel/thumbs/` (536 webp, tree aac3ba8e…b7f067). The app's catalog sheet and dialogs need them; `S7CatalogTest` / `S7DialogTest` read them.
 - From S5 and S6 (bundle `steel-s5-s6-data.bundle`): `tests/steel/golden/s5/members.json` (c0f8bf65…44e9), `tests/steel/golden/s6/r10_regen.json` (9c2ef222…9e1c), `tests/steel/golden/s6/bolts.json` (4a223bcc…88d4), `tests/steel/golden/s6/fittings.json` (42d9dc7d…e227).
@@ -134,6 +147,8 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 
 ## NOT VERIFIED
 - Clip angles two sided, skewed (T25, T33, T117: 3 cases): every body, bolt and weld equals v69; the rule check gives 2 extra "Bolt edge distance" warnings because the newer Manifold leaves more vertices on the hole edges, and v69's check (tkPierce) works on vertices.
+- Stairs (TS71), Railing (TS77), Portal frame (Tpf): in v69 these run the S10 applications (stStairs, stRailing, stPortalSheet); not ported in S9. Opening Frame (Tof) makes no geometry in v69 either; only its message is tested.
+- Generators' picked points are passed through but no ported generator uses them (v69 uses them only for stairs and railing).
 - Marks (assembly / part marks) of component parts: they come from numbering (S11); S8 / S9 compare the fields they are made from (Pos_No prefix / start, name, material, profile), not the marks.
 - Steel mode screen on a phone (built and unit-tested, not yet tried by the owner): tap targets, the sheets' scrolling, the labels' positions.
 - Two-finger pan on the phone (not shown in the recordings; Latin digits and LTR were confirmed in the S3 check).
