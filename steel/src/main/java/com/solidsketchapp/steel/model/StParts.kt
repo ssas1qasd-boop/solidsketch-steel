@@ -27,7 +27,9 @@ fun jsArr(vararg d: Double): JsonArray = JsonArray(d.map(::jsNum))
  * Steel parts in the document: v69 `stRecord`, `stAdd`, `stModify` (v32 L13627). A part is a body
  * `{name: "<st.name> <id>", color: <class colour>, hidden: false, type: stColumn|stBeam|…, st: {…}}` with its solid.
  */
-class StParts(private val data: SteelData, private val doc: DocumentApi, private val undo: UndoApi?, private val build: StBuild) {
+class StParts(private val data: SteelData, private val doc: DocumentApi, private val undo: UndoApi?, private val build: StBuild,
+              /** S6: cuts and connection parts are rebuilt after a modify (v69 stModify → stRegen). */
+              private val regen: com.solidsketchapp.steel.conn.StRegen? = null) {
 
     /** v69: ST_TYPE by name, else plate / BRAC / PURLIN / GIRT / COL / beam. */
     fun typeOf(st: JsonObject): String {
@@ -82,7 +84,7 @@ class StParts(private val data: SteelData, private val doc: DocumentApi, private
             out[id] = bodyJson("$nm ${id.value}", st, old) to mesh(st)
         }
         if (out.isEmpty()) return
-        val run = { for ((id, v) in out) { doc.replaceBody(id, v.first, v.second); ensureFolder(typeOf(Json.parseToJsonElement(v.first).jsonObject["st"]!!.jsonObject)) } }
+        val run = { for ((id, v) in out) { doc.replaceBody(id, v.first, v.second); ensureFolder(typeOf(Json.parseToJsonElement(v.first).jsonObject["st"]!!.jsonObject)) }; regen?.regen(doc, out.keys); Unit }
         undo?.group(label ?: "Modify ${out.size} part${if (out.size == 1) "" else "s"}", run) ?: run()
     }
 

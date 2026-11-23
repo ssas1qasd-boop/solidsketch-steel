@@ -122,10 +122,12 @@ class MainActivity : ComponentActivity() {
 
     /** S5: Steel mode over the app's document, viewport and undo (only :core-api interfaces reach :steel). */
     private fun setUpSteel(d: com.solidsketchapp.steel.data.SteelData) {
-        steel = SteelMode(d, doc, undo, viewport.selection, StBuild(d.profiles, union = { engine.union(it) }),
+        val build = StBuild(d.profiles, union = { engine.union(it) })
+        steel = SteelMode(d, doc, undo, viewport.selection, build,
             project = { viewport.worldToScreen(it) },
             ray = { x, y -> viewport.screenRay(x, y).let { r -> r.origin to r.direction } },
-            px = resources.displayMetrics.density, changed = { tick++; drawSteelGrid() })
+            px = resources.displayMetrics.density, changed = { tick++; drawSteelGrid() },
+            regen = com.solidsketchapp.steel.conn.StRegen(build, engine, d.profiles))
         doc.addListener { drawSteelGrid() }
     }
 

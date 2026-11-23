@@ -40,8 +40,9 @@ class SteelMode(
     private val ray: (Float, Float) -> Pair<Vec3, Vec3>?,
     private val px: Float = 1f,
     private val changed: () -> Unit = {},
+    regen: com.solidsketchapp.steel.conn.StRegen? = null,
 ) {
-    val parts = StParts(data, doc, undo, build)
+    val parts = StParts(data, doc, undo, build, regen)
     enum class Tool { COLUMN, BEAM, PLATE }
 
     var on = false; private set
