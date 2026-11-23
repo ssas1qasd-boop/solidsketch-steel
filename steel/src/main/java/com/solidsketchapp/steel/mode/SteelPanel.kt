@@ -15,6 +15,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.ui.draw.shadow
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
@@ -50,11 +54,11 @@ import kotlinx.serialization.json.contentOrNull
 /** v69 Steel buttons (`#st-panel button`): pill, one line; "on" = #c0392b with white text. */
 @Composable
 fun StBtn(label: String, on: Boolean = false, enabled: Boolean = true, onClick: () -> Unit) {
-    OutlinedButton(onClick = onClick, enabled = enabled, shape = RoundedCornerShape(999.dp),
-        border = BorderStroke(1.dp, if (on) Color(0xFFC0392B) else Color(0x597F7F7F)),
-        colors = ButtonDefaults.outlinedButtonColors(containerColor = if (on) Color(0xFFC0392B) else Color.Transparent, contentColor = if (on) Color.White else Color(0xFF111111)),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 12.dp, vertical = 6.dp)) {
-        Text(label, maxLines = 1, softWrap = false, overflow = TextOverflow.Visible, fontSize = 14.sp)
+    // v69 L13730: border 1px rgba(127,127,127,.35), transparent, colour inherit, radius 999, padding 7 × 12, 14 px; .on #c0392b / white
+    val c = com.solidsketchapp.steel.ui.LocalSs.current
+    Box(Modifier.heightIn(min = 33.dp).background(if (on) c.on else Color.Transparent, RoundedCornerShape(999.dp)).border(1.dp, if (on) c.on else c.pillBorder, RoundedCornerShape(999.dp))
+        .clickable(enabled = enabled) { onClick() }.padding(horizontal = 12.dp, vertical = 7.dp), contentAlignment = Alignment.Center) {
+        Text(label, maxLines = 1, softWrap = false, overflow = TextOverflow.Visible, fontSize = 14.sp, color = (if (on) Color.White else c.fg).copy(alpha = if (enabled) 1f else 0.45f))
     }
 }
 
@@ -109,10 +113,11 @@ private fun symbolCone(d: androidx.compose.ui.graphics.drawscope.DrawScope, c: O
 
 /** The Steel panel (v69 `#st-panel`) and its sheets (Grid, Part properties). */
 @Composable
-fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: com.solidsketchapp.steel.comp.CompPics? = null) {
+fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: com.solidsketchapp.steel.comp.CompPics? = null,
+               /** Opens with this sheet ("grid", "props", "cat", "dlg:<key>") — for the screenshot test. */ initialSheet: String? = null, initialTab: String? = null) {
     @Suppress("UNUSED_EXPRESSION") tick
-    var sheet by remember { mutableStateOf<String?>(null) }
-    var dlg by remember { mutableStateOf<Pair<String, String?>?>(null) }   // component key, connection id
+    var sheet by remember { mutableStateOf(initialSheet?.substringBefore(':')) }
+    var dlg by remember { mutableStateOf<Pair<String, String?>?>(initialSheet?.takeIf { it.startsWith("dlg:") }?.let { it.substringAfter(':') to null }) }   // component key, connection id
     var toastText by remember { mutableStateOf<String?>(null) }
     mode.lastToast?.let { toastText = it; mode.lastToast = null }
     mode.dialogRequest?.let { dlg = it; sheet = "dlg"; mode.dialogRequest = null }
@@ -121,37 +126,47 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
     val comps = mode.comps
     /** v69 stConnSheet: a selected component plate or bolt group opens its dialog, else the catalog. */
     fun connSheet() { val c = mode.selectionFirst()?.let { comps?.connOfBody(it) }; if (c != null && comps?.ui?.conn?.containsKey(c.type) == true) { dlg = c.type to c.id; sheet = "dlg" } else sheet = "cat" }
+    val c = com.solidsketchapp.steel.ui.LocalSs.current
+    fun soon(what: String, ms: String) { toastText = "$what comes with $ms" }
     Box(modifier.fillMaxSize()) {
-        Column(Modifier.align(Alignment.BottomCenter).padding(8.dp).fillMaxWidth()) {
+        // v69 #st-panel L13727: fixed 8 px from the sides and the bottom (here above the navigation bar), max 640, panel, radius 16, padding 8 × 10, 14 px
+        Column(Modifier.align(Alignment.BottomCenter).windowInsetsPadding(com.solidsketchapp.steel.ui.panelInsets()).padding(8.dp).widthIn(max = 640.dp).fillMaxWidth()) {
         // v58 #tk-status: the selected component's checks (tap to clear the selection)
         mode.statusLine()?.let { (st, text) ->
             val (bg, fg, bd) = when (st) { 1 -> Triple(0xFFE9F8EE, 0xFF14532D, 0xFF2F9E44); 2 -> Triple(0xFFFFF8DB, 0xFF5C4400, 0xFFF2B705); else -> Triple(0xFFFFE3E3, 0xFF7A1010, 0xFFC92A2A) }
             Text(text, fontSize = 12.5.sp, color = Color(fg.toInt()), modifier = Modifier.fillMaxWidth().padding(bottom = 6.dp).background(Color(bg.toInt()), RoundedCornerShape(10.dp))
                 .border(1.dp, Color(bd.toInt()), RoundedCornerShape(10.dp)).clickable { mode.selectConn(null) }.padding(horizontal = 12.dp, vertical = 7.dp))
         }
-        Column(Modifier.fillMaxWidth().background(Color.White, RoundedCornerShape(16.dp))
-            .border(1.dp, Color(0xFFDDDDDD), RoundedCornerShape(16.dp)).padding(horizontal = 10.dp, vertical = 8.dp)) {
-            Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        Column(Modifier.fillMaxWidth().shadow(28.dp, RoundedCornerShape(16.dp)).background(c.panel, RoundedCornerShape(16.dp))
+            .border(1.dp, c.border, RoundedCornerShape(16.dp)).padding(horizontal = 10.dp, vertical = 8.dp)) {
+            // v69 stPanel L13759: Grid · Portal frame · Column · Beam · Plate · Components · Numbering · Checks · Drawings · Marks · Properties · Steel list · Exit Steel
+            Row(Modifier.horizontalScroll(rememberScrollState()).padding(vertical = 3.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
                 StBtn("Grid") { sheet = "grid" }
+                StBtn("Portal frame") { soon("Portal frame", "the applications (S10)") }
                 StBtn("Column", mode.tool == SteelMode.Tool.COLUMN) { mode.pickTool(SteelMode.Tool.COLUMN) }
                 StBtn("Beam", mode.tool == SteelMode.Tool.BEAM) { mode.pickTool(SteelMode.Tool.BEAM) }
                 StBtn("Plate", mode.tool == SteelMode.Tool.PLATE) { mode.pickTool(SteelMode.Tool.PLATE) }
-                if (comps != null) StBtn("Components") { connSheet() }
+                StBtn("Components", enabled = comps != null) { connSheet() }
+                StBtn("Numbering") { soon("Numbering", "S11") }
+                StBtn("Checks") { soon("Checks", "S11") }
+                StBtn("Drawings") { soon("Drawings", "S12") }
+                StBtn("Marks") { soon("Marks", "numbering (S11)") }
                 StBtn("Properties") { sheet = "props" }
+                StBtn("Steel list") { soon("Steel list", "S11") }
                 StBtn("Exit Steel") { mode.toggle() }
             }
             val ck = mode.catK
-            if (ck != null && comps != null) Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                Text(comps.ui.label(ck), fontSize = 14.sp, maxLines = 1)
+            if (ck != null && comps != null) Row(Modifier.horizontalScroll(rememberScrollState()).padding(vertical = 3.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text(comps.ui.label(ck), fontSize = 14.sp, maxLines = 1, color = c.fg)
                 StBtn("Properties") { dlg = ck to null; sheet = "dlg" }
                 StBtn("Catalog") { sheet = "cat" }
                 StBtn("Done", on = true) { mode.catDone() }
             }
-            Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                Text("Work level", fontSize = 14.sp)
+            Row(Modifier.horizontalScroll(rememberScrollState()).padding(vertical = 3.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text("Work level", fontSize = 14.sp, color = c.fg)
                 mode.levelLabels().forEachIndexed { i, l -> StBtn(l, mode.level == i) { mode.setLevel(i) } }
                 if (mode.tool == SteelMode.Tool.BEAM || mode.tool == SteelMode.Tool.COLUMN) {
-                    Text(" · Set", fontSize = 14.sp)
+                    Text(" · Set", fontSize = 14.sp, color = c.fg)
                     for (k in if (mode.tool == SteelMode.Tool.COLUMN) listOf("COLUMN") else listOf("BEAM", "RAFTER", "PURLIN", "GIRT", "BRACING"))
                         StBtn(k.take(1) + k.drop(1).lowercase(), mode.set == k) { mode.useSet(k) }
                 }
@@ -165,7 +180,7 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
                     if (mode.tool == SteelMode.Tool.PLATE && mode.pts.size >= 3) StBtn("Finish", on = true) { mode.finishPlate() }
                 }
             }
-            Text(mode.hint(), fontSize = 12.5.sp, color = Color(0xCC111111), modifier = Modifier.padding(start = 2.dp, top = 2.dp))
+            Text(mode.hint(), fontSize = 12.5.sp, color = c.fg.copy(alpha = 0.8f), modifier = Modifier.heightIn(min = 16.dp).padding(start = 2.dp, end = 2.dp, top = 2.dp))
         }
         }
         when (sheet) {
@@ -174,28 +189,24 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
             "cat" -> if (comps != null && pics != null) com.solidsketchapp.steel.comp.CatalogSheet(mode, comps, pics, mode.symbols, { mode.symbols = !mode.symbols; mode.refresh() },
                 { k -> dlg = k to null; sheet = "dlg" }, { k -> toastText = "${comps.ui.label(k)} comes with a later milestone (${if (k == "@portal") "S10" else "S11"})" }, { sheet = null })
             "dlg" -> { val d = dlg; if (comps != null && pics != null && d != null) androidx.compose.runtime.key(d) {
-                com.solidsketchapp.steel.comp.CompDialogSheet(mode, comps, pics, d.first, d.second?.let { comps.conn(it) }, { c -> mode.status(c) }, { toastText = it }, { sheet = null; mode.refresh() }) } }
+                com.solidsketchapp.steel.comp.CompDialogSheet(mode, comps, pics, d.first, d.second?.let { comps.conn(it) }, { c -> mode.status(c) }, { toastText = it }, { sheet = null; mode.refresh() }, initialTab) } }
         }
-        toastText?.let { t -> Text(t, color = Color.White, fontSize = 13.sp, modifier = Modifier.align(Alignment.TopCenter).padding(top = 12.dp).background(Color(0xE6262B34), RoundedCornerShape(10.dp)).padding(horizontal = 12.dp, vertical = 8.dp)) }
+        toastText?.let { t -> com.solidsketchapp.steel.ui.SsToast(t, Modifier.align(Alignment.TopCenter)) }
     }
 }
 
 @Composable
 private fun Field(value: String, onChange: (String) -> Unit, placeholder: String = "", modifier: Modifier = Modifier) {
-    Box(modifier.border(1.dp, Color(0xFFCCCCCC), RoundedCornerShape(8.dp)).padding(horizontal = 8.dp, vertical = 6.dp)) {
-        if (value.isEmpty()) Text(placeholder, color = Color(0x80111111), fontSize = 14.sp)
-        BasicTextField(value, onChange, singleLine = true, textStyle = TextStyle(fontSize = 14.sp), modifier = Modifier.fillMaxWidth())
+    // v69 #st-sheet input: padding 6 × 8, radius 8, border var(--border), transparent, colour inherit
+    val c = com.solidsketchapp.steel.ui.LocalSs.current
+    Box(modifier.border(1.dp, c.border, RoundedCornerShape(8.dp)).padding(horizontal = 8.dp, vertical = 6.dp)) {
+        if (value.isEmpty()) Text(placeholder, color = c.fg.copy(alpha = 0.5f), fontSize = 14.sp)
+        BasicTextField(value, onChange, singleLine = true, textStyle = TextStyle(fontSize = 14.sp, color = c.fg), cursorBrush = androidx.compose.ui.graphics.SolidColor(c.fg), modifier = Modifier.fillMaxWidth())
     }
 }
 
 @Composable
-private fun Sheet(title: String, content: @Composable () -> Unit) {
-    Column(Modifier.fillMaxSize().padding(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 8.dp).background(Color.White, RoundedCornerShape(16.dp))
-        .border(1.dp, Color(0xFFDDDDDD), RoundedCornerShape(16.dp)).padding(12.dp).verticalScroll(rememberScrollState())) {
-        Text(title, fontSize = 16.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(top = 4.dp, bottom = 10.dp))
-        content()
-    }
-}
+private fun Sheet(title: String, content: @Composable () -> Unit) = com.solidsketchapp.steel.ui.StSheet(title, content = { content() })
 
 @Composable
 private fun Row2(label: String, content: @Composable () -> Unit) {
@@ -205,7 +216,7 @@ private fun Row2(label: String, content: @Composable () -> Unit) {
 }
 
 @Composable
-private fun H4(t: String) = Text(t.uppercase(), fontSize = 13.sp, color = Color(0xBF111111), modifier = Modifier.padding(top = 14.dp, bottom = 6.dp))
+private fun H4(t: String) = Text(t.uppercase(), fontSize = 13.sp, letterSpacing = 0.52.sp, color = com.solidsketchapp.steel.ui.LocalSs.current.fg.copy(alpha = 0.75f), modifier = Modifier.padding(top = 14.dp, bottom = 6.dp))
 
 /** v69 stGridSheet. */
 @Composable
@@ -217,7 +228,7 @@ private fun GridSheet(mode: SteelMode, close: () -> Unit) {
         Row2("X (mm)") { Field(x, { x = it }) }; Row2("Y (mm)") { Field(y, { y = it }) }; Row2("Z levels (mm)") { Field(z, { z = it }) }
         Text("Tekla syntax: the first value is where the grid starts, then the spacings; 4*6000 = four bays of 6000. X lines are numbered 1, 2, 3…, Y lines lettered A, B, C…", fontSize = 14.sp, modifier = Modifier.padding(vertical = 10.dp))
         if (err.isNotEmpty()) Text(err, color = Color(0xFFC0392B), fontSize = 13.sp)
-        Row(Modifier.fillMaxWidth().padding(top = 12.dp), horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.End)) {
+        com.solidsketchapp.steel.ui.StBar {
             StBtn("Cancel") { close() }
             StBtn("Apply", on = true) { val e = mode.setGrid(StGrid(x, y, z, g0.lx, g0.ly)); if (e == null) close() else err = e }
         }
@@ -251,7 +262,7 @@ private fun PropSheet(mode: SteelMode, close: () -> Unit) {
         val p = mode.data.profiles.lookup(f.getValue("prof").value)
         Text(when { p == null -> "Not in the catalog"; p.kind == "P" -> if (p.b != null) "${SteelMode.mm(p.h!!)} × ${SteelMode.mm(p.b)} mm · ${Fmt.f("%.1f", p.m)} kg/m" else "plate ${SteelMode.mm(p.t!!)} mm (contour plate)"
             p.kind == "O" -> "Ø${SteelMode.mm(p.d!!)} × ${SteelMode.mm(p.t!!)} mm · ${p.m} kg/m · ${p.P} m²/m"; else -> "h ${SteelMode.mm(p.h!!)} · b ${SteelMode.mm(p.b!!)} mm · ${p.m} kg/m · ${p.P} m²/m" },
-            fontSize = 12.sp, color = Color(0xBF111111), modifier = Modifier.padding(start = 120.dp))
+            fontSize = 12.sp, color = com.solidsketchapp.steel.ui.LocalSs.current.fg.copy(alpha = 0.75f), modifier = Modifier.padding(start = 120.dp))
         Row2("Material") { Choice(mode.data.materials.grades, f.getValue("mat")) }
         Row2("Class (colour)") { Choice(mode.data.classes.keys.sorted().map { it.toString() }, f.getValue("cls")) }
         Row2("Finish") { Field(f.getValue("fin").value, { f.getValue("fin").value = it }) }
@@ -266,7 +277,7 @@ private fun PropSheet(mode: SteelMode, close: () -> Unit) {
         Row2("End offset start / end (mm)") { Two({ Field(f.getValue("dx1").value, { f.getValue("dx1").value = it }) }, { Field(f.getValue("dx2").value, { f.getValue("dx2").value = it }) }) }
         if (selSt == null && mode.set == "COLUMN") Row2("Column top (mm)") { Field(colTop, { colTop = it }, "next level up") }
         if (msg.isNotEmpty()) Text(msg, color = Color(0xFFC0392B), fontSize = 13.sp)
-        Row(Modifier.fillMaxWidth().padding(top = 12.dp).horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.End)) {
+        com.solidsketchapp.steel.ui.StBar {
             StBtn("Close") { close() }
             StBtn("Save as ${mode.set.lowercase()}") { mode.saveAsSet(read()) }
             if (selId != null && selSt != null) {

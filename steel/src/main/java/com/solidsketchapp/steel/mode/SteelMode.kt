@@ -71,7 +71,8 @@ class SteelMode(
     fun toggle() {
         on = !on; tool = null; pts.clear(); arm = null; catK = null; pick.clear(); pickPts.clear()
         if (on && grid == null) doc.setField("stGrid", StGrid.DEFAULT.toJson().toString())
-        say = if (on) "Steel: grid, columns, beams and plates the Tekla way" else ""
+        // v69 stToggle: the message is a toast (the app shows it); the hint line keeps stHint ("Pick a tool, …")
+        say = ""; if (on) lastToast = "Steel: grid, columns, beams and plates the Tekla way"
         changed()
     }
 
