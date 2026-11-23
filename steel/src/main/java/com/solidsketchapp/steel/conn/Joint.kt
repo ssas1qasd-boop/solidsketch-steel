@@ -14,7 +14,7 @@ import kotlin.math.PI
 import kotlin.math.abs
 
 /** v69 `stMF` (v38 L14245): a member's frame and size: axis a, section up eh / side es, end centres c1 / c2 (with the position offsets). */
-class MemberFrame(val a: D3, val eh: D3, val es: D3, val c1: D3, val c2: D3, val h: Double, val b: Double, val tw: Double, val tf: Double)
+class MemberFrame(val a: D3, val eh: D3, val es: D3, val c1: D3, val c2: D3, val h: Double, val b: Double, val tw: Double, val tf: Double, val r: Double = 0.0, val kind: String? = null)
 
 object Joints {
     private val rot = mapOf("Top" to 0, "Front" to 1, "Below" to 2, "Back" to 3)
@@ -34,7 +34,21 @@ object Joints {
         // JavaScript `p.h || 300`, `p.tw || p.t || 8` …: the first one that is set and not 0.
         fun or(vararg v: Double?, d: Double) = v.firstOrNull { it != null && it != 0.0 && !it.isNaN() } ?: d
         val hh = if (p?.kind == "O") p.d!! else or(p?.h, d = 300.0); val bb = if (p?.kind == "O") p.d!! else or(p?.b, d = 150.0)
-        return MemberFrame(a, eh, es, p1 + off, p2 + off, hh, bb, or(p?.tw, p?.t, d = 8.0), or(p?.tf, p?.t, d = 12.0))
+        return MemberFrame(a, eh, es, p1 + off, p2 + off, hh, bb, or(p?.tw, p?.t, d = 8.0), or(p?.tf, p?.t, d = 12.0), or(p?.r, d = 0.0), p?.kind)
+    }
+
+    /** v69 stPoly3: a polygon in the frame (O; X, Y) extruded z0..z1 along X × Y (counter-clockwise as v69 makes it). */
+    fun poly3(o: D3, x: D3, y: D3, poly: List<DoubleArray>, z0: Double, z1: Double): Mesh {
+        val n = (x cross y).normalize()
+        return Prism.extrude(Region(poly), z1 - z0, Prism.Frame(o.add(n, z0), x, y, n))
+    }
+
+    /** v69 stFrame3: P(x, y, z), box (sorted bounds), poly in the frame (O; X, Y, Z = X × Y). */
+    class Frame3(val o: D3, val x: D3, val y: D3) {
+        val z: D3 = (x cross y).normalize()
+        fun p(a: Double, b: Double, c: Double) = o.add(x, a).add(y, b).add(z, c)
+        fun box(x0: Double, x1: Double, y0: Double, y1: Double, z0: Double, z1: Double) = box3(o, x, y, minOf(x0, x1), maxOf(x0, x1), minOf(y0, y1), maxOf(y0, y1), minOf(z0, z1), maxOf(z0, z1))
+        fun poly(pts: List<DoubleArray>, z0: Double, z1: Double) = poly3(o, x, y, pts, minOf(z0, z1), maxOf(z0, z1))
     }
 
     /** v69 stBox3: a box in the frame (O; X, Y, N = X × Y), from x0..x1, y0..y1, z0..z1. */
@@ -44,7 +58,12 @@ object Joints {
     }
 
     /** v69 stJoint (v38 L14257): where a secondary member meets the main part: its near end E, axis X out of the joint, the face it lands on (xFace), copes. */
-    class Joint(val m: MemberFrame, val b: MemberFrame, val e: D3, val x: D3, val y: D3, val zb: D3, val flange: Boolean, val xFace: Double, val cope: Boolean, val yTop: Double, val yBot: Double, val copeL: Double, private val u: Double) {
+    class Joint(val m: MemberFrame, val b: MemberFrame, val e: D3, val x: D3, val y: D3, val zb: D3, val flange: Boolean, val xFace: Double, val cope: Boolean, val yTop: Double, val yBot: Double, val copeL: Double, private val u: Double,
+                /** v69 J.u (the face normal of the main part, toward the secondary), J.Pc, J.tPrim (plate thickness of the face). */
+                val uDir: D3 = D3.ZERO, val pc: D3 = D3.ZERO, val tPrim: Double = 0.0) {
+        val yHi: Double get() = minOf(b.h / 2 * u, yTop - 10 * u)
+        val yLo: Double get() = maxOf(-b.h / 2 * u, yBot + 10 * u)
+        fun p(x0: Double, y0: Double, z0: Double) = e.add(x, x0).add(y, y0).add(zb, z0)
         fun box(x0: Double, x1: Double, y0: Double, y1: Double, z0: Double, z1: Double) = box3(e, x, y, x0, x1, y0, y1, z0, z1)
         /** v69 J.cutEnd: cut the secondary's end back to xEnd, and its flanges where it is coped. */
         fun cutEnd(xEnd: Double): List<Mesh> {
@@ -71,6 +90,6 @@ object Joints {
             val yc = (pc - e) dot y; val hi = (m.h / 2 - m.tf) * u; val yT = yc + hi; val yB = yc - hi
             if (b.h / 2 * u > yT - 10 * u || -b.h / 2 * u < yB + 10 * u) { cope = true; yTop = yT; yBot = yB; copeL = (m.b / 2 - m.tw / 2) * u / xu + 15 * u }
         }
-        return Joint(m, b, e, x, y, zb, flange, xFace, cope, yTop, yBot, copeL, u)
+        return Joint(m, b, e, x, y, zb, flange, xFace, cope, yTop, yBot, copeL, u, uu, pc, if (flange) m.tf else m.tw)
     }
 }
