@@ -2,6 +2,7 @@
 //   node tools/golden/s5_geometry.js      -> tests/steel/golden/s5/grid.json, members.json
 // Member solids come from __st.live.build (the live stBuild chain: v32 + v41), as Manifold meshes:
 // every vertex (rounded to 0.01 mm), the volume and the bounding box. Native tests compare at 0.1 mm.
+// Each case is stored as its property set (ST_SETS) and the overrides; the part is ST_SETS[set] + overrides.
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -78,8 +79,8 @@ const CASES = {
           const verts = []; for (let i = 0; i < vp.length; i += n) verts.push([R(vp[i]), R(vp[i + 1]), R(vp[i + 2])]);
           verts.sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2]);
           const bb = m.boundingBox();
-          members[name] = { st: s, volume: R(Math.abs(m.volume())), bbox: [...Array.from(bb.min), ...Array.from(bb.max)].map(R), verts };
-        } catch (e) { members[name] = { st: s, error: String(e.message || e) }; }
+          members[name] = { set: c.set, st: c.st, volume: R(Math.abs(m.volume())), bbox: [...Array.from(bb.min), ...Array.from(bb.max)].map(R), verts };
+        } catch (e) { members[name] = { set: c.set, st: c.st, error: String(e.message || e) }; }
       }
       return { grid: g, letters, members };
     }, { grid: GRID, cases: CASES });
@@ -88,7 +89,7 @@ const CASES = {
   fs.writeFileSync(path.join(dir, 'grid.json'), JSON.stringify({ source: 'web v69 stParse / stLetters (live)', parse: out.grid, letters: out.letters }, null, 1) + '\n');
   // Compact: one case per line, so the file stays small and diffs stay readable.
   const lines = Object.entries(out.members).map(([k, v]) => JSON.stringify(k) + ':' + JSON.stringify(v));
-  fs.writeFileSync(path.join(dir, 'members.json'), '{"source":"web v69 __st.live.build (stBuild v32+v41), Manifold mesh vertices rounded to 0.01 mm",\n"cases":{\n' + lines.join(',\n') + '\n}}\n');
+  fs.writeFileSync(path.join(dir, 'members.json'), '{"source":"web v69 __st.live.build (stBuild v32+v41) of ST_SETS[set] + st, Manifold mesh vertices rounded to 0.01 mm",\n"cases":{\n' + lines.join(',\n') + '\n}}\n');
   const errs = Object.entries(out.members).filter(([, v]) => v.error);
   console.log(`grid ${out.grid.length} · letters ${out.letters.length} · members ${lines.length} (${errs.length} errors${errs.length ? ': ' + errs.map(([k, v]) => k + ' ' + v.error).join('; ') : ''})`);
 })().catch(e => { console.error(e); process.exit(1); });

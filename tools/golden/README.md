@@ -59,6 +59,12 @@ node tools/golden/ss_interop.js                                   # 2. v69 opens
 Step 2 checks, in v69: the native resave of R10 opens with the golden totals (6,638 bodies, 162 assemblies, 243 part marks, 63,722 kg, 418 drawings, 3,680 connections); a native edit (body 1 deleted, a new box added) opens with the box as id 8297, `nextId` 8298, and the weight down by body 1's weight; a file made only in the app opens with both bodies and their volumes; v69 adds one body to that app file and saves it (`web/native_new_web_added.ss`). Report: `tests/steel/golden/ss_interop/report.json`.
 Step 3 checks that the app reopens the file v69 added a body to (no error, unique ids, all bodies), that native read → write of v69's files gives v69's exact bytes, that every body and doc field has the same JSON value as the original R10, and the geometry (see PROGRESS.md, S3, about v69's `clean()` on load).
 
+## Grid and member solids (S5)
+```
+node tools/golden/s5_geometry.js   # tests/steel/golden/s5/grid.json and members.json
+```
+`grid.json`: v69 `stParse` / `stLetters` for 16 grid strings and 9 letter indices. `members.json`: 40 member and plate solids from `__st.live.build` (the live `stBuild` chain), one case per line: the part's `st`, volume, bounding box and every vertex (0.01 mm). The patch line's `live` also has `parse`, `letters`, `section` and `mf` for these dumps.
+
 ## Data assets (S4)
 ```
 node tools/golden/data_export.js           # write steel/src/main/assets/steel/*.json and tests/steel/golden/data/*

@@ -3,15 +3,28 @@
 History of S0–S4 (milestone notes, phone checks, the postponed license gate rules): `docs/steel/PROGRESS-S0-S4.md`.
 
 ## Current milestone
-S5 in progress (owner plan 2026-11-23: finish S5 and S6 without waiting for phone checks, push after every step, stop before S7). Done: step 1 (profile name rules, top bar), step 2 (grid). Next: step 3, member solids.
+S5 in progress (owner plan 2026-11-23: finish S5 and S6 without waiting for phone checks, push after every step, stop before S7). Done: step 1 (profile name rules, top bar), step 2 (grid), step 3 (member solids, part records). Next: step 4, the Steel mode screen.
 
 ## S5 plan (steps; each one is tested, committed and pushed)
 1. stProf name rules for the 97 names S4 left; top bar with its own solid background. **Done.**
 2. Grid and levels in Tekla syntax (`stGrid`), drawn as overlays. **Done.**
-3. Profile sections and member / plate solids with the Tekla position rules (plane, rotation, depth, offsets, dx1/dx2; live `stSection` and `stBuild` chains), class colours; golden: member solids within 0.1 mm of v69.
+3. Profile sections and member / plate solids with the Tekla position rules (plane, rotation, depth, offsets, dx1/dx2; live `stSection` and `stBuild` chains), class colours; golden: member solids within 0.1 mm of v69. **Done.**
 4. Steel mode screen: Grid sheet, work levels, Column / Beam / Plate tools picking grid points, property sets (`stPropSheet`), handles to move part ends, Exit Steel.
 5. Look: edge lines `0x262b34` (v69 feature edges, 12°), v69's lights (hemisphere + three directional) and Phong material.
 Then the S5 APK `dist/solidsketch-steel-s5-debug.apk` and the S5 phone check list.
+
+## Large generated files (owner bundle)
+Owner rule: big generated files do not go through the GitHub tool; they come in a bundle for the owner to push. Until they are on GitHub, the tests that read them fail there.
+- From S4 (bundle `steel-s4-data.bundle`, sent 2026-11-22): `steel/src/main/assets/steel/profiles.json` (f822a133…76e5), `steel/src/main/assets/steel/tk_catalog.json` (dd1ec06b…ffe0), `tests/steel/golden/data/profile_cases.json` (94e2dba7…9205).
+- From S5 (in the S5 bundle): `tests/steel/golden/s5/members.json` (c0f8bf65…44e9).
+
+## S5 step 3 (2026-11-23): member and plate solids, part records
+- `steel/geom/Sections.kt`: exact port of the live `stSection` chain (v32 I with root-radius arcs, R rounded rectangles with the inner radius r − t, O 32 sides, flat P, L; v41 welded I `BI`, channels U, cold-formed C and Z). Same points in the same order.
+- `steel/geom/StBuild.kt`: exact port of the live `stBuild` chain. Members: frame (es, eh, a) with eh from Z (columns: −X) turned by Top / Front / Below / Back + rAng, plane Middle / Left / Right + pOff, depth Middle / Front / Behind + dOff, dx1 / dx2. Flat plates (`pts`, `z`, depth, dOff), v41 contour plates in any plane (`pts3`), v41 tapered welded I (`PHI`: three plates; unioned through `BooleanEngine` when the host gives one, else kept side by side, which has the same vertices and volume). JavaScript number rules for fields (`+st.rAng || 0`; plate thickness `p.t || p.h || 10`).
+- `steel/geom/Prism.kt`: extrusion as a closed, outward mesh whose vertices are exactly the outline at both ends (the same vertex set as v69's Manifold mesh); caps by ear clipping with holes bridged; mirrored frames flipped back.
+- `steel/model/StParts.kt`: v69 `stRecord` / `stAdd` / `stModify`: body `{name "<NAME> <id>", color = class colour (ST_CLASS, else 0x8e8e93), hidden, type (ST_TYPE, else plate / BRAC / PURLIN / GIRT / COL / beam), st}`, numbers in JavaScript form (7500, not 7500.0), one undo step, the type's folder (`Steel column`, …); modify keeps every other field, plates drop p1/p2.
+- **Golden:** `tests/steel/golden/s5/members.json` (each case: its property set and the overrides, so the test also uses the app's ST_SETS), 40 cases from v69's live `stBuild` (columns with every plane/depth/rotation/offset, beams along ±X / Y, sloped and skewed rafters, rAng, dx1/dx2, catalog and parametric SHS / RHS / CHS, rod, equal and unequal angles, flat, plate member, UPN, UPE column, C, Z, BI, tapered PHI beam and column, flat plates Front / Behind / Middle, `pts3` plates vertical and sloped).
+- **Acceptance:** `StBuildTest`: **40/40 solids equal v69**: the same vertex count, every v69 vertex within 0.1 mm of ours and the other way round (worst 0.005 mm), same bounding box (0.1 mm), volume within 1e-4 (positions are float32: about 0.001 mm at 13 m from the origin, which moves the volume by about 1e-5), every mesh closed and outward. `StPartsTest` (3): records, types, colours, folders, modify.
 
 ## S5 step 2 (2026-11-23): grid and levels
 - `steel/model/StGrid.kt`: exact port of v69 `stParse` (first value = start, then spacings; `n*d` repeats; as the first token `n*d` places n lines d apart starting at d; tokens read with JavaScript number rules, so `1e3` = 1000 and a bad token turns the rest into NaN, which v69 drops), `stLetters` (A…Z, AA…, ZZ, AAA), line labels (`lx`/`ly` or 1, 2, 3… / A, B, C…), level labels (`+7500`), JSON (`stGrid` = {x, y, z, lx?, ly?}), and the overlay lines of `stGridDraw` (every level, plus the work level; 1500 mm beyond the outer lines; v69 colours 0x4a5a70 at 0.55 and 0x2f6fb3 at 0.85; v69 dashes the level lines, here they are solid).
