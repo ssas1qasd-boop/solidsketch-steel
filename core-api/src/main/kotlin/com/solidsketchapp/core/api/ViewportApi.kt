@@ -12,4 +12,10 @@ interface ViewportApi {
     /** Screen pixel of a model point, or null if behind the camera. */
     fun worldToScreen(p: Vec3): Pair<Float, Float>?
     fun requestRedraw()
+
+    /** Taps go to [handler] first; when it returns true the viewport does not pick a body (Steel tools, S5). */
+    fun setTapHandler(handler: ((x: Float, y: Float) -> Boolean)?)
+    /** Called after every camera change or redraw request (screen-space overlays such as grid labels follow it). */
+    fun addViewListener(listener: () -> Unit)
+    fun removeViewListener(listener: () -> Unit)
 }

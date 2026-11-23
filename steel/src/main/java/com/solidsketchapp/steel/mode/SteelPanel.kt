@@ -1,0 +1,241 @@
+package com.solidsketchapp.steel.mode
+
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.drawText
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.solidsketchapp.core.api.Fmt
+import com.solidsketchapp.core.api.Vec3
+import com.solidsketchapp.steel.model.StGrid
+import com.solidsketchapp.steel.model.jsNum
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.contentOrNull
+
+/** v69 Steel buttons (`#st-panel button`): pill, one line; "on" = #c0392b with white text. */
+@Composable
+fun StBtn(label: String, on: Boolean = false, enabled: Boolean = true, onClick: () -> Unit) {
+    OutlinedButton(onClick = onClick, enabled = enabled, shape = RoundedCornerShape(999.dp),
+        border = BorderStroke(1.dp, if (on) Color(0xFFC0392B) else Color(0x597F7F7F)),
+        colors = ButtonDefaults.outlinedButtonColors(containerColor = if (on) Color(0xFFC0392B) else Color.Transparent, contentColor = if (on) Color.White else Color(0xFF111111)),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 12.dp, vertical = 6.dp)) {
+        Text(label, maxLines = 1, softWrap = false, overflow = TextOverflow.Visible, fontSize = 14.sp)
+    }
+}
+
+/** Grid labels (v69 sprites: circled 1, 2, 3… / A, B, C… at the ends of the lines; level labels) and the picked points / handles. */
+@Composable
+fun SteelOverlay(mode: SteelMode, tick: Int, project: (Vec3) -> Pair<Float, Float>?, modifier: Modifier = Modifier) {
+    @Suppress("UNUSED_EXPRESSION") tick
+    val tm = rememberTextMeasurer()
+    if (!mode.on) return
+    val g = mode.grid
+    Canvas(modifier.fillMaxSize()) {
+        val r = 13.dp.toPx()
+        fun label(p: Vec3, text: String, ring: Boolean) {
+            val s = project(p) ?: return; val c = Offset(s.first, s.second)
+            if (ring) { drawCircle(Color.White, r, c); drawCircle(Color(0xFF3A4250), r, c, style = Stroke(1.5.dp.toPx())) }
+            val lay = tm.measure(text, TextStyle(fontSize = if (text.length > 3) 10.sp else 13.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFF1D2330)))
+            drawText(lay, topLeft = Offset(c.x - lay.size.width / 2f, c.y - lay.size.height / 2f))
+        }
+        if (g != null && g.xs.isNotEmpty() && g.ys.isNotEmpty()) {
+            val zs = g.zs.ifEmpty { listOf(0.0) }; val sz = 900.0; val ext = 1500.0
+            val x0 = g.xs.min() - ext; val x1 = g.xs.max() + ext; val y0 = g.ys.min() - ext; val y1 = g.ys.max() + ext
+            g.xs.forEachIndexed { i, x -> label(Vec3(x, y0 - sz * 0.6, zs[0]), g.xLabel(i), true) }
+            g.ys.forEachIndexed { i, y -> label(Vec3(x0 - sz * 0.6, y, zs[0]), g.yLabel(i), true) }
+            g.zs.forEachIndexed { i, z -> label(Vec3(x1 + sz, y1, z), g.levelLabel(i), false) }
+        }
+        for ((p, argb) in mode.markers()) project(Vec3(p.x, p.y, p.z))?.let { drawCircle(Color(argb), 6.dp.toPx(), Offset(it.first, it.second)) }
+    }
+}
+
+/** The Steel panel (v69 `#st-panel`) and its sheets (Grid, Part properties). */
+@Composable
+fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier) {
+    @Suppress("UNUSED_EXPRESSION") tick
+    var sheet by remember { mutableStateOf<String?>(null) }
+    if (!mode.on) return
+    Box(modifier.fillMaxSize()) {
+        Column(Modifier.align(Alignment.BottomCenter).padding(8.dp).fillMaxWidth().background(Color.White, RoundedCornerShape(16.dp))
+            .border(1.dp, Color(0xFFDDDDDD), RoundedCornerShape(16.dp)).padding(horizontal = 10.dp, vertical = 8.dp)) {
+            Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                StBtn("Grid") { sheet = "grid" }
+                StBtn("Column", mode.tool == SteelMode.Tool.COLUMN) { mode.pickTool(SteelMode.Tool.COLUMN) }
+                StBtn("Beam", mode.tool == SteelMode.Tool.BEAM) { mode.pickTool(SteelMode.Tool.BEAM) }
+                StBtn("Plate", mode.tool == SteelMode.Tool.PLATE) { mode.pickTool(SteelMode.Tool.PLATE) }
+                StBtn("Properties") { sheet = "props" }
+                StBtn("Exit Steel") { mode.toggle() }
+            }
+            Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text("Work level", fontSize = 14.sp)
+                mode.levelLabels().forEachIndexed { i, l -> StBtn(l, mode.level == i) { mode.setLevel(i) } }
+                if (mode.tool == SteelMode.Tool.BEAM || mode.tool == SteelMode.Tool.COLUMN) {
+                    Text(" · Set", fontSize = 14.sp)
+                    for (k in if (mode.tool == SteelMode.Tool.COLUMN) listOf("COLUMN") else listOf("BEAM", "RAFTER", "PURLIN", "GIRT", "BRACING"))
+                        StBtn(k.take(1) + k.drop(1).lowercase(), mode.set == k) { mode.useSet(k) }
+                }
+            }
+            if ((mode.tool == SteelMode.Tool.BEAM || mode.tool == SteelMode.Tool.PLATE) && mode.pts.isNotEmpty()) {
+                var typed by remember { mutableStateOf("") }
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Field(typed, { typed = it }, "dx dy dz (mm)", Modifier.width(150.dp))
+                    StBtn("Place") { mode.typedPoint(typed)?.let { } }
+                    StBtn("Cancel") { mode.cancelPoints() }
+                    if (mode.tool == SteelMode.Tool.PLATE && mode.pts.size >= 3) StBtn("Finish", on = true) { mode.finishPlate() }
+                }
+            }
+            Text(mode.hint(), fontSize = 12.5.sp, color = Color(0xCC111111), modifier = Modifier.padding(start = 2.dp, top = 2.dp))
+        }
+        when (sheet) {
+            "grid" -> GridSheet(mode) { sheet = null }
+            "props" -> PropSheet(mode) { sheet = null }
+        }
+    }
+}
+
+@Composable
+private fun Field(value: String, onChange: (String) -> Unit, placeholder: String = "", modifier: Modifier = Modifier) {
+    Box(modifier.border(1.dp, Color(0xFFCCCCCC), RoundedCornerShape(8.dp)).padding(horizontal = 8.dp, vertical = 6.dp)) {
+        if (value.isEmpty()) Text(placeholder, color = Color(0x80111111), fontSize = 14.sp)
+        BasicTextField(value, onChange, singleLine = true, textStyle = TextStyle(fontSize = 14.sp), modifier = Modifier.fillMaxWidth())
+    }
+}
+
+@Composable
+private fun Sheet(title: String, content: @Composable () -> Unit) {
+    Column(Modifier.fillMaxSize().padding(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 8.dp).background(Color.White, RoundedCornerShape(16.dp))
+        .border(1.dp, Color(0xFFDDDDDD), RoundedCornerShape(16.dp)).padding(12.dp).verticalScroll(rememberScrollState())) {
+        Text(title, fontSize = 16.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(top = 4.dp, bottom = 10.dp))
+        content()
+    }
+}
+
+@Composable
+private fun Row2(label: String, content: @Composable () -> Unit) {
+    Row(Modifier.fillMaxWidth().padding(vertical = 3.dp), verticalAlignment = Alignment.CenterVertically) {
+        Text(label, fontSize = 14.sp, modifier = Modifier.width(120.dp)); Box(Modifier.weight(1f)) { content() }
+    }
+}
+
+@Composable
+private fun H4(t: String) = Text(t.uppercase(), fontSize = 13.sp, color = Color(0xBF111111), modifier = Modifier.padding(top = 14.dp, bottom = 6.dp))
+
+/** v69 stGridSheet. */
+@Composable
+private fun GridSheet(mode: SteelMode, close: () -> Unit) {
+    val g0 = mode.grid ?: StGrid.DEFAULT
+    var x by remember { mutableStateOf(g0.x) }; var y by remember { mutableStateOf(g0.y) }; var z by remember { mutableStateOf(g0.z) }
+    var err by remember { mutableStateOf("") }
+    Sheet("Grid") {
+        Row2("X (mm)") { Field(x, { x = it }) }; Row2("Y (mm)") { Field(y, { y = it }) }; Row2("Z levels (mm)") { Field(z, { z = it }) }
+        Text("Tekla syntax: the first value is where the grid starts, then the spacings; 4*6000 = four bays of 6000. X lines are numbered 1, 2, 3…, Y lines lettered A, B, C…", fontSize = 14.sp, modifier = Modifier.padding(vertical = 10.dp))
+        if (err.isNotEmpty()) Text(err, color = Color(0xFFC0392B), fontSize = 13.sp)
+        Row(Modifier.fillMaxWidth().padding(top = 12.dp), horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.End)) {
+            StBtn("Cancel") { close() }
+            StBtn("Apply", on = true) { val e = mode.setGrid(StGrid(x, y, z, g0.lx, g0.ly)); if (e == null) close() else err = e }
+        }
+    }
+}
+
+/** v69 stPropSheet: saved settings, attributes, numbering series, position; Apply / Save as / Get / Modify. */
+@Composable
+private fun PropSheet(mode: SteelMode, close: () -> Unit) {
+    val selId = mode.selectionFirst()
+    val selSt = selId?.let { mode.stOf(it) }
+    val src: Map<String, JsonElement> = if (selSt != null) LinkedHashMap(mode.props).apply { putAll(selSt) } else mode.props
+    fun s(k: String) = (src[k] as? JsonPrimitive)?.contentOrNull ?: ""
+    val keys = listOf("name", "prof", "mat", "cls", "fin", "pp", "ps", "ap", "as", "plane", "pOff", "rot", "rAng", "depth", "dOff", "dx1", "dx2")
+    val f = remember(selId, mode.set) { keys.associateWith { mutableStateOf(s(it)) } }
+    var colTop by remember { mutableStateOf(mode.colTop) }
+    var msg by remember { mutableStateOf("") }
+    fun read(): Map<String, JsonElement> = keys.associateWith { k ->
+        val v = f.getValue(k).value
+        when (k) { "cls", "ps", "as", "pOff", "rAng", "dOff", "dx1", "dx2" -> jsNum(StGrid.jsNumber(v).let { if (it.isFinite()) it else 0.0 }); "name" -> JsonPrimitive(v.ifBlank { "PART" }.uppercase()); else -> JsonPrimitive(v) }
+    }
+    val title = if (selSt != null) "Part properties · ${mode.bodyName(selId)}" else "Part properties · ${mode.set.take(1)}${mode.set.drop(1).lowercase()}"
+    Sheet(title) {
+        H4("Saved settings")
+        Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            for (k in mode.data.propertySets.map { it.name }) StBtn(k, selSt == null && mode.set == k) { mode.useSet(k); for ((kk, st) in f) st.value = (mode.setValues(k)[kk] as? JsonPrimitive)?.contentOrNull ?: "" }
+        }
+        H4("Attributes")
+        Row2("Name") { Field(f.getValue("name").value, { f.getValue("name").value = it }) }
+        Row2("Profile") { Field(f.getValue("prof").value, { f.getValue("prof").value = it }, "IPE300, HEA200, SHS100x100x5, PL20") }
+        val p = mode.data.profiles.lookup(f.getValue("prof").value)
+        Text(when { p == null -> "Not in the catalog"; p.kind == "P" -> if (p.b != null) "${SteelMode.mm(p.h!!)} × ${SteelMode.mm(p.b)} mm · ${Fmt.f("%.1f", p.m)} kg/m" else "plate ${SteelMode.mm(p.t!!)} mm (contour plate)"
+            p.kind == "O" -> "Ø${SteelMode.mm(p.d!!)} × ${SteelMode.mm(p.t!!)} mm · ${p.m} kg/m · ${p.P} m²/m"; else -> "h ${SteelMode.mm(p.h!!)} · b ${SteelMode.mm(p.b!!)} mm · ${p.m} kg/m · ${p.P} m²/m" },
+            fontSize = 12.sp, color = Color(0xBF111111), modifier = Modifier.padding(start = 120.dp))
+        Row2("Material") { Choice(mode.data.materials.grades, f.getValue("mat")) }
+        Row2("Class (colour)") { Choice(mode.data.classes.keys.sorted().map { it.toString() }, f.getValue("cls")) }
+        Row2("Finish") { Field(f.getValue("fin").value, { f.getValue("fin").value = it }) }
+        H4("Numbering series")
+        Row2("Part prefix / no") { Two({ Field(f.getValue("pp").value, { f.getValue("pp").value = it }) }, { Field(f.getValue("ps").value, { f.getValue("ps").value = it }) }) }
+        Row2("Assembly prefix / no") { Two({ Field(f.getValue("ap").value, { f.getValue("ap").value = it }) }, { Field(f.getValue("as").value, { f.getValue("as").value = it }) }) }
+        val isCol = mode.isColumn(selSt)
+        H4("Position")
+        Row2(if (isCol) "Horizontal" else "On plane") { Two({ Choice(listOf("Middle", "Left", "Right"), f.getValue("plane")) }, { Field(f.getValue("pOff").value, { f.getValue("pOff").value = it }) }) }
+        Row2("Rotation / °") { Two({ Choice(listOf("Top", "Front", "Below", "Back"), f.getValue("rot")) }, { Field(f.getValue("rAng").value, { f.getValue("rAng").value = it }) }) }
+        Row2(if (isCol) "Vertical" else "At depth") { Two({ Choice(listOf("Middle", "Front", "Behind"), f.getValue("depth")) }, { Field(f.getValue("dOff").value, { f.getValue("dOff").value = it }) }) }
+        Row2("End offset start / end (mm)") { Two({ Field(f.getValue("dx1").value, { f.getValue("dx1").value = it }) }, { Field(f.getValue("dx2").value, { f.getValue("dx2").value = it }) }) }
+        if (selSt == null && mode.set == "COLUMN") Row2("Column top (mm)") { Field(colTop, { colTop = it }, "next level up") }
+        if (msg.isNotEmpty()) Text(msg, color = Color(0xFFC0392B), fontSize = 13.sp)
+        Row(Modifier.fillMaxWidth().padding(top = 12.dp).horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.End)) {
+            StBtn("Close") { close() }
+            StBtn("Save as ${mode.set.lowercase()}") { mode.saveAsSet(read()) }
+            if (selId != null && selSt != null) {
+                StBtn("Get") { mode.applyProps(read()) }
+                StBtn("Modify", on = true) { val o = read(); val pr = (o["prof"] as JsonPrimitive).content
+                    if (mode.data.profiles.lookup(pr) == null) msg = "Unknown profile $pr" else { mode.parts.modify(listOf(selId), o); close() } }
+            } else StBtn("Apply", on = true) { val o = read(); val pr = (o["prof"] as JsonPrimitive).content
+                if (mode.data.profiles.lookup(pr) == null) msg = "Unknown profile $pr" else { mode.applyProps(o); mode.colTop = colTop.trim(); close() } }
+        }
+    }
+}
+
+@Composable
+private fun Two(a: @Composable () -> Unit, b: @Composable () -> Unit) {
+    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) { Box(Modifier.weight(1f)) { a() }; Box(Modifier.weight(1f)) { b() } }
+}
+
+/** A select as a row of pills (v69 uses a <select>; same options). */
+@Composable
+private fun Choice(options: List<String>, state: androidx.compose.runtime.MutableState<String>) {
+    Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+        for (o in options) StBtn(o, state.value == o) { state.value = o }
+        Spacer(Modifier.width(1.dp))
+    }
+}

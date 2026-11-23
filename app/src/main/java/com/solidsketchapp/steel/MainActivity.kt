@@ -56,6 +56,11 @@ import com.solidsketchapp.steel.license.LicenseGate
 import com.solidsketchapp.steel.license.OpenLicenseGate
 import com.solidsketchapp.steel.mode.NativeSteel
 import com.solidsketchapp.steel.data.SteelAssets
+import com.solidsketchapp.steel.geom.StBuild
+import com.solidsketchapp.steel.mode.SteelMode
+import com.solidsketchapp.steel.mode.SteelOverlay
+import com.solidsketchapp.steel.mode.SteelPanel
+import com.solidsketchapp.steel.model.StGridLines
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -80,6 +85,8 @@ class MainActivity : ComponentActivity() {
     private var fileName by mutableStateOf<String?>(null)
     private var tick by mutableIntStateOf(0)
     private var dataLine by mutableStateOf("data: loading…")
+    private var steel by mutableStateOf<SteelMode?>(null)
+    private var viewTick by mutableIntStateOf(0)
 
     private val openLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri -> uri?.let(::openSs) }
     private val saveLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("application/octet-stream")) { uri -> uri?.let(::saveSs) }
@@ -102,13 +109,32 @@ class MainActivity : ComponentActivity() {
         // S4: the steel tables from v69 (assets/steel/*.json).
         lifecycleScope.launch {
             dataLine = runCatching { withContext(Dispatchers.IO) { SteelAssets.load(assets) } }.fold(
-                { d -> Fmt.f("data: %d profiles · %d property sets · %d components in %d groups · %s = %s", d.profiles.cat.size, d.propertySets.size, d.tk.components.size, d.tk.groups.size, "PHI300-600-8-200-12", d.profiles.lookup("PHI300-600-8-200-12")?.let { Fmt.f("%.1f kg/m", it.m) } ?: "?") },
+                { d -> setUpSteel(d); Fmt.f("data: %d profiles · %d property sets · %d components in %d groups · %s = %s", d.profiles.cat.size, d.propertySets.size, d.tk.components.size, d.tk.groups.size, "PHI300-600-8-200-12", d.profiles.lookup("PHI300-600-8-200-12")?.let { Fmt.f("%.1f kg/m", it.m) } ?: "?") },
                 { "data: could not load (${it.message})" },
             )
         }
+        viewport.setTapHandler { x, y -> steel?.tap(x, y) ?: false }
+        viewport.addViewListener { viewTick++ }
         if (BuildConfig.DEBUG) lifecycleScope.launch { while (true) { debugLine = debugText(); delay(500) } }
         // The app is LTR like the web build, whatever the phone's language (owner, S2 phone check).
         setContent { CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) { MaterialTheme { Screen() } } }
+    }
+
+    /** S5: Steel mode over the app's document, viewport and undo (only :core-api interfaces reach :steel). */
+    private fun setUpSteel(d: com.solidsketchapp.steel.data.SteelData) {
+        steel = SteelMode(d, doc, undo, viewport.selection, StBuild(d.profiles, union = { engine.union(it) }),
+            project = { viewport.worldToScreen(it) },
+            ray = { x, y -> viewport.screenRay(x, y).let { r -> r.origin to r.direction } },
+            px = resources.displayMetrics.density, changed = { tick++; drawSteelGrid() })
+        doc.addListener { drawSteelGrid() }
+    }
+
+    /** v69 stGridDraw: all levels faint, the work level strong; only while Steel mode is on. */
+    private fun drawSteelGrid() {
+        val m = steel; val lines = m?.grid?.takeIf { m.on }?.let { StGridLines.build(it, m.level) }
+        if (lines == null) { viewport.removeOverlay("st.grid"); viewport.removeOverlay("st.grid.work"); return }
+        viewport.removeOverlay("grid")
+        viewport.setOverlay("st.grid", lines.all, StGridLines.ALL_ARGB); viewport.setOverlay("st.grid.work", lines.work, StGridLines.WORK_ARGB)
     }
 
     override fun onDestroy() {
@@ -129,6 +155,7 @@ class MainActivity : ComponentActivity() {
                     ToolButton("Open", enabled = !busy) { openLauncher.launch(arrayOf("*/*")) }
                     ToolButton("Save", enabled = !busy) { saveLauncher.launch(suggestedName()) }
                     ToolButton("Fit") { viewport.fitAll() }
+                    ToolButton("Steel", enabled = steel != null) { steel?.let { if (!it.on) { it.toggle(); viewport.fitAll() } else it.toggle() } }
                 }
                 Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                     ToolButton("Undo", enabled = !busy && undo.canUndo()) { undo.undo() }
@@ -144,6 +171,7 @@ class MainActivity : ComponentActivity() {
             }
             Box(Modifier.fillMaxWidth().weight(1f)) {
                 AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize())
+                steel?.let { m -> SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }); SteelPanel(m, tick) }
                 if (BuildConfig.DEBUG && debugLine.isNotEmpty()) {
                     Text(debugLine, fontSize = 10.sp, fontFamily = FontFamily.Monospace, color = Color(0xFF262B34),
                         modifier = Modifier.align(Alignment.BottomStart).safeDrawingPadding().padding(8.dp).background(Color(0xCCFFFFFF)).padding(4.dp))

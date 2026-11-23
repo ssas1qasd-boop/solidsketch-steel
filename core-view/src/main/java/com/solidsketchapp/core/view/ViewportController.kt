@@ -31,6 +31,8 @@ class ViewportController(
     private val doc: DocumentApi,
     private val styleOf: (String?) -> BodyStyle = BodyStyle::fromJson,
 ) : ViewportApi, DocumentApi.Listener, GestureTracker.Listener {
+    private var tapHandler: ((Float, Float) -> Boolean)? = null
+    private val viewListeners = java.util.concurrent.CopyOnWriteArrayList<() -> Unit>()
 
     val camera = OrbitCamera()
     val renderer = SceneRenderer()
@@ -92,6 +94,7 @@ class ViewportController(
         renderer.frame = SceneRenderer.Frame(camera.viewProjection(), camera.viewMatrix(), selection.selected().toSet(), selection.highlighted)
         requestRender?.invoke()
         onRedraw?.invoke()
+        for (l in viewListeners) l()
     }
 
     // ViewportApi
@@ -107,6 +110,10 @@ class ViewportController(
     override fun orbit(dx: Float, dy: Float) { camera.orbit(dx, dy); refresh() }
     override fun pan(dx: Float, dy: Float) { camera.pan(dx, dy); refresh() }
     override fun zoom(factor: Double) { camera.zoom(factor); refresh() }
-    override fun tap(x: Float, y: Float) { selection.setSelected(listOfNotNull(pickAt(x, y)?.body)) }
+    override fun tap(x: Float, y: Float) { if (tapHandler?.invoke(x, y) == true) return; selection.setSelected(listOfNotNull(pickAt(x, y)?.body)) }
+
+    override fun setTapHandler(handler: ((x: Float, y: Float) -> Boolean)?) { tapHandler = handler }
+    override fun addViewListener(listener: () -> Unit) { viewListeners += listener }
+    override fun removeViewListener(listener: () -> Unit) { viewListeners -= listener }
     override fun doubleTap(x: Float, y: Float) = fitAll()
 }
