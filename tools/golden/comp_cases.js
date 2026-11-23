@@ -22,12 +22,13 @@ async function run(cases) {
         try { ids = c.members.map(([set, o]) => st.add(Object.assign({ kind: 'member' }, st.ST_SETS[set], o), 'golden').id); }
         catch (e) { out[name] = { k: c.k, members: c.members, q: c.q, error: 'members: ' + e }; continue; }
         let r; try { r = st.connect(c.k, ids, c.q || {}); } catch (e) { out[name] = { k: c.k, members: c.members, q: c.q, error: 'connect: ' + e }; continue; }
-        const cn = S.stConns[S.stConns.length - 1];
+        let cn = S.stConns[S.stConns.length - 1];
+        if (c.pt) { cn.pt = c.pt.slice(); st.regen(ids); cn = S.stConns[S.stConns.length - 1]; }   // v69 c.pt: the point picked on the first part
         const bodies = S.bodies.map(b => Object.assign({ id: b.id, kind: b.st && b.st.kind, name: b.st && b.st.name }, info(b.man),
           b.st && b.st.kind === 'conn' ? { role: b.st.role, prof: b.st.prof, mat: b.st.mat, cls: b.st.cls, asm: b.st.asm } : {},
           b.st && b.st.kind === 'bolts' ? { n: b.st.n, d: b.st.d, d0: b.st.d0, L: b.st.L, grade: b.st.grade, ax: b.st.ax.map(R), pts: b.st.pts.map(p => p.map(R)) } : {}));
         let s = null; try { s = st.status(cn.id); } catch (e) { s = { s: 0, msgs: ['status: ' + e] }; }
-        out[name] = { k: c.k, members: c.members, q: c.q || {}, ok: r.ok, bodies, welds: (cn.welds || []).map(w => ({ name: w.name, a: w.a, len: w.len, type: w.type, ws: w.ws, around: w.around })), status: s.s, msgs: s.msgs };
+        out[name] = { k: c.k, members: c.members, q: c.q || {}, pt: c.pt, ok: r.ok, bodies, welds: (cn.welds || []).map(w => ({ name: w.name, a: w.a, len: w.len, type: w.type, ws: w.ws, around: w.around })), status: s.s, msgs: s.msgs };
       }
       return out;
     }, { cases });

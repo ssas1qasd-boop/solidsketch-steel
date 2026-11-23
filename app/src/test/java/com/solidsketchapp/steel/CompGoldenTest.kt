@@ -60,7 +60,8 @@ class CompGoldenTest {
         val ids = g.getValue("members").jsonArray.map { m -> val (set, o) = m.jsonArray
             parts.add(JsonObject(LinkedHashMap<String, JsonElement>().apply { put("kind", JsonPrimitive("member")); putAll(data.propertySet(set.jsonPrimitive.content)!!.raw); putAll(o.jsonObject) }), "m") }
         val comps = Components(ui, doc, null, MemoryStore(), regen); val k = g.getValue("k").jsonPrimitive.content
-        val c = comps.add(k, ids, JsonObject(LinkedHashMap(comps.cq(k)).apply { putAll(g["q"]?.jsonObject ?: JsonObject(emptyMap())) }))
+        val pt = (g["pt"] as? JsonArray)?.map { it.jsonPrimitive.double }?.toDoubleArray()
+        val c = comps.add(k, ids, JsonObject(LinkedHashMap(comps.cq(k)).apply { putAll(g["q"]?.jsonObject ?: JsonObject(emptyMap())) }), pt)
         val gb = g.getValue("bodies").jsonArray.map { it.jsonObject }
         val ob = doc.bodyIds().map { id -> id to Json.parseToJsonElement(doc.bodyJson(id)!!).jsonObject["st"]?.jsonObject }
         if (gb.size != ob.size) bad += "$name: ${ob.size} bodies vs ${gb.size} (${ob.map { s(it.second, "name") }} vs ${gb.map { s(it, "name") }})"
