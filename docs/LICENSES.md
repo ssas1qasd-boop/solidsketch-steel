@@ -29,6 +29,8 @@ Add a row before adding any dependency.
 | Node.js (runs the harness) | 22 | MIT | `tools/golden` (tests only) | no |
 | Robolectric (incl. its native graphics runtime) | 4.14.1 | MIT | `:app` unit tests only (S9b screenshots) | no |
 | Roborazzi (roborazzi, roborazzi-compose) | 1.39.0 | Apache-2.0 | `:app` unit tests only (S9b screenshots) | no |
+| fontTools (Python) | 4.68.0 | MIT | `tools/golden/ui_fonts.py` (UI golden: names the Roboto files for fontconfig; tests only) | no |
+| Roboto fonts (from Robolectric's native runtime jar) | as shipped in nativeruntime-dist-compat 1.0.16 | Apache-2.0 | installed in `~/.fonts` for the UI golden's Chromium (tests only; not in the repo) | no |
 | Compose ui-test-junit4 / ui-test-manifest | per BOM | Apache-2.0 | `:app` unit tests (manifest: debug builds only) | no (debug only) |
 
 ## Notices to ship
