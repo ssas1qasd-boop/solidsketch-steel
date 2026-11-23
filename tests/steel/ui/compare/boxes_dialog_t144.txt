@@ -1,0 +1,24 @@
+dialog_t144/sheet/End plate (144): app [0.0, 74.0, 1081.0 × 2264.0], v69 [0.0, 73.5, 1081.5 × 2265.4], off 0.9 px
+dialog_t144/tabs/Picture: app [24.0, 382.0, 166.0 × 84.0], v69 [23.6, 380.6, 164.8 × 84.0], off 1.6 px
+dialog_t144/tabs/Plates: app [195.0, 382.0, 153.0 × 84.0], v69 [193.6, 380.6, 153.0 × 84.0], off 1.4 px
+dialog_t144/tabs/Stiffeners: app [353.0, 382.0, 205.0 × 84.0], v69 [351.9, 380.6, 205.0 × 84.0], off 1.4 px
+dialog_t144/tabs/Haunch: app [563.0, 382.0, 175.0 × 84.0], v69 [562.2, 380.6, 175.0 × 84.0], off 1.4 px
+dialog_t144/tabs/Notch: app [743.0, 382.0, 149.0 × 84.0], v69 [742.4, 380.6, 149.4 × 84.0], off 1.4 px
+dialog_t144/tabs/Bolts: app [897.0, 382.0, 136.0 × 84.0], v69 [897.1, 380.6, 135.6 × 84.0], off 1.4 px
+dialog_t144/tabs/Holes: app [1038.0, 382.0, 146.0 × 84.0], v69 [1037.9, 380.6, 145.6 × 84.0], off 1.4 px
+dialog_t144/tabs/Angle box: scrolled out of view in v69, not compared
+dialog_t144/tabs/General: scrolled out of view in v69, not compared
+dialog_t144/tabs/Design: scrolled out of view in v69, not compared
+dialog_t144/tabs/Welds: scrolled out of view in v69, not compared
+dialog_t144/bar/OK: app [29.0, 2114.0, 103.0 × 84.0], v69 [32.6, 2113.1, 102.7 × 84.0], off 3.6 px
+dialog_t144/bar/Apply: app [148.0, 2114.0, 143.0 × 84.0], v69 [151.1, 2113.1, 142.8 × 84.0], off 3.1 px
+dialog_t144/bar/Modify: app [307.0, 2114.0, 163.0 × 84.0], v69 [309.6, 2113.1, 162.6 × 84.0], off 2.6 px
+dialog_t144/bar/Get: app [486.0, 2114.0, 110.0 × 84.0], v69 [488.0, 2113.1, 110.3 × 84.0], off 2.3 px
+dialog_t144/bar/on/off: app [612.0, 2114.0, 153.0 × 84.0], v69 [614.0, 2113.1, 153.4 × 84.0], off 2.4 px
+dialog_t144/bar/Pick parts: app [666.0, 2214.0, 210.0 × 84.0], v69 [667.7, 2212.9, 210.1 × 84.0], off 1.8 px
+dialog_t144/bar/Cancel: app [892.0, 2214.0, 162.0 × 84.0], v69 [893.6, 2212.9, 161.6 × 84.0], off 1.6 px
+dialog_t144/top/Save: app [24.0, 264.0, 131.0 × 84.0], v69 [23.6, 262.5, 130.8 × 84.0], off 1.5 px
+dialog_t144/top/Load: app [168.0, 264.0, 133.0 × 84.0], v69 [167.5, 262.5, 133.4 × 84.0], off 1.5 px
+dialog_t144/top/Save as: app [374.0, 264.0, 175.0 × 84.0], v69 [374.4, 262.5, 175.4 × 84.0], off 1.5 px
+dialog_t144/top/Welds…: app [964.0, 264.0, 174.0 × 84.0], v69 [964.9, 262.5, 173.6 × 84.0], off 1.5 px
+dialog_t144/top/Help: scrolled out of view in v69, not compared

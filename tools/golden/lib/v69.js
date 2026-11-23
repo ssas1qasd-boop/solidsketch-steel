@@ -22,7 +22,7 @@ function checkReference() {
 // Nothing else in the page changes. See tools/golden/README.md.
 const PATCH_AFTER_LINE = 14039;
 const PATCH_ANCHOR = "Object.assign(window.__st, { conns: () => S.stConns, connGeom: stConnGeom,";
-const PATCH_LINE = '  Object.assign(window.__st, { live: { connGeom: c => stConnGeom(c), build: s => stBuild(s), portalParts: q => stPortalParts(q), dwHoles: (...a) => dwHoles(...a), data: () => ({ ST_CLASS, ST_TYPE, TK_FAMNAME, TK_PICK, TK_ICON, UPN_T, UPE_T }), parse: t => stParse(t), letters: i => stLetters(i), section: p => stSection(p), mf: st => stMF(st) } }); /* golden harness */';
+const PATCH_LINE = '  Object.assign(window.__st, { live: { connGeom: c => stConnGeom(c), build: s => stBuild(s), portalParts: q => stPortalParts(q), dwHoles: (...a) => dwHoles(...a), data: () => ({ ST_CLASS, ST_TYPE, TK_FAMNAME, TK_PICK, TK_ICON, UPN_T, UPE_T }), parse: t => stParse(t), letters: i => stLetters(i), section: p => stSection(p), mf: st => stMF(st) } }); /* golden harness */ Object.assign(window.__st, { ui: { scene: () => scene, ST: () => ST, sym: () => ST_SYM, updateCamera: () => updateCamera(), U: () => stU(), handles: () => stHandlesDraw() } });';
 
 let patched = null;
 function patchedHtml() {

@@ -1,0 +1,14 @@
+catalog/sheet/Applications & components: app [21.0, 168.0, 1039.0 × 2149.0], v69 [21.0, 168.0, 1039.5 × 2149.9], off 0.9 px
+catalog/buttons/Properties#0: app [786.0, 518.0, 222.0 × 74.0], v69 [786.4, 517.1, 221.6 × 73.5], off 1.4 px
+catalog/buttons/Properties#1: app [786.0, 691.0, 222.0 × 74.0], v69 [786.4, 690.4, 221.6 × 73.5], off 1.1 px
+catalog/buttons/Properties#2: app [786.0, 864.0, 222.0 × 74.0], v69 [786.4, 863.6, 221.6 × 73.5], off 0.9 px
+catalog/buttons/Properties#3: app [786.0, 1037.0, 222.0 × 74.0], v69 [786.4, 1036.9, 221.6 × 73.5], off 0.6 px
+catalog/buttons/Properties#4: app [786.0, 1210.0, 222.0 × 74.0], v69 [786.4, 1210.1, 221.6 × 73.5], off 0.4 px
+catalog/buttons/Properties#5: app [786.0, 1383.0, 222.0 × 74.0], v69 [786.4, 1383.4, 221.6 × 73.5], off 0.4 px
+catalog/buttons/Properties#6: app [786.0, 1556.0, 222.0 × 74.0], v69 [786.4, 1556.6, 221.6 × 73.5], off 0.6 px
+catalog/buttons/Properties#7: app [786.0, 1729.0, 222.0 × 74.0], v69 [786.4, 1729.9, 221.6 × 73.5], off 0.9 px
+catalog/buttons/Properties#8: app [786.0, 1902.0, 222.0 × 74.0], v69 [786.4, 1903.1, 221.6 × 73.5], off 1.1 px
+catalog/buttons/Properties#9: not found in the app  (known: see differences.json)
+catalog/buttons/Properties#10: not found in the app  (known: see differences.json)
+catalog/buttons/Properties#11: scrolled out of view in v69, not compared
+catalog/search/#0: app [55.0, 289.0, 971.0 × 79.0], v69 [55.1, 288.8, 971.3 × 78.8], off 0.4 px

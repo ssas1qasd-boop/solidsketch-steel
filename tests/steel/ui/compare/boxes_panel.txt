@@ -1,0 +1,15 @@
+panel/buttons/Grid: app [47.0, 2061.0, 135.0 × 84.0], v69 [49.9, 2058.0, 135.4 × 84.0], off 3.3 px
+panel/buttons/Portal frame: app [198.0, 2061.0, 272.0 × 84.0], v69 [201.1, 2058.0, 271.8 × 84.0], off 3.1 px
+panel/buttons/Column: app [486.0, 2061.0, 195.0 × 84.0], v69 [488.6, 2058.0, 194.9 × 84.0], off 3.0 px
+panel/buttons/Beam: app [697.0, 2061.0, 163.0 × 84.0], v69 [699.2, 2058.0, 162.9 × 84.0], off 3.0 px
+panel/buttons/Plate: app [876.0, 2061.0, 152.0 × 84.0], v69 [877.9, 2058.0, 151.9 × 84.0], off 3.0 px
+panel/buttons/Components: app [1044.0, 2061.0, 278.0 × 84.0], v69 [1045.5, 2058.0, 278.0 × 84.0], off 3.0 px
+panel/buttons/Numbering: scrolled out of view in v69, not compared
+panel/buttons/Checks: scrolled out of view in v69, not compared
+panel/buttons/Drawings: scrolled out of view in v69, not compared
+panel/buttons/Marks: scrolled out of view in v69, not compared
+panel/buttons/Properties: scrolled out of view in v69, not compared
+panel/buttons/Steel list: scrolled out of view in v69, not compared
+panel/buttons/Exit Steel: scrolled out of view in v69, not compared
+panel/buttons/+0: app [230.0, 2161.0, 110.0 × 84.0], v69 [233.0, 2157.8, 109.8 × 84.0], off 3.2 px
+panel/buttons/+7000: app [356.0, 2161.0, 172.0 × 84.0], v69 [358.5, 2157.8, 171.7 × 84.0], off 3.2 px

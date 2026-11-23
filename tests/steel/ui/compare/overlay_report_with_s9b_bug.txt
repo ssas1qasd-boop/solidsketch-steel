@@ -1,0 +1,37 @@
+cam2_orbit: the overlay was not redrawn after the camera change (labels, handles and cones stay where they were)
+cam2_orbit: label 4 on screen at (132.1, 1415.7), v69 has it off screen (-22.5, 1300.3)
+cam2_orbit: label 5 at (378.3, 1536.5), v69 (30.8, 1535.2): off by 347.5 px
+cam2_orbit: label 6 at (660.2, 1674.9), v69 (92.3, 1805.6): off by 582.8 px
+cam2_orbit: label 7 at (986.1, 1834.8), v69 (163.8, 2120.2): off by 870.4 px
+cam2_orbit: label B at (196.6, 816.2), v69 (678.2, 541.0): off by 554.7 px
+cam2_orbit: label 5 52.4 px across, v69 47.2 px
+cam2_orbit: label 6 56.2 px across, v69 50.7 px
+cam2_orbit: label 7 60.6 px across, v69 54.9 px
+cam3_pan: the overlay was not redrawn after the camera change (labels, handles and cones stay where they were)
+cam3_pan: label 1 at (-449.3, 1130.4), v69 (163.5, 1062.5): off by 616.5 px
+cam3_pan: label 2 at (-277.3, 1214.8), v69 (242.1, 1320.7): off by 530.1 px
+cam3_pan: label 3 at (-84.7, 1309.3), v69 (335.0, 1625.7): off by 525.7 px
+cam3_pan: label 4 at (132.1, 1415.7), v69 (446.4, 1991.5): off by 656.0 px
+cam3_pan: label 5 on screen at (378.3, 1536.5), v69 has it off screen (582.4, 2438.4)
+cam3_pan: label 6 on screen at (660.2, 1674.9), v69 has it off screen (752.4, 2996.4)
+cam3_pan: label 7 on screen at (986.1, 1834.8), v69 has it off screen (970.6, 3713.2)
+cam3_pan: label A at (-425.0, 1071.3), v69 (250.5, 959.9): off by 684.6 px
+cam3_pan: label B on screen at (196.6, 816.2), v69 has it off screen (1253.9, 746.4)
+cam3_pan: label 1 41.3 px across, v69 51.5 px
+cam3_pan: label 2 43.6 px across, v69 55.8 px
+cam3_pan: label 3 46.2 px across, v69 60.9 px
+cam3_pan: label 4 49.1 px across, v69 66.9 px
+cam3_pan: label A 39.7 px across, v69 49.8 px
+cam3_pan: handle 0 at (-417.8, 824.0), v69 (248.5, 753.0): off by 670.1 px
+cam3_pan: handle 1 at (-238.8, 893.3), v69 (343.6, 1010.9): off by 594.1 px
+cam3_pan: cone 0 at (-416.5, 832.0), v69 (249.4, 761.7): off by 669.5 px
+cam4_zoom: the overlay was not redrawn after the camera change (labels, handles and cones stay where they were)
+cam4_zoom: label 4 on screen at (132.1, 1415.7), v69 has it off screen (4549.0, 2554.4)
+cam4_zoom: label 5 on screen at (378.3, 1536.5), v69 has it off screen (7016.1, 2878.8)
+cam4_zoom: label 6 on screen at (660.2, 1674.9), v69 has it off screen (10310.9, 3312.0)
+cam4_zoom: label 7 on screen at (986.1, 1834.8), v69 has it off screen (14933.8, 3919.9)
+cam4_zoom: label B at (196.6, 816.2), v69 (497.1, 945.9): off by 327.3 px
+cam4_zoom: label B 32.6 px across, v69 73.2 px
+cam5_apply: the overlay was not redrawn after the camera change (labels, handles and cones stay where they were)
+cam5_apply: label drawn 11, v69 14
+cam5_apply: 11 label sizes, v69 14

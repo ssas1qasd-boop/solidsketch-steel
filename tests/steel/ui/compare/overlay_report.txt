@@ -1,0 +1,1 @@
+all labels, handles and cones within 2 px of v69
