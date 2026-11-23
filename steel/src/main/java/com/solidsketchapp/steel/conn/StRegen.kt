@@ -118,14 +118,19 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
         return JsonObject(m)
     }
 
-    /** v69 stOwner (v40 rule for families, L15168): the assembly a component plate welds to. EP: front / stub / stiffener / shim → main part, else the secondary. */
+    /** v69 stOwner, the live chain (v40 L15168 family rules, then v49 L15638 TG / CL, v49 L15531 T133 / T135 stubs, v58 L15885 TG gusset): the part a component plate is welded to. */
     private fun owner(c: StConn, name: String, ix: Int): String? {
-        val fam = famOf(c.type) ?: return c.parts.firstOrNull()
-        val sec = c.parts.getOrNull(1)
+        val d = ui?.conn?.get(c.type); val fam = d?.fam ?: tk?.byId(c.type)?.family ?: return c.parts.firstOrNull()
+        val p = c.parts; val sec = p.getOrNull(1)
+        if (fam == "TG" && "GUSSET" in name) return p[0]
+        if (fam == "TG") { if (Regex("FIN|CROSSING").containsMatchIn(name)) return p[0]
+            if ((d?.def?.get("kind") as? JsonPrimitive)?.contentOrNull == "cross") return p.getOrNull(1 + minOf(1, maxOf(0, ix - 1) shr 1)) ?: p.getOrNull(1); return p.getOrNull(1) }
+        if (fam == "CL") return p[0]
+        if ((c.type == "T133" || c.type == "T135") && name == "STUB") return p[0]
         return when (fam) {
-            "EP", "CA", "BE" -> if (Regex("FRONT|STUB|STIFF|SHIM").containsMatchIn(name)) c.parts[0] else if (c.parts.getOrNull(2) != null && ix >= 0 && name == "END PLATE" && ix > 0) c.parts[2] else sec
-            "GU" -> c.parts[0]; "MF" -> if ("CONTINUITY" in name) c.parts[0] else sec
-            else -> c.parts[0]
+            "EP", "CA", "BE" -> if (Regex("FRONT|STUB|STIFF|SHIM").containsMatchIn(name)) p[0] else if (p.getOrNull(2) != null && ix >= 0 && name == "END PLATE" && ix > 0) p[2] else sec
+            "MF" -> if ("CONTINUITY" in name) p[0] else sec
+            else -> p[0]
         }
     }
 
