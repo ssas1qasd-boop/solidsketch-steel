@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.ButtonDefaults
@@ -53,12 +54,14 @@ import kotlinx.serialization.json.contentOrNull
 
 /** v69 Steel buttons (`#st-panel button`): pill, one line; "on" = #c0392b with white text. */
 @Composable
-fun StBtn(label: String, on: Boolean = false, enabled: Boolean = true, onClick: () -> Unit) {
-    // v69 L13730: border 1px rgba(127,127,127,.35), transparent, colour inherit, radius 999, padding 7 × 12, 14 px; .on #c0392b / white
+fun StBtn(label: String, on: Boolean = false, enabled: Boolean = true, padH: Int = 12, padV: Int = 7, onClick: () -> Unit) {
+    // v69 L13730: border 1px rgba(127,127,127,.35), transparent, colour inherit, radius 999, padding 7 × 12, 14 px; .on #c0392b / white.
+    // CSS sizes: the 1 px border adds to the padding, the 14 px Roboto line is 16 px (UI golden: 32 × text + 26 px boxes).
+    // padH / padV: other v69 paddings (catalog rows: 5 × 9).
     val c = com.solidsketchapp.steel.ui.LocalSs.current
-    Box(Modifier.heightIn(min = 33.dp).background(if (on) c.on else Color.Transparent, RoundedCornerShape(999.dp)).border(1.dp, if (on) c.on else c.pillBorder, RoundedCornerShape(999.dp))
-        .clickable(enabled = enabled) { onClick() }.padding(horizontal = 12.dp, vertical = 7.dp), contentAlignment = Alignment.Center) {
-        Text(label, maxLines = 1, softWrap = false, overflow = TextOverflow.Visible, fontSize = 14.sp, color = (if (on) Color.White else c.fg).copy(alpha = if (enabled) 1f else 0.45f))
+    Box(Modifier.height(androidx.compose.ui.unit.Dp((16 + 2 * padV + 2).toFloat())).background(if (on) c.on else Color.Transparent, RoundedCornerShape(999.dp)).border(1.dp, if (on) c.on else c.pillBorder, RoundedCornerShape(999.dp))
+        .clickable(enabled = enabled) { onClick() }, contentAlignment = Alignment.Center) {
+        com.solidsketchapp.steel.ui.CssText(label, com.solidsketchapp.steel.ui.cssLine(16).copy(fontSize = 14.sp, color = (if (on) Color.White else c.fg).copy(alpha = if (enabled) 1f else 0.45f)), pad = (padH + 1).dp)
     }
 }
 
@@ -68,29 +71,41 @@ fun SteelOverlay(mode: SteelMode, tick: Int, project: (Vec3) -> Pair<Float, Floa
                  /** The camera's revision. Read while drawing, so every camera change (orbit, pan, zoom, resize) redraws the labels,
                   *  handles and cones even when this composable itself is skipped (S9b regression: they stayed where they were first drawn). */
                  viewRev: () -> Int = { 0 },
-                 /** Test hook: the grid labels as drawn (text, x, y in px). */ onDrawn: ((List<Triple<String, Float, Float>>) -> Unit)? = null) {
+                 /** Test hook: the grid labels as drawn (text, x, y in px). */ onDrawn: ((List<Triple<String, Float, Float>>) -> Unit)? = null,
+                 /** Screen px per mm at a model point (the camera's perspective). v69's grid labels are sprites 900 mm across
+                  *  (levels 1440 mm), so they grow and shrink with the zoom; without it they are drawn 26 dp across. */
+                 scaleAt: ((Vec3) -> Float?)? = null,
+                 /** Test hook: each drawn label's size in px (v69's sprite size on screen). */ onLabelSizes: ((List<Float>) -> Unit)? = null,
+                 /** Test hook: the handles / picked points (x, y) and component cones (x, y) as drawn. */ onDrawnMarks: ((List<Pair<Float, Float>>, List<Pair<Float, Float>>) -> Unit)? = null) {
     @Suppress("UNUSED_EXPRESSION") tick
     val tm = rememberTextMeasurer()
     if (!mode.on) return
     Canvas(modifier.fillMaxSize()) {
         viewRev()
-        val r = 13.dp.toPx()
-        val drawn = ArrayList<Triple<String, Float, Float>>()
+        val drawn = ArrayList<Triple<String, Float, Float>>(); val sizes = ArrayList<Float>()
+        // v69 stLabelSprite: a 128 px canvas (ring r 58, stroke 6, #fff / #3a4250; text 600, 54 px or 34 px for longer labels,
+        // #1d2330, centred 2 px low) on a sprite 900 mm across (levels: 1440 mm, no ring)
         fun label(p: Vec3, text: String, ring: Boolean) {
             val s = project(p) ?: return; val c = Offset(s.first, s.second); drawn += Triple(text, c.x, c.y)
-            if (ring) { drawCircle(Color.White, r, c); drawCircle(Color(0xFF3A4250), r, c, style = Stroke(1.5.dp.toPx())) }
-            val lay = tm.measure(text, TextStyle(fontSize = if (text.length > 3) 10.sp else 13.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFF1D2330)))
-            drawText(lay, topLeft = Offset(c.x - lay.size.width / 2f, c.y - lay.size.height / 2f))
+            val S = scaleAt?.invoke(p)?.let { it * (if (ring) 900f else 1440f) } ?: 26.dp.toPx(); sizes += S
+            val k = S / 128f
+            if (ring) { drawCircle(Color.White, 58f * k, c); drawCircle(Color(0xFF3A4250), 58f * k, c, style = Stroke(6f * k)) }
+            val fpx = (if (text.length > 3) 34f else 54f) * k; if (fpx < 2f) return
+            val lay = tm.measure(text, TextStyle(fontSize = (fpx / density / fontScale).sp, fontWeight = FontWeight.SemiBold, color = Color(0xFF1D2330), textMotion = androidx.compose.ui.text.style.TextMotion.Animated))
+            drawText(lay, topLeft = Offset(c.x - lay.size.width / 2f, c.y + 2f * k - lay.size.height / 2f))
         }
         for (l in mode.gridLabels()) label(l.p, l.text, l.ring)
-        onDrawn?.invoke(drawn)
-        for ((p, argb) in mode.markers()) project(Vec3(p.x, p.y, p.z))?.let { drawCircle(Color(argb), 6.dp.toPx(), Offset(it.first, it.second)) }
+        onDrawn?.invoke(drawn); onLabelSizes?.invoke(sizes)
+        val marks = ArrayList<Pair<Float, Float>>()
+        for ((p, argb) in mode.markers()) project(Vec3(p.x, p.y, p.z))?.let { marks += it; drawCircle(Color(argb), 6.dp.toPx(), Offset(it.first, it.second)) }
         // v58 tkFanDraw: dashed yellow lines from the selected component's symbol to its parts
         for ((a, b) in mode.fanLines()) { val sa = project(Vec3(a.x, a.y, a.z)) ?: continue; val sb = project(Vec3(b.x, b.y, b.z)) ?: continue
             drawLine(Color(0xFFFFD400), Offset(sa.first, sa.second), Offset(sb.first, sb.second), 2.dp.toPx(), pathEffect = androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(10.dp.toPx(), 5.dp.toPx()))) }
         // v58 component symbols: constant size (three.js sprite 0.026 without size attenuation, fov 45° = 3.14 % of the view height)
         val sz = size.height * 0.026f * 2.4142f / 2f
-        for (sy in mode.symbolsOnScreen()) symbolCone(this, Offset(sy.x, sy.y), sz, sy.s, sy.id == mode.selConn)
+        val syms = mode.symbolsOnScreen()
+        for (sy in syms) symbolCone(this, Offset(sy.x, sy.y), sz, sy.s, sy.id == mode.selConn)
+        onDrawnMarks?.invoke(marks, syms.map { it.x to it.y })
     }
     // v69 tkCheckStep: checks run after a change, a few components at a time, and recolour the symbols
     androidx.compose.runtime.LaunchedEffect(tick) { kotlinx.coroutines.delay(1500); while (mode.checkStep()) kotlinx.coroutines.delay(60) }
@@ -163,7 +178,7 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
                 StBtn("Done", on = true) { mode.catDone() }
             }
             Row(Modifier.horizontalScroll(rememberScrollState()).padding(vertical = 3.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                Text("Work level", fontSize = 14.sp, color = c.fg)
+                com.solidsketchapp.steel.ui.CssText("Work level", com.solidsketchapp.steel.ui.cssLine(16).copy(fontSize = 14.sp, color = c.fg))
                 mode.levelLabels().forEachIndexed { i, l -> StBtn(l, mode.level == i) { mode.setLevel(i) } }
                 if (mode.tool == SteelMode.Tool.BEAM || mode.tool == SteelMode.Tool.COLUMN) {
                     Text(" · Set", fontSize = 14.sp, color = c.fg)
@@ -197,12 +212,8 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
 
 @Composable
 private fun Field(value: String, onChange: (String) -> Unit, placeholder: String = "", modifier: Modifier = Modifier) {
-    // v69 #st-sheet input: padding 6 × 8, radius 8, border var(--border), transparent, colour inherit
-    val c = com.solidsketchapp.steel.ui.LocalSs.current
-    Box(modifier.border(1.dp, c.border, RoundedCornerShape(8.dp)).padding(horizontal = 8.dp, vertical = 6.dp)) {
-        if (value.isEmpty()) Text(placeholder, color = c.fg.copy(alpha = 0.5f), fontSize = 14.sp)
-        BasicTextField(value, onChange, singleLine = true, textStyle = TextStyle(fontSize = 14.sp, color = c.fg), cursorBrush = androidx.compose.ui.graphics.SolidColor(c.fg), modifier = Modifier.fillMaxWidth())
-    }
+    // v69 #st-sheet input: padding 6 × 8, radius 8, border var(--border), transparent, colour inherit (30 px high with the border)
+    com.solidsketchapp.steel.ui.SsInput(value, onChange, placeholder, modifier.fillMaxWidth())
 }
 
 @Composable
@@ -210,8 +221,9 @@ private fun Sheet(title: String, content: @Composable () -> Unit) = com.solidske
 
 @Composable
 private fun Row2(label: String, content: @Composable () -> Unit) {
-    Row(Modifier.fillMaxWidth().padding(vertical = 3.dp), verticalAlignment = Alignment.CenterVertically) {
-        Text(label, fontSize = 14.sp, modifier = Modifier.width(120.dp)); Box(Modifier.weight(1f)) { content() }
+    Row(Modifier.fillMaxWidth().padding(bottom = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+        // v69 #st-sheet .g: grid-template-columns 120px 1fr, gap 6 × 10
+        Text(label, fontSize = 14.sp, modifier = Modifier.width(130.dp).padding(end = 10.dp)); Box(Modifier.weight(1f)) { content() }
     }
 }
 
@@ -226,7 +238,8 @@ private fun GridSheet(mode: SteelMode, close: () -> Unit) {
     var err by remember { mutableStateOf("") }
     Sheet("Grid") {
         Row2("X (mm)") { Field(x, { x = it }) }; Row2("Y (mm)") { Field(y, { y = it }) }; Row2("Z levels (mm)") { Field(z, { z = it }) }
-        Text("Tekla syntax: the first value is where the grid starts, then the spacings; 4*6000 = four bays of 6000. X lines are numbered 1, 2, 3…, Y lines lettered A, B, C…", fontSize = 14.sp, modifier = Modifier.padding(vertical = 10.dp))
+        // v69 <p>: margin 14 0 (after the grid's last row; its bottom margin collapses with the bar's 12)
+        Text("Tekla syntax: the first value is where the grid starts, then the spacings; 4*6000 = four bays of 6000. X lines are numbered 1, 2, 3…, Y lines lettered A, B, C…", fontSize = 14.sp, style = com.solidsketchapp.steel.ui.cssLine(16), modifier = Modifier.padding(top = 8.dp, bottom = 2.dp))
         if (err.isNotEmpty()) Text(err, color = Color(0xFFC0392B), fontSize = 13.sp)
         com.solidsketchapp.steel.ui.StBar {
             StBtn("Cancel") { close() }
