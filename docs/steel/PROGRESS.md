@@ -3,7 +3,7 @@
 History: S0–S4 in `docs/steel/PROGRESS-S0-S4.md` (incl. the postponed license gate rules); S5–S6 in `docs/steel/PROGRESS-S5-S6.md` (incl. the S5 and S6 phone check lists).
 
 ## Current milestone
-**S9 done. Stopped before S10** (owner plan 2026-11-23) (owner plan 2026-11-23: S7, S8 and S9 without waiting for phone checks, push after every step, stop before S10; Claude does all of S8 and S9). S9 APK: `dist/solidsketch-steel-s9-debug.apk` (0.9.0-s9, phone check below). S8 APK: `dist/solidsketch-steel-s8-debug.apk` (0.8.0-s8). S7 APK: `dist/solidsketch-steel-s7-debug.apk` (0.7.0-s7). S5 and S6 APKs: `dist/solidsketch-steel-s5-debug.apk`, `dist/solidsketch-steel-s6-debug.apk` (phone checks in `PROGRESS-S5-S6.md`).
+**S9 done. Stopped before S10** (owner plan 2026-11-23: S7, S8 and S9 without waiting for phone checks, push after every step, stop before S10; Claude does all of S8 and S9). S9 APK: `dist/solidsketch-steel-s9-debug.apk` (0.9.0-s9, phone check below). S8 APK: `dist/solidsketch-steel-s8-debug.apk` (0.8.0-s8). S7 APK: `dist/solidsketch-steel-s7-debug.apk` (0.7.0-s7). S5 and S6 APKs: `dist/solidsketch-steel-s5-debug.apk`, `dist/solidsketch-steel-s6-debug.apk` (phone checks in `PROGRESS-S5-S6.md`).
 
 ## S7 plan (component framework)
 1. Component engine: v69 `famGeom` context, the v58 geometry wrapper (bolt options reach `stBolts`, bolt info d0 / std / thr / sw, Welds tab), the live EP family (v48), component plates and bolts in regen (`tkKidSt` part fields, class colours, assembly owner), welds kept on the connection. **Done.**
