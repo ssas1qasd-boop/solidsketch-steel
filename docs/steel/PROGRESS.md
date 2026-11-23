@@ -1,7 +1,21 @@
 # Steel progress
 
 ## Current milestone
-S4 done in code and tests (2026-11-22; done here on the owner's instruction, CLAUDE.md had assigned S4 to the local model). Next: S5 (Steel mode: grid and levels, member placement with property sets, profile solids with the Tekla position rules, class colours, Exit Steel).
+S5 in progress. Step 1 (profile name rules, top bar) done 2026-11-23. Next step: S5 step 2, the grid in Tekla syntax and levels.
+
+## S5 plan (steps; each one is committed, pushed and has a phone check)
+1. stProf name rules for the 97 names S4 left, top bar with its own solid background. **Done.**
+2. Grid and levels in Tekla syntax (`stGrid`; acceptance: X `0 4*13195`, Y `0 5*5570`, Z `0 7500 1500` give v69's positions), drawn in the viewport.
+3. Profile sections and member solids with the Tekla position rules (plane, rotation, depth, offsets, dx1/dx2; `stSection`, `stBuild` live chain), class colours; golden: member solids within 0.1 mm of v69.
+4. Steel mode screen: property sets (`stPropSheet`), place Column / Beam by picking grid points, Exit Steel.
+5. Look: edge lines `0x262b34`, lighting closer to v69's three.js lights.
+
+## S5 step 1 (2026-11-23)
+- **Proof for S4 first** (owner): `data_export.js --check` → "all data files match v69"; `SteelDataTest` 5/5 pass; the HEA300, IPE360 and SHS100x100x5 rows equal v69 line 13557 (`["I",290,300,8.5,14,27,88.3,1.717]`, `["I",360,170,8,12.7,18,57.1,1.353]`, `["R",100,100,5,7.5,14.7,0.387]`; fields h, b, tw/t, tf, r, kg/m, paint m²/m; v69 keeps no area: area = kg/m ÷ 7850 kg/m³, e.g. HEA300 11,248 mm²). Note: `./gradlew :steel:test --tests …` is refused by Gradle for Android modules; use `:steel:testDebugUnitTest --tests …`.
+- **stProf name rules ported** (`steel/data/StProf.kt`, exact port of the live chain: v32 base L13577 + v41 wrapper L15203): PL (`PLt`, `PLa*b`), D/RD/ROD, L `a*b*t` and `a*t`, FLT, parametric SHS/RHS (r = 2t) and CHS/PD/PIPE, UPN/UPE/U, C/CC/Z/ZZ, BI (welded I, optional bottom flange), PHI (tapered welded I). Same operation order as v69, so the doubles are bit-identical (e.g. FLT20*150 = 23.549999999999997 kg/m, as in v69). Keys use JavaScript number text: `JsNumber` moved from `:core-io` to `:core-api` (`:steel` may only use `:core-api`; noted in MERGE.md).
+- **Test now strict:** all 636 golden names: **629 equal v69** (key, kind, and exactly the same set of fields with the same values) and 7 are null in both (`pl12x150`, `M10`–`M20` sizes R10 keeps in `prof`, `NOTAPROFILE`, empty). Mutation check: with the SHS corner radius changed from 2t to t, 3 names differ and the test fails.
+- **Top bar:** the buttons and status lines now sit in their own white bar above the viewport (v69's `--panel` white, fully opaque), so the model can no longer draw over them at any zoom.
+- App 0.5.0-s5a; the data line also shows a tapered profile from the new rules (`PHI300-600-8-200-12 = 64.4 kg/m`; v69: 64.4328). Unit tests: 52 JVM, all pass (host JNI tests not rerun: no native change). APK: `dist/solidsketch-steel-s5a-debug.apk`.
 
 ## S4 (2026-11-22)
 - **Export from the running v69** (`tools/golden/data_export.js`, live values after every chapter's patches, not parsed source) to `steel/src/main/assets/steel/`:
@@ -123,7 +137,8 @@ Samsung, Arabic locale, two screen recordings of `solidsketch-steel-s2-debug.apk
 ## Notes for S5
 - ~~The owner's phone is set to Arabic, so the layout flipped to RTL. Force LTR for the whole app.~~ Done in the locale fix (2026-11-22).
 - "Plan:" on the placeholder screen shows "-" (empty value). (The placeholder screen is no longer shown since S2.)
-- The model draws over the buttons and text when zoomed in: give the top bar (buttons and status lines) a solid background (owner, S3 phone check).
+- ~~The model draws over the buttons and text when zoomed in: give the top bar (buttons and status lines) a solid background (owner, S3 phone check).~~ Done in S5 step 1 (bar above the viewport).
+- Edge lines (`0x262b34`, as v69 draws part edges) and lighting closer to v69's three.js lights (S5 step 5).
 
 ## Postponed: license gate (owner decision, 2026-11-21)
 `:app` has only `LicenseGate` (`app/src/main/java/com/solidsketchapp/steel/license/LicenseGate.kt`), an interface that always allows, and `OpenLicenseGate`. No network permission, no key UI.

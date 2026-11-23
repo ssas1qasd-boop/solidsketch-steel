@@ -57,18 +57,33 @@ class SteelData(
     }
 }
 
-/** A resolved profile, with v69's field names (stProf result). Fields a kind does not use are null. */
+/**
+ * A resolved profile, with v69's field names (the stProf result). Fields a kind does not use are null.
+ * Kinds: I (rolled, or welded with [built] = 1, tapered with [taper] = 1), R (rectangular hollow), O (round:
+ * hollow, or solid rod with t = d/2), P (plate / flat), L (angle), U (channel), C / Z (cold-formed).
+ */
 data class Profile(
     val key: String, val kind: String,
     val h: Double? = null, val b: Double? = null, val tw: Double? = null, val tf: Double? = null, val r: Double? = null,
-    val t: Double? = null, val d: Double? = null, val m: Double, val P: Double,
-)
+    val t: Double? = null, val d: Double? = null,
+    /** Cold-formed lip. */
+    val c: Double? = null,
+    /** Built-up / tapered I: top and bottom flange widths, bottom flange thickness, end depths. */
+    val bt: Double? = null, val bb: Double? = null, val tf2: Double? = null, val h1: Double? = null, val h2: Double? = null,
+    val built: Double? = null, val taper: Double? = null,
+    /** kg/m and paint surface m²/m, as v69 computes them. */
+    val m: Double, val P: Double,
+) {
+    /** Every numeric field v69 sets, by its v69 name (for golden comparison). */
+    fun fields(): Map<String, Double> = linkedMapOf("h" to h, "b" to b, "tw" to tw, "tf" to tf, "r" to r, "t" to t, "d" to d, "c" to c,
+        "bt" to bt, "bb" to bb, "tf2" to tf2, "h1" to h1, "h2" to h2, "built" to built, "taper" to taper, "m" to m, "P" to P)
+        .filterValues { it != null }.mapValues { it.value!! }
+}
 
 /**
- * ST_CAT plus the v41 channel tables. [lookup] is an exact port of the table branches of v69's
- * live stProf chain: the base catalog lookup (case-insensitive key) and v41's UPN/UPE/U branch.
- * The name rules (PL, FLT, D/ROD, L, parametric SHS/RHS/CHS, C/Z, BI, PHI) are ported in S5;
- * for those names this returns null.
+ * ST_CAT plus the v41 channel tables. [lookup] is v69's live stProf chain ([StProf]): catalog key
+ * (case-insensitive), then the name rules (PL, D/RD/ROD, L, FLT, parametric SHS/RHS/CHS/PD/PIPE,
+ * UPN/UPE/U, C/CC/Z/ZZ, BI, PHI).
  */
 class ProfileCatalog(
     /** In v69's order: name -> raw row (kind letter, then numbers). */
@@ -77,21 +92,14 @@ class ProfileCatalog(
     val upe: Map<Int, List<Double>>,
 ) {
     private val byUpper = cat.associate { it.first.uppercase() to it }
+    private val rules = StProf(this)
 
     val names: List<String> get() = cat.map { it.first }
 
-    fun lookup(name: String): Profile? {
-        // Base stProf: name trimmed, upper case, X -> x; find the catalog key with the same upper case.
-        val n = name.trim().uppercase().replace('X', 'x')
-        byUpper[n.uppercase()]?.let { (key, r) -> return fromRow(key, r) }
-        // v41 wrapper: upper case, X -> *; UPN / UPE / U + size from the channel tables.
-        val s = name.trim().uppercase().replace("X", "*")
-        val m = Regex("""^(UPN|UPE|U)\s*(\d+)$""").find(s) ?: return null
-        val table = if (m.groupValues[1] == "UPE") upe else upn
-        val v = table[m.groupValues[2].toInt()] ?: return null
-        val key = (if (m.groupValues[1] == "U") "UPN" else m.groupValues[1]) + m.groupValues[2]
-        return Profile(key, "U", h = v[0], b = v[1], tw = v[2], tf = v[3], r = v[4], m = v[5], P = (2 * v[0] + 4 * v[1] - 2 * v[2]) / 1000)
-    }
+    fun lookup(name: String): Profile? = rules.lookup(name)
+
+    /** The ST_CAT row whose key has this upper case, as v69's base stProf reads it. */
+    internal fun row(upper: String): Profile? = byUpper[upper]?.let { (key, r) -> fromRow(key, r) }
 
     private fun fromRow(key: String, r: List<Any>): Profile {
         fun n(i: Int) = r[i] as Double

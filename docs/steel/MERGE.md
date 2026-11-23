@@ -16,6 +16,10 @@ Steel is built as its own app now and merged into the main native port when that
 | `FileApi` | save exports (PDF, DXF, DWG, CSV, IFC, NC zip) to Downloads/SolidSketch | its MediaStore / file picker code |
 | `LicenseApi` | is the app unlocked; which plan | its `LicenseManager` (Steel's gate is postponed: `:app` uses an always-allow `LicenseGate`) |
 
+Plain helpers in `:core-api` (no interface; the main port keeps them or provides the same functions):
+- `Fmt.f`: number formatting with `Locale.ROOT` (Latin digits whatever the phone's language).
+- `JsNumber.format`: a double as JavaScript writes it (`String(x)` / `JSON.stringify`). The `.ss` writer uses it, and `:steel` uses it for profile keys such as `SHS100*5` (S5). Moved here from `:core-io` in S5 (`:core-io` keeps a typealias under the old name).
+
 ## C API (`native/sscore-lite/include/sscore_lite.h`)
 Mesh in/out (float positions, uint32 indices), box/prism/extrude from a 2D outline, boolean subtract/union/intersect, closed-solid check, volume. Same function names and types as the main port's `sscore` where they overlap. At merge time `sscore-lite` is deleted and `sssteel` links `sscore` (set the CMake cache variable `SSCORE_DIR` in `native/sssteel/CMakeLists.txt`).
 

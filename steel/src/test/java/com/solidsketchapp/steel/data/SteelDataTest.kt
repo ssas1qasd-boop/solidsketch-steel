@@ -51,27 +51,30 @@ class SteelDataTest {
     @Test
     fun profileLookupEqualsV69() {
         val cases = Json.parseToJsonElement(File(gold, "profile_cases.json").readText()).jsonObject.getValue("cases").jsonArray
-        var resolved = 0; var deferred = 0
+        var equal = 0; var nulls = 0
+        val wrong = mutableListOf<String>()
         for (c in cases) {
             val name = c.jsonArray[0].jsonPrimitive.content
             val v69 = c.jsonArray[1]
             val ours = data.profiles.lookup(name)
-            if (ours == null) { if (v69 != JsonNull) deferred++; continue }   // name rules: S5
-            resolved++
+            if (v69 == JsonNull) { if (ours == null) nulls++ else wrong += "$name: v69 null, ours ${ours.key}"; continue }
+            if (ours == null) { wrong += "$name: v69 ${v69.jsonObject["key"]}, ours null"; continue }
             val o = v69 as JsonObject
-            fun num(k: String) = o[k]?.jsonPrimitive?.doubleOrNull
-            assertEquals(name, o.getValue("key").jsonPrimitive.content, ours.key)
-            assertEquals(name, o.getValue("kind").jsonPrimitive.content, ours.kind)
-            for ((k, v) in listOf("h" to ours.h, "b" to ours.b, "tw" to ours.tw, "tf" to ours.tf, "r" to ours.r, "t" to ours.t, "d" to ours.d, "m" to ours.m, "P" to ours.P))
-                assertEquals("$name.$k", num(k), v)
-            assertEquals("$name has fields we do not model", setOf("key", "kind", "h", "b", "tw", "tf", "r", "t", "d", "m", "P").containsAll(o.keys), true)
+            val v69Fields = o.filterKeys { it != "key" && it != "kind" }.mapValues { it.value.jsonPrimitive.doubleOrNull }
+            val diff = buildList {
+                if (o.getValue("key").jsonPrimitive.content != ours.key) add("key ${o["key"]} vs ${ours.key}")
+                if (o.getValue("kind").jsonPrimitive.content != ours.kind) add("kind ${o["kind"]} vs ${ours.kind}")
+                if (v69Fields != ours.fields()) add("fields $v69Fields vs ${ours.fields()}")   // exact doubles, same field set
+            }
+            if (diff.isEmpty()) equal++ else wrong += "$name: $diff"
         }
         // Every catalog row and every channel size resolves.
         for (n in data.profiles.names) assertNotNull(n, data.profiles.lookup(n))
         for (s in data.profiles.upn.keys) assertNotNull(data.profiles.lookup("UPN$s"))
         for (s in data.profiles.upe.keys) assertNotNull(data.profiles.lookup("UPE$s"))
-        println("profile cases: $resolved equal to v69 through the tables, $deferred need the name rules (S5)")
-        assertTrue(resolved >= 530)
+        println("profile cases: $equal equal to v69, $nulls null in both, ${wrong.size} differ")
+        assertEquals(wrong.joinToString("\n"), 0, wrong.size)
+        assertEquals(629, equal); assertEquals(cases.size, equal + nulls)
     }
 
     @Test

@@ -15,7 +15,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.MaterialTheme
@@ -97,7 +102,7 @@ class MainActivity : ComponentActivity() {
         // S4: the steel tables from v69 (assets/steel/*.json).
         lifecycleScope.launch {
             dataLine = runCatching { withContext(Dispatchers.IO) { SteelAssets.load(assets) } }.fold(
-                { d -> Fmt.f("data: %d profiles · %d property sets · %d components in %d groups", d.profiles.cat.size, d.propertySets.size, d.tk.components.size, d.tk.groups.size) },
+                { d -> Fmt.f("data: %d profiles · %d property sets · %d components in %d groups · %s = %s", d.profiles.cat.size, d.propertySets.size, d.tk.components.size, d.tk.groups.size, "PHI300-600-8-200-12", d.profiles.lookup("PHI300-600-8-200-12")?.let { Fmt.f("%.1f kg/m", it.m) } ?: "?") },
                 { "data: could not load (${it.message})" },
             )
         }
@@ -115,9 +120,10 @@ class MainActivity : ComponentActivity() {
     private fun Screen() {
         @Suppress("UNUSED_EXPRESSION") tick
         val sel = viewport.selection.selected()
-        Box(Modifier.fillMaxSize().background(Color(0xFFEEF1F5))) {
-            AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize())
-            Column(Modifier.safeDrawingPadding().padding(8.dp).fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        // The top bar has its own space above the viewport (owner, S3 phone check: the model drew over the
+        // buttons when zoomed in). Colour: v69's --panel white, fully opaque; v69's --bg below.
+        Column(Modifier.fillMaxSize().background(Color(0xFFEEF1F5))) {
+            Column(Modifier.fillMaxWidth().background(Color.White).windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal)).padding(8.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
                     ToolButton("New", enabled = !busy) { newDocument() }
                     ToolButton("Open", enabled = !busy) { openLauncher.launch(arrayOf("*/*")) }
@@ -136,9 +142,12 @@ class MainActivity : ComponentActivity() {
                 Text("Steel ${BuildConfig.VERSION_NAME} · ${NativeCore.version()} · ${NativeSteel.version()} · license: ${if (gate.isUnlocked) "open" else "locked"}", fontSize = 11.sp, color = Color(0xFF5B6270))
                 Text(dataLine, fontSize = 11.sp, color = Color(0xFF5B6270))
             }
-            if (BuildConfig.DEBUG && debugLine.isNotEmpty()) {
-                Text(debugLine, fontSize = 10.sp, fontFamily = FontFamily.Monospace, color = Color(0xFF262B34),
-                    modifier = Modifier.align(Alignment.BottomStart).safeDrawingPadding().padding(8.dp).background(Color(0xCCFFFFFF)).padding(4.dp))
+            Box(Modifier.fillMaxWidth().weight(1f)) {
+                AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize())
+                if (BuildConfig.DEBUG && debugLine.isNotEmpty()) {
+                    Text(debugLine, fontSize = 10.sp, fontFamily = FontFamily.Monospace, color = Color(0xFF262B34),
+                        modifier = Modifier.align(Alignment.BottomStart).safeDrawingPadding().padding(8.dp).background(Color(0xCCFFFFFF)).padding(4.dp))
+                }
             }
         }
     }
