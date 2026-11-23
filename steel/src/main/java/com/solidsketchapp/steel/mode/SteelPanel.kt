@@ -85,10 +85,17 @@ fun SteelOverlay(mode: SteelMode, tick: Int, project: (Vec3) -> Pair<Float, Floa
 
 /** The Steel panel (v69 `#st-panel`) and its sheets (Grid, Part properties). */
 @Composable
-fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier) {
+fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: com.solidsketchapp.steel.comp.CompPics? = null) {
     @Suppress("UNUSED_EXPRESSION") tick
     var sheet by remember { mutableStateOf<String?>(null) }
+    var dlg by remember { mutableStateOf<Pair<String, String?>?>(null) }   // component key, connection id
+    var toastText by remember { mutableStateOf<String?>(null) }
+    mode.lastToast?.let { toastText = it; mode.lastToast = null }
+    androidx.compose.runtime.LaunchedEffect(toastText) { if (toastText != null) { kotlinx.coroutines.delay(2600); toastText = null } }
     if (!mode.on) return
+    val comps = mode.comps
+    /** v69 stConnSheet: a selected component plate or bolt group opens its dialog, else the catalog. */
+    fun connSheet() { val c = mode.selectionFirst()?.let { comps?.connOfBody(it) }; if (c != null && comps?.ui?.conn?.containsKey(c.type) == true) { dlg = c.type to c.id; sheet = "dlg" } else sheet = "cat" }
     Box(modifier.fillMaxSize()) {
         Column(Modifier.align(Alignment.BottomCenter).padding(8.dp).fillMaxWidth().background(Color.White, RoundedCornerShape(16.dp))
             .border(1.dp, Color(0xFFDDDDDD), RoundedCornerShape(16.dp)).padding(horizontal = 10.dp, vertical = 8.dp)) {
@@ -97,8 +104,16 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier) {
                 StBtn("Column", mode.tool == SteelMode.Tool.COLUMN) { mode.pickTool(SteelMode.Tool.COLUMN) }
                 StBtn("Beam", mode.tool == SteelMode.Tool.BEAM) { mode.pickTool(SteelMode.Tool.BEAM) }
                 StBtn("Plate", mode.tool == SteelMode.Tool.PLATE) { mode.pickTool(SteelMode.Tool.PLATE) }
+                if (comps != null) StBtn("Components") { connSheet() }
                 StBtn("Properties") { sheet = "props" }
                 StBtn("Exit Steel") { mode.toggle() }
+            }
+            val ck = mode.catK
+            if (ck != null && comps != null) Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text(comps.ui.label(ck), fontSize = 14.sp, maxLines = 1)
+                StBtn("Properties") { dlg = ck to null; sheet = "dlg" }
+                StBtn("Catalog") { sheet = "cat" }
+                StBtn("Done", on = true) { mode.catDone() }
             }
             Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
                 Text("Work level", fontSize = 14.sp)
@@ -123,7 +138,12 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier) {
         when (sheet) {
             "grid" -> GridSheet(mode) { sheet = null }
             "props" -> PropSheet(mode) { sheet = null }
+            "cat" -> if (comps != null && pics != null) com.solidsketchapp.steel.comp.CatalogSheet(mode, comps, pics, mode.symbols, { mode.symbols = !mode.symbols; mode.refresh() },
+                { k -> dlg = k to null; sheet = "dlg" }, { k -> toastText = "${comps.ui.label(k)} comes with a later milestone (${if (k == "@portal") "S10" else "S11"})" }, { sheet = null })
+            "dlg" -> { val d = dlg; if (comps != null && pics != null && d != null) androidx.compose.runtime.key(d) {
+                com.solidsketchapp.steel.comp.CompDialogSheet(mode, comps, pics, d.first, d.second?.let { comps.conn(it) }, { c -> mode.status(c) }, { toastText = it }, { sheet = null; mode.refresh() }) } }
         }
+        toastText?.let { t -> Text(t, color = Color.White, fontSize = 13.sp, modifier = Modifier.align(Alignment.TopCenter).padding(top = 12.dp).background(Color(0xE6262B34), RoundedCornerShape(10.dp)).padding(horizontal = 12.dp, vertical = 8.dp)) }
     }
 }
 

@@ -33,13 +33,15 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
     /** Parts' st by body id, for connection types that need their frames (fitting). Set by [regen] / the caller. */
     var stOf: (String) -> JsonObject? = { null }
     private val geomCache = HashMap<String, ConnGeom?>()
+    /** S7: the live CONN of v69 (family and def after every chapter: e.g. T102t / T103t → GU, Ttc → WF); set when tk_ui.json is loaded. */
+    var ui: com.solidsketchapp.steel.comp.TkUi? = null
 
     fun conns(doc: DocumentApi): List<StConn> = doc.field("stConns")?.let { runCatching { Json.parseToJsonElement(it).jsonArray.map { e -> StConn(e.jsonObject) } }.getOrNull() } ?: emptyList()
 
     /** The family of a catalog component (T<n>) whose generator is ported, else null. */
-    fun famOf(type: String): String? = tk?.byId(type)?.family?.takeIf { it in Fam.PORTED }
+    fun famOf(type: String): String? = (ui?.conn?.get(type)?.fam ?: tk?.byId(type)?.family)?.takeIf { it in Fam.PORTED }
     /** v69 CONN def: v40 FAM_DEF[fam] + the component's own options (TK `o`) (+ v58 EP additions, in Fam.DEF). */
-    fun defOf(type: String): JsonObject = tk?.byId(type)?.let { c -> JsonObject(LinkedHashMap(Fam.DEF[c.family] ?: JsonObject(emptyMap())).apply { putAll(c.options) }) } ?: DEFS[type] ?: JsonObject(emptyMap())
+    fun defOf(type: String): JsonObject = ui?.conn?.get(type)?.def ?: tk?.byId(type)?.let { c -> JsonObject(LinkedHashMap(Fam.DEF[c.family] ?: JsonObject(emptyMap())).apply { putAll(c.options) }) } ?: DEFS[type] ?: JsonObject(emptyMap())
     fun ported(type: String) = type in PORTED || famOf(type) != null
 
     fun geom(c: StConn): ConnGeom? = geomCache.getOrPut(c.id) { runCatching { TkConns.geom(c.type, c.parts, c.q, build, defOf(c.type), stOf, profiles, famOf(c.type)) }.getOrNull() }

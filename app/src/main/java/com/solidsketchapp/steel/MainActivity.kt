@@ -33,6 +33,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.LayoutDirection
@@ -86,6 +87,7 @@ class MainActivity : ComponentActivity() {
     private var tick by mutableIntStateOf(0)
     private var dataLine by mutableStateOf("data: loading…")
     private var steel by mutableStateOf<SteelMode?>(null)
+    private var compPics by mutableStateOf<com.solidsketchapp.steel.comp.CompPics?>(null)
     private var viewTick by mutableIntStateOf(0)
 
     private val openLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri -> uri?.let(::openSs) }
@@ -123,12 +125,25 @@ class MainActivity : ComponentActivity() {
     /** S5: Steel mode over the app's document, viewport and undo (only :core-api interfaces reach :steel). */
     private fun setUpSteel(d: com.solidsketchapp.steel.data.SteelData) {
         val build = StBuild(d.profiles, union = { engine.union(it) })
+        val regen = com.solidsketchapp.steel.conn.StRegen(build, engine, d.profiles, d.tk)
         steel = SteelMode(d, doc, undo, viewport.selection, build,
             project = { viewport.worldToScreen(it) },
             ray = { x, y -> viewport.screenRay(x, y).let { r -> r.origin to r.direction } },
             px = resources.displayMetrics.density, changed = { tick++; drawSteelGrid() },
-            regen = com.solidsketchapp.steel.conn.StRegen(build, engine, d.profiles))
+            regen = regen)
         doc.addListener { drawSteelGrid() }
+        // S7: the component catalog and dialogs (tk_ui.json, 1.6 MB) load in the background.
+        lifecycleScope.launch {
+            val ui = runCatching { withContext(Dispatchers.IO) { assets.open("steel/tk_ui.json").use { com.solidsketchapp.steel.comp.TkUi.parse(it.readBytes().decodeToString()) } } }.getOrNull() ?: return@launch
+            val prefs = getSharedPreferences("steel", MODE_PRIVATE)
+            val store = object : com.solidsketchapp.steel.comp.SteelStore {
+                override fun get(key: String): String? = prefs.getString(key, null)
+                override fun put(key: String, value: String) { prefs.edit().putString(key, value).apply() }
+            }
+            steel?.comps = com.solidsketchapp.steel.comp.Components(ui, doc, undo, store, regen)
+            compPics = com.solidsketchapp.steel.comp.CompPics(ui) { path -> assets.open("steel/$path").use { android.graphics.BitmapFactory.decodeStream(it) }?.asImageBitmap() }
+            tick++
+        }
     }
 
     /** v69 stGridDraw: all levels faint, the work level strong; only while Steel mode is on. */
@@ -173,7 +188,7 @@ class MainActivity : ComponentActivity() {
             }
             Box(Modifier.fillMaxWidth().weight(1f)) {
                 AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize())
-                steel?.let { m -> SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }); SteelPanel(m, tick) }
+                steel?.let { m -> SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }); SteelPanel(m, tick, pics = compPics) }
                 if (BuildConfig.DEBUG && debugLine.isNotEmpty()) {
                     Text(debugLine, fontSize = 10.sp, fontFamily = FontFamily.Monospace, color = Color(0xFF262B34),
                         modifier = Modifier.align(Alignment.BottomStart).safeDrawingPadding().padding(8.dp).background(Color(0xCCFFFFFF)).padding(4.dp))

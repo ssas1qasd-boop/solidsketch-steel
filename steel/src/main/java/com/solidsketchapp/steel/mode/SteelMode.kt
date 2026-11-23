@@ -41,6 +41,8 @@ class SteelMode(
     private val px: Float = 1f,
     private val changed: () -> Unit = {},
     regen: com.solidsketchapp.steel.conn.StRegen? = null,
+    /** S7: the component catalog, dialogs and presets (null until the UI data is loaded). */
+    var comps: com.solidsketchapp.steel.comp.Components? = null,
 ) {
     val parts = StParts(data, doc, undo, build, regen)
     enum class Tool { COLUMN, BEAM, PLATE }
@@ -67,7 +69,7 @@ class SteelMode(
 
     /** v69 stToggle: on → a grid if the document has none ("0 6*6000", "0 20000", "0 7000"); off → tools cleared. */
     fun toggle() {
-        on = !on; tool = null; pts.clear(); arm = null
+        on = !on; tool = null; pts.clear(); arm = null; catK = null; pick.clear(); pickPts.clear()
         if (on && grid == null) doc.setField("stGrid", StGrid.DEFAULT.toJson().toString())
         say = if (on) "Steel: grid, columns, beams and plates the Tekla way" else ""
         changed()
@@ -85,7 +87,7 @@ class SteelMode(
 
     /** v69 tool buttons: tapping the active tool turns it off; Column uses COLUMN, Plate PLATE, Beam keeps a beam-like set. */
     fun pickTool(t: Tool) {
-        tool = if (tool == t) null else t; pts.clear(); arm = null
+        tool = if (tool == t) null else t; pts.clear(); arm = null; catK = null; pick.clear()
         if (tool != null) useSet(when (t) { Tool.COLUMN -> "COLUMN"; Tool.PLATE -> "PLATE"; Tool.BEAM -> if (set == "COLUMN" || set == "PLATE") "BEAM" else set })
         changed()
     }
@@ -96,6 +98,48 @@ class SteelMode(
     fun setValues(k: String): Map<String, JsonElement> = sets.getValue(k)
 
     fun cancelPoints() { pts.clear(); changed() }
+
+    // ---------------- components (v69 v38 stCatPick / stTap, L14402) ----------------
+
+    /** The component being placed (v69 ST.tool 'cat', ST.catK) and the parts picked so far. */
+    var catK: String? = null; private set
+    val pick = mutableListOf<BodyId>(); private val pickPts = mutableListOf<DoubleArray>()
+
+    /** v69 stCatPick: start picking the parts of component [k]; it goes to the top of "Recently used". */
+    fun catPick(k: String) {
+        val c = comps ?: return
+        tool = null; pts.clear(); arm = null; catK = k; pick.clear(); pickPts.clear(); c.noteRecent(k); say = c.prompt(k, 0); changed()
+    }
+    /** v69 Done (and Escape): stop placing components. */
+    fun catDone() { catK = null; pick.clear(); pickPts.clear(); say = ""; changed() }
+
+    private fun catTap(x: Float, y: Float): Boolean {
+        val c = comps ?: return true; val k = catK!!; val d = c.ui.conn.getValue(k)
+        val hit = selection?.pick(x, y)
+        val st = hit?.let { stOf(it.body) }
+        if (hit == null || st == null || (st["kind"] as? JsonPrimitive)?.contentOrNull != "member") { say = "Pick a steel part · " + c.prompt(k, pick.size); changed(); return true }
+        if (hit.body in pick) { say = "Already picked · " + c.prompt(k, pick.size); changed(); return true }
+        pick += hit.body; pickPts += doubleArrayOf(hit.point.x, hit.point.y, hit.point.z)
+        if (pick.size < d.parts.size) { say = c.prompt(k, pick.size); changed(); return true }
+        val parts = pick.toList(); val p0 = pickPts.firstOrNull(); pick.clear(); pickPts.clear()
+        if (d.gen) { say = "${d.label}: this generator comes with the applications (S10) · ${c.prompt(k, 0)} · Done to stop"; changed(); return true }
+        val cn = runCatching { c.add(k, parts, c.cq(k), p0) }.getOrElse { say = it.message ?: "Error"; changed(); return true }
+        val ok = c.ok(cn)
+        say = "${d.label} ${if (ok) "created" else "failed (red symbol): check the parts"} · ${c.prompt(k, 0)} · Done to stop"
+        lastToast = if (ok) "${d.label} created" else "${d.label}: could not be built for these parts"
+        changed(); return true
+    }
+    /** The last toast text (v69 toast), shown once by the screen. */
+    var lastToast: String? = null
+    /** v69 ST.sym: component symbols shown (on by default since v49). */
+    var symbols = true
+    fun refresh() = changed()
+    /** A component's status for the dialog and symbols: 1 OK, 2 warning, 3 error, and the messages (S7 step 3: v69 tkStatus). */
+    fun status(c: com.solidsketchapp.steel.conn.StConn): Pair<Int, List<String>> {
+        val cs = comps ?: return 3 to emptyList()
+        val lbl = cs.ui.conn[c.type]?.tekla ?: c.type
+        return if (cs.ok(c)) 1 to emptyList() else 3 to listOf("$lbl #${c.id}: the component could not be created on these parts")
+    }
 
     // ---------------- picking ----------------
 
@@ -124,6 +168,7 @@ class SteelMode(
     /** v69 stTap: returns true when Steel used the tap (the viewport then does not pick a body). */
     fun tap(x: Float, y: Float): Boolean {
         if (!on) return false
+        if (catK != null) return catTap(x, y)
         val sel = selection?.selected()?.firstOrNull()
         val selSt = sel?.let { stOf(it) }
         if (tool == null && selSt != null && (selSt["kind"] as? JsonPrimitive)?.contentOrNull == "member") {
@@ -196,6 +241,7 @@ class SteelMode(
     fun hint(): String {
         if (say.isNotEmpty()) return say
         if (arm != null) return "Tap the new point for the end you picked"
+        catK?.let { k -> comps?.let { return it.prompt(k, pick.size) } }
         return when (tool) {
             Tool.COLUMN -> "Column $propsProf: tap a grid point · top at ${if (colTop.isNotBlank()) "$colTop mm" else "the next level up"}"
             Tool.BEAM -> if (pts.isNotEmpty()) "$propsName $propsProf: tap the end point, or type dx dy dz (mm)" else "$propsName $propsProf: tap the start point (part ends and grid points snap)"
