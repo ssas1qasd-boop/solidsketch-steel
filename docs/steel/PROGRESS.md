@@ -34,14 +34,14 @@ Then the S8 APK and phone check list. **Done.**
 | JO | 6 / 6 | 27 / 27 |
 | GU | 32 / 32 | 109 / 109 |
 | SD | 26 / 26 | 136 / 136 |
-| WF | 0 / 20 | in progress |
+| WF | 20 / 20 | 66 / 66 |
 | SP | 0 / 19 | in progress |
 | GEN | 0 / 17 | — |
 | PU | 0 / 9 | in progress |
-| TU | 0 / 7 | in progress |
-| OP | 0 / 5 | in progress |
-| MF | 0 / 4 | — |
-| HA | 0 / 4 | — |
+| TU | 7 / 7 | 22 / 22 |
+| OP | 5 / 5 | 18 / 18 |
+| MF | 0 / 4 | in progress |
+| HA | 0 / 4 | in progress |
 (Family counts are v69's live CONN: 250 components incl. the 4 S8 dialogs; the 3 tube components v69 moves to GU / WF are counted there.)
 
 ## S8 summary
@@ -144,6 +144,7 @@ Note: Maven Central answered 429 (Too Many Requests) to parallel downloads in th
 - Edges in v69 also go through `smoothEdgeLines` (drops seams of smooth surfaces); not ported (the 12° rule already keeps smooth round tubes and bolts without side lines).
 
 ## Decisions for the owner to review
+- Tube slotted hole (Ttsl) shows a red symbol in v69 every time (it only cuts, and v69's built check exempts welded / opening families but not tubes); the app matches v69 (status "could not be created").
 - `Joints.box3` / `poly3` with the bounds reversed now extrude upward from the first bound as v69's extrudeRegions does (|height| from z0), found by a two-sided shear tab on an SHS stanchion (T87); every earlier case still equals v69.
 - Tube gusset node: the shared gusset reads the other tongue braces' settings with a copy of v69's Ttg defaults in FamTG.kt (the family code has no catalog access); same values as v69 today.
 Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, note it here, continue).
