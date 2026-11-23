@@ -8,7 +8,11 @@ import com.solidsketchapp.steel.geom.Region
 import com.solidsketchapp.steel.geom.Sections
 import com.solidsketchapp.steel.geom.StBuild.Companion.num
 import com.solidsketchapp.steel.geom.StBuild.Companion.str
+import com.solidsketchapp.steel.geom.StBuild
+import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.contentOrNull
 import kotlin.math.abs
 import kotlin.math.floor
 import kotlin.math.max
@@ -17,7 +21,7 @@ import kotlin.math.sqrt
 
 /**
  * TG family: tongue plate tube ends (Ttg) and tube crossings (Ttgx). Live chain: v69 FAM.TG (L15612, FAM_TG22) wrapped by
- * the v54 node gusset (L15867), which only acts when several Ttg connections share one node of the main part.
+ * the v54 node gusset (L15867, v54tgSet L15850, v54group L15862): several Ttg on one node share one GUSSET PLATE.
  */
 object FamTG {
     const val PORTED = true
@@ -68,7 +72,66 @@ object FamTG {
 
     private fun flt(x: FamCtx) = "FLT" + FamCL.jsStr(x.q["t"]) + "*" + FamCL.jsStr(x.q["w"])
 
+    /** v69 CONN.Ttg.def (L15608; node / nodeR added at L15849): a neighbour's q in the node is this def + its c.q. */
+    private val TTG_DEF = Fam.obj("node" to 1, "nodeR" to 450, "t" to 12, "w" to 140, "L" to 315, "ins" to 150, "tf" to 12, "fw" to 140, "e" to 40, "p" to 60, "g" to 60,
+        "bolt" to 16, "grade" to "8.8", "clear" to 15, "cap" to 5, "side" to 1, "plane" to "auto", "a" to 3.5)
+    /** A q read the JavaScript way (`+q.k`, truthiness, String). */
+    private class QR(val o: JsonObject) {
+        fun n(k: String): Double { val e = o[k] ?: return 0.0; return if (e is JsonNull) 0.0 else StBuild.jsNum(e) }
+        fun t(k: String) = jsTruthy(o[k]); fun s(k: String) = (o[k] as? JsonPrimitive)?.contentOrNull ?: ""
+    }
+    private class TgSet(val d: D3, val w: D3, val g: D3, val pIn: D3, val nF: D3, val f0: D3, val sTip: Double, val fin: List<D3>, val bl: List<D3>, val sg: Double, val steep: Boolean)
+    /** v69 v54tgSet (L15850): one brace's tongue set-up at the node (plane forced to [plane], g turned toward [gRef]). */
+    private fun tgSet(x: FamCtx, q: QR, br: JsonObject, plane: String?, gRef: D3?): TgSet {
+        val t = q.n("t"); val w2 = q.n("w") / 2; val mb = Joints.mf(br, x.profiles); val ma = Joints.mf(x.a, x.profiles)
+        fun dl(p: D3): Double { val v = p - ma.c1; return v.add(ma.a, -(v dot ma.a)).length() }
+        val near = dl(mb.c1) <= dl(mb.c2); val e = if (near) mb.c1 else mb.c2; val far = if (near) mb.c2 else mb.c1; val d = (far - e).normalize()
+        val fa = faceToward(ma, e, d); val nF = fa.n; val f0 = fa.pc.add(nF, fa.off); val dn = d dot nF
+        val w = if (abs(dn) > 0.05) e.add(d, ((f0 - e) dot nF) / dn) else e
+        val pl = plane ?: q.s("plane"); var v2 = if (pl == "main") ma.a else if (pl == "vert") D3.Z else (if (abs(d dot ma.a) < 0.3) D3.Z else ma.a)
+        if ((d cross v2).length() < 0.1) v2 = ma.es
+        var g = (d cross v2).normalize(); if (gRef != null && (g dot gRef) < 0) g = -g; val pIn = (g cross d).normalize()
+        val sinT = max(0.2, abs(dn)); val cosT = sqrt(max(0.0, 1 - sinT * sinT))
+        val outst = if (!fa.flange && ma.kind == "I" && !(abs(g dot ma.eh) > 0.9 && abs(ma.a.z) < 0.8)) ma.b / 2 - ma.tw / 2 else 0.0
+        val sTip = (outst + w2 * cosT + q.n("clear")) / sinT; val sEnd = sTip + (2 * q.n("e") + q.n("p")); val fw2 = (if (q.t("fw")) q.n("fw") else q.n("w")) / 2; val s0 = -80 - outst / sinT
+        fun p3(s: Double, y: Double) = w.add(d, s).add(pIn, y)
+        val fin = listOf(p3(s0, -fw2), p3(sEnd, -fw2), p3(sEnd, fw2 - 25), p3(sEnd - 25, fw2), p3(s0, fw2))
+        val sg = if (q.t("side")) q.n("side") else 1.0; val bl = ArrayList<D3>()
+        for (s in listOf(sTip + q.n("e"), sTip + q.n("e") + q.n("p"))) for (z in listOf(-q.n("g") / 2, q.n("g") / 2)) bl += p3(s, z).add(g, -sg * (t / 2 + 0.1))
+        return TgSet(d, w, g, pIn, nF, f0, sTip, fin, bl, sg, abs(d dot ma.a) >= 0.3)
+    }
+    private class Mem(val id: String, val q: QR, val brId: String, val br: JsonObject) { var s: TgSet? = null }
+
+    /** v69 FAM.TG (L15867): several Ttg on one node of the main part (within nodeR, same face) share one GUSSET PLATE, built by the first. */
     fun gen(x: FamCtx) {
+        val b = x.b; if (x.s("kind") == "cross" || !x.t("node") || b == null) return tg22(x)
+        val me = runCatching { tgSet(x, QR(x.q), b, null, null) }.getOrElse { return tg22(x) }; val r0 = if (x.t("nodeR")) x.n("nodeR") else 450.0
+        // v54group (L15862): this component and every Ttg on the same main part with node on
+        val seen = HashSet<String>(); val grp = ArrayList<Mem>(); val mineId = x.conn?.id
+        for (k in listOfNotNull(x.conn) + x.conns) { if (!seen.add(k.id)) continue
+            if (k.type != "Ttg" || k.parts.getOrNull(0) != x.aId) continue; val brId = k.parts.getOrNull(1) ?: continue; val br = x.stOf(brId) ?: continue
+            val q = if (k.id == mineId) x.q else JsonObject(LinkedHashMap(TTG_DEF).apply { putAll(k.q) }); if (!jsTruthy(q["node"])) continue; grp += Mem(k.id, QR(q), brId, br) }
+        val all = grp.filter { it.id == mineId || it.brId != x.bId }.mapNotNull { o -> runCatching { o.s = tgSet(x, o.q, o.br, null, null); o }.getOrNull() }
+            .filter { it.s!!.w.distanceTo(me.w) < r0 && (it.s!!.nF dot me.nF) > 0.9 }
+        if (all.size < 2) return tg22(x)
+        val plane = if (all.any { it.s!!.steep }) "main" else null; val s2 = all.sortedBy { it.id.toDoubleOrNull() ?: -1.0 }; val lead = s2[0]
+        val l0 = tgSet(x, lead.q, lead.br, plane, null); val gN = l0.g; for (o in s2) o.s = tgSet(x, o.q, o.br, plane, gN)
+        val mine = s2.find { it.id == mineId } ?: s2.first { it.brId == x.bId }; val sm = mine.s!!; val t = x.n("t"); val tf = x.n("tf"); val sg = sm.sg
+        val r = tgEnd(x, b, x.bId!!, sm.w, sm.d, sm.g, sm.sTip, 0.0, sg); val bb = x.group(r.bl, sm.g * sg, x.n("bolt"), t + tf + 2)
+        x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes); x.bolts(bb, r.bl.size, x.n("t") + x.n("tf") + 2 * x.n("bolt"))
+        if (mine !== s2[0]) return   // the first connection of the node builds the shared gusset
+        val a1 = l0.d.add(gN, -(l0.d dot gN)).normalize(); val a2 = (gN cross a1).normalize(); val o = l0.w; val gf = Joints.Frame3(o, a1, a2)
+        val pts = ArrayList<DoubleArray>(); for (m in s2) for (p in m.s!!.fin) { val v = p - o; pts += doubleArrayOf(v dot a1, v dot a2) }
+        val z0 = sg * t / 2; val z1 = sg * (t / 2 + tf); val gus = gf.poly(hull(pts), min(z0, z1), max(z0, z1))
+        // gus.intersect(the half space in front of the face) = gus minus the half space behind it; then minus the main part's envelope and every brace's holes
+        val behind = Joints.box3(l0.f0, l0.nF, l0.pIn.add(l0.nF, -(l0.pIn dot l0.nF)).normalize(), -BIG, -0.01, -BIG, BIG, -BIG, BIG)
+        val holes = ArrayList<Mesh>(); for (m in s2) holes += x.group(m.s!!.bl, m.s!!.g * m.s!!.sg, m.q.n("bolt"), t + tf + 2).holes
+        x.plate("GUSSET PLATE", gus, tf, minus = listOfNotNull(behind, runCatching { envelope(x, x.a) }.getOrNull()) + holes)
+        x.weld("Gusset plate to main part", x.n("a"), 2.0 * 400)
+    }
+
+    /** v69 FAM.TG (L15612, FAM_TG22): tongue plate tube end on a fin plate, or a tube crossing (kind 'cross'). */
+    private fun tg22(x: FamCtx) {
         val t = x.n("t"); val w2 = x.n("w") / 2
         if (x.s("kind") == "cross") {
             val h1 = x.b ?: throw IllegalStateException("not built"); val mc = Joints.mf(x.a, x.profiles)
@@ -93,7 +156,6 @@ object FamTG {
                 x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes); x.bolts(bb, r.bl.size, 2 * x.n("t") + 2 * x.n("bolt")) }
             x.plate("CROSSING GUSSET", gus, t, minus = gh); x.weld("Crossing gusset to brace", x.n("a"), 4 * 2 * hwC); return
         }
-        // v69 L15867 (node gusset) falls back to this unless two or more Ttg share the node; see the report / LIVE-FUNCTIONS.
         val br = x.b ?: throw IllegalStateException("not built"); val mb = Joints.mf(br, x.profiles); val ma = Joints.mf(x.a, x.profiles)
         fun dl(p: D3): Double { val v = p - ma.c1; return v.add(ma.a, -(v dot ma.a)).length() }
         val near = dl(mb.c1) <= dl(mb.c2); val e = if (near) mb.c1 else mb.c2; val far = if (near) mb.c2 else mb.c1; val d = (far - e).normalize()

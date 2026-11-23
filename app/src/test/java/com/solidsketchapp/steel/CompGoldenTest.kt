@@ -37,6 +37,7 @@ import kotlin.math.max
  * compared with v69 body by body in v69's order: members after their cuts, the component's plates and bolt groups
  * (volume 1e-3, box 0.1 mm), the plates' name / role / prof / mat / cls / asm, the bolt groups (points in order 0.1 mm,
  * n, d, d0, L, axis), the welds (name, a, len, type, ws, around) and the rule-check status with its messages.
+ * Optional case fields n / pre / more add further components (a node of several components); cwelds = every component's welds.
  * Cases listed in a known*.json file (case → reason) are reported, not failed; they are the NOT VERIFIED list.
  * Writes build/comp-golden-report.txt (per family: cases passed / total). Manifold on the build machine: -PhostJni.
  */
@@ -61,7 +62,12 @@ class CompGoldenTest {
             parts.add(JsonObject(LinkedHashMap<String, JsonElement>().apply { put("kind", JsonPrimitive("member")); putAll(data.propertySet(set.jsonPrimitive.content)!!.raw); putAll(o.jsonObject) }), "m") }
         val comps = Components(ui, doc, null, MemoryStore(), regen); val k = g.getValue("k").jsonPrimitive.content
         val pt = (g["pt"] as? JsonArray)?.map { it.jsonPrimitive.double }?.toDoubleArray()
-        val c = comps.add(k, ids, JsonObject(LinkedHashMap(comps.cq(k)).apply { putAll(g["q"]?.jsonObject ?: JsonObject(emptyMap())) }), pt)
+        // optional pre / more: [[key, [member indexes], q], ...] = further components added before / after the main one (n: its first n members)
+        fun extra(f: String) { (g[f] as? JsonArray)?.forEach { e -> val (k2, ix, q2) = e.jsonArray; val kk = k2.jsonPrimitive.content
+            comps.add(kk, ix.jsonArray.map { ids[it.jsonPrimitive.int] }, JsonObject(LinkedHashMap(comps.cq(kk)).apply { putAll((q2 as? JsonObject) ?: JsonObject(emptyMap())) })) } }
+        extra("pre")
+        val c = comps.add(k, ids.take(g["n"]?.jsonPrimitive?.int ?: ids.size), JsonObject(LinkedHashMap(comps.cq(k)).apply { putAll(g["q"]?.jsonObject ?: JsonObject(emptyMap())) }), pt)
+        extra("more")
         val gb = g.getValue("bodies").jsonArray.map { it.jsonObject }
         val ob = doc.bodyIds().map { id -> id to Json.parseToJsonElement(doc.bodyJson(id)!!).jsonObject["st"]?.jsonObject }
         if (gb.size != ob.size) bad += "$name: ${ob.size} bodies vs ${gb.size} (${ob.map { s(it.second, "name") }} vs ${gb.map { s(it, "name") }})"
@@ -84,6 +90,9 @@ class CompGoldenTest {
         val ow = (c2.raw["welds"] as? JsonArray ?: JsonArray(emptyList())).map { w -> w.jsonObject.let { listOf("name", "a", "len", "type", "ws", "around").joinToString("|") { f -> s(it, f) } } }
         val gw = g.getValue("welds").jsonArray.map { w -> w.jsonObject.let { listOf("name", "a", "len", "type", "ws", "around").joinToString("|") { f -> s(it, f) } } }
         if (ow != gw) bad += "$name: welds $ow vs $gw"
+        g["cwelds"]?.jsonArray?.let { cw -> val all = comps.conns().map { cn -> (cn.raw["welds"] as? JsonArray ?: JsonArray(emptyList())).map { w -> w.jsonObject.let { listOf("name", "a", "len", "type", "ws", "around").joinToString("|") { f -> s(it, f) } } } }
+            val gall = cw.map { l -> l.jsonArray.map { w -> w.jsonObject.let { listOf("name", "a", "len", "type", "ws", "around").joinToString("|") { f -> s(it, f) } } } }
+            if (all != gall) bad += "$name: welds of every component $all vs $gall" }
         val r = TkCheck(comps, doc, engine, data.profiles).status(c2)
         val gs = g["status"]?.jsonPrimitive?.int; val gm = g["msgs"]?.jsonArray?.map { it.jsonPrimitive.content }
         if (gs != null && (r.s != gs || r.msgs != gm)) bad += "$name: status ${r.s} ${r.msgs} vs $gs $gm"

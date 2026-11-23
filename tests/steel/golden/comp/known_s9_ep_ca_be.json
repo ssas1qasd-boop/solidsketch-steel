@@ -1,0 +1,5 @@
+{
+  "t25_skewed": "Geometry equals v69; only the rule check differs: the native Manifold leaves extra vertices on the hole edges of the skewed clip angles, so the vertex-based bolt-line test (tkPierce) of the other beam's bolts touches an angle that v69 misses and reports two extra edge-distance warnings.",
+  "t33_skewed": "Geometry equals v69; only the rule check differs: the native Manifold leaves extra vertices on the hole edges of the skewed clip angles, so the vertex-based bolt-line test (tkPierce) of the other beam's bolts touches an angle that v69 misses and reports two extra edge-distance warnings.",
+  "t117_skewed": "Geometry equals v69; only the rule check differs: the native Manifold leaves extra vertices on the hole edges of the skewed clip angles, so the vertex-based bolt-line test (tkPierce) of the other beam's bolts touches an angle that v69 misses and reports two extra edge-distance warnings."
+}

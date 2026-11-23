@@ -14,8 +14,8 @@ android {
         applicationId = "com.solidsketchapp.steel"
         minSdk = 24
         targetSdk = 35
-        versionCode = 9
-        versionName = "0.7.0-s7"
+        versionCode = 10
+        versionName = "0.8.0-s8"
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
     }
 
