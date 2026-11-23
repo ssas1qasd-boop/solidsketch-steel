@@ -35,9 +35,9 @@ Then the S8 APK and phone check list. **Done.**
 | GU | 32 / 32 | 109 / 109 |
 | SD | 26 / 26 | 136 / 136 |
 | WF | 20 / 20 | 66 / 66 |
-| SP | 0 / 19 | in progress |
-| GEN | 0 / 17 | — |
-| PU | 0 / 9 | in progress |
+| SP | 19 / 19 | 64 / 64 |
+| GEN | 0 / 17 | in progress |
+| PU | 9 / 9 | 31 / 31 |
 | TU | 7 / 7 | 22 / 22 |
 | OP | 5 / 5 | 18 / 18 |
 | MF | 0 / 4 | in progress |
