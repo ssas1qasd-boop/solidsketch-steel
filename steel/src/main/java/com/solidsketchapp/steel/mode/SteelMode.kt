@@ -134,12 +134,62 @@ class SteelMode(
     /** v69 ST.sym: component symbols shown (on by default since v49). */
     var symbols = true
     fun refresh() = changed()
-    /** A component's status for the dialog and symbols: 1 OK, 2 warning, 3 error, and the messages (S7 step 3: v69 tkStatus). */
+    /** S7: the rule checks per component and the symbol places (v69 tkStatus, stSymPos). */
+    var checks: com.solidsketchapp.steel.comp.TkCheck? = null
+    /** A component's status for the dialog and symbols: 1 OK, 2 warning, 3 error, and the messages (v69 tkStatus). */
     fun status(c: com.solidsketchapp.steel.conn.StConn): Pair<Int, List<String>> {
         val cs = comps ?: return 3 to emptyList()
+        checks?.let { k -> val r = k.status(c); return r.s to r.msgs }
         val lbl = cs.ui.conn[c.type]?.tekla ?: c.type
         return if (cs.ok(c)) 1 to emptyList() else 3 to listOf("$lbl #${c.id}: the component could not be created on these parts")
     }
+
+    // ---------------- component symbols (v58 stSymDraw / stSymHit / tkSelect / tkFanDraw / tkCheckStep) ----------------
+
+    /** The selected component (v69 tkSel): its symbol is highlighted, lines go to its parts, the status line shows its checks. */
+    var selConn: String? = null; private set
+    /** A dialog the screen should open (v69: tapping a symbol opens the component's dialog). */
+    var dialogRequest: Pair<String, String?>? = null
+    fun selectConn(id: String?) { selConn = id; changed() }
+    class Sym(val id: String, val p: D3, val s: Int, val x: Float, val y: Float)
+    private var symCache: Pair<Int, List<Pair<com.solidsketchapp.steel.conn.StConn, D3>>>? = null
+    private var docRev = 0
+    init { doc.addListener { docRev++ } }
+    private fun symBase(): List<Pair<com.solidsketchapp.steel.conn.StConn, D3>> {
+        symCache?.takeIf { it.first == docRev }?.let { return it.second }
+        val cs = comps ?: return emptyList(); val k = checks ?: return emptyList()
+        val l = cs.conns().filter { it.type != "TKCUT" && it.type != "TKBOLT" }.mapNotNull { c -> k.symPos(c)?.let { c to it } }
+        symCache = docRev to l; return l
+    }
+    /** The symbols on screen: status colour (checked, else built / failed), one per 24 px cell, errors then warnings first, the selected one always. */
+    fun symbolsOnScreen(): List<Sym> {
+        if (!on || !symbols) return emptyList(); val cs = comps ?: return emptyList(); val k = checks
+        val list = symBase().mapNotNull { (c, p) -> val s = k?.cached(c.id)?.s ?: if (cs.ok(c)) 1 else 3; project(Vec3(p.x, p.y, p.z))?.let { (x, y) -> Sym(c.id, p, s, x, y) } }
+            .sortedWith(compareByDescending<Sym> { it.s }.thenByDescending { it.id == selConn })
+        val used = HashSet<Long>(); val cell = 24f * px; val out = ArrayList<Sym>()
+        for (sy in list) { val key = (Math.floor((sy.x / cell).toDouble()).toLong() shl 32) xor Math.floor((sy.y / cell).toDouble()).toLong().and(0xffffffffL)
+            if (key in used && sy.id != selConn) continue; used += key; out += sy }
+        return out
+    }
+    /** v69 tkCheckStep: checks components that have none yet, for about 30 ms; true when more remain. */
+    fun checkStep(): Boolean {
+        val cs = comps ?: return false; val k = checks ?: return false; val t0 = System.nanoTime(); var changedAny = false
+        val todo = symBase().map { it.first }.filter { k.cached(it.id) == null }
+        for (c in todo) { k.status(c); changedAny = true; if ((System.nanoTime() - t0) / 1e6 > 30) break }
+        if (changedAny) changed()
+        return symBase().any { k.cached(it.first.id) == null }
+    }
+    /** v69 stSymHit: the visible symbol within 28 px of the tap (touch). */
+    private fun symAt(x: Float, y: Float): com.solidsketchapp.steel.conn.StConn? {
+        var best: Sym? = null; var bd = 28f * px
+        for (s in symbolsOnScreen()) { val d = hypot(s.x - x, s.y - y); if (d < bd) { bd = d; best = s } }
+        return best?.let { comps?.conn(it.id) }
+    }
+    /** The status line for the selected component (v69 #tk-status): colour class and text. */
+    fun statusLine(): Pair<Int, String>? { val id = selConn ?: return null; val cs = comps ?: return null; val c = cs.conn(id) ?: return null
+        val r = status(c); return r.first to (if (r.second.isNotEmpty()) r.second.joinToString("  ·  ") else "${cs.ui.conn[c.type]?.tekla ?: c.type} #${c.id}: OK") }
+    /** v69 tkFanDraw: the selected component's lines to its parts. */
+    fun fanLines(): List<Pair<D3, D3>> { val id = selConn ?: return emptyList(); val c = comps?.conn(id) ?: return emptyList(); return checks?.fan(c) ?: emptyList() }
 
     // ---------------- picking ----------------
 
@@ -169,6 +219,12 @@ class SteelMode(
     fun tap(x: Float, y: Float): Boolean {
         if (!on) return false
         if (catK != null) return catTap(x, y)
+        // v69 (v49 stTap + v58 stSymHit): with no tool, a tap on a component symbol selects it and opens its dialog
+        if (tool == null && arm == null && comps != null) {
+            val c = symAt(x, y)
+            if (c != null) { selConn = c.id; dialogRequest = c.type to c.id; lastToast = "${comps?.ui?.conn?.get(c.type)?.tekla ?: c.type} · connection ${c.id}"; changed(); return true }
+            if (selConn != null) { selConn = null; changed() }
+        }
         val sel = selection?.selected()?.firstOrNull()
         val selSt = sel?.let { stOf(it) }
         if (tool == null && selSt != null && (selSt["kind"] as? JsonPrimitive)?.contentOrNull == "member") {

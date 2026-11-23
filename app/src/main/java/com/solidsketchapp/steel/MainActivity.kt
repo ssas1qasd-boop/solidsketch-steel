@@ -140,7 +140,8 @@ class MainActivity : ComponentActivity() {
                 override fun get(key: String): String? = prefs.getString(key, null)
                 override fun put(key: String, value: String) { prefs.edit().putString(key, value).apply() }
             }
-            steel?.comps = com.solidsketchapp.steel.comp.Components(ui, doc, undo, store, regen)
+            val comps = com.solidsketchapp.steel.comp.Components(ui, doc, undo, store, regen)
+            steel?.comps = comps; steel?.checks = com.solidsketchapp.steel.comp.TkCheck(comps, doc, engine, d.profiles)
             compPics = com.solidsketchapp.steel.comp.CompPics(ui) { path -> assets.open("steel/$path").use { android.graphics.BitmapFactory.decodeStream(it) }?.asImageBitmap() }
             tick++
         }

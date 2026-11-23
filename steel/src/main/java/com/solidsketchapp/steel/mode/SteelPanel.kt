@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -80,7 +81,30 @@ fun SteelOverlay(mode: SteelMode, tick: Int, project: (Vec3) -> Pair<Float, Floa
             g.zs.forEachIndexed { i, z -> label(Vec3(x1 + sz, y1, z), g.levelLabel(i), false) }
         }
         for ((p, argb) in mode.markers()) project(Vec3(p.x, p.y, p.z))?.let { drawCircle(Color(argb), 6.dp.toPx(), Offset(it.first, it.second)) }
+        // v58 tkFanDraw: dashed yellow lines from the selected component's symbol to its parts
+        for ((a, b) in mode.fanLines()) { val sa = project(Vec3(a.x, a.y, a.z)) ?: continue; val sb = project(Vec3(b.x, b.y, b.z)) ?: continue
+            drawLine(Color(0xFFFFD400), Offset(sa.first, sa.second), Offset(sb.first, sb.second), 2.dp.toPx(), pathEffect = androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(10.dp.toPx(), 5.dp.toPx()))) }
+        // v58 component symbols: constant size (three.js sprite 0.026 without size attenuation, fov 45° = 3.14 % of the view height)
+        val sz = size.height * 0.026f * 2.4142f / 2f
+        for (sy in mode.symbolsOnScreen()) symbolCone(this, Offset(sy.x, sy.y), sz, sy.s, sy.id == mode.selConn)
     }
+    // v69 tkCheckStep: checks run after a change, a few components at a time, and recolour the symbols
+    androidx.compose.runtime.LaunchedEffect(tick) { kotlinx.coroutines.delay(1500); while (mode.checkStep()) kotlinx.coroutines.delay(60) }
+}
+
+/** v69 tkSymTex (64 × 64 canvas): a cone with a gradient, green / yellow / red; the selected one with a yellow halo and outline. */
+private fun symbolCone(d: androidx.compose.ui.graphics.drawscope.DrawScope, c: Offset, size: Float, s: Int, sel: Boolean) = with(d) {
+    val k = size / 64f; fun P(x: Float, y: Float) = Offset(c.x + (x - 32f) * k, c.y + (y - 32f) * k)
+    val col = when (s) { 3 -> listOf(0xFFFF6B6B, 0xFFC92A2A, 0xFF7A1010); 2 -> listOf(0xFFFFE066, 0xFFF2B705, 0xFF8A6500); else -> listOf(0xFF69DB7C, 0xFF2F9E44, 0xFF14532D) }.map { Color(it.toInt()) }
+    if (sel) drawCircle(Color(0x59FFE600), 30f * k, c)
+    val body = androidx.compose.ui.graphics.Path().apply { moveTo(P(32f, 8f).x, P(32f, 8f).y); lineTo(P(52f, 48f).x, P(52f, 48f).y)
+        for (i in 0..16) { val t = Math.PI * i / 16; lineTo(P(32f + 20f * Math.cos(t).toFloat(), 48f + 7f * Math.sin(t).toFloat()).x, P(32f + 20f * Math.cos(t).toFloat(), 48f + 7f * Math.sin(t).toFloat()).y) }
+        lineTo(P(32f, 8f).x, P(32f, 8f).y); close() }
+    val grad = androidx.compose.ui.graphics.Brush.horizontalGradient(0f to col[0], 0.55f to col[1], 1f to col[2], startX = P(14f, 0f).x, endX = P(50f, 0f).x)
+    val stroke = if (sel) Color(0xFFFFE600) else Color(0x8C000000); val sw = (if (sel) 4f else 2f) * k
+    drawPath(body, grad); drawPath(body, stroke, style = Stroke(sw))
+    val top = androidx.compose.ui.graphics.Path().apply { for (i in 0..16) { val t = Math.PI + Math.PI * i / 16; val q = P(32f + 20f * Math.cos(t).toFloat(), 48f + 7f * Math.sin(t).toFloat()); if (i == 0) moveTo(q.x, q.y) else lineTo(q.x, q.y) } }
+    drawPath(top, col[2]); drawPath(top, stroke, style = Stroke(sw))
 }
 
 /** The Steel panel (v69 `#st-panel`) and its sheets (Grid, Part properties). */
@@ -91,13 +115,21 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
     var dlg by remember { mutableStateOf<Pair<String, String?>?>(null) }   // component key, connection id
     var toastText by remember { mutableStateOf<String?>(null) }
     mode.lastToast?.let { toastText = it; mode.lastToast = null }
+    mode.dialogRequest?.let { dlg = it; sheet = "dlg"; mode.dialogRequest = null }
     androidx.compose.runtime.LaunchedEffect(toastText) { if (toastText != null) { kotlinx.coroutines.delay(2600); toastText = null } }
     if (!mode.on) return
     val comps = mode.comps
     /** v69 stConnSheet: a selected component plate or bolt group opens its dialog, else the catalog. */
     fun connSheet() { val c = mode.selectionFirst()?.let { comps?.connOfBody(it) }; if (c != null && comps?.ui?.conn?.containsKey(c.type) == true) { dlg = c.type to c.id; sheet = "dlg" } else sheet = "cat" }
     Box(modifier.fillMaxSize()) {
-        Column(Modifier.align(Alignment.BottomCenter).padding(8.dp).fillMaxWidth().background(Color.White, RoundedCornerShape(16.dp))
+        Column(Modifier.align(Alignment.BottomCenter).padding(8.dp).fillMaxWidth()) {
+        // v58 #tk-status: the selected component's checks (tap to clear the selection)
+        mode.statusLine()?.let { (st, text) ->
+            val (bg, fg, bd) = when (st) { 1 -> Triple(0xFFE9F8EE, 0xFF14532D, 0xFF2F9E44); 2 -> Triple(0xFFFFF8DB, 0xFF5C4400, 0xFFF2B705); else -> Triple(0xFFFFE3E3, 0xFF7A1010, 0xFFC92A2A) }
+            Text(text, fontSize = 12.5.sp, color = Color(fg.toInt()), modifier = Modifier.fillMaxWidth().padding(bottom = 6.dp).background(Color(bg.toInt()), RoundedCornerShape(10.dp))
+                .border(1.dp, Color(bd.toInt()), RoundedCornerShape(10.dp)).clickable { mode.selectConn(null) }.padding(horizontal = 12.dp, vertical = 7.dp))
+        }
+        Column(Modifier.fillMaxWidth().background(Color.White, RoundedCornerShape(16.dp))
             .border(1.dp, Color(0xFFDDDDDD), RoundedCornerShape(16.dp)).padding(horizontal = 10.dp, vertical = 8.dp)) {
             Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 StBtn("Grid") { sheet = "grid" }
@@ -134,6 +166,7 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
                 }
             }
             Text(mode.hint(), fontSize = 12.5.sp, color = Color(0xCC111111), modifier = Modifier.padding(start = 2.dp, top = 2.dp))
+        }
         }
         when (sheet) {
             "grid" -> GridSheet(mode) { sheet = null }
