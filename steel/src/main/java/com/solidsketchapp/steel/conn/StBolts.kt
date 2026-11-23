@@ -99,8 +99,9 @@ object StBolts {
 }
 
 /** v69 `stConnGeom` result for one connection: its own parts (plates, bolts) and the cuts it makes in the parts it joins. */
-class ConnGeom(val parts: List<ConnPart>, val cuts: Map<String, List<Mesh>>)
-class ConnPart(val name: String, val pieces: List<Mesh>, val bolts: JsonObject? = null)
+class ConnGeom(val parts: List<ConnPart>, val cuts: Map<String, List<Mesh>>, val welds: List<Weld> = emptyList())
+/** A part a connection makes: its solid pieces (unioned), the holes still to subtract ([minus]), profile, bolt info. */
+class ConnPart(val name: String, val pieces: List<Mesh>, val bolts: JsonObject? = null, val prof: String? = null, val minus: List<Mesh> = emptyList(), val group: BoltGroup? = null)
 
 /**
  * Tekla-import connection types (v64 L17092): `TKCUT` cuts every part it lists with a member solid (`q.cut`, built
@@ -110,7 +111,13 @@ class ConnPart(val name: String, val pieces: List<Mesh>, val bolts: JsonObject? 
  */
 object TkConns {
     /** [stOf] gives a part's `st` by body id (fitting needs both parts' frames). */
-    fun geom(type: String, parts: List<String>, q: JsonObject, build: StBuild, def: JsonObject = JsonObject(emptyMap()), stOf: (String) -> JsonObject? = { null }, profiles: com.solidsketchapp.steel.data.ProfileCatalog? = null): ConnGeom? = when (type) {
+    fun geom(type: String, parts: List<String>, q: JsonObject, build: StBuild, def: JsonObject = JsonObject(emptyMap()), stOf: (String) -> JsonObject? = { null }, profiles: com.solidsketchapp.steel.data.ProfileCatalog? = null, fam: String? = null): ConnGeom? = when {
+        // v40: catalog components (T<n>) are built by their family generator with q = CONN def + c.q.
+        fam != null -> if (profiles == null) null else Fam.geom(fam, JsonObject(LinkedHashMap(def).apply { putAll(q) }), parts, stOf, profiles)
+        else -> geomType(type, parts, q, build, def, stOf, profiles)
+    }
+
+    private fun geomType(type: String, parts: List<String>, q: JsonObject, build: StBuild, def: JsonObject, stOf: (String) -> JsonObject?, profiles: com.solidsketchapp.steel.data.ProfileCatalog?): ConnGeom? = when (type) {
         // v38 L14276: Fitting (Tekla 13): the secondary part ends at the main part's face + gap (def gap 10).
         "fitting" -> {
             val a = parts.getOrNull(0)?.let(stOf); val b = parts.getOrNull(1)?.let(stOf)
