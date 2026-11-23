@@ -6,6 +6,7 @@ import android.os.Debug
 import android.provider.OpenableColumns
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -80,7 +81,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var viewport: ViewportController
     private lateinit var session: DocumentSession
 
-    private var status by mutableStateOf("Building…")
+    private var status by mutableStateOf("")
     private var debugLine by mutableStateOf("")
     private var busy by mutableStateOf(false)
     private var fileName by mutableStateOf<String?>(null)
@@ -89,6 +90,14 @@ class MainActivity : ComponentActivity() {
     private var steel by mutableStateOf<SteelMode?>(null)
     private var compPics by mutableStateOf<com.solidsketchapp.steel.comp.CompPics?>(null)
     private var viewTick by mutableIntStateOf(0)
+    /** S9b: v69's chrome state. Toast (2.6 s, v69 toast()), ⋮ menu, About sheet, theme (v69 data-theme; "system" = the phone), debug overlay (off). */
+    private var toastMsg by mutableStateOf<Pair<String, Long>?>(null)
+    private var menuOpen by mutableStateOf(false)
+    private var aboutOpen by mutableStateOf(false)
+    private var themePref by mutableStateOf("system")
+    private var debugOn by mutableStateOf(false)
+    private var tool by mutableStateOf("select")
+    private fun toast(msg: String) { toastMsg = msg to System.nanoTime() }
 
     private val openLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri -> uri?.let(::openSs) }
     private val saveLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("application/octet-stream")) { uri -> uri?.let(::saveSs) }
@@ -99,15 +108,8 @@ class MainActivity : ComponentActivity() {
         session = DocumentSession(doc, undo, viewport)
         viewport.selection.addListener { tick++ }
         doc.addListener { tick++ }
-        lifecycleScope.launch {
-            val t0 = System.nanoTime()
-            val parts = withContext(Dispatchers.Default) { CoreDemo.build(engine) }
-            val ms = (System.nanoTime() - t0) / 1e6
-            CoreDemo.addTo(doc, parts)
-            viewport.setOverlay("grid", CoreDemo.grid(), 0xFFA3ABB8.toInt())
-            viewport.fitAll()
-            status = Fmt.f("Plate with 8 holes: %.0f mm³ (built in %.0f ms)", engine.volume(parts.plate), ms)
-        }
+        // v69 starts with an empty model and its ground grid (no demo parts).
+        val prefs = getSharedPreferences("app", MODE_PRIVATE); themePref = prefs.getString("theme", "system") ?: "system"; debugOn = prefs.getBoolean("debug", false)
         // S4: the steel tables from v69 (assets/steel/*.json).
         lifecycleScope.launch {
             dataLine = runCatching { withContext(Dispatchers.IO) { SteelAssets.load(assets) } }.fold(
@@ -117,9 +119,19 @@ class MainActivity : ComponentActivity() {
         }
         viewport.setTapHandler { x, y -> steel?.tap(x, y) ?: false }
         viewport.addViewListener { viewTick++ }
-        if (BuildConfig.DEBUG) lifecycleScope.launch { while (true) { debugLine = debugText(); delay(500) } }
+        lifecycleScope.launch { while (true) { if (debugOn) debugLine = debugText(); delay(500) } }
+        // targetSdk 35 draws edge to edge: every bar, panel and sheet pads itself with the system bar insets (UiRulesTest).
+        enableEdgeToEdge()
         // The app is LTR like the web build, whatever the phone's language (owner, S2 phone check).
-        setContent { CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) { MaterialTheme { Screen() } } }
+        setContent {
+            val colors = com.solidsketchapp.steel.ui.SsColors.pick(themePref, androidx.compose.foundation.isSystemInDarkTheme())
+            androidx.compose.runtime.LaunchedEffect(colors) {
+                viewport.renderer.background = colors.scene; viewport.setOverlay("grid", CoreDemo.grid(), (0xFF000000 or colors.gridMajor.toLong()).toInt()); viewport.requestRedraw()
+                // status / navigation bar icons follow the theme (dark theme: light icons)
+                enableEdgeToEdge(androidx.activity.SystemBarStyle.auto(android.graphics.Color.TRANSPARENT, android.graphics.Color.TRANSPARENT) { colors.dark })
+            }
+            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) { MaterialTheme { com.solidsketchapp.steel.ui.SsTheme(colors) { Screen() } } }
+        }
     }
 
     /** S5: Steel mode over the app's document, viewport and undo (only :core-api interfaces reach :steel). */
@@ -151,7 +163,6 @@ class MainActivity : ComponentActivity() {
     private fun drawSteelGrid() {
         val m = steel; val lines = m?.grid?.takeIf { m.on }?.let { StGridLines.build(it, m.level) }
         if (lines == null) { viewport.removeOverlay("st.grid"); viewport.removeOverlay("st.grid.work"); return }
-        viewport.removeOverlay("grid")
         viewport.setOverlay("st.grid", lines.all, StGridLines.ALL_ARGB); viewport.setOverlay("st.grid.work", lines.work, StGridLines.WORK_ARGB)
     }
 
@@ -163,40 +174,53 @@ class MainActivity : ComponentActivity() {
     @androidx.compose.runtime.Composable
     private fun Screen() {
         @Suppress("UNUSED_EXPRESSION") tick
+        val c = com.solidsketchapp.steel.ui.LocalSs.current
         val sel = viewport.selection.selected()
-        // The top bar has its own space above the viewport (owner, S3 phone check: the model drew over the
-        // buttons when zoomed in). Colour: v69's --panel white, fully opaque; v69's --bg below.
-        Column(Modifier.fillMaxSize().background(Color(0xFFEEF1F5))) {
-            Column(Modifier.fillMaxWidth().background(Color.White).windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal)).padding(8.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                    ToolButton("New", enabled = !busy) { newDocument() }
-                    ToolButton("Open", enabled = !busy) { openLauncher.launch(arrayOf("*/*")) }
-                    ToolButton("Save", enabled = !busy) { saveLauncher.launch(suggestedName()) }
-                    ToolButton("Fit") { viewport.fitAll() }
-                    ToolButton("Steel", enabled = steel != null) { steel?.let { if (!it.on) { it.toggle(); viewport.fitAll() } else it.toggle() } }
-                }
-                Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    ToolButton("Undo", enabled = !busy && undo.canUndo()) { undo.undo() }
-                    ToolButton("Redo", enabled = !busy && undo.canRedo()) { undo.redo() }
-                    ToolButton("Cut hole", enabled = !busy && sel.isNotEmpty()) { cutHole() }
-                    ToolButton("Delete", enabled = !busy && sel.isNotEmpty()) { undo.group("Delete") { sel.forEach(doc::removeBody) } }
-                }
-                val name = sel.firstOrNull()?.let { doc.bodyJson(it) }?.let { Regex("\"name\":\"([^\"]*)\"").find(it)?.groupValues?.get(1) }
-                Text(if (sel.isEmpty()) "Tap a part to select it. Double tap: fit." else "Selected: $name (${sel.first().value})", fontSize = 13.sp)
-                Text(status, fontSize = 12.sp)
-                Text("Steel ${BuildConfig.VERSION_NAME} · ${NativeCore.version()} · ${NativeSteel.version()} · license: ${if (gate.isUnlocked) "open" else "locked"}", fontSize = 11.sp, color = Color(0xFF5B6270))
-                Text(dataLine, fontSize = 11.sp, color = Color(0xFF5B6270))
-            }
-            Box(Modifier.fillMaxWidth().weight(1f)) {
-                AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize())
-                steel?.let { m -> SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }); SteelPanel(m, tick, pics = compPics) }
-                if (BuildConfig.DEBUG && debugLine.isNotEmpty()) {
-                    Text(debugLine, fontSize = 10.sp, fontFamily = FontFamily.Monospace, color = Color(0xFF262B34),
-                        modifier = Modifier.align(Alignment.BottomStart).safeDrawingPadding().padding(8.dp).background(Color(0xCCFFFFFF)).padding(4.dp))
-                }
-            }
+        val m = steel
+        val state = com.solidsketchapp.steel.ui.ChromeState(doc.bodyIds().size, !busy && undo.canUndo(), !busy && undo.canRedo(), !busy && sel.isNotEmpty(), tool,
+            "Tap a body to select · drag to orbit · pinch to zoom", menuOpen)
+        com.solidsketchapp.steel.ui.AppLayout(state,
+            view = { AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize()) },
+            steel = if (m != null && m.on) ({ SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }); SteelPanel(m, tick, pics = compPics) }) else null,
+            onUndo = { undo.undo() }, onRedo = { undo.redo() }, onDelete = { undo.group("Delete") { sel.forEach(doc::removeBody) } },
+            onSoon = { toast("$it comes with the main SolidSketch port") }, onMore = { menuOpen = !menuOpen }, onTool = ::pickTool,
+            toast = toastMsg?.first,
+            menu = if (menuOpen) ({ com.solidsketchapp.steel.ui.MainMenu(onPick = { menuOpen = false; menu(it) }, onDismiss = { menuOpen = false }) }) else null,
+            about = if (aboutOpen) ({ com.solidsketchapp.steel.ui.AboutSheet(aboutLines(), themePref, { themePref = it; getSharedPreferences("app", MODE_PRIVATE).edit().putString("theme", it).apply() },
+                debugOn, { debugOn = it; debugLine = ""; getSharedPreferences("app", MODE_PRIVATE).edit().putBoolean("debug", it).apply() }) { aboutOpen = false } }) else null,
+            debug = debugLine.takeIf { debugOn && it.isNotEmpty() })
+        toastMsg?.let { (_, at) -> androidx.compose.runtime.LaunchedEffect(at) { delay(2600); if (toastMsg?.second == at) toastMsg = null } }
+    }
+
+    /** v69 #tools: Steel enters Steel mode; Select is the app's tap-to-select; the others are the main port's tools. */
+    private fun pickTool(id: String) {
+        when (id) {
+            "steel" -> steel?.let { if (!it.on) { it.toggle(); viewport.fitAll() } } ?: toast("Steel is loading…")   // v69 stToggle shows its toast (Steel panel)
+            "select" -> tool = "select"
+            else -> toast("${com.solidsketchapp.steel.ui.V69_TOOLS.first { it.first == id }.second} comes with the main SolidSketch port")
         }
     }
+
+    /** v69 #menu items the app has; the others say they come later. */
+    private fun menu(id: String) {
+        when (id) {
+            "open" -> openLauncher.launch(arrayOf("*/*"))
+            "save" -> saveLauncher.launch(suggestedName())
+            "reset" -> viewport.fitAll()
+            "clear" -> if (doc.bodyIds().isNotEmpty()) undo.group("Clear all") { doc.bodyIds().forEach(doc::removeBody); doc.setField("stConns", null) }
+            "units" -> toast("Units: mm")
+            "about" -> aboutOpen = true
+            else -> toast("${com.solidsketchapp.steel.ui.V69_MENU.first { it.first == id }.second.trimEnd('…')} comes with the main SolidSketch port")
+        }
+    }
+
+    private fun aboutLines() = listOf(
+        "SolidSketch Steel ${BuildConfig.VERSION_NAME} (build ${BuildConfig.VERSION_CODE})",
+        "${NativeCore.version()} · ${NativeSteel.version()}",
+        "License: ${if (gate.isUnlocked) "open" else "locked"}",
+        dataLine,
+        "PHI300-600-8-200-12: " + (steel?.data?.profiles?.lookup("PHI300-600-8-200-12")?.let { Fmt.f("%.1f kg/m", it.m) } ?: "?"),
+    ) + listOfNotNull(status.takeIf { it.isNotEmpty() })
 
     /** Debug overlay: frame time, frame rate, draw calls, triangles, GPU buffers and memory. */
     private fun debugText(): String {
@@ -219,55 +243,39 @@ class MainActivity : ComponentActivity() {
 
     private fun openSs(uri: Uri) {
         val name = displayName(uri)
-        busy = true; status = "Opening $name…"
+        busy = true; toast("Opening $name…")
         lifecycleScope.launch {
             val t0 = System.nanoTime()
             val loaded = runCatching { withContext(Dispatchers.IO) { contentResolver.openInputStream(uri)!!.use { SsCodec.read(it) } } }
             loaded.onSuccess { d ->
-                viewport.removeOverlay("grid")
                 session.replaceWith(d)   // also clears the selection and the undo history
                 fileName = name
                 val n = doc.bodyIds().size
                 val tris = doc.bodyIds().sumOf { doc.bodyMesh(it)?.triangleCount?.toLong() ?: 0L }
                 // Web v69 toast: "Opened <file> · <n> bodies"; plus the time for the S3 check.
                 status = Fmt.f("Opened %s · %d bod%s · %.2f M triangles · %.1f s", name, n, if (n == 1) "y" else "ies", tris / 1e6, (System.nanoTime() - t0) / 1e9)
-            }.onFailure { status = "Could not open $name: ${it.message}" }
+                toast(Fmt.f("Opened %s · %d bod%s", name, n, if (n == 1) "y" else "ies"))   // v69's toast
+            }.onFailure { toast("Could not open $name: ${it.message}") }
             busy = false
         }
     }
 
     private fun newDocument() {
-        viewport.removeOverlay("grid")
         session.newDocument()
         fileName = null
-        status = "New document"
     }
 
     private fun saveSs(uri: Uri) {
         val name = displayName(uri)
         val copy = MemoryDocument().also { it.replaceAllFrom(doc) }   // cheap: meshes are shared, maps copied
-        busy = true; status = "Saving $name…"
+        busy = true; toast("Saving $name…")
         lifecycleScope.launch {
             val t0 = System.nanoTime()
             runCatching { withContext(Dispatchers.IO) { contentResolver.openOutputStream(uri, "wt")!!.use { SsCodec.write(copy, it, name = SsNames.base(name)) } } }
-                .onSuccess { fileName = name; status = Fmt.f("Saved %s (%.1f s)", name, (System.nanoTime() - t0) / 1e9) }
-                .onFailure { status = "Could not save $name: ${it.message}" }
+                .onSuccess { fileName = name; toast("Saved $name") }
+                .onFailure { toast("Could not save $name: ${it.message}") }
             busy = false
         }
     }
 
-    /** Boolean on the selected part: a 60 mm hole through its box centre, along Z. One undo step. */
-    private fun cutHole() {
-        val id = viewport.selection.selected().firstOrNull() ?: return
-        val mesh = doc.bodyMesh(id) ?: return
-        val box = Aabb.of(mesh) ?: return
-        val c = Vec3((box.min.x + box.max.x) / 2, (box.min.y + box.max.y) / 2, box.min.z - 10)
-        val cutter = MeshOps.translate(NativeCore.cylinder(30f, (box.max.z - box.min.z + 20).toFloat(), 48), c)
-        val json = doc.bodyJson(id) ?: return
-        lifecycleScope.launch {
-            val result = runCatching { withContext(Dispatchers.Default) { engine.subtract(mesh, listOf(cutter)) } }
-            result.onSuccess { r -> undo.group("Cut hole") { doc.replaceBody(id, json, r) }; status = Fmt.f("Cut: %.0f → %.0f mm³", engine.volume(mesh), engine.volume(r)) }
-                .onFailure { status = "Cut failed: ${it.message}" }
-        }
-    }
 }
