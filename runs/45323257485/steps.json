@@ -1,0 +1,16 @@
+[
+{"step":"start","ok":true,"ms":1171,"message":""},
+{"step":"steel","ok":true,"ms":7933,"message":""},
+{"step":"grid","ok":true,"ms":7659,"message":""},
+{"step":"orbit","ok":true,"ms":1739,"message":""},
+{"step":"pan","ok":true,"ms":3658,"message":""},
+{"step":"zoom","ok":true,"ms":1204,"message":""},
+{"step":"column","ok":true,"ms":3545,"message":""},
+{"step":"properties_apply","ok":true,"ms":9127,"message":""},
+{"step":"beam","ok":true,"ms":2843,"message":""},
+{"step":"properties_modify","ok":true,"ms":6691,"message":""},
+{"step":"catalog","ok":true,"ms":4922,"message":""},
+{"step":"endplate_dialog","ok":true,"ms":2346,"message":""},
+{"step":"endplate_pick","ok":true,"ms":3238,"message":""},
+{"step":"save_open","ok":true,"ms":2063,"message":""}
+]
