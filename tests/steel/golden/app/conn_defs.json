@@ -1,0 +1,324 @@
+{
+ "source": "web v69 CONN (tools/golden/conn_defs.js)",
+ "conn": {
+  "base": {
+   "label": "Base plate",
+   "tekla": "Base plate (1042)",
+   "parts": [
+    "column"
+   ],
+   "def": {
+    "t": 20,
+    "ext": 75,
+    "side": 25,
+    "bolt": 20,
+    "grade": "8.8",
+    "anch": 450,
+    "a": 6
+   },
+   "fam": null
+  },
+  "knee": {
+   "label": "Eaves haunch",
+   "tekla": "Haunch (40)",
+   "parts": [
+    "column",
+    "rafter"
+   ],
+   "def": {
+    "tp": 20,
+    "len": 0,
+    "depth": 0,
+    "rows": 4,
+    "bolt": 20,
+    "grade": "8.8",
+    "gauge": 100,
+    "cap": 15,
+    "stiff": 12,
+    "a": 6
+   },
+   "fam": null
+  },
+  "apex": {
+   "label": "Apex haunch",
+   "tekla": "Apex haunch (106)",
+   "parts": [
+    "rafter",
+    "rafter"
+   ],
+   "def": {
+    "ph": 0,
+    "pw": 0,
+    "top": "",
+    "bot": "",
+    "rowsAt": "",
+    "hf": 10,
+    "hb": 0,
+    "hw": 8,
+    "tp": 20,
+    "len": 900,
+    "depth": 250,
+    "rows": 3,
+    "bolt": 20,
+    "grade": "8.8",
+    "gauge": 100,
+    "a": 5
+   },
+   "fam": null
+  },
+  "cleat": {
+   "label": "Purlin cleat",
+   "tekla": "Purlin cleat",
+   "parts": [
+    "rafter",
+    "purlin"
+   ],
+   "def": {
+    "t": 8,
+    "h": 0,
+    "w": 90,
+    "bolt": 12,
+    "grade": "8.8",
+    "a": 4
+   },
+   "fam": null
+  },
+  "wgusset": {
+   "label": "Bolted gusset",
+   "tekla": "Bolted gusset (11)",
+   "parts": [
+    "column",
+    "bracing"
+   ],
+   "def": {
+    "t": 10,
+    "len": 260,
+    "w": 160,
+    "bolt": 16,
+    "grade": "8.8",
+    "a": 5
+   },
+   "fam": null
+  },
+  "tgusset": {
+   "label": "Tube gusset",
+   "tekla": "Tube gusset (20)",
+   "parts": [
+    "rafter",
+    "bracing"
+   ],
+   "def": {
+    "t": 10,
+    "gap": 100,
+    "lap": 120,
+    "w": 160,
+    "a": 5
+   },
+   "fam": null
+  },
+  "tieend": {
+   "label": "Tie end plate",
+   "tekla": "Two sided end plate (142)",
+   "parts": [
+    "column",
+    "tie"
+   ],
+   "def": {
+    "t": 12,
+    "size": 150,
+    "bolt": 16,
+    "grade": "8.8",
+    "a": 5
+   },
+   "fam": null
+  },
+  "gabletop": {
+   "label": "Gable column top",
+   "tekla": "Gable column cap plate",
+   "parts": [
+    "rafter",
+    "gable column"
+   ],
+   "def": {
+    "tp": 15,
+    "ext": 60,
+    "side": 10,
+    "bolt": 16,
+    "grade": "8.8",
+    "a": 6
+   },
+   "fam": null
+  },
+  "craneseat": {
+   "label": "Crane beam seat",
+   "tekla": "Crane beam bearing (seat)",
+   "parts": [
+    "bracket",
+    "crane beam"
+   ],
+   "def": {
+    "tp": 20,
+    "bolt": 20,
+    "grade": "8.8",
+    "ts": 12,
+    "gx": 60,
+    "a": 6
+   },
+   "fam": null
+  },
+  "railclip": {
+   "label": "Rail clips",
+   "tekla": "Rail clips + end stops",
+   "parts": [
+    "crane beam",
+    "rail"
+   ],
+   "def": {
+    "s": 750,
+    "t": 12,
+    "w": 80,
+    "l": 60,
+    "bolt": 16,
+    "grade": "8.8",
+    "stop": 1
+   },
+   "fam": null
+  },
+  "stairtreads": {
+   "label": "Stair treads",
+   "tekla": "Stairs (S71) treads",
+   "parts": [
+    "stringer",
+    "stringer"
+   ],
+   "def": {
+    "sl": 0,
+    "tread": 6,
+    "riserMax": 180,
+    "nosing": 25,
+    "leg": 50,
+    "ta": 5,
+    "bolt": 12,
+    "grade": "8.8",
+    "foot": 1,
+    "tf": 12
+   },
+   "fam": null
+  },
+  "weldonly": {
+   "label": "Weld",
+   "tekla": "Weld (no parts)",
+   "parts": [
+    "main part",
+    "secondary part"
+   ],
+   "def": {
+    "a": 4
+   },
+   "fam": null
+  },
+  "endplate": {
+   "label": "End plate",
+   "tekla": "End plate (144)",
+   "parts": [
+    "main part",
+    "secondary beam"
+   ],
+   "def": {
+    "tp": 15,
+    "ext": 10,
+    "side": 10,
+    "rows": 3,
+    "bolt": 20,
+    "grade": "8.8",
+    "gauge": 100,
+    "a": 6
+   },
+   "fam": null
+  },
+  "shearplate": {
+   "label": "Shear plate",
+   "tekla": "Shear plate (146)",
+   "parts": [
+    "main part",
+    "secondary beam"
+   ],
+   "def": {
+    "t": 10,
+    "gap": 15,
+    "e": 40,
+    "rows": 3,
+    "pitch": 70,
+    "bolt": 20,
+    "grade": "8.8",
+    "a": 6
+   },
+   "fam": null
+  },
+  "clip": {
+   "label": "Clip angle",
+   "tekla": "Clip angle (141)",
+   "parts": [
+    "main part",
+    "secondary beam"
+   ],
+   "def": {
+    "leg": 90,
+    "t": 10,
+    "gap": 15,
+    "e": 40,
+    "rows": 3,
+    "pitch": 70,
+    "bolt": 20,
+    "grade": "8.8"
+   },
+   "fam": null
+  },
+  "stiff": {
+   "label": "Stiffeners",
+   "tekla": "Stiffeners (1003)",
+   "parts": [
+    "column",
+    "beam"
+   ],
+   "def": {
+    "ts": 12,
+    "chamfer": 15,
+    "a": 5
+   },
+   "fam": null
+  },
+  "splice": {
+   "label": "Splice",
+   "tekla": "Splice (77)",
+   "parts": [
+    "main part",
+    "secondary part"
+   ],
+   "def": {
+    "gap": 10,
+    "tfp": 15,
+    "twp": 10,
+    "cols": 2,
+    "wrows": 2,
+    "pitch": 80,
+    "e": 40,
+    "bolt": 20,
+    "grade": "8.8"
+   },
+   "fam": null
+  },
+  "fitting": {
+   "label": "Fitting",
+   "tekla": "Fitting (13)",
+   "parts": [
+    "main part",
+    "secondary part"
+   ],
+   "def": {
+    "gap": 10
+   },
+   "fam": null
+  }
+ }
+}

@@ -40,14 +40,16 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
     fun conns(doc: DocumentApi): List<StConn> = doc.field("stConns")?.let { runCatching { Json.parseToJsonElement(it).jsonArray.map { e -> StConn(e.jsonObject) } }.getOrNull() } ?: emptyList()
 
     /** The family of a catalog component (T<n>) whose generator is ported, else null. */
-    fun famOf(type: String): String? = (ui?.conn?.get(type)?.fam ?: tk?.byId(type)?.family)?.takeIf { it in Fam.PORTED }
+    fun famOf(type: String): String? = if (Classic.ported(type)) Classic.fam(type) else (ui?.conn?.get(type)?.fam ?: tk?.byId(type)?.family)?.takeIf { it in Fam.PORTED }
+    /** A document field (JSON text) for connections that read the model's settings (v69 S.stGen); set by [regen]. */
+    var docField: (String) -> String? = { null }
     /** v69 CONN def: v40 FAM_DEF[fam] + the component's own options (TK `o`) (+ v58 EP additions, in Fam.DEF). */
-    fun defOf(type: String): JsonObject = ui?.conn?.get(type)?.def ?: tk?.byId(type)?.let { c -> JsonObject(LinkedHashMap(Fam.DEF[c.family] ?: JsonObject(emptyMap())).apply { putAll(c.options) }) } ?: DEFS[type] ?: JsonObject(emptyMap())
+    fun defOf(type: String): JsonObject = ui?.conn?.get(type)?.def ?: tk?.byId(type)?.let { c -> JsonObject(LinkedHashMap(Fam.DEF[c.family] ?: JsonObject(emptyMap())).apply { putAll(c.options) }) } ?: Classic.DEFS[type] ?: DEFS[type] ?: JsonObject(emptyMap())
     fun ported(type: String) = type in PORTED || famOf(type) != null
 
     /** Every component in the document (v69 S.stConns), set by [regen]; families that look at their neighbours read it. */
     var allConns: List<StConn> = emptyList()
-    fun geom(c: StConn): ConnGeom? = geomCache.getOrPut(c.id) { runCatching { TkConns.geom(c.type, c.parts, c.q, build, defOf(c.type), stOf, profiles, famOf(c.type), (c.raw["pt"] as? JsonArray)?.takeIf { it.size >= 3 }?.let { D3(StBuild.jsNum(it[0]), StBuild.jsNum(it[1]), StBuild.jsNum(it[2])) }, c, allConns) }.getOrNull() }
+    fun geom(c: StConn): ConnGeom? = geomCache.getOrPut(c.id) { runCatching { TkConns.geom(c.type, c.parts, c.q, build, defOf(c.type), stOf, profiles, famOf(c.type), (c.raw["pt"] as? JsonArray)?.takeIf { it.size >= 3 }?.let { D3(StBuild.jsNum(it[0]), StBuild.jsNum(it[1]), StBuild.jsNum(it[2])) }, c, allConns, docField) }.getOrNull() }
 
     /** v69 stApplyCuts: the part's solid with the cuts of every connection that lists it. */
     fun cutPart(id: String, st: JsonObject, conns: List<StConn>): Mesh {
@@ -62,7 +64,7 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
      * Call it inside one undo group. Returns the number of rebuilt parts.
      */
     fun regen(doc: DocumentApi, ids: Collection<BodyId>): Int {
-        geomCache.clear(); stOf = { id -> stOf(doc, BodyId(id)) }
+        geomCache.clear(); stOf = { id -> stOf(doc, BodyId(id)) }; docField = { doc.field(it) }
         val all = conns(doc); allConns = all; val touched = ids.map { it.value }.toSet()
         val cs = all.filter { c -> c.parts.any { it in touched } && ported(c.type) }
         if (cs.isEmpty()) return 0
@@ -123,6 +125,7 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
 
     /** v69 stOwner, the live chain (v40 L15168 family rules, then v49 L15638 TG / CL, v49 L15531 T133 / T135 stubs, v58 L15885 TG gusset): the part a component plate is welded to. */
     private fun owner(c: StConn, name: String, ix: Int): String? {
+        if (c.type in Classic.DEFS) return Classic.owner(c.type, c.parts, name, ix)
         val d = ui?.conn?.get(c.type); val fam = d?.fam ?: tk?.byId(c.type)?.family ?: return c.parts.firstOrNull()
         val p = c.parts; val sec = p.getOrNull(1)
         if (fam == "TG" && "GUSSET" in name) return p[0]

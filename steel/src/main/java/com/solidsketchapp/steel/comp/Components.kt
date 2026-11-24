@@ -48,8 +48,12 @@ class Components(val ui: TkUi, private val doc: DocumentApi, private val undo: U
     fun countInModel(): Int = conns().size
 
     // ---------------- defaults and presets ----------------
+    /** CONN[k].def: a catalog component's (tk_ui.json) or one of v69's own types the applications make (S10, [com.solidsketchapp.steel.conn.Classic]). */
+    fun defOf(k: String): JsonObject = ui.conn[k]?.def ?: com.solidsketchapp.steel.conn.Classic.DEFS[k] ?: error("unknown connection type $k")
+    /** CONN[k].label. */
+    fun labelOf(k: String): String = ui.conn[k]?.label ?: com.solidsketchapp.steel.conn.Classic.LABEL[k] ?: k
     /** v69 stCQ: CONN def + the saved defaults for new components. */
-    fun cq(k: String): JsonObject = JsonObject(LinkedHashMap(ui.conn.getValue(k).def).apply { ((ls("ss.connDef") as? JsonObject)?.get(k) as? JsonObject)?.let { putAll(it) } })
+    fun cq(k: String): JsonObject = JsonObject(LinkedHashMap(defOf(k)).apply { ((ls("ss.connDef") as? JsonObject)?.get(k) as? JsonObject)?.let { putAll(it) } })
     fun setDefaults(k: String, q: JsonObject) { val d = LinkedHashMap((ls("ss.connDef") as? JsonObject) ?: JsonObject(emptyMap())); d[k] = q; ls("ss.connDef", JsonObject(d)) }
     fun presets(k: String): List<String> = ((ls("ss.connSets") as? JsonObject)?.get(k) as? JsonObject)?.keys?.toList() ?: emptyList()
     fun preset(k: String, name: String): JsonObject? = ((ls("ss.connSets") as? JsonObject)?.get(k) as? JsonObject)?.get(name) as? JsonObject
@@ -77,7 +81,7 @@ class Components(val ui: TkUi, private val doc: DocumentApi, private val undo: U
 
     /** v69 stConnAdd + stRegen in one undo step (label = the component's name); `pt` = the first picked point. */
     fun add(k: String, parts: List<BodyId>, q: JsonObject, pt: DoubleArray? = null): StConn {
-        val d = ui.conn.getValue(k); var out: StConn? = null
+        var out: StConn? = null
         val run = {
             val next = doc.field("stNextConn")?.toDoubleOrNull()?.toLong()?.takeIf { it > 0 } ?: 1L
             val m = linkedMapOf<String, JsonElement>("id" to jsNum(next.toDouble()), "type" to JsonPrimitive(k), "parts" to JsonArray(parts.map { p -> p.value.toLongOrNull()?.let { jsNum(it.toDouble()) } ?: JsonPrimitive(p.value) }), "q" to JsonObject(LinkedHashMap(q)))
@@ -87,8 +91,22 @@ class Components(val ui: TkUi, private val doc: DocumentApi, private val undo: U
             regen?.regen(doc, parts)
             out = conn(next.toString())
         }
-        undo?.group(d.label, run) ?: run()
+        undo?.group(labelOf(k), run) ?: run()
         return out!!
+    }
+
+    /** v69 stConnAdd for each, then one stRegen over all their parts (stPortalConns, stConnectMany): (key, parts, q = def + these). */
+    fun addMany(list: List<Triple<String, List<BodyId>, JsonObject>>): List<StConn> {
+        val made = ArrayList<StConn>(); var next = doc.field("stNextConn")?.toDoubleOrNull()?.toLong()?.takeIf { it > 0 } ?: 1L
+        val raws = ArrayList(conns().map { it.raw })
+        for ((k, parts, q) in list) {
+            val m = linkedMapOf<String, JsonElement>("id" to jsNum(next.toDouble()), "type" to JsonPrimitive(k), "parts" to JsonArray(parts.map { p -> p.value.toLongOrNull()?.let { jsNum(it.toDouble()) } ?: JsonPrimitive(p.value) }),
+                "q" to JsonObject(LinkedHashMap(cq(k)).apply { putAll(q) }))
+            raws += JsonObject(m); made += StConn(JsonObject(m)); next++
+        }
+        doc.setField("stNextConn", next.toString()); setConns(raws)
+        regen?.regen(doc, list.flatMap { it.second }.distinct())
+        return made.map { conn(it.id) ?: it }
     }
 
     /** v69 dialog Modify: the targets (one, or all of this type; locked ones skipped) get [newQ] and are rebuilt. Returns the count. */

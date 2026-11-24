@@ -111,9 +111,9 @@ class ConnPart(val name: String, val pieces: List<Mesh>, val bolts: JsonObject? 
  */
 object TkConns {
     /** [stOf] gives a part's `st` by body id (fitting needs both parts' frames). */
-    fun geom(type: String, parts: List<String>, q: JsonObject, build: StBuild, def: JsonObject = JsonObject(emptyMap()), stOf: (String) -> JsonObject? = { null }, profiles: com.solidsketchapp.steel.data.ProfileCatalog? = null, fam: String? = null, pt: D3? = null, conn: StConn? = null, conns: List<StConn> = emptyList()): ConnGeom? = when {
-        // v40: catalog components (T<n>) are built by their family generator with q = CONN def + c.q.
-        fam != null -> if (profiles == null) null else Fam.geom(fam, JsonObject(LinkedHashMap(def).apply { putAll(q) }), parts, stOf, profiles, pt, conn, conns)
+    fun geom(type: String, parts: List<String>, q: JsonObject, build: StBuild, def: JsonObject = JsonObject(emptyMap()), stOf: (String) -> JsonObject? = { null }, profiles: com.solidsketchapp.steel.data.ProfileCatalog? = null, fam: String? = null, pt: D3? = null, conn: StConn? = null, conns: List<StConn> = emptyList(), docField: (String) -> String? = { null }): ConnGeom? = when {
+        // v40: catalog components (T<n>) are built by their family generator with q = CONN def + c.q (S10: v69's own types as "C:<type>").
+        fam != null -> if (profiles == null) null else Fam.geom(fam, JsonObject(LinkedHashMap(def).apply { putAll(q) }), parts, stOf, profiles, pt, conn, conns, docField)
         else -> geomType(type, parts, q, build, def, stOf, profiles)
     }
 

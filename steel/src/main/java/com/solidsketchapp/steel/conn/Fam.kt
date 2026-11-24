@@ -39,8 +39,11 @@ class FamCtx(val q: JsonObject, val a: JsonObject, val aId: String, val b: JsonO
                /** v69 X.c.pt: the point picked on the first part (null when the component was made without one). */ val pt: D3? = null,
                /** v69 X.c (this component; null in isolated use) and S.stConns (every component in the document), for families that look at their neighbours (v54 TG node gusset). */
                val conn: StConn? = null, val conns: List<StConn> = emptyList(),
-               /** A body's st by id (v69 stBody(id).st). */ val stOf: (String) -> JsonObject? = { null }) {
+               /** A body's st by id (v69 stBody(id).st). */ val stOf: (String) -> JsonObject? = { null },
+               /** A document field (v69 S.stGen, S.stGrid …) as JSON text: the eaves haunch reads S.stGen.span. */ val docField: (String) -> String? = { null }) {
     val parts = ArrayList<ConnPart>(); val cuts = LinkedHashMap<String, MutableList<Mesh>>(); val welds = ArrayList<Weld>()
+    /** v69 `return null` from a connection's geometry (a part missing, a degenerate case): no parts, no cuts, no welds. */
+    var nullResult = false
     /** v69 TKB_G: every bolt group the component builds, in order (the Holes tab uses the first). */
     val groups = ArrayList<BoltGroup>()
     /** v69 stBolts inside the v58 wrapper: the component's settings (TKB_Q) reach the bolt options. */
@@ -203,12 +206,14 @@ object Fam {
     }
 
     /** v69 famGeom + the v58 wrapper (bolt info d0 / std / thr / sw, Welds tab). Returns null when the family is not ported or a part is missing. */
-    fun geom(fam: String, q: JsonObject, parts: List<String>, stOf: (String) -> JsonObject?, profiles: ProfileCatalog, pt: D3? = null, conn: StConn? = null, conns: List<StConn> = emptyList()): ConnGeom? {
-        if (fam !in PORTED) return null
+    fun geom(fam: String, q: JsonObject, parts: List<String>, stOf: (String) -> JsonObject?, profiles: ProfileCatalog, pt: D3? = null, conn: StConn? = null, conns: List<StConn> = emptyList(), docField: (String) -> String? = { null }): ConnGeom? {
+        // S10: v69's own types run as pseudo families "C:<type>" (Classic), inside the same v58 wrapper
+        val classic = fam.startsWith("C:"); if (classic && !Classic.ported(fam.drop(2))) return null
+        if (!classic && fam !in PORTED) return null
         val a = parts.getOrNull(0)?.let(stOf) ?: return null
-        val x = FamCtx(q, a, parts[0], parts.getOrNull(1)?.let(stOf), parts.getOrNull(1), parts.getOrNull(2)?.let(stOf), parts.getOrNull(2), profiles, pt, conn, conns, stOf)
+        val x = FamCtx(q, a, parts[0], parts.getOrNull(1)?.let(stOf), parts.getOrNull(1), parts.getOrNull(2)?.let(stOf), parts.getOrNull(2), profiles, pt, conn, conns, stOf, docField)
         if ((fam == "EP" || fam == "ST") && x.b == null) return null
-        GEN.getValue(fam)(x)
+        if (classic) { Classic.GEN.getValue(fam.drop(2))(x); if (x.nullResult) return null } else GEN.getValue(fam)(x)
         // v58: bolt groups carry d0 / std / thr / sw (L15997); Welds tab (q.W) sets a / type / ws / around per weld.
         val out = x.parts.map { p ->
             val g = p.group; val bo = p.bolts
