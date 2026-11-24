@@ -52,7 +52,9 @@ class EmulatorFlowTest {
     private fun json(s: String) = "\"" + s.replace("\\", "\\\\").replace("\"", "\\\"").replace("\n", "\\n") + "\""
 
     private fun shot(name: String) {
-        compose.waitForIdle()
+        // let the frame reach the screen: the system screenshot can be one frame behind Compose (the End plate dialog
+        // was found by its tabs but the shot still showed the catalog)
+        compose.waitForIdle(); Thread.sleep(700); compose.waitForIdle()
         val bmp: Bitmap? = InstrumentationRegistry.getInstrumentation().uiAutomation.takeScreenshot()
         if (bmp != null) storage.openOutputFile("screenshots/%02d_%s.png".format(++shotNo, name)).use { bmp.compress(Bitmap.CompressFormat.PNG, 100, it) }
     }
