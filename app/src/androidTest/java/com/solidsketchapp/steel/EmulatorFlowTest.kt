@@ -86,6 +86,13 @@ class EmulatorFlowTest {
             ?: throw AssertionError("no neighbour of grid point ($i, $j) on screen above the panel (top $panelTop)")
     }
 
+    /** Closes the soft keyboard after typing (it covers the sheet's buttons on a phone-sized screen). */
+    private fun hideKeyboard() {
+        act.runOnUiThread { (act.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
+            .hideSoftInputFromWindow(act.window.decorView.windowToken, 0) }
+        compose.waitForIdle(); Thread.sleep(400); compose.waitForIdle()
+    }
+
     private fun deselect() { act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; compose.waitForIdle() }
     /** The property sheet's Profile field: the text field whose value is a profile of the catalogue. */
     private fun profileField(): androidx.compose.ui.test.SemanticsNodeInteraction {
@@ -138,7 +145,7 @@ class EmulatorFlowTest {
             press("Grid")
             waitFor("the grid sheet") { compose.onAllNodes(hasSetTextAction()).fetchSemanticsNodes().size >= 3 }
             val f = compose.onAllNodes(hasSetTextAction())
-            f[0].performTextReplacement("0 4*13195"); f[1].performTextReplacement("0 5*5570"); f[2].performTextReplacement("0 7500 1500")
+            f[0].performTextReplacement("0 4*13195"); f[1].performTextReplacement("0 5*5570"); f[2].performTextReplacement("0 7500 1500"); hideKeyboard()
             button("Apply").performClick(); compose.waitForIdle()
             val g = mode().grid!!
             assertTrue("grid ${g.xs} / ${g.ys} / ${g.zs}", g.xs.size == 5 && g.ys.size == 6 && g.zs.size == 3)
@@ -178,7 +185,7 @@ class EmulatorFlowTest {
             deselect(); press("Beam")
             press("Properties")
             waitFor("the property sheet") { compose.onAllNodes(hasText("Profile")).fetchSemanticsNodes().isNotEmpty() }
-            profileField().performTextReplacement("IPE400")
+            profileField().performTextReplacement("IPE400"); hideKeyboard()
             press("Apply")
             assertTrue("profile for new parts: ${mode().propsProf}", mode().propsProf == "IPE400")
         }
@@ -198,7 +205,7 @@ class EmulatorFlowTest {
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(beam)) }; compose.waitForIdle()
             press("Properties")
             waitFor("the property sheet") { compose.onAllNodes(hasText("Modify") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
-            profileField().performTextReplacement("IPE500")
+            profileField().performTextReplacement("IPE500"); hideKeyboard()
             press("Modify")
             waitFor("the beam to become IPE500") { prof(beam) == "IPE500" || bodies().any { prof(it) == "IPE500" } }
             deselect()
@@ -206,7 +213,7 @@ class EmulatorFlowTest {
         step("catalog") {
             press("Components")
             waitFor("the catalog") { compose.onAllNodes(hasText("Applications & components")).fetchSemanticsNodes().isNotEmpty() }
-            compose.onAllNodes(hasSetTextAction())[0].performTextReplacement("144")
+            compose.onAllNodes(hasSetTextAction())[0].performTextReplacement("144"); hideKeyboard()
             waitFor("End plate (144) in the list") { compose.onAllNodes(hasText("End plate", substring = true)).fetchSemanticsNodes().isNotEmpty() }
         }
         step("endplate_dialog") {
