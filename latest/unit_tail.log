@@ -1,7 +1,7 @@
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
-> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:generateDebugBuildConfig
@@ -121,29 +121,29 @@ This will become an error in Kotlin 2.1.
 > Task :core-io:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :core-io:processDebugUnitTestJavaRes
 > Task :steel:compileDebugKotlin
+> Task :core-io:testDebugUnitTest
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
 > Task :steel:bundleLibCompileToJarDebug
-> Task :core-io:testDebugUnitTest
 > Task :steel:bundleLibRuntimeToJarDebug
 > Task :steel:processDebugJavaRes
 > Task :core-view:compileDebugUnitTestKotlin
 > Task :core-view:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :core-view:processDebugUnitTestJavaRes
-> Task :core-view:testDebugUnitTest
 > Task :app:compileDebugKotlin
-> Task :steel:compileDebugUnitTestKotlin
-> Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
-> Task :steel:processDebugUnitTestJavaRes
+> Task :core-view:testDebugUnitTest
 > Task :app:compileDebugJavaWithJavac
 > Task :app:bundleDebugClassesToRuntimeJar
 > Task :app:bundleDebugClassesToCompileJar
-> Task :steel:testDebugUnitTest
+> Task :steel:compileDebugUnitTestKotlin
 > Task :app:processDebugJavaRes
+> Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :steel:processDebugUnitTestJavaRes
 > Task :app:compileDebugUnitTestKotlin
 > Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :app:processDebugUnitTestJavaRes
+> Task :steel:testDebugUnitTest
 > Task :app:testDebugUnitTest
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795493608917.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795494393188.json
 
-BUILD SUCCESSFUL in 1m 47s
+BUILD SUCCESSFUL in 2m 40s
 93 actionable tasks: 93 executed
