@@ -1,12 +1,12 @@
-# Emulator UI run 45323257485 (fcc36df)
+# Emulator UI run 45324790531 (2677542)
 
 - data files on main: true
 - KVM: yes · runner cores: 2
 - unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 0 (167 s)
-- job time until this step: 653 s = 10.9 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 0 (141 s)
+- job time until this step: 637 s = 10.6 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -24,24 +24,23 @@ JUnit (unit + instrumented): 36 tests, 0 failed
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 1171 |  |
-| steel | ✓ | 7933 |  |
-| grid | ✓ | 7659 |  |
-| orbit | ✓ | 1739 |  |
-| pan | ✓ | 3658 |  |
-| zoom | ✓ | 1204 |  |
-| column | ✓ | 3545 |  |
-| properties_apply | ✓ | 9127 |  |
-| beam | ✓ | 2843 |  |
-| properties_modify | ✓ | 6691 |  |
-| catalog | ✓ | 4922 |  |
-| endplate_dialog | ✓ | 2346 |  |
-| endplate_pick | ✓ | 3238 |  |
-| save_open | ✓ | 2063 |  |
+| start | ✓ | 1644 |  |
+| steel | ✓ | 6264 |  |
+| grid | ✓ | 8839 |  |
+| orbit | ✓ | 2678 |  |
+| pan | ✓ | 937 |  |
+| zoom | ✓ | 987 |  |
+| column | ✓ | 2639 |  |
+| properties_apply | ✓ | 7443 |  |
+| beam | ✓ | 2570 |  |
+| properties_modify | ✓ | 5736 |  |
+| catalog | ✓ | 4919 |  |
+| endplate_dialog | ✓ | 2345 |  |
+| endplate_pick | ✓ | 3213 |  |
+| save_open | ✓ | 1430 |  |
 
 connected.log (end):
 ```
-> Task :app:mergeDebugJniLibFolders UP-TO-DATE
 > Task :app:mergeDebugNativeLibs UP-TO-DATE
 > Task :app:stripDebugDebugSymbols UP-TO-DATE
 > Task :app:validateSigningDebug UP-TO-DATE
@@ -71,15 +70,16 @@ connected.log (end):
 > Task :app:packageDebugAndroidTest UP-TO-DATE
 > Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 [EmulatorConsole]: Failed to start Emulator console for 5554
+
 > Task :app:connectedDebugAndroidTest
 Starting 1 tests on emulator-5554 - 15
 
 emulator-5554 - 15 Tests 0/1 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/1 completed. (0 skipped) (0 failed)
 Finished 1 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795493271423.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795494011103.json
 
-BUILD SUCCESSFUL in 2m 46s
+BUILD SUCCESSFUL in 2m 19s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```

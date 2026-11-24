@@ -1,300 +1,300 @@
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at android.app.ApplicationPackageManager.getResourcesForApplication(ApplicationPackageManager.java:2087)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at android.app.ApplicationPackageManager.getText(ApplicationPackageManager.java:2404)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at android.content.pm.PackageItemInfo.loadUnsafeLabel(PackageItemInfo.java:237)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at android.content.pm.PackageItemInfo.loadLabel(PackageItemInfo.java:226)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at android.app.ApplicationPackageManager.getApplicationLabel(ApplicationPackageManager.java:2449)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at cqa.a(PG:36)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at chx.apply(PG:480)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at kra.accept(PG:44)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at j$.util.stream.O0.accept(SourceFile:3)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at j$.util.D.x(SourceFile:24)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at j$.util.U.forEachRemaining(Unknown Source:23)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at j$.util.stream.b.c(SourceFile:21)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at j$.util.stream.b.y(SourceFile:8)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at j$.util.stream.G.b(SourceFile:5)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at j$.util.stream.b.f(SourceFile:35)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at j$.util.stream.e1.collect(SourceFile:83)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at bxv.a(PG:158)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at jql.a(PG:304)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at jql.a(PG:38)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at lhn.a(PG:3)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at lgs.run(PG:21)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at lhp.run(PG:5)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at lfw.run(PG:17)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at hur.run(PG:7)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at lcx.run(PG:50)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at hld.run(PG:450)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at java.lang.Thread.run(Thread.java:1012)
-11-24 04:10:21.099  1354  1504 E ResourcesManager: 	at hwd.run(PG:64)
-11-24 04:10:21.515   964   964 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-24 04:10:21.515   964   964 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-24 04:10:21.516   559   733 E AppOps  : attributionTag VCN not declared in manifest of android
-11-24 04:10:22.797   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-24 04:10:22.799   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-24 04:10:23.337   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-24 04:10:23.845   559  2674 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-24 04:10:23.950   559  2674 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-24 04:10:24.087   559   733 E AppOps  : attributionTag VCN not declared in manifest of android
-11-24 04:10:24.208   964   964 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-24 04:10:24.375   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-24 04:10:24.630   964   964 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-24 04:10:25.070   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-24 04:10:25.340   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-24 04:10:25.494   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-24 04:10:25.499   559  1949 E AtomicFile: Failed to rename /data/system/cachequota.xml.new to /data/system/cachequota.xml
-11-24 04:10:25.521   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-24 04:10:26.894   559  1306 E Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
-11-24 04:10:26.894   559  1306 E Binder  : java.lang.Throwable
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.os.BinderProxy.transact(BinderProxy.java:543)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:812)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:2043)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1858)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.content.ContentResolver.openInputStream(ContentResolver.java:1528)
-11-24 04:10:26.894   559  1306 E Binder  : 	at com.android.providers.settings.SettingsProvider.openRingtone(SettingsProvider.java:865)
-11-24 04:10:26.894   559  1306 E Binder  : 	at com.android.providers.settings.SettingsProvider.lambda$mutateSystemSetting$1(SettingsProvider.java:2041)
-11-24 04:10:26.894   559  1306 E Binder  : 	at com.android.providers.settings.SettingsProvider.$r8$lambda$GoSUyNcBSpTkjjY_Ryr8POnmkTA(SettingsProvider.java:0)
-11-24 04:10:26.894   559  1306 E Binder  : 	at com.android.providers.settings.SettingsProvider$$ExternalSyntheticLambda0.runOrThrow(R8$$SyntheticClass:0)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.os.Binder.withCleanCallingIdentity(Binder.java:550)
-11-24 04:10:26.894   559  1306 E Binder  : 	at com.android.providers.settings.SettingsProvider.mutateSystemSetting(SettingsProvider.java:2040)
-11-24 04:10:26.894   559  1306 E Binder  : 	at com.android.providers.settings.SettingsProvider.insertSystemSetting(SettingsProvider.java:1916)
-11-24 04:10:26.894   559  1306 E Binder  : 	at com.android.providers.settings.SettingsProvider.call(SettingsProvider.java:477)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.content.ContentProvider.call(ContentProvider.java:2704)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.content.ContentProvider$Transport.call(ContentProvider.java:633)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:307)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.os.Binder.execTransactInternal(Binder.java:1500)
-11-24 04:10:26.894   559  1306 E Binder  : 	at android.os.Binder.execTransact(Binder.java:1444)
-11-24 04:10:27.094  1390  1527 E StorageManager: Failed to set extended attributes for /storage/emulated/0/Android to set project id.: Operation not permitted
-11-24 04:10:27.094  1390  1527 E StorageManager: Failed to set extended attributes for /storage/emulated/0/Android/media to set project id.: Operation not permitted
-11-24 04:10:27.278  1354  1472 E .apps.wellbeing: Failed to open APK '/data/app/~~YWyQxKjYRG9-lBOAUfpjGg==/com.solidsketchapp.steel-nKOkkHZnDX0SVi1oWH1lhQ==/base.apk': I/O error
-11-24 04:10:27.279  1354  1472 E .apps.wellbeing: Failed to open APK '/data/app/~~YWyQxKjYRG9-lBOAUfpjGg==/com.solidsketchapp.steel-nKOkkHZnDX0SVi1oWH1lhQ==/base.apk': I/O error
-11-24 04:10:27.279  1354  1472 E ResourcesManager: failed to add asset path '/data/app/~~YWyQxKjYRG9-lBOAUfpjGg==/com.solidsketchapp.steel-nKOkkHZnDX0SVi1oWH1lhQ==/base.apk'
-11-24 04:10:27.279  1354  1472 E ResourcesManager: java.io.IOException: Failed to load asset path /data/app/~~YWyQxKjYRG9-lBOAUfpjGg==/com.solidsketchapp.steel-nKOkkHZnDX0SVi1oWH1lhQ==/base.apk
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.content.res.ApkAssets.nativeLoad(Native Method)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.content.res.ApkAssets.<init>(ApkAssets.java:303)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.content.res.ApkAssets.loadFromPath(ApkAssets.java:152)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ResourcesManager.loadApkAssets(ResourcesManager.java:568)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ResourcesManager$ApkAssetsSupplier.load(ResourcesManager.java:243)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ResourcesManager.createAssetManager(ResourcesManager.java:647)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ResourcesManager.createResourcesImpl(ResourcesManager.java:734)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ResourcesManager.findOrCreateResourcesImplForKeyLocked(ResourcesManager.java:787)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ResourcesManager.createResources(ResourcesManager.java:1133)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ResourcesManager.getResources(ResourcesManager.java:1236)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ActivityThread.getTopLevelResources(ActivityThread.java:2793)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ApplicationPackageManager.getResourcesForApplication(ApplicationPackageManager.java:2101)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ApplicationPackageManager.getResourcesForApplication(ApplicationPackageManager.java:2087)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ApplicationPackageManager.getText(ApplicationPackageManager.java:2404)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.content.pm.PackageItemInfo.loadUnsafeLabel(PackageItemInfo.java:237)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.content.pm.PackageItemInfo.loadLabel(PackageItemInfo.java:226)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at android.app.ApplicationPackageManager.getApplicationLabel(ApplicationPackageManager.java:2449)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at cqa.a(PG:36)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at chx.apply(PG:480)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at kra.accept(PG:44)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at j$.util.stream.O0.accept(SourceFile:3)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at j$.util.D.x(SourceFile:24)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at j$.util.U.forEachRemaining(Unknown Source:23)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at j$.util.stream.b.c(SourceFile:21)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at j$.util.stream.b.y(SourceFile:8)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at j$.util.stream.G.b(SourceFile:5)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at j$.util.stream.b.f(SourceFile:35)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at j$.util.stream.e1.collect(SourceFile:83)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at bxv.a(PG:158)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at jql.a(PG:304)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at jql.a(PG:38)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at lhn.a(PG:3)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at lgs.run(PG:21)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at lhp.run(PG:5)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at lfw.run(PG:17)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at hur.run(PG:7)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at lcx.run(PG:50)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at hld.run(PG:450)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at java.lang.Thread.run(Thread.java:1012)
-11-24 04:10:27.279  1354  1472 E ResourcesManager: 	at hwd.run(PG:64)
-11-24 04:10:27.738  1542  4445 E SingleDataFileGroupPop: Failed to add file group 
-11-24 04:10:27.767  1542  4445 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:27.767  1542  4445 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:27.767  1542  4445 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:27.767  1542  4445 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:27.767  1542  4445 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:27.768  1542  4445 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:27.768  1542  4445 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:27.768  1542  4445 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:27.770  1542  4445 E SingleDataFileGroupPop: Failed to add file group 
-11-24 04:10:27.773  1542  4445 E HotwordModelConfigFetcher: Hotword model config fetched from protodatastore is empty!
-11-24 04:10:27.773  1542  4445 E A       : Failed to receive valid config from MDD.
-11-24 04:10:27.777  1542  4445 E HotwordModelConfigFetcher: Hotword model config fetched from protodatastore is empty!
-11-24 04:10:27.778  1542  4445 E A       : Failed to receive valid config from MDD.
-11-24 04:10:27.797  1542  2187 E A       : Attempt to overwrite completionTime
-11-24 04:10:27.798  1542  2187 E A       : Attempt to overwrite workProxyEndState
-11-24 04:10:27.798  1542  2187 E A       : Attempt to overwrite delegationTime
-11-24 04:10:27.814  1542  4447 E HotwordModelConfigFetcher: Hotword model config fetched from protodatastore is empty!
-11-24 04:10:27.814  1542  4447 E A       : Failed to receive valid config from MDD.
-11-24 04:10:27.820  1542  1840 E HotwordModelConfigFetcher: Hotword model config fetched from protodatastore is empty!
-11-24 04:10:27.820  1542  1840 E A       : Failed to receive valid config from MDD.
-11-24 04:10:28.223  1542  4446 E SingleDataFileGroupPop: Failed to add file group 
-11-24 04:10:28.224  1542  4446 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:28.224  1542  4446 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:28.224  1542  4446 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:28.224  1542  4446 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:28.224  1542  4446 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:28.224  1542  4446 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:28.224  1542  4446 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:28.224  1542  4446 E PhFileGroupPop: Failed to add file group 
-11-24 04:10:28.304  1542  4446 E SingleDataFileGroupPop: Failed to add file group 
-11-24 04:10:28.306  1542  4446 E HotwordModelConfigFetcher: Hotword model config fetched from protodatastore is empty!
-11-24 04:10:28.307  1542  4446 E A       : Failed to receive valid config from MDD.
-11-24 04:10:28.307  1542  4446 E HotwordModelConfigFetcher: Hotword model config fetched from protodatastore is empty!
-11-24 04:10:28.307  1542  4446 E A       : Failed to receive valid config from MDD.
-11-24 04:10:28.581   559   727 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-24 04:10:28.583   559   727 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-24 04:10:28.593   559   727 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-24 04:10:28.593   559   727 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-24 04:10:28.604   559   727 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-24 04:10:28.604   559   727 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-24 04:10:28.609   559   727 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-24 04:10:28.609   559   727 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-24 04:10:28.618   559   727 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-24 04:10:28.618   559   727 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-24 04:10:28.618   559   727 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-24 04:10:28.618   559   727 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-24 04:10:28.809  1542  2670 E SpeechMicro: Hotword model is single-channel neuralnet.
-11-24 04:10:28.857  1542  1814 E A       : Soda silent enrollment failed.
-11-24 04:10:28.857  1542  1814 E A       : java.lang.IllegalStateException: No account found.
-11-24 04:10:28.857  1542  1814 E A       : 	at com.google.android.apps.gsa.hotword.b.f.apply(PG:30)
-11-24 04:10:28.857  1542  1814 E A       : 	at com.google.apps.tiktok.tracing.ff.apply(PG:13)
-11-24 04:10:28.857  1542  1814 E A       : 	at com.google.common.util.concurrent.h.e(PG:3)
-11-24 04:10:28.857  1542  1814 E A       : 	at com.google.common.util.concurrent.j.run(PG:42)
-11-24 04:10:28.857  1542  1814 E A       : 	at com.google.android.libraries.k.x.run(PG:3)
-11-24 04:10:28.857  1542  1814 E A       : 	at com.google.common.n.c.c.run(PG:50)
-11-24 04:10:28.857  1542  1814 E A       : 	at com.google.android.libraries.k.e.run(PG:8)
-11-24 04:10:28.857  1542  1814 E A       : 	at java.lang.Thread.run(Thread.java:1012)
-11-24 04:10:28.857  1542  1814 E A       : 	at com.google.android.libraries.k.d.b.run(PG:74)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: Could not parse manufactured year from serial.
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: java.lang.NumberFormatException: For input string: "E"
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at java.lang.Integer.parseInt(Integer.java:790)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at java.lang.Integer.valueOf(Integer.java:1121)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at com.google.android.settings.hardwareinfo.HardwareInfoFeatureProviderGoogleImpl.getManufacturedYear(HardwareInfoFeatureProviderGoogleImpl.kt:24)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.deviceinfo.hardwareinfo.ManufacturedYearPreferenceController.<init>(ManufacturedYearPreferenceController.kt:26)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at java.lang.reflect.Constructor.newInstance0(Native Method)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at java.lang.reflect.Constructor.newInstance(Constructor.java:343)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.core.BasePreferenceController.createInstance(BasePreferenceController.java:187)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.core.PreferenceControllerListHelper.getPreferenceControllersFromXml(PreferenceControllerListHelper.java:86)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.BaseSearchIndexProvider.getPreferenceControllers(BaseSearchIndexProvider.java:169)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.BaseSearchIndexProvider.getRawDataToIndex(BaseSearchIndexProvider.java:78)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.SettingsSearchIndexablesProvider.getSearchIndexableRawFromProvider(SettingsSearchIndexablesProvider.java:357)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.SettingsSearchIndexablesProvider.queryRawData(SettingsSearchIndexablesProvider.java:141)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at android.provider.SearchIndexablesProvider.query(SearchIndexablesProvider.java:125)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProvider.query(ContentProvider.java:1620)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProvider.query(ContentProvider.java:1716)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProvider$Transport.query(ContentProvider.java:295)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:107)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
-11-24 04:10:29.625   969  3198 E HardwareInfoFeatureProviderImpl: 	at android.os.Binder.execTransact(Binder.java:1444)
-11-24 04:10:29.631   559   628 E ActivityManager: Unable to freeze binder for 3031: -11
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: Could not parse manufactured year from serial.
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: java.lang.NumberFormatException: For input string: "E"
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at java.lang.Integer.parseInt(Integer.java:790)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at java.lang.Integer.valueOf(Integer.java:1121)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at com.google.android.settings.hardwareinfo.HardwareInfoFeatureProviderGoogleImpl.getManufacturedYear(HardwareInfoFeatureProviderGoogleImpl.kt:24)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.deviceinfo.hardwareinfo.ManufacturedYearPreferenceController.<init>(ManufacturedYearPreferenceController.kt:26)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at java.lang.reflect.Constructor.newInstance0(Native Method)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at java.lang.reflect.Constructor.newInstance(Constructor.java:343)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.core.BasePreferenceController.createInstance(BasePreferenceController.java:187)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.core.PreferenceControllerListHelper.getPreferenceControllersFromXml(PreferenceControllerListHelper.java:86)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.BaseSearchIndexProvider.getPreferenceControllers(BaseSearchIndexProvider.java:169)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.BaseSearchIndexProvider.getDynamicRawDataToIndex(BaseSearchIndexProvider.java:100)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.SettingsSearchIndexablesProvider.getDynamicSearchIndexableRawData(SettingsSearchIndexablesProvider.java:379)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.SettingsSearchIndexablesProvider.queryDynamicRawData(SettingsSearchIndexablesProvider.java:180)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at android.provider.SearchIndexablesProvider.query(SearchIndexablesProvider.java:133)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProvider.query(ContentProvider.java:1620)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProvider.query(ContentProvider.java:1716)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProvider$Transport.query(ContentProvider.java:295)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:107)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
-11-24 04:10:29.631   969  1624 E HardwareInfoFeatureProviderImpl: 	at android.os.Binder.execTransact(Binder.java:1444)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: Could not parse manufactured year from serial.
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: java.lang.NumberFormatException: For input string: "E"
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at java.lang.Integer.parseInt(Integer.java:790)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at java.lang.Integer.valueOf(Integer.java:1121)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at com.google.android.settings.hardwareinfo.HardwareInfoFeatureProviderGoogleImpl.getManufacturedYear(HardwareInfoFeatureProviderGoogleImpl.kt:24)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.deviceinfo.hardwareinfo.ManufacturedYearPreferenceController.<init>(ManufacturedYearPreferenceController.kt:26)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at java.lang.reflect.Constructor.newInstance0(Native Method)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at java.lang.reflect.Constructor.newInstance(Constructor.java:343)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.core.BasePreferenceController.createInstance(BasePreferenceController.java:187)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.core.PreferenceControllerListHelper.getPreferenceControllersFromXml(PreferenceControllerListHelper.java:86)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.BaseSearchIndexProvider.getPreferenceControllers(BaseSearchIndexProvider.java:169)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.BaseSearchIndexProvider.getNonIndexableKeys(BaseSearchIndexProvider.java:134)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.SettingsSearchIndexablesProvider.getNonIndexableKeysFromProvider(SettingsSearchIndexablesProvider.java:284)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at com.android.settings.search.SettingsSearchIndexablesProvider.queryNonIndexableKeys(SettingsSearchIndexablesProvider.java:157)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at android.provider.SearchIndexablesProvider.query(SearchIndexablesProvider.java:127)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProvider.query(ContentProvider.java:1620)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProvider.query(ContentProvider.java:1716)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProvider$Transport.query(ContentProvider.java:295)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:107)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
-11-24 04:10:29.637   969  4639 E HardwareInfoFeatureProviderImpl: 	at android.os.Binder.execTransact(Binder.java:1444)
-11-24 04:10:29.732   969  1624 E ScreenResolutionController: No support
-11-24 04:10:29.776   969  4639 E Settings: Error while retrieving application info for package com.google.android.apps.accessibility.magnifier
-11-24 04:10:29.776   969  4639 E Settings: android.content.pm.PackageManager$NameNotFoundException: com.google.android.apps.accessibility.magnifier
-11-24 04:10:29.776   969  4639 E Settings: 	at android.app.ApplicationPackageManager.getApplicationInfoAsUser(ApplicationPackageManager.java:524)
-11-24 04:10:29.776   969  4639 E Settings: 	at android.app.ApplicationPackageManager.getApplicationInfo(ApplicationPackageManager.java:507)
-11-24 04:10:29.776   969  4639 E Settings: 	at android.app.ApplicationPackageManager.getApplicationInfo(ApplicationPackageManager.java:501)
-11-24 04:10:29.776   969  4639 E Settings: 	at com.android.settings.Utils.isPackageEnabled(Utils.java:1166)
-11-24 04:10:29.776   969  4639 E Settings: 	at com.google.android.settings.accessibility.MagnifierPreferenceController.magnifierAlreadyInstalled(MagnifierPreferenceController.kt:37)
-11-24 04:10:29.776   969  4639 E Settings: 	at com.google.android.settings.accessibility.MagnifierPreferenceController.getAvailabilityStatus(MagnifierPreferenceController.kt:19)
-11-24 04:10:29.776   969  4639 E Settings: 	at com.android.settings.core.BasePreferenceController.isAvailable(BasePreferenceController.java:260)
-11-24 04:10:29.776   969  4639 E Settings: 	at com.android.settings.core.BasePreferenceController.updateNonIndexableKeys(BasePreferenceController.java:306)
-11-24 04:10:29.776   969  4639 E Settings: 	at com.android.settings.search.BaseSearchIndexProvider.getNonIndexableKeys(BaseSearchIndexProvider.java:141)
-11-24 04:10:29.776   969  4639 E Settings: 	at com.android.settings.search.SettingsSearchIndexablesProvider.getNonIndexableKeysFromProvider(SettingsSearchIndexablesProvider.java:284)
-11-24 04:10:29.776   969  4639 E Settings: 	at com.android.settings.search.SettingsSearchIndexablesProvider.queryNonIndexableKeys(SettingsSearchIndexablesProvider.java:157)
-11-24 04:10:29.776   969  4639 E Settings: 	at android.provider.SearchIndexablesProvider.query(SearchIndexablesProvider.java:127)
-11-24 04:10:29.776   969  4639 E Settings: 	at android.content.ContentProvider.query(ContentProvider.java:1620)
-11-24 04:10:29.776   969  4639 E Settings: 	at android.content.ContentProvider.query(ContentProvider.java:1716)
-11-24 04:10:29.776   969  4639 E Settings: 	at android.content.ContentProvider$Transport.query(ContentProvider.java:295)
-11-24 04:10:29.776   969  4639 E Settings: 	at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:107)
-11-24 04:10:29.776   969  4639 E Settings: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
-11-24 04:10:29.776   969  4639 E Settings: 	at android.os.Binder.execTransact(Binder.java:1444)
-11-24 04:10:29.781   969  4639 E Settings: Error while retrieving application info for package com.google.android.apps.tips
-11-24 04:10:29.781   969  4639 E Settings: android.content.pm.PackageManager$NameNotFoundException: com.google.android.apps.tips
-11-24 04:10:29.781   969  4639 E Settings: 	at android.app.ApplicationPackageManager.getApplicationInfoAsUser(ApplicationPackageManager.java:524)
-11-24 04:10:29.781   969  4639 E Settings: 	at android.app.ApplicationPackageManager.getApplicationInfo(ApplicationPackageManager.java:507)
-11-24 04:10:29.781   969  4639 E Settings: 	at android.app.ApplicationPackageManager.getApplicationInfo(ApplicationPackageManager.java:501)
-11-24 04:10:29.781   969  4639 E Settings: 	at com.android.settings.Utils.isPackageEnabled(Utils.java:1166)
-11-24 04:10:29.781   969  4639 E Settings: 	at com.google.android.settings.tips.TipsUtils.tipsAppEnabled(TipsUtils.kt:38)
-11-24 04:10:29.781   969  4639 E Settings: 	at com.google.android.settings.accessibility.MagnifierPreferenceController.getAvailabilityStatus(MagnifierPreferenceController.kt:19)
-11-24 04:10:29.781   969  4639 E Settings: 	at com.android.settings.core.BasePreferenceController.isAvailable(BasePreferenceController.java:260)
-11-24 04:10:29.781   969  4639 E Settings: 	at com.android.settings.core.BasePreferenceController.updateNonIndexableKeys(BasePreferenceController.java:306)
-11-24 04:10:29.781   969  4639 E Settings: 	at com.android.settings.search.BaseSearchIndexProvider.getNonIndexableKeys(BaseSearchIndexProvider.java:141)
-11-24 04:10:29.781   969  4639 E Settings: 	at com.android.settings.search.SettingsSearchIndexablesProvider.getNonIndexableKeysFromProvider(SettingsSearchIndexablesProvider.java:284)
-11-24 04:10:29.781   969  4639 E Settings: 	at com.android.settings.search.SettingsSearchIndexablesProvider.queryNonIndexableKeys(SettingsSearchIndexablesProvider.java:157)
-11-24 04:10:29.781   969  4639 E Settings: 	at android.provider.SearchIndexablesProvider.query(SearchIndexablesProvider.java:127)
-11-24 04:10:29.781   969  4639 E Settings: 	at android.content.ContentProvider.query(ContentProvider.java:1620)
-11-24 04:10:29.781   969  4639 E Settings: 	at android.content.ContentProvider.query(ContentProvider.java:1716)
-11-24 04:10:29.781   969  4639 E Settings: 	at android.content.ContentProvider$Transport.query(ContentProvider.java:295)
-11-24 04:10:29.781   969  4639 E Settings: 	at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:107)
-11-24 04:10:29.781   969  4639 E Settings: 	at android.os.Binder.execTransactInternal(Binder.java:1500)
-11-24 04:10:29.781   969  4639 E Settings: 	at android.os.Binder.execTransact(Binder.java:1444)
-11-24 04:10:30.031   969  1624 E BaseSearchIndex: com.android.settings.notification.modes.ZenModesListAddModePreferenceController must implement com.android.settings.core.PreferenceControllerMixin treating the dynamic indexable
-11-24 04:10:30.036   969  3198 E DeviceStateAutoRotHelpr: Mismatch between number of device states and device states descriptions.
-11-24 04:10:30.068   969  1624 E ScreenResolutionController: No support
-11-24 04:10:30.117   969  4639 E ScreenResolutionController: No support
-11-24 04:10:30.230   969  3198 E ScreenResolutionController: No support
-11-24 04:10:30.256   969  3198 E DeviceStateAutoRotHelpr: Mismatch between number of device states and device states descriptions.
-11-24 04:10:30.277  4815  4815 E gs.intelligence: Not starting debugger since process cannot load the jdwp agent.
-11-24 04:10:30.667  1542  2572 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.googlequicksearchbox/files/datadownload/shared/public/datadownloadfile_1795493319865
-11-24 04:10:30.668  1542  4445 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.googlequicksearchbox/files/datadownload/shared/public/datadownloadfile_1795493319864
-11-24 04:10:30.738  1542  4447 E MDD     : FileGroupManager downloadFileGroup smart_dictation_policy_config_group com.google.android.googlequicksearchbox can't finish!
-11-24 04:10:30.739  1542  4447 E MDD     : FileGroupManager: Expecting DownloadException's in AggregateException
-11-24 04:10:30.797   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-24 04:10:30.811   964   964 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-24 04:10:30.816   964   964 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-24 04:10:30.840  1542  2152 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.googlequicksearchbox/files/datadownload/shared/public/datadownloadfile_1795493319863
-11-24 04:10:30.842  1542  4446 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.googlequicksearchbox/files/datadownload/shared/public/datadownloadfile_1795493319862
-11-24 04:10:30.843   964   964 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-24 04:10:30.847   964   964 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-24 04:10:31.003  1542  2152 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.googlequicksearchbox/files/datadownload/shared/public/datadownloadfile_1795493319867_a64a3f98d26fa7e7180cd6d29bf44fced216fc32
-11-24 04:10:31.012   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-24 04:10:31.018  1542  2572 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.googlequicksearchbox/files/datadownload/shared/public/datadownloadfile_1795493319866_1d48ae4b292cd15bc945ae5ddedb9565d268f7e2
-11-24 04:10:31.042   969  4639 E ConvertToEsimPreference: Fail to check pSIM conversion supported carrier: Attempt to invoke virtual method 'boolean android.telephony.euicc.EuiccManager.isPsimConversionSupported(int)' on a null object reference
-11-24 04:10:31.058   969  4639 E ConvertToEsimPreference: Fail to check pSIM conversion supported carrier: Attempt to invoke virtual method 'boolean android.telephony.euicc.EuiccManager.isPsimConversionSupported(int)' on a null object reference
-11-24 04:10:31.088   559   866 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-24 04:10:31.239  1542  4447 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.googlequicksearchbox/files/datadownload/shared/public/datadownloadfile_1795493319868_5e9da2701f510020f2592c1e5b468922569445d7
+11-24 04:22:21.566   561  1765 E AppOps  : 	at android.app.AppOpsManager.checkOpNoThrow(AppOpsManager.java:9340)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.shouldAllowFgsStartForegroundNoBindingCheckLocked(ActiveServices.java:8831)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.shouldAllowFgsStartForegroundWithBindingCheckLocked(ActiveServices.java:8645)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.setFgsRestrictionLocked(ActiveServices.java:8288)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.setFgsRestrictionLocked(ActiveServices.java:8243)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.bindServiceLocked(ActiveServices.java:4326)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.am.ActivityManagerService.bindServiceInstance(ActivityManagerService.java:14231)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.am.ActivityManagerService.bindServiceInstance(ActivityManagerService.java:14191)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:2156)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at android.app.ContextImpl.bindServiceAsUser(ContextImpl.java:2069)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.bindService(ExplicitHealthCheckController.java:345)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.prepareServiceLocked(ExplicitHealthCheckController.java:450)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.getRequestedPackages(ExplicitHealthCheckController.java:268)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.lambda$syncRequests$3(ExplicitHealthCheckController.java:153)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.$r8$lambda$IIsfdI4E19kYetXH_5L-g69gD5U(ExplicitHealthCheckController.java:0)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController$$ExternalSyntheticLambda0.accept(R8$$SyntheticClass:0)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.lambda$getSupportedPackages$4(ExplicitHealthCheckController.java:251)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.$r8$lambda$mGwCwsEZmtVNkWk1gYFRO7gIRQk(ExplicitHealthCheckController.java:0)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController$$ExternalSyntheticLambda2.onResult(R8$$SyntheticClass:0)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at android.os.RemoteCallback.sendResult(RemoteCallback.java:76)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at android.os.RemoteCallback$1.sendResult(RemoteCallback.java:53)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at android.os.IRemoteCallback$Stub.onTransact(IRemoteCallback.java:85)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at android.os.Binder.execTransactInternal(Binder.java:1505)
+11-24 04:22:21.566   561  1765 E AppOps  : 	at android.os.Binder.execTransact(Binder.java:1444)
+11-24 04:22:21.566   561  1765 E AppOps  : Bad call made by uid 1000. Package "android" does not belong to uid 10194.
+11-24 04:22:21.570   561  1765 E AppOps  : Cannot checkOperation
+11-24 04:22:21.570   561  1765 E AppOps  : java.lang.SecurityException: Specified package "android" under uid 10194 but it is not
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.verifyAndGetBypass(AppOpsService.java:4668)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.verifyAndGetBypass(AppOpsService.java:4528)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.verifyAndGetBypass(AppOpsService.java:4520)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.checkOperationUnchecked(AppOpsService.java:2859)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.checkOperationImpl(AppOpsService.java:2841)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.-$$Nest$mcheckOperationImpl(AppOpsService.java:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService$CheckOpsDelegateDispatcher.$r8$lambda$p7Z0eGBUU1-Gt7vHG9S-93UhGlY(AppOpsService.java:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda9.apply(R8$$SyntheticClass:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.policy.AppOpsPolicy.checkOperation(AppOpsPolicy.java:235)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService$CheckOpsDelegateDispatcher.checkOperation(AppOpsService.java:7353)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.checkOperation(AppOpsService.java:2814)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.app.AppOpsManager.checkOpNoThrow(AppOpsManager.java:9347)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.app.AppOpsManager.checkOpNoThrow(AppOpsManager.java:9340)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.shouldAllowFgsStartForegroundNoBindingCheckLocked(ActiveServices.java:8840)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.shouldAllowFgsStartForegroundWithBindingCheckLocked(ActiveServices.java:8645)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.setFgsRestrictionLocked(ActiveServices.java:8288)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.setFgsRestrictionLocked(ActiveServices.java:8243)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.bindServiceLocked(ActiveServices.java:4326)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActivityManagerService.bindServiceInstance(ActivityManagerService.java:14231)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActivityManagerService.bindServiceInstance(ActivityManagerService.java:14191)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:2156)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.app.ContextImpl.bindServiceAsUser(ContextImpl.java:2069)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.bindService(ExplicitHealthCheckController.java:345)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.prepareServiceLocked(ExplicitHealthCheckController.java:450)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.getRequestedPackages(ExplicitHealthCheckController.java:268)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.lambda$syncRequests$3(ExplicitHealthCheckController.java:153)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.$r8$lambda$IIsfdI4E19kYetXH_5L-g69gD5U(ExplicitHealthCheckController.java:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController$$ExternalSyntheticLambda0.accept(R8$$SyntheticClass:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.lambda$getSupportedPackages$4(ExplicitHealthCheckController.java:251)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.$r8$lambda$mGwCwsEZmtVNkWk1gYFRO7gIRQk(ExplicitHealthCheckController.java:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController$$ExternalSyntheticLambda2.onResult(R8$$SyntheticClass:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.RemoteCallback.sendResult(RemoteCallback.java:76)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.RemoteCallback$1.sendResult(RemoteCallback.java:53)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.IRemoteCallback$Stub.onTransact(IRemoteCallback.java:85)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.Binder.execTransactInternal(Binder.java:1505)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.Binder.execTransact(Binder.java:1444)
+11-24 04:22:21.570   561  1765 E AppOps  : Bad call made by uid 1000. Package "android" does not belong to uid 10194.
+11-24 04:22:21.570   561  1765 E AppOps  : Cannot checkOperation
+11-24 04:22:21.570   561  1765 E AppOps  : java.lang.SecurityException: Specified package "android" under uid 10194 but it is not
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.verifyAndGetBypass(AppOpsService.java:4668)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.verifyAndGetBypass(AppOpsService.java:4528)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.verifyAndGetBypass(AppOpsService.java:4520)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.checkOperationUnchecked(AppOpsService.java:2859)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.checkOperationImpl(AppOpsService.java:2841)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.-$$Nest$mcheckOperationImpl(AppOpsService.java:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService$CheckOpsDelegateDispatcher.$r8$lambda$p7Z0eGBUU1-Gt7vHG9S-93UhGlY(AppOpsService.java:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda9.apply(R8$$SyntheticClass:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.policy.AppOpsPolicy.checkOperation(AppOpsPolicy.java:235)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService$CheckOpsDelegateDispatcher.checkOperation(AppOpsService.java:7353)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.appop.AppOpsService.checkOperation(AppOpsService.java:2814)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.app.AppOpsManager.checkOpNoThrow(AppOpsManager.java:9347)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.app.AppOpsManager.checkOpNoThrow(AppOpsManager.java:9340)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.shouldAllowFgsStartForegroundNoBindingCheckLocked(ActiveServices.java:8843)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.shouldAllowFgsStartForegroundWithBindingCheckLocked(ActiveServices.java:8645)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.setFgsRestrictionLocked(ActiveServices.java:8288)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.setFgsRestrictionLocked(ActiveServices.java:8243)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActiveServices.bindServiceLocked(ActiveServices.java:4326)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActivityManagerService.bindServiceInstance(ActivityManagerService.java:14231)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.am.ActivityManagerService.bindServiceInstance(ActivityManagerService.java:14191)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:2156)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.app.ContextImpl.bindServiceAsUser(ContextImpl.java:2069)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.bindService(ExplicitHealthCheckController.java:345)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.prepareServiceLocked(ExplicitHealthCheckController.java:450)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.getRequestedPackages(ExplicitHealthCheckController.java:268)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.lambda$syncRequests$3(ExplicitHealthCheckController.java:153)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.$r8$lambda$IIsfdI4E19kYetXH_5L-g69gD5U(ExplicitHealthCheckController.java:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController$$ExternalSyntheticLambda0.accept(R8$$SyntheticClass:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.lambda$getSupportedPackages$4(ExplicitHealthCheckController.java:251)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController.$r8$lambda$mGwCwsEZmtVNkWk1gYFRO7gIRQk(ExplicitHealthCheckController.java:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at com.android.server.ExplicitHealthCheckController$$ExternalSyntheticLambda2.onResult(R8$$SyntheticClass:0)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.RemoteCallback.sendResult(RemoteCallback.java:76)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.RemoteCallback$1.sendResult(RemoteCallback.java:53)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.IRemoteCallback$Stub.onTransact(IRemoteCallback.java:85)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.Binder.execTransactInternal(Binder.java:1505)
+11-24 04:22:21.570   561  1765 E AppOps  : 	at android.os.Binder.execTransact(Binder.java:1444)
+11-24 04:22:21.650  1535  3790 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.googlequicksearchbox/files/datadownload/shared/public/datadownloadfile_1795494064899_5e9da2701f510020f2592c1e5b468922569445d7
+11-24 04:22:21.708  1395  1600 E StorageManager: Failed to set extended attributes for /storage/emulated/0/Android to set project id.: Operation not permitted
+11-24 04:22:21.711  1395  1600 E StorageManager: Failed to set extended attributes for /storage/emulated/0/Android/media to set project id.: Operation not permitted
+11-24 04:22:21.766  1535  3747 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.googlequicksearchbox/files/datadownload/shared/public/datadownloadfile_1795494064900_b56351a773b9354cf1ebcacf86f309b6489173ac
+11-24 04:22:22.382  1535  3770 E SingleDataFileGroupPop: Failed to add file group 
+11-24 04:22:22.382  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.382  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.383  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.383  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.383  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.384  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.384  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.384  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.386  1535  3770 E SingleDataFileGroupPop: Failed to add file group 
+11-24 04:22:22.422  1535  3770 E SingleDataFileGroupPop: Failed to add file group 
+11-24 04:22:22.429  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.429  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.429  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.438  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.438  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.439  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.439  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.439  1535  3770 E PhFileGroupPop: Failed to add file group 
+11-24 04:22:22.443  1535  3770 E SingleDataFileGroupPop: Failed to add file group 
+11-24 04:22:22.906  1421  4959 E AiAiEcho: Reading elements from Geller failed with cause
+11-24 04:22:22.906  1421  4959 E AiAiEcho: iey: Code: UNKNOWN, Message: Geller data fetch is not enabled
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at ifp.a(PG:17)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at kzb.b(PG:22)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at aaer.g(PG:13)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at kotlinx.coroutines.DispatchedTask.run(PG:114)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at wqm.a(PG:3)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at wpo.run(PG:21)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at wqn.run(PG:5)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:307)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at hqv.run(PG:221)
+11-24 04:22:22.906  1421  4959 E AiAiEcho: 	at java.lang.Thread.run(Thread.java:1012)
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_en-US is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.915  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.916  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: xrv: java.lang.reflect.InvocationTargetException
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at xrw.c(PG:57)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at xdo.v(PG:37)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at xdo.e(PG:101)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at xdl.a(PG:36)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at mjl.L(PG:25)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at qel.f(PG:34)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at qdw.e(PG:7)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at mjo.a(PG:11)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at qem.run(PG:11)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at won.execute(PG:1)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at qeo.onPropertiesChanged(PG:47)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at android.provider.DeviceConfig.lambda$handleChange$0(DeviceConfig.java:1661)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at android.provider.DeviceConfig$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at wqm.a(PG:3)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at wpo.run(PG:21)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at wqn.run(PG:5)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:307)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at hqv.run(PG:221)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at java.lang.Thread.run(Thread.java:1012)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: Caused by: java.lang.reflect.InvocationTargetException
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at java.lang.reflect.Method.invoke(Native Method)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at xrw.c(PG:50)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	... 23 more
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: Caused by: java.lang.IllegalStateException: No underlying SoundTriggerModule available
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	at android.media.soundtrigger.SoundTriggerManager.deleteModel(SoundTriggerManager.java:264)
+11-24 04:22:22.926  1421  1668 E AmbientMusicServiceMana: 	... 25 more
+11-24 04:22:23.113  1137  2054 E WakeLock: IntentOp:.chimera.container.InitConfigOperation ** IS FORCE-RELEASED ON TIMEOUT **
+11-24 04:22:23.594  2129  2129 E tflite  : third_party/tensorflow/lite/core/subgraph.cc:1059 tensor.data.raw != nullptr was not true.
+11-24 04:22:23.975   561   885 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-24 04:22:23.990   956   956 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-24 04:22:23.991   956   956 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-24 04:22:24.000   561   885 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-24 04:22:24.005   956   956 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-24 04:22:24.005   956   956 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-24 04:22:24.027   561   885 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.256  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_en-US is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.257  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_en-US is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.260  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.294  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.294  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.294  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.294  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.294  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.296  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_en-US is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.297  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.302  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_en-US is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.303  1421  1661 E SP.Service.AiAi: captions_i18n_v0_mandatory is opened by other clients. It will stay open until all clients close it.
+11-24 04:22:24.343  1421  4984 E AiAiCaptions: loadManifest(): Failed to register manifest of superpack 'captions_i18n_v0_background' (version 20240604)
+11-24 04:22:24.343  1421  4984 E AiAiCaptions: android.os.RemoteException: Task was cancelled.
+11-24 04:22:24.343  1421  4984 E AiAiCaptions: 	at sdd.e(PG:8)
+11-24 04:22:24.343  1421  4984 E AiAiCaptions: 	at sec.a(PG:53)
+11-24 04:22:24.343  1421  4984 E AiAiCaptions: 	at wpe.run(PG:37)
+11-24 04:22:24.343  1421  4984 E AiAiCaptions: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-24 04:22:24.343  1421  4984 E AiAiCaptions: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-24 04:22:24.343  1421  4984 E AiAiCaptions: 	at java.lang.Thread.run(Thread.java:1012)

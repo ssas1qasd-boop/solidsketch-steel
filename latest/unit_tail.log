@@ -121,9 +121,9 @@ This will become an error in Kotlin 2.1.
 > Task :core-io:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :core-io:processDebugUnitTestJavaRes
 > Task :steel:compileDebugKotlin
-> Task :core-io:testDebugUnitTest
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
 > Task :steel:bundleLibCompileToJarDebug
+> Task :core-io:testDebugUnitTest
 > Task :steel:bundleLibRuntimeToJarDebug
 > Task :steel:processDebugJavaRes
 > Task :core-view:compileDebugUnitTestKotlin
@@ -131,19 +131,19 @@ This will become an error in Kotlin 2.1.
 > Task :core-view:processDebugUnitTestJavaRes
 > Task :core-view:testDebugUnitTest
 > Task :app:compileDebugKotlin
+> Task :steel:compileDebugUnitTestKotlin
+> Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :steel:processDebugUnitTestJavaRes
 > Task :app:compileDebugJavaWithJavac
 > Task :app:bundleDebugClassesToRuntimeJar
 > Task :app:bundleDebugClassesToCompileJar
-> Task :steel:compileDebugUnitTestKotlin
-> Task :app:processDebugJavaRes
-> Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
-> Task :steel:processDebugUnitTestJavaRes
 > Task :steel:testDebugUnitTest
+> Task :app:processDebugJavaRes
 > Task :app:compileDebugUnitTestKotlin
 > Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :app:processDebugUnitTestJavaRes
 > Task :app:testDebugUnitTest
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795492823410.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795493608917.json
 
-BUILD SUCCESSFUL in 2m 3s
+BUILD SUCCESSFUL in 1m 47s
 93 actionable tasks: 93 executed
