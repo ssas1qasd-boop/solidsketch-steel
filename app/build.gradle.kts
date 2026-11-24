@@ -16,7 +16,10 @@ android {
         targetSdk = 35
         versionCode = 14
         versionName = "0.9.3-s9b"
-        ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // instrumented tests write screenshots with TestStorage → build/outputs/connected_android_test_additional_output
+        testInstrumentationRunnerArguments["useTestStorageService"] = "true"
+        ndk { abiFilters += (providers.gradleProperty("abis").orNull?.split(",") ?: listOf("arm64-v8a", "x86_64")) }   // -Pabis=x86_64: the emulator CI builds one ABI
     }
 
     buildTypes {
@@ -58,6 +61,14 @@ dependencies {
     testImplementation(platform(libs.androidx.compose.bom))
     testImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    // Emulator UI tests (.github/workflows/android-emulator.yml); Apache-2.0, test only, never in the APK
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test:runner:1.6.2")
+    androidTestImplementation("androidx.test.services:storage:1.5.0")
+    androidTestImplementation(libs.kotlinx.serialization.json)
+    androidTestUtil("androidx.test.services:test-services:1.5.0")
 }
 
 // S9b: with -PlocalM2=<dir>, Robolectric runs offline from <dir>/robolectric-deps (Maven Central answered 429 in the cloud session).

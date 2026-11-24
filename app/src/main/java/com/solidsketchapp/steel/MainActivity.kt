@@ -99,6 +99,18 @@ class MainActivity : ComponentActivity() {
     private var tool by mutableStateOf("select")
     private fun toast(msg: String) { toastMsg = msg to System.nanoTime() }
 
+    // ---- hooks for the emulator UI tests (app/src/androidTest; internal, not used by the app itself) ----
+    internal val testSteel get() = steel
+    internal val testViewport get() = viewport
+    internal val testDoc get() = doc
+    internal val testToast get() = toastMsg?.first
+    internal val testBusy get() = busy
+    /** The grid labels as the overlay drew them last (text, x, y in px). */
+    @Volatile internal var testLabels: List<Triple<String, Float, Float>> = emptyList()
+    /** Save / open through the same code as the menu's Save model / Open model (the system file picker is skipped). */
+    internal fun testSave(f: java.io.File) = saveSs(Uri.fromFile(f))
+    internal fun testOpen(f: java.io.File) = openSs(Uri.fromFile(f))
+
     private val openLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri -> uri?.let(::openSs) }
     private val saveLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("application/octet-stream")) { uri -> uri?.let(::saveSs) }
 
@@ -181,7 +193,7 @@ class MainActivity : ComponentActivity() {
             "Tap a body to select · drag to orbit · pinch to zoom", menuOpen)
         com.solidsketchapp.steel.ui.AppLayout(state,
             view = { AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize()) },
-            steel = if (m != null && m.on) ({ SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }, viewRev = { viewTick }, scaleAt = { viewport.camera.pxPerUnit(it)?.toFloat() }); SteelPanel(m, tick, pics = compPics) }) else null,
+            steel = if (m != null && m.on) ({ SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }, viewRev = { viewTick }, scaleAt = { viewport.camera.pxPerUnit(it)?.toFloat() }, onDrawn = { testLabels = it }); SteelPanel(m, tick, pics = compPics) }) else null,
             onUndo = { undo.undo() }, onRedo = { undo.redo() }, onDelete = { undo.group("Delete") { sel.forEach(doc::removeBody) } },
             onSoon = { toast("$it comes with the main SolidSketch port") }, onMore = { menuOpen = !menuOpen }, onTool = ::pickTool,
             toast = toastMsg?.first,

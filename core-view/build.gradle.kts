@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         minSdk = 24
-        ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
+        ndk { abiFilters += (providers.gradleProperty("abis").orNull?.split(",") ?: listOf("arm64-v8a", "x86_64")) }   // -Pabis=x86_64: the emulator CI builds one ABI
         externalNativeBuild { cmake { cppFlags += "-std=c++17" } }
     }
     externalNativeBuild {
