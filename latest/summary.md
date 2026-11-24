@@ -1,12 +1,12 @@
-# Emulator UI run 45338347883 (7ed9f5b)
+# Emulator UI run 45340233964 (6121d1b)
 
 - data files on main: true
 - KVM: yes · runner cores: 2
 - unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 0 (213 s)
-- job time until this step: 824 s = 13.7 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 1 (374 s)
+- job time until this step: 905 s = 15.1 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -20,66 +20,77 @@ Night mode: yes
 [ ] com.android.internal.systemui.navbar.gestural
 ```
 
-JUnit (unit + instrumented): 38 tests, 0 failed
+JUnit (unit + instrumented): 40 tests, 1 failed
+
+```
+com.solidsketchapp.steel.EmulatorFlowTest.ownerWorkflow: java.lang.AssertionError: failed steps:
+portal_create: timed out waiting for the portal frame's parts
+at org.junit.Assert.fail(Assert.java:89)
+at org.junit.Assert.assertTrue(Assert.java:42)
+at com.solidsketchapp.steel.EmulatorFlowTest.ownerWorkflow(EmulatorFlowTest.kt:279)
+
+```
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 3432 |  |
-| steel | ✓ | 10413 |  |
-| grid | ✓ | 9760 |  |
-| orbit | ✓ | 3712 |  |
-| pan | ✓ | 1691 |  |
-| zoom | ✓ | 1716 |  |
-| column | ✓ | 4030 |  |
-| properties_apply | ✓ | 11554 |  |
-| beam | ✓ | 3810 |  |
-| properties_modify | ✓ | 10004 |  |
-| catalog | ✓ | 5780 |  |
-| endplate_dialog | ✓ | 4866 |  |
-| endplate_pick | ✓ | 5808 |  |
-| save_open | ✓ | 3996 |  |
+| start | ✓ | 2430 |  |
+| steel | ✓ | 7216 |  |
+| grid | ✓ | 7500 |  |
+| orbit | ✓ | 4212 |  |
+| pan | ✓ | 1729 |  |
+| zoom | ✓ | 1984 |  |
+| column | ✓ | 3741 |  |
+| properties_apply | ✓ | 9941 |  |
+| beam | ✓ | 3174 |  |
+| properties_modify | ✓ | 7603 |  |
+| catalog | ✓ | 6137 |  |
+| endplate_dialog | ✓ | 3820 |  |
+| endplate_pick | ✓ | 4174 |  |
+| save_open | ✓ | 2152 |  |
+| portal_create | ✗ | 147577 | timed out waiting for the portal frame's parts |
+| portal_modify | ✓ | 31137 |  |
 
 connected.log (end):
 ```
-> Task :app:mergeDebugJniLibFolders UP-TO-DATE
-> Task :app:mergeDebugNativeLibs UP-TO-DATE
-> Task :app:stripDebugDebugSymbols UP-TO-DATE
-> Task :app:validateSigningDebug UP-TO-DATE
-> Task :app:writeDebugAppMetadata UP-TO-DATE
-> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :app:packageDebug UP-TO-DATE
-> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :app:mergeDebugAndroidTestShaders UP-TO-DATE
-> Task :app:compileDebugAndroidTestShaders NO-SOURCE
-> Task :app:generateDebugAndroidTestAssets UP-TO-DATE
-> Task :app:mergeDebugAndroidTestAssets UP-TO-DATE
-> Task :app:compressDebugAndroidTestAssets UP-TO-DATE
-> Task :app:desugarDebugAndroidTestFileDependencies UP-TO-DATE
-> Task :app:dexBuilderDebugAndroidTest UP-TO-DATE
-> Task :app:mergeDebugAndroidTestGlobalSynthetics UP-TO-DATE
-> Task :app:processDebugAndroidTestJavaRes UP-TO-DATE
-> Task :app:mergeDebugAndroidTestJavaResource UP-TO-DATE
-> Task :app:checkDebugAndroidTestDuplicateClasses UP-TO-DATE
-> Task :app:mergeExtDexDebugAndroidTest UP-TO-DATE
-> Task :app:mergeLibDexDebugAndroidTest UP-TO-DATE
-> Task :app:mergeProjectDexDebugAndroidTest UP-TO-DATE
-> Task :app:mergeDebugAndroidTestJniLibFolders UP-TO-DATE
-> Task :app:mergeDebugAndroidTestNativeLibs NO-SOURCE
-> Task :app:stripDebugAndroidTestDebugSymbols NO-SOURCE
-> Task :app:validateSigningDebugAndroidTest UP-TO-DATE
-> Task :app:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE
-> Task :app:packageDebugAndroidTest UP-TO-DATE
-> Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
-[EmulatorConsole]: Failed to start Emulator console for 5554
-> Task :app:connectedDebugAndroidTest
-Starting 1 tests on emulator-5554 - 15
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
 
-emulator-5554 - 15 Tests 0/1 completed. (0 skipped) (0 failed)
-emulator-5554 - 15 Tests 1/1 completed. (0 skipped) (0 failed)
-Finished 1 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795501099570.json
 
-BUILD SUCCESSFUL in 3m 32s
+BUILD FAILED in 6m 13s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```
