@@ -1,0 +1,16 @@
+[
+{"step":"start","ok":true,"ms":3513,"message":""},
+{"step":"steel","ok":true,"ms":10919,"message":""},
+{"step":"grid","ok":true,"ms":13293,"message":""},
+{"step":"orbit","ok":false,"ms":6384,"message":"timed out waiting for the view to orbit"},
+{"step":"pan","ok":true,"ms":840,"message":""},
+{"step":"zoom","ok":true,"ms":961,"message":""},
+{"step":"column","ok":false,"ms":21582,"message":"timed out waiting for a column"},
+{"step":"properties_apply","ok":false,"ms":21588,"message":"timed out waiting for the property sheet"},
+{"step":"beam","ok":false,"ms":20280,"message":"timed out waiting for a beam"},
+{"step":"properties_modify","ok":false,"ms":201,"message":"List is empty."},
+{"step":"catalog","ok":false,"ms":20212,"message":"timed out waiting for the catalog"},
+{"step":"endplate_dialog","ok":false,"ms":20234,"message":"timed out waiting for the End plate (144) dialog"},
+{"step":"endplate_pick","ok":false,"ms":187,"message":"Collection contains no element matching the predicate."},
+{"step":"save_open","ok":true,"ms":1135,"message":""}
+]
