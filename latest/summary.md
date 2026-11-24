@@ -1,12 +1,12 @@
-# Emulator UI run 45326349285 (06bb89b)
+# Emulator UI run 45338347883 (7ed9f5b)
 
 - data files on main: true
 - KVM: yes · runner cores: 2
 - unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 0 (212 s)
-- job time until this step: 802 s = 13.4 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 0 (213 s)
+- job time until this step: 824 s = 13.7 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -20,24 +20,24 @@ Night mode: yes
 [ ] com.android.internal.systemui.navbar.gestural
 ```
 
-JUnit (unit + instrumented): 36 tests, 0 failed
+JUnit (unit + instrumented): 38 tests, 0 failed
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 3565 |  |
-| steel | ✓ | 11557 |  |
-| grid | ✓ | 10157 |  |
-| orbit | ✓ | 1700 |  |
-| pan | ✓ | 1366 |  |
-| zoom | ✓ | 2184 |  |
-| column | ✓ | 3180 |  |
-| properties_apply | ✓ | 10717 |  |
-| beam | ✓ | 3951 |  |
-| properties_modify | ✓ | 9058 |  |
-| catalog | ✓ | 8258 |  |
-| endplate_dialog | ✓ | 3845 |  |
-| endplate_pick | ✓ | 6420 |  |
-| save_open | ✓ | 4044 |  |
+| start | ✓ | 3432 |  |
+| steel | ✓ | 10413 |  |
+| grid | ✓ | 9760 |  |
+| orbit | ✓ | 3712 |  |
+| pan | ✓ | 1691 |  |
+| zoom | ✓ | 1716 |  |
+| column | ✓ | 4030 |  |
+| properties_apply | ✓ | 11554 |  |
+| beam | ✓ | 3810 |  |
+| properties_modify | ✓ | 10004 |  |
+| catalog | ✓ | 5780 |  |
+| endplate_dialog | ✓ | 4866 |  |
+| endplate_pick | ✓ | 5808 |  |
+| save_open | ✓ | 3996 |  |
 
 connected.log (end):
 ```
@@ -77,9 +77,9 @@ Starting 1 tests on emulator-5554 - 15
 emulator-5554 - 15 Tests 0/1 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/1 completed. (0 skipped) (0 failed)
 Finished 1 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795494865655.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795501099570.json
 
-BUILD SUCCESSFUL in 3m 31s
+BUILD SUCCESSFUL in 3m 32s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```

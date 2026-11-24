@@ -38,23 +38,23 @@
 > Task :core-io:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:checkDebugAarMetadata UP-TO-DATE
 > Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
 > Task :core-io:compileDebugKotlin UP-TO-DATE
 > Task :core-io:javaPreCompileDebug UP-TO-DATE
 > Task :core-io:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-io:bundleLibCompileToJarDebug UP-TO-DATE
-> Task :app:mapDebugSourceSetPaths UP-TO-DATE
 > Task :core-view:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :app:generateDebugResources UP-TO-DATE
 > Task :app:mergeDebugResources UP-TO-DATE
-> Task :core-view:compileDebugKotlin UP-TO-DATE
-> Task :core-view:javaPreCompileDebug UP-TO-DATE
 > Task :app:packageDebugResources UP-TO-DATE
-> Task :core-view:compileDebugJavaWithJavac NO-SOURCE
 > Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :core-view:compileDebugKotlin UP-TO-DATE
 > Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :core-view:javaPreCompileDebug UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :core-view:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-view:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :steel:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :app:extractDeepLinksDebug UP-TO-DATE
 > Task :app:processDebugMainManifest UP-TO-DATE
 > Task :app:processDebugManifest UP-TO-DATE
 > Task :app:processDebugManifestForPackage UP-TO-DATE
@@ -62,7 +62,6 @@
 > Task :steel:javaPreCompileDebug UP-TO-DATE
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
 > Task :steel:bundleLibCompileToJarDebug UP-TO-DATE
-> Task :app:processDebugResources UP-TO-DATE
 > Task :core-io:mergeDebugShaders UP-TO-DATE
 > Task :core-io:compileDebugShaders NO-SOURCE
 > Task :core-io:generateDebugAssets UP-TO-DATE
@@ -74,10 +73,11 @@
 > Task :steel:mergeDebugShaders UP-TO-DATE
 > Task :steel:compileDebugShaders NO-SOURCE
 > Task :steel:generateDebugAssets UP-TO-DATE
-> Task :app:compileDebugKotlin UP-TO-DATE
-> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
 > Task :steel:packageDebugAssets UP-TO-DATE
 > Task :core-view:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :app:compileDebugKotlin UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
 > Task :app:compileDebugJavaWithJavac UP-TO-DATE
 > Task :app:mergeDebugShaders UP-TO-DATE
 > Task :app:compileDebugShaders NO-SOURCE
@@ -106,14 +106,14 @@
 > Task :core-io:copyDebugJniLibsProjectOnly
 > Task :fetchManifold
 > Task :app:mergeLibDexDebug
-> Task :core-view:configureCMakeDebug[x86_64]
 > Task :steel:configureCMakeDebug[x86_64]
+> Task :core-view:configureCMakeDebug[x86_64]
 > Task :steel:buildCMakeDebug[x86_64]
 > Task :core-view:buildCMakeDebug[x86_64]
-> Task :core-view:mergeDebugJniLibFolders
 > Task :steel:mergeDebugJniLibFolders
-> Task :steel:mergeDebugNativeLibs
+> Task :core-view:mergeDebugJniLibFolders
 > Task :core-view:mergeDebugNativeLibs
+> Task :steel:mergeDebugNativeLibs
 > Task :steel:copyDebugJniLibsProjectOnly
 > Task :core-view:copyDebugJniLibsProjectOnly
 > Task :core-io:stripDebugDebugSymbols NO-SOURCE
@@ -128,20 +128,15 @@
 > Task :core-io:syncDebugLibJars
 > Task :core-io:bundleDebugAar
 > Task :core-io:assembleDebug
-> Task :app:validateSigningDebug
 > Task :core-view:stripDebugDebugSymbols
-> Task :app:writeDebugAppMetadata
-> Task :app:writeDebugSigningConfigVersions
 > Task :core-view:copyDebugJniLibsProjectAndLocalJars
 > Task :core-view:extractDebugAnnotations
 > Task :core-view:extractDeepLinksForAarDebug
 > Task :core-view:mergeDebugGeneratedProguardFiles
 > Task :core-view:mergeDebugConsumerProguardFiles
-> Task :app:mergeDebugNativeLibs
 > Task :core-view:prepareDebugArtProfile
 > Task :core-view:prepareLintJarForPublish
 > Task :core-view:mergeDebugJavaResource
-> Task :app:stripDebugDebugSymbols
 > Task :core-view:syncDebugLibJars
 > Task :core-view:bundleDebugAar
 > Task :core-view:assembleDebug
@@ -154,10 +149,14 @@
 > Task :steel:prepareDebugArtProfile
 > Task :steel:prepareLintJarForPublish
 > Task :steel:mergeDebugJavaResource
+> Task :app:validateSigningDebug
 > Task :steel:syncDebugLibJars
-> Task :app:packageDebug
-> Task :app:createDebugApkListingFileRedirect
-> Task :app:assembleDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:mergeDebugNativeLibs
+> Task :app:stripDebugDebugSymbols
+> Task :steel:bundleDebugAar
+> Task :steel:assembleDebug
 > Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
 > Task :app:preDebugAndroidTestBuild SKIPPED
 > Task :app:processDebugAndroidTestManifest
@@ -166,35 +165,28 @@
 > Task :app:generateDebugAndroidTestResValues
 > Task :app:mapDebugAndroidTestSourceSetPaths
 > Task :app:generateDebugAndroidTestResources
-> Task :steel:bundleDebugAar
-> Task :steel:assembleDebug
-> Task :core-io:preDebugAndroidTestBuild UP-TO-DATE
-> Task :core-io:checkDebugAndroidTestAarMetadata
-> Task :core-io:generateDebugAndroidTestResValues
-> Task :core-io:mapDebugAndroidTestSourceSetPaths
-> Task :core-io:generateDebugAndroidTestResources
-> Task :core-io:processDebugAndroidTestManifest
-> Task :core-io:javaPreCompileDebugAndroidTest
-> Task :core-io:mergeDebugAndroidTestShaders
-> Task :core-io:compileDebugAndroidTestShaders NO-SOURCE
-> Task :core-io:generateDebugAndroidTestAssets UP-TO-DATE
-> Task :core-io:mergeDebugAndroidTestAssets
-> Task :core-io:compressDebugAndroidTestAssets
-> Task :core-io:desugarDebugAndroidTestFileDependencies
-> Task :core-io:checkDebugAndroidTestDuplicateClasses
-> Task :core-io:mergeExtDexDebugAndroidTest
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
 > Task :app:javaPreCompileDebugAndroidTest
 > Task :app:mergeDebugAndroidTestShaders
 > Task :app:compileDebugAndroidTestShaders NO-SOURCE
 > Task :app:generateDebugAndroidTestAssets UP-TO-DATE
 > Task :app:mergeDebugAndroidTestResources
+> Task :core-io:preDebugAndroidTestBuild UP-TO-DATE
 > Task :app:mergeDebugAndroidTestAssets
+> Task :core-io:checkDebugAndroidTestAarMetadata
+> Task :core-io:generateDebugAndroidTestResValues
+> Task :core-io:mapDebugAndroidTestSourceSetPaths
+> Task :core-io:generateDebugAndroidTestResources
+> Task :core-io:processDebugAndroidTestManifest
 > Task :app:compressDebugAndroidTestAssets
-> Task :core-io:mergeDebugAndroidTestResources
 > Task :app:desugarDebugAndroidTestFileDependencies
 > Task :app:checkDebugAndroidTestDuplicateClasses
-> Task :core-io:processDebugAndroidTestResources
+> Task :app:processDebugAndroidTestResources
 > Task :app:mergeExtDexDebugAndroidTest
+> Task :core-io:mergeDebugAndroidTestResources
+> Task :core-io:processDebugAndroidTestResources
 > Task :app:mergeLibDexDebugAndroidTest
 > Task :app:mergeDebugAndroidTestJniLibFolders
 > Task :app:mergeDebugAndroidTestNativeLibs NO-SOURCE
@@ -202,14 +194,22 @@
 > Task :app:validateSigningDebugAndroidTest
 > Task :app:writeDebugAndroidTestSigningConfigVersions
 > Task :core-io:compileDebugAndroidTestKotlin NO-SOURCE
+> Task :core-io:javaPreCompileDebugAndroidTest
 > Task :core-io:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :core-io:mergeDebugAndroidTestShaders
+> Task :core-io:compileDebugAndroidTestShaders NO-SOURCE
+> Task :core-io:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :core-io:mergeDebugAndroidTestAssets
+> Task :core-io:compressDebugAndroidTestAssets
+> Task :core-io:desugarDebugAndroidTestFileDependencies
 > Task :core-io:dexBuilderDebugAndroidTest
 > Task :core-io:mergeDebugAndroidTestGlobalSynthetics
 > Task :core-io:processDebugAndroidTestJavaRes NO-SOURCE
 > Task :core-io:mergeDebugAndroidTestJavaResource
+> Task :core-io:checkDebugAndroidTestDuplicateClasses
+> Task :core-io:mergeExtDexDebugAndroidTest
 > Task :core-io:mergeLibDexDebugAndroidTest
 > Task :core-io:mergeProjectDexDebugAndroidTest
-> Task :app:processDebugAndroidTestResources
 > Task :core-io:mergeDebugAndroidTestJniLibFolders
 > Task :core-io:mergeDebugAndroidTestNativeLibs NO-SOURCE
 > Task :core-io:stripDebugAndroidTestDebugSymbols NO-SOURCE
@@ -281,10 +281,10 @@
 > Task :steel:stripDebugAndroidTestDebugSymbols
 > Task :steel:validateSigningDebugAndroidTest
 > Task :steel:writeDebugAndroidTestSigningConfigVersions
+> Task :app:compileDebugAndroidTestKotlin
 > Task :steel:packageDebugAndroidTest
 > Task :steel:createDebugAndroidTestApkListingFileRedirect
 > Task :steel:assembleDebugAndroidTest
-> Task :app:compileDebugAndroidTestKotlin
 > Task :app:compileDebugAndroidTestJavaWithJavac
 > Task :app:dexBuilderDebugAndroidTest
 > Task :app:mergeDebugAndroidTestGlobalSynthetics
@@ -294,7 +294,7 @@
 > Task :app:packageDebugAndroidTest
 > Task :app:createDebugAndroidTestApkListingFileRedirect
 > Task :app:assembleDebugAndroidTest
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/build-1795494553292.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/build-1795500777533.json
 
 BUILD SUCCESSFUL in 2m 17s
 240 actionable tasks: 169 executed, 71 up-to-date

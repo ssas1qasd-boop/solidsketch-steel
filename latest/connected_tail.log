@@ -1,7 +1,7 @@
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
-> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:generateDebugBuildConfig UP-TO-DATE
@@ -46,30 +46,32 @@ Daemon will be stopped at the end of the build
 > Task :core-io:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:checkDebugAarMetadata UP-TO-DATE
 > Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
 > Task :core-io:compileDebugKotlin UP-TO-DATE
 > Task :core-io:javaPreCompileDebug UP-TO-DATE
 > Task :core-io:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-io:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :core-view:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :app:mapDebugSourceSetPaths UP-TO-DATE
-> Task :app:generateDebugResources UP-TO-DATE
-> Task :core-view:compileDebugKotlin UP-TO-DATE
-> Task :core-view:javaPreCompileDebug UP-TO-DATE
-> Task :core-view:compileDebugJavaWithJavac NO-SOURCE
-> Task :core-view:bundleLibCompileToJarDebug UP-TO-DATE
-> Task :steel:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:mergeDebugResources UP-TO-DATE
 > Task :app:packageDebugResources UP-TO-DATE
 > Task :app:parseDebugLocalResources UP-TO-DATE
 > Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
 > Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :core-view:compileDebugKotlin UP-TO-DATE
+> Task :core-view:javaPreCompileDebug UP-TO-DATE
+> Task :core-view:compileDebugJavaWithJavac NO-SOURCE
+> Task :core-view:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :steel:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:processDebugMainManifest UP-TO-DATE
 > Task :app:processDebugManifest UP-TO-DATE
 > Task :app:processDebugManifestForPackage UP-TO-DATE
 > Task :steel:compileDebugKotlin UP-TO-DATE
 > Task :steel:javaPreCompileDebug UP-TO-DATE
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:processDebugResources UP-TO-DATE
 > Task :steel:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
 > Task :core-io:mergeDebugShaders UP-TO-DATE
 > Task :core-io:compileDebugShaders NO-SOURCE
 > Task :core-io:generateDebugAssets UP-TO-DATE
@@ -81,22 +83,20 @@ Daemon will be stopped at the end of the build
 > Task :steel:mergeDebugShaders UP-TO-DATE
 > Task :steel:compileDebugShaders NO-SOURCE
 > Task :steel:generateDebugAssets UP-TO-DATE
-> Task :app:processDebugResources UP-TO-DATE
 > Task :steel:packageDebugAssets UP-TO-DATE
 > Task :core-view:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :core-io:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :steel:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :app:compileDebugKotlin UP-TO-DATE
 > Task :core-io:processDebugJavaRes UP-TO-DATE
 > Task :core-view:processDebugJavaRes UP-TO-DATE
-> Task :steel:processDebugJavaRes UP-TO-DATE
-> Task :core-view:bundleLibRuntimeToDirDebug UP-TO-DATE
-> Task :core-io:bundleLibRuntimeToDirDebug UP-TO-DATE
-> Task :app:compileDebugKotlin UP-TO-DATE
-> Task :app:javaPreCompileDebug UP-TO-DATE
-> Task :steel:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :steel:processDebugJavaRes UP-TO-DATE
 > Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
 > Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :core-view:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :core-io:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :steel:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :core-io:mergeDebugJniLibFolders UP-TO-DATE
 > Task :core-io:mergeDebugNativeLibs NO-SOURCE
 > Task :core-io:copyDebugJniLibsProjectOnly UP-TO-DATE
@@ -116,15 +116,15 @@ Daemon will be stopped at the end of the build
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
 > Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
 > Task :core-view:configureCMakeDebug[x86_64]
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
 > Task :core-view:buildCMakeDebug[x86_64]
 > Task :core-view:mergeDebugJniLibFolders UP-TO-DATE
 > Task :core-view:mergeDebugNativeLibs UP-TO-DATE
-> Task :app:compressDebugAssets UP-TO-DATE
 > Task :core-view:copyDebugJniLibsProjectOnly UP-TO-DATE
-> Task :app:desugarDebugFileDependencies UP-TO-DATE
 > Task :steel:configureCMakeDebug[x86_64]
-> Task :app:dexBuilderDebug UP-TO-DATE
 > Task :steel:buildCMakeDebug[x86_64]
 > Task :steel:mergeDebugJniLibFolders UP-TO-DATE
 > Task :steel:mergeDebugNativeLibs UP-TO-DATE
@@ -172,7 +172,7 @@ Starting 1 tests on emulator-5554 - 15
 emulator-5554 - 15 Tests 0/1 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/1 completed. (0 skipped) (0 failed)
 Finished 1 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795494865655.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795501099570.json
 
-BUILD SUCCESSFUL in 3m 31s
+BUILD SUCCESSFUL in 3m 32s
 133 actionable tasks: 6 executed, 127 up-to-date
