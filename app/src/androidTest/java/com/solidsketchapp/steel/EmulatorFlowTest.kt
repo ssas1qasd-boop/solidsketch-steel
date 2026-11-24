@@ -11,6 +11,7 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextReplacement
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.pinch
@@ -68,6 +69,8 @@ class EmulatorFlowTest {
     }
 
     private fun button(text: String) = compose.onNode(hasText(text) and hasClickAction(), useUnmergedTree = false)
+    /** A panel button: the panel's rows scroll sideways, so scroll it into view first (a click off screen lands nowhere). */
+    private fun press(text: String) { button(text).performScrollTo(); button(text).performClick(); compose.waitForIdle() }
     private fun mode(): SteelMode = act.testSteel ?: throw AssertionError("Steel mode not set up")
     private fun screen(p: Vec3): Offset = act.testViewport.worldToScreen(p)?.let { Offset(it.first, it.second) } ?: throw AssertionError("point $p behind the camera")
     private fun tapAt(o: Offset) { compose.onRoot().performTouchInput { click(o) }; compose.waitForIdle() }
@@ -87,7 +90,9 @@ class EmulatorFlowTest {
         assertTrue("$what: " + bad.joinToString("; "), bad.isEmpty())
     }
 
-    private fun camKey(): String = act.testViewport.worldToScreen(Vec3(0.0, 0.0, 0.0))?.let { "%.1f,%.1f".format(it.first, it.second) } ?: "-"
+    /** Where three model points are on screen: changes with any orbit, pan or zoom (one point at the orbit target would not). */
+    private fun camKey(): String = listOf(Vec3(0.0, 0.0, 0.0), Vec3(20000.0, 0.0, 0.0), Vec3(0.0, 15000.0, 6000.0))
+        .joinToString(" ") { p -> act.testViewport.worldToScreen(p)?.let { "%.1f,%.1f".format(it.first, it.second) } ?: "-" }
 
     @Test fun ownerWorkflow() {
         val w = act.window.decorView.width.toFloat(); val h = act.window.decorView.height.toFloat()
@@ -102,17 +107,18 @@ class EmulatorFlowTest {
             button("Steel").performClick()
             waitFor("the Steel panel") { compose.onAllNodes(hasText("Grid") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
             assertTrue("Steel mode is not on", mode().on)
+            // v69 stToggle: an empty model looks at the grid from 1.6 × its span (default grid: 36 m → 57.6 m)
+            val d = act.testViewport.camera.distance; assertTrue("camera distance $d, v69 57600", abs(d - 57600.0) < 1.0)
             waitFor("the component catalog data") { mode().comps != null }
         }
         step("grid") {
-            button("Grid").performClick()
+            press("Grid")
             waitFor("the grid sheet") { compose.onAllNodes(hasSetTextAction()).fetchSemanticsNodes().size >= 3 }
             val f = compose.onAllNodes(hasSetTextAction())
             f[0].performTextReplacement("0 4*13195"); f[1].performTextReplacement("0 5*5570"); f[2].performTextReplacement("0 7500 1500")
             button("Apply").performClick(); compose.waitForIdle()
             val g = mode().grid!!
             assertTrue("grid ${g.xs} / ${g.ys} / ${g.zs}", g.xs.size == 5 && g.ys.size == 6 && g.zs.size == 3)
-            act.runOnUiThread { act.testViewport.fitAll() }
             labelsAtLineEnds("after Apply")
         }
         step("orbit") {
@@ -130,23 +136,23 @@ class EmulatorFlowTest {
             val k0 = camKey()
             compose.onRoot().performTouchInput { pinch(mid + Offset(-60f, 0f), mid + Offset(-300f, 0f), mid + Offset(60f, 0f), mid + Offset(300f, 0f), 600) }
             waitFor("the view to zoom", 5000) { camKey() != k0 }; labelsAtLineEnds("after zoom")
-            act.runOnUiThread { act.testViewport.fitAll() }; compose.waitForIdle(); labelsAtLineEnds("after fit")
+            act.runOnUiThread { act.frameSteelGrid() }; compose.waitForIdle(); labelsAtLineEnds("after framing the grid")
         }
         val g = runCatching { mode().grid!! }.getOrNull()
         step("column") {
             g ?: throw AssertionError("no grid")
-            button("Column").performClick(); compose.waitForIdle()
+            press("Column"); compose.waitForIdle()
             val n0 = bodies().size
             tapAt(screen(Vec3(g.xs[1], g.ys[1], g.zs[0])))
             waitFor("a column") { bodies().size == n0 + 1 }
             val c = bodies().last(); val p1 = st(c)?.get("p1").toString()
             assertTrue("column st: ${st(c)}", (st(c)?.get("kind") as? JsonPrimitive)?.contentOrNull == "member")
-            button("Column").performClick()   // tool off
+            press("Column")   // tool off
             assertTrue("column p1 $p1", p1.contains(g.xs[1].toLong().toString()))
         }
         step("properties_apply") {
-            button("Beam").performClick(); compose.waitForIdle()
-            button("Properties").performClick()
+            press("Beam"); compose.waitForIdle()
+            press("Properties")
             waitFor("the property sheet") { compose.onAllNodes(hasText("Profile")).fetchSemanticsNodes().isNotEmpty() }
             // the Profile field: the text field whose value is the current profile
             val cur = mode().propsProf
@@ -160,13 +166,13 @@ class EmulatorFlowTest {
             tapAt(screen(Vec3(g.xs[1], g.ys[1], g.zs[0]))); tapAt(screen(Vec3(g.xs[2], g.ys[1], g.zs[0])))
             waitFor("a beam") { bodies().size == n0 + 1 }
             assertTrue("beam profile ${prof(bodies().last())}", prof(bodies().last()) == "IPE400")
-            button("Beam").performClick()   // tool off
+            press("Beam")   // tool off
         }
         step("properties_modify") {
             g ?: throw AssertionError("no grid")
             val beam = bodies().last()
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(beam)) }; compose.waitForIdle()
-            button("Properties").performClick()
+            press("Properties")
             waitFor("the property sheet") { compose.onAllNodes(hasText("Modify") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
             compose.onNode(hasSetTextAction() and SemanticsMatcher("value IPE400") { it.config.getOrNull(SemanticsProperties.EditableText)?.text == "IPE400" }).performTextReplacement("IPE500")
             button("Modify").performClick()
@@ -174,7 +180,7 @@ class EmulatorFlowTest {
             act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }
         }
         step("catalog") {
-            button("Components").performClick()
+            press("Components")
             waitFor("the catalog") { compose.onAllNodes(hasText("Applications & components")).fetchSemanticsNodes().isNotEmpty() }
             compose.onAllNodes(hasSetTextAction())[0].performTextReplacement("144")
             waitFor("End plate (144) in the list") { compose.onAllNodes(hasText("End plate", substring = true)).fetchSemanticsNodes().isNotEmpty() }

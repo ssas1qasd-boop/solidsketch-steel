@@ -207,11 +207,15 @@ class MainActivity : ComponentActivity() {
     /** v69 #tools: Steel enters Steel mode; Select is the app's tap-to-select; the others are the main port's tools. */
     private fun pickTool(id: String) {
         when (id) {
-            "steel" -> steel?.let { if (!it.on) { it.toggle(); viewport.fitAll() } } ?: toast("Steel is loading…")   // v69 stToggle shows its toast (Steel panel)
+            "steel" -> steel?.let { if (!it.on) { it.toggle(); frameSteelGrid() } } ?: toast("Steel is loading…")   // v69 stToggle shows its toast (Steel panel)
             "select" -> tool = "select"
             else -> toast("${com.solidsketchapp.steel.ui.V69_TOOLS.first { it.first == id }.second} comes with the main SolidSketch port")
         }
     }
+
+    /** v69 stToggle: an empty model looks at the steel grid (1.6 × its span); a model with steel parts keeps its view.
+     *  (Before, "fit all" did nothing without parts and the grid could be far off: found by the emulator UI test.) */
+    internal fun frameSteelGrid() { val v = steel?.gridView(); if (v != null) viewport.aim(v.first, v.second) else if (doc.bodyIds().isNotEmpty()) viewport.fitAll() }
 
     /** v69 #menu items the app has; the others say they come later. */
     private fun menu(id: String) {

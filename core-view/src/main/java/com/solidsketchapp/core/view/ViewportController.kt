@@ -100,6 +100,9 @@ class ViewportController(
     // ViewportApi
     override fun setOverlay(name: String, lines: FloatArray, colorArgb: Int) { renderer.post(SceneRenderer.Op.SetOverlay(name, lines.copyOf(), colorArgb)); refresh() }
     override fun removeOverlay(name: String) { renderer.post(SceneRenderer.Op.RemoveOverlay(name)); refresh() }
+    /** Looks at [target] from [distance], keeping the view direction (v69 sets cam.target / cam.dist the same way). */
+    fun aim(target: Vec3, distance: Double) { camera.setView(target, distance, camera.rotation); refresh() }
+
     override fun fitAll() { sceneBox()?.let { camera.fit(it.min, it.max) }; refresh() }
     override fun fitBodies(ids: Collection<BodyId>) { sceneBox(ids)?.let { camera.fit(it.min, it.max) }; refresh() }
     override fun screenRay(x: Float, y: Float): Ray = camera.screenRay(x, y)

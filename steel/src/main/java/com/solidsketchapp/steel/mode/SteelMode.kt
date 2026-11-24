@@ -76,6 +76,15 @@ class SteelMode(
         changed()
     }
 
+    /** v69 stToggle: with no steel parts yet, the view looks at the grid's centre from 1.6 × its span (the view direction
+     *  stays); null when the model has steel parts (then v69 leaves the camera as it is). */
+    fun gridView(): Pair<Vec3, Double>? {
+        val g = grid ?: return null; if (g.xs.isEmpty() || g.ys.isEmpty()) return null
+        if (doc.bodyIds().any { stOf(it) != null }) return null
+        val span = maxOf(g.xs.max() - g.xs.min(), g.ys.max() - g.ys.min())
+        return Vec3((g.xs.min() + g.xs.max()) / 2, (g.ys.min() + g.ys.max()) / 2, 0.0) to span * 1.6
+    }
+
     fun setGrid(g: StGrid): String? {
         if (g.xs.isEmpty() || g.ys.isEmpty()) return "X and Y need at least one line each"
         undo?.group("Grid") { doc.setField("stGrid", g.toJson().toString()) } ?: doc.setField("stGrid", g.toJson().toString())
