@@ -24,13 +24,14 @@ import kotlinx.serialization.json.jsonObject
  * The GEN components (applications that make parts from the picked parts): v69 `stGenRun` (v40 L15170). Kinds divide,
  * xbrace / rodcross / tube, roofbrace, purlins / bridging, truss make members (v69 `mem` = stRecord of ST_SETS.BRACING +
  * name / prof / p1 / p2) and add the standard components between them (T1w / T20 / T11 / Tpc: stConnAdd with stCQ, one
- * regen), all in one undo step labelled with the component's label. stairs / rail / portal are the S10 applications
- * ([s10]); any other kind (Tof 'frame') only answers. [run] returns v69's toast text (null when v69 shows none).
+ * regen), all in one undo step labelled with the component's label. stairs / rail run the S10 applications (v69 stStairs /
+ * stRailing: [com.solidsketchapp.steel.apps.StairsRailing]); portal opens the portal frame sheet ([s10]); any other kind
+ * (Tof 'frame') only answers. [run] returns v69's toast text (null when v69 shows none).
  */
 class GenRun(private val data: SteelData, private val doc: DocumentApi, private val undo: UndoApi?, private val parts: StParts,
              private val comps: Components, private val regen: StRegen?) {
-    /** The kinds that run S10 applications in v69 (stStairs, stRailing, stPortalSheet): not ported here. */
-    fun s10(k: String): Boolean = Js.str(comps.cq(k)["kind"]).let { it == "stairs" || it == "rail" || it == "portal" }
+    /** The kind that opens an S10 sheet in v69 (stPortalSheet): nothing to model here. */
+    fun s10(k: String): Boolean = Js.str(comps.cq(k)["kind"]) == "portal"
 
     private fun stOf(id: BodyId): JsonObject? = doc.bodyJson(id)?.let { runCatching { Json.parseToJsonElement(it).jsonObject["st"] as? JsonObject }.getOrNull() }
     private fun bodyJson(name: String, st: JsonObject) = JsonObject(linkedMapOf("name" to JsonPrimitive(name), "color" to JsonPrimitive(parts.colorOf(st)),
@@ -57,9 +58,23 @@ class GenRun(private val data: SteelData, private val doc: DocumentApi, private 
             return "Divided into $n parts"
         }
         if (aSt == null || bSt == null) return "Pick two parts"
-        if (kind == "stairs" || kind == "rail") return null   // v69 stStairs / stRailing (S10)
         val A = picked[0].value; val B = picked[1].value
         val MA = Joints.mf(aSt, data.profiles); val MB = Joints.mf(bSt, data.profiles)
+        if (kind == "stairs") {   // v69 L15186: stairs from the lower part to the higher one (picked points, else the parts' middles), on their tops
+            val loA = MA.c1.z + MA.c2.z <= MB.c1.z + MB.c2.z
+            val lo = if (loA) Triple(picked[0], MA, pts.getOrNull(0)) else Triple(picked[1], MB, pts.getOrNull(1))
+            val hi = if (loA) Triple(picked[1], MB, pts.getOrNull(1)) else Triple(picked[0], MA, pts.getOrNull(0))
+            fun end(e: Triple<BodyId, MemberFrame, DoubleArray?>): D3 { val p = e.third?.let { D3(it[0], it[1], it[2]) } ?: e.second.c1.lerp(e.second.c2, 0.5)
+                return D3(p.x, p.y, maxOf(e.second.c1.z, e.second.c2.z) + e.second.h / 2) }
+            return com.solidsketchapp.steel.apps.StairsRailing(data, doc, undo, parts, comps)
+                .stairs(JsonObject(linkedMapOf("p0" to arr(end(lo)), "p1" to arr(end(hi)))), hi.first).toast
+        }
+        if (kind == "rail") {   // v69 L15187: a railing along the first part's top (picked points, else its ends), T13 to it
+            val pa = pts.getOrNull(0)?.let { D3(it[0], it[1], it[2]) } ?: MA.c1; val pb = pts.getOrNull(1)?.let { D3(it[0], it[1], it[2]) } ?: MA.c2
+            val zt = { m: MemberFrame -> maxOf(m.c1.z, m.c2.z) + m.h / 2 }
+            return com.solidsketchapp.steel.apps.StairsRailing(data, doc, undo, parts, comps)
+                .railing(JsonObject(linkedMapOf("path" to JsonArray(listOf(jsArr(pa.x, pa.y, zt(MA)), jsArr(pb.x, pb.y, zt(MB)))))), picked[0]).toast
+        }
         fun lo(m: MemberFrame) = if (m.c1.z <= m.c2.z) m.c1 to m.c2 else m.c2 to m.c1
         val made = ArrayList<Pair<JsonObject, Mesh>>(); val conns = ArrayList<Pair<String, List<String>>>(); var err: String? = null
         // v69 mem: Object.assign({kind:'member'}, ST_SETS.BRACING, {name, prof, p1, p2, depth:'Middle', rot:'Top'}, extra); the index in made, or null

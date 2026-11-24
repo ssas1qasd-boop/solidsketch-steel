@@ -254,6 +254,7 @@ class UiGoldenTest {
     @Test fun gridSheetBoxes() = screenBoxes("grid_sheet", "grid")
     @Test fun catalogBoxes() = screenBoxes("catalog", "cat")
     @Test fun dialogT144Boxes() = screenBoxes("dialog_t144", "dlg:T144")
+    @Test fun portalSheetBoxes() = screenBoxes("portal_sheet", "portal")
 
     /** With a phone's status bar and 3-button navigation bar, every control of every screen is inside the visible area. */
     private fun visible(name: String, sheet: String?) {
@@ -269,4 +270,5 @@ class UiGoldenTest {
     @Test fun visibleGridSheet() = visible("grid_sheet", "grid")
     @Test fun visibleCatalog() = visible("catalog", "cat")
     @Test fun visibleDialogT144() = visible("dialog_t144", "dlg:T144")
+    @Test fun visiblePortalSheet() = visible("portal_sheet", "portal")
 }

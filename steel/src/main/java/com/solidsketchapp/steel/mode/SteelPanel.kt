@@ -23,6 +23,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.ButtonDefaults
@@ -49,6 +50,9 @@ import com.solidsketchapp.core.api.Vec3
 import com.solidsketchapp.steel.model.StGrid
 import com.solidsketchapp.steel.model.jsNum
 import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.booleanOrNull
+import kotlinx.serialization.json.doubleOrNull
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.contentOrNull
 
@@ -136,6 +140,7 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
     var toastText by remember { mutableStateOf<String?>(null) }
     mode.lastToast?.let { toastText = it; mode.lastToast = null }
     mode.dialogRequest?.let { dlg = it; sheet = "dlg"; mode.dialogRequest = null }
+    mode.sheetRequest?.let { sheet = it; mode.sheetRequest = null }
     androidx.compose.runtime.LaunchedEffect(toastText) { if (toastText != null) { kotlinx.coroutines.delay(2600); toastText = null } }
     if (!mode.on) return
     val comps = mode.comps
@@ -157,7 +162,7 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
             // v69 stPanel L13759: Grid · Portal frame · Column · Beam · Plate · Components · Numbering · Checks · Drawings · Marks · Properties · Steel list · Exit Steel
             Row(Modifier.horizontalScroll(rememberScrollState()).padding(vertical = 3.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
                 StBtn("Grid") { sheet = "grid" }
-                StBtn("Portal frame") { soon("Portal frame", "the applications (S10)") }
+                StBtn("Portal frame") { sheet = "portal" }
                 StBtn("Column", mode.tool == SteelMode.Tool.COLUMN) { mode.pickTool(SteelMode.Tool.COLUMN) }
                 StBtn("Beam", mode.tool == SteelMode.Tool.BEAM) { mode.pickTool(SteelMode.Tool.BEAM) }
                 StBtn("Plate", mode.tool == SteelMode.Tool.PLATE) { mode.pickTool(SteelMode.Tool.PLATE) }
@@ -201,8 +206,9 @@ fun SteelPanel(mode: SteelMode, tick: Int, modifier: Modifier = Modifier, pics: 
         when (sheet) {
             "grid" -> GridSheet(mode) { sheet = null }
             "props" -> PropSheet(mode) { sheet = null }
+            "portal" -> PortalSheet(mode, { toastText = it }) { sheet = null }
             "cat" -> if (comps != null && pics != null) com.solidsketchapp.steel.comp.CatalogSheet(mode, comps, pics, mode.symbols, { mode.symbols = !mode.symbols; mode.refresh() },
-                { k -> dlg = k to null; sheet = "dlg" }, { k -> toastText = "${comps.ui.label(k)} comes with a later milestone (${if (k == "@portal") "S10" else "S11"})" }, { sheet = null })
+                { k -> dlg = k to null; sheet = "dlg" }, { k -> if (k == "@portal") sheet = "portal" else toastText = "${comps.ui.label(k)} comes with a later milestone (S11)" }, { sheet = null })
             "dlg" -> { val d = dlg; if (comps != null && pics != null && d != null) androidx.compose.runtime.key(d) {
                 com.solidsketchapp.steel.comp.CompDialogSheet(mode, comps, pics, d.first, d.second?.let { comps.conn(it) }, { c -> mode.status(c) }, { toastText = it }, { sheet = null; mode.refresh() }, initialTab) } }
         }
@@ -223,7 +229,7 @@ private fun Sheet(title: String, content: @Composable () -> Unit) = com.solidske
 private fun Row2(label: String, content: @Composable () -> Unit) {
     Row(Modifier.fillMaxWidth().padding(bottom = 6.dp), verticalAlignment = Alignment.CenterVertically) {
         // v69 #st-sheet .g: grid-template-columns 120px 1fr, gap 6 × 10
-        Text(label, fontSize = 14.sp, modifier = Modifier.width(130.dp).padding(end = 10.dp)); Box(Modifier.weight(1f)) { content() }
+        Text(label, fontSize = 14.sp, style = com.solidsketchapp.steel.ui.cssLine(16), modifier = Modifier.width(130.dp).padding(end = 10.dp)); Box(Modifier.weight(1f)) { content() }
     }
 }
 
@@ -247,6 +253,61 @@ private fun GridSheet(mode: SteelMode, close: () -> Unit) {
         }
     }
 }
+
+/**
+ * v69 stPortalSheet (L13866): the values (PF_DEF + S.stGen), Close / Create. Create checks the profiles (columns and rafters
+ * always, the others when switched on) and the numbers as v69 does, closes the sheet and builds the frame (PortalFrame.run).
+ */
+@Composable
+private fun PortalSheet(mode: SteelMode, toast: (String) -> Unit, close: () -> Unit) {
+    val q0 = remember { JsonObject(LinkedHashMap(com.solidsketchapp.steel.apps.PortalFrame.DEF).apply { mode.stGen()?.let { putAll(it) } }) }
+    fun str(k: String) = (q0[k] as? JsonPrimitive)?.let { p -> if (p.isString) p.content else p.doubleOrNull?.let { com.solidsketchapp.core.api.JsNumber.format(it) } ?: p.content } ?: ""
+    val f = remember { linkedMapOf<String, androidx.compose.runtime.MutableState<String>>() }
+    val chk = remember { linkedMapOf<String, androidx.compose.runtime.MutableState<Boolean>>() }
+    // v69 order of the rows (L13870–13871): number / text / checkbox
+    val rows = listOf("n:span:Span (mm)", "n:bays:Bays", "n:bay:Bay (mm)", "n:eave:Eaves height (mm)", "n:pitch:Roof pitch (°)", "t:col:Columns", "t:raf:Rafters",
+        "c:purOn:Purlins", "t:pur:Purlin profile", "n:purS:Purlin spacing (mm)", "c:tieOn:Eaves ties", "t:tie:Tie profile", "c:rbOn:Roof bracing (end bays)", "t:rb:Roof brace profile",
+        "c:wbOn:Wall bracing (end bays)", "t:wb:Wall brace profile", "c:girtOn:Side girts", "t:girt:Girt profile", "n:girtS:Girt spacing (mm)", "c:craneOn:Crane runway", "n:crH:Rail top level (mm)",
+        "t:crBeam:Crane beam", "t:crBr:Bracket", "c:gableOn:Gable columns + gable girts", "t:gcol:Gable column profile", "n:gcolS:Gable column spacing (mm)")
+    for (r in rows) { val (t, k) = r.split(':'); if (t == "c") chk.getOrPut(k) { mutableStateOf((q0[k] as? JsonPrimitive)?.let { it.booleanOrNull ?: (it.doubleOrNull?.let { d -> d != 0.0 }) } ?: false) } else f.getOrPut(k) { mutableStateOf(str(k)) } }
+    Sheet("Portal frame") {
+        Text("Tekla layout: grid A–B–C across the span (B is the ridge), frames on grid lines 1, 2, 3… along the building. Changing a value and pressing Create rebuilds the frame parts.",
+            fontSize = 14.sp, style = com.solidsketchapp.steel.ui.cssLine(16), modifier = Modifier.padding(top = 4.dp, bottom = 14.dp))   // <p> margin 14 (collapses with the title's 10)
+        com.solidsketchapp.steel.ui.CssStack { for (r in rows) { val (t, k, label) = r.split(':', limit = 3)
+            Row2(label) { if (t == "c") PfCheck(chk.getValue(k).value) { chk.getValue(k).value = it } else Field(f.getValue(k).value, { f.getValue(k).value = it }) } } }
+        com.solidsketchapp.steel.ui.StBar {
+            StBtn("Close") { close() }
+            StBtn("Create", on = true) {
+                // v69: numbers are +value, texts trimmed, checkboxes booleans
+                val q = linkedMapOf<String, JsonElement>()
+                for (r in rows) { val (t, k) = r.split(':'); q[k] = when (t) { "c" -> JsonPrimitive(chk.getValue(k).value)
+                    "n" -> f.getValue(k).value.trim().let { v -> if (v.isEmpty()) jsNumEl(0.0) else v.toDoubleOrNull()?.let(::jsNumEl) ?: jsNumEl(Double.NaN) }
+                    else -> JsonPrimitive(f.getValue(k).value.trim()) } }
+                for (k in listOf("col", "raf", "pur", "tie", "rb", "wb")) { val onK = q[k + "On"] as? JsonPrimitive
+                    if ((k == "col" || k == "raf" || onK?.booleanOrNull != false) && mode.data.profiles.lookup((q[k] as JsonPrimitive).content) == null) { toast("Unknown profile ${(q[k] as JsonPrimitive).content}"); return@StBtn } }
+                fun num(k: String) = (q[k] as JsonPrimitive).doubleOrNull ?: Double.NaN
+                if (!(num("span") > 0 && num("bays") >= 1 && num("bay") > 0 && num("eave") > 0 && num("pitch") >= 0 && num("pitch") < 45)) { toast("Check the span, bays, eaves height and pitch"); return@StBtn }
+                close(); toast(mode.portal(JsonObject(q)))
+            }
+        }
+    }
+}
+
+/** v69 sheet checkbox (`<input type=checkbox>`, width 22 px). */
+@Composable
+private fun PfCheck(on: Boolean, change: (Boolean) -> Unit) {
+    val c = com.solidsketchapp.steel.ui.LocalSs.current
+    // Chrome's checkbox: 13 px with margins 3 3 3 4 (the row is 19 px high), width 22 px (v69 style)
+    Box(Modifier.width(22.dp).height(19.dp).clickable { change(!on) }, contentAlignment = Alignment.TopStart) {
+        androidx.compose.foundation.Canvas(Modifier.padding(start = 4.dp, top = 3.dp).size(13.dp)) { val r = androidx.compose.ui.geometry.CornerRadius(2.dp.toPx())
+            if (on) { drawRoundRect(Color(0xFF2A6FD1), cornerRadius = r)
+                val p = androidx.compose.ui.graphics.Path().apply { moveTo(size.width * 0.22f, size.height * 0.52f); lineTo(size.width * 0.42f, size.height * 0.72f); lineTo(size.width * 0.78f, size.height * 0.30f) }
+                drawPath(p, Color.White, style = androidx.compose.ui.graphics.drawscope.Stroke(1.6.dp.toPx())) }
+            else { drawRoundRect(Color.Transparent, cornerRadius = r); drawRoundRect(c.fg.copy(alpha = 0.6f), cornerRadius = r, style = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx())) } }
+    }
+}
+
+private fun jsNumEl(d: Double): JsonElement = com.solidsketchapp.steel.model.jsNum(d)
 
 /** v69 stPropSheet: saved settings, attributes, numbering series, position; Apply / Save as / Get / Modify. */
 @Composable

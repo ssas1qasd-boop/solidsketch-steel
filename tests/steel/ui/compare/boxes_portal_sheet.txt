@@ -1,0 +1,22 @@
+portal_sheet/sheet/Portal frame: app [21.0, 168.0, 1039.0 × 2149.0], v69 [21.0, 168.0, 1039.5 × 2149.9], off 0.9 px
+portal_sheet/buttons/Close: scrolled out of view in v69, not compared
+portal_sheet/buttons/Create: scrolled out of view in v69, not compared
+portal_sheet/inputs/#0: app [396.0, 464.0, 630.0 × 79.0], v69 [396.4, 462.0, 630.0 × 78.8], off 2.2 px
+portal_sheet/inputs/#1: app [396.0, 558.0, 630.0 × 79.0], v69 [396.4, 556.5, 630.0 × 78.8], off 1.7 px
+portal_sheet/inputs/#2: app [396.0, 653.0, 630.0 × 79.0], v69 [396.4, 651.0, 630.0 × 78.8], off 2.2 px
+portal_sheet/inputs/#3: app [396.0, 748.0, 630.0 × 79.0], v69 [396.4, 745.5, 630.0 × 78.8], off 2.7 px
+portal_sheet/inputs/#4: app [396.0, 842.0, 630.0 × 79.0], v69 [396.4, 840.0, 630.0 × 78.8], off 2.2 px
+portal_sheet/inputs/#5: app [396.0, 936.0, 630.0 × 79.0], v69 [396.4, 934.5, 630.0 × 78.8], off 1.7 px
+portal_sheet/inputs/#6: app [396.0, 1031.0, 630.0 × 79.0], v69 [396.4, 1029.0, 630.0 × 78.8], off 2.2 px
+portal_sheet/inputs/#7: app [396.0, 1191.0, 630.0 × 79.0], v69 [396.4, 1189.1, 630.0 × 78.8], off 2.1 px
+portal_sheet/inputs/#8: app [396.0, 1289.0, 630.0 × 79.0], v69 [396.4, 1286.3, 630.0 × 78.8], off 2.9 px
+portal_sheet/inputs/#9: app [396.0, 1451.0, 630.0 × 79.0], v69 [396.4, 1449.0, 630.0 × 78.8], off 2.2 px
+portal_sheet/inputs/#10: app [396.0, 1645.0, 630.0 × 79.0], v69 [396.4, 1643.3, 630.0 × 78.8], off 1.9 px
+portal_sheet/inputs/#11: app [396.0, 1840.0, 630.0 × 79.0], v69 [396.4, 1837.5, 630.0 × 78.8], off 2.7 px
+portal_sheet/inputs/#12: app [396.0, 2000.0, 630.0 × 79.0], v69 [396.4, 1997.6, 630.0 × 78.8], off 2.6 px
+portal_sheet/inputs/#13: app [396.0, 2094.0, 630.0 × 79.0], v69 [396.4, 2092.1, 630.0 × 78.8], off 2.1 px
+portal_sheet/inputs/#14: app [396.0, 2254.0, 630.0 × 79.0], v69 [396.4, 2252.3, 630.0 × 78.8], off 1.9 px
+portal_sheet/inputs/#15: scrolled out of view in v69, not compared
+portal_sheet/inputs/#16: scrolled out of view in v69, not compared
+portal_sheet/inputs/#17: scrolled out of view in v69, not compared
+portal_sheet/inputs/#18: scrolled out of view in v69, not compared

@@ -71,6 +71,11 @@ const STATES = [
     await page.evaluate(() => __st.compDialog('T144')); await settle();
     res.boxes.dialog_t144 = { sheet: await boxes('#st-sheet'), tabs: await boxes('#st-sheet .tktabs button'), bar: await boxes('#st-sheet .tkbar button'), top: await boxes('#st-sheet .tktop button') };
     await page.screenshot({ path: path.join(OUT, 'v69', 'sheet_dialog_t144.png') });
+    // S10: the Portal frame sheet (from the panel)
+    await page.evaluate(() => { const c = [...document.querySelectorAll('#st-sheet button')].find(x => x.textContent.trim() === 'Cancel'); if (c) c.click(); const s = document.getElementById('st-sheet'); if (s) s.hidden = true; }); await settle();
+    await page.evaluate(() => { [...document.querySelectorAll('#st-panel button')].find(x => x.textContent.trim() === 'Portal frame').click(); }); await settle();
+    res.boxes.portal_sheet = { sheet: await boxes('#st-sheet'), buttons: await boxes('#st-sheet button'), inputs: await boxes('#st-sheet input:not([type=checkbox])') };
+    await page.screenshot({ path: path.join(OUT, 'v69', 'sheet_portal.png') });
   } finally { await browser.close(); }
   if (errors.length) console.log('page errors:', errors.slice(0, 3));
   fs.writeFileSync(path.join(OUT, 'ui_golden.json'), JSON.stringify(res, null, 1) + '\n');

@@ -117,3 +117,18 @@ fun CssText(text: String, style: androidx.compose.ui.text.TextStyle, modifier: M
         val p = m.measure(androidx.compose.ui.unit.Constraints()); val wp = kotlin.math.round(w + 2 * pad.toPx()).toInt()
         layout(wp, p.height) { p.place((wp - p.width) / 2, 0) } })
 }
+
+/**
+ * Rows stacked the way Chrome stacks them: each row is a whole number of CSS px high (its measured height snapped back to
+ * CSS px), and rows start at the running total in fractional device px, rounded once. Compose rounds every row's height
+ * to whole device px instead, so a long sheet drifts by half a px a row (UI golden: the Portal frame sheet's 26 rows).
+ */
+@Composable
+fun CssStack(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+    androidx.compose.ui.layout.Layout(content, modifier) { ms, c ->
+        val ps = ms.map { it.measure(c.copy(minHeight = 0, maxHeight = androidx.compose.ui.unit.Constraints.Infinity)) }
+        val ys = ArrayList<Int>(); var yf = 0f
+        for (p in ps) { ys += kotlin.math.round(yf).toInt(); yf += kotlin.math.round(p.height / density) * density }
+        layout(c.maxWidth, kotlin.math.round(yf).toInt()) { ps.forEachIndexed { i, p -> p.place(0, ys[i]) } }
+    }
+}

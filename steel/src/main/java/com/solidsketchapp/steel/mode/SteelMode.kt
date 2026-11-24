@@ -85,6 +85,17 @@ class SteelMode(
         return Vec3((g.xs.min() + g.xs.max()) / 2, (g.ys.min() + g.ys.max()) / 2, 0.0) to span * 1.6
     }
 
+    /** v69 S.stGen: the portal frame's last values (null before one is made). */
+    fun stGen(): JsonObject? = doc.field("stGen")?.let { runCatching { Json.parseToJsonElement(it) as? JsonObject }.getOrNull() }
+
+    /** v69 stPortal: the portal frame from the sheet's values; returns v69's toast. */
+    fun portal(q: JsonObject): String {
+        val cs = comps ?: return "Components are still loading"
+        val r = com.solidsketchapp.steel.apps.PortalFrame.run(q, data, doc, parts, cs, undo)
+        if (r.parts != null) { selection?.setSelected(emptyList()) }
+        changed(); return r.message
+    }
+
     fun setGrid(g: StGrid): String? {
         if (g.xs.isEmpty() || g.ys.isEmpty()) return "X and Y need at least one line each"
         undo?.group("Grid") { doc.setField("stGrid", g.toJson().toString()) } ?: doc.setField("stGrid", g.toJson().toString())
@@ -133,7 +144,8 @@ class SteelMode(
         if (pick.size < d.parts.size) { say = c.prompt(k, pick.size); changed(); return true }
         val parts = pick.toList(); val pps = pickPts.toList(); val p0 = pps.firstOrNull(); pick.clear(); pickPts.clear()
         if (d.gen) { val g = com.solidsketchapp.steel.comp.GenRun(data, doc, undo, this.parts, c, regen)
-            if (g.s10(k)) { say = "${d.label}: this generator comes with the applications (S10) · ${c.prompt(k, 0)} · Done to stop"; changed(); return true }
+            // v69 stGenRun kind 'portal' (L15174): the Portal frame sheet opens
+            if (g.s10(k)) { sheetRequest = "portal"; say = "${d.label} done · ${c.prompt(k, 0)} · Done to stop"; changed(); return true }
             // v69 stGenRun (L15170), then L14409's prompt
             runCatching { g.run(k, parts, pps) }.fold({ t -> if (t != null) lastToast = t }, { lastToast = it.message ?: "Error" })
             say = "${d.label} done · ${c.prompt(k, 0)} · Done to stop"; changed(); return true }
@@ -164,6 +176,8 @@ class SteelMode(
     var selConn: String? = null; private set
     /** A dialog the screen should open (v69: tapping a symbol opens the component's dialog). */
     var dialogRequest: Pair<String, String?>? = null
+    /** A sheet the panel should open (v69 stGenRun kind 'portal' → stPortalSheet). */
+    var sheetRequest: String? = null
     fun selectConn(id: String?) { selConn = id; changed() }
     class Sym(val id: String, val p: D3, val s: Int, val x: Float, val y: Float)
     private var symCache: Pair<Int, List<Pair<com.solidsketchapp.steel.conn.StConn, D3>>>? = null

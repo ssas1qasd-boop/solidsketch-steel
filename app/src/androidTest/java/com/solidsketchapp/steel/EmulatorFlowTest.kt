@@ -254,6 +254,27 @@ class EmulatorFlowTest {
             assertTrue("connections differ after open", act.testDoc.field("stConns") == conns)
         }
 
+        // S10: the Portal frame application (panel → sheet → Create), then Modify (the sheet again, another value, Create)
+        fun genCount() = bodies().count { b -> (st(b)?.get("gen") as? JsonPrimitive)?.contentOrNull == "1" }
+        fun portalSheet(span: String, bays: String) {
+            press("Portal frame")
+            waitFor("the Portal frame sheet") { compose.onAllNodes(hasText("Create") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
+            val f = compose.onAllNodes(hasSetTextAction()); f[0].performTextReplacement(span); f[1].performTextReplacement(bays); hideKeyboard()
+            shot("portal_sheet_$bays")
+            press("Create")
+        }
+        step("portal_create") {
+            portalSheet("12000", "1")
+            waitFor("the portal frame's parts", 120_000) { genCount() > 0 && act.testToast?.startsWith("Portal frame:") == true }
+            assertTrue("parts ${genCount()}", genCount() >= 4)
+            assertTrue("stGen span ${mode().stGen()}", (mode().stGen()?.get("span") as? JsonPrimitive)?.contentOrNull?.toDouble() == 12000.0)
+        }
+        step("portal_modify") {
+            val n0 = genCount()
+            portalSheet("12000", "2")
+            waitFor("the rebuilt frame", 120_000) { (mode().stGen()?.get("bays") as? JsonPrimitive)?.contentOrNull?.toDouble() == 2.0 && genCount() > n0 }
+        }
+
         storage.openOutputFile("steps.json").use { it.write(("[\n" + results.joinToString(",\n") + "\n]\n").toByteArray()) }
         assertTrue("failed steps:\n" + failed.joinToString("\n"), failed.isEmpty())
     }

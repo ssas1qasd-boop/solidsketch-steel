@@ -59,7 +59,7 @@ class AppGoldenTest {
     private fun s(o: JsonObject?, k: String) = o?.get(k)?.let { Js.str(it) } ?: ""
 
     /** A model built the app's way, for one case. */
-    class Model(val doc: MemoryDocument, val parts: StParts, val comps: Components, val ids: List<BodyId>)
+    class Model(val doc: MemoryDocument, val parts: StParts, val comps: Components, val ids: List<BodyId>, val regen: StRegen? = null)
 
     fun build(g: JsonObject): Model {
         val doc = MemoryDocument(); val b = StBuild(data.profiles, union = { engine.union(it) })
@@ -68,7 +68,7 @@ class AppGoldenTest {
         val ids = (g["members"] as? JsonArray ?: JsonArray(emptyList())).map { m -> val (set, o) = m.jsonArray
             parts.add(JsonObject(LinkedHashMap<String, JsonElement>().apply { put("kind", JsonPrimitive("member")); putAll(data.propertySet(set.jsonPrimitive.content)!!.raw); putAll(o.jsonObject) }), "m") }
         val comps = Components(ui, doc, null, MemoryStore(), regen)
-        return Model(doc, parts, comps, ids)
+        return Model(doc, parts, comps, ids, regen)
     }
 
     /** Runs the case's application on the model (S10.2: connections; the applications follow in S10.3 / S10.4). */
@@ -83,6 +83,14 @@ class AppGoldenTest {
             val run = { qq: JsonObject -> com.solidsketchapp.steel.apps.PortalFrame.run(qq, data, m.doc, m.parts, m.comps, null) }
             preRun?.let { run(it) }
             run(q); return }
+        // S10.4: stairs / railing (topPart / on may be a member index { idx: n }) and the GEN applications (stGenRun)
+        val idx = { e: JsonElement? -> (e as? JsonObject)?.get("idx")?.let { m.ids[it.jsonPrimitive.int] } ?: (e as? JsonPrimitive)?.let { BodyId(it.content) } }
+        val sr = com.solidsketchapp.steel.apps.StairsRailing(data, m.doc, null, m.parts, m.comps)
+        (r["stairs"] as? JsonObject)?.let { o -> sr.stairs(JsonObject(o.filterKeys { it != "topPart" }), idx(o["topPart"])); return }
+        (r["railing"] as? JsonObject)?.let { o -> sr.railing(JsonObject(o.filterKeys { it != "on" }), idx(o["on"])); return }
+        (r["gen"] as? JsonArray)?.let { (k, ix, pts) ->
+            com.solidsketchapp.steel.comp.GenRun(data, m.doc, null, m.parts, m.comps, m.regen).run(k.jsonPrimitive.content, ix.jsonArray.map { m.ids[it.jsonPrimitive.int] },
+                pts.jsonArray.map { p -> p.jsonArray.map { it.jsonPrimitive.double }.toDoubleArray() }); return }
         error("application not ported yet: ${r.keys}")
     }
 
