@@ -23,4 +23,9 @@ workflow).
 7. **Summary**: the job page, and the `ci-results` branch (`latest/summary.md`, `runs/<run id>/`), which shows every step,
    the failures, the device settings and how long the job took.
 
-Caches: Gradle (setup-gradle), NDK + CMake + Manifold source, the AVD snapshot.
+8. **Phone APK**: when every test passed, the debug APK for the phone (arm64-v8a + x86_64) → artifact `apk-phone`.
+
+Caches: Gradle (setup-gradle), NDK + CMake + Manifold source, the AVD snapshot (saved even when a test fails).
+Cost: about 11–12 minutes per run on the 2-core Linux runner (12 billed minutes); the first run, which builds the AVD
+snapshot, about 18. Pushes that change only docs or Markdown do not start a run.
+Results without the Actions page: the `ci-results` branch (`latest/summary.md`).

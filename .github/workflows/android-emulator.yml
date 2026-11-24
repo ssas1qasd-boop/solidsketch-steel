@@ -8,6 +8,7 @@ name: Emulator UI tests
 on:
   push:
     branches: [main]
+    paths-ignore: ['docs/**', '**.md', 'tests/steel/ui/compare/**']   # documentation-only pushes do not start a run
   workflow_dispatch:
 
 permissions:
