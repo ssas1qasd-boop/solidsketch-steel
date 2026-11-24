@@ -157,6 +157,25 @@ jobs:
           emulator-boot-timeout: 900
           script: bash tools/ci/emulator_run.sh
 
+      # the APK for the owner's phone (arm64-v8a + x86_64), only when every test passed
+      - name: Build the phone APK
+        id: phone
+        if: steps.data.outputs.ok == 'true' && steps.unit.outcome == 'success' && steps.emu.outcome == 'success'
+        run: |
+          [ "$(cat ci-out/connected_rc.txt 2>/dev/null)" = 0 ] || { echo "emulator tests failed: no phone APK"; exit 0; }
+          ./gradlew --no-daemon assembleDebug -PskipUiGolden 2>&1 | tail -n 20
+          V=$(grep -o 'versionName = "[^"]*"' app/build.gradle.kts | cut -d'"' -f2)
+          mkdir -p ci-phone && cp app/build/outputs/apk/debug/app-debug.apk "ci-phone/solidsketch-steel-$V-debug.apk"
+          unzip -l ci-phone/*.apk | grep -o 'lib/[^/]*/' | sort -u
+
+      - name: Upload the phone APK
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-phone
+          path: ci-phone/*.apk
+          if-no-files-found: ignore
+
       - name: Upload screenshots
         if: always()
         uses: actions/upload-artifact@v4
