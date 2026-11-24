@@ -60,6 +60,7 @@ class EmulatorFlowTest {
         val t0 = System.nanoTime(); var msg = ""
         val ok = runCatching { body() }.onFailure { msg = (it.message ?: it.toString()).take(1500) }.isSuccess
         runCatching { shot(name) }
+        if (!ok) runCatching { closeSheet(); if (compose.onAllNodes(hasText("Cancel") and hasClickAction()).fetchSemanticsNodes().isNotEmpty()) compose.onAllNodes(hasText("Cancel") and hasClickAction())[0].performClick() }
         if (!ok) failed += "$name: $msg"
         results += "{\"step\":${json(name)},\"ok\":$ok,\"ms\":${(System.nanoTime() - t0) / 1_000_000},\"message\":${json(msg)}}"
     }
@@ -70,7 +71,19 @@ class EmulatorFlowTest {
 
     private fun button(text: String) = compose.onNode(hasText(text) and hasClickAction(), useUnmergedTree = false)
     /** A panel button: the panel's rows scroll sideways, so scroll it into view first (a click off screen lands nowhere). */
-    private fun press(text: String) { button(text).performScrollTo(); button(text).performClick(); compose.waitForIdle() }
+    private fun press(text: String) {
+        // the first match is the panel's tool row (with a tool on, the "Set" row repeats the set name, e.g. Column)
+        val n = compose.onAllNodes(hasText(text) and hasClickAction())[0]; n.performScrollTo(); n.performClick(); compose.waitForIdle() }
+    /** Closes an open sheet (a failed step must not leave it over the panel for the next steps). */
+    private fun closeSheet() { compose.onAllNodes(hasText("Close") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Close") and hasClickAction())[0].performClick(); compose.waitForIdle() } }
+    private fun deselect() { act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; compose.waitForIdle() }
+    /** The property sheet's Profile field: the text field whose value is a profile of the catalogue. */
+    private fun profileField(): androidx.compose.ui.test.SemanticsNodeInteraction {
+        val all = compose.onAllNodes(hasSetTextAction()); val nodes = all.fetchSemanticsNodes()
+        val i = nodes.indexOfFirst { n -> n.config.getOrNull(SemanticsProperties.EditableText)?.text?.let { t -> t.isNotBlank() && mode().data.profiles.lookup(t) != null } == true }
+        if (i < 0) throw AssertionError("no Profile field among ${nodes.size} text fields")
+        return all[i]
+    }
     private fun mode(): SteelMode = act.testSteel ?: throw AssertionError("Steel mode not set up")
     private fun screen(p: Vec3): Offset = act.testViewport.worldToScreen(p)?.let { Offset(it.first, it.second) } ?: throw AssertionError("point $p behind the camera")
     private fun tapAt(o: Offset) { compose.onRoot().performTouchInput { click(o) }; compose.waitForIdle() }
@@ -148,16 +161,15 @@ class EmulatorFlowTest {
             val c = bodies().last(); val p1 = st(c)?.get("p1").toString()
             assertTrue("column st: ${st(c)}", (st(c)?.get("kind") as? JsonPrimitive)?.contentOrNull == "member")
             press("Column")   // tool off
+            deselect()
             assertTrue("column p1 $p1", p1.contains(g.xs[1].toLong().toString()))
         }
         step("properties_apply") {
-            press("Beam"); compose.waitForIdle()
+            deselect(); press("Beam")
             press("Properties")
             waitFor("the property sheet") { compose.onAllNodes(hasText("Profile")).fetchSemanticsNodes().isNotEmpty() }
-            // the Profile field: the text field whose value is the current profile
-            val cur = mode().propsProf
-            compose.onNode(hasSetTextAction() and SemanticsMatcher("value $cur") { it.config.getOrNull(SemanticsProperties.EditableText)?.text == cur }).performTextReplacement("IPE400")
-            button("Apply").performClick(); compose.waitForIdle()
+            profileField().performTextReplacement("IPE400")
+            press("Apply")
             assertTrue("profile for new parts: ${mode().propsProf}", mode().propsProf == "IPE400")
         }
         step("beam") {
@@ -167,6 +179,7 @@ class EmulatorFlowTest {
             waitFor("a beam") { bodies().size == n0 + 1 }
             assertTrue("beam profile ${prof(bodies().last())}", prof(bodies().last()) == "IPE400")
             press("Beam")   // tool off
+            deselect()
         }
         step("properties_modify") {
             g ?: throw AssertionError("no grid")
@@ -174,10 +187,10 @@ class EmulatorFlowTest {
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(beam)) }; compose.waitForIdle()
             press("Properties")
             waitFor("the property sheet") { compose.onAllNodes(hasText("Modify") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
-            compose.onNode(hasSetTextAction() and SemanticsMatcher("value IPE400") { it.config.getOrNull(SemanticsProperties.EditableText)?.text == "IPE400" }).performTextReplacement("IPE500")
-            button("Modify").performClick()
+            profileField().performTextReplacement("IPE500")
+            press("Modify")
             waitFor("the beam to become IPE500") { prof(beam) == "IPE500" || bodies().any { prof(it) == "IPE500" } }
-            act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }
+            deselect()
         }
         step("catalog") {
             press("Components")

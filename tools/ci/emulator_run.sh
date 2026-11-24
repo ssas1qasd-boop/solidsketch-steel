@@ -3,6 +3,9 @@
 # The owner's phone: 1080 x 2340 at 420 dpi, dark mode, 3-button navigation. Records the screen while the tests run.
 set -u
 OUT=ci-out; mkdir -p "$OUT"
+# the 2-core CI emulator's System UI is slow: no "isn't responding" dialogs over the app (they are not the app's)
+adb shell settings put global hide_error_dialogs 1 || true
+adb shell am broadcast -a android.intent.action.CLOSE_SYSTEM_DIALOGS > /dev/null 2>&1 || true
 adb shell wm size 1080x2340
 adb shell wm density 420
 adb shell cmd uimode night yes
