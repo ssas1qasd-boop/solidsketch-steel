@@ -1,0 +1,191 @@
+# Emulator UI tests (owner, 2026-11-24): the debug APK on an x86_64 API 35 emulator with KVM, set up as the owner's phone
+# (1080 x 2340, 420 dpi, dark mode, 3-button navigation), running app/src/androidTest (EmulatorFlowTest: start, Steel, grid,
+# orbit / pan / zoom with the label positions, column, Properties -> profile -> Apply, beam, Modify, catalog, End plate 144
+# dialog and pick, save / open). Artifacts: screenshots, screen recording, test report, APKs. A short summary goes to the
+# ci-results branch (latest/summary.md). Gradle, the NDK, Manifold and the AVD snapshot are cached.
+name: Emulator UI tests
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # the summary is pushed to the ci-results branch
+
+concurrency:
+  group: emulator-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  API: 35
+  NDK: 30.0.16248370
+  CMAKE: 4.1.2
+
+jobs:
+  emulator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Start time
+        run: echo "RUN_START=$(date +%s)" >> "$GITHUB_ENV"
+
+      - uses: actions/checkout@v4
+
+      - name: Data files on main?
+        id: data
+        run: |
+          ok=true
+          for f in steel/src/main/assets/steel/profiles.json steel/src/main/assets/steel/tk_catalog.json steel/src/main/assets/steel/tk_ui.json \
+                   steel/src/main/assets/steel/thumbs tests/steel/golden/comp/s9_gu.json tests/steel/golden/gen/s9_gen.json tests/steel/golden/s6/bolts.json; do
+            [ -e "$f" ] || { echo "missing: $f"; ok=false; }
+          done
+          echo "ok=$ok" >> "$GITHUB_OUTPUT"; echo "DATA_OK=$ok" >> "$GITHUB_ENV"
+          [ -e /dev/kvm ] && echo "KVM=yes" >> "$GITHUB_ENV" || echo "KVM=no" >> "$GITHUB_ENV"
+
+      - uses: actions/setup-java@v4
+        if: steps.data.outputs.ok == 'true'
+        with: { distribution: temurin, java-version: '17' }
+
+      - uses: gradle/actions/setup-gradle@v4
+        if: steps.data.outputs.ok == 'true'
+
+      - name: Cache NDK, CMake and Manifold
+        if: steps.data.outputs.ok == 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ env.ANDROID_HOME }}/ndk/${{ env.NDK }}
+            ${{ env.ANDROID_HOME }}/cmake/${{ env.CMAKE }}
+            third_party/manifold
+          key: native-${{ env.NDK }}-${{ env.CMAKE }}-manifold-v3.5.4
+
+      - name: SDK packages
+        if: steps.data.outputs.ok == 'true'
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" "build-tools;35.0.0" "ndk;$NDK" "cmake;$CMAKE" > /dev/null
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
+          chmod +x gradlew tools/native/*.sh tools/ci/*.sh
+
+      - name: Unit tests with the UI golden (the gate before every APK)
+        id: unit
+        if: steps.data.outputs.ok == 'true'
+        continue-on-error: true
+        run: |
+          mkdir -p ci-out
+          set -o pipefail
+          ./gradlew --no-daemon testDebugUnitTest -Pabis=x86_64 2>&1 | tee ci-out/unit.log | tail -n 40
+
+      - name: Build the debug APK and the test APK
+        id: build
+        if: steps.data.outputs.ok == 'true'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon assembleDebug assembleDebugAndroidTest -Pabis=x86_64 -PskipUiGolden 2>&1 | tee ci-out/build.log | tail -n 40
+
+      - name: Enable KVM
+        if: steps.data.outputs.ok == 'true'
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Cache the AVD
+        if: steps.data.outputs.ok == 'true'
+        uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-${{ env.API }}-x86_64-google_apis-v1
+
+      - name: Create the AVD snapshot (first run only)
+        if: steps.data.outputs.ok == 'true' && steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ env.API }}
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          ram-size: 4096M
+          disk-size: 6000M
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          emulator-boot-timeout: 900
+          script: echo "AVD snapshot created"
+
+      - name: Emulator tests
+        id: emu
+        if: steps.data.outputs.ok == 'true' && steps.build.outcome == 'success'
+        continue-on-error: true
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ env.API }}
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          ram-size: 4096M
+          disk-size: 6000M
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          emulator-boot-timeout: 900
+          script: bash tools/ci/emulator_run.sh
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: app/build/outputs/connected_android_test_additional_output/**
+          if-no-files-found: ignore
+
+      - name: Upload screen recording
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screen-recording
+          path: ci-out/*.mp4
+          if-no-files-found: ignore
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: |
+            app/build/reports/androidTests/**
+            app/build/outputs/androidTest-results/**
+            app/build/reports/tests/testDebugUnitTest/**
+            ci-out/*.log
+            ci-out/*.txt
+          if-no-files-found: ignore
+
+      - name: Upload APKs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/androidTest/debug/*.apk
+          if-no-files-found: ignore
+
+      - name: Summary (and the ci-results branch)
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UNIT: ${{ steps.unit.outcome }}
+          BUILD: ${{ steps.build.outcome }}
+          EMU: ${{ steps.emu.outcome }}
+        run: |
+          bash tools/ci/publish_results.sh
+          # the job fails when anything failed (data missing, unit tests, build, emulator tests)
+          [ "$DATA_OK" = true ] || { echo "::error::data files are not on main (owner bundle steel-all-data)"; exit 1; }
+          [ "$UNIT" = success ] || { echo "::error::unit tests / UI golden failed"; exit 1; }
+          [ "$BUILD" = success ] || { echo "::error::build failed"; exit 1; }
+          [ "$(cat ci-out/connected_rc.txt 2>/dev/null)" = 0 ] || { echo "::error::emulator tests failed"; exit 1; }

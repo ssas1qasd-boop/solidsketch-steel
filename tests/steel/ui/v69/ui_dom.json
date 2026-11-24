@@ -1,0 +1,2358 @@
+{
+ "source": "web v69 at 412 × 891 CSS px, DPR 2.625, dark (tools/golden/ui_capture.js)",
+ "screens": {
+  "01_main": {
+   "#top": [
+    {
+     "text": "SolidSketch\n0 bodies\n◫\n◧\nUndo\nRedo\n🗑\n🚶\n⋮",
+     "x": 0,
+     "y": 0,
+     "w": 412,
+     "h": 62,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "8px 10px 0px"
+    }
+   ],
+   "#top .btn": [
+    {
+     "text": "◫",
+     "x": 143.8,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "◧",
+     "x": 170.5,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "Undo",
+     "x": 197.3,
+     "y": 19,
+     "w": 43.6,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "Redo",
+     "x": 240.8,
+     "y": 19,
+     "w": 42,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "",
+     "x": 282.8,
+     "y": 23,
+     "w": 26.7,
+     "h": 24,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(92, 158, 237)",
+     "font": "14px 600",
+     "radius": "10px",
+     "border": "0px none rgb(92, 158, 237)",
+     "pad": "0px"
+    },
+    {
+     "text": "🗑",
+     "x": 309.6,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "0px"
+    }
+   ],
+   "#bottom": [
+    {
+     "text": "Tap a body to select · drag to orbit · pinch to zoom\nSteel\nS",
+     "x": 0,
+     "y": 801,
+     "w": 412,
+     "h": 90,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px 10px 10px"
+    }
+   ],
+   "#hint": [
+    {
+     "text": "Tap a body to select · drag to orbit · pinch to zoom",
+     "x": 42.3,
+     "y": 801,
+     "w": 327.4,
+     "h": 29,
+     "bg": "rgba(34, 37, 44, 0.82)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 14px"
+    }
+   ],
+   "#tools": [
+    {
+     "text": "Steel\nSelect\nMove/Rotate\nLine\nPolyline\nRectangle\nCircle\nEdit",
+     "x": 10,
+     "y": 838,
+     "w": 392,
+     "h": 43,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "2px 2px 4px"
+    }
+   ],
+   "#tools button": [
+    {
+     "text": "Steel",
+     "x": 12,
+     "y": 840,
+     "w": 62.5,
+     "h": 37,
+     "bg": "rgb(47, 51, 60)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "13.5px 500",
+     "radius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "9px 14px"
+    },
+    {
+     "text": "Select",
+     "x": 80.5,
+     "y": 840,
+     "w": 70.4,
+     "h": 37,
+     "bg": "rgb(92, 158, 237)",
+     "fg": "rgb(14, 20, 32)",
+     "font": "13.5px 500",
+     "radius": "999px",
+     "border": "1px solid rgba(0, 0, 0, 0)",
+     "pad": "9px 14px"
+    },
+    {
+     "text": "Move/Rotate",
+     "x": 156.8,
+     "y": 840,
+     "w": 112.1,
+     "h": 37,
+     "bg": "rgb(47, 51, 60)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "13.5px 500",
+     "radius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "9px 14px"
+    },
+    {
+     "text": "Line",
+     "x": 274.9,
+     "y": 840,
+     "w": 57.1,
+     "h": 37,
+     "bg": "rgb(47, 51, 60)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "13.5px 500",
+     "radius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "9px 14px"
+    },
+    {
+     "text": "Polyline",
+     "x": 338,
+     "y": 840,
+     "w": 80.9,
+     "h": 37,
+     "bg": "rgb(47, 51, 60)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "13.5px 500",
+     "radius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "9px 14px"
+    },
+    {
+     "text": "Rectangle",
+     "x": 424.9,
+     "y": 840,
+     "w": 94.4,
+     "h": 37,
+     "bg": "rgb(47, 51, 60)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "13.5px 500",
+     "radius": "999px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "9px 14px"
+    }
+   ],
+   "#toast": [
+    {
+     "text": "Exact engine ready · new shapes are exact",
+     "x": 103,
+     "y": 71.2,
+     "w": 206,
+     "h": 52,
+     "bg": "rgb(238, 240, 244)",
+     "fg": "rgb(26, 29, 36)",
+     "font": "13.5px 400",
+     "radius": "12px",
+     "border": "0px none rgb(26, 29, 36)",
+     "pad": "10px 16px"
+    }
+   ],
+   "#tk-status": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "7px 12px"
+    }
+   ]
+  },
+  "02_steel_grid": {
+   "#top": [
+    {
+     "text": "SolidSketch\n0 bodies\n◫\n◧\nUndo\nRedo\n🗑\n🚶\n⋮",
+     "x": 0,
+     "y": 0,
+     "w": 412,
+     "h": 62,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "8px 10px 0px"
+    }
+   ],
+   "#top .btn": [
+    {
+     "text": "◫",
+     "x": 143.8,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "◧",
+     "x": 170.5,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "Undo",
+     "x": 197.3,
+     "y": 19,
+     "w": 43.6,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "Redo",
+     "x": 240.8,
+     "y": 19,
+     "w": 42,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "",
+     "x": 282.8,
+     "y": 23,
+     "w": 26.7,
+     "h": 24,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(92, 158, 237)",
+     "font": "14px 600",
+     "radius": "10px",
+     "border": "0px none rgb(92, 158, 237)",
+     "pad": "0px"
+    },
+    {
+     "text": "🗑",
+     "x": 309.6,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "0px"
+    }
+   ],
+   "#bottom": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 881,
+     "w": 412,
+     "h": 10,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px 10px 10px"
+    }
+   ],
+   "#st-panel": [
+    {
+     "text": "Grid\nPortal frame\nColumn\nBeam\nPlate\nComponents\nNumbering\nChe",
+     "x": 8,
+     "y": 770,
+     "w": 396,
+     "h": 113,
+     "bg": "rgba(34, 37, 44, 0.94)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "16px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "8px 10px"
+    }
+   ],
+   "#st-panel button": [
+    {
+     "text": "Grid",
+     "x": 19,
+     "y": 782,
+     "w": 53.9,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Portal frame",
+     "x": 78.9,
+     "y": 782,
+     "w": 107.3,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Column",
+     "x": 192.2,
+     "y": 782,
+     "w": 76.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Beam",
+     "x": 275.1,
+     "y": 782,
+     "w": 63.6,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Plate",
+     "x": 344.7,
+     "y": 782,
+     "w": 58.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Components",
+     "x": 409.5,
+     "y": 782,
+     "w": 110.4,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    }
+   ],
+   "#st-panel .say": [
+    {
+     "text": "Pick a tool, or tap a steel part to see its properties",
+     "x": 19,
+     "y": 857,
+     "w": 374,
+     "h": 17,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "2px 2px 0px"
+    }
+   ],
+   "#toast": [
+    {
+     "text": "Steel: grid, columns, beams and plates the Tekla way",
+     "x": 103,
+     "y": 72,
+     "w": 206,
+     "h": 68,
+     "bg": "rgb(238, 240, 244)",
+     "fg": "rgb(26, 29, 36)",
+     "font": "13.5px 400",
+     "radius": "12px",
+     "border": "0px none rgb(26, 29, 36)",
+     "pad": "10px 16px"
+    }
+   ],
+   "#tk-status": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "7px 12px"
+    }
+   ]
+  },
+  "03_grid_sheet": {
+   "#top": [
+    {
+     "text": "SolidSketch\n0 bodies\n◫\n◧\nUndo\nRedo\n🗑\n🚶\n⋮",
+     "x": 0,
+     "y": 0,
+     "w": 412,
+     "h": 62,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "8px 10px 0px"
+    }
+   ],
+   "#top .btn": [
+    {
+     "text": "◫",
+     "x": 143.8,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "◧",
+     "x": 170.5,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "Undo",
+     "x": 197.3,
+     "y": 19,
+     "w": 43.6,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "Redo",
+     "x": 240.8,
+     "y": 19,
+     "w": 42,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "",
+     "x": 282.8,
+     "y": 23,
+     "w": 26.7,
+     "h": 24,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(92, 158, 237)",
+     "font": "14px 600",
+     "radius": "10px",
+     "border": "0px none rgb(92, 158, 237)",
+     "pad": "0px"
+    },
+    {
+     "text": "🗑",
+     "x": 309.6,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "0px"
+    }
+   ],
+   "#bottom": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 881,
+     "w": 412,
+     "h": 10,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px 10px 10px"
+    }
+   ],
+   "#st-panel": [
+    {
+     "text": "Grid\nPortal frame\nColumn\nBeam\nPlate\nComponents\nNumbering\nChe",
+     "x": 8,
+     "y": 770,
+     "w": 396,
+     "h": 113,
+     "bg": "rgba(34, 37, 44, 0.94)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "16px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "8px 10px"
+    }
+   ],
+   "#st-panel button": [
+    {
+     "text": "Grid",
+     "x": 19,
+     "y": 782,
+     "w": 53.9,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Portal frame",
+     "x": 78.9,
+     "y": 782,
+     "w": 107.3,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Column",
+     "x": 192.2,
+     "y": 782,
+     "w": 76.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Beam",
+     "x": 275.1,
+     "y": 782,
+     "w": 63.6,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Plate",
+     "x": 344.7,
+     "y": 782,
+     "w": 58.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Components",
+     "x": 409.5,
+     "y": 782,
+     "w": 110.4,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    }
+   ],
+   "#st-panel .say": [
+    {
+     "text": "Pick a tool, or tap a steel part to see its properties",
+     "x": 19,
+     "y": 857,
+     "w": 374,
+     "h": 17,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "2px 2px 0px"
+    }
+   ],
+   "#st-sheet": [
+    {
+     "text": "Grid\nX (mm)\nY (mm)\nZ levels (mm)\n\nTekla syntax: the first va",
+     "x": 8,
+     "y": 64,
+     "w": 396,
+     "h": 819,
+     "bg": "rgba(34, 37, 44, 0.94)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "16px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "12px"
+    }
+   ],
+   "#st-sheet button": [
+    {
+     "text": "Cancel",
+     "x": 243.9,
+     "y": 302,
+     "w": 71.9,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Apply",
+     "x": 321.9,
+     "y": 302,
+     "w": 64.1,
+     "h": 33,
+     "bg": "rgb(192, 57, 43)",
+     "fg": "rgb(255, 255, 255)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgb(192, 57, 43)",
+     "pad": "7px 12px"
+    }
+   ],
+   "#st-sheet h3": [
+    {
+     "text": "Grid",
+     "x": 21,
+     "y": 81,
+     "w": 370,
+     "h": 20,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 700",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    }
+   ],
+   "#st-sheet input": [
+    {
+     "text": "0 6*6000",
+     "x": 151,
+     "y": 111,
+     "w": 240,
+     "h": 31,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "0 20000",
+     "x": 151,
+     "y": 148,
+     "w": 240,
+     "h": 31,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "0 7000",
+     "x": 151,
+     "y": 185,
+     "w": 240,
+     "h": 31,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    }
+   ],
+   "#toast": [
+    {
+     "text": "Steel: grid, columns, beams and plates the Tekla way",
+     "x": 103,
+     "y": 72,
+     "w": 206,
+     "h": 68,
+     "bg": "rgb(238, 240, 244)",
+     "fg": "rgb(26, 29, 36)",
+     "font": "13.5px 400",
+     "radius": "12px",
+     "border": "0px none rgb(26, 29, 36)",
+     "pad": "10px 16px"
+    }
+   ],
+   "#tk-status": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "7px 12px"
+    }
+   ]
+  },
+  "04_catalog": {
+   "#top": [
+    {
+     "text": "SolidSketch\n0 bodies\n◫\n◧\nUndo\nRedo\n🗑\n🚶\n⋮",
+     "x": 0,
+     "y": 0,
+     "w": 412,
+     "h": 62,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "8px 10px 0px"
+    }
+   ],
+   "#top .btn": [
+    {
+     "text": "◫",
+     "x": 143.8,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "◧",
+     "x": 170.5,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "Undo",
+     "x": 197.3,
+     "y": 19,
+     "w": 43.6,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "Redo",
+     "x": 240.8,
+     "y": 19,
+     "w": 42,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "",
+     "x": 282.8,
+     "y": 23,
+     "w": 26.7,
+     "h": 24,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(92, 158, 237)",
+     "font": "14px 600",
+     "radius": "10px",
+     "border": "0px none rgb(92, 158, 237)",
+     "pad": "0px"
+    },
+    {
+     "text": "🗑",
+     "x": 309.6,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "0px"
+    }
+   ],
+   "#bottom": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 881,
+     "w": 412,
+     "h": 10,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px 10px 10px"
+    }
+   ],
+   "#st-panel": [
+    {
+     "text": "Grid\nPortal frame\nColumn\nBeam\nPlate\nComponents\nNumbering\nChe",
+     "x": 8,
+     "y": 770,
+     "w": 396,
+     "h": 113,
+     "bg": "rgba(34, 37, 44, 0.94)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "16px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "8px 10px"
+    }
+   ],
+   "#st-panel button": [
+    {
+     "text": "Grid",
+     "x": 19,
+     "y": 782,
+     "w": 53.9,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Portal frame",
+     "x": 78.9,
+     "y": 782,
+     "w": 107.3,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Column",
+     "x": 192.2,
+     "y": 782,
+     "w": 76.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Beam",
+     "x": 275.1,
+     "y": 782,
+     "w": 63.6,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Plate",
+     "x": 344.7,
+     "y": 782,
+     "w": 58.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Components",
+     "x": 409.5,
+     "y": 782,
+     "w": 110.4,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    }
+   ],
+   "#st-panel .say": [
+    {
+     "text": "Pick a tool, or tap a steel part to see its properties",
+     "x": 19,
+     "y": 857,
+     "w": 374,
+     "h": 17,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "2px 2px 0px"
+    }
+   ],
+   "#st-sheet": [
+    {
+     "text": "Applications & components\nBase plates (13)\nSimple base plate",
+     "x": 8,
+     "y": 64,
+     "w": 396,
+     "h": 819,
+     "bg": "rgba(34, 37, 44, 0.94)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "16px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "12px"
+    }
+   ],
+   "#st-sheet button": [
+    {
+     "text": "Properties",
+     "x": 295.9,
+     "y": 198.5,
+     "w": 88.1,
+     "h": 29,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "5px 9px"
+    },
+    {
+     "text": "Properties",
+     "x": 295.9,
+     "y": 271.5,
+     "w": 88.1,
+     "h": 29,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "5px 9px"
+    },
+    {
+     "text": "Properties",
+     "x": 295.9,
+     "y": 344.5,
+     "w": 88.1,
+     "h": 29,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "5px 9px"
+    },
+    {
+     "text": "Properties",
+     "x": 295.9,
+     "y": 410.5,
+     "w": 88.1,
+     "h": 29,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "5px 9px"
+    },
+    {
+     "text": "Properties",
+     "x": 295.9,
+     "y": 476.5,
+     "w": 88.1,
+     "h": 29,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "5px 9px"
+    },
+    {
+     "text": "Properties",
+     "x": 295.9,
+     "y": 542.5,
+     "w": 88.1,
+     "h": 29,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "5px 9px"
+    }
+   ],
+   "#st-sheet h3": [
+    {
+     "text": "Applications & components",
+     "x": 21,
+     "y": 81,
+     "w": 370,
+     "h": 20,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 700",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    }
+   ],
+   "#st-sheet input": [
+    {
+     "text": "",
+     "x": 21,
+     "y": 111,
+     "w": 370,
+     "h": 31,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    }
+   ],
+   "#toast": [
+    {
+     "text": "Steel: grid, columns, beams and plates the Tekla way",
+     "x": 103,
+     "y": 72,
+     "w": 206,
+     "h": 68,
+     "bg": "rgb(238, 240, 244)",
+     "fg": "rgb(26, 29, 36)",
+     "font": "13.5px 400",
+     "radius": "12px",
+     "border": "0px none rgb(26, 29, 36)",
+     "pad": "10px 16px"
+    }
+   ],
+   "#tk-status": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "7px 12px"
+    }
+   ]
+  },
+  "05_dialog_t144": {
+   "#top": [
+    {
+     "text": "SolidSketch\n0 bodies\n◫\n◧\nUndo\nRedo\n🗑\n🚶\n⋮",
+     "x": 0,
+     "y": 0,
+     "w": 412,
+     "h": 62,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "8px 10px 0px"
+    }
+   ],
+   "#top .btn": [
+    {
+     "text": "◫",
+     "x": 143.8,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "◧",
+     "x": 170.5,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "Undo",
+     "x": 197.3,
+     "y": 19,
+     "w": 43.6,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "Redo",
+     "x": 240.8,
+     "y": 19,
+     "w": 42,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "",
+     "x": 282.8,
+     "y": 23,
+     "w": 26.7,
+     "h": 24,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(92, 158, 237)",
+     "font": "14px 600",
+     "radius": "10px",
+     "border": "0px none rgb(92, 158, 237)",
+     "pad": "0px"
+    },
+    {
+     "text": "🗑",
+     "x": 309.6,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "0px"
+    }
+   ],
+   "#bottom": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 881,
+     "w": 412,
+     "h": 10,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px 10px 10px"
+    }
+   ],
+   "#st-panel": [
+    {
+     "text": "Grid\nPortal frame\nColumn\nBeam\nPlate\nComponents\nNumbering\nChe",
+     "x": 8,
+     "y": 770,
+     "w": 396,
+     "h": 113,
+     "bg": "rgba(34, 37, 44, 0.94)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "16px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "8px 10px"
+    }
+   ],
+   "#st-panel button": [
+    {
+     "text": "Grid",
+     "x": 19,
+     "y": 782,
+     "w": 53.9,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Portal frame",
+     "x": 78.9,
+     "y": 782,
+     "w": 107.3,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Column",
+     "x": 192.2,
+     "y": 782,
+     "w": 76.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Beam",
+     "x": 275.1,
+     "y": 782,
+     "w": 63.6,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Plate",
+     "x": 344.7,
+     "y": 782,
+     "w": 58.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Components",
+     "x": 409.5,
+     "y": 782,
+     "w": 110.4,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    }
+   ],
+   "#st-panel .say": [
+    {
+     "text": "Pick a tool, or tap a steel part to see its properties",
+     "x": 19,
+     "y": 857,
+     "w": 374,
+     "h": 17,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "2px 2px 0px"
+    }
+   ],
+   "#st-sheet": [
+    {
+     "text": "End plate (144)\ndefaults for new components\nSave\nLoad\nstanda",
+     "x": 0,
+     "y": 28,
+     "w": 412,
+     "h": 863,
+     "bg": "rgb(35, 39, 46)",
+     "fg": "rgb(232, 234, 237)",
+     "font": "13px 400",
+     "radius": "12px 12px 0px 0px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "0px"
+    }
+   ],
+   "#st-sheet button": [
+    {
+     "text": "Save",
+     "x": 9,
+     "y": 100,
+     "w": 52.1,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Load",
+     "x": 66.1,
+     "y": 100,
+     "w": 52.5,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Save as",
+     "x": 146.6,
+     "y": 100,
+     "w": 69.9,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Welds…",
+     "x": 382.5,
+     "y": 100,
+     "w": 70.9,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Help",
+     "x": 458.4,
+     "y": 100,
+     "w": 50.4,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Picture",
+     "x": 9,
+     "y": 145,
+     "w": 65.1,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "5px 5px 0px 0px",
+     "border": "",
+     "pad": "6px 10px"
+    }
+   ],
+   "#st-sheet input": [
+    {
+     "text": "",
+     "x": 221.5,
+     "y": 101,
+     "w": 18,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "on",
+     "x": 248.5,
+     "y": 107,
+     "w": 18,
+     "h": 18,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "12px 400",
+     "radius": "0px",
+     "border": "0px none rgb(29, 35, 48)",
+     "pad": "0px"
+    },
+    {
+     "text": "10",
+     "x": 200.2,
+     "y": 459.9,
+     "w": 46,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "10",
+     "x": 200.2,
+     "y": 610.1,
+     "w": 46,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "2",
+     "x": 69.3,
+     "y": 648.9,
+     "w": 46,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "10",
+     "x": 103,
+     "y": 438,
+     "w": 46,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    }
+   ],
+   "#toast": [
+    {
+     "text": "Steel: grid, columns, beams and plates the Tekla way",
+     "x": 103,
+     "y": 62,
+     "w": 206,
+     "h": 68,
+     "bg": "rgb(238, 240, 244)",
+     "fg": "rgb(26, 29, 36)",
+     "font": "13.5px 400",
+     "radius": "12px",
+     "border": "0px none rgb(26, 29, 36)",
+     "pad": "10px 16px"
+    }
+   ],
+   "#tk-status": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "7px 12px"
+    }
+   ]
+  },
+  "06_dialog_t144_bolts": {
+   "#top": [
+    {
+     "text": "SolidSketch\n0 bodies\n◫\n◧\nUndo\nRedo\n🗑\n🚶\n⋮",
+     "x": 0,
+     "y": 0,
+     "w": 412,
+     "h": 62,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "8px 10px 0px"
+    }
+   ],
+   "#top .btn": [
+    {
+     "text": "◫",
+     "x": 143.8,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "◧",
+     "x": 170.5,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "Undo",
+     "x": 197.3,
+     "y": 19,
+     "w": 43.6,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "Redo",
+     "x": 240.8,
+     "y": 19,
+     "w": 42,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "",
+     "x": 282.8,
+     "y": 23,
+     "w": 26.7,
+     "h": 24,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(92, 158, 237)",
+     "font": "14px 600",
+     "radius": "10px",
+     "border": "0px none rgb(92, 158, 237)",
+     "pad": "0px"
+    },
+    {
+     "text": "🗑",
+     "x": 309.6,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "0px"
+    }
+   ],
+   "#bottom": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 881,
+     "w": 412,
+     "h": 10,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px 10px 10px"
+    }
+   ],
+   "#st-panel": [
+    {
+     "text": "Grid\nPortal frame\nColumn\nBeam\nPlate\nComponents\nNumbering\nChe",
+     "x": 8,
+     "y": 770,
+     "w": 396,
+     "h": 113,
+     "bg": "rgba(34, 37, 44, 0.94)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "16px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "8px 10px"
+    }
+   ],
+   "#st-panel button": [
+    {
+     "text": "Grid",
+     "x": 19,
+     "y": 782,
+     "w": 53.9,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Portal frame",
+     "x": 78.9,
+     "y": 782,
+     "w": 107.3,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Column",
+     "x": 192.2,
+     "y": 782,
+     "w": 76.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Beam",
+     "x": 275.1,
+     "y": 782,
+     "w": 63.6,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Plate",
+     "x": 344.7,
+     "y": 782,
+     "w": 58.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Components",
+     "x": 409.5,
+     "y": 782,
+     "w": 110.4,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    }
+   ],
+   "#st-panel .say": [
+    {
+     "text": "Pick a tool, or tap a steel part to see its properties",
+     "x": 19,
+     "y": 857,
+     "w": 374,
+     "h": 17,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "2px 2px 0px"
+    }
+   ],
+   "#st-sheet": [
+    {
+     "text": "End plate (144)\ndefaults for new components\nSave\nLoad\nstanda",
+     "x": 0,
+     "y": 28,
+     "w": 412,
+     "h": 863,
+     "bg": "rgb(35, 39, 46)",
+     "fg": "rgb(232, 234, 237)",
+     "font": "13px 400",
+     "radius": "12px 12px 0px 0px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "0px"
+    }
+   ],
+   "#st-sheet button": [
+    {
+     "text": "Save",
+     "x": 9,
+     "y": 100,
+     "w": 52.1,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Load",
+     "x": 66.1,
+     "y": 100,
+     "w": 52.5,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Save as",
+     "x": 146.6,
+     "y": 100,
+     "w": 69.9,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Welds…",
+     "x": 382.5,
+     "y": 100,
+     "w": 70.9,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Help",
+     "x": 458.4,
+     "y": 100,
+     "w": 50.4,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "4px",
+     "border": "1px solid rgb(170, 178, 189)",
+     "pad": "6px 10px"
+    },
+    {
+     "text": "Picture",
+     "x": -164,
+     "y": 145,
+     "w": 65.1,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "5px 5px 0px 0px",
+     "border": "",
+     "pad": "6px 10px"
+    }
+   ],
+   "#st-sheet input": [
+    {
+     "text": "",
+     "x": 221.5,
+     "y": 101,
+     "w": 18,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "on",
+     "x": 248.5,
+     "y": 107,
+     "w": 18,
+     "h": 18,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "12px 400",
+     "radius": "0px",
+     "border": "0px none rgb(29, 35, 48)",
+     "pad": "0px"
+    },
+    {
+     "text": "0",
+     "x": 193.7,
+     "y": 195.5,
+     "w": 46,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "30",
+     "x": 261.3,
+     "y": 410.3,
+     "w": 46,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "90",
+     "x": 193.7,
+     "y": 410.3,
+     "w": 46,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    },
+    {
+     "text": "35",
+     "x": 81.6,
+     "y": 216.3,
+     "w": 46,
+     "h": 30,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(29, 35, 48)",
+     "font": "13px 400",
+     "radius": "8px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px 8px"
+    }
+   ],
+   "#toast": [
+    {
+     "text": "Steel: grid, columns, beams and plates the Tekla way",
+     "x": 103,
+     "y": 62,
+     "w": 206,
+     "h": 68,
+     "bg": "rgb(238, 240, 244)",
+     "fg": "rgb(26, 29, 36)",
+     "font": "13.5px 400",
+     "radius": "12px",
+     "border": "0px none rgb(26, 29, 36)",
+     "pad": "10px 16px"
+    }
+   ],
+   "#tk-status": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "7px 12px"
+    }
+   ]
+  },
+  "07_menu": {
+   "#top": [
+    {
+     "text": "SolidSketch\n0 bodies\n◫\n◧\nUndo\nRedo\n🗑\n🚶\n⋮\nOpen model (.ss)…",
+     "x": 0,
+     "y": 0,
+     "w": 412,
+     "h": 62,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "8px 10px 0px"
+    }
+   ],
+   "#top .btn": [
+    {
+     "text": "◫",
+     "x": 143.8,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "◧",
+     "x": 170.5,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px"
+    },
+    {
+     "text": "Undo",
+     "x": 197.3,
+     "y": 19,
+     "w": 43.6,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "Redo",
+     "x": 240.8,
+     "y": 19,
+     "w": 42,
+     "h": 32,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "13px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "8px 5px"
+    },
+    {
+     "text": "",
+     "x": 282.8,
+     "y": 23,
+     "w": 26.7,
+     "h": 24,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(92, 158, 237)",
+     "font": "14px 600",
+     "radius": "10px",
+     "border": "0px none rgb(92, 158, 237)",
+     "pad": "0px"
+    },
+    {
+     "text": "🗑",
+     "x": 309.6,
+     "y": 15,
+     "w": 26.7,
+     "h": 40,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(162, 169, 182)",
+     "font": "18px 600",
+     "radius": "10px",
+     "border": "0px none rgb(162, 169, 182)",
+     "pad": "0px"
+    }
+   ],
+   "#bottom": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 881,
+     "w": 412,
+     "h": 10,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "0px 10px 10px"
+    }
+   ],
+   "#st-panel": [
+    {
+     "text": "Grid\nPortal frame\nColumn\nBeam\nPlate\nComponents\nNumbering\nChe",
+     "x": 8,
+     "y": 770,
+     "w": 396,
+     "h": 113,
+     "bg": "rgba(34, 37, 44, 0.94)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "16px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "8px 10px"
+    }
+   ],
+   "#st-panel button": [
+    {
+     "text": "Grid",
+     "x": 19,
+     "y": 782,
+     "w": 53.9,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Portal frame",
+     "x": 78.9,
+     "y": 782,
+     "w": 107.3,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Column",
+     "x": 192.2,
+     "y": 782,
+     "w": 76.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Beam",
+     "x": 275.1,
+     "y": 782,
+     "w": 63.6,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Plate",
+     "x": 344.7,
+     "y": 782,
+     "w": 58.8,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    },
+    {
+     "text": "Components",
+     "x": 409.5,
+     "y": 782,
+     "w": 110.4,
+     "h": 33,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "14px 400",
+     "radius": "999px",
+     "border": "1px solid rgba(127, 127, 127, 0.35)",
+     "pad": "7px 12px"
+    }
+   ],
+   "#st-panel .say": [
+    {
+     "text": "Pick a tool, or tap a steel part to see its properties",
+     "x": 19,
+     "y": 857,
+     "w": 374,
+     "h": 17,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "0px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "2px 2px 0px"
+    }
+   ],
+   "#toast": [
+    {
+     "text": "Steel: grid, columns, beams and plates the Tekla way",
+     "x": 103,
+     "y": 62,
+     "w": 206,
+     "h": 68,
+     "bg": "rgb(238, 240, 244)",
+     "fg": "rgb(26, 29, 36)",
+     "font": "13.5px 400",
+     "radius": "12px",
+     "border": "0px none rgb(26, 29, 36)",
+     "pad": "10px 16px"
+    }
+   ],
+   "#tk-status": [
+    {
+     "text": "",
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0,
+     "bg": "rgba(0, 0, 0, 0)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "12.5px 400",
+     "radius": "10px",
+     "border": "0px none rgb(238, 240, 244)",
+     "pad": "7px 12px"
+    }
+   ],
+   "#menu": [
+    {
+     "text": "Open model (.ss)…\nWalkthrough\nPick faces only: off\nSave mode",
+     "x": 207,
+     "y": 59,
+     "w": 190,
+     "h": 782,
+     "bg": "rgba(34, 37, 44, 0.94)",
+     "fg": "rgb(238, 240, 244)",
+     "font": "16px 400",
+     "radius": "12px",
+     "border": "1px solid rgba(255, 255, 255, 0.08)",
+     "pad": "6px"
+    }
+   ]
+  }
+ }
+}

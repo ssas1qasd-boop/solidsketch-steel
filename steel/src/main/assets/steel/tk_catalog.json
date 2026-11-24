@@ -1,0 +1,3019 @@
+{
+ "source": "web v69 TK, ST_CATALOG, TK_FAMNAME, TK_PICK, TK_ICON, CONN (catalog items that are not TK), live values",
+ "components": [
+  {
+   "n": "55",
+   "name": "Simple base plate",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "none"
+   }
+  },
+  {
+   "n": "71",
+   "name": "U.S. Base plate connection",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "none",
+    "us": 1
+   }
+  },
+  {
+   "n": "1004",
+   "name": "Base plate",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "none"
+   }
+  },
+  {
+   "n": "1014",
+   "name": "Stiffened base plate",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "flange"
+   }
+  },
+  {
+   "n": "1016",
+   "name": "Web stiffened base plate",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "web"
+   }
+  },
+  {
+   "n": "1031",
+   "name": "Simple base plate 2",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "none"
+   }
+  },
+  {
+   "n": "1042",
+   "name": "Base plate",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "none",
+    "grout": 1
+   }
+  },
+  {
+   "n": "1044",
+   "name": "U.S. Bearing plate",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 2,
+    "stiff": "web",
+    "bearing": 1
+   }
+  },
+  {
+   "n": "1047",
+   "name": "U.S. Base plate",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "none",
+    "us": 1
+   }
+  },
+  {
+   "n": "1052",
+   "name": "Circular base plates",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 6,
+    "shape": "round"
+   }
+  },
+  {
+   "n": "1053",
+   "name": "Base plate (tower leg)",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "none"
+   }
+  },
+  {
+   "n": "1066",
+   "name": "Box column base plate",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 8,
+    "stiff": "box"
+   }
+  },
+  {
+   "n": "1068",
+   "name": "Tapered column base plate",
+   "grp": "Base plates",
+   "fam": "BP",
+   "pk": "m",
+   "o": {
+    "anchors": 4,
+    "stiff": "none"
+   }
+  },
+  {
+   "n": "2",
+   "name": "Seating cap plate",
+   "grp": "End plates",
+   "fam": "CP",
+   "pk": "ms",
+   "o": {
+    "bolts": 4
+   }
+  },
+  {
+   "n": "14",
+   "name": "Column - 2 beams",
+   "grp": "End plates",
+   "fam": "CP",
+   "pk": "mss",
+   "o": {
+    "bolts": 4
+   }
+  },
+  {
+   "n": "24",
+   "name": "Two sided end plate (24)",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "mss",
+   "o": {
+    "two": 1
+   }
+  },
+  {
+   "n": "27",
+   "name": "Bolted cap plate",
+   "grp": "End plates",
+   "fam": "CP",
+   "pk": "ms",
+   "o": {
+    "bolts": 4,
+    "stiff": 1
+   }
+  },
+  {
+   "n": "27s",
+   "name": "Stiffened end plate",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {
+    "stiffT": 1
+   }
+  },
+  {
+   "n": "29",
+   "name": "End plate (29)",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "32",
+   "name": "Simple end plate",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "34",
+   "name": "Two side end plate",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "mss",
+   "o": {
+    "two": 1
+   }
+  },
+  {
+   "n": "48",
+   "name": "Spacer plate",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {
+    "spacer": 1
+   }
+  },
+  {
+   "n": "50",
+   "name": "Double plate",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {
+    "double": 1
+   }
+  },
+  {
+   "n": "65",
+   "name": "Partial stiff end plate",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {
+    "front": 1,
+    "stiff": 1
+   }
+  },
+  {
+   "n": "97",
+   "name": "HQ End plate",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {
+    "seat": 1
+   }
+  },
+  {
+   "n": "101",
+   "name": "End plate (101)",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "111",
+   "name": "End plate with compensating flange plates",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {
+    "comp": 1
+   }
+  },
+  {
+   "n": "112",
+   "name": "Two-sided end plate with compensating flange plates",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "mss",
+   "o": {
+    "two": 1,
+    "comp": 1
+   }
+  },
+  {
+   "n": "115",
+   "name": "Two sided end plate (115)",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "mss",
+   "o": {
+    "two": 1
+   }
+  },
+  {
+   "n": "119",
+   "name": "Stub connection",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {
+    "stub": 1,
+    "stiff": 1
+   }
+  },
+  {
+   "n": "142",
+   "name": "Two sided end plate",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "mss",
+   "o": {
+    "two": 1,
+    "shared": 1
+   }
+  },
+  {
+   "n": "144",
+   "name": "End plate",
+   "grp": "End plates",
+   "fam": "EP",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "1002",
+   "name": "End plate detail",
+   "grp": "End plates",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "endplate"
+   }
+  },
+  {
+   "n": "1020",
+   "name": "LProf base detail",
+   "grp": "End plates",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "lcleat"
+   }
+  },
+  {
+   "n": "1026",
+   "name": "Connection plate",
+   "grp": "End plates",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "plate"
+   }
+  },
+  {
+   "n": "cap",
+   "name": "Cap plate detail",
+   "grp": "End plates",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "cap"
+   }
+  },
+  {
+   "n": "17",
+   "name": "Stiffened shear plate",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "stiff": 1
+   }
+  },
+  {
+   "n": "32t",
+   "name": "Welded tee",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "tee": 1
+   }
+  },
+  {
+   "n": "34s",
+   "name": "Shear plate (34)",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "35",
+   "name": "Shear plate simple (35)",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "36",
+   "name": "Shear plate welded top",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "top": 1
+   }
+  },
+  {
+   "n": "38",
+   "name": "Fitted shear plate",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "notch": 1
+   }
+  },
+  {
+   "n": "38t",
+   "name": "Shear plate to top special",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "top": 1
+   }
+  },
+  {
+   "n": "39f",
+   "name": "Shear plate full depth special",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "full": 1
+   }
+  },
+  {
+   "n": "40s",
+   "name": "Shear Pl parallel",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "41s",
+   "name": "Shear Pl col with stiff",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "colstiff": 1
+   }
+  },
+  {
+   "n": "43",
+   "name": "Shear and flange plates",
+   "grp": "Shear tabs",
+   "fam": "MF",
+   "pk": "ms",
+   "o": {
+    "flange": "weld"
+   }
+  },
+  {
+   "n": "43w",
+   "name": "Welded shear plate",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "stiff": 1
+   }
+  },
+  {
+   "n": "46",
+   "name": "Hql connection",
+   "grp": "Shear tabs",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "hql"
+   }
+  },
+  {
+   "n": "47",
+   "name": "Shear plate to tube column",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "through": 1,
+    "two": 1
+   }
+  },
+  {
+   "n": "64",
+   "name": "H&V Shear plate",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "80",
+   "name": "Shear tab plate connection",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "colstiff": 1
+   }
+  },
+  {
+   "n": "81",
+   "name": "Full depth shear plate",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "full": 1
+   }
+  },
+  {
+   "n": "103",
+   "name": "Shear plate (103)",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "118",
+   "name": "Two sided shear plate",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "mss",
+   "o": {
+    "two": 1
+   }
+  },
+  {
+   "n": "129",
+   "name": "Beam with stiffener",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "stiff": 1
+   }
+  },
+  {
+   "n": "131",
+   "name": "Column with shear plate",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "colstiff": 1
+   }
+  },
+  {
+   "n": "146",
+   "name": "Shear plate simple",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "147",
+   "name": "Welded to top flange",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "top": 1
+   }
+  },
+  {
+   "n": "149",
+   "name": "Welded to top flange S",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "top": 1,
+    "shaped": 1
+   }
+  },
+  {
+   "n": "182",
+   "name": "Column with stiffeners W",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "colstiff": 1
+   }
+  },
+  {
+   "n": "184",
+   "name": "Full depth",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "full": 1,
+    "stiff": 1
+   }
+  },
+  {
+   "n": "185s",
+   "name": "Full depth S",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "full": 1,
+    "stiff": 1,
+    "shaped": 1
+   }
+  },
+  {
+   "n": "185",
+   "name": "JP Full depth special",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "full": 1,
+    "stiff": 1
+   }
+  },
+  {
+   "n": "186",
+   "name": "Column with stiffeners",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "colstiff": 1
+   }
+  },
+  {
+   "n": "187",
+   "name": "Column with stiffeners S",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "colstiff": 1,
+    "shaped": 1
+   }
+  },
+  {
+   "n": "188",
+   "name": "Column with stiffeners (188)",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "colstiff": 1
+   }
+  },
+  {
+   "n": "189",
+   "name": "Shear plate tube column",
+   "grp": "Shear tabs",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "through": 1
+   }
+  },
+  {
+   "n": "3",
+   "name": "Angle cleat",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "ms",
+   "o": {
+    "double": 1
+   }
+  },
+  {
+   "n": "25",
+   "name": "Two sided angle cleat",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "mss",
+   "o": {
+    "double": 1,
+    "two": 1
+   }
+  },
+  {
+   "n": "31",
+   "name": "Simple clip angle",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "ms",
+   "o": {
+    "double": 1
+   }
+  },
+  {
+   "n": "33",
+   "name": "Two side clip angle",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "mss",
+   "o": {
+    "double": 1,
+    "two": 1
+   }
+  },
+  {
+   "n": "44",
+   "name": "Clip angles",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "ms",
+   "o": {
+    "double": 1
+   }
+  },
+  {
+   "n": "82",
+   "name": "Simple clip angle 2",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "ms",
+   "o": {
+    "double": 0
+   }
+  },
+  {
+   "n": "116",
+   "name": "Clip angle (116)",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "ms",
+   "o": {
+    "double": 1
+   }
+  },
+  {
+   "n": "117",
+   "name": "Two sided clip angle (117)",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "mss",
+   "o": {
+    "double": 1,
+    "two": 1
+   }
+  },
+  {
+   "n": "141",
+   "name": "Clip angle",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "ms",
+   "o": {
+    "double": 1
+   }
+  },
+  {
+   "n": "143",
+   "name": "Two sided clip angle",
+   "grp": "Clip angles",
+   "fam": "CA",
+   "pk": "mss",
+   "o": {
+    "double": 1,
+    "two": 1,
+    "shared": 1
+   }
+  },
+  {
+   "n": "151",
+   "name": "Bent plate",
+   "grp": "Bent plates",
+   "fam": "BE",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "190",
+   "name": "Bent plate (190)",
+   "grp": "Bent plates",
+   "fam": "BE",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "7",
+   "name": "Bearing plate",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "plate",
+    "top": 1
+   }
+  },
+  {
+   "n": "8",
+   "name": "Channel cleat",
+   "grp": "Seated connections",
+   "fam": "PU",
+   "pk": "ms",
+   "o": {
+    "kind": "angle"
+   }
+  },
+  {
+   "n": "12",
+   "name": "Stiffener seating",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "stiff"
+   }
+  },
+  {
+   "n": "28",
+   "name": "Stub (crane beam)",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "stub"
+   }
+  },
+  {
+   "n": "30",
+   "name": "Seating",
+   "grp": "Seated connections",
+   "fam": "CP",
+   "pk": "ms",
+   "o": {
+    "cross": 1
+   }
+  },
+  {
+   "n": "36n",
+   "name": "Seating with nail",
+   "grp": "Seated connections",
+   "fam": "CP",
+   "pk": "ms",
+   "o": {
+    "cross": 1
+   }
+  },
+  {
+   "n": "37",
+   "name": "Seating cap",
+   "grp": "Seated connections",
+   "fam": "CP",
+   "pk": "ms",
+   "o": {
+    "stiff": 1
+   }
+  },
+  {
+   "n": "39",
+   "name": "Seating",
+   "grp": "Seated connections",
+   "fam": "CP",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "60",
+   "name": "Seat type 5",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "angle"
+   }
+  },
+  {
+   "n": "72",
+   "name": "U.S. Seat connection",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "angle",
+    "top": 1
+   }
+  },
+  {
+   "n": "73",
+   "name": "U.S. Seat connection 2",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "angle",
+    "top": 1
+   }
+  },
+  {
+   "n": "74",
+   "name": "U.S. Seat connection 3",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "angle"
+   }
+  },
+  {
+   "n": "75",
+   "name": "U.S. Seat connection 4",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "angle"
+   }
+  },
+  {
+   "n": "100",
+   "name": "Column tube seating",
+   "grp": "Seated connections",
+   "fam": "CP",
+   "pk": "ms",
+   "o": {
+    "tube": 1
+   }
+  },
+  {
+   "n": "104",
+   "name": "Tube seat",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "plate"
+   }
+  },
+  {
+   "n": "170",
+   "name": "Angle profile box",
+   "grp": "Seated connections",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "angle",
+    "top": 1
+   }
+  },
+  {
+   "n": "1013",
+   "name": "Stub plate",
+   "grp": "Seated connections",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "stubplate"
+   }
+  },
+  {
+   "n": "1040",
+   "name": "Angle profile box (detail)",
+   "grp": "Seated connections",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "seatangle"
+   }
+  },
+  {
+   "n": "1048",
+   "name": "U.S. Seat detail",
+   "grp": "Seated connections",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "seatangle"
+   }
+  },
+  {
+   "n": "1049",
+   "name": "U.S. Seat detail 2",
+   "grp": "Seated connections",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "seatangle"
+   }
+  },
+  {
+   "n": "40",
+   "name": "Haunch",
+   "grp": "Haunch and moment",
+   "fam": "HA",
+   "pk": "ms",
+   "o": {
+    "kind": "knee"
+   }
+  },
+  {
+   "n": "41",
+   "name": "Cranked beam",
+   "grp": "Haunch and moment",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "mitre"
+   }
+  },
+  {
+   "n": "51",
+   "name": "Fit haunch",
+   "grp": "Haunch and moment",
+   "fam": "HA",
+   "pk": "ms",
+   "o": {
+    "kind": "knee"
+   }
+  },
+  {
+   "n": "102",
+   "name": "Eaves haunch",
+   "grp": "Haunch and moment",
+   "fam": "HA",
+   "pk": "ms",
+   "o": {
+    "kind": "knee"
+   }
+  },
+  {
+   "n": "106",
+   "name": "Apex haunch",
+   "grp": "Haunch and moment",
+   "fam": "HA",
+   "pk": "ms",
+   "o": {
+    "kind": "apex"
+   }
+  },
+  {
+   "n": "130",
+   "name": "Moment connection",
+   "grp": "Haunch and moment",
+   "fam": "MF",
+   "pk": "ms",
+   "o": {
+    "flange": "weld"
+   }
+  },
+  {
+   "n": "134",
+   "name": "Bolted moment connection",
+   "grp": "Haunch and moment",
+   "fam": "MF",
+   "pk": "ms",
+   "o": {
+    "flange": "bolt"
+   }
+  },
+  {
+   "n": "181",
+   "name": "Moment connection (181)",
+   "grp": "Haunch and moment",
+   "fam": "MF",
+   "pk": "ms",
+   "o": {
+    "flange": "weld"
+   }
+  },
+  {
+   "n": "6",
+   "name": "Tube splice",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "tube"
+   }
+  },
+  {
+   "n": "14j",
+   "name": "Joining plates",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "endplates"
+   }
+  },
+  {
+   "n": "26",
+   "name": "Muffe",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "endplates"
+   }
+  },
+  {
+   "n": "33t",
+   "name": "Tab plate",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "tab"
+   }
+  },
+  {
+   "n": "42",
+   "name": "Column splice",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "cover"
+   }
+  },
+  {
+   "n": "45",
+   "name": "Box girder splice",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "cover"
+   }
+  },
+  {
+   "n": "53",
+   "name": "Diagonal splice",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "cover"
+   }
+  },
+  {
+   "n": "77",
+   "name": "Splice connection",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "cover"
+   }
+  },
+  {
+   "n": "124",
+   "name": "Round joining plates",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "endplates",
+    "round": 1
+   }
+  },
+  {
+   "n": "125",
+   "name": "Moose splice",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "cover"
+   }
+  },
+  {
+   "n": "126",
+   "name": "Turnbuckle connection",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "turnbuckle"
+   }
+  },
+  {
+   "n": "132",
+   "name": "Column splice (132)",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "cover"
+   }
+  },
+  {
+   "n": "133",
+   "name": "Stub",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "cover"
+   }
+  },
+  {
+   "n": "135",
+   "name": "Beam to beam stub connection",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "cover"
+   }
+  },
+  {
+   "n": "137",
+   "name": "Column site weld splice",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "weld"
+   }
+  },
+  {
+   "n": "152",
+   "name": "2L Splice",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "angles"
+   }
+  },
+  {
+   "n": "175",
+   "name": "L splice",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "angles"
+   }
+  },
+  {
+   "n": "176",
+   "name": "Parallel L profiles",
+   "grp": "Splices",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "lap"
+   }
+  },
+  {
+   "n": "1054",
+   "name": "Dividing part",
+   "grp": "Splices",
+   "fam": "GEN",
+   "pk": "m",
+   "o": {
+    "kind": "divide"
+   }
+  },
+  {
+   "n": "5",
+   "name": "Simple bolt connection",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "direct"
+   }
+  },
+  {
+   "n": "10",
+   "name": "Welded gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "welded"
+   }
+  },
+  {
+   "n": "11",
+   "name": "Bolted gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "bolted"
+   }
+  },
+  {
+   "n": "12d",
+   "name": "Diag brace connection",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "bent"
+   }
+  },
+  {
+   "n": "19",
+   "name": "Bracing cross",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "cross"
+   }
+  },
+  {
+   "n": "20",
+   "name": "Tube gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "tube"
+   }
+  },
+  {
+   "n": "22",
+   "name": "Tube crossing",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "cross"
+   }
+  },
+  {
+   "n": "52",
+   "name": "Traction bar",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "strips"
+   }
+  },
+  {
+   "n": "61",
+   "name": "Wrapped cross",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "cross"
+   }
+  },
+  {
+   "n": "62",
+   "name": "Gusseted cross",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "bolted",
+    "clip": 1
+   }
+  },
+  {
+   "n": "67",
+   "name": "Std bracing connection",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "tube"
+   }
+  },
+  {
+   "n": "105",
+   "name": "Portal bracing",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "tube"
+   }
+  },
+  {
+   "n": "140",
+   "name": "Bent gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "bent"
+   }
+  },
+  {
+   "n": "169",
+   "name": "Central gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "bolted"
+   }
+  },
+  {
+   "n": "196",
+   "name": "Bolted gusset (196)",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "bolted",
+    "clip": 1
+   }
+  },
+  {
+   "n": "56",
+   "name": "Corner tube gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "mms",
+   "o": {
+    "kind": "tube",
+    "corner": 1
+   }
+  },
+  {
+   "n": "57",
+   "name": "Corner bolted gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "mms",
+   "o": {
+    "kind": "bolted",
+    "corner": 1
+   }
+  },
+  {
+   "n": "58",
+   "name": "Wraparound gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "mms",
+   "o": {
+    "kind": "bolted",
+    "corner": 1
+   }
+  },
+  {
+   "n": "59",
+   "name": "Hollow brace wraparound gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "mms",
+   "o": {
+    "kind": "tube",
+    "corner": 1
+   }
+  },
+  {
+   "n": "60w",
+   "name": "Wraparound gusset cross",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "mms",
+   "o": {
+    "kind": "cross",
+    "corner": 1
+   }
+  },
+  {
+   "n": "63",
+   "name": "Corner wrapped gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "mms",
+   "o": {
+    "kind": "bolted",
+    "corner": 1
+   }
+  },
+  {
+   "n": "165",
+   "name": "Heavy brace",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "mms",
+   "o": {
+    "kind": "bolted",
+    "corner": 1
+   }
+  },
+  {
+   "n": "7t",
+   "name": "Tensioner",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "fork"
+   }
+  },
+  {
+   "n": "13b",
+   "name": "Tensioner brace",
+   "grp": "Bracing",
+   "fam": "GEN",
+   "pk": "mm",
+   "o": {
+    "kind": "rodcross"
+   }
+  },
+  {
+   "n": "13c",
+   "name": "Tensioner brace and compression bar",
+   "grp": "Bracing",
+   "fam": "GEN",
+   "pk": "mm",
+   "o": {
+    "kind": "rodcross"
+   }
+  },
+  {
+   "n": "18",
+   "name": "Tensioner central gusset",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "central"
+   }
+  },
+  {
+   "n": "S3",
+   "name": "Turnbuckle bracing",
+   "grp": "Bracing",
+   "fam": "GEN",
+   "pk": "mm",
+   "o": {
+    "kind": "rodcross"
+   }
+  },
+  {
+   "n": "1w",
+   "name": "Windbracing",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "rod"
+   }
+  },
+  {
+   "n": "16",
+   "name": "Windbracing 2",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "rod"
+   }
+  },
+  {
+   "n": "110",
+   "name": "Windbrace connection",
+   "grp": "Bracing",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "bolted"
+   }
+  },
+  {
+   "n": "S55",
+   "name": "Windbracing (roof)",
+   "grp": "Bracing",
+   "fam": "GEN",
+   "pk": "mm",
+   "o": {
+    "kind": "roofbrace"
+   }
+  },
+  {
+   "n": "S56",
+   "name": "Vertical bracing",
+   "grp": "Bracing",
+   "fam": "GEN",
+   "pk": "mm",
+   "o": {
+    "kind": "xbrace"
+   }
+  },
+  {
+   "n": "S46",
+   "name": "Crushed tube in points",
+   "grp": "Bracing",
+   "fam": "GEN",
+   "pk": "p",
+   "o": {
+    "kind": "tube"
+   }
+  },
+  {
+   "n": "S47",
+   "name": "Gusset tube in points",
+   "grp": "Bracing",
+   "fam": "GEN",
+   "pk": "p",
+   "o": {
+    "kind": "tube"
+   }
+  },
+  {
+   "n": "S48",
+   "name": "Crushed tube in bolts",
+   "grp": "Bracing",
+   "fam": "GEN",
+   "pk": "p",
+   "o": {
+    "kind": "tube"
+   }
+  },
+  {
+   "n": "S49",
+   "name": "Gusset tube in bolts",
+   "grp": "Bracing",
+   "fam": "GEN",
+   "pk": "p",
+   "o": {
+    "kind": "tube"
+   }
+  },
+  {
+   "n": "1c",
+   "name": "Cold rolled overlap",
+   "grp": "Purlins and cold rolled",
+   "fam": "PU",
+   "pk": "ms",
+   "o": {
+    "kind": "overlap"
+   }
+  },
+  {
+   "n": "2c",
+   "name": "Cold rolled sleeved",
+   "grp": "Purlins and cold rolled",
+   "fam": "PU",
+   "pk": "ms",
+   "o": {
+    "kind": "sleeve"
+   }
+  },
+  {
+   "n": "80b",
+   "name": "Bridging",
+   "grp": "Purlins and cold rolled",
+   "fam": "GEN",
+   "pk": "mm",
+   "o": {
+    "kind": "bridging"
+   }
+  },
+  {
+   "n": "15",
+   "name": "Wooden purlin shoe",
+   "grp": "Purlins and cold rolled",
+   "fam": "PU",
+   "pk": "ms",
+   "o": {
+    "kind": "shoe"
+   }
+  },
+  {
+   "n": "50p",
+   "name": "Generation of purlins",
+   "grp": "Purlins and cold rolled",
+   "fam": "GEN",
+   "pk": "mm",
+   "o": {
+    "kind": "purlins"
+   }
+  },
+  {
+   "n": "61p",
+   "name": "Purlin 1",
+   "grp": "Purlins and cold rolled",
+   "fam": "PU",
+   "pk": "ms",
+   "o": {
+    "kind": "cleat"
+   }
+  },
+  {
+   "n": "70",
+   "name": "Rail connection",
+   "grp": "Purlins and cold rolled",
+   "fam": "PU",
+   "pk": "ms",
+   "o": {
+    "kind": "angle"
+   }
+  },
+  {
+   "n": "93",
+   "name": "Purlin connections",
+   "grp": "Purlins and cold rolled",
+   "fam": "PU",
+   "pk": "ms",
+   "o": {
+    "kind": "cleat"
+   }
+  },
+  {
+   "n": "113",
+   "name": "Tube rail",
+   "grp": "Purlins and cold rolled",
+   "fam": "PU",
+   "pk": "ms",
+   "o": {
+    "kind": "tube"
+   }
+  },
+  {
+   "n": "pc",
+   "name": "Purlin cleat",
+   "grp": "Purlins and cold rolled",
+   "fam": "PU",
+   "pk": "ms",
+   "o": {
+    "kind": "cleat"
+   }
+  },
+  {
+   "n": "11j",
+   "name": "JP Floor beam gusset",
+   "grp": "Stiffeners and gussets",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "full": 1
+   }
+  },
+  {
+   "n": "12j",
+   "name": "JP Floor beam gusset A",
+   "grp": "Stiffeners and gussets",
+   "fam": "SP",
+   "pk": "ms",
+   "o": {
+    "kind": "tab"
+   }
+  },
+  {
+   "n": "171",
+   "name": "Gusset stiffeners",
+   "grp": "Stiffeners and gussets",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "gussetstiff"
+   }
+  },
+  {
+   "n": "1003",
+   "name": "Stiffeners",
+   "grp": "Stiffeners and gussets",
+   "fam": "SD",
+   "pk": "ms",
+   "o": {
+    "kind": "stiff"
+   }
+  },
+  {
+   "n": "1017",
+   "name": "Horizontal stiffener",
+   "grp": "Stiffeners and gussets",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "hstiff"
+   }
+  },
+  {
+   "n": "1030",
+   "name": "Column stiffeners",
+   "grp": "Stiffeners and gussets",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "stiff"
+   }
+  },
+  {
+   "n": "1041",
+   "name": "Stiffeners (1041)",
+   "grp": "Stiffeners and gussets",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "stiff"
+   }
+  },
+  {
+   "n": "1050",
+   "name": "Standard Tee",
+   "grp": "Stiffeners and gussets",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "tee"
+   }
+  },
+  {
+   "n": "1051",
+   "name": "Standard L",
+   "grp": "Stiffeners and gussets",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "angle"
+   }
+  },
+  {
+   "n": "1060",
+   "name": "Web stiffeners",
+   "grp": "Stiffeners and gussets",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "hole"
+   }
+  },
+  {
+   "n": "1064",
+   "name": "Multiple stiffeners",
+   "grp": "Stiffeners and gussets",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "multi"
+   }
+  },
+  {
+   "n": "1065",
+   "name": "Standard gusset",
+   "grp": "Stiffeners and gussets",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "gusset"
+   }
+  },
+  {
+   "n": "gt",
+   "name": "Gusset+ T",
+   "grp": "Stiffeners and gussets",
+   "fam": "GU",
+   "pk": "ms",
+   "o": {
+    "kind": "tee"
+   }
+  },
+  {
+   "n": "102t",
+   "name": "Squeezed tube bolted",
+   "grp": "Tube connections",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "squeeze"
+   }
+  },
+  {
+   "n": "103t",
+   "name": "Squeezed tube",
+   "grp": "Tube connections",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "squeeze"
+   }
+  },
+  {
+   "n": "tc",
+   "name": "Tube-Chamfer",
+   "grp": "Tube connections",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "chamfer"
+   }
+  },
+  {
+   "n": "ts",
+   "name": "Tube-CrossingSaddle",
+   "grp": "Tube connections",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "saddle"
+   }
+  },
+  {
+   "n": "tm",
+   "name": "Tube-MitreSaddle+Hole",
+   "grp": "Tube connections",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "saddle"
+   }
+  },
+  {
+   "n": "th",
+   "name": "Tube-Saddle+Hole",
+   "grp": "Tube connections",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "saddle"
+   }
+  },
+  {
+   "n": "tsl",
+   "name": "Tube-SlottedHole",
+   "grp": "Tube connections",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "slot"
+   }
+  },
+  {
+   "n": "47n",
+   "name": "Plate with nail",
+   "grp": "Tube connections",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "nail"
+   }
+  },
+  {
+   "n": "4",
+   "name": "Cross",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "cross"
+   }
+  },
+  {
+   "n": "13",
+   "name": "Fitting",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "fit"
+   }
+  },
+  {
+   "n": "23",
+   "name": "Round tube",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "fit"
+   }
+  },
+  {
+   "n": "31w",
+   "name": "Welded column",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "colweld"
+   }
+  },
+  {
+   "n": "44w",
+   "name": "Weld preparation",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "prep"
+   }
+  },
+  {
+   "n": "123",
+   "name": "Welded beam to beam",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "prep"
+   }
+  },
+  {
+   "n": "128",
+   "name": "Welded column with stiffeners",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "colweld"
+   }
+  },
+  {
+   "n": "183",
+   "name": "Beam prep",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "prep"
+   }
+  },
+  {
+   "n": "1022",
+   "name": "Doubler plate",
+   "grp": "Welded, fitting and notch",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "doubler"
+   }
+  },
+  {
+   "n": "pd",
+   "name": "Pipe doubler plate",
+   "grp": "Welded, fitting and notch",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "doubler"
+   }
+  },
+  {
+   "n": "rp",
+   "name": "Ring plate",
+   "grp": "Welded, fitting and notch",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "ring"
+   }
+  },
+  {
+   "n": "49",
+   "name": "New notch",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "notch"
+   }
+  },
+  {
+   "n": "76",
+   "name": "Notch",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "notch"
+   }
+  },
+  {
+   "n": "1006",
+   "name": "Stiffened notch",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "notch"
+   }
+  },
+  {
+   "n": "9",
+   "name": "Offshore",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "prep"
+   }
+  },
+  {
+   "n": "192",
+   "name": "Offshore Z",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "fit"
+   }
+  },
+  {
+   "n": "193",
+   "name": "Offshore U",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "fit"
+   }
+  },
+  {
+   "n": "194",
+   "name": "Offshore (194)",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "fit"
+   }
+  },
+  {
+   "n": "195",
+   "name": "Offshore 4",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "fit"
+   }
+  },
+  {
+   "n": "1057",
+   "name": "Angle cut",
+   "grp": "Welded, fitting and notch",
+   "fam": "WF",
+   "pk": "m",
+   "o": {
+    "kind": "chamfer"
+   }
+  },
+  {
+   "n": "5w",
+   "name": "Wind column",
+   "grp": "Other",
+   "fam": "CP",
+   "pk": "ms",
+   "o": {
+    "cap": 1
+   }
+  },
+  {
+   "n": "47p",
+   "name": "Plate with nail (tubes)",
+   "grp": "Other",
+   "fam": "TU",
+   "pk": "ms",
+   "o": {
+    "kind": "nail"
+   }
+  },
+  {
+   "n": "114",
+   "name": "Panel stabilizer",
+   "grp": "Other",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "plate"
+   }
+  },
+  {
+   "n": "1010",
+   "name": "Shear stud",
+   "grp": "Other",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "studs"
+   }
+  },
+  {
+   "n": "1011",
+   "name": "Stub",
+   "grp": "Other",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "stub"
+   }
+  },
+  {
+   "n": "1015",
+   "name": "Wood girder bearing",
+   "grp": "Other",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "bearing"
+   }
+  },
+  {
+   "n": "1031l",
+   "name": "Lifting alignment pieces",
+   "grp": "Other",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "lug"
+   }
+  },
+  {
+   "n": "1069",
+   "name": "Cast-in plate",
+   "grp": "Other",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "castin"
+   }
+  },
+  {
+   "n": "92",
+   "name": "Create hole around part",
+   "grp": "Other",
+   "fam": "OP",
+   "pk": "ms",
+   "o": {
+    "kind": "hole"
+   }
+  },
+  {
+   "n": "1029",
+   "name": "Duct hole sleeve",
+   "grp": "Other",
+   "fam": "OP",
+   "pk": "m",
+   "o": {
+    "kind": "sleeve"
+   }
+  },
+  {
+   "n": "1058",
+   "name": "Penetrating diaphragm",
+   "grp": "Other",
+   "fam": "OP",
+   "pk": "m",
+   "o": {
+    "kind": "diaphragm"
+   }
+  },
+  {
+   "n": "1059",
+   "name": "Inner diaphragm",
+   "grp": "Other",
+   "fam": "OP",
+   "pk": "m",
+   "o": {
+    "kind": "diaphragm"
+   }
+  },
+  {
+   "n": "rh",
+   "name": "Rebar hole",
+   "grp": "Other",
+   "fam": "OP",
+   "pk": "m",
+   "o": {
+    "kind": "hole"
+   }
+  },
+  {
+   "n": "58j",
+   "name": "Joist seat",
+   "grp": "Joists",
+   "fam": "JO",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "160",
+   "name": "Joist to beam, type 1",
+   "grp": "Joists",
+   "fam": "JO",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "161",
+   "name": "Joist to column, type 1",
+   "grp": "Joists",
+   "fam": "JO",
+   "pk": "ms",
+   "o": {
+    "cap": 1
+   }
+  },
+  {
+   "n": "162",
+   "name": "2-Sided joist to column",
+   "grp": "Joists",
+   "fam": "JO",
+   "pk": "mss",
+   "o": {
+    "cap": 1
+   }
+  },
+  {
+   "n": "163",
+   "name": "Joist to column, type 2",
+   "grp": "Joists",
+   "fam": "JO",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "164",
+   "name": "Joist to beam and column",
+   "grp": "Joists",
+   "fam": "JO",
+   "pk": "ms",
+   "o": {
+    "cap": 1
+   }
+  },
+  {
+   "n": "1067",
+   "name": "Joist bearing plate",
+   "grp": "Joists",
+   "fam": "SD",
+   "pk": "m",
+   "o": {
+    "kind": "bearing"
+   }
+  },
+  {
+   "n": "68",
+   "name": "Stringer stanchion L profile",
+   "grp": "Stanchions and posts",
+   "fam": "CA",
+   "pk": "ms",
+   "o": {
+    "double": 0
+   }
+  },
+  {
+   "n": "69",
+   "name": "Stringer stanchion st",
+   "grp": "Stanchions and posts",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "84",
+   "name": "Stanchion curved",
+   "grp": "Stanchions and posts",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "85",
+   "name": "Stanchion weld",
+   "grp": "Stanchions and posts",
+   "fam": "WF",
+   "pk": "ms",
+   "o": {
+    "kind": "fit"
+   }
+  },
+  {
+   "n": "86",
+   "name": "Stanchion side profile",
+   "grp": "Stanchions and posts",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {}
+  },
+  {
+   "n": "87",
+   "name": "Stanchion double plate",
+   "grp": "Stanchions and posts",
+   "fam": "ST",
+   "pk": "ms",
+   "o": {
+    "two": 1
+   }
+  },
+  {
+   "n": "170r",
+   "name": "Rail joint",
+   "grp": "Stanchions and posts",
+   "fam": "SE",
+   "pk": "ms",
+   "o": {
+    "seat": "angle"
+   }
+  },
+  {
+   "n": "S78",
+   "name": "Truss",
+   "grp": "Generators",
+   "fam": "GEN",
+   "pk": "p",
+   "o": {
+    "kind": "truss"
+   }
+  },
+  {
+   "n": "of",
+   "name": "Opening Frame",
+   "grp": "Generators",
+   "fam": "GEN",
+   "pk": "m",
+   "o": {
+    "kind": "frame"
+   }
+  },
+  {
+   "n": "S71",
+   "name": "Stairs",
+   "grp": "Generators",
+   "fam": "GEN",
+   "pk": "p",
+   "o": {
+    "kind": "stairs"
+   }
+  },
+  {
+   "n": "S77",
+   "name": "Railing",
+   "grp": "Generators",
+   "fam": "GEN",
+   "pk": "p",
+   "o": {
+    "kind": "rail"
+   }
+  },
+  {
+   "n": "pf",
+   "name": "Portal frame",
+   "grp": "Generators",
+   "fam": "GEN",
+   "pk": "p",
+   "o": {
+    "kind": "portal"
+   }
+  }
+ ],
+ "groups": [
+  "Base plates",
+  "End plates",
+  "Shear tabs",
+  "Clip angles",
+  "Bent plates",
+  "Seated connections",
+  "Haunch and moment",
+  "Splices",
+  "Bracing",
+  "Purlins and cold rolled",
+  "Stiffeners and gussets",
+  "Tube connections",
+  "Welded, fitting and notch",
+  "Other",
+  "Joists",
+  "Stanchions and posts",
+  "Generators"
+ ],
+ "catalog": [
+  {
+   "g": "Base plates",
+   "items": [
+    "T55",
+    "T71",
+    "T1004",
+    "T1014",
+    "T1016",
+    "T1031",
+    "T1042",
+    "T1044",
+    "T1047",
+    "T1052",
+    "T1053",
+    "T1066",
+    "T1068"
+   ]
+  },
+  {
+   "g": "End plates",
+   "items": [
+    "T2",
+    "T14",
+    "T24",
+    "T27",
+    "T27s",
+    "T29",
+    "T32",
+    "T34",
+    "T48",
+    "T50",
+    "T65",
+    "T97",
+    "T101",
+    "T111",
+    "T112",
+    "T115",
+    "T119",
+    "T142",
+    "T144",
+    "T1002",
+    "T1020",
+    "T1026",
+    "Tcap"
+   ]
+  },
+  {
+   "g": "Shear tabs",
+   "items": [
+    "T17",
+    "T32t",
+    "T34s",
+    "T35",
+    "T36",
+    "T38",
+    "T38t",
+    "T39f",
+    "T40s",
+    "T41s",
+    "T43",
+    "T43w",
+    "T46",
+    "T47",
+    "T64",
+    "T80",
+    "T81",
+    "T103",
+    "T118",
+    "T129",
+    "T131",
+    "T146",
+    "T147",
+    "T149",
+    "T182",
+    "T184",
+    "T185s",
+    "T185",
+    "T186",
+    "T187",
+    "T188",
+    "T189"
+   ]
+  },
+  {
+   "g": "Clip angles",
+   "items": [
+    "T3",
+    "T25",
+    "T31",
+    "T33",
+    "T44",
+    "T82",
+    "T116",
+    "T117",
+    "T141",
+    "T143"
+   ]
+  },
+  {
+   "g": "Bent plates",
+   "items": [
+    "T151",
+    "T190"
+   ]
+  },
+  {
+   "g": "Seated connections",
+   "items": [
+    "T7",
+    "T8",
+    "T12",
+    "T28",
+    "T30",
+    "T36n",
+    "T37",
+    "T39",
+    "T60",
+    "T72",
+    "T73",
+    "T74",
+    "T75",
+    "T100",
+    "T104",
+    "T170",
+    "T1013",
+    "T1040",
+    "T1048",
+    "T1049"
+   ]
+  },
+  {
+   "g": "Haunch and moment",
+   "items": [
+    "T40",
+    "T41",
+    "T51",
+    "T102",
+    "T106",
+    "T130",
+    "T134",
+    "T181"
+   ]
+  },
+  {
+   "g": "Splices",
+   "items": [
+    "T6",
+    "T14j",
+    "T26",
+    "T33t",
+    "T42",
+    "T45",
+    "T53",
+    "T77",
+    "T124",
+    "T125",
+    "T126",
+    "T132",
+    "T133",
+    "T135",
+    "T137",
+    "T152",
+    "T175",
+    "T176",
+    "T1054"
+   ]
+  },
+  {
+   "g": "Bracing",
+   "items": [
+    "Ttgx",
+    "Ttg",
+    "T5",
+    "T10",
+    "T11",
+    "T12d",
+    "T19",
+    "T20",
+    "T22",
+    "T52",
+    "T61",
+    "T62",
+    "T67",
+    "T105",
+    "T140",
+    "T169",
+    "T196",
+    "T56",
+    "T57",
+    "T58",
+    "T59",
+    "T60w",
+    "T63",
+    "T165",
+    "T7t",
+    "T13b",
+    "T13c",
+    "T18",
+    "TS3",
+    "T1w",
+    "T16",
+    "T110",
+    "TS55",
+    "TS56",
+    "TS46",
+    "TS47",
+    "TS48",
+    "TS49"
+   ]
+  },
+  {
+   "g": "Purlins and cold rolled",
+   "items": [
+    "Tsag",
+    "Tcl",
+    "T1c",
+    "T2c",
+    "T80b",
+    "T15",
+    "T50p",
+    "T61p",
+    "T70",
+    "T93",
+    "T113",
+    "Tpc"
+   ]
+  },
+  {
+   "g": "Stiffeners and gussets",
+   "items": [
+    "T11j",
+    "T12j",
+    "T171",
+    "T1003",
+    "T1017",
+    "T1030",
+    "T1041",
+    "T1050",
+    "T1051",
+    "T1060",
+    "T1064",
+    "T1065",
+    "Tgt"
+   ]
+  },
+  {
+   "g": "Tube connections",
+   "items": [
+    "T102t",
+    "T103t",
+    "Ttc",
+    "Tts",
+    "Ttm",
+    "Tth",
+    "Ttsl",
+    "T47n"
+   ]
+  },
+  {
+   "g": "Welded, fitting and notch",
+   "items": [
+    "T4",
+    "T13",
+    "T23",
+    "T31w",
+    "T44w",
+    "T123",
+    "T128",
+    "T183",
+    "T1022",
+    "Tpd",
+    "Trp",
+    "T49",
+    "T76",
+    "T1006",
+    "T9",
+    "T192",
+    "T193",
+    "T194",
+    "T195",
+    "T1057"
+   ]
+  },
+  {
+   "g": "Other",
+   "items": [
+    "T5w",
+    "T47p",
+    "T114",
+    "T1010",
+    "T1011",
+    "T1015",
+    "T1031l",
+    "T1069",
+    "T92",
+    "T1029",
+    "T1058",
+    "T1059",
+    "Trh"
+   ]
+  },
+  {
+   "g": "Joists",
+   "items": [
+    "T58j",
+    "T160",
+    "T161",
+    "T162",
+    "T163",
+    "T164",
+    "T1067"
+   ]
+  },
+  {
+   "g": "Stanchions and posts",
+   "items": [
+    "T68",
+    "T69",
+    "T84",
+    "T85",
+    "T86",
+    "T87",
+    "T170r"
+   ]
+  },
+  {
+   "g": "Generators",
+   "items": [
+    "TS78",
+    "Tof",
+    "TS71",
+    "TS77",
+    "Tpf"
+   ]
+  },
+  {
+   "g": "Applications",
+   "items": [
+    "@numbering",
+    "@checks"
+   ]
+  }
+ ],
+ "famNames": {
+  "EP": "End plate",
+  "ST": "Shear tab",
+  "CA": "Clip angle",
+  "SE": "Seat",
+  "CP": "Cap plate / seating",
+  "BP": "Base plate",
+  "HA": "Haunch",
+  "MF": "Moment",
+  "SP": "Splice",
+  "GU": "Gusset bracing",
+  "PU": "Purlin / rail cleat",
+  "SD": "Detail",
+  "WF": "Welded / fitting",
+  "TU": "Tube",
+  "OP": "Opening",
+  "BE": "Bent plate",
+  "JO": "Joist",
+  "GEN": "Application"
+ },
+ "pick": {
+  "m": [
+   "part"
+  ],
+  "ms": [
+   "main part",
+   "secondary part"
+  ],
+  "mss": [
+   "main part",
+   "secondary part 1",
+   "secondary part 2"
+  ],
+  "mms": [
+   "main part 1",
+   "main part 2",
+   "brace"
+  ],
+  "mm": [
+   "first part",
+   "second part"
+  ],
+  "p": [
+   "first part",
+   "second part"
+  ]
+ },
+ "icons": {
+  "EP": "endplate",
+  "ST": "shearplate",
+  "CA": "clip",
+  "SE": "clip",
+  "CP": "base",
+  "BP": "base",
+  "HA": "knee",
+  "MF": "endplate",
+  "SP": "splice",
+  "GU": "wgusset",
+  "PU": "cleat",
+  "SD": "stiff",
+  "WF": "fitting",
+  "TU": "tgusset",
+  "OP": "fitting",
+  "BE": "clip",
+  "JO": "clip",
+  "GEN": "@portal"
+ },
+ "apps": [
+  {
+   "id": "@numbering",
+   "label": "Applications"
+  },
+  {
+   "id": "@checks",
+   "label": "Applications"
+  }
+ ],
+ "connItems": [
+  {
+   "id": "Ttgx",
+   "label": "Tube crossing (tongues)",
+   "tekla": "Tube crossing with crossing gusset",
+   "parts": [
+    "continuous brace",
+    "half 1",
+    "half 2"
+   ],
+   "fam": "TG",
+   "grp": "Bracing",
+   "def": {
+    "kind": "cross",
+    "t": 12,
+    "w": 140,
+    "L": 315,
+    "ins": 150,
+    "tf": 12,
+    "e": 40,
+    "p": 60,
+    "g": 60,
+    "bolt": 16,
+    "grade": "8.8",
+    "clear": 20,
+    "cap": 5,
+    "a": 3.5
+   }
+  },
+  {
+   "id": "Ttg",
+   "label": "Tongue plate tube end",
+   "tekla": "Tube gusset with tongue plate",
+   "parts": [
+    "main part",
+    "brace / strut"
+   ],
+   "fam": "TG",
+   "grp": "Bracing",
+   "def": {
+    "node": 1,
+    "nodeR": 450,
+    "t": 12,
+    "w": 140,
+    "L": 315,
+    "ins": 150,
+    "tf": 12,
+    "fw": 140,
+    "e": 40,
+    "p": 60,
+    "g": 60,
+    "bolt": 16,
+    "grade": "8.8",
+    "clear": 15,
+    "cap": 5,
+    "side": 1,
+    "plane": "auto",
+    "a": 3.5
+   }
+  },
+  {
+   "id": "Tsag",
+   "label": "Sag rod at purlin",
+   "tekla": "Sag rod through purlin web",
+   "parts": [
+    "purlin",
+    "sag rod"
+   ],
+   "fam": "SR",
+   "grp": "Purlins and cold rolled",
+   "def": {
+    "tol": 2,
+    "nut": 1,
+    "washer": 1
+   }
+  },
+  {
+   "id": "Tcl",
+   "label": "Purlin cleat L",
+   "tekla": "Cold rolled cleat (purlin cleat L)",
+   "parts": [
+    "rafter",
+    "purlin",
+    "second purlin (optional)"
+   ],
+   "minParts": 2,
+   "fam": "CL",
+   "grp": "Purlins and cold rolled",
+   "def": {
+    "L1": 140,
+    "L2": 60,
+    "t": 6,
+    "w": 120,
+    "e": 35,
+    "h1": 40,
+    "h2": 100,
+    "bolt": 12,
+    "grade": "8.8",
+    "stiff": 1,
+    "ts": 6,
+    "a": 4
+   }
+  }
+ ]
+}
