@@ -47,6 +47,7 @@ class EmulatorFlowTest {
     private val results = mutableListOf<String>()
     private val failed = mutableListOf<String>()
     private var shotNo = 0
+    private var beamEnd: Vec3? = null
 
     private fun json(s: String) = "\"" + s.replace("\\", "\\\\").replace("\"", "\\\"").replace("\n", "\\n") + "\""
 
@@ -76,6 +77,15 @@ class EmulatorFlowTest {
         val n = compose.onAllNodes(hasText(text) and hasClickAction())[0]; n.performScrollTo(); n.performClick(); compose.waitForIdle() }
     /** Closes an open sheet (a failed step must not leave it over the panel for the next steps). */
     private fun closeSheet() { compose.onAllNodes(hasText("Close") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Close") and hasClickAction())[0].performClick(); compose.waitForIdle() } }
+    /** A grid point next to (x, y) on the work level that is on screen and not under the panel (the panel's top). */
+    private fun visibleNeighbour(g: com.solidsketchapp.steel.model.StGrid, i: Int, j: Int): Vec3 {
+        val panelTop = compose.onAllNodes(hasText("Work level")).fetchSemanticsNodes().minOfOrNull { it.boundsInRoot.top } ?: (act.window.decorView.height * 0.75f)
+        val w = act.window.decorView.width
+        val cands = listOf(i + 1 to j, i - 1 to j, i to j + 1, i to j - 1).filter { (a, b) -> a in g.xs.indices && b in g.ys.indices }.map { (a, b) -> Vec3(g.xs[a], g.ys[b], g.zs[0]) }
+        return cands.firstOrNull { p -> act.testViewport.worldToScreen(p)?.let { (x, y) -> x in 40f..(w - 40f) && y in 250f..(panelTop - 200f) } == true }
+            ?: throw AssertionError("no neighbour of grid point ($i, $j) on screen above the panel (top $panelTop)")
+    }
+
     private fun deselect() { act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; compose.waitForIdle() }
     /** The property sheet's Profile field: the text field whose value is a profile of the catalogue. */
     private fun profileField(): androidx.compose.ui.test.SemanticsNodeInteraction {
@@ -175,7 +185,8 @@ class EmulatorFlowTest {
         step("beam") {
             g ?: throw AssertionError("no grid")
             val n0 = bodies().size
-            tapAt(screen(Vec3(g.xs[1], g.ys[1], g.zs[0]))); tapAt(screen(Vec3(g.xs[2], g.ys[1], g.zs[0])))
+            val end = visibleNeighbour(g, 1, 1); beamEnd = end
+            tapAt(screen(Vec3(g.xs[1], g.ys[1], g.zs[0]))); Thread.sleep(500); tapAt(screen(end))
             waitFor("a beam") { bodies().size == n0 + 1 }
             assertTrue("beam profile ${prof(bodies().last())}", prof(bodies().last()) == "IPE400")
             press("Beam")   // tool off
@@ -200,9 +211,11 @@ class EmulatorFlowTest {
         }
         step("endplate_dialog") {
             compose.onAllNodes(hasText("Properties") and hasClickAction()).fetchSemanticsNodes().let { assertTrue("no Properties in the catalog", it.isNotEmpty()) }
-            // the catalog row's Properties (the panel's Properties is behind the sheet, further down the list of nodes)
-            compose.onAllNodes(hasText("Properties") and hasClickAction())[0].performClick()
-            waitFor("the End plate (144) dialog") { compose.onAllNodes(hasText("End plate (144)")).fetchSemanticsNodes().isNotEmpty() }
+            // the catalog row's Properties: the topmost one (the panel's own Properties is behind the sheet, lower down)
+            val all = compose.onAllNodes(hasText("Properties") and hasClickAction()); val ns = all.fetchSemanticsNodes()
+            all[ns.indices.minBy { ns[it].boundsInRoot.top }].performClick()
+            // the dialog: its tabs (the catalog row also says "End plate (144)")
+            waitFor("the End plate (144) dialog") { compose.onAllNodes(hasText("Picture") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
             for (t in listOf("Picture", "Plates", "Bolts", "OK", "Apply", "Modify", "Pick parts", "Cancel")) assertTrue("dialog has no $t", compose.onAllNodes(hasText(t)).fetchSemanticsNodes().isNotEmpty())
             shot("endplate_dialog_open")
             button("Cancel").performClick(); compose.waitForIdle()
@@ -213,7 +226,8 @@ class EmulatorFlowTest {
             val n0 = mode().comps!!.conns().size
             act.runOnUiThread { mode().catPick("T144") }; compose.waitForIdle()
             tapAt(screen(Vec3(g.xs[1], g.ys[1], 3000.0)))                                     // main part: the column
-            tapAt(screen(Vec3((g.xs[1] + g.xs[2]) / 2, g.ys[1], g.zs[0] - 180.0)))            // secondary: the beam
+            val e = beamEnd ?: throw AssertionError("no beam")
+            tapAt(screen(Vec3((g.xs[1] + e.x) / 2, (g.ys[1] + e.y) / 2, g.zs[0] - 180.0)))   // secondary: the beam (middle, web height)
             waitFor("an End plate (144)") { mode().comps!!.conns().size == n0 + 1 }
             act.runOnUiThread { mode().catDone() }
             assertTrue("column $col", true)
