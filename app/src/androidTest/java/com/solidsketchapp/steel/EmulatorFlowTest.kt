@@ -265,7 +265,8 @@ class EmulatorFlowTest {
         }
         step("portal_create") {
             portalSheet("12000", "1")
-            waitFor("the portal frame's parts", 120_000) { genCount() > 0 && act.testToast?.startsWith("Portal frame:") == true }
+            // the panel shows v69's toast "Portal frame: n parts · …" (its own toast, not the app's)
+            waitFor("the portal frame's parts", 120_000) { genCount() > 0 && compose.onAllNodes(hasText("Portal frame:", substring = true)).fetchSemanticsNodes().isNotEmpty() }
             assertTrue("parts ${genCount()}", genCount() >= 4)
             assertTrue("stGen span ${mode().stGen()}", (mode().stGen()?.get("span") as? JsonPrimitive)?.contentOrNull?.toDouble() == 12000.0)
         }

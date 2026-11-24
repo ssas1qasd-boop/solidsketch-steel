@@ -252,6 +252,21 @@ object PortalFrame {
             if (cs.isNotEmpty()) comps.addMany(cs.map { Triple(it.type, it.parts.map(::BodyId), it.q) }, merge = false, extras = cs.map { it.extra })
         }
         undo?.group(label, step) ?: step()
-        return Result(made, "Portal frame: $made parts · ${(System.nanoTime() - t0) / 1_000_000} ms")
+        // v69 toast (L13863): the weight of every steel part in the model (q28: volume × 7850 kg/m³, bolt groups left out)
+        var kg = 0.0
+        for (id in doc.bodyIds()) { val o = doc.bodyJson(id)?.let { runCatching { kotlinx.serialization.json.Json.parseToJsonElement(it) as JsonObject }.getOrNull() } ?: continue
+            val st = o["st"] as? JsonObject ?: continue; if ((st["kind"] as? JsonPrimitive)?.contentOrNull == "bolts") continue
+            if ((o["type"] as? JsonPrimitive)?.contentOrNull !in STEEL_TYPES) continue
+            kg += (doc.bodyMesh(id)?.let(::volume) ?: 0.0) * 1e-9 * 7850 }
+        return Result(made, "Portal frame: $made parts · ${com.solidsketchapp.core.api.Fmt.f("%.2f", kg / 1000)} t · ${(System.nanoTime() - t0) / 1_000_000} ms")
+    }
+
+    /** v69 TYPES28 entries with m 'steel' (L17520–17525). */
+    private val STEEL_TYPES = setOf("stColumn", "stBeam", "stPurlin", "stGirt", "stBrace", "stPlate")
+    /** A closed mesh's volume (mm³). */
+    private fun volume(m: com.solidsketchapp.core.api.Mesh): Double { var v = 0.0; val p = m.positions; val ix = m.indices
+        var i = 0; while (i + 2 < ix.size) { val a = ix[i] * 3; val b = ix[i + 1] * 3; val c = ix[i + 2] * 3
+            v += (p[a].toDouble() * (p[b + 1].toDouble() * p[c + 2] - p[b + 2].toDouble() * p[c + 1]) - p[a + 1].toDouble() * (p[b].toDouble() * p[c + 2] - p[b + 2].toDouble() * p[c]) + p[a + 2].toDouble() * (p[b].toDouble() * p[c + 1] - p[b + 1].toDouble() * p[c])) / 6; i += 3 }
+        return kotlin.math.abs(v)
     }
 }

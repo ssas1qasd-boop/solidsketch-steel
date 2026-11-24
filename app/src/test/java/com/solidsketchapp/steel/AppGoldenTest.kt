@@ -107,8 +107,12 @@ class AppGoldenTest {
 
     /** Compares one case; returns the differences (empty = equal to v69). */
     fun check(name: String, g: JsonObject): List<String> {
+        val m = build(g); run(m, g); return compare(name, m, g)
+    }
+
+    /** Compares the app's model with v69's dump (bodies, connections); returns the differences. */
+    fun compare(name: String, m: Model, g: JsonObject): List<String> {
         val bad = ArrayList<String>()
-        val m = build(g); run(m, g)
         val gb = g.getValue("bodies").jsonArray.map { it.jsonObject }
         val ob = m.doc.bodyIds().map { id -> id to Json.parseToJsonElement(m.doc.bodyJson(id)!!).jsonObject["st"]?.jsonObject }
         val gIx = gb.withIndex().associate { s(it.value, "id") to it.index }; val oIx = ob.withIndex().associate { it.value.first.value to it.index }
@@ -119,7 +123,7 @@ class AppGoldenTest {
             val mesh = m.doc.bodyMesh(id)
             if (hostJni() && mesh != null) {
                 gbi["volume"]?.jsonPrimitive?.double?.let { gv -> val v = engine.volume(mesh); if (abs(v - gv) > max(1.0, abs(gv) * 1e-3)) bad += "$tag: volume $v vs $gv" }
-                gbi["bbox"]?.jsonArray?.map { it.jsonPrimitive.double }?.let { gbx -> val bx = box(mesh); if ((0..5).any { abs(bx[it] - gbx[it]) > 0.1 }) bad += "$tag: box ${bx.map { Math.round(it * 10) / 10.0 }} vs $gbx" } }
+                (gbi["bbox"] ?: gbi["box"])?.jsonArray?.map { it.jsonPrimitive.double }?.let { gbx -> val bx = box(mesh); if ((0..5).any { abs(bx[it] - gbx[it]) > 0.1 }) bad += "$tag: box ${bx.map { Math.round(it * 10) / 10.0 }} vs $gbx" } }
             when (s(gst, "kind")) {
                 "member" -> for ((k, v) in gst!!) if (!same(v, st!![k], if (k == "p1" || k == "p2") 0.1 else 1e-3)) bad += "$tag: $k ${st[k]} vs $v"
                 "conn" -> { for (f in listOf("role", "prof", "mat", "cls", "pp", "ps", "fin")) if (!same(gst!![f], st!![f], 1e-9)) bad += "$tag: $f ${s(st, f)} vs ${s(gst, f)}"
@@ -133,7 +137,7 @@ class AppGoldenTest {
         for (i in 0 until minOf(gc.size, oc.size)) { val a = gc[i]; val c = oc[i]; val tag = "$name: connection $i ${s(a, "type")}"
             if (c.type != s(a, "type")) { bad += "$tag: is ${c.type}"; continue }
             val gp = a.getValue("parts").jsonArray.map { gIx[Js.str(it)] }; val op = c.parts.map { oIx[it] }; if (gp != op) bad += "$tag: parts $op vs $gp"
-            for ((k, v) in a.getValue("q").jsonObject) if (!same(v, c.q[k], 1e-6)) bad += "$tag: q.$k ${c.q[k]} vs $v"
+            for ((k, v) in (a["q"] as? JsonObject ?: JsonObject(emptyMap()))) if (!same(v, c.q[k], 1e-6)) bad += "$tag: q.$k ${c.q[k]} vs $v"
             val wl = { l: JsonArray? -> (l ?: JsonArray(emptyList())).map { w -> w.jsonObject.let { listOf("name", "a", "len", "type", "ws", "around").joinToString("|") { f -> s(it, f) } } } }
             val ow = wl(c.raw["welds"] as? JsonArray); val gw = wl(a["welds"] as? JsonArray); if (ow != gw) bad += "$tag: welds $ow vs $gw"
             a["nSteps"]?.takeIf { it !is JsonNull }?.let { if (!same(it, c.raw["nSteps"], 1e-9)) bad += "$tag: nSteps ${c.raw["nSteps"]} vs $it" } }

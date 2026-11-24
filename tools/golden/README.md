@@ -71,3 +71,16 @@ node tools/golden/data_export.js           # write steel/src/main/assets/steel/*
 node tools/golden/data_export.js --check   # fail if any of them differs from what v69 gives now
 ```
 Tables are read from the running page (live values after every chapter's patches): `ST_CAT`, `UPN_T`, `UPE_T`, `ST_SETS`, `ST_TYPE`, `ST_CLASS`, materials (Property sheet grades + v66 density rules), `TK`, `ST_CATALOG`, `TK_FAMNAME`, `TK_PICK`, `TK_ICON`, and the `CONN` entries of catalog items that are not `TK`. `profile_cases.json` holds `__st.prof(name)` for 636 names (every catalog row and channel, every R10 `prof`/`tprof`, and each stProf rule) as the golden for the S5 profile parser.
+
+## R10 rebuilt with v69's applications (S10 acceptance, v69 side)
+```
+python3 tools/golden/r10_inputs.py      # R10 -> the inputs a user gives v69: tests/steel/golden/r10/rebuild_inputs.json
+node tools/golden/r10_rebuild.js        # replay in v69 (one addMany, one connectMany) -> rebuild_v69.json; R10 opened in v69 -> r10_parts_v69.json
+python3 tools/golden/r10_compare.py     # member by member, detail parts, bolts, totals -> compare_v69.json and docs/steel/R10-REPORT.md
+```
+About 1 minute in all; the four outputs are deterministic (two runs are byte-identical). The inputs are: R10's grid; one
+`BI…` member per Tekla built-up section (web + two flanges); R10's own members as given (purlins, bracing, struts, sag rods,
+stringers, stanchions, rails); and the checklist components (`Frame_28x53m_R04_vs_Tekla.md`) on the parts R10's TKBOLT bolt
+groups join, with settings from the R10 plates. The portal frame application is not used (one span only). The app replays
+`rebuild_inputs.json` (member indexes, then `[key, [member indexes], q]`) through its ports. Details: the script headers
+and `docs/steel/R10-REPORT.md`.
