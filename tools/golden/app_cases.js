@@ -31,6 +31,7 @@ async function run(cases) {
         let ret = null, err = null;
         try {
           for (const [k2, ix, q2] of c.pre || []) { const r2 = st.connect(k2, ix.map(i => ids[i]), q2 || {}); if (!r2.ok) throw new Error('pre ' + k2 + ' not built'); }
+          if (c.pre_portal) st.portal(Object.assign({}, st.PF_DEF, c.pre_portal));   // a frame made before (Create twice)
           const r = c.run || {};
           if (r.portal) ret = st.portal(Object.assign({}, st.PF_DEF, r.portal));
           else if (r.stairs) ret = st.stairs(Object.assign({}, r.stairs, { topPart: idx(r.stairs.topPart) }));
@@ -42,7 +43,7 @@ async function run(cases) {
         const bodies = S.bodies.map(b => Object.assign({ id: b.id, type: b.type, st: strip(b.st) }, info(b.man), { w: b.st ? W(b.id) : null }));
         const conns = (S.stConns || []).map(k => ({ id: k.id, type: k.type, parts: k.parts, q: RR(k.q || {}), nSteps: k.nSteps, welds: (k.welds || []).map(w => ({ name: w.name, a: w.a, len: w.len, type: w.type, ws: w.ws, around: w.around })) }));
         const tot = {}; let kg = 0; for (const b of bodies) { const k = (b.st && b.st.kind) || 'other'; tot[k] = (tot[k] || 0) + 1; if (b.w && typeof b.w.weight === 'number' && b.st && b.st.kind !== 'bolts') kg += b.w.weight; }
-        out[name] = { members: c.members, stGen0: c.stGen, run: c.run, ret: ret && typeof ret === 'object' ? RR(ret) : ret, error: err, grid: S.stGrid, stGen: S.stGen, bodies, conns, totals: Object.assign(tot, { kg: R(kg) }) };
+        out[name] = { members: c.members, stGen0: c.stGen, pre_portal: c.pre_portal, run: c.run, ret: ret && typeof ret === 'object' ? RR(ret) : ret, error: err, grid: S.stGrid, stGen: S.stGen, bodies, conns, totals: Object.assign(tot, { kg: R(kg) }) };
       }
       return out;
     }, { cases });

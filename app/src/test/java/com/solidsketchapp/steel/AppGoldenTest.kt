@@ -72,10 +72,17 @@ class AppGoldenTest {
     }
 
     /** Runs the case's application on the model (S10.2: connections; the applications follow in S10.3 / S10.4). */
+    /** A frame made before the case's own run (v69 case field pre_portal: Create twice). */
+    private var preRun: JsonObject? = null
     fun run(m: Model, g: JsonObject) {
+        preRun = g["pre_portal"] as? JsonObject
         val r = g["run"] as? JsonObject ?: return
         (r["connect"] as? JsonArray)?.let { (k, ix, q) -> val kk = k.jsonPrimitive.content
             m.comps.add(kk, ix.jsonArray.map { m.ids[it.jsonPrimitive.int] }, JsonObject(LinkedHashMap(m.comps.cq(kk)).apply { putAll((q as? JsonObject) ?: JsonObject(emptyMap())) })); return }
+        (r["portal"] as? JsonObject)?.let { q ->
+            val run = { qq: JsonObject -> com.solidsketchapp.steel.apps.PortalFrame.run(qq, data, m.doc, m.parts, m.comps, null) }
+            preRun?.let { run(it) }
+            run(q); return }
         error("application not ported yet: ${r.keys}")
     }
 

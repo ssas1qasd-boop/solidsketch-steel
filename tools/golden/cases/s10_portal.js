@@ -2,6 +2,8 @@
 // Each case: the sheet's values (PF_DEF plus these); the whole model after Create is dumped (parts, connections, welds).
 const P = q => ({ run: { portal: q } });
 module.exports = {
+  // Create twice (the second frame replaces the first: v69 L13861)
+  twice: { pre_portal: { bays: 3 }, run: { portal: { bays: 4, span: 20000 } } },
   // standard: v69's defaults (25 m span, 6 bays of 6 m, eaves 7450, 12°, purlins, ties, roof + wall bracing, girts, gables)
   std: P({}),
   // each option off on its own

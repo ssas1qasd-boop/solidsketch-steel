@@ -99,7 +99,8 @@ object StBolts {
 }
 
 /** v69 `stConnGeom` result for one connection: its own parts (plates, bolts) and the cuts it makes in the parts it joins. */
-class ConnGeom(val parts: List<ConnPart>, val cuts: Map<String, List<Mesh>>, val welds: List<Weld> = emptyList())
+class ConnGeom(val parts: List<ConnPart>, val cuts: Map<String, List<Mesh>>, val welds: List<Weld> = emptyList(),
+               /** Fields the geometry writes back on the connection (v69 `c.nSteps = n`, v44 L15397); stRegen stores them in its JSON. */ val set: Map<String, JsonElement> = emptyMap())
 /** A part a connection makes: its solid pieces (unioned), the holes still to subtract ([minus]), profile, bolt info. */
 class ConnPart(val name: String, val pieces: List<Mesh>, val bolts: JsonObject? = null, val prof: String? = null, val minus: List<Mesh> = emptyList(), val group: BoltGroup? = null)
 

@@ -87,6 +87,7 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
                 put("name", JsonPrimitive(w.name)); put("a", jsNum(w.a)); put("len", jsNum(Math.floor(w.len + 0.5)))
                 if (w.loop != null) put("loop", JsonArray(w.loop.map { com.solidsketchapp.steel.model.jsArr(it.x, it.y, it.z) }))
                 w.type?.let { put("type", JsonPrimitive(it)) }; w.ws?.let { put("ws", JsonPrimitive(it)) }; w.around?.let { put("around", jsNum(it)) } }) })
+            m.putAll(g.set)   // v69 c.nSteps (stairtreads, v44 L15397)
             connsOut[c.id] = JsonObject(m)
             var ix = 0
             for (p in g.parts) {

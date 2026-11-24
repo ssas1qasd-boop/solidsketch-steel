@@ -44,6 +44,8 @@ class FamCtx(val q: JsonObject, val a: JsonObject, val aId: String, val b: JsonO
     val parts = ArrayList<ConnPart>(); val cuts = LinkedHashMap<String, MutableList<Mesh>>(); val welds = ArrayList<Weld>()
     /** v69 `return null` from a connection's geometry (a part missing, a degenerate case): no parts, no cuts, no welds. */
     var nullResult = false
+    /** Fields v69 writes on the connection itself (`c.nSteps = n`, v44 L15397); [StRegen] stores them in the connection's JSON. */
+    val connSet = LinkedHashMap<String, JsonElement>()
     /** v69 TKB_G: every bolt group the component builds, in order (the Holes tab uses the first). */
     val groups = ArrayList<BoltGroup>()
     /** v69 stBolts inside the v58 wrapper: the component's settings (TKB_Q) reach the bolt options. */
@@ -210,6 +212,9 @@ object Fam {
         // S10: v69's own types run as pseudo families "C:<type>" (Classic), inside the same v58 wrapper
         val classic = fam.startsWith("C:"); if (classic && !Classic.ported(fam.drop(2))) return null
         if (!classic && fam !in PORTED) return null
+        // v69 L15378 weldonly: the weld is there even when a part is missing (only the cut needs both)
+        if (fam == "C:weldonly" && (parts.getOrNull(0)?.let(stOf) == null || parts.getOrNull(1)?.let(stOf) == null))
+            return ConnGeom(emptyList(), emptyMap(), listOf(Weld("Fillet weld all round", StBuild.jsNum(q["a"]).takeIf { it != 0.0 && !it.isNaN() } ?: 4.0, 150.0)))
         val a = parts.getOrNull(0)?.let(stOf) ?: return null
         val x = FamCtx(q, a, parts[0], parts.getOrNull(1)?.let(stOf), parts.getOrNull(1), parts.getOrNull(2)?.let(stOf), parts.getOrNull(2), profiles, pt, conn, conns, stOf, docField)
         if ((fam == "EP" || fam == "ST") && x.b == null) return null
@@ -241,6 +246,6 @@ object Fam {
         if (w != null) for (wd in x.welds) { val o = (w[wd.name] ?: w["*"]) as? JsonObject ?: continue
             o["a"]?.let { if ((it as? JsonPrimitive)?.content != "") wd.a = StBuild.jsNum(it) }; (o["type"] as? JsonPrimitive)?.contentOrNull?.takeIf { it.isNotEmpty() }?.let { wd.type = it }
             (o["ws"] as? JsonPrimitive)?.contentOrNull?.takeIf { it.isNotEmpty() }?.let { wd.ws = it }; o["around"]?.let { wd.around = StBuild.jsNum(it) } }
-        return ConnGeom(outP, x.cuts, x.welds)
+        return ConnGeom(outP, x.cuts, x.welds, x.connSet)
     }
 }

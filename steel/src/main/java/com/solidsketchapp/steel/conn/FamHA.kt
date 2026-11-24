@@ -34,8 +34,6 @@ object FamHA {
     /** v69 CONN.knee.def (L13885), CONN.apex.def (L13886 + L15818 + L16116): the inner stConnGeom's q (and stBolts' TKB_Q). */
     private val KNEE = Fam.obj("tp" to 20, "len" to 0, "depth" to 0, "rows" to 4, "bolt" to 20, "grade" to "8.8", "gauge" to 100, "cap" to 15, "stiff" to 12, "a" to 6)
     private val APEX = Fam.obj("ph" to 0, "pw" to 0, "top" to "", "bot" to "", "rowsAt" to "", "hf" to 10, "hb" to 0, "hw" to 8, "tp" to 20, "len" to 900, "depth" to 250, "rows" to 3, "bolt" to 20, "grade" to "8.8", "gauge" to 100, "a" to 5)
-    /** v69 S.stGen.span when there is no portal frame: `Math.round(20000 / 20)` is the default haunch length. */
-    private const val SPAN = 20000.0
 
     /** v69 stLF (L13889): s along the horizontal [h], z up, y = Z × h across. */
     private class LF(val o: D3, hd: D3) {
@@ -79,7 +77,7 @@ object FamHA {
         val sOff = (r0 - D3(top.x, top.y, 0.0)) dot f.h; val dOff = depthOff(rs, rhv)
         fun zTop(s: Double) = r0.z + (s - sOff) * tanp + dOff
         fun zBot(s: Double) = zTop(s) - rhv
-        val tp = q(qi, "tp"); val sf = ch / 2; val se = sf + tp; val dh = or(q(qi, "depth"), or(rp?.h, 400.0)); val lh = or(q(qi, "len"), Math.floor(SPAN / 20 + 0.5))
+        val tp = q(qi, "tp"); val sf = ch / 2; val se = sf + tp; val dh = or(q(qi, "depth"), or(rp?.h, 400.0)); val lh = or(q(qi, "len"), Math.floor(ClassicV34.genSpan(x) / 20 + 0.5))   // v69 L13934: S.stGen.span (the portal frame's), 20 000 without one
         x.cut(rafId, f.boxL(-50000.0, se, -50000.0, 50000.0, -2000.0, 2000.0))
         val zc = zTop(sf); val capT = q(qi, "cap"); x.cut(x.aId, f.boxL(-2000.0, 2000.0, zc - capT, zc + 20000, -2000.0, 2000.0))
         val ep = f.boxL(sf, se, zBot(se) - dh - 15, zTop(sf) + 10, -rb / 2 - 10, rb / 2 + 10)

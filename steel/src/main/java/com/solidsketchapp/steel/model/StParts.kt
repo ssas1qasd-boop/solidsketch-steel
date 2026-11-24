@@ -71,6 +71,12 @@ class StParts(private val data: SteelData, private val doc: DocumentApi, private
         return undo?.group(label, run) ?: run()
     }
 
+    /** v69 stRecord + S.bodies.push inside a step the caller owns (no undo group of its own): the part with its built solid. */
+    fun addBuilt(st: JsonObject, mesh: Mesh): BodyId {
+        val nm = (st["name"] as? JsonPrimitive)?.contentOrNull ?: ""
+        val id = doc.addBody(bodyJson(nm, st, null), mesh); doc.replaceBody(id, bodyJson("$nm ${id.value}", st, null), mesh); ensureFolder(typeOf(st)); return id
+    }
+
     /** v69 stModify: the parts' st with [patch] applied, rebuilt; plates drop p1/p2. One undo step. */
     fun modify(ids: Collection<BodyId>, patch: Map<String, JsonElement>, label: String? = null) {
         val out = LinkedHashMap<BodyId, Pair<String, Mesh>>()

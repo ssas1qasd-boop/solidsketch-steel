@@ -89,4 +89,7 @@ out.tr_skew = C('stairtreads', [M('BEAM', 'UPN200', [0, -537.5, 0], [3000, 2000,
 vary('tr', 'stairtreads', [S1, S2], { sl: 200, tread: 8, riserMax: 150, nosing: 40, leg: 60, ta: 6, bolt: 16, grade: '10.9', foot: 0, tf: 15 });
 out.weld_std = C('weldonly', [M('BEAM', 'IPE300', [0, 0, 3000], [6000, 0, 3000]), M('COLUMN', 'CHS48.3x3.2', [3000, 0, 3150], [3000, 0, 4250])]);
 out.weld_a = C('weldonly', [M('BEAM', 'IPE300', [0, 0, 3000], [6000, 0, 3000]), M('COLUMN', 'CHS48.3x3.2', [3000, 0, 3150], [3000, 0, 4250])], { a: 6 });
+// ---- HA catalog haunches (T40 / T51 / T102 knee, T106 apex) with length 0: span / 20 from S.stGen.span (a portal frame), else 20 000
+for (const k of ['T40', 'T51', 'T102']) { out[`ha_${k}_nogen`] = C(k, knee); out[`ha_${k}_stgen`] = C(k, knee, {}, { stGen: { span: 32000 } }); out[`ha_${k}_len`] = C(k, knee, { len: 1500 }, { stGen: { span: 32000 } }); }
+out.ha_T106_stgen = C('T106', apex, {}, { stGen: { span: 32000 } });
 module.exports = out;

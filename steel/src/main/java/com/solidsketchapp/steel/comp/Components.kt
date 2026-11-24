@@ -95,13 +95,17 @@ class Components(val ui: TkUi, private val doc: DocumentApi, private val undo: U
         return out!!
     }
 
-    /** v69 stConnAdd for each, then one stRegen over all their parts (stPortalConns, stConnectMany): (key, parts, q = def + these). */
-    fun addMany(list: List<Triple<String, List<BodyId>, JsonObject>>): List<StConn> {
+    /**
+     * v69 stConnAdd for each, then one stRegen over all their parts: (key, parts, q). [merge] = stConnectMany (q = stCQ(key) + q);
+     * false = stPortalConns (q stored as given; the defaults apply when it is built). [extras] = further fields per connection (railclip ends).
+     */
+    fun addMany(list: List<Triple<String, List<BodyId>, JsonObject>>, merge: Boolean = true, extras: List<Map<String, JsonElement>>? = null): List<StConn> {
         val made = ArrayList<StConn>(); var next = doc.field("stNextConn")?.toDoubleOrNull()?.toLong()?.takeIf { it > 0 } ?: 1L
         val raws = ArrayList(conns().map { it.raw })
-        for ((k, parts, q) in list) {
+        for ((i, e) in list.withIndex()) { val (k, parts, q) = e
             val m = linkedMapOf<String, JsonElement>("id" to jsNum(next.toDouble()), "type" to JsonPrimitive(k), "parts" to JsonArray(parts.map { p -> p.value.toLongOrNull()?.let { jsNum(it.toDouble()) } ?: JsonPrimitive(p.value) }),
-                "q" to JsonObject(LinkedHashMap(cq(k)).apply { putAll(q) }))
+                "q" to if (merge) JsonObject(LinkedHashMap(cq(k)).apply { putAll(q) }) else q)
+            extras?.getOrNull(i)?.let { m.putAll(it) }
             raws += JsonObject(m); made += StConn(JsonObject(m)); next++
         }
         doc.setField("stNextConn", next.toString()); setConns(raws)
