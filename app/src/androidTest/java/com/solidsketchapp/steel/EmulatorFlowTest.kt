@@ -213,7 +213,7 @@ class EmulatorFlowTest {
             compose.onAllNodes(hasText("Properties") and hasClickAction()).fetchSemanticsNodes().let { assertTrue("no Properties in the catalog", it.isNotEmpty()) }
             // the catalog row's Properties: the topmost one (the panel's own Properties is behind the sheet, lower down)
             val all = compose.onAllNodes(hasText("Properties") and hasClickAction()); val ns = all.fetchSemanticsNodes()
-            all[ns.indices.minBy { ns[it].boundsInRoot.top }].performClick()
+            all[ns.indices.filter { ns[it].boundsInRoot.width > 0f }.minBy { ns[it].boundsInRoot.top }].performClick()
             // the dialog: its tabs (the catalog row also says "End plate (144)")
             waitFor("the End plate (144) dialog") { compose.onAllNodes(hasText("Picture") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
             for (t in listOf("Picture", "Plates", "Bolts", "OK", "Apply", "Modify", "Pick parts", "Cancel")) assertTrue("dialog has no $t", compose.onAllNodes(hasText(t)).fetchSemanticsNodes().isNotEmpty())
