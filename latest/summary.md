@@ -1,12 +1,12 @@
-# Emulator UI run 45313588506 (c41be40)
+# Emulator UI run 45316227482 (becd9e1)
 
 - data files on main: true
 - KVM: yes · runner cores: 2
 - unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 1 (295 s)
-- job time until this step: 1064 s = 17.7 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 1 (292 s)
+- job time until this step: 860 s = 14.3 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -24,56 +24,69 @@ JUnit (unit + instrumented): 36 tests, 1 failed
 
 ```
 com.solidsketchapp.steel.EmulatorFlowTest.ownerWorkflow: java.lang.AssertionError: failed steps:
-orbit: timed out waiting for the view to orbit
-column: timed out waiting for a column
-properties_apply: timed out waiting for the property sheet
+column: Action performScrollTo() failed.
+Reason: Expected exactly '1' node but found '2' nodes that satisfy: ((Text + EditableText contains 'Column' (ignoreCase: false)) && (OnClick is defined))
+Nodes found:
+1) Node #50 at (l=504.0, t=1912.0, r=705.0, b=1996.0)px
+Focused = 'false'
+Text = '[Column]'
+Actions = [OnClick, RequestFocus, SetTextSubstitution, ShowTextSubstitution, ClearTextSubstitution, GetTextLayoutResult]
+MergeDescendants = 'true'
+Has 12 siblings
+2) Node #118 at (l=860.0, t=2012.0, r=1061.0, b=2096.0)px
+Focused = 'false'
+Text = '[Column]'
+Actions = [OnClick, RequestFocus, SetTextSubstitution, ShowTextSubstitution, ClearTextSubstitution, GetTextLayoutResult]
+MergeDescendants = 'true'
+Has 5 siblings
+
+properties_apply: Failed to perform text input.
+Reason: Expected exactly '1' node but could not find any node that satisfies: ((SetText is defined) && (value IPE300))
+
 beam: timed out waiting for a beam
-properties_modify: List is empty.
+properties_modify: Failed to perform text input.
+Reason: Expected exactly '1' node but could not find any node that satisfies: ((SetText is defined) && (value IPE400))
+
 catalog: timed out waiting for the catalog
 endplate_dialog: timed out waiting for the End plate (144) dialog
-endplate_pick: Collection contains no element matching the predicate.
+endplate_pick: timed out waiting for an End plate (144)
 at org.junit.Assert.fail(Assert.java:89)
 at org.junit.Assert.assertTrue(Assert.java:42)
-at com.solidsketchapp.steel.EmulatorFlowTest.ownerWorkflow(EmulatorFlowTest.kt:216)
+at com.solidsketchapp.steel.EmulatorFlowTest.ownerWorkflow(EmulatorFlowTest.kt:222)
 
 ```
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 3513 |  |
-| steel | ✓ | 10919 |  |
-| grid | ✓ | 13293 |  |
-| orbit | ✗ | 6384 | timed out waiting for the view to orbit |
-| pan | ✓ | 840 |  |
-| zoom | ✓ | 961 |  |
-| column | ✗ | 21582 | timed out waiting for a column |
-| properties_apply | ✗ | 21588 | timed out waiting for the property sheet |
-| beam | ✗ | 20280 | timed out waiting for a beam |
-| properties_modify | ✗ | 201 | List is empty. |
-| catalog | ✗ | 20212 | timed out waiting for the catalog |
-| endplate_dialog | ✗ | 20234 | timed out waiting for the End plate (144) dialog |
-| endplate_pick | ✗ | 187 | Collection contains no element matching the predicate. |
-| save_open | ✓ | 1135 |  |
+| start | ✓ | 1726 |  |
+| steel | ✓ | 9420 |  |
+| grid | ✓ | 5489 |  |
+| orbit | ✓ | 1325 |  |
+| pan | ✓ | 1402 |  |
+| zoom | ✓ | 1485 |  |
+| column | ✗ | 4522 | Action performScrollTo() failed. Reason: Expected exactly '1' node but found '2' nodes that satisfy: ((Text + EditableText contains 'Column' (ignoreCase: false)) && (OnClick is defined)) Nodes found: 1) Node #50 at (l=504.0, t=1912.0, r=705.0, b=1996.0)px Focused = 'false' Text = '[Column]' Actions  |
+| properties_apply | ✗ | 5834 | Failed to perform text input. Reason: Expected exactly '1' node but could not find any node that satisfies: ((SetText is defined) && (value IPE300))  |
+| beam | ✗ | 20715 | timed out waiting for a beam |
+| properties_modify | ✗ | 1409 | Failed to perform text input. Reason: Expected exactly '1' node but could not find any node that satisfies: ((SetText is defined) && (value IPE400))  |
+| catalog | ✗ | 20981 | timed out waiting for the catalog |
+| endplate_dialog | ✗ | 20329 | timed out waiting for the End plate (144) dialog |
+| endplate_pick | ✗ | 20965 | timed out waiting for an End plate (144) |
+| save_open | ✓ | 2882 |  |
 
 connected.log (end):
 ```
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
-	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
-	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
-	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
-	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
-	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
-	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:61)
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
-	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
-	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
-	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
-	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
-	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
-	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
-	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
-	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:138)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:123)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:51)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
@@ -81,21 +94,26 @@ connected.log (end):
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
-	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
-	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$10(DefaultBuildLifecycleController.java:313)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$8(StateTransitionController.java:177)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:44)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:177)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:304)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:263)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:127)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:181)
+	at org.gradle.composite.internal.DefaultBuildController.access$000(DefaultBuildController.java:50)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:198)
 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
-	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
-	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:198)
 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
 
 
-BUILD FAILED in 4m 53s
+BUILD FAILED in 4m 50s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```
