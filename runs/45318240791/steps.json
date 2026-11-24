@@ -1,0 +1,16 @@
+[
+{"step":"start","ok":true,"ms":1684,"message":""},
+{"step":"steel","ok":true,"ms":10771,"message":""},
+{"step":"grid","ok":true,"ms":5888,"message":""},
+{"step":"orbit","ok":true,"ms":3176,"message":""},
+{"step":"pan","ok":true,"ms":3132,"message":""},
+{"step":"zoom","ok":true,"ms":1818,"message":""},
+{"step":"column","ok":true,"ms":3109,"message":""},
+{"step":"properties_apply","ok":true,"ms":10921,"message":""},
+{"step":"beam","ok":false,"ms":20928,"message":"timed out waiting for a beam"},
+{"step":"properties_modify","ok":true,"ms":8574,"message":""},
+{"step":"catalog","ok":true,"ms":4531,"message":""},
+{"step":"endplate_dialog","ok":false,"ms":2770,"message":"dialog has no Picture"},
+{"step":"endplate_pick","ok":false,"ms":21311,"message":"timed out waiting for an End plate (144)"},
+{"step":"save_open","ok":true,"ms":1496,"message":""}
+]
