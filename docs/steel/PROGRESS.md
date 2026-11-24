@@ -23,6 +23,7 @@ Then the S8 APK and phone check list. **Done.**
 - **Workflow** `.github/workflows/android-emulator.yml` and `docs/steel/CI.md`: unit tests with the UI golden, debug APK + test APK (x86_64), API 35 x86_64 emulator with KVM set up as the owner's phone (1080 × 2340, 420 dpi, dark, 3-button navigation), `EmulatorFlowTest` (the owner's workflow with real touch input, a screenshot per step), screen recording, artifacts, caches, a summary on the `ci-results` branch (the session has no Actions API; it reads the results there).
 - Test hooks in MainActivity (internal): the Steel mode, viewport, document, toast, the labels as drawn, save / open with a file.
 - `-Pabis=x86_64` builds one ABI (the CI emulator).
+- **The workflow file is not on GitHub yet**: GitHub refused it through the GitHub tool (`403 Resource not accessible by integration`; the app's new Workflows permission is probably not accepted in its installation settings yet). It is in the owner bundle `steel-all-data` with the data files (`.github/workflows/android-emulator.yml`); every other CI file is on main. No run has happened yet, so the minutes per run are not measured yet.
 
 ## S9b UI golden (2026-11-23): the app against v69, numbers and screenshots (owner idea)
 - **v69 side** (`tools/golden/ui_golden.js`, Playwright, 412 × 891 CSS px, DPR 2.625, dark, touch): Steel mode, a column and a beam with End plate 144, the beam selected, five fixed camera states (overview, orbit, pan, zoom, a new grid applied), then the grid sheet, catalog and End plate 144 dialog. Recorded: screenshots, the screen position and size of every grid label, every handle and cone, and the box of every button and sheet → `tests/steel/ui/golden/ui_golden.json` (+ `v69/*.png`). v69 is drawn in Roboto, as Chrome draws it on the phone (`tools/golden/ui_fonts.py`, `phone-fonts.conf`): with the capture's own font every text was 5–8 % wider.
@@ -182,6 +183,13 @@ Owner rule: big generated files do not go through the GitHub tool; they come in 
 Golden data: `node tools/golden/r10_totals.js` and `node tools/golden/run_cases.js` (needs the reference HTML and Playwright; see `tools/golden/README.md`).
 
 Android SDK with platform 35, build-tools 35.0.0, NDK 30.0.16248370, CMake 4.1.2; `local.properties` with `sdk.dir`.
+
+**After a container restart (cloud session)** — check first, install only what is missing (2026-11-24: after a restart both were still there and worked; native build and `-PhostJni` tests passed):
+1. Check: `/opt/android-sdk/cmake/4.1.2/bin/cmake --version` (4.1.2), `grep Pkg.Revision /opt/android-sdk/ndk/30.0.16248370/source.properties` (30.0.16248370), `grep sdk.dir local.properties` (`sdk.dir=/opt/android-sdk`).
+2. If missing: `yes | /opt/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses` then `/opt/android-sdk/cmdline-tools/latest/bin/sdkmanager "ndk;30.0.16248370" "cmake;4.1.2" "platforms;android-35" "build-tools;35.0.0"` (downloads from dl.google.com, about 2.5 GB for the NDK), and `echo sdk.dir=/opt/android-sdk > local.properties`.
+3. Host JNI tests also need the host's `cmake`, `ninja` and `g++` (`/usr/bin`; if missing: `apt-get install -y cmake ninja-build g++`) and the Manifold source in `third_party/manifold` (`./gradlew fetchManifold`, or `tools/native/fetch_manifold.sh`).
+4. Robolectric offline (Maven Central answered 429): the local repository `/home/user/m2local` (robolectric-deps jars); pass `-PlocalM2=/home/user/m2local`. If it is gone, Gradle fetches Robolectric from Maven Central again (retry with `--no-parallel`).
+5. Verify: `./gradlew --no-parallel -PlocalM2=/home/user/m2local -PskipUiGolden :app:assembleDebug -x testDebugUnitTest` (native build), then `./gradlew --no-parallel -PlocalM2=/home/user/m2local -PhostJni :app:testDebugUnitTest` (35 tests, none skipped).
 `./gradlew test assembleDebug` → `app/build/outputs/apk/debug/app-debug.apk`.
 Manifold source: `./gradlew fetchManifold` (runs automatically before native builds; needs git and network once).
 Unit tests with the real native code on the host: `./gradlew test -PhostJni` (needs cmake, ninja, a C++ compiler and a JDK).
