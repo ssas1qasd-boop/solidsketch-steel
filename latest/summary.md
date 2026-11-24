@@ -1,12 +1,12 @@
-# Emulator UI run 45318240791 (dd8c914)
+# Emulator UI run 45320005018 (f5974e6)
 
 - data files on main: true
 - KVM: yes · runner cores: 2
 - unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 1 (222 s)
-- job time until this step: 732 s = 12.2 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 1 (218 s)
+- job time until this step: 724 s = 12.1 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -24,31 +24,29 @@ JUnit (unit + instrumented): 36 tests, 1 failed
 
 ```
 com.solidsketchapp.steel.EmulatorFlowTest.ownerWorkflow: java.lang.AssertionError: failed steps:
-beam: timed out waiting for a beam
-endplate_dialog: dialog has no Picture
-endplate_pick: timed out waiting for an End plate (144)
+endplate_dialog: timed out waiting for the End plate (144) dialog
 at org.junit.Assert.fail(Assert.java:89)
 at org.junit.Assert.assertTrue(Assert.java:42)
-at com.solidsketchapp.steel.EmulatorFlowTest.ownerWorkflow(EmulatorFlowTest.kt:235)
+at com.solidsketchapp.steel.EmulatorFlowTest.ownerWorkflow(EmulatorFlowTest.kt:249)
 
 ```
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 1684 |  |
-| steel | ✓ | 10771 |  |
-| grid | ✓ | 5888 |  |
-| orbit | ✓ | 3176 |  |
-| pan | ✓ | 3132 |  |
-| zoom | ✓ | 1818 |  |
-| column | ✓ | 3109 |  |
-| properties_apply | ✓ | 10921 |  |
-| beam | ✗ | 20928 | timed out waiting for a beam |
-| properties_modify | ✓ | 8574 |  |
-| catalog | ✓ | 4531 |  |
-| endplate_dialog | ✗ | 2770 | dialog has no Picture |
-| endplate_pick | ✗ | 21311 | timed out waiting for an End plate (144) |
-| save_open | ✓ | 1496 |  |
+| start | ✓ | 1367 |  |
+| steel | ✓ | 7642 |  |
+| grid | ✓ | 8896 |  |
+| orbit | ✓ | 3353 |  |
+| pan | ✓ | 915 |  |
+| zoom | ✓ | 1440 |  |
+| column | ✓ | 4105 |  |
+| properties_apply | ✓ | 10188 |  |
+| beam | ✓ | 3691 |  |
+| properties_modify | ✓ | 9028 |  |
+| catalog | ✓ | 5502 |  |
+| endplate_dialog | ✗ | 22646 | timed out waiting for the End plate (144) dialog |
+| endplate_pick | ✓ | 5300 |  |
+| save_open | ✓ | 1832 |  |
 
 connected.log (end):
 ```
@@ -90,7 +88,7 @@ connected.log (end):
 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
 
 
-BUILD FAILED in 3m 40s
+BUILD FAILED in 3m 37s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```
