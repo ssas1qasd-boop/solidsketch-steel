@@ -13,7 +13,8 @@ History: S0–S4 in `docs/steel/PROGRESS-S0-S4.md` (incl. the postponed license 
   - The bolt check on R11 shows no air on any bolt. Node gussets are proven misplaced in R10 (NC holes fit the bolts by an in-plane move), but the move isn't unique, so they are **not fixed** (owner question). The stair plate anchors are open.
 - **Reference switched to R11:** `R11-REPORT.md` (R10-REPORT retired), goldens in `tests/steel/golden/r11/`, tests `R11RebuildTest` (app = web: 6,327 bodies, 0 differences), `R11C04Test` (528 / 528, 1,056 / 1,056), `R11PurlinBodyTest` (220 / 220). Tools take `SS_MODEL` (default R11). The weight target is unchanged: R11 opened in the web build = **63,722.07 kg** (Tekla 63,711.7).
 - **C04 default = Back = Tekla** in web v70 and in the app. The s8 / S7 goldens were regenerated through v70 (`tcl_*_v69` cases keep v69), the emulator steps expect Back, the recording switches Back → v69, and the R11 views come from R11 itself.
-- All unit tests pass (110 test cases, -PhostJni).
+- All unit tests pass (110 test cases, -PhostJni). **CI run 45586862828 (commit 2bad844): green**: unit tests with the UI golden, build, all 17 emulator steps, the C04 recording pass and the R11 views. 24.7 min → 25 Actions minutes. APK `solidsketch-steel-0.10.2-c04-debug.apk` (versionCode 18, sha256 e81591a9…f667).
+- **Delivered** (files in the chat): `docs/steel/parity/C04.png` (R11 | Tekla drawing R3022 | video | app), `C04_recording.mp4` (57 s at 2.75×), `reference/solidsketch_v70.html`, the APK. C04 stays unmarked until the owner's phone OK.
 
 ## C04 purlin cleat parity (2026-11-25, owner): v70 · Tekla parity, Cleat location
 Only C04 (Tcl). Nothing from S11, no other connection touched. Details and proof: `docs/steel/PARITY.md` "C04".
