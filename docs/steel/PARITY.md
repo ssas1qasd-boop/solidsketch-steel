@@ -16,6 +16,17 @@ Order, for each connection code (C04, …):
 5. **Mark ✓ in R10-REPORT.md** ("✓ verified (R10 + video)") only after the owner replies "OK" from the phone test; otherwise "✗" with the reason.
 One connection at a time; do not move to another connection until the owner says so.
 
+## R11 = R10 with Tekla-proven data fixes (owner 2026-11-25)
+`tests/steel/models/Frame_28x53m_R11.ss` is built by `python3 tools/golden/r11_build.py` from R10 (R10 stays unchanged). The source is Tekla's own package `tests/steel/tekla/Frame_28mx53m_Package_1.zip` (drawings, NC, reports, `Tekla Model.db1`), which is reference data only and never goes in the APK. Each fix is one function in the script and one commit. From now on R11 is the reference (golden tests, `R11-REPORT.md`, weight target).
+
+### Fix 1 · C04 purlin cleats (264 × 8503 L140*60*6, 264 × 8504 PL6*44, 440 bolt groups = 1,056 M12)
+- **Tekla bolt list** (`Reports/Bolt List (+Weight).xsr`): `4.6XOX Site BOLT 12X30 1056`. An M12×30 clamps about 8–15 mm, which fits the cleat (6) against the purlin web (2). R10 had L144 and 58–72 mm of air inside the C.
+- **R3022 assembly drawing** (front view, sections B-B … F-F): the short leg lies on the rafter flange (weld 5) and the tall leg stands against the purlin web (2 bolt rows, axis along the rafter). The stiffener 8504 sits in the cleat's corner, at right angles to the purlin, on the rafter web line. The holes are 50 / 60 from the flange's inner face (= 40 / 100 above the rafter top) and 40 / 70 from the flange edge (= ±35 from the rafter web). R3023 / R3001 give the cleat ends as 57 / 63 from the stiffener's faces, so the cleat is centred on the stiffener (= on the rafter web).
+- **Which way the short leg points:** away from the purlin web. On R3022 (purlin toes downhill) that is toward the apex; on R3001 (toes uphill) it is toward the eave. Both drawings match.
+- **Single parts and NC:** 8503 `DSTV_Profiles/8503.nc1`: L140*60*6 L120, holes 4 × Ø14 in the 140 leg at x 25 / 95, y 40 / 100. 8504 `DSTV_Plates/8504.nc1`: PL6, outline (0,0) (114,0) (124,10) (124,44) (114,44) (0,10), i.e. 124 up the tall leg, 44 along the short leg, a 10 × 10 snip at the heel and 10 wide at the top.
+- **R10 → R11:** the angle moved from the toe line (60 mm from the web, upside down) to the web's back face, with the heel on the rafter top. The stiffener was in the web's plane, turned 90°, and is now across the purlin in the corner with the NC outline. The bolts start at the cleat's outer face and point toward the web: M12 4.6 L30, grip 8. The bolt lines (heights, positions along the purlin), the purlins and their web holes, and the cleats' positions along the purlins are R10's, which already agree with the drawings.
+- **Check:** `python3 tools/golden/bolt_hole_check.py --model tests/steel/models/Frame_28x53m_R11.ss`. All 1,056 C04 bolts pass through holes in the cleat and the purlin web with no air (R10: 58–72 mm). The only air left is at the stair brackets (130 mm, fix 2).
+
 ## C04 · Purlin cleat (Tcl, Tekla "Cold rolled overlap (1)")
 
 **Rule (one line):** Tekla's *Cleat location* is **Front** by default. On a C / U purlin, Front means the cleat stands on the purlin's **toe (open) side, whatever the slope**: its long leg sits on the toe line and its short leg is at the top, pointing away. The angle is placed like a Tekla L member at Middle / Middle, so on a slope it shifts a few mm. **Back** = v69: behind the web.

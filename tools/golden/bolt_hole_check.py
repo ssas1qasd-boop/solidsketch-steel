@@ -3,6 +3,7 @@
 
     python3 tools/golden/bolt_hole_check.py                    R10 (tests/steel/models/Frame_28x53m_R10.ss): every TKBOLT
     python3 tools/golden/bolt_hole_check.py --report           ... and write docs/steel/BOLT-HOLES.md + tests/steel/golden/r10/bolt_holes.json
+    python3 tools/golden/bolt_hole_check.py --model <file.ss>   another model (e.g. tests/steel/models/Frame_28x53m_R11.ss)
 
 For each bolt (point P on the head side, axis a, diameter d, from the connection; length L from its bolt group body, else
 grip + 2·d) and each part the connection joins (TKBOLT q.parts; the parts in q.skip are not drilled by the component because
@@ -75,7 +76,8 @@ def check(doc, conns=None):
     return res
 
 def main():
-    doc = json.load(gzip.open(R10))['doc']; res = check(doc)
+    model = sys.argv[sys.argv.index('--model') + 1] if '--model' in sys.argv else R10
+    doc = json.load(gzip.open(model))['doc']; res = check(doc)
     cnt = Counter(r['result'] for r in res); bad = [r for r in res if r['result'] != 'HOLE']
     print(f"R10 TKBOLT: {len({r['conn'] for r in res})} connections, {len(res)} bolt × part checks: {dict(cnt)}")
     by = Counter((r['result'], r['name'], r.get('prof')) for r in bad)

@@ -17,3 +17,4 @@ tools/golden/node_modules/
 third_party/manifold/
 .kotlin/
 .claude/worktrees/
+__pycache__/
