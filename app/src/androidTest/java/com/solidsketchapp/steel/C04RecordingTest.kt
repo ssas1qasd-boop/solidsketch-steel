@@ -123,7 +123,7 @@ class C04RecordingTest {
         try {
             pause(1500)
             // the R10 case: rafter, then the two C purlins (toes downhill)
-            member("RAFTER", """{"prof":"BI220-8-150-10","p1":[237.306,22355,7416.591],"p2":[6705.5,22355,8887.192]}"""); pause(900)
+            member("RAFTER", """{"prof":"BI220-8-150-10","p1":[237.306,22355,7416.591],"p2":[6705.5,22355,8887.192],"rot":"Top","rAng":0,"plane":"Middle","depth":"Middle","pOff":0,"dOff":0,"dx1":0,"dx2":0}""")   // R11's position fields (the RAFTER set has depth Behind: 110 lower); pause(900)
             val pu = """"prof":"CC200-2-20-60","rot":"Top","rAng":347.191,"plane":"Middle","depth":"Middle""""
             member("PURLIN", """{$pu,"p1":[6507.808,22365,9057.605],"p2":[6507.808,28100,9057.605]}"""); pause(900)
             member("PURLIN", """{$pu,"p1":[6507.808,16795,9057.605],"p2":[6507.808,22345,9057.605]}"""); pause(1200)

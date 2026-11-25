@@ -20,7 +20,7 @@ const CASES = {
   t144_apply_defaults: { k: 'T144', members: 'std', steps: [['Picture', 'dim', '2', '15'], ['Picture', 'dim', '3', '5'], ['Bolts', 'row', 'Bolt size', 24]], action: 'Apply', thenConnect: true },
 };
 const MEMBERS = { std: [['COLUMN', { prof: 'HEA300', p1: [0, 0, 0], p2: [0, 0, 7500] }], ['BEAM', { prof: 'IPE360', p1: [0, 0, 7000], p2: [6000, 0, 7000] }]],
-  r10cl: [['RAFTER', { prof: 'BI220-8-150-10', p1: [237.306, 22355, 7416.591], p2: [6705.5, 22355, 8887.192] }], ['PURLIN', { prof: 'CC200-2-20-60', p1: [6507.808, 22365, 9057.605], p2: [6507.808, 28100, 9057.605], rAng: 347.191 }]] };
+  r10cl: [['RAFTER', { prof: 'BI220-8-150-10', p1: [237.306, 22355, 7416.591], p2: [6705.5, 22355, 8887.192], rot: 'Top', rAng: 0, plane: 'Middle', depth: 'Middle' }], ['PURLIN', { prof: 'CC200-2-20-60', p1: [6507.808, 22365, 9057.605], p2: [6507.808, 28100, 9057.605], rot: 'Top', rAng: 347.191, plane: 'Middle', depth: 'Middle' }]] };   // r10cl: R11's position fields (the RAFTER / PURLIN sets have depth Behind / Front)
 const SEARCH = ['end plate', '144', 'base', '1042', 'tube', 'S7', 'clip angle', 'zzz', 'Purlin', '20 '];
 
 (async () => {

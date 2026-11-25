@@ -5,6 +5,9 @@ History: S0–S4 in `docs/steel/PROGRESS-S0-S4.md` (incl. the postponed license 
 ## Current milestone
 **S10 done (owner 2026-11-24): applications, matched to v69 and to R10. Stopped before S11.** Steps: S10.1 golden harness ✓, S10.2 v69's own connection types ✓, S10.3 portal frame ✓, S10.4 stairs / railing / GEN ✓, S10.5 laps / sleeves / brace hardware / stub splices option cases ✓, S10.6 R10 vs v69 vs app ✓, S10.7 UI, emulator steps, UI golden, APK. Previous: S9b done (0.9.4-s9b from the CI, phone check below).
 
+## C04 follow-up (2026-11-25, owner): purlin above the cleat in the app column = test-case input
+- Cause: the recording / dialog cases took the RAFTER set's depth Behind (rafter 110 mm lower than R11). Gap measured: recording +110.00 mm without and with C04; R11 inputs 0.00 / 0.00; R11 file 0.00 (`C04MemberGapTest`, `docs/steel/parity/C04_gap.png`). The cases were fixed (R11 position fields). New member body golden `R11MemberBodyTest`: 264 / 264 joints (purlin boxes, rafter top, purlin underside, 0.1 mm). All 112 unit tests pass.
+
 ## R11 and C04 = Tekla (2026-11-25, owner): Tekla's package proves R10 wrong at C04 and at the stairs
 - **Tekla package** merged (`tests/steel/tekla/Frame_28mx53m_Package_1.zip`: 418 drawings, 240 NC + DXF, reports, bolt list, db1; reference only, never in the APK).
 - **R11** = `tests/steel/models/Frame_28x53m_R11.ss`, built by `tools/golden/r11_build.py` from R10 (unchanged), one commit per fix, proofs in `docs/steel/PARITY.md`:

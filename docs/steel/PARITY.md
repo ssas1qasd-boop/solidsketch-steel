@@ -98,6 +98,12 @@ Links (found by search; none could be played here): [a5N_x5zrTYk "Tekla Structur
 - Pointer (not proof): the two places where bolts cross air are both L-angle members the importer had to place by solving their rotation (`tk_how: 'solved'`): the C04 cleats (58–72 mm) and the stair BRACKET L60*6 (130 mm). That pattern fits an importer error on L members, but it is not Tekla data.
 - **Needed to decide:** Tekla's bolt list (M12 lengths for the purlin cleats), or the assembly drawing of a rafter (R3022 / PR / PC) with the cleat section, or the `.db1`. With an M12 length of about 30–40 mm the cleat sits against the web (R11 then moves the 264 cleats, stiffeners and 528 bolt groups, and Front = v69's side); with about 140–150 mm Tekla really had the gap and R10 stays.
 
+### C04 follow-up: "the purlin floats above the cleat" (owner 2026-11-25)
+- **Cause: the test case's input, not the placement rule and not the component.** C04RecordingTest (and the S7 dialog case `r10cl`) built the rafter from the RAFTER property set with only prof / p1 / p2. That set has **depth Behind** (the beam below its line), while R11's rafter has depth Middle, so the rafter sat 110 mm (half of BI220) lower. The dialog case's purlin also took the PURLIN set's depth Front. The cleat followed the rafter, so the purlin looked lifted by about a cleat height.
+- **Measured** (`C04MemberGapTest`, perpendicular to the rafter at cleat 3185's joint): recording inputs **+110.00 mm** without C04 and **+110.00 mm** with C04. R11 inputs **0.00 mm** without and with C04. R11 file **0.00 mm**. C04 moves no member, and the app places members exactly as R11 when given R11's fields. End views: `docs/steel/parity/C04_gap.png` (`tools/golden/c04_gap_view.py`).
+- **Fix:** both cases now use R11's position fields (rot / rAng / plane / depth). The S7 dialog golden was regenerated.
+- **New check:** `R11MemberBodyTest`. At all 264 C04 joints, the app's member bodies vs R11 within 0.1 mm: purlin boxes, rafter top and purlin underside perpendicular to the support. Result: **264 / 264**.
+
 ### Status (standing rule)
 1 links sent (YouTube blocks downloads from the container: owner sends the .mp4) · 2 done (00318c0) · 3 R10 golden ✓, video frames vs emulator: waiting for the video · 4 delivery: see PROGRESS.md · 5 ✓: waiting for the owner's phone OK.
 
