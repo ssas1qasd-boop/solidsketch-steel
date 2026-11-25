@@ -16,6 +16,15 @@ Order, for each connection code (C04, …):
 5. **Mark ✓ in R10-REPORT.md** ("✓ verified (R10 + video)") only after the owner replies "OK" from the phone test; otherwise "✗" with the reason.
 One connection at a time; do not move to another connection until the owner says so.
 
+## Standing rule B: measured checks, never images (owner, 2026-11-25)
+**Never mark a connection OK from looking at images.** Images are for the owner; the checks are measured. Every connection case gets automatic geometry checks (`python3 tools/golden/geom_checks.py <model.ss | case dump>`), and the case fails on any of them:
+1. **Contact:** parts that should bear on each other (purlin on rafter, plate on flange, cleat on web) have a gap ≤ 1 mm, measured perpendicular to the contact face (Manifold `min_gap` between the solids; the per-type pairs are in `DESIGNED`).
+2. **No floating part:** every part touches (≤ 1 mm) or is bolted / welded to another part of its connection (in an .ss model: of its own assembly).
+3. **No overlap:** no volume intersection beyond 1 mm³ between the members and plates of a connection, or between plates of two connections at one joint, except designed contact (which has zero volume).
+4. **Bolts:** each bolt passes through a hole in every part it joins, and its grip equals the plate stack ± 2 mm (an .ss TKBOLT: q.grip vs the plate thicknesses measured beside the hole; a component bolt group: no air along the shank between the plates it passes).
+5. **Images:** orthographic views (not perspective), large, one view per image, with the key dimensions written on them.
+The checks run on the connection's own case(s) and on all R11 connections; failures are reported in a table. A check tool that finds nothing has to be shown failing on a known-bad case first (C04: plain v69's upright purlins, 26 failures).
+
 ## R11 = R10 with Tekla-proven data fixes (owner 2026-11-25)
 `tests/steel/models/Frame_28x53m_R11.ss` is built by `python3 tools/golden/r11_build.py` from R10 (R10 stays unchanged). The source is Tekla's own package `tests/steel/tekla/Frame_28mx53m_Package_1.zip` (drawings, NC, reports, `Tekla Model.db1`), which is reference data only and never goes in the APK. Each fix is one function in the script and one commit. From now on R11 is the reference (golden tests, `R11-REPORT.md`, weight target).
 
@@ -103,6 +112,13 @@ Links (found by search; none could be played here): [a5N_x5zrTYk "Tekla Structur
 - **Measured** (`C04MemberGapTest`, perpendicular to the rafter at cleat 3185's joint): recording inputs **+110.00 mm** without C04 and **+110.00 mm** with C04. R11 inputs **0.00 mm** without and with C04. R11 file **0.00 mm**. C04 moves no member, and the app places members exactly as R11 when given R11's fields. End views: `docs/steel/parity/C04_gap.png` (`tools/golden/c04_gap_view.py`).
 - **Fix:** both cases now use R11's position fields (rot / rAng / plane / depth). The S7 dialog golden was regenerated.
 - **New check:** `R11MemberBodyTest`. At all 264 C04 joints, the app's member bodies vs R11 within 0.1 mm: purlin boxes, rafter top and purlin underside perpendicular to the support. Result: **264 / 264**.
+
+### C04 workflow (owner 2026-11-25, part A): the user's own way, not R11's fields
+Case (`tools/golden/c04_workflow.js` in web v70, `C04WorkflowTest` in the app): two rafters from the **default RAFTER set** (IPE360, **depth Behind**) on a 12.8° slope, purlins by **Generation of purlins (50)** (T50p, profile CC200-2-20-60 chosen in its dialog), then C04 (Tcl) on rafter A and the middle purlin. Measured perpendicular to rafter A (`tools/golden/c04_measure.py`; end views `docs/steel/parity/C04_workflow.png`):
+- **plain v69:** the purlins are **IPE160** (the PURLIN property set overrode the profile chosen in the dialog), upright, and **cut into the rafter by 13.56 mm** (lowest bottom corner) and 1.00 mm (the other). They don't float: the depth Behind rafter is placed right (v69's member frame uses the real section centre), but the generator put the purlin line at centre + h/2 straight up and kept the purlins vertical.
+- **fix (web v70 chapter "Generation of purlins" + app `GenRun`):** the profile is the dialog's (the PURLIN set's when blank); each purlin's section centre is at rafter top + h/2 perpendicular to the rafter, and the section is turned so its web stands perpendicular to the rafters (rAng −12.80° here, as R11's purlins). Purlins between vertical members keep v69's purlins.
+- **after:** web v70 and app **0.00 / 0.00 mm** (both bottom corners) on every purlin; profile CC200-2-20-60; the C04 bolts pass the purlin web (22 bolts through holes, no air).
+- **B checks** (geom_checks): plain v69 26 failures (rafter / purlin and purlin / cleat overlaps); web v70 and app **2**: at the C04 joint the generator's own **Purlin cleat (Tpc, PL8)** overlaps the C04 cleat and stiffener. T50p puts a Tpc cleat on every purlin end, so adding C04 there doubles the cleat. **Owner decision needed** (see PROGRESS).
 
 ### Status (standing rule)
 1 links sent (YouTube blocks downloads from the container: owner sends the .mp4) · 2 done (00318c0) · 3 R10 golden ✓, video frames vs emulator: waiting for the video · 4 delivery: see PROGRESS.md · 5 ✓: waiting for the owner's phone OK.

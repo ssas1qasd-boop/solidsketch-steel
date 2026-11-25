@@ -85,6 +85,16 @@ class GenRun(private val data: SteelData, private val doc: DocumentApi, private 
             return runCatching { parts.mesh(st) }.fold({ made += st to it; made.size - 1 }, { err = it.message ?: it.toString(); null })
         }
         val ref = "#"   // conn parts: "#<i>" = the i-th made member (its body id is known once added)
+        /** up, perpendicular to a member (null for a vertical one) */
+        fun upOf(m: MemberFrame): D3? { val n = D3.Z.add(m.a, -(m.a dot D3.Z)); return if (n.length() < 1e-3) null else n.normalize() }
+        /** v69 L15182 purlins / bridging (kept for bridging and for purlins between vertical members) */
+        fun v69Purlins(br: Boolean) { val s = qn("s", 1500.0); val L = minOf(MA.c2.distanceTo(MA.c1), MB.c2.distanceTo(MB.c1))
+            val extra: Map<String, JsonElement> = if (br) emptyMap() else LinkedHashMap(data.propertySet("PURLIN")!!.raw).apply { put("name", JsonPrimitive("PURLIN")) }
+            var x = if (br) L / 2 else 150.0
+            while (x <= L - 100.0) { val pa = MA.c1.add(MA.a, x); val pb = MB.c1.add(MB.a, x)
+                val r = mem(if (br) "BRIDGING" else "PURLIN", qs("prof", if (br) "D16" else "IPE160"), pa.add(D3.Z, if (br) 0.0 else MA.h / 2), pb.add(D3.Z, if (br) 0.0 else MB.h / 2), extra)
+                if (r != null && !br) { conns += "Tpc" to listOf(A, "$ref$r"); conns += "Tpc" to listOf(B, "$ref$r") }
+                x += if (br) L else s } }
         when (kind) {
             "xbrace", "rodcross", "tube" -> { val (a0, a1) = lo(MA); val (b0, b1) = lo(MB)
                 val prof = qs("prof", if (kind == "rodcross") "D20" else if (kind == "tube") "CHS88.9x3.2" else "PL80*10"); val z0 = 300.0
@@ -95,14 +105,24 @@ class GenRun(private val data: SteelData, private val doc: DocumentApi, private 
             "roofbrace" -> { val prof = qs("prof", "CHS88.9x3.2")
                 val r1 = mem("ROOF BRACING", prof, MA.c1.lerp(MA.c2, 0.1), MB.c1.lerp(MB.c2, 0.5)); val r2 = mem("ROOF BRACING", prof, MB.c1.lerp(MB.c2, 0.1), MA.c1.lerp(MA.c2, 0.5))
                 for (r in listOfNotNull(r1, r2)) { conns += "T20" to listOf(A, "$ref$r"); conns += "T20" to listOf(B, "$ref$r") } }
-            "purlins", "bridging" -> { val br = kind == "bridging"; val s = qn("s", 1500.0); val L = minOf(MA.c2.distanceTo(MA.c1), MB.c2.distanceTo(MB.c1))
-                // v69: the PURLIN set comes last and overrides the profile (q.prof is not used for purlins)
-                val extra: Map<String, JsonElement> = if (br) emptyMap() else LinkedHashMap(data.propertySet("PURLIN")!!.raw).apply { put("name", JsonPrimitive("PURLIN")) }
-                var x = if (br) L / 2 else 150.0
-                while (x <= L - 100.0) { val pa = MA.c1.add(MA.a, x); val pb = MB.c1.add(MB.a, x)
-                    val r = mem(if (br) "BRIDGING" else "PURLIN", qs("prof", if (br) "D16" else "IPE160"), pa.add(D3.Z, if (br) 0.0 else MA.h / 2), pb.add(D3.Z, if (br) 0.0 else MB.h / 2), extra)
-                    if (r != null && !br) { conns += "Tpc" to listOf(A, "$ref$r"); conns += "Tpc" to listOf(B, "$ref$r") }
-                    x += if (br) L else s } }
+            "purlins" -> if (upOf(MA) != null && upOf(MB) != null) {
+                // v70 · Tekla parity (web/v70_tekla_parity.js "Generation of purlins"): the profile from the dialog (the PURLIN set's when
+                // blank); each purlin's section centre on the rafter top + h/2 perpendicular to the rafter, its web turned perpendicular to it
+                val nA = upOf(MA)!!; val nB = upOf(MB)!!; val prof = qs("prof", Js.str(data.propertySet("PURLIN")!!.raw["prof"]))
+                val pp = data.profiles.lookup(prof) ?: return "Unknown profile $prof"
+                val hp = if (pp.kind == "O") (pp.d ?: 160.0) else (pp.h ?: 160.0); val s = qn("s", 1500.0); val L = minOf(MA.c2.distanceTo(MA.c1), MB.c2.distanceTo(MB.c1))
+                var x = 150.0
+                while (x <= L - 100.0) {
+                    val pa = MA.c1.add(MA.a, x).add(nA, MA.h / 2 + hp / 2); val pb = MB.c1.add(MB.a, x).add(nB, MB.h / 2 + hp / 2)
+                    val ap = (pb - pa).normalize(); val base = D3.Z.add(ap, -(ap dot D3.Z)).normalize(); val n = (nA + nB).normalize()
+                    val th = Math.toDegrees(Math.atan2((base cross n) dot ap, base dot n))
+                    val extra = LinkedHashMap(data.propertySet("PURLIN")!!.raw).apply { put("name", JsonPrimitive("PURLIN")); put("prof", JsonPrimitive(prof)); put("rot", JsonPrimitive("Top"))
+                        put("rAng", jsNum(Math.floor(th * 1e4 + 0.5) / 1e4)); put("plane", JsonPrimitive("Middle")); put("depth", JsonPrimitive("Middle")); put("pOff", jsNum(0.0)); put("dOff", jsNum(0.0)) }
+                    val r = mem("PURLIN", prof, pa, pb, extra)
+                    if (r != null) { conns += "Tpc" to listOf(A, "$ref$r"); conns += "Tpc" to listOf(B, "$ref$r") }
+                    x += s }
+            } else v69Purlins(false)
+            "bridging" -> v69Purlins(true)
             "truss" -> { val ta = if (MA.c1.z > MA.c2.z) MA.c1 else MA.c2; val tb = if (MB.c1.z > MB.c2.z) MB.c1 else MB.c2; val D = qn("depth", 1500.0)
                 val n = maxOf(2.0, qn("n", Math.floor(ta.distanceTo(tb) / 2000.0 + 0.5))).toInt(); val down = D3(0.0, 0.0, -D)
                 val top = (0..n).map { ta.lerp(tb, it.toDouble() / n) }; val bot = (0..n).map { ta.lerp(tb, it.toDouble() / n) + down }
