@@ -2,6 +2,19 @@
 
 Each section covers one connection where v69 differs from Tekla (shown by `tests/steel/models/Frame_28x53m_R10.ss` and Tekla's help). It gives the rule, the proof, the change and the tests. The web change is the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`). It goes into the reference copy just before the `v28 · BIM layers` chapter: `python3 tools/web/build_v70.py` writes `reference/solidsketch_v70.html`, and the golden harness (`tools/golden/lib/v69.js`) adds the same text in memory, so every golden made from now on comes from v69 + v70 (`SS_ORACLE=v69` runs plain v69). The app port follows the same steps in the same order. Models saved before v70 keep their v69 result unless the new option is set.
 
+## Standing rule for every Tekla parity connection (owner, 2026-11-25)
+Order, for each connection code (C04, …):
+1. **Before coding:** send the owner 2–3 video links for the Tekla component (with timestamps if they can be read). The owner downloads one and sends the .mp4 (into `tests/steel/videos/`, never in the APK). The video and R10 together are the reference.
+2. **Fix it in BOTH** the web build (chapter `web/v70_tekla_parity.js`, built into `reference/solidsketch_v70.html` by `tools/web/build_v70.py`) and the app, with the same steps.
+3. **Checks:** the R10 golden (0.1 mm) and emulator screenshots of the same case (from the GitHub emulator CI), side by side with the video frames at the same view angles (ffmpeg), in `docs/steel/parity/<code>.png`, with notes on what matches and what differs.
+4. **Deliver to the owner, every time, in one message:**
+   - `reference/solidsketch_v70.html` built with the fix, as a download link the owner can open on the phone: a GitHub release asset (prerelease `parity-<code>`) or a CI artifact. It is the owner's DEV copy and never goes inside the APK.
+   - the APK from the same commit (the CI artifact `apk-phone` link)
+   - `<code>.png` (video vs app)
+   - matched before → after
+5. **Mark ✓ in R10-REPORT.md** ("✓ verified (R10 + video)") only after the owner replies "OK" from the phone test; otherwise "✗" with the reason.
+One connection at a time; do not move to another connection until the owner says so.
+
 ## C04 · Purlin cleat (Tcl, Tekla "Cold rolled overlap (1)")
 
 **Rule (one line):** Tekla's *Cleat location* is **Front** by default. On a C / U purlin, Front means the cleat stands on the purlin's **toe (open) side, whatever the slope**: its long leg sits on the toe line and its short leg is at the top, pointing away. The angle is placed like a Tekla L member at Middle / Middle, so on a slope it shifts a few mm. **Back** = v69: behind the web.
@@ -39,6 +52,9 @@ Measured with R10's own meshes: the purlin's web is the side of the section with
 - **`R10C04Test` (app vs R10, -PhostJni):** the 835 members, then only the 264 Tcl components with R10's inputs and the new default. Result: **528 / 528 parts (box 0.1 mm on all six numbers, volume within 2 %) and 1,056 / 1,056 bolt positions within 0.1 mm**. With `loc: 'back'`, and with settings stored without `loc` (an old model), 0 / 528 and 0 / 1,056, i.e. v69.
 - **Web vs R10:** `docs/steel/R10-REPORT.md` row 4: **528 matched (was 0)**, M12 8.8 L144 1,056 / 1,056 (the v69 rebuild had M12 L34). All other rows are unchanged. Weight 62,143.16 → 62,145.80 kg (the holes).
 - **App = web:** `R10RebuildTest` (all 6,327 bodies, 0 differences). `CompGoldenTest` CL 15 / 15: `tests/steel/golden/comp/s8_cp_cl_sr_tg.json` was regenerated through v70. `tcl_odd_profile` (C200 purlin) is now Front. New cases: `tcl_odd_profile_back` (= the v69 golden of `tcl_odd_profile`, box for box), and four R10 cleats as they are in the model (toes down, toes up, column, 15° slope), plus one purlin and Back. `S7DialogTest`: `tcl_modify_loc_back` and `tcl_apply_loc_front` through the web dialog's DOM and the app's CompDialog. `EmulatorFlowTest` step `cleat_dialog`: the Parts tab shows "Cleat location" with "Front".
+
+### Status (standing rule)
+1 links sent (YouTube blocks downloads from the container: owner sends the .mp4) · 2 done (00318c0) · 3 R10 golden ✓, video frames vs emulator: waiting for the video · 4 delivery: see PROGRESS.md · 5 ✓: waiting for the owner's phone OK.
 
 ### Unclear / not proven
 - **Z and I purlins:** R10 has only C purlins, and the Tekla text does not say where Front is for Z or I profiles. v70 leaves them as v69 (`q.side`). Front / Back has no effect on them.
