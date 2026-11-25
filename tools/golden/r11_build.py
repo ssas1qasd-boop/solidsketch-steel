@@ -131,7 +131,70 @@ def fix_c04(doc, log):
                     bb['shape'] = shape_of(man); n_bg += 1
     log.append(f'c04: {n_cl} cleats, {n_st} stiffeners, {n_bg} bolt groups moved to the purlin web (Tekla R3022, 8503, 8504, bolt list 12X30 4.6)')
 
-FIXES = {'c04': fix_c04}
+def reflect_shape(b, n, c):
+    """reflect a body's mesh in the plane through c with normal n (winding reversed so the solid stays outward-facing)"""
+    V = np.asarray(b['shape']['vp'], float).reshape(-1, 3); T = np.asarray(b['shape']['tv'], int).reshape(-1, 3)
+    V = V - 2 * np.outer((V - c) @ n, n); T = T[:, [0, 2, 1]]
+    b['shape'] = {'vp': [round(float(x), 3) for x in V.reshape(-1)], 'tv': [int(x) for x in T.reshape(-1)]}
+
+def fix_stairs(doc, log):
+    """Stair stringers (UPN240, 12 pieces 9507-9518) and tread brackets (L60*6 9501 / 9502, 46).
+    Proof: Tekla bolt list "8.8XOX BOLT 12X35 x 92" (grip about 15: bracket leg 6 + UPN240 web 9.5; R10 had grip 145, L169, 130 mm of
+    air); SGR9001 assembly drawing: tread 9503 PL10*336 L990 with the brackets' bolted legs at its ends, 5 + 995 = 1000 between their
+    outer faces, i.e. on the stringer webs; R10 has its stringers' flange tips 1000 apart (x 608 / 1608) and their webs on the far side,
+    and the brackets' bolted legs inboard (54 mm from the stringer). NC 9501 / 9502 (holes in one leg, y 30) and 9507 (holes in the web)
+    fix the hole positions, which R10 already has. So R10 mirrored both: R11 reflects each stringer about its own centre plane across
+    the bolt axis (web toward the treads, flanges out) and each bracket about its own centre (bolted leg against the web, the other leg
+    under the tread); holes move with the meshes. Bolts: head at the bracket leg's inner face, axis toward the web, M12 8.8 L35,
+    grip 15.5 (bracket 6 + web 9.5)."""
+    B = {b['id']: b for b in doc['bodies']}
+    def V(b): return np.asarray(b['shape']['vp'], float).reshape(-1, 3)
+    stringers = {b['id'] for b in doc['bodies'] if (b.get('st') or {}).get('name') == 'STRINGER'}
+    done_str, n_br, n_bg = set(), 0, 0
+    for c in doc['stConns']:
+        if c['type'] != 'TKBOLT': continue
+        names = {(B.get(p) or {}).get('st', {}).get('name') for p in c['parts']}
+        if not ({'BRACKET', 'STRINGER'} <= names): continue
+        q = c['q']; a = unit(q['ax']); br = next(B[p] for p in c['parts'] if B[p]['st']['name'] == 'BRACKET'); sr = next(B[p] for p in c['parts'] if B[p]['st']['name'] == 'STRINGER')
+        P0 = np.asarray(q['pts'][0], float)
+        # orient a from the bracket toward the stringer
+        sb, ss = (V(br) - P0) @ a, (V(sr) - P0) @ a
+        if ss.mean() < sb.mean(): a = -a
+        if sr['id'] not in done_str:
+            vs = V(sr); t = vs @ a; reflect_shape(sr, a, a * (t.min() + t.max()) / 2)
+            st = sr['st']; st['rAng'] = r3(((st.get('rAng', 0) + 180) % 360)); st['tk_fix'] = 'R11 stairs: web toward the treads (Tekla SGR9001, bolt list 12X35)'
+            if 'u' in st: st['u'] = [r3(-x) for x in st['u']]
+            if 'v' in st: st['v'] = [r3(-x) for x in st['v']]
+            done_str.add(sr['id'])
+        if not br['st'].get('tk_fix'):
+            vb = V(br); t = vb @ a; reflect_shape(br, a, a * (t.min() + t.max()) / 2)
+            br['st']['rAng'] = r3(((br['st'].get('rAng', 0) + 90 + 180) % 360) - 180); br['st']['tk_fix'] = 'R11 stairs: bolted leg against the stringer web (Tekla SGR9001)'
+            n_br += 1
+        bmax = float((V(br) @ a).max())                   # the bracket's face on the stringer web
+        new = []
+        for P in q['pts']:
+            P = np.asarray(P, float); new.append([r3(x) for x in P + a * (bmax - 6 - P @ a)])
+        q['pts'] = new; q['ax'] = [r3(x) for x in a]; q['grip'] = 15.5
+        for bb in doc['bodies']:
+            bs = bb.get('st') or {}
+            if bs.get('kind') == 'bolts' and bs.get('conn') == c['id']:
+                bs['pts'] = new; bs['ax'] = q['ax']; bs['L'] = 35; bs['grade'] = '8.8'
+                man = None
+                for P in new: m = bolt_man(P, a, 12, 15.5); man = m if man is None else man + m
+                bb['shape'] = shape_of(man); n_bg += 1
+    # the short UPN240 end pieces of the same stringer assemblies (same section line, welded on): flipped with their stringer
+    amk = {B[i]['st'].get('amark') for i in done_str}; ax_ = a
+    for b in doc['bodies']:
+        st = b.get('st') or {}
+        if st.get('name') == 'STRINGER' and st.get('amark') in amk and b['id'] not in done_str:
+            vs = V(b); t = vs @ ax_; reflect_shape(b, ax_, ax_ * (t.min() + t.max()) / 2)
+            st['rAng'] = r3(((st.get('rAng', 0) + 180) % 360)); st['tk_fix'] = 'R11 stairs: end piece flipped with its stringer'
+            if 'u' in st: st['u'] = [r3(-x) for x in st['u']]
+            if 'v' in st: st['v'] = [r3(-x) for x in st['v']]
+            done_str.add(b['id'])
+    log.append(f'stairs: {len(done_str)} stringers (web toward the treads), {n_br} brackets (bolted leg on the web), {n_bg} bolt groups M12 8.8 L35 (Tekla SGR9001, bolt list 12X35 x 92)')
+
+FIXES = {'c04': fix_c04, 'stairs': fix_stairs}
 
 def main():
     want = sys.argv[1:] or list(FIXES)
