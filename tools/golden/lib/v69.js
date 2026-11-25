@@ -24,11 +24,23 @@ const PATCH_AFTER_LINE = 14039;
 const PATCH_ANCHOR = "Object.assign(window.__st, { conns: () => S.stConns, connGeom: stConnGeom,";
 const PATCH_LINE = '  Object.assign(window.__st, { live: { connGeom: c => stConnGeom(c), build: s => stBuild(s), portalParts: q => stPortalParts(q), dwHoles: (...a) => dwHoles(...a), data: () => ({ ST_CLASS, ST_TYPE, TK_FAMNAME, TK_PICK, TK_ICON, UPN_T, UPE_T }), parse: t => stParse(t), letters: i => stLetters(i), section: p => stSection(p), mf: st => stMF(st) } }); /* golden harness */ Object.assign(window.__st, { ui: { scene: () => scene, ST: () => ST, sym: () => ST_SYM, updateCamera: () => updateCamera(), U: () => stU(), handles: () => stHandlesDraw() } });';
 
+// v70 · Tekla parity (web/v70_tekla_parity.js): the oracle is v69 + this chapter, inserted before the v28 BIM chapter exactly as
+// tools/web/build_v70.py writes reference/solidsketch_v70.html. SS_ORACLE=v69 runs plain v69 (the goldens made before v70).
+const V70 = path.join(REPO, 'web', 'v70_tekla_parity.js');
+const V70_ANCHOR = '  // ===================== v28 · BIM layers: Types and History Folders (schedules) =====================';
+const ORACLE = process.env.SS_ORACLE === 'v69' ? 'v69' : 'v70';
+function insertV70(lines) {
+  const i = lines.indexOf(V70_ANCHOR); if (i < 0) throw new Error('v69: the v28 BIM chapter header (v70 anchor) is missing');
+  lines.splice(i, 0, ...fs.readFileSync(V70, 'utf8').replace(/\n$/, '').split('\n'), '');
+  return lines;
+}
+
 let patched = null;
 function patchedHtml() {
   if (patched) return patched;
   const lines = fs.readFileSync(HTML, 'utf8').split('\n');
   if (!lines[PATCH_AFTER_LINE - 1].includes(PATCH_ANCHOR)) throw new Error(`v69 line ${PATCH_AFTER_LINE} is not the expected __st export; cannot add the live-chain wrappers`);
+  if (ORACLE === 'v70') insertV70(lines);   // after the anchor line 14039, so the patch line below stays in place
   lines.splice(PATCH_AFTER_LINE, 0, PATCH_LINE);
   return (patched = Buffer.from(lines.join('\n'), 'utf8'));
 }
@@ -61,7 +73,7 @@ async function openV69({ timeoutMs = 300000, log = true, pageOptions = null } = 
   const t0 = Date.now();
   await page.goto(url + '#auto', { waitUntil: 'load', timeout: timeoutMs });
   await page.waitForFunction(() => !!(window.__st && window.__ss && window.__ss.ssOpenData && window.__st.weights && window.__st.live), null, { timeout: timeoutMs });
-  if (log) console.error(`v69 ready in ${((Date.now() - t0) / 1000).toFixed(1)} s`);
+  if (log) console.error(`${ORACLE} ready in ${((Date.now() - t0) / 1000).toFixed(1)} s`);
   return { browser, page, errors };
 }
 
@@ -86,4 +98,4 @@ function writeGolden(rel, data) {
   return out;
 }
 
-module.exports = { REPO, HTML, GOLDEN, openV69, openSS, writeGolden };
+module.exports = { REPO, HTML, GOLDEN, ORACLE, V70, V70_ANCHOR, insertV70, openV69, openSS, writeGolden };

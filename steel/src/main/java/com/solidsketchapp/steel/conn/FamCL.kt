@@ -47,6 +47,8 @@ object FamCL {
     fun gen(x: FamCtx) {
         val purs = listOfNotNull(x.b?.let { it to x.bId!! }, x.b2?.let { it to x.b2Id!! }); if (purs.isEmpty()) throw IllegalStateException("not built")
         val ma = Joints.mf(x.a, x.profiles); val mp = Joints.mf(purs[0].first, x.profiles)
+        // v70 · Tekla parity (web/v70_tekla_parity.js): 'Cleat location' Front on a C / U purlin; the stored settings decide (old models: none = v69)
+        if (jsStr(x.conn?.q?.get("loc")) == "front" && (mp.kind == "C" || mp.kind == "U")) return front(x, purs, ma, mp)
         val w0 = ma.c1 - mp.c1; val b = ma.a dot mp.a; val dd = ma.a dot w0; val ee = mp.a dot w0; val den = (1 - b * b).let { if (it == 0.0) 1e-9 else it }
         val pp = mp.c1.add(mp.a, (ee - b * dd) / den)
         val fa = faceAt(ma, pp); val n = fa.n; val base = fa.pc.add(n, fa.off); val y = mp.a.add(n, -(mp.a dot n)).normalize()
@@ -62,6 +64,45 @@ object FamCL {
             val zz = if (purs.size == 1 && abs(z1) > w && abs(z2) > w && sign(z1) != sign(z2)) listOf(-x.n("e"), x.n("e")) else listOf(sg * x.n("e"))
             val bl = ArrayList<D3>(); for (z in zz) for (hh in listOf(x.n("h1"), x.n("h2"))) bl += f.p(t + 0.1, hh, z)
             val grip = t + tw2 + 2; val bb = x.group(bl, -out, x.n("bolt"), grip)
+            for (hc in bb.holes) { holes += hc; x.cut(pid, hc) }; all += Triple(bb, bl.size, grip)
+        }
+        x.plate("CLEAT", cl, t, "L${jsStr(x.q["L1"])}*${jsStr(x.q["L2"])}*${jsStr(x.q["t"])}", minus = holes)
+        for ((bb, k, grip) in all) x.bolts(bb, k, grip + 2 * x.n("bolt"))
+        x.weld("Cleat to rafter top flange", x.n("a"), 2 * x.n("w"))
+    }
+
+    /** v70 R10 'Stiff.' PL6*44 outline: (height above the rafter top, along the purlin). */
+    private val STIFF70 = listOf(135.0 to 22.0, 21.0 to 22.0, 11.0 to 12.0, 11.0 to -22.0, 21.0 to -22.0, 135.0 to 12.0)
+
+    /**
+     * v70 · Tekla parity, C04 (web/v70_tekla_parity.js, docs/steel/PARITY.md): Tekla Cold rolled overlap (1) 'Cleat location' Front on a
+     * C / U purlin. The long leg stands on the rafter on the purlin's toe line, the short leg at its top points away from the purlin;
+     * the angle is placed like a Tekla L member at Middle / Middle (its turned profile's bounding box in the part's Top frame is
+     * centred on the axis); the stiffener lies on the long leg's outer face; bolts start at the web back face toward the toes.
+     */
+    private fun front(x: FamCtx, purs: List<Pair<JsonObject, String>>, ma: MemberFrame, mp: MemberFrame) {
+        val w0 = ma.c1 - mp.c1; val b = ma.a dot mp.a; val dd = ma.a dot w0; val ee = mp.a dot w0; val den = (1 - b * b).let { if (it == 0.0) 1e-9 else it }
+        val pp = mp.c1.add(mp.a, (ee - b * dd) / den)
+        val fa = faceAt(ma, pp); val n = fa.n; val base = fa.pc.add(n, fa.off); val y = mp.a.add(n, -(mp.a dot n)).normalize()
+        val wb = purlinWeb(x, purs[0].first, mp); val out = wb.dir.add(n, -(wb.dir dot n)).add(y, -(wb.dir dot y)).normalize()
+        val webPt = pp.add(wb.dir, wb.off); val sw = (webPt - base) dot out; val ow = base.add(out, sw)
+        val toe = -out; val o = ow.add(toe, mp.b)
+        val t = x.n("t"); val l1 = x.n("L1"); val l2 = x.n("L2"); val w = x.n("w") / 2; val f0 = Joints.Frame3(o, toe, n)
+        val pts = listOf(doubleArrayOf(0.0, 0.0), doubleArrayOf(t, 0.0), doubleArrayOf(t, l1 - t), doubleArrayOf(l2, l1 - t), doubleArrayOf(l2, l1), doubleArrayOf(0.0, l1))
+        val xa = f0.z; var yT = D3(0.0, 0.0, 1.0).add(xa, -xa.z); if (yT.length() < 1e-6) yT = D3(1.0, 0.0, 0.0).add(xa, -xa.x); yT = yT.normalize(); val zT = xa cross yT
+        var a0 = Double.POSITIVE_INFINITY; var a1 = Double.NEGATIVE_INFINITY; var b0 = Double.POSITIVE_INFINITY; var b1 = Double.NEGATIVE_INFINITY
+        for (pt in pts) { val p = f0.p(pt[0], pt[1], 0.0); val a = p dot yT; val bb = p dot zT; a0 = minOf(a0, a); a1 = maxOf(a1, a); b0 = minOf(b0, bb); b1 = maxOf(b1, bb) }
+        val c0 = f0.p(l2 / 2, l1 / 2, 0.0); val sh = (yT * ((c0 dot yT) - (a0 + a1) / 2)).add(zT, (c0 dot zT) - (b0 + b1) / 2)
+        val cl = Joints.Frame3(o + sh, toe, n).poly(pts, -w, w)
+        if (x.t("stiff")) { val g = Joints.Frame3(f0.p(t - x.n("ts") / 2, 0.0, 0.0), n, f0.z)
+            x.plate("CLEAT STIFFENER", g.poly(STIFF70.map { doubleArrayOf(it.first, it.second) }, 0.0, x.n("ts")), x.n("ts")) }
+        val zAxis = f0.z; val holes = ArrayList<Mesh>(); val all = ArrayList<Triple<BoltGroup, Int, Double>>()
+        for ((pst, pid) in purs) {
+            val m2 = Joints.mf(pst, x.profiles); val mid = m2.c1.lerp(m2.c2, 0.5); val sg = sgn1((mid - o) dot zAxis)
+            val z1 = (m2.c1 - o) dot zAxis; val z2 = (m2.c2 - o) dot zAxis
+            val zz = if (purs.size == 1 && abs(z1) > w && abs(z2) > w && sign(z1) != sign(z2)) listOf(-x.n("e"), x.n("e")) else listOf(sg * x.n("e"))
+            val bl = ArrayList<D3>(); for (z in zz) for (hh in listOf(x.n("h1"), x.n("h2"))) bl += f0.p(-m2.b, hh, z)
+            val grip = m2.b + l2; val bb = x.group(bl, toe, x.n("bolt"), grip)   // web back to the short leg's end: R10 M12 L144 = b + L2 + 2·d
             for (hc in bb.holes) { holes += hc; x.cut(pid, hc) }; all += Triple(bb, bl.size, grip)
         }
         x.plate("CLEAT", cl, t, "L${jsStr(x.q["L1"])}*${jsStr(x.q["L2"])}*${jsStr(x.q["t"])}", minus = holes)

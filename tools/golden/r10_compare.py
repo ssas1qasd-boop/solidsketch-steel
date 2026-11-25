@@ -122,7 +122,7 @@ REASONS = [
     (r'^2 \| eave haunch|^2 \| haunch', 'End plate 144 makes no haunch; R10\'s eave haunch is a web FLT8*80 L1887 plus a bottom flange FLT10*150', 'End plate 144 Haunch tab (length, depth, flange) as in Tekla'),
     (r'^3 \| haunch', 'the v54 apex makes the haunch (APEX HAUNCH WEB triangle + FLANGE) from len / depth / hw / hf / hb; the flanges land within 5 mm, the webs are about 26 mm off (outline and length rule differ)', 'haunch outline as Tekla 106 (start at the plate, depth measured square to the rafter)'),
     (r'^3 \| apex stiffener', 'stiffener FLT10*60 (2504) under the apex plates: the v54 apex makes none', 'apex stiffener option (Tekla 106 Stiffeners tab)'),
-    (r'^4 \|', 'v69 Tcl puts the cleat and its stiffener on the other side of the purlin web: a same-size cleat is about 119 mm away, mirrored about the purlin', 'cleat side (Tekla: up-slope / down-slope side of the purlin)'),
+    (r'^4 \|', 'Cleat location Back (v69, and models saved before v70) puts the cleat and its stiffener behind the purlin web: a same-size cleat is about 119 mm away, mirrored about the purlin', 'Cleat location Front (v70, the Tekla default)'),
     (r'^5 \| tongue plate', 'Ttg builds the tongue from the brace axis; same-size tongues are 12 to 64 mm away (insertion depth / gusset side differ); some ends have no tongue near (other brace order at the node)', 'tongue position along the brace, gusset side'),
     (r'^5 \| tongue end cap', 'v69\'s END CAP closes the tube around the tongue (about 52 x 98 mm, and FLT5*120 at crossings); R10 has two FLT5*100 plates 44 x 100 mm, one each side of the tongue', 'Tekla 20 cap plates (two per tongue)'),
     (r'^6 \| node gusset \| (11|12|13) ', 'R10 gussets that are their own assemblies (marks 11, 12, 13) at the gable / end-frame nodes; v69 makes the node gusset in the main part\'s assembly with its own outline', 'gusset as a separate assembly; outline options'),
@@ -397,6 +397,10 @@ def write_report(o, inp):
              'Raw data: `tests/steel/golden/r10/rebuild_inputs.json`, `rebuild_v69.json`, `r10_parts_v69.json`, `compare_v69.json`. '
              'This is the v69 side of the S10 acceptance; the app replays the same `rebuild_inputs.json` through its ports: '
              '**the app\'s rebuild equals v69\'s body by body** (`R10RebuildTest`, -PhostJni: 6,327 bodies and 1,272 connections, 0 differences in kind, name, volume, box, part fields, owners, bolt groups, connection settings and welds), so every number below holds for the app too.')
+    L.append('')
+    L.append('Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`, docs/steel/PARITY.md; the harness adds it to the '
+             'reference copy, `SS_ORACLE=v69` runs plain v69); "v69" below means that web build. v70 so far: C04 purlin cleat, Cleat location Front '
+             '(the Tekla default) for new cleats: 528 / 528 R10 parts and 1,056 / 1,056 bolts (`R10C04Test`, app vs R10, 0.1 mm).')
     L.append('')
     L.append('## Headline')
     L.append('')

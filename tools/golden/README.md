@@ -38,7 +38,12 @@ The server adds ONE line after line 14039 of the page it serves:
 wrapper that looks the name up when called, so it always reaches the end of the chain; `data()` returns
 the S4 tables that v69 does not export (`ST_CLASS`, `ST_TYPE`, `TK_FAMNAME`, `TK_PICK`, `TK_ICON`, `UPN_T`, `UPE_T`). The file
 on disk is not changed. Check: R10 totals are byte-identical with and without the patch.
-Use `__st.live.*`, never the stale exports. `__st.checks` and `__st.list` are fine (re-exported live, or wrappers).
+Use `__st.live.*`, never the stale exports.
+
+**v70 · Tekla parity.** The served page also gets the chapter `web/v70_tekla_parity.js`, inserted just before the
+`v28 · BIM layers` chapter header (inside the steel scope), the same text `python3 tools/web/build_v70.py` writes into
+`reference/solidsketch_v70.html`. So the oracle is v69 + v70 (docs/steel/PARITY.md). `SS_ORACLE=v69 node …` serves plain v69
+(the goldens made before v70; C04 Tcl on C purlins is the only output v70 changes for new components). `__st.checks` and `__st.list` are fine (re-exported live, or wrappers).
 
 ## Output
 - `r10/summary.json`: headline numbers and `vsTarget` against CLAUDE.md (162 assemblies, 243 part marks, 63,722 kg, 418 drawings, 13 GA).

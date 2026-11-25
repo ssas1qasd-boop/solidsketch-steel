@@ -701,6 +701,325 @@
     }
    ]
   },
+  "tcl_modify_loc_back": {
+   "k": "Tcl",
+   "members": [
+    [
+     "RAFTER",
+     {
+      "prof": "BI220-8-150-10",
+      "p1": [
+       237.306,
+       22355,
+       7416.591
+      ],
+      "p2": [
+       6705.5,
+       22355,
+       8887.192
+      ]
+     }
+    ],
+    [
+     "PURLIN",
+     {
+      "prof": "CC200-2-20-60",
+      "p1": [
+       6507.808,
+       22365,
+       9057.605
+      ],
+      "p2": [
+       6507.808,
+       28100,
+       9057.605
+      ],
+      "rAng": 347.191
+     }
+    ]
+   ],
+   "steps": [
+    [
+     "Parts",
+     "row",
+     "Cleat location",
+     "back"
+    ]
+   ],
+   "action": "Modify",
+   "q": {
+    "L1": 140,
+    "L2": 60,
+    "t": 6,
+    "w": 120,
+    "e": 35,
+    "h1": 40,
+    "h2": 100,
+    "bolt": 12,
+    "grade": "8.8",
+    "stiff": 1,
+    "ts": 6,
+    "a": 4,
+    "loc": "back",
+    "P": {
+     "CLEAT": {},
+     "STIFFENER": {}
+    },
+    "bdel": "",
+    "tol": "",
+    "thr": 1,
+    "sw": "Site",
+    "cutlen": "",
+    "bcmt": "",
+    "sl1": 0,
+    "sl2": 0,
+    "htype": "Slotted",
+    "srot": 0,
+    "sin": "All",
+    "ba_b": 1,
+    "ba_w": 1,
+    "ba_n": 1,
+    "blen": 0,
+    "bdir": 1,
+    "stag": 0,
+    "locked": 0,
+    "cls": 1,
+    "code": "",
+    "adrule": "None",
+    "acrule": "None",
+    "W": {
+     "Cleat to rafter top flange": {
+      "around": 1
+     }
+    }
+   },
+   "welds": [
+    {
+     "name": "Cleat to rafter top flange",
+     "a": 4,
+     "len": 240,
+     "around": 1
+    }
+   ],
+   "connDef": null,
+   "bolts": {
+    "n": 2,
+    "d": 12,
+    "L": 34,
+    "pts": [
+     [
+      6589.92,
+      22390,
+      8963.46
+     ],
+     [
+      6603.22,
+      22390,
+      8904.96
+     ]
+    ]
+   },
+   "plates": [
+    {
+     "name": "CLEAT STIFFENER",
+     "prof": "PL6",
+     "mat": "S275",
+     "cls": 1
+    },
+    {
+     "name": "CLEAT",
+     "prof": "L140*60*6",
+     "mat": "S275",
+     "cls": 1
+    }
+   ]
+  },
+  "tcl_apply_loc_front": {
+   "k": "Tcl",
+   "members": [
+    [
+     "RAFTER",
+     {
+      "prof": "BI220-8-150-10",
+      "p1": [
+       237.306,
+       22355,
+       7416.591
+      ],
+      "p2": [
+       6705.5,
+       22355,
+       8887.192
+      ]
+     }
+    ],
+    [
+     "PURLIN",
+     {
+      "prof": "CC200-2-20-60",
+      "p1": [
+       6507.808,
+       22365,
+       9057.605
+      ],
+      "p2": [
+       6507.808,
+       28100,
+       9057.605
+      ],
+      "rAng": 347.191
+     }
+    ]
+   ],
+   "steps": [
+    [
+     "Parts",
+     "row",
+     "Cleat location",
+     "front"
+    ],
+    [
+     "Picture",
+     "dim",
+     "h1",
+     "45"
+    ]
+   ],
+   "action": "Apply",
+   "q": {
+    "L1": 140,
+    "L2": 60,
+    "t": 6,
+    "w": 120,
+    "e": 35,
+    "h1": 45,
+    "h2": 100,
+    "bolt": 12,
+    "grade": "8.8",
+    "stiff": 1,
+    "ts": 6,
+    "a": 4,
+    "loc": "front",
+    "P": {
+     "CLEAT": {},
+     "STIFFENER": {}
+    },
+    "bdel": "",
+    "tol": "",
+    "thr": 1,
+    "sw": "Site",
+    "cutlen": "",
+    "bcmt": "",
+    "sl1": 0,
+    "sl2": 0,
+    "htype": "Slotted",
+    "srot": 0,
+    "sin": "All",
+    "ba_b": 1,
+    "ba_w": 1,
+    "ba_n": 1,
+    "blen": 0,
+    "bdir": 1,
+    "stag": 0,
+    "locked": 0,
+    "cls": 1,
+    "code": "",
+    "adrule": "None",
+    "acrule": "None",
+    "W": {
+     "*": {
+      "around": 1
+     }
+    }
+   },
+   "welds": [
+    {
+     "name": "Cleat to rafter top flange",
+     "a": 4,
+     "len": 240,
+     "around": 1
+    }
+   ],
+   "connDef": {
+    "Tcl": {
+     "L1": 140,
+     "L2": 60,
+     "t": 6,
+     "w": 120,
+     "e": 35,
+     "h1": 45,
+     "h2": 100,
+     "bolt": 12,
+     "grade": "8.8",
+     "stiff": 1,
+     "ts": 6,
+     "a": 4,
+     "loc": "front",
+     "P": {
+      "CLEAT": {},
+      "STIFFENER": {}
+     },
+     "bdel": "",
+     "tol": "",
+     "thr": 1,
+     "sw": "Site",
+     "cutlen": "",
+     "bcmt": "",
+     "sl1": 0,
+     "sl2": 0,
+     "htype": "Slotted",
+     "srot": 0,
+     "sin": "All",
+     "ba_b": 1,
+     "ba_w": 1,
+     "ba_n": 1,
+     "blen": 0,
+     "bdir": 1,
+     "stag": 0,
+     "locked": 0,
+     "cls": 1,
+     "code": "",
+     "adrule": "None",
+     "acrule": "None",
+     "W": {
+      "*": {
+       "around": 1
+      }
+     }
+    }
+   },
+   "bolts": {
+    "n": 2,
+    "d": 12,
+    "L": 144,
+    "pts": [
+     [
+      6583.97,
+      22390,
+      8962.11
+     ],
+     [
+      6596.16,
+      22390,
+      8908.48
+     ]
+    ]
+   },
+   "plates": [
+    {
+     "name": "CLEAT STIFFENER",
+     "prof": "PL6",
+     "mat": "S275",
+     "cls": 1
+    },
+    {
+     "name": "CLEAT",
+     "prof": "L140*60*6",
+     "mat": "S275",
+     "cls": 1
+    }
+   ]
+  },
   "t144_apply_defaults": {
    "k": "T144",
    "members": [

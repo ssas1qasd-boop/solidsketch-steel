@@ -14,9 +14,13 @@ const CASES = {
   t144_modify_fields: { k: 'T144', members: 'std', steps: [['Picture', 'dim', 't', '15'], ['Picture', 'dim', '1', '20'], ['Bolts', 'dim', '4', 4], ['Bolts', 'dim', '5', '60 100 60'], ['Bolts', 'dim', '6', '50'],
     ['Bolts', 'row', 'Staggering of bolts', 0], ['Bolts', 'row', 'Tolerance', '3'], ['Bolts', 'off', 'Comment', null], ['Welds', 'weld', 'Beam to end plate', '8'], ['General', 'row', 'Class', '4']], action: 'Modify' },
   t144_modify_pitches: { k: 'T144', members: 'std', steps: [['Bolts', 'dim', 'n', '4'], ['Bolts', 'dim', 's', '80 70 90'], ['Plates', 'part', 'END PLATE.mat', 'S355'], ['Plates', 'part', 'END PLATE.name', 'EP'], ['Holes', 'row', 'Number of holes', 2]], action: 'Modify' },
+  // v70 · Tekla parity, C04: Purlin cleat L (Tcl) 'Cleat location' on the Parts tab (an R10 rafter and C purlin)
+  tcl_modify_loc_back: { k: 'Tcl', members: 'r10cl', steps: [['Parts', 'row', 'Cleat location', 'back']], action: 'Modify' },
+  tcl_apply_loc_front: { k: 'Tcl', members: 'r10cl', steps: [['Parts', 'row', 'Cleat location', 'front'], ['Picture', 'dim', 'h1', '45']], action: 'Apply', thenConnect: true },
   t144_apply_defaults: { k: 'T144', members: 'std', steps: [['Picture', 'dim', '2', '15'], ['Picture', 'dim', '3', '5'], ['Bolts', 'row', 'Bolt size', 24]], action: 'Apply', thenConnect: true },
 };
-const MEMBERS = { std: [['COLUMN', { prof: 'HEA300', p1: [0, 0, 0], p2: [0, 0, 7500] }], ['BEAM', { prof: 'IPE360', p1: [0, 0, 7000], p2: [6000, 0, 7000] }]] };
+const MEMBERS = { std: [['COLUMN', { prof: 'HEA300', p1: [0, 0, 0], p2: [0, 0, 7500] }], ['BEAM', { prof: 'IPE360', p1: [0, 0, 7000], p2: [6000, 0, 7000] }]],
+  r10cl: [['RAFTER', { prof: 'BI220-8-150-10', p1: [237.306, 22355, 7416.591], p2: [6705.5, 22355, 8887.192] }], ['PURLIN', { prof: 'CC200-2-20-60', p1: [6507.808, 22365, 9057.605], p2: [6507.808, 28100, 9057.605], rAng: 347.191 }]] };
 const SEARCH = ['end plate', '144', 'base', '1042', 'tube', 'S7', 'clip angle', 'zzz', 'Purlin', '20 '];
 
 (async () => {

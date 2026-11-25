@@ -241,6 +241,21 @@ class EmulatorFlowTest {
             act.runOnUiThread { mode().catDone() }
             assertTrue("column $col", true)
         }
+        // v70 · Tekla parity, C04: the Purlin cleat L dialog's Parts tab has 'Cleat location', Front for a new cleat (the Tekla default)
+        step("cleat_dialog") {
+            press("Components")
+            waitFor("the catalog") { compose.onAllNodes(hasText("Applications & components")).fetchSemanticsNodes().isNotEmpty() }
+            compose.onAllNodes(hasSetTextAction())[0].performTextReplacement("Purlin cleat"); hideKeyboard()
+            waitFor("Purlin cleat L in the list") { compose.onAllNodes(hasText("Purlin cleat", substring = true)).fetchSemanticsNodes().isNotEmpty() }
+            val all = compose.onAllNodes(hasText("Properties") and hasClickAction()); val ns = all.fetchSemanticsNodes()
+            all[ns.indices.filter { ns[it].boundsInRoot.width > 0f }.minBy { ns[it].boundsInRoot.top }].performClick()
+            waitFor("the Purlin cleat L dialog") { compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
+            compose.onAllNodes(hasText("Parts") and hasClickAction())[0].performClick(); compose.waitForIdle()
+            waitFor("Cleat location") { compose.onAllNodes(hasText("Cleat location")).fetchSemanticsNodes().isNotEmpty() }
+            assertTrue("Cleat location is not Front", compose.onAllNodes(hasText("Front")).fetchSemanticsNodes().isNotEmpty())
+            shot("cleat_dialog_parts")
+            button("Cancel").performClick(); compose.waitForIdle()
+        }
         step("save_open") {
             val f = File(act.cacheDir, "ci_model.ss").also { it.delete() }
             val before = bodies().map { mode().stOf(it).toString() }.sorted(); val conns = act.testDoc.field("stConns")

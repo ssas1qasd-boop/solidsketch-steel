@@ -51,3 +51,4 @@ Some exports were captured before the last reassign, so they call an early link 
 | v58 geometry wrapper (bolt info, Holes tab, Welds tab) | L15992 (v58) | `Fam.geom` |
 | `FAM.EP` | L15547 (v48; earlier L14918) | `Fam.ep` |
 | `FAM.ST` | L14939 (v40, only definition) | `Fam.st` |
+| `FAM.CL` (Tcl purlin cleat) | **v70 · Tekla parity** wrapper (`web/v70_tekla_parity.js`, inserted before v28 L17501: stored `c.q.loc === 'front'` on a C / U purlin → Tekla Front placement, else →) L15582 (v49, only v69 definition); `CONN.Tcl.def.loc = 'front'`, TKD.Tcl Parts → Cleat location (docs/steel/PARITY.md C04) | `conn/FamCL.kt` (`gen` → `front`) |

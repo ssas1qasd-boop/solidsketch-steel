@@ -54010,8 +54010,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2045,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3186,
@@ -54022,7 +54027,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2044,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3189,
@@ -54033,8 +54044,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2049,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3190,
@@ -54045,7 +54061,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2048,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3193,
@@ -54056,8 +54078,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2053,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3194,
@@ -54068,7 +54095,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2052,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3197,
@@ -54079,8 +54112,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2057,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3198,
@@ -54091,7 +54129,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2056,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3201,
@@ -54102,8 +54146,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2061,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3202,
@@ -54114,7 +54163,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2060,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3208,
@@ -54125,8 +54180,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2065,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3209,
@@ -54137,7 +54197,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2064,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3210,
@@ -54148,8 +54214,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2069,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3211,
@@ -54160,7 +54231,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2068,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3212,
@@ -54171,8 +54248,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2073,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3213,
@@ -54183,7 +54265,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2072,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3214,
@@ -54194,8 +54282,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2077,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3215,
@@ -54206,7 +54299,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2076,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3216,
@@ -54217,8 +54316,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2081,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3217,
@@ -54229,7 +54333,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2080,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3223,
@@ -54240,8 +54350,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2085,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3224,
@@ -54252,7 +54367,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2084,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3225,
@@ -54263,8 +54384,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2089,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3226,
@@ -54275,7 +54401,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2088,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3227,
@@ -54286,8 +54418,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2093,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3228,
@@ -54298,7 +54435,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2092,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3229,
@@ -54309,8 +54452,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2097,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3230,
@@ -54321,7 +54469,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2096,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3231,
@@ -54332,8 +54486,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2101,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3232,
@@ -54344,7 +54503,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2100,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3238,
@@ -54355,8 +54520,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2105,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3239,
@@ -54367,7 +54537,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2104,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3240,
@@ -54378,8 +54554,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2109,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3241,
@@ -54390,7 +54571,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2108,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3242,
@@ -54401,8 +54588,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2113,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3243,
@@ -54413,7 +54605,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2112,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3244,
@@ -54424,8 +54622,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2117,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3245,
@@ -54436,7 +54639,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2116,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3246,
@@ -54447,8 +54656,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2121,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3247,
@@ -54459,7 +54673,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2120,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3248,
@@ -54470,8 +54690,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2125,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3249,
@@ -54482,7 +54707,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2124,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3250,
@@ -54493,8 +54724,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2128,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3251,
@@ -54505,7 +54741,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2127,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3252,
@@ -54516,8 +54758,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2131,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3253,
@@ -54528,7 +54775,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2130,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3254,
@@ -54539,8 +54792,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2134,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3255,
@@ -54551,7 +54809,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2133,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3256,
@@ -54562,8 +54826,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2137,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3257,
@@ -54574,7 +54843,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2136,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3258,
@@ -54585,8 +54860,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2140,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3259,
@@ -54597,7 +54877,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2139,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3260,
@@ -54608,8 +54894,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2143,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3261,
@@ -54620,7 +54911,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2142,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3262,
@@ -54631,8 +54928,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2146,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3263,
@@ -54643,7 +54945,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2145,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3264,
@@ -54654,8 +54962,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2149,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3265,
@@ -54666,7 +54979,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2148,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3266,
@@ -54677,8 +54996,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2152,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3267,
@@ -54689,7 +55013,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2151,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3293,
@@ -54700,8 +55030,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2155,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3294,
@@ -54712,7 +55047,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2154,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3295,
@@ -54723,8 +55064,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2158,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3296,
@@ -54735,7 +55081,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2157,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3297,
@@ -54746,8 +55098,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2162,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3298,
@@ -54758,7 +55115,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2161,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3299,
@@ -54769,8 +55132,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2166,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3300,
@@ -54781,7 +55149,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2165,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3301,
@@ -54792,8 +55166,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2169,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3302,
@@ -54804,7 +55183,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2168,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3303,
@@ -54815,8 +55200,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2173,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3304,
@@ -54827,7 +55217,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2172,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3305,
@@ -54838,8 +55234,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2177,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3306,
@@ -54850,7 +55251,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2176,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3307,
@@ -54861,8 +55268,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2180,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3308,
@@ -54873,7 +55285,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2179,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3309,
@@ -54884,8 +55302,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2184,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3310,
@@ -54896,7 +55319,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2183,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3311,
@@ -54907,8 +55336,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2188,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3312,
@@ -54919,7 +55353,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2187,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3313,
@@ -54930,8 +55370,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2191,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3314,
@@ -54942,7 +55387,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2190,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3315,
@@ -54953,8 +55404,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2195,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3316,
@@ -54965,7 +55421,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2194,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3317,
@@ -54976,8 +55438,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2199,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3318,
@@ -54988,7 +55455,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2198,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3319,
@@ -54999,8 +55472,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2202,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3320,
@@ -55011,7 +55489,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2201,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3321,
@@ -55022,8 +55506,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2206,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3322,
@@ -55034,7 +55523,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2205,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3323,
@@ -55045,8 +55540,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2210,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3324,
@@ -55057,7 +55557,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2209,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3325,
@@ -55068,8 +55574,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2214,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3326,
@@ -55080,7 +55591,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2213,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3327,
@@ -55091,8 +55608,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2218,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3328,
@@ -55103,7 +55625,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2217,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3329,
@@ -55114,8 +55642,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2222,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3330,
@@ -55126,7 +55659,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2221,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3331,
@@ -55137,8 +55676,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2226,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3332,
@@ -55149,7 +55693,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2225,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3333,
@@ -55160,8 +55710,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2230,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3334,
@@ -55172,7 +55727,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2229,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3335,
@@ -55183,8 +55744,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2234,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3336,
@@ -55195,7 +55761,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2233,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3337,
@@ -55206,8 +55778,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2238,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3338,
@@ -55218,7 +55795,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2237,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3339,
@@ -55229,8 +55812,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2242,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3340,
@@ -55241,7 +55829,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2241,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3341,
@@ -55252,8 +55846,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2246,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3342,
@@ -55264,7 +55863,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2245,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3343,
@@ -55275,8 +55880,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2250,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3344,
@@ -55287,7 +55897,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2249,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3345,
@@ -55298,8 +55914,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2253,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3346,
@@ -55310,7 +55931,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2252,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3347,
@@ -55321,8 +55948,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2256,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3348,
@@ -55333,7 +55965,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2255,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3349,
@@ -55344,8 +55982,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2259,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3350,
@@ -55356,7 +55999,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2258,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3351,
@@ -55367,8 +56016,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2262,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3352,
@@ -55379,7 +56033,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2261,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3355,
@@ -55390,8 +56050,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2265,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3356,
@@ -55402,7 +56067,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2264,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3359,
@@ -55413,8 +56084,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2269,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3360,
@@ -55425,7 +56101,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2268,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3363,
@@ -55436,8 +56118,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2273,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3364,
@@ -55448,7 +56135,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2272,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3367,
@@ -55459,8 +56152,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2277,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3368,
@@ -55471,7 +56169,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2276,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3373,
@@ -55482,8 +56186,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2281,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3374,
@@ -55494,7 +56203,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2280,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3375,
@@ -55505,8 +56220,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2285,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3376,
@@ -55517,7 +56237,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2284,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3377,
@@ -55528,8 +56254,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2289,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3378,
@@ -55540,7 +56271,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2288,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3379,
@@ -55551,8 +56288,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2293,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3380,
@@ -55563,7 +56305,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2292,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3385,
@@ -55574,8 +56322,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2297,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3386,
@@ -55586,7 +56339,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2296,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3387,
@@ -55597,8 +56356,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2301,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3388,
@@ -55609,7 +56373,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2300,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3389,
@@ -55620,8 +56390,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2305,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3390,
@@ -55632,7 +56407,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2304,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3391,
@@ -55643,8 +56424,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2309,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3392,
@@ -55655,7 +56441,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2308,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3397,
@@ -55666,8 +56458,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2313,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3398,
@@ -55678,7 +56475,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2312,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3399,
@@ -55689,8 +56492,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2317,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3400,
@@ -55701,7 +56509,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2316,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3401,
@@ -55712,8 +56526,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2321,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3402,
@@ -55724,7 +56543,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2320,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3403,
@@ -55735,8 +56560,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2325,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3404,
@@ -55747,7 +56577,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2324,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3405,
@@ -55758,8 +56594,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2329,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3406,
@@ -55770,7 +56611,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2328,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3407,
@@ -55781,8 +56628,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2332,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3408,
@@ -55793,7 +56645,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2331,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3409,
@@ -55804,8 +56662,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2335,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3410,
@@ -55816,7 +56679,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2334,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3411,
@@ -55827,8 +56696,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2338,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3412,
@@ -55839,7 +56713,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2337,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3413,
@@ -55850,8 +56730,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2341,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3414,
@@ -55862,7 +56747,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2340,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3415,
@@ -55873,8 +56764,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2344,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3416,
@@ -55885,7 +56781,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2343,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3417,
@@ -55896,8 +56798,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2347,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3418,
@@ -55908,7 +56815,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2346,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3419,
@@ -55919,8 +56832,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2350,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3420,
@@ -55931,7 +56849,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2349,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3423,
@@ -55942,8 +56866,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2353,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3424,
@@ -55954,8 +56883,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2352,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3426,
@@ -55966,8 +56900,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2357,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3427,
@@ -55978,8 +56917,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2356,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3429,
@@ -55990,8 +56934,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2361,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3430,
@@ -56002,8 +56951,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2360,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3432,
@@ -56014,8 +56968,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2365,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3433,
@@ -56026,8 +56985,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2364,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3434,
@@ -56038,8 +57002,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2369,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3435,
@@ -56050,8 +57019,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2368,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3436,
@@ -56062,8 +57036,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2372,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3437,
@@ -56074,8 +57053,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2371,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3463,
@@ -56086,8 +57070,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2375,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3464,
@@ -56098,7 +57087,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2374,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3465,
@@ -56109,8 +57104,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2379,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3466,
@@ -56121,7 +57121,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2378,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3467,
@@ -56132,8 +57138,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2382,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3468,
@@ -56144,7 +57155,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2381,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3469,
@@ -56155,8 +57172,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2386,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3470,
@@ -56167,7 +57189,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2385,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3471,
@@ -56178,8 +57206,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2390,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3472,
@@ -56190,7 +57223,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2389,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3473,
@@ -56201,8 +57240,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2393,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3474,
@@ -56213,7 +57257,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2392,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3475,
@@ -56224,8 +57274,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2397,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3476,
@@ -56236,7 +57291,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2396,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3477,
@@ -56247,8 +57308,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2401,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3478,
@@ -56259,7 +57325,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2400,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3479,
@@ -56270,8 +57342,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2404,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3480,
@@ -56282,7 +57359,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2403,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3481,
@@ -56293,8 +57376,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2408,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3482,
@@ -56305,7 +57393,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2407,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3483,
@@ -56316,8 +57410,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2412,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3484,
@@ -56328,7 +57427,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2411,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3485,
@@ -56339,8 +57444,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2415,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3486,
@@ -56351,7 +57461,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2414,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3487,
@@ -56362,8 +57478,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2419,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3488,
@@ -56374,7 +57495,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2418,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3489,
@@ -56385,8 +57512,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2423,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3490,
@@ -56397,7 +57529,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2422,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3491,
@@ -56408,8 +57546,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2427,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3492,
@@ -56420,7 +57563,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2426,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3493,
@@ -56431,8 +57580,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2431,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3494,
@@ -56443,7 +57597,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2430,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3495,
@@ -56454,8 +57614,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2435,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3496,
@@ -56466,7 +57631,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2434,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3497,
@@ -56477,8 +57648,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2439,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3498,
@@ -56489,7 +57665,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2438,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3499,
@@ -56500,8 +57682,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2443,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3500,
@@ -56512,7 +57699,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2442,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3501,
@@ -56523,8 +57716,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2447,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3502,
@@ -56535,7 +57733,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2446,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3503,
@@ -56546,8 +57750,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2451,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3504,
@@ -56558,7 +57767,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2450,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3505,
@@ -56569,8 +57784,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2454,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3506,
@@ -56581,7 +57801,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2453,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3507,
@@ -56592,8 +57818,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2457,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3508,
@@ -56604,7 +57835,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2456,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3509,
@@ -56615,8 +57852,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2460,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3510,
@@ -56627,7 +57869,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2459,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3511,
@@ -56638,8 +57886,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2463,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3512,
@@ -56650,8 +57903,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2462,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3513,
@@ -56662,8 +57920,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2466,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3514,
@@ -56674,8 +57937,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2465,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3515,
@@ -56686,8 +57954,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2470,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3516,
@@ -56698,8 +57971,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2469,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3517,
@@ -56710,8 +57988,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2474,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3518,
@@ -56722,8 +58005,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2473,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3519,
@@ -56734,8 +58022,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2478,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3520,
@@ -56746,8 +58039,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2477,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3521,
@@ -56758,8 +58056,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2482,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3522,
@@ -56770,8 +58073,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2481,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3623,
@@ -56782,8 +58090,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2485,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3624,
@@ -56794,7 +58107,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2484,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3625,
@@ -56805,8 +58124,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2488,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3626,
@@ -56817,7 +58141,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2487,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3627,
@@ -56828,8 +58158,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2492,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3628,
@@ -56840,7 +58175,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2491,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3629,
@@ -56851,8 +58192,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.818
+   "v69": 2496,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3630,
@@ -56863,7 +58209,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2495,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3631,
@@ -56874,8 +58226,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.818
+   "v69": 2499,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3632,
@@ -56886,7 +58243,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2498,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3633,
@@ -56897,8 +58260,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.818
+   "v69": 2503,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3634,
@@ -56909,7 +58277,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2502,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3635,
@@ -56920,8 +58294,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2507,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3636,
@@ -56932,7 +58311,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2506,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3637,
@@ -56943,8 +58328,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2510,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3638,
@@ -56955,7 +58345,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2509,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3639,
@@ -56966,8 +58362,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2514,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3640,
@@ -56978,7 +58379,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2513,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3641,
@@ -56989,8 +58396,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2518,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3642,
@@ -57001,7 +58413,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2517,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3643,
@@ -57012,8 +58430,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2521,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3644,
@@ -57024,7 +58447,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2520,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3645,
@@ -57035,8 +58464,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2525,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3646,
@@ -57047,7 +58481,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2524,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3647,
@@ -57058,8 +58498,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2529,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3648,
@@ -57070,7 +58515,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2528,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3649,
@@ -57081,8 +58532,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2532,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3650,
@@ -57093,7 +58549,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2531,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3651,
@@ -57104,8 +58566,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2536,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3652,
@@ -57116,7 +58583,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2535,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3653,
@@ -57127,8 +58600,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2540,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3654,
@@ -57139,7 +58617,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2539,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3655,
@@ -57150,8 +58634,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2544,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3656,
@@ -57162,7 +58651,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2543,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3657,
@@ -57173,8 +58668,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2548,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3658,
@@ -57185,7 +58685,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2547,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3659,
@@ -57196,8 +58702,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2552,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3660,
@@ -57208,7 +58719,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2551,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3661,
@@ -57219,8 +58736,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2556,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3662,
@@ -57231,7 +58753,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2555,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3663,
@@ -57242,8 +58770,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2560,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3664,
@@ -57254,7 +58787,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2559,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3665,
@@ -57265,8 +58804,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2564,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3666,
@@ -57277,7 +58821,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2563,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3667,
@@ -57288,8 +58838,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2568,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3668,
@@ -57300,7 +58855,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2567,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3669,
@@ -57311,8 +58872,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2572,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3670,
@@ -57323,7 +58889,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2571,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3671,
@@ -57334,8 +58906,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2576,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3672,
@@ -57346,7 +58923,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2575,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3673,
@@ -57357,8 +58940,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2580,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3674,
@@ -57369,7 +58957,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2579,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3675,
@@ -57380,8 +58974,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2583,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3676,
@@ -57392,7 +58991,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2582,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3677,
@@ -57403,8 +59008,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2586,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3678,
@@ -57415,7 +59025,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2585,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3679,
@@ -57426,8 +59042,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2589,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3680,
@@ -57438,7 +59059,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2588,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3681,
@@ -57449,8 +59076,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2592,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3682,
@@ -57461,7 +59093,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2591,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3683,
@@ -57472,8 +59110,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2595,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3684,
@@ -57484,7 +59127,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2594,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3685,
@@ -57495,8 +59144,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2598,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3686,
@@ -57507,7 +59161,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2597,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3687,
@@ -57518,8 +59178,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2602,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3688,
@@ -57530,7 +59195,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2601,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3689,
@@ -57541,8 +59212,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.818
+   "v69": 2606,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3690,
@@ -57553,7 +59229,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2605,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3691,
@@ -57564,8 +59246,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2609,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3692,
@@ -57576,7 +59263,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2608,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3693,
@@ -57587,8 +59280,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2613,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3694,
@@ -57599,7 +59297,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2612,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3695,
@@ -57610,8 +59314,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2617,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3696,
@@ -57622,7 +59331,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2616,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3697,
@@ -57633,8 +59348,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2620,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3698,
@@ -57645,7 +59365,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2619,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3699,
@@ -57656,8 +59382,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2624,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3700,
@@ -57668,7 +59399,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2623,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3701,
@@ -57679,8 +59416,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2628,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3702,
@@ -57691,7 +59433,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2627,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3703,
@@ -57702,8 +59450,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2631,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3704,
@@ -57714,7 +59467,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2630,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3705,
@@ -57725,8 +59484,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2635,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3706,
@@ -57737,7 +59501,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2634,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3707,
@@ -57748,8 +59518,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2639,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3708,
@@ -57760,7 +59535,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2638,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3709,
@@ -57771,8 +59552,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2642,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3710,
@@ -57783,7 +59569,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2641,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3711,
@@ -57794,8 +59586,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2646,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3712,
@@ -57806,7 +59603,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2645,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3713,
@@ -57817,8 +59620,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2650,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3714,
@@ -57829,7 +59637,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2649,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3715,
@@ -57840,8 +59654,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.818
+   "v69": 2654,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3716,
@@ -57852,7 +59671,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2653,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3717,
@@ -57863,8 +59688,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2658,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3718,
@@ -57875,7 +59705,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2657,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3719,
@@ -57886,8 +59722,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2662,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3720,
@@ -57898,7 +59739,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2661,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3721,
@@ -57909,8 +59756,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2666,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3722,
@@ -57921,7 +59773,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2665,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3723,
@@ -57932,8 +59790,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2670,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3724,
@@ -57944,7 +59807,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2669,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3725,
@@ -57955,8 +59824,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.818
+   "v69": 2674,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3726,
@@ -57967,7 +59841,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2673,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3727,
@@ -57978,8 +59858,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2678,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3728,
@@ -57990,7 +59875,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2677,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3729,
@@ -58001,8 +59892,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2682,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3730,
@@ -58013,7 +59909,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2681,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3731,
@@ -58024,8 +59926,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2686,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3732,
@@ -58036,7 +59943,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2685,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3733,
@@ -58047,8 +59960,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2690,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3734,
@@ -58059,7 +59977,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2689,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3735,
@@ -58070,8 +59994,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.818
+   "v69": 2693,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3736,
@@ -58082,7 +60011,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2692,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3737,
@@ -58093,8 +60028,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.817
+   "v69": 2696,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3738,
@@ -58105,7 +60045,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2695,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3739,
@@ -58116,8 +60062,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.816
+   "v69": 2699,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3740,
@@ -58128,7 +60079,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2698,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3741,
@@ -58139,8 +60096,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.815
+   "v69": 2702,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3742,
@@ -58151,7 +60113,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2701,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3743,
@@ -58162,8 +60130,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2705,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3744,
@@ -58174,7 +60147,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2704,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3745,
@@ -58185,8 +60164,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2709,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3746,
@@ -58197,7 +60181,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2708,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3747,
@@ -58208,8 +60198,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2712,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3748,
@@ -58220,7 +60215,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2711,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3749,
@@ -58231,8 +60232,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2716,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3750,
@@ -58243,7 +60249,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2715,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3751,
@@ -58254,8 +60266,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2720,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3752,
@@ -58266,7 +60283,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2719,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3753,
@@ -58277,8 +60300,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2723,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3754,
@@ -58289,7 +60317,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2722,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3755,
@@ -58300,8 +60334,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2727,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3756,
@@ -58312,7 +60351,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2726,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3757,
@@ -58323,8 +60368,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2731,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3758,
@@ -58335,7 +60385,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2730,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3759,
@@ -58346,8 +60402,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2734,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3760,
@@ -58358,7 +60419,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2733,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3761,
@@ -58369,8 +60436,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.568
+   "v69": 2738,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3762,
@@ -58381,7 +60453,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2737,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3763,
@@ -58392,8 +60470,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.568
+   "v69": 2742,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3764,
@@ -58404,7 +60487,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2741,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3765,
@@ -58415,8 +60504,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.568
+   "v69": 2745,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3766,
@@ -58427,7 +60521,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2744,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3767,
@@ -58438,8 +60538,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2749,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3768,
@@ -58450,7 +60555,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2748,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3769,
@@ -58461,8 +60572,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2753,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3770,
@@ -58473,7 +60589,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2752,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3771,
@@ -58484,8 +60606,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2757,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3772,
@@ -58496,7 +60623,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2756,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3773,
@@ -58507,8 +60640,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.568
+   "v69": 2761,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3774,
@@ -58519,7 +60657,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2760,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3775,
@@ -58530,8 +60674,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2765,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3776,
@@ -58542,7 +60691,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2764,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3777,
@@ -58553,8 +60708,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2769,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3778,
@@ -58565,7 +60725,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2768,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3779,
@@ -58576,8 +60742,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2773,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3780,
@@ -58588,7 +60759,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2772,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3781,
@@ -58599,8 +60776,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.568
+   "v69": 2777,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3782,
@@ -58611,7 +60793,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2776,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3783,
@@ -58622,8 +60810,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2781,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3784,
@@ -58634,7 +60827,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2780,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3785,
@@ -58645,8 +60844,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2784,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3786,
@@ -58657,7 +60861,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2783,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3787,
@@ -58668,8 +60878,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2787,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3788,
@@ -58680,7 +60895,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2786,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3789,
@@ -58691,8 +60912,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.568
+   "v69": 2790,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3790,
@@ -58703,7 +60929,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2789,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3791,
@@ -58714,8 +60946,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2793,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3792,
@@ -58726,8 +60963,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2792,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3793,
@@ -58738,8 +60980,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2796,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3794,
@@ -58750,8 +60997,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2795,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3795,
@@ -58762,8 +61014,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2800,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3796,
@@ -58774,8 +61031,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2799,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3797,
@@ -58786,8 +61048,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2804,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3798,
@@ -58798,8 +61065,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2803,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3799,
@@ -58810,8 +61082,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2808,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3800,
@@ -58822,8 +61099,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2807,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3801,
@@ -58834,8 +61116,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2812,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3802,
@@ -58846,8 +61133,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2811,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3803,
@@ -58858,8 +61150,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2815,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3804,
@@ -58870,7 +61167,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2814,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3805,
@@ -58881,8 +61184,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2819,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3806,
@@ -58893,7 +61201,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2818,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3807,
@@ -58904,8 +61218,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2822,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3808,
@@ -58916,7 +61235,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2821,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3809,
@@ -58927,8 +61252,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2826,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3810,
@@ -58939,7 +61269,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2825,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3811,
@@ -58950,8 +61286,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2830,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3812,
@@ -58962,7 +61303,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2829,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3813,
@@ -58973,8 +61320,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2833,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3814,
@@ -58985,7 +61337,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2832,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3815,
@@ -58996,8 +61354,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2837,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3816,
@@ -59008,7 +61371,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2836,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3817,
@@ -59019,8 +61388,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2841,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3818,
@@ -59031,7 +61405,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2840,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3819,
@@ -59042,8 +61422,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2844,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3820,
@@ -59054,7 +61439,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2843,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3821,
@@ -59065,8 +61456,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2848,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3822,
@@ -59077,7 +61473,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2847,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3823,
@@ -59088,8 +61490,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2852,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3824,
@@ -59100,7 +61507,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2851,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3825,
@@ -59111,8 +61524,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2855,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3826,
@@ -59123,7 +61541,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2854,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3827,
@@ -59134,8 +61558,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2859,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3828,
@@ -59146,7 +61575,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2858,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3829,
@@ -59157,8 +61592,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2863,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3830,
@@ -59169,7 +61609,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2862,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3831,
@@ -59180,8 +61626,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2867,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3832,
@@ -59192,7 +61643,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2866,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3833,
@@ -59203,8 +61660,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2871,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3834,
@@ -59215,7 +61677,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2870,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3835,
@@ -59226,8 +61694,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2875,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3836,
@@ -59238,7 +61711,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2874,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3837,
@@ -59249,8 +61728,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2879,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3838,
@@ -59261,7 +61745,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2878,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3839,
@@ -59272,8 +61762,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2883,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3840,
@@ -59284,7 +61779,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2882,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3841,
@@ -59295,8 +61796,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2887,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3842,
@@ -59307,7 +61813,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2886,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3843,
@@ -59318,8 +61830,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2891,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3844,
@@ -59330,7 +61847,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2890,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3845,
@@ -59341,8 +61864,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.566
+   "v69": 2894,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3846,
@@ -59353,7 +61881,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2893,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3847,
@@ -59364,8 +61898,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2897,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3848,
@@ -59376,7 +61915,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2896,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3849,
@@ -59387,8 +61932,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 105.567
+   "v69": 2900,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3850,
@@ -59399,7 +61949,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2899,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3851,
@@ -59410,8 +61966,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2903,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3852,
@@ -59422,8 +61983,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2902,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3853,
@@ -59434,8 +62000,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2906,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3854,
@@ -59446,8 +62017,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2905,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3855,
@@ -59458,8 +62034,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2910,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3856,
@@ -59470,8 +62051,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2909,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3857,
@@ -59482,8 +62068,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2914,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3858,
@@ -59494,8 +62085,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2913,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3859,
@@ -59506,8 +62102,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2918,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3860,
@@ -59518,8 +62119,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2917,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3861,
@@ -59530,8 +62136,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 120.0
+   "v69": 2922,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3862,
@@ -59542,8 +62153,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING",
-   "sameSizeAt": 94.133
+   "v69": 2921,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3865,
@@ -59554,8 +62170,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2925,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3866,
@@ -59566,7 +62187,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2924,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3868,
@@ -59577,8 +62204,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2929,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3869,
@@ -59589,7 +62221,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2928,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3871,
@@ -59600,8 +62238,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2933,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3872,
@@ -59612,7 +62255,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2932,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3874,
@@ -59623,8 +62272,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2937,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3875,
@@ -59635,7 +62289,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2936,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3876,
@@ -59646,8 +62306,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2941,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3877,
@@ -59658,7 +62323,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2940,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3878,
@@ -59669,8 +62340,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2944,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3879,
@@ -59681,7 +62357,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2943,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3885,
@@ -59692,8 +62374,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2947,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3886,
@@ -59704,7 +62391,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2946,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3887,
@@ -59715,8 +62408,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2951,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3888,
@@ -59727,7 +62425,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2950,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3889,
@@ -59738,8 +62442,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2954,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3890,
@@ -59750,7 +62459,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2953,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3891,
@@ -59761,8 +62476,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2958,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3892,
@@ -59773,7 +62493,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2957,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3893,
@@ -59784,8 +62510,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2962,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3894,
@@ -59796,7 +62527,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2961,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3895,
@@ -59807,8 +62544,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2966,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3896,
@@ -59819,7 +62561,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2965,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3907,
@@ -59830,8 +62578,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.377
+   "v69": 2969,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3908,
@@ -59842,7 +62595,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2968,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3909,
@@ -59853,8 +62612,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.377
+   "v69": 2973,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3910,
@@ -59865,7 +62629,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2972,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3911,
@@ -59876,8 +62646,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.377
+   "v69": 2976,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3912,
@@ -59888,7 +62663,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2975,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3913,
@@ -59899,8 +62680,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.377
+   "v69": 2980,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3914,
@@ -59911,7 +62697,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2979,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3915,
@@ -59922,8 +62714,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.377
+   "v69": 2984,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3916,
@@ -59934,7 +62731,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2983,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3917,
@@ -59945,8 +62748,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.377
+   "v69": 2988,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3918,
@@ -59957,7 +62765,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2987,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3919,
@@ -59968,8 +62782,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2991,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3920,
@@ -59980,7 +62799,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2990,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3921,
@@ -59991,8 +62816,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2995,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3922,
@@ -60003,7 +62833,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2994,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3923,
@@ -60014,8 +62850,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 2998,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3924,
@@ -60026,7 +62867,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 2997,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3925,
@@ -60037,8 +62884,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 3002,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3926,
@@ -60049,7 +62901,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 3001,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3927,
@@ -60060,8 +62918,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 3006,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3928,
@@ -60072,7 +62935,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 3005,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3929,
@@ -60083,8 +62952,13 @@
    "row": "4",
    "label": "Cleat Angle",
    "kg": 1.1,
-   "status": "MISSING",
-   "sameSizeAt": 118.378
+   "v69": 3010,
+   "v69name": "CLEAT",
+   "v69prof": "L140*60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 1.07,
+   "status": "MATCHED"
   },
   {
    "id": 3930,
@@ -60095,7 +62969,13 @@
    "row": "4",
    "label": "Stiff.",
    "kg": 0.16,
-   "status": "MISSING"
+   "v69": 3009,
+   "v69name": "CLEAT STIFFENER",
+   "v69prof": "PL6",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 0.16,
+   "status": "MATCHED"
   },
   {
    "id": 3931,
@@ -63736,8 +66616,6 @@
  "v69Extra": {
   "ANCHOR WASHER PD40*10": 192,
   "APEX HAUNCH WEB PL8": 24,
-  "CLEAT L140*60*6": 264,
-  "CLEAT STIFFENER PL6": 264,
   "CROSSING GUSSET PL12": 36,
   "END CAP FLT5*100": 816,
   "END CAP FLT5*120": 96,
@@ -63792,7 +66670,7 @@
     "M20": 768
    },
    "bySize": {
-    "M12 8.8 L34": 1056,
+    "M12 8.8 L144": 1056,
     "M12 8.8 L41": 40,
     "M16 4.6 L194": 8,
     "M16 4.6 L284": 16,
@@ -63815,7 +66693,7 @@
   "positions": {
    "bolts": 5376,
    "boltsMatched": 2434,
-   "boltsMatchedSameLengthGrade": 192,
+   "boltsMatchedSameLengthGrade": 1248,
    "groups": 1693,
    "groupsMatched": 669
   }
@@ -64015,8 +66893,8 @@
   },
   "weightKg": {
    "r10": 63722.07,
-   "v69": 62143.16,
-   "diff": -1578.91,
+   "v69": 62145.8,
+   "diff": -1576.27,
    "r10Weights": {
     "weight_t": 63.722,
     "net_t": 63.697,
@@ -64025,9 +66903,9 @@
     "boltBodiesExcluded": 1693
    },
    "v69Weights": {
-    "weight_t": 62.143,
-    "net_t": 61.811,
-    "gross_t": 62.318,
+    "weight_t": 62.146,
+    "net_t": 61.814,
+    "gross_t": 62.321,
     "parts": 5127,
     "boltBodiesExcluded": 1200
    }
@@ -64043,7 +66921,7 @@
    ],
    "detail parts (R10) / component parts (v69)": [
     10555.29,
-    8755.65
+    8758.29
    ]
   }
  },
@@ -64429,86 +67307,74 @@
   {
    "group": "4 | Cleat Angle | PC Cleat Angle L140*60*6",
    "counts": {
-    "MISSING": 24,
+    "MATCHED": 24,
     "total": 24
    },
    "kgR10": 26.4,
-   "kgV69": 0.0,
-   "sameSize": {
-    "n": 24,
-    "median": 120.0
-   },
-   "reason": "v69 Tcl puts the cleat and its stiffener on the other side of the purlin web: a same-size cleat is about 119 mm away, mirrored about the purlin",
-   "option": "cleat side (Tekla: up-slope / down-slope side of the purlin)"
+   "kgV69": 25.68,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "4 | Cleat Angle | PR Cleat Angle L140*60*6",
    "counts": {
-    "MISSING": 24,
+    "MATCHED": 24,
     "total": 24
    },
    "kgR10": 26.4,
-   "kgV69": 0.0,
-   "sameSize": {
-    "n": 24,
-    "median": 118.38
-   },
-   "reason": "v69 Tcl puts the cleat and its stiffener on the other side of the purlin web: a same-size cleat is about 119 mm away, mirrored about the purlin",
-   "option": "cleat side (Tekla: up-slope / down-slope side of the purlin)"
+   "kgV69": 25.68,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "4 | Cleat Angle | R Cleat Angle L140*60*6",
    "counts": {
-    "MISSING": 216,
+    "MATCHED": 216,
     "total": 216
    },
    "kgR10": 237.6,
-   "kgV69": 0.0,
-   "sameSize": {
-    "n": 216,
-    "median": 118.81
-   },
-   "reason": "v69 Tcl puts the cleat and its stiffener on the other side of the purlin web: a same-size cleat is about 119 mm away, mirrored about the purlin",
-   "option": "cleat side (Tekla: up-slope / down-slope side of the purlin)"
+   "kgV69": 231.12,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "4 | Stiff. | PC Stiff. PL6*44",
    "counts": {
-    "MISSING": 24,
+    "MATCHED": 24,
     "total": 24
    },
    "kgR10": 3.84,
-   "kgV69": 0.0,
-   "sameSize": {
-    "n": 24,
-    "median": 94.13
-   },
-   "reason": "v69 Tcl puts the cleat and its stiffener on the other side of the purlin web: a same-size cleat is about 119 mm away, mirrored about the purlin",
-   "option": "cleat side (Tekla: up-slope / down-slope side of the purlin)"
+   "kgV69": 3.84,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "4 | Stiff. | PR Stiff. PL6*44",
    "counts": {
-    "MISSING": 24,
+    "MATCHED": 24,
     "total": 24
    },
    "kgR10": 3.84,
-   "kgV69": 0.0,
+   "kgV69": 3.84,
    "sameSize": null,
-   "reason": "v69 Tcl puts the cleat and its stiffener on the other side of the purlin web: a same-size cleat is about 119 mm away, mirrored about the purlin",
-   "option": "cleat side (Tekla: up-slope / down-slope side of the purlin)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "4 | Stiff. | R Stiff. PL6*44",
    "counts": {
-    "MISSING": 216,
+    "MATCHED": 216,
     "total": 216
    },
    "kgR10": 34.56,
-   "kgV69": 0.0,
+   "kgV69": 34.56,
    "sameSize": null,
-   "reason": "v69 Tcl puts the cleat and its stiffener on the other side of the purlin web: a same-size cleat is about 119 mm away, mirrored about the purlin",
-   "option": "cleat side (Tekla: up-slope / down-slope side of the purlin)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "5 | tongue end cap | HZ Gusset Plate FLT5*100",
@@ -65791,11 +68657,11 @@
    "v69Bolts": 1056,
    "r10Parts": 528,
    "status": {
-    "MISSING": 528
+    "MATCHED": 528
    },
    "givenMembers": 0,
    "givenMatched": 0,
-   "verdict": "not"
+   "verdict": "reproduced"
   },
   "5": {
    "title": "Tube gusset 20: tongue (main -> brace)",
