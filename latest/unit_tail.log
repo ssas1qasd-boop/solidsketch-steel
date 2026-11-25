@@ -15,8 +15,8 @@ Daemon will be stopped at the end of the build
 > Task :steel:preDebugBuild UP-TO-DATE
 > Task :steel:writeDebugAarMetadata
 > Task :app:checkDebugAarMetadata
-> Task :app:generateDebugResValues
 > Task :core-api:processResources NO-SOURCE
+> Task :app:generateDebugResValues
 > Task :core-io:generateDebugResValues
 > Task :core-io:generateDebugResources
 > Task :core-io:packageDebugResources
@@ -30,6 +30,11 @@ Daemon will be stopped at the end of the build
 > Task :app:generateDebugResources
 > Task :app:mergeDebugResources
 > Task :app:packageDebugResources
+
+> Task :core-api:compileKotlin
+e: The daemon has terminated unexpectedly on startup attempt #1 with error code: 0. The daemon process output:
+    1. Kotlin compile daemon is ready
+
 > Task :app:parseDebugLocalResources
 > Task :app:createDebugCompatibleScreenManifests
 > Task :app:extractDeepLinksDebug
@@ -76,12 +81,21 @@ Daemon will be stopped at the end of the build
 > Task :steel:compileDebugShaders NO-SOURCE
 > Task :steel:generateDebugAssets UP-TO-DATE
 > Task :steel:packageDebugAssets
-> Task :core-api:compileKotlin
+> Task :app:mergeDebugAssets
+> Task :app:packageDebugUnitTestForUnitTest
+> Task :app:generateDebugUnitTestConfig
+> Task :core-io:preDebugUnitTestBuild UP-TO-DATE
+> Task :core-io:generateDebugUnitTestStubRFile
+> Task :core-io:javaPreCompileDebugUnitTest
+> Task :core-view:preDebugUnitTestBuild UP-TO-DATE
+> Task :core-view:generateDebugUnitTestStubRFile
+> Task :core-view:javaPreCompileDebugUnitTest
+> Task :steel:preDebugUnitTestBuild UP-TO-DATE
+> Task :steel:generateDebugUnitTestStubRFile
+> Task :steel:javaPreCompileDebugUnitTest
 > Task :core-api:compileJava NO-SOURCE
 > Task :core-api:classes UP-TO-DATE
-> Task :app:mergeDebugAssets
 > Task :core-api:jar
-> Task :app:packageDebugUnitTestForUnitTest
 
 > Task :core-io:compileDebugKotlin
 w: file:///home/runner/work/solidsketch-steel/solidsketch-steel/core-io/src/main/java/com/solidsketchapp/core/io/MemoryDocument.kt:16:25 Non-public primary constructor is exposed via the generated 'copy()' method of the 'data' class.
@@ -103,29 +117,19 @@ This will become an error in Kotlin 2.1.
 > Task :core-view:compileDebugKotlin
 > Task :core-view:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-view:bundleLibCompileToJarDebug
-> Task :app:generateDebugUnitTestConfig
 > Task :core-io:bundleLibRuntimeToJarDebug
 > Task :core-io:processDebugJavaRes
 > Task :core-view:bundleLibRuntimeToJarDebug
 > Task :core-view:processDebugJavaRes
-> Task :core-io:preDebugUnitTestBuild UP-TO-DATE
-> Task :core-io:generateDebugUnitTestStubRFile
 > Task :core-io:compileDebugUnitTestKotlin
-> Task :core-io:javaPreCompileDebugUnitTest
 > Task :core-io:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :core-io:processDebugUnitTestJavaRes
 > Task :steel:compileDebugKotlin
 > Task :core-io:testDebugUnitTest
-> Task :core-view:preDebugUnitTestBuild UP-TO-DATE
-> Task :core-view:generateDebugUnitTestStubRFile
 > Task :core-view:compileDebugUnitTestKotlin
-> Task :core-view:javaPreCompileDebugUnitTest
 > Task :core-view:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :core-view:processDebugUnitTestJavaRes
 > Task :core-view:testDebugUnitTest
-> Task :steel:preDebugUnitTestBuild UP-TO-DATE
-> Task :steel:generateDebugUnitTestStubRFile
-> Task :steel:javaPreCompileDebugUnitTest
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
 > Task :steel:bundleLibCompileToJarDebug
 > Task :steel:bundleLibRuntimeToJarDebug
@@ -143,7 +147,7 @@ This will become an error in Kotlin 2.1.
 > Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :app:processDebugUnitTestJavaRes
 > Task :app:testDebugUnitTest
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795602970085.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795609733043.json
 
-BUILD SUCCESSFUL in 2m 54s
+BUILD SUCCESSFUL in 3m 11s
 93 actionable tasks: 93 executed
