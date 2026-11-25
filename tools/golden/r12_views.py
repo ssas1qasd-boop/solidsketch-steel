@@ -108,7 +108,19 @@ def compose(shots):
     for v in views:
         p = next((os.path.join(shots, x) for x in sorted(os.listdir(shots)) if x.endswith('_%s.png' % v['key'])), None)
         if p is None: print('no screenshot for', v['key']); continue
-        em = Image.open(p).convert('RGB'); H = 1100; em = em.resize((int(em.width * H / em.height), H))
+        em = Image.open(p).convert('RGB'); de = ImageDraw.Draw(em)
+        tx = p[:-4] + '.txt'
+        if os.path.exists(tx):                    # the measured spot: the view's place on screen + the spot's pixel in the view
+            vx, vy, px, py = [float(x) if x != 'null' else 0.0 for x in open(tx).read().split()]
+            X, Y = vx + px, vy + py
+            for rr in (34, 36, 38): de.ellipse((X - rr, Y - rr, X + rr, Y + rr), outline=(255, 210, 0))
+            lab = ('%.4f mm deep, %.1f mm³' % (v['depth'], v['value'])) if isinstance(v['value'], (int, float)) else str(v['value'])
+            FL = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 40)
+            bx = de.textbbox((0, 0), lab, font=FL); tx0 = max(10, min(em.width - (bx[2] - bx[0]) - 10, X - (bx[2] - bx[0]) / 2)); ty0 = min(em.height - 300, Y + 60)
+            de.rectangle((tx0 - 8, ty0 - 6, tx0 + bx[2] - bx[0] + 8, ty0 + bx[3] - bx[1] + 14), fill=(0, 0, 0)); de.text((tx0, ty0), lab, font=FL, fill=(255, 210, 0))
+            de.line((X, Y + 38, X, ty0 - 6), fill=(255, 210, 0), width=3)
+            de.text((30, em.height - 260), 'orthographic · view %s' % ' '.join('%.2f' % x for x in v['dir']), font=FL, fill=(255, 255, 255))
+        H = 1100; em = em.resize((int(em.width * H / em.height), H))
         tk = os.path.join(outd, '_tekla_%s.png' % v['key']); ok = tekla_page(v['amark'][0], tk)
         tim = Image.open(tk).convert('RGB') if ok else Image.new('RGB', (800, H), (240, 240, 240))
         tim = tim.resize((int(tim.width * H / tim.height), H)) if ok else tim
