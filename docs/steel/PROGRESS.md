@@ -326,3 +326,10 @@ Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, n
 - License gate: when to bring it back, and which variants unlock Steel (TODO(owner)).
 - Tekla `.db1` import: in or out of this plan.
 - The workflow video (R10 and the R04 comparison arrived 2026-11-22).
+
+## 2026-11-25 · R12 from Tekla's IFC (owner's new order, step 1; waiting for the owner's OK)
+- `tests/steel/models/Frame_28x53m_R12.ss` from `tests/steel/tekla/Frame_28x53m_tekla_v2.ifc` (`tools/golden/r12_build.py`, own IFC reader). Report: `docs/steel/R12.md`; tables `docs/steel/R12-COMPARE.md`, `docs/steel/GEOM-CHECKS-R12.md`.
+- Equal to Tekla's reports: 4,945 parts, 243 part marks, 162 assembly marks / 1,185 assemblies, 418 drawings, 4,548 bolts by size; weight 63,705.82 kg from Tekla's per-part weights (Part List 63,711.7).
+- R11 vs R12: purlins turned 180° (220/220), so C04 cleats on the wrong side of the web; node gussets moved (1,053/1,206); stair brackets confirmed; R11's 280 M10 bolts are holes only in Tekla; R11 bolt lengths are not Tekla's.
+- App: orthographic camera mode (`OrbitCamera.orthographic`), `R12ViewsTest`; R12 opens and saves byte-identical in core-io.
+- Steps 2 and 3 (R12 as the reference, C04 fix, reverse-engineering per connection starting with C14) not started.

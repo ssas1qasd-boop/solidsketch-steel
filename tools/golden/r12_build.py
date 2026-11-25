@@ -14,8 +14,9 @@ What comes from where (every value below is Tekla's, nothing is taken from R10/R
               the mid-plane, depth Middle, prof PL<t>; any other profile -> member: p1 / p2 on the section's bounding-box centre
               line at the two ends of the solid, rot Top + rAng and plane / depth Middle such that web v69's stBuild makes Tekla's
               section (solved per member, then proven by rebuilding every member in v69: tools/golden/v69_build.js)
-    assembly  IfcElementAssembly Tag = assembly mark (st.amark); main part = the heaviest part of the assembly (Tekla's IFC does not
-              flag it; this rule gives R11's main part in 645 / 645 R11 assemblies); every other part gets st.asm = main part id
+    assembly  IfcElementAssembly Tag = assembly mark (st.amark); main part = the heaviest part of the assembly, on equal weight the one
+              named like the assembly (Tekla's IFC does not flag the main part; Tekla names an assembly after it); every other part
+              gets st.asm = main part id
     part mark (st.pos)   NOT in the IFC. From R11 and Tekla's own 'Part List' report (package Reports/):
               R11's mark where it agrees with Tekla's Part List (profile, grade, weight, length); otherwise the Part List row that
               fits and still has parts to place (tekla_pos). r12_compare.py checks counts, profiles, lengths, weights against
@@ -243,7 +244,9 @@ def main():
     main_of = {}
     for A, kids in asm_kids.items():
         pk = [k for k in kids if k in set(parts)]
-        if pk: main_of[A] = max(pk, key=lambda k: (weight(k), -k))
+        # the heaviest part; equal weights (a built-up member's two flanges) -> the one named like the assembly (Tekla names an
+        # assembly after its main part), then the lower IFC id
+        if pk: main_of[A] = max(pk, key=lambda k: (round(weight(k), 2), f.a(k)[2].strip() == (f.a(A)[2] or '').strip(), -k))
     # R11, only for the part marks (st.pos) and the folder list
     r11 = json.load(gzip.open(R11)); rb = [b for b in r11['doc']['bodies'] if b['st']['kind'] != 'bolts']
 

@@ -75,7 +75,7 @@ Part marks that disagree with Tekla's Part List (mark, problem, R12 count):
 - **Stair brackets and stringers (BRACKET L60*6, STRINGER UPN240)**: 46 / 58 the same; worst box difference 32.5 mm
 - **Node gussets (Gusset Plate, Connection Plate)**: 609 / 1662 the same; worst box difference 286.3 mm
 - **M10 groups**: R12 280 groups (Tekla 'BOLTM10', standard 6.8, length 2, no bolt solid = holes only), parts: {'Purlin': 280}; R11 280 groups, 280 with a bolt body
-- **Assembly marks** on matched parts: {'same amark': 4945}; main part: {'main part differs': 284, 'same main part': 4661}
+- **Assembly marks** on matched parts: {'same amark': 4945}; main part: {'same main part': 4945}
 
 ## Bolts
 
