@@ -1,0 +1,94 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugBuildConfig
+> Task :core-io:preBuild UP-TO-DATE
+> Task :core-io:preDebugBuild UP-TO-DATE
+> Task :core-io:writeDebugAarMetadata
+> Task :core-view:preBuild UP-TO-DATE
+> Task :core-view:preDebugBuild UP-TO-DATE
+> Task :core-view:writeDebugAarMetadata
+> Task :steel:preBuild UP-TO-DATE
+> Task :steel:preDebugBuild UP-TO-DATE
+> Task :steel:writeDebugAarMetadata
+> Task :app:checkDebugAarMetadata
+> Task :core-api:processResources NO-SOURCE
+> Task :app:generateDebugResValues
+> Task :core-io:generateDebugResValues
+> Task :core-io:generateDebugResources
+> Task :core-io:packageDebugResources
+> Task :core-view:generateDebugResValues
+> Task :core-view:generateDebugResources
+> Task :core-view:packageDebugResources
+> Task :steel:generateDebugResValues
+> Task :steel:generateDebugResources
+> Task :steel:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:parseDebugLocalResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :core-io:extractDeepLinksDebug
+> Task :core-io:processDebugManifest
+> Task :core-view:extractDeepLinksDebug
+> Task :core-view:processDebugManifest
+> Task :steel:extractDeepLinksDebug
+> Task :steel:processDebugManifest
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :core-io:compileDebugLibraryResources
+> Task :core-io:parseDebugLocalResources
+> Task :core-io:generateDebugRFile
+> Task :core-view:compileDebugLibraryResources
+> Task :core-view:parseDebugLocalResources
+> Task :core-view:generateDebugRFile
+> Task :steel:compileDebugLibraryResources
+> Task :steel:parseDebugLocalResources
+> Task :steel:generateDebugRFile
+> Task :app:processDebugResources
+> Task :core-io:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-io:javaPreCompileDebug
+> Task :core-view:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-view:javaPreCompileDebug
+> Task :steel:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :steel:javaPreCompileDebug
+> Task :app:javaPreCompileDebug
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :core-io:mergeDebugShaders
+> Task :core-io:compileDebugShaders NO-SOURCE
+> Task :core-io:generateDebugAssets UP-TO-DATE
+> Task :core-io:packageDebugAssets
+> Task :core-view:mergeDebugShaders
+> Task :core-view:compileDebugShaders NO-SOURCE
+> Task :core-view:generateDebugAssets UP-TO-DATE
+> Task :core-view:packageDebugAssets
+> Task :steel:mergeDebugShaders
+> Task :steel:compileDebugShaders NO-SOURCE
+> Task :steel:generateDebugAssets UP-TO-DATE
+> Task :steel:packageDebugAssets
+> Task :app:mergeDebugAssets
+> Task :app:packageDebugUnitTestForUnitTest
+> Task :app:generateDebugUnitTestConfig
+> Task :core-io:preDebugUnitTestBuild UP-TO-DATE
+> Task :core-io:generateDebugUnitTestStubRFile
+> Task :core-io:javaPreCompileDebugUnitTest
+> Task :core-view:preDebugUnitTestBuild UP-TO-DATE
+> Task :core-view:generateDebugUnitTestStubRFile
+> Task :core-view:javaPreCompileDebugUnitTest
+> Task :steel:preDebugUnitTestBuild UP-TO-DATE
+> Task :steel:generateDebugUnitTestStubRFile
+> Task :steel:javaPreCompileDebugUnitTest
+> Task :core-api:compileKotlin
+> Task :core-api:compileJava NO-SOURCE
+> Task :core-api:classes UP-TO-DATE
+> Task :core-api:jar
