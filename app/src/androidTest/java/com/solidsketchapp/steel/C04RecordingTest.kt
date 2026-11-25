@@ -88,6 +88,30 @@ class C04RecordingTest {
     }
     private fun locOf(): String? = mode().comps!!.conns().lastOrNull()?.q?.get("loc")?.let { (it as? JsonPrimitive)?.contentOrNull }
 
+    private val VIEWS = listOf("3d" to Vec3(1.0, -1.2, 0.9), "front" to Vec3(0.02, -1.0, 0.12), "end" to Vec3(1.0, 0.02, 0.12), "top" to Vec3(0.05, -0.08, 1.0), "3d_back" to Vec3(-1.0, 1.2, 0.9))
+
+    /**
+     * The "R10 (Tekla)" row of docs/steel/parity/C04.png: R10 itself opened in the app (its stored Tekla meshes: purlins, cleat,
+     * stiffener, bolts), the same views at the same joint as c04Recording (the R10 cleat 3185 at the rafter of grid line 5).
+     */
+    @Test fun c04R10Views() {
+        waitFor("the steel data", 60_000) { act.testSteel != null }
+        val f = java.io.File(act.cacheDir, "r10.ss")
+        InstrumentationRegistry.getInstrumentation().context.assets.open("Frame_28x53m_R10.ss").use { i -> f.outputStream().use { i.copyTo(it) } }
+        act.runOnUiThread { act.testOpen(f) }
+        waitFor("R10 opened", 240_000) { act.testToast?.startsWith("Opened") == true && !act.testBusy }
+        pause(3000)
+        val want = Vec3(6480.0, 22355.0, 8990.0)
+        val cl = act.testDoc.bodyIds().filter { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "Cleat Angle" }.minBy { centre(it).let { c -> (c.x - want.x) * (c.x - want.x) + (c.y - want.y) * (c.y - want.y) + (c.z - want.z) * (c.z - want.z) } }
+        val c = centre(cl)
+        for ((name, dir) in VIEWS) { look(c, dir, 1500.0); pause(2500); shot("r10_$name") }
+    }
+    private fun centre(id: BodyId): Vec3 {
+        val m = act.testDoc.bodyMesh(id)!!; val lo = doubleArrayOf(1e18, 1e18, 1e18); val hi = doubleArrayOf(-1e18, -1e18, -1e18)
+        for (i in 0 until m.vertexCount) for (k in 0..2) { val v = m.positions[i * 3 + k].toDouble(); lo[k] = minOf(lo[k], v); hi[k] = maxOf(hi[k], v) }
+        return Vec3((lo[0] + hi[0]) / 2, (lo[1] + hi[1]) / 2, (lo[2] + hi[2]) / 2)
+    }
+
     @Test fun c04Recording() {
         waitFor("the steel data", 60_000) { act.testSteel != null }
         compose.onAllNodes(hasText("Steel") and hasClickAction())[0].performClick()

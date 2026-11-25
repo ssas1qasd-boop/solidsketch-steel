@@ -38,6 +38,8 @@ android {
     }
     kotlinOptions { jvmTarget = "17" }
     testOptions { unitTests.isIncludeAndroidResources = true }
+    // R10 for the emulator parity views (C04RecordingTest.c04R10Views): in the test APK only, never in the app APK
+    sourceSets { getByName("androidTest") { assets.srcDir("../tests/steel/models") } }
 }
 
 dependencies {

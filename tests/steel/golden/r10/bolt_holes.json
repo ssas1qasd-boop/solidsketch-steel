@@ -1,0 +1,8113 @@
+{
+"source": "tools/golden/bolt_hole_check.py",
+"counts": {
+"HOLE": 16685,
+"MISSES": 342,
+"NO HOLE": 221
+},
+"failures": [
+{
+"conn": 316,
+"part": 85,
+"name": "Stair Plate",
+"prof": "FLT12*150",
+"d": 16.0,
+"P": [
+1607.3,
+8427.1,
+0.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 317,
+"part": 85,
+"name": "Stair Plate",
+"prof": "FLT12*150",
+"d": 16.0,
+"P": [
+1677.3,
+8427.1,
+0.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 343,
+"part": 89,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46067.2,
+22472.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 343,
+"part": 89,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+45987.8,
+22495.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 343,
+"part": 89,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46039.1,
+22524.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 344,
+"part": 96,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44719.9,
+24996.7,
+8546.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 344,
+"part": 96,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44668.6,
+24967.9,
+8534.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 344,
+"part": 96,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44748.0,
+24944.1,
+8552.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 344,
+"part": 96,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44696.7,
+24915.3,
+8541.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 345,
+"part": 96,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44551.6,
+25312.1,
+8508.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 345,
+"part": 96,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44472.2,
+25335.9,
+8490.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 345,
+"part": 96,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44523.5,
+25364.7,
+8501.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 346,
+"part": 100,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46067.2,
+27807.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 346,
+"part": 100,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46039.1,
+27755.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 346,
+"part": 100,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+45987.8,
+27784.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 347,
+"part": 104,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40018.7,
+27808.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 347,
+"part": 104,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40098.1,
+27784.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 347,
+"part": 104,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40046.7,
+27755.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 348,
+"part": 111,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41575.2,
+24995.5,
+7831.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 348,
+"part": 111,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41523.8,
+24966.8,
+7819.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 348,
+"part": 111,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41603.1,
+24942.7,
+7837.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 348,
+"part": 111,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41551.7,
+24914.1,
+7826.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 349,
+"part": 111,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41406.9,
+25313.2,
+7793.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 349,
+"part": 111,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41327.6,
+25337.3,
+7775.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 349,
+"part": 111,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41379.0,
+25365.9,
+7786.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 350,
+"part": 115,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40018.7,
+22471.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 350,
+"part": 115,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40046.7,
+22524.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 350,
+"part": 115,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40098.1,
+22496.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 351,
+"part": 119,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46513.8,
+22472.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 351,
+"part": 119,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46541.9,
+22524.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 351,
+"part": 119,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46593.2,
+22495.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 354,
+"part": 130,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46513.8,
+27807.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 354,
+"part": 130,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46593.2,
+27784.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 354,
+"part": 130,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46541.9,
+27755.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 355,
+"part": 134,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+52467.0,
+27809.1,
+7499.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 355,
+"part": 134,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+52439.8,
+27756.0,
+7505.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 355,
+"part": 134,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+52388.0,
+27783.9,
+7517.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 358,
+"part": 145,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+52467.0,
+22470.9,
+7499.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 358,
+"part": 145,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+52388.0,
+22496.1,
+7517.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 358,
+"part": 145,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+52439.8,
+22524.0,
+7505.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 369,
+"part": 209,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44719.9,
+2716.7,
+8546.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 369,
+"part": 209,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44668.6,
+2687.9,
+8534.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 369,
+"part": 209,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44748.0,
+2664.1,
+8552.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 369,
+"part": 209,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44696.7,
+2635.3,
+8541.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 370,
+"part": 209,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44551.6,
+3032.1,
+8508.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 370,
+"part": 209,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44472.2,
+3055.9,
+8490.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 370,
+"part": 209,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+44523.5,
+3084.7,
+8501.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 371,
+"part": 216,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41575.2,
+2715.5,
+7831.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 371,
+"part": 216,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41523.8,
+2686.8,
+7819.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 371,
+"part": 216,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41603.1,
+2662.7,
+7837.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 371,
+"part": 216,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41551.7,
+2634.1,
+7826.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 372,
+"part": 216,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41406.9,
+3033.2,
+7793.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 372,
+"part": 216,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41327.6,
+3057.3,
+7775.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 372,
+"part": 216,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+41379.0,
+3085.9,
+7786.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 394,
+"part": 277,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46513.8,
+5527.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 394,
+"part": 277,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46593.2,
+5504.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 394,
+"part": 277,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46541.9,
+5475.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 395,
+"part": 281,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52562.3,
+5528.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 395,
+"part": 281,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52534.3,
+5475.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 395,
+"part": 281,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52482.9,
+5504.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 402,
+"part": 302,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40018.7,
+5528.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 402,
+"part": 302,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40098.1,
+5504.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 402,
+"part": 302,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40046.7,
+5475.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 406,
+"part": 316,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46067.2,
+5527.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 406,
+"part": 316,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46039.1,
+5475.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 406,
+"part": 316,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+45987.8,
+5504.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 410,
+"part": 324,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46513.8,
+192.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 410,
+"part": 324,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46541.9,
+244.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 410,
+"part": 324,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46593.2,
+215.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 411,
+"part": 328,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52562.3,
+191.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 411,
+"part": 328,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52482.9,
+216.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 411,
+"part": 328,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52534.3,
+244.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 416,
+"part": 343,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40018.7,
+191.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 416,
+"part": 343,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40046.7,
+244.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 416,
+"part": 343,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+40098.1,
+216.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 417,
+"part": 347,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46067.2,
+192.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 417,
+"part": 347,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+45987.8,
+215.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 417,
+"part": 347,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+46039.1,
+244.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 427,
+"part": 401,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31524.9,
+24996.7,
+8546.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 427,
+"part": 401,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31473.6,
+24967.9,
+8534.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 427,
+"part": 401,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31553.0,
+24944.1,
+8552.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 427,
+"part": 401,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31501.7,
+24915.3,
+8541.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 428,
+"part": 401,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31356.6,
+25312.1,
+8508.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 428,
+"part": 401,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31277.2,
+25335.9,
+8490.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 428,
+"part": 401,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31328.5,
+25364.7,
+8501.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 429,
+"part": 408,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+28429.0,
+24989.9,
+7842.6
+],
+"result": "NO HOLE",
+"ring": 4,
+"air": 0.0
+},
+{
+"conn": 429,
+"part": 408,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+28377.2,
+24962.0,
+7830.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 429,
+"part": 408,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+28404.4,
+24908.9,
+7837.0
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 430,
+"part": 408,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+28209.1,
+25290.2,
+7792.6
+],
+"result": "NO HOLE",
+"ring": 4,
+"air": 0.0
+},
+{
+"conn": 430,
+"part": 408,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+28260.9,
+25318.1,
+7804.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 430,
+"part": 408,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+28233.7,
+25371.2,
+7798.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 435,
+"part": 429,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31524.9,
+2716.7,
+8546.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 435,
+"part": 429,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31473.6,
+2687.9,
+8534.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 435,
+"part": 429,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31553.0,
+2664.1,
+8552.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 435,
+"part": 429,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31501.7,
+2635.3,
+8541.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 436,
+"part": 429,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31356.6,
+3032.1,
+8508.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 436,
+"part": 429,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31277.2,
+3055.9,
+8490.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 436,
+"part": 429,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+31328.5,
+3084.7,
+8501.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 437,
+"part": 436,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+28380.2,
+2715.5,
+7831.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 437,
+"part": 436,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+28328.8,
+2686.8,
+7819.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 437,
+"part": 436,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+28408.1,
+2662.7,
+7837.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 437,
+"part": 436,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+28356.7,
+2634.1,
+7826.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 438,
+"part": 436,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+28211.9,
+3033.2,
+7793.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 438,
+"part": 436,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+28132.6,
+3057.3,
+7775.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 438,
+"part": 436,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+28184.0,
+3085.9,
+7786.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 442,
+"part": 450,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33318.8,
+22472.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 442,
+"part": 450,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33346.9,
+22524.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 442,
+"part": 450,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33398.2,
+22495.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 445,
+"part": 459,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39367.3,
+22471.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 445,
+"part": 459,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39287.9,
+22496.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 445,
+"part": 459,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39339.3,
+22524.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 449,
+"part": 473,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+26919.0,
+22470.9,
+7499.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 449,
+"part": 473,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+26946.2,
+22524.0,
+7505.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 449,
+"part": 473,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+26998.0,
+22496.1,
+7517.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 450,
+"part": 477,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32872.2,
+22472.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 450,
+"part": 477,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32792.8,
+22495.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 450,
+"part": 477,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32844.1,
+22524.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 470,
+"part": 533,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33318.8,
+5527.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 470,
+"part": 533,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33398.2,
+5504.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 470,
+"part": 533,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33346.9,
+5475.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 471,
+"part": 537,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39367.3,
+5528.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 471,
+"part": 537,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39339.3,
+5475.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 471,
+"part": 537,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39287.9,
+5504.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 478,
+"part": 558,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26823.7,
+5528.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 478,
+"part": 558,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26903.1,
+5504.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 478,
+"part": 558,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26851.7,
+5475.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 482,
+"part": 572,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32872.2,
+5527.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 482,
+"part": 572,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32844.1,
+5475.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 482,
+"part": 572,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32792.8,
+5504.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 487,
+"part": 587,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33318.8,
+27807.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 487,
+"part": 587,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33398.2,
+27784.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 487,
+"part": 587,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33346.9,
+27755.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 488,
+"part": 591,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39367.3,
+27808.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 488,
+"part": 591,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39339.3,
+27755.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 488,
+"part": 591,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39287.9,
+27784.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 489,
+"part": 595,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+26919.0,
+27809.1,
+7499.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 489,
+"part": 595,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+26998.0,
+27783.9,
+7517.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 489,
+"part": 595,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+26946.2,
+27756.0,
+7505.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 492,
+"part": 602,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32872.2,
+27807.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 492,
+"part": 602,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32844.1,
+27755.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 492,
+"part": 602,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32792.8,
+27784.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 493,
+"part": 606,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33318.8,
+192.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 493,
+"part": 606,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33346.9,
+244.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 493,
+"part": 606,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+33398.2,
+215.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 494,
+"part": 610,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39367.3,
+191.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 494,
+"part": 610,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39287.9,
+216.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 494,
+"part": 610,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39339.3,
+244.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 499,
+"part": 625,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26823.7,
+191.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 499,
+"part": 625,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26851.7,
+244.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 499,
+"part": 625,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26903.1,
+216.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 500,
+"part": 629,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32872.2,
+192.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 500,
+"part": 629,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32792.8,
+215.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 500,
+"part": 629,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+32844.1,
+244.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 510,
+"part": 697,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18329.9,
+24996.7,
+8546.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 510,
+"part": 697,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18278.6,
+24967.9,
+8534.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 510,
+"part": 697,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18358.0,
+24944.1,
+8552.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 510,
+"part": 697,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18306.7,
+24915.3,
+8541.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 511,
+"part": 697,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18161.6,
+25312.1,
+8508.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 511,
+"part": 697,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18082.2,
+25335.9,
+8490.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 511,
+"part": 697,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18133.5,
+25364.7,
+8501.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 512,
+"part": 704,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+15234.0,
+24989.9,
+7842.6
+],
+"result": "NO HOLE",
+"ring": 4,
+"air": 0.0
+},
+{
+"conn": 512,
+"part": 704,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+15182.2,
+24962.0,
+7830.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 512,
+"part": 704,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+15209.4,
+24908.9,
+7837.0
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 513,
+"part": 704,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+15014.1,
+25290.2,
+7792.6
+],
+"result": "NO HOLE",
+"ring": 4,
+"air": 0.0
+},
+{
+"conn": 513,
+"part": 704,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+15065.9,
+25318.1,
+7804.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 513,
+"part": 704,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+15038.7,
+25371.2,
+7798.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 518,
+"part": 725,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18329.9,
+2716.7,
+8546.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 518,
+"part": 725,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18278.6,
+2687.9,
+8534.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 518,
+"part": 725,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18358.0,
+2664.1,
+8552.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 518,
+"part": 725,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18306.7,
+2635.3,
+8541.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 519,
+"part": 725,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18161.6,
+3032.1,
+8508.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 519,
+"part": 725,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18082.2,
+3055.9,
+8490.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 519,
+"part": 725,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+18133.5,
+3084.7,
+8501.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 520,
+"part": 732,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+15185.2,
+2715.5,
+7831.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 520,
+"part": 732,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+15133.8,
+2686.8,
+7819.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 520,
+"part": 732,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+15213.1,
+2662.7,
+7837.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 520,
+"part": 732,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+15161.7,
+2634.1,
+7826.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 521,
+"part": 732,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+15016.9,
+3033.2,
+7793.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 521,
+"part": 732,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+14937.6,
+3057.3,
+7775.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 521,
+"part": 732,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+14989.0,
+3085.9,
+7786.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 525,
+"part": 746,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20123.8,
+22472.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 525,
+"part": 746,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20151.9,
+22524.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 525,
+"part": 746,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20203.2,
+22495.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 528,
+"part": 755,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26172.3,
+22471.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 528,
+"part": 755,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26092.9,
+22496.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 528,
+"part": 755,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26144.3,
+22524.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 532,
+"part": 769,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+13724.0,
+22470.9,
+7499.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 532,
+"part": 769,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+13751.2,
+22524.0,
+7505.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 532,
+"part": 769,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+13803.0,
+22496.1,
+7517.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 533,
+"part": 773,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19677.2,
+22472.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 533,
+"part": 773,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19597.8,
+22495.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 533,
+"part": 773,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19649.1,
+22524.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 553,
+"part": 829,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20123.8,
+5527.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 553,
+"part": 829,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20203.2,
+5504.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 553,
+"part": 829,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20151.9,
+5475.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 554,
+"part": 833,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26172.3,
+5528.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 554,
+"part": 833,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26144.3,
+5475.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 554,
+"part": 833,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26092.9,
+5504.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 561,
+"part": 854,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13628.7,
+5528.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 561,
+"part": 854,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13708.1,
+5504.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 561,
+"part": 854,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13656.7,
+5475.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 565,
+"part": 868,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19677.2,
+5527.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 565,
+"part": 868,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19649.1,
+5475.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 565,
+"part": 868,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19597.8,
+5504.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 570,
+"part": 883,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20123.8,
+27807.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 570,
+"part": 883,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20203.2,
+27784.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 570,
+"part": 883,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20151.9,
+27755.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 571,
+"part": 887,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26172.3,
+27808.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 571,
+"part": 887,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26144.3,
+27755.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 571,
+"part": 887,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26092.9,
+27784.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 572,
+"part": 891,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+13724.0,
+27809.1,
+7499.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 572,
+"part": 891,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+13803.0,
+27783.9,
+7517.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 572,
+"part": 891,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+13751.2,
+27756.0,
+7505.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 575,
+"part": 898,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19677.2,
+27807.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 575,
+"part": 898,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19649.1,
+27755.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 575,
+"part": 898,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19597.8,
+27784.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 576,
+"part": 902,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20123.8,
+192.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 576,
+"part": 902,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20151.9,
+244.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 576,
+"part": 902,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+20203.2,
+215.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 577,
+"part": 906,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26172.3,
+191.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 577,
+"part": 906,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26092.9,
+216.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 577,
+"part": 906,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26144.3,
+244.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 582,
+"part": 921,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13628.7,
+191.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 582,
+"part": 921,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13656.7,
+244.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 582,
+"part": 921,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13708.1,
+216.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 583,
+"part": 925,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19677.2,
+192.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 583,
+"part": 925,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19597.8,
+215.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 583,
+"part": 925,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+19649.1,
+244.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 678,
+"part": 1112,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+5134.9,
+24996.7,
+8546.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 678,
+"part": 1112,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+5083.6,
+24967.9,
+8534.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 678,
+"part": 1112,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+5163.0,
+24944.1,
+8552.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 678,
+"part": 1112,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+5111.7,
+24915.3,
+8541.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 679,
+"part": 1112,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+4966.6,
+25312.1,
+8508.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 679,
+"part": 1112,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+4887.2,
+25335.9,
+8490.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 679,
+"part": 1112,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+4938.5,
+25364.7,
+8501.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 680,
+"part": 1122,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+2039.0,
+24989.9,
+7842.6
+],
+"result": "NO HOLE",
+"ring": 4,
+"air": 0.0
+},
+{
+"conn": 680,
+"part": 1122,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+1987.2,
+24962.0,
+7830.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 680,
+"part": 1122,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+2014.4,
+24908.9,
+7837.0
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 681,
+"part": 1122,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+1819.1,
+25290.2,
+7792.6
+],
+"result": "NO HOLE",
+"ring": 4,
+"air": 0.0
+},
+{
+"conn": 681,
+"part": 1122,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+1870.9,
+25318.1,
+7804.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 681,
+"part": 1122,
+"name": "Gusset Plate",
+"prof": "PL12*333",
+"d": 16.0,
+"P": [
+1843.7,
+25371.2,
+7798.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 683,
+"part": 1131,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+529.0,
+22470.9,
+7499.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 683,
+"part": 1131,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+556.2,
+22524.0,
+7505.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 683,
+"part": 1131,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+608.0,
+22496.1,
+7517.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 684,
+"part": 1135,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+529.0,
+27809.1,
+7499.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 684,
+"part": 1135,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+608.0,
+27783.9,
+7517.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 684,
+"part": 1135,
+"name": "Gusset Plate",
+"prof": "PL12*212",
+"d": 16.0,
+"P": [
+556.2,
+27756.0,
+7505.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 685,
+"part": 1139,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6928.8,
+22472.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 685,
+"part": 1139,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6956.9,
+22524.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 685,
+"part": 1139,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+7008.2,
+22495.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 686,
+"part": 1143,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6482.2,
+22472.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 686,
+"part": 1143,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6402.8,
+22495.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 686,
+"part": 1143,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6454.1,
+22524.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 729,
+"part": 1288,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+52894.0,
+190.2,
+479.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 729,
+"part": 1288,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+52894.0,
+216.2,
+560.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 729,
+"part": 1288,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+52894.0,
+243.6,
+506.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 730,
+"part": 1292,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+52894.0,
+5529.9,
+479.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 730,
+"part": 1292,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+52894.0,
+5476.5,
+506.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 730,
+"part": 1292,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+52894.0,
+5503.7,
+560.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 731,
+"part": 1299,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+52894.0,
+3011.1,
+1990.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 731,
+"part": 1299,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+52894.0,
+3038.4,
+1936.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 731,
+"part": 1299,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+52894.0,
+3064.5,
+2017.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 731,
+"part": 1299,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+52894.0,
+3091.8,
+1964.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 732,
+"part": 1299,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+52894.0,
+2701.2,
+1764.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 732,
+"part": 1299,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+52894.0,
+2673.9,
+1817.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 732,
+"part": 1299,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+52894.0,
+2620.5,
+1790.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 733,
+"part": 1306,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+52894.0,
+3000.4,
+5426.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 733,
+"part": 1306,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+52894.0,
+3032.2,
+5375.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 733,
+"part": 1306,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+52894.0,
+3051.4,
+5458.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 733,
+"part": 1306,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+52894.0,
+3083.1,
+5407.6
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 734,
+"part": 1306,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+52894.0,
+2722.0,
+5253.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 734,
+"part": 1306,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+52894.0,
+2702.9,
+5170.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 734,
+"part": 1306,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+52894.0,
+2671.1,
+5221.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 745,
+"part": 1350,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+39699.0,
+190.2,
+479.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 745,
+"part": 1350,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+39699.0,
+216.2,
+560.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 745,
+"part": 1350,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+39699.0,
+243.6,
+506.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 746,
+"part": 1354,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+39699.0,
+5529.9,
+479.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 746,
+"part": 1354,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+39699.0,
+5476.5,
+506.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 746,
+"part": 1354,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+39699.0,
+5503.7,
+560.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 747,
+"part": 1361,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+39699.0,
+3011.1,
+1990.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 747,
+"part": 1361,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+39699.0,
+3038.4,
+1936.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 747,
+"part": 1361,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+39699.0,
+3064.5,
+2017.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 747,
+"part": 1361,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+39699.0,
+3091.8,
+1964.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 748,
+"part": 1361,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+39699.0,
+2701.2,
+1764.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 748,
+"part": 1361,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+39699.0,
+2673.9,
+1817.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 748,
+"part": 1361,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+39699.0,
+2620.5,
+1790.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 749,
+"part": 1368,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+39699.0,
+3000.4,
+5426.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 749,
+"part": 1368,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+39699.0,
+3032.2,
+5375.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 749,
+"part": 1368,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+39699.0,
+3051.4,
+5458.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 749,
+"part": 1368,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+39699.0,
+3083.1,
+5407.6
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 750,
+"part": 1368,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+39699.0,
+2722.0,
+5253.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 750,
+"part": 1368,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+39699.0,
+2702.9,
+5170.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 750,
+"part": 1368,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+39699.0,
+2671.1,
+5221.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 761,
+"part": 1412,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+26504.0,
+190.2,
+479.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 761,
+"part": 1412,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+26504.0,
+216.2,
+560.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 761,
+"part": 1412,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+26504.0,
+243.6,
+506.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 762,
+"part": 1416,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+26504.0,
+5529.9,
+479.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 762,
+"part": 1416,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+26504.0,
+5476.5,
+506.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 762,
+"part": 1416,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+26504.0,
+5503.7,
+560.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 763,
+"part": 1423,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+26504.0,
+3011.1,
+1990.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 763,
+"part": 1423,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+26504.0,
+3038.4,
+1936.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 763,
+"part": 1423,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+26504.0,
+3064.5,
+2017.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 763,
+"part": 1423,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+26504.0,
+3091.8,
+1964.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 764,
+"part": 1423,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+26504.0,
+2701.2,
+1764.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 764,
+"part": 1423,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+26504.0,
+2673.9,
+1817.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 764,
+"part": 1423,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+26504.0,
+2620.5,
+1790.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 765,
+"part": 1430,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+26504.0,
+3000.4,
+5426.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 765,
+"part": 1430,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+26504.0,
+3032.2,
+5375.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 765,
+"part": 1430,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+26504.0,
+3051.4,
+5458.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 765,
+"part": 1430,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+26504.0,
+3083.1,
+5407.6
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 766,
+"part": 1430,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+26504.0,
+2722.0,
+5253.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 766,
+"part": 1430,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+26504.0,
+2702.9,
+5170.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 766,
+"part": 1430,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+26504.0,
+2671.1,
+5221.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 777,
+"part": 1474,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+13309.0,
+190.2,
+479.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 777,
+"part": 1474,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+13309.0,
+216.2,
+560.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 777,
+"part": 1474,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+13309.0,
+243.6,
+506.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 778,
+"part": 1478,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+13309.0,
+5529.9,
+479.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 778,
+"part": 1478,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+13309.0,
+5476.5,
+506.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 778,
+"part": 1478,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+13309.0,
+5503.7,
+560.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 779,
+"part": 1485,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+13309.0,
+3011.1,
+1990.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 779,
+"part": 1485,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+13309.0,
+3038.4,
+1936.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 779,
+"part": 1485,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+13309.0,
+3064.5,
+2017.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 779,
+"part": 1485,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+13309.0,
+3091.8,
+1964.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 780,
+"part": 1485,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+13309.0,
+2701.2,
+1764.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 780,
+"part": 1485,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+13309.0,
+2673.9,
+1817.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 780,
+"part": 1485,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+13309.0,
+2620.5,
+1790.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 781,
+"part": 1492,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+13309.0,
+3000.4,
+5426.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 781,
+"part": 1492,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+13309.0,
+3032.2,
+5375.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 781,
+"part": 1492,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+13309.0,
+3051.4,
+5458.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 781,
+"part": 1492,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+13309.0,
+3083.1,
+5407.6
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 782,
+"part": 1492,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+13309.0,
+2722.0,
+5253.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 782,
+"part": 1492,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+13309.0,
+2702.9,
+5170.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 782,
+"part": 1492,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+13309.0,
+2671.1,
+5221.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 793,
+"part": 1536,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+22472.6,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 793,
+"part": 1536,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+22495.8,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 793,
+"part": 1536,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+22525.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 794,
+"part": 1540,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52894.0,
+22471.6,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 794,
+"part": 1540,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52894.0,
+22496.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 794,
+"part": 1540,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52894.0,
+22524.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 795,
+"part": 1544,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52894.0,
+27808.4,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 795,
+"part": 1544,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52894.0,
+27755.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 795,
+"part": 1544,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+52894.0,
+27784.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 796,
+"part": 1548,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+27807.4,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 796,
+"part": 1548,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+27755.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 796,
+"part": 1548,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+27784.2,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 797,
+"part": 1552,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+22472.6,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 797,
+"part": 1552,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+22525.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 797,
+"part": 1552,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+22495.8,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 798,
+"part": 1559,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+52894.0,
+25286.0,
+5762.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 798,
+"part": 1559,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+52894.0,
+25314.4,
+5709.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 798,
+"part": 1559,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+52894.0,
+25338.8,
+5791.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 798,
+"part": 1559,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+52894.0,
+25367.2,
+5738.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 799,
+"part": 1559,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+52894.0,
+24965.6,
+5590.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 799,
+"part": 1559,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+52894.0,
+24941.2,
+5508.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 799,
+"part": 1559,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+52894.0,
+24912.8,
+5561.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 800,
+"part": 1566,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+52894.0,
+25280.4,
+2101.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 800,
+"part": 1566,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+52894.0,
+25309.6,
+2049.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 800,
+"part": 1566,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+52894.0,
+25332.8,
+2130.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 800,
+"part": 1566,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+52894.0,
+25362.0,
+2078.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 801,
+"part": 1566,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+52894.0,
+24970.4,
+1928.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 801,
+"part": 1566,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+52894.0,
+24947.2,
+1847.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 801,
+"part": 1566,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+52894.0,
+24918.0,
+1899.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 802,
+"part": 1570,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+27807.4,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 802,
+"part": 1570,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+27784.2,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 802,
+"part": 1570,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+52894.0,
+27755.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 809,
+"part": 1609,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+22472.6,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 809,
+"part": 1609,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+22495.8,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 809,
+"part": 1609,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+22525.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 810,
+"part": 1613,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39699.0,
+22471.6,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 810,
+"part": 1613,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39699.0,
+22496.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 810,
+"part": 1613,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39699.0,
+22524.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 811,
+"part": 1617,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39699.0,
+27808.4,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 811,
+"part": 1617,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39699.0,
+27755.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 811,
+"part": 1617,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+39699.0,
+27784.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 812,
+"part": 1621,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+27807.4,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 812,
+"part": 1621,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+27755.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 812,
+"part": 1621,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+27784.2,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 813,
+"part": 1625,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+22472.6,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 813,
+"part": 1625,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+22525.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 813,
+"part": 1625,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+22495.8,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 814,
+"part": 1632,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+39699.0,
+25286.0,
+5762.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 814,
+"part": 1632,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+39699.0,
+25314.4,
+5709.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 814,
+"part": 1632,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+39699.0,
+25338.8,
+5791.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 814,
+"part": 1632,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+39699.0,
+25367.2,
+5738.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 815,
+"part": 1632,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+39699.0,
+24965.6,
+5590.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 815,
+"part": 1632,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+39699.0,
+24941.2,
+5508.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 815,
+"part": 1632,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+39699.0,
+24912.8,
+5561.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 816,
+"part": 1639,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+39699.0,
+25280.4,
+2101.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 816,
+"part": 1639,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+39699.0,
+25309.6,
+2049.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 816,
+"part": 1639,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+39699.0,
+25332.8,
+2130.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 816,
+"part": 1639,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+39699.0,
+25362.0,
+2078.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 817,
+"part": 1639,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+39699.0,
+24970.4,
+1928.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 817,
+"part": 1639,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+39699.0,
+24947.2,
+1847.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 817,
+"part": 1639,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+39699.0,
+24918.0,
+1899.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 818,
+"part": 1643,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+27807.4,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 818,
+"part": 1643,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+27784.2,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 818,
+"part": 1643,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+39699.0,
+27755.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 825,
+"part": 1682,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+22472.6,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 825,
+"part": 1682,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+22495.8,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 825,
+"part": 1682,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+22525.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 826,
+"part": 1686,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26504.0,
+22471.6,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 826,
+"part": 1686,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26504.0,
+22496.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 826,
+"part": 1686,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26504.0,
+22524.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 827,
+"part": 1690,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26504.0,
+27808.4,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 827,
+"part": 1690,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26504.0,
+27755.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 827,
+"part": 1690,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+26504.0,
+27784.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 828,
+"part": 1694,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+27807.4,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 828,
+"part": 1694,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+27755.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 828,
+"part": 1694,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+27784.2,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 829,
+"part": 1698,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+22472.6,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 829,
+"part": 1698,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+22525.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 829,
+"part": 1698,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+22495.8,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 830,
+"part": 1705,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+26504.0,
+25286.0,
+5762.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 830,
+"part": 1705,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+26504.0,
+25314.4,
+5709.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 830,
+"part": 1705,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+26504.0,
+25338.8,
+5791.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 830,
+"part": 1705,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+26504.0,
+25367.2,
+5738.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 831,
+"part": 1705,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+26504.0,
+24965.6,
+5590.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 831,
+"part": 1705,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+26504.0,
+24941.2,
+5508.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 831,
+"part": 1705,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+26504.0,
+24912.8,
+5561.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 832,
+"part": 1712,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+26504.0,
+25280.4,
+2101.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 832,
+"part": 1712,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+26504.0,
+25309.6,
+2049.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 832,
+"part": 1712,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+26504.0,
+25332.8,
+2130.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 832,
+"part": 1712,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+26504.0,
+25362.0,
+2078.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 833,
+"part": 1712,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+26504.0,
+24970.4,
+1928.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 833,
+"part": 1712,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+26504.0,
+24947.2,
+1847.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 833,
+"part": 1712,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+26504.0,
+24918.0,
+1899.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 834,
+"part": 1716,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+27807.4,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 834,
+"part": 1716,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+27784.2,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 834,
+"part": 1716,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+26504.0,
+27755.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 841,
+"part": 1755,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+22472.6,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 841,
+"part": 1755,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+22495.8,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 841,
+"part": 1755,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+22525.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 842,
+"part": 1759,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13309.0,
+22471.6,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 842,
+"part": 1759,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13309.0,
+22496.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 842,
+"part": 1759,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13309.0,
+22524.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 843,
+"part": 1763,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13309.0,
+27808.4,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 843,
+"part": 1763,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13309.0,
+27755.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 843,
+"part": 1763,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+13309.0,
+27784.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 844,
+"part": 1767,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+27807.4,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 844,
+"part": 1767,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+27755.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 844,
+"part": 1767,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+27784.2,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 845,
+"part": 1771,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+22472.6,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 845,
+"part": 1771,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+22525.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 845,
+"part": 1771,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+22495.8,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 846,
+"part": 1778,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+13309.0,
+25286.0,
+5762.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 846,
+"part": 1778,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+13309.0,
+25314.4,
+5709.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 846,
+"part": 1778,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+13309.0,
+25338.8,
+5791.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 846,
+"part": 1778,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+13309.0,
+25367.2,
+5738.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 847,
+"part": 1778,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+13309.0,
+24965.6,
+5590.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 847,
+"part": 1778,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+13309.0,
+24941.2,
+5508.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 847,
+"part": 1778,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+13309.0,
+24912.8,
+5561.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 848,
+"part": 1785,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+13309.0,
+25280.4,
+2101.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 848,
+"part": 1785,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+13309.0,
+25309.6,
+2049.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 848,
+"part": 1785,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+13309.0,
+25332.8,
+2130.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 848,
+"part": 1785,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+13309.0,
+25362.0,
+2078.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 849,
+"part": 1785,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+13309.0,
+24970.4,
+1928.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 849,
+"part": 1785,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+13309.0,
+24947.2,
+1847.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 849,
+"part": 1785,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+13309.0,
+24918.0,
+1899.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 850,
+"part": 1789,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+27807.4,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 850,
+"part": 1789,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+27784.2,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 850,
+"part": 1789,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+13309.0,
+27755.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 869,
+"part": 1880,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6928.8,
+27807.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 869,
+"part": 1880,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+7008.2,
+27784.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 869,
+"part": 1880,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6956.9,
+27755.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 870,
+"part": 1884,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12977.3,
+27808.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 870,
+"part": 1884,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12949.3,
+27755.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 870,
+"part": 1884,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12897.9,
+27784.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 871,
+"part": 1888,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12977.3,
+22471.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 871,
+"part": 1888,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12897.9,
+22496.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 871,
+"part": 1888,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12949.3,
+22524.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 872,
+"part": 1892,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6482.2,
+27807.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 872,
+"part": 1892,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6454.1,
+27755.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 872,
+"part": 1892,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6402.8,
+27784.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 873,
+"part": 1906,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6928.8,
+5527.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 873,
+"part": 1906,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+7008.2,
+5504.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 873,
+"part": 1906,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6956.9,
+5475.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 874,
+"part": 1910,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12977.3,
+5528.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 874,
+"part": 1910,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12949.3,
+5475.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 874,
+"part": 1910,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12897.9,
+5504.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 877,
+"part": 1921,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6928.8,
+192.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 877,
+"part": 1921,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6956.9,
+244.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 877,
+"part": 1921,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+7008.2,
+215.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 878,
+"part": 1925,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12977.3,
+191.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 878,
+"part": 1925,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12897.9,
+216.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 878,
+"part": 1925,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+12949.3,
+244.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 887,
+"part": 1963,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+433.7,
+5528.1,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 887,
+"part": 1963,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+513.1,
+5504.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 887,
+"part": 1963,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+461.7,
+5475.4,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 888,
+"part": 1967,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+433.7,
+191.9,
+7477.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 888,
+"part": 1967,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+461.7,
+244.6,
+7484.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 888,
+"part": 1967,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+513.1,
+216.0,
+7495.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 889,
+"part": 1974,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+1990.2,
+2715.5,
+7831.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 889,
+"part": 1974,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+1938.8,
+2686.8,
+7819.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 889,
+"part": 1974,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+2018.1,
+2662.7,
+7837.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 889,
+"part": 1974,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+1966.7,
+2634.1,
+7826.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 890,
+"part": 1974,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+1821.9,
+3033.2,
+7793.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 890,
+"part": 1974,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+1742.6,
+3057.3,
+7775.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 890,
+"part": 1974,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+1794.0,
+3085.9,
+7786.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 894,
+"part": 1991,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+5134.9,
+2716.7,
+8546.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 894,
+"part": 1991,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+5083.6,
+2687.9,
+8534.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 894,
+"part": 1991,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+5163.0,
+2664.1,
+8552.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 894,
+"part": 1991,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+5111.7,
+2635.3,
+8541.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 895,
+"part": 1991,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+4966.6,
+3032.1,
+8508.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 895,
+"part": 1991,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+4887.2,
+3055.9,
+8490.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 895,
+"part": 1991,
+"name": "Gusset Plate",
+"prof": "PL12*330",
+"d": 16.0,
+"P": [
+4938.5,
+3084.7,
+8501.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 896,
+"part": 1995,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6482.2,
+5527.9,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 896,
+"part": 1995,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6454.1,
+5475.3,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 896,
+"part": 1995,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6402.8,
+5504.1,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 897,
+"part": 1999,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6482.2,
+192.1,
+8852.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 897,
+"part": 1999,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6402.8,
+215.9,
+8834.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 897,
+"part": 1999,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+6454.1,
+244.7,
+8846.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 901,
+"part": 2020,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+164.0,
+27808.4,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 901,
+"part": 2020,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+164.0,
+27755.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 901,
+"part": 2020,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+164.0,
+27784.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 902,
+"part": 2024,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+164.0,
+22471.6,
+4178.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 902,
+"part": 2024,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+164.0,
+22496.0,
+4260.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 902,
+"part": 2024,
+"name": "Gusset Plate",
+"prof": "PL12*213",
+"d": 16.0,
+"P": [
+164.0,
+22524.5,
+4207.2
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 907,
+"part": 2043,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+164.0,
+25286.0,
+5762.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 907,
+"part": 2043,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+164.0,
+25314.4,
+5709.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 907,
+"part": 2043,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+164.0,
+25338.8,
+5791.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 907,
+"part": 2043,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+164.0,
+25367.2,
+5738.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 908,
+"part": 2043,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+164.0,
+24965.6,
+5590.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 908,
+"part": 2043,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+164.0,
+24941.2,
+5508.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 908,
+"part": 2043,
+"name": "Gusset Plate",
+"prof": "PL12*331",
+"d": 16.0,
+"P": [
+164.0,
+24912.8,
+5561.7
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 909,
+"part": 2050,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+164.0,
+25280.4,
+2101.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 909,
+"part": 2050,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+164.0,
+25309.6,
+2049.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 909,
+"part": 2050,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+164.0,
+25332.8,
+2130.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 909,
+"part": 2050,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+164.0,
+25362.0,
+2078.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 910,
+"part": 2050,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+164.0,
+24970.4,
+1928.8
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 910,
+"part": 2050,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+164.0,
+24947.2,
+1847.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 910,
+"part": 2050,
+"name": "Gusset Plate",
+"prof": "PL12*329",
+"d": 16.0,
+"P": [
+164.0,
+24918.0,
+1899.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 911,
+"part": 2054,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+22472.6,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 911,
+"part": 2054,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+22495.8,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 911,
+"part": 2054,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+22525.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 912,
+"part": 2058,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+27807.4,
+468.9
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 912,
+"part": 2058,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+27755.0,
+498.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 912,
+"part": 2058,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+27784.2,
+550.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 913,
+"part": 2062,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+27807.4,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 913,
+"part": 2062,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+27784.2,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 913,
+"part": 2062,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+27755.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 914,
+"part": 2066,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+22472.6,
+3509.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 914,
+"part": 2066,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+22525.0,
+3479.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 914,
+"part": 2066,
+"name": "Gusset Plate",
+"prof": "PL12*214",
+"d": 16.0,
+"P": [
+164.0,
+22495.8,
+3427.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 915,
+"part": 2076,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+114.0,
+190.2,
+479.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 915,
+"part": 2076,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+114.0,
+216.2,
+560.3
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 915,
+"part": 2076,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+114.0,
+243.6,
+506.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 916,
+"part": 2080,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+114.0,
+5529.9,
+479.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 916,
+"part": 2080,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+114.0,
+5476.5,
+506.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 916,
+"part": 2080,
+"name": "Gusset Plate",
+"prof": "PL12*210",
+"d": 16.0,
+"P": [
+114.0,
+5503.7,
+560.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 917,
+"part": 2087,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+114.0,
+3011.1,
+1990.1
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 917,
+"part": 2087,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+114.0,
+3038.4,
+1936.7
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 917,
+"part": 2087,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+114.0,
+3064.5,
+2017.4
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 917,
+"part": 2087,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+114.0,
+3091.8,
+1964.0
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 918,
+"part": 2087,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+114.0,
+2701.2,
+1764.2
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 918,
+"part": 2087,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+114.0,
+2673.9,
+1817.6
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 918,
+"part": 2087,
+"name": "Gusset Plate",
+"prof": "PL12*334",
+"d": 16.0,
+"P": [
+114.0,
+2620.5,
+1790.3
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 929,
+"part": 2126,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+114.0,
+3000.4,
+5426.8
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 929,
+"part": 2126,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+114.0,
+3032.2,
+5375.9
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 929,
+"part": 2126,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+114.0,
+3051.4,
+5458.5
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 929,
+"part": 2126,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+114.0,
+3083.1,
+5407.6
+],
+"result": "MISSES",
+"ring": 0
+},
+{
+"conn": 930,
+"part": 2126,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+114.0,
+2722.0,
+5253.1
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 930,
+"part": 2126,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+114.0,
+2702.9,
+5170.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+},
+{
+"conn": 930,
+"part": 2126,
+"name": "Gusset Plate",
+"prof": "PL12*318",
+"d": 16.0,
+"P": [
+114.0,
+2671.1,
+5221.4
+],
+"result": "NO HOLE",
+"ring": 0,
+"air": 0.0
+}
+]
+}
