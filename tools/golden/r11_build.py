@@ -42,9 +42,12 @@ def frame_map(man, O, S, H, Z):
     return man.transform(M.tolist())
 
 def prism(poly2d, z0, z1):
-    cs = mf.CrossSection([[(float(x), float(y)) for x, y in poly2d]], mf.FillRule.Positive)
-    if cs.area() < 0: cs = mf.CrossSection([[(float(x), float(y)) for x, y in reversed(poly2d)]], mf.FillRule.Positive)
-    return mf.Manifold.extrude(cs, z1 - z0).translate((0, 0, z0))
+    ar = sum(poly2d[i][0] * poly2d[(i + 1) % len(poly2d)][1] - poly2d[(i + 1) % len(poly2d)][0] * poly2d[i][1] for i in range(len(poly2d)))
+    pts = poly2d if ar > 0 else list(reversed(poly2d))       # counter-clockwise (FillRule.Positive drops a clockwise outline)
+    cs = mf.CrossSection([[(float(x), float(y)) for x, y in pts]], mf.FillRule.Positive)
+    m = mf.Manifold.extrude(cs, z1 - z0).translate((0, 0, z0))
+    assert m.volume() > 0, 'empty prism'
+    return m
 
 def cyl_along_s(h, z, r, s0, s1, seg=16):
     c = mf.Manifold.cylinder(s1 - s0, r, r, seg)          # along +z from 0
@@ -94,7 +97,7 @@ def fix_c04(doc, log):
         c = prism(CLEAT_POLY, -60, 60)
         for hh in (40, 100):
             for zz in (-35, 35): c = c - cyl_along_s(hh, zz, 7.0, -20, 10)
-        cw = frame_map(c, O, S, Hh, Z)
+        cw = frame_map(c, O, S, Hh, Z); assert cw.volume() > 0
         cl['shape'] = shape_of(cw)
         cs = cl['st']; ctr = O + S * -30 + Hh * 70
         half = 60 * ax
@@ -108,7 +111,7 @@ def fix_c04(doc, log):
         # stiffener: the R10 'Stiff.' nearest this cleat
         cc = cvp.mean(0); sb = min(stiffs, key=lambda b: float(np.linalg.norm(np.asarray(b['st']['pts3'], float).mean(0) - cc)))
         sp = [(-6 - a_, 6 + b_) for a_, b_ in STIFF_AB]
-        sw = frame_map(prism(sp, -3, 3), O, S, Hh, Z)
+        sw = frame_map(prism(sp, -3, 3), O, S, Hh, Z); assert sw.volume() > 0
         sb['shape'] = shape_of(sw)
         ss = sb['st']; ss['pts3'] = [[r3(x) for x in (O + S * s_ + Hh * h_)] for s_, h_ in sp]
         Xn = -Hh; Yn = -S; ss['ncF'] = {'X': [r3(x) for x in Xn], 'Y': [r3(x) for x in Yn], 'N': [r3(x) for x in np.cross(Xn, Yn)]}
