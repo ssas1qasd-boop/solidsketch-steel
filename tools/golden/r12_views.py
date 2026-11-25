@@ -55,14 +55,24 @@ def prepare(fails_path):
         if f.get('ids'): ids = f['ids']
         else: c = C[int(f['conn'])]; ids = c['parts'][:2]
         a, b = B[ids[0]], B[ids[1]] if len(ids) > 1 else None
+        def axis_of(x):                                   # a part's long direction
+            V = VT(x)[0]; U, s_, Vt = np.linalg.svd(V - V.mean(0), full_matrices=False); return Vt[0]
         if b is not None and f['check'] == 'OVERLAP':
             I = man(a) ^ man(b); m = I.to_mesh64(); P = np.asarray(m.vert_properties)[:, :3]
-            ctr = (P.min(0) + P.max(0)) / 2; U, s, Vt = np.linalg.svd(P - P.mean(0), full_matrices=False)
-            n = Vt[2]; long_ = Vt[0]; view = Vt[1]         # look along the overlap's middle extent: its face shows edge-on, its length across
+            ctr = (P.min(0) + P.max(0)) / 2; U, s, Vt = np.linalg.svd(P - P.mean(0), full_matrices=False); n = Vt[2]
+            a1, a2 = axis_of(a), axis_of(b); rod = any(x['st'].get('kind') == 'member' and x['st']['tprof'].upper().startswith(('ROD', 'PD', 'CHS')) for x in (a, b))
+            if rod and abs(float(a1 @ a2)) < 0.8: view = np.cross(a1, a2)              # two crossing tubes / rods: square to both
+            elif rod:                                                                 # rod in a nut / grout: side-on
+                ax = a1 if a['st'].get('kind') == 'member' else a2; view = np.cross(ax, [0, 0, 1.0]) if abs(ax[2]) < 0.9 else np.array([1.0, 0, 0])
+            else:                                                                     # faces in contact: edge-on, the longer part across
+                th = lambda x: np.linalg.svd(VT(x)[0] - VT(x)[0].mean(0), full_matrices=False)
+                ua, sa, va = th(a); ub, sb, vb = th(b); n = va[2] if sa[2] / sa[0] <= sb[2] / sb[0] else vb[2]   # the thinner plate's normal
+                big = a1 if np.ptp(VT(a)[0], 0).max() >= np.ptp(VT(b)[0], 0).max() else a2; view = np.cross(n, big)
+                if np.linalg.norm(view) < 0.3: view = np.cross(n, a2 if big is a1 else a1)
+            view = view / np.linalg.norm(view)
         else:
             c = C[int(f['conn'])]; q = c['q']; ctr = np.mean(np.array(q['pts'], float), 0); ax = np.array(q['ax'], float)
-            view = np.cross(ax, [0, 0, 1.0]); view = view / (np.linalg.norm(view) or 1); n = ax
-        if abs(view[2]) > 0.9: view = np.array([1.0, 0, 0]) if abs(n[0]) < 0.9 else np.array([0, 1.0, 0])
+            pl = B[c['parts'][1]] if len(c['parts']) > 1 else a; view = np.cross(ax, axis_of(pl)); view = view / (np.linalg.norm(view) or 1); n = ax
         keep = [i for i, bx in boxes.items() if (bx[:3] < ctr + 400).all() and (bx[3:] > ctr - 400).all()]
         bodies = []
         for i in keep:
@@ -74,7 +84,8 @@ def prepare(fails_path):
         with open(os.path.join(VDIR, fn), 'wb') as fh:
             with gzip.GzipFile(fileobj=fh, mode='wb', mtime=0, filename='') as gz: gz.write(json.dumps(out, separators=(',', ':')).encode())
         vals = [x['value'] for x in g['fails'] if isinstance(x['value'], (int, float))]; deps = [x['depth'] for x in g['fails'] if x.get('depth') is not None]
-        views.append(dict(key=k, title=g['title'], file=fn, target=[round(float(v), 2) for v in ctr], dir=[round(float(v), 5) for v in view], dist=700.0,
+        ext = float(np.ptp(P, 0).max()) if (b is not None and f['check'] == 'OVERLAP') else 300.0
+        views.append(dict(key=k, title=g['title'], file=fn, target=[round(float(v), 2) for v in ctr], dir=[round(float(v), 5) for v in view], dist=float(min(700.0, max(220.0, 2.2 * ext))),
                           count=len(g['fails']), ids=ids, parts=[a['st']['name'] + ' ' + a['st']['tprof'], (b['st']['name'] + ' ' + b['st']['tprof']) if b else ''],
                           amark=[a['st'].get('amark'), b['st'].get('amark') if b else None], pos=[a['st'].get('pos'), b['st'].get('pos') if b else None],
                           value=f['value'], depth=f.get('depth'), vmin=min(vals) if vals else None, vmax=max(vals) if vals else None,
@@ -111,6 +122,21 @@ def compose(shots):
         d.text((20, y), meas, font=FB, fill=(200, 0, 0)); d.text((20, y + 40), 'in this group: ' + '; '.join('%s x%d' % (a, b) for a, b in list(v['kinds'].items())[:4]), font=F, fill=(60, 60, 60))
         out = os.path.join(outd, 'R12_%s.png' % v['key']); im.save(out); os.remove(tk) if ok else None; print(out, im.size)
 
+def preview():
+    from PIL import Image, ImageDraw
+    views = json.load(open(os.path.join(VDIR, 'views.json'))); out = os.path.join(REPO, 'build', 'r12', 'preview'); os.makedirs(out, exist_ok=True)
+    for v in views:
+        D = json.load(gzip.open(os.path.join(VDIR, v['file'])))['doc']; t = np.array(v['target']); d = np.array(v['dir']); d /= np.linalg.norm(d)
+        r = np.cross([0, 0, 1.0], d); r = r / np.linalg.norm(r) if np.linalg.norm(r) > 1e-6 else np.array([1.0, 0, 0]); u = np.cross(d, r)
+        W, H = 600, 600; k = H / (2 * v['dist'] * math.tan(math.radians(22.5))); im = Image.new('RGB', (W, H), (30, 30, 34)); dr = ImageDraw.Draw(im); tris = []
+        for b in D['bodies']:
+            V, T = VT(b); X = (V - t) @ r * k + W / 2; Y = H / 2 - (V - t) @ u * k; Z = (V - t) @ d
+            col = b.get('color', 0xb0b0b8); c = ((col >> 16) & 255, (col >> 8) & 255, col & 255)
+            for tr in T: tris.append((Z[tr].mean(), [(X[i], Y[i]) for i in tr], c))
+        for z, pts, c in sorted(tris, key=lambda x: x[0]): dr.polygon(pts, fill=c, outline=tuple(max(0, x - 40) for x in c))
+        im.save(os.path.join(out, v['key'] + '.png'))
+
 if __name__ == '__main__':
+    if sys.argv[1] == 'preview': preview(); sys.exit()
     if sys.argv[1] == 'prepare': prepare(sys.argv[2] if len(sys.argv) > 2 else os.path.join(REPO, 'build', 'r12', 'geom_r12.json'))
     else: compose(sys.argv[2])
