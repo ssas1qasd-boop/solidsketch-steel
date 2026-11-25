@@ -56,7 +56,8 @@ class C04RecordingTest {
         ua.takeScreenshot()?.let { b -> storage.openOutputFile("c04/%02d_%s.png".format(++shotNo, name)).use { b.compress(Bitmap.CompressFormat.PNG, 100, it) } }
     }
     private fun sh(cmd: String) { ua.executeShellCommand(cmd).use { pfd -> ParcelFileDescriptor.AutoCloseInputStream(pfd).use { it.readBytes() } } }
-    private fun press(text: String) { val n = compose.onAllNodes(hasText(text) and hasClickAction())[0]; n.performScrollTo(); n.performClick(); compose.waitForIdle() }
+    /** A button: panel buttons sit in a sideways-scrolling row (scroll them into view first); dialog buttons do not scroll. */
+    private fun press(text: String) { val n = compose.onAllNodes(hasText(text) and hasClickAction())[0]; runCatching { n.performScrollTo() }; n.performClick(); compose.waitForIdle() }
     private fun screen(p: Vec3): Offset = act.testViewport.worldToScreen(p)?.let { Offset(it.first, it.second) } ?: throw AssertionError("point $p behind the camera")
     private fun tapAt(o: Offset) { compose.onRoot().performTouchInput { click(o) }; compose.waitForIdle() }
     private fun pause(ms: Long) { compose.waitForIdle(); Thread.sleep(ms) }
@@ -92,7 +93,7 @@ class C04RecordingTest {
         compose.onAllNodes(hasText("Steel") and hasClickAction())[0].performClick()
         waitFor("the Steel panel") { compose.onAllNodes(hasText("Grid") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
         waitFor("the component catalog data") { mode().comps != null }
-        val pp = Vec3(6507.8, 22355.0, 8957.6); look(pp, Vec3(1.0, -1.2, 0.9), 8000.0); pause(800)
+        val pp = Vec3(6507.8, 22355.0, 8957.6); look(pp, Vec3(1.0, -1.2, 0.9), 6000.0); pause(800)
 
         val rec = ua.executeShellCommand("screenrecord --bit-rate 6000000 --time-limit 170 /sdcard/c04_rec.mp4")
         try {
