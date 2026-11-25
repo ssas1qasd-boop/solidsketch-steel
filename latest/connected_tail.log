@@ -4,8 +4,8 @@ Daemon will be stopped at the end of the build
 > Configure project :app
 Passing custom test runner argument android.testInstrumentationRunnerArguments.notClass from gradle.properties or command line is not compatible with configuration caching. Please specify this argument using android gradle dsl.
 
-> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:generateDebugBuildConfig UP-TO-DATE
@@ -50,13 +50,13 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :core-io:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:checkDebugAarMetadata UP-TO-DATE
 > Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
 > Task :core-io:compileDebugKotlin UP-TO-DATE
 > Task :core-io:javaPreCompileDebug UP-TO-DATE
 > Task :core-io:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-io:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :core-view:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :app:mapDebugSourceSetPaths UP-TO-DATE
-> Task :app:generateDebugResources UP-TO-DATE
 > Task :app:mergeDebugResources UP-TO-DATE
 > Task :app:packageDebugResources UP-TO-DATE
 > Task :app:parseDebugLocalResources UP-TO-DATE
@@ -72,8 +72,8 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :app:processDebugManifestForPackage UP-TO-DATE
 > Task :steel:compileDebugKotlin UP-TO-DATE
 > Task :steel:javaPreCompileDebug UP-TO-DATE
-> Task :app:processDebugResources UP-TO-DATE
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:processDebugResources UP-TO-DATE
 > Task :app:javaPreCompileDebug UP-TO-DATE
 > Task :app:preDebugAndroidTestBuild SKIPPED
 > Task :steel:bundleLibCompileToJarDebug UP-TO-DATE
@@ -107,8 +107,8 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
 > Task :app:generateDebugAndroidTestBuildConfig UP-TO-DATE
 > Task :app:checkDebugAndroidTestAarMetadata UP-TO-DATE
-> Task :fetchManifold
 > Task :app:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :fetchManifold
 > Task :app:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
 > Task :app:generateDebugAndroidTestResources UP-TO-DATE
 > Task :app:mergeDebugAndroidTestResources UP-TO-DATE
@@ -170,14 +170,13 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :app:packageDebugAndroidTest UP-TO-DATE
 > Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 [EmulatorConsole]: Failed to start Emulator console for 5554
-
 > Task :app:connectedDebugAndroidTest
 Starting 1 tests on emulator-5554 - 15
 
 emulator-5554 - 15 Tests 0/1 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/1 completed. (0 skipped) (0 failed)
 Finished 1 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795592397080.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795593393667.json
 
-BUILD SUCCESSFUL in 3m 34s
+BUILD SUCCESSFUL in 4m 57s
 133 actionable tasks: 6 executed, 127 up-to-date
