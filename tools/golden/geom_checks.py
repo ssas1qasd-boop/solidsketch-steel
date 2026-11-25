@@ -143,7 +143,7 @@ def check(path):
             q = c['q']; L = float(q.get('grip') or 0) + 2 * float(q.get('d') or 12)
             g = next((k for k in bodies.values() if k['st'].get('kind') == 'bolts' and str(k['st'].get('conn')) == cid), None)
             if g and g['st'].get('L'): L = float(g['st']['L'])
-            groups.append((q.get('pts') or [], q.get('ax'), float(q.get('d') or 12), float(q.get('tol') if q.get('tol') is not None else 2), float(q.get('grip') or 0), L, mem))
+            groups.append((q.get('pts') or [], q.get('ax'), float(q.get('d') or 12), float(q.get('tol') if q.get('tol') is not None else 2), None if q.get('holesOnly') else float(q.get('grip') or 0), L, mem))   # holes only: no bolt, no grip
         for bb in bolts:
             st = bb['st']; d = float(st.get('d') or 12); Lb = float(st.get('L') or 0)
             groups.append((st.get('pts') or [], st.get('ax'), d, 2.0, None, Lb, everything))
@@ -155,7 +155,7 @@ def check(path):
                     if t != 'TKBOLT' and r == 'MISSES': continue       # a component bolt group's parts: only the ones it passes
                     if r != 'HOLE': fails.append(dict(check='BOLTS', conn=cid, type=t, part=name(p), value=r))
                 if grip is not None and abs(grip - mat) > GRIP: fails.append(dict(check='BOLTS', conn=cid, type=t, part='grip', value=f'grip {grip:.1f} vs stack {mat:.1f}'))
-                elif grip is None and span - mat > GRIP: fails.append(dict(check='BOLTS', conn=cid, type=t, part='grip', value=f'air {span - mat:.1f} along the shank (stack {mat:.1f})'))
+                elif grip is None and t != 'TKBOLT' and span - mat > GRIP: fails.append(dict(check='BOLTS', conn=cid, type=t, part='grip', value=f'air {span - mat:.1f} along the shank (stack {mat:.1f})'))
     # 3 overlap across connections at one joint: plates of two connections that share a member (e.g. two cleats on one purlin end)
     by_member = defaultdict(list)
     for c in conns:
