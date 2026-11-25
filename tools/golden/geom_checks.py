@@ -47,7 +47,7 @@ def man(b):
     k = b['id']
     if k not in _man:
         try:
-            m = mf.Manifold(mf.Mesh(b['V'].astype(np.float32), b['T'].astype(np.uint32)))
+            m = mf.Manifold(mf.Mesh64(np.ascontiguousarray(b['V'], np.float64), np.ascontiguousarray(b['T'], np.uint64)))   # 64-bit: float32 at 20 m from the origin is 2 µm, i.e. mm³ on a contact face
             _man[k] = m if m.status() == mf.Error.NoError and not m.is_empty() else None
         except Exception: _man[k] = None
     return _man[k]
@@ -61,6 +61,11 @@ def overlap(a, b):
     ma, mb = man(a), man(b)
     if ma is None or mb is None: return None
     return float((ma ^ mb).volume())
+
+def depth(a, b):
+    """mean thickness of the overlap solid: 2 x volume / its surface area (a thin slab: its thickness), mm"""
+    i = man(a) ^ man(b); ar = i.surface_area()
+    return round(2 * i.volume() / ar, 4) if ar > 0 else 0.0
 
 def name(b): st = b['st']; return f"{st.get('name')} {st.get('tprof') or st.get('prof') or ''}".strip()
 
@@ -78,8 +83,9 @@ def stack_and_holes(bolt_pts, ax, d, tol, parts, L):
             hits = H.line_hits(p['V'], p['T'], P, a, s0, s1)
             n, lo, hi = H.ring(p['V'], P, a, -0.65 * d, L, d / 2 - 0.5, d / 2 + tol + 3)
             # material along the line, as the hole wall: the ring's extent along the bolt (the hole passes the plate's thickness)
+            beside = [H.line_hits(p['V'], p['T'], P + u * (d / 2 + tol + 3), a, -0.65 * d - 50, L + 50) for u in perp(a)]
             if len(H.line_hits(p['V'], p['T'], P, a, -0.65 * d, L)): res.append((p, 'NO HOLE'))
-            elif n >= 6:
+            elif n >= 6 or sum(len(h) >= 2 for h in beside) >= 3:     # a hole wall, or solid plate all round the empty bolt line
                 res.append((p, 'HOLE'))
                 # the plate's thickness at the hole: a line parallel to the bolt just outside the hole (through solid plate), entry to exit
                 best = None
@@ -136,7 +142,7 @@ def check(path):
         for i in range(len(everything)):
             for j in range(i + 1, len(everything)):
                 v = overlap(everything[i], everything[j]); STATS['overlap pairs'] += 1
-                if v is not None and v > OVER: fails.append(dict(check='OVERLAP', conn=cid, type=t, part=name(everything[i]), other=name(everything[j]), value=round(v, 1)))
+                if v is not None and v > OVER: fails.append(dict(check='OVERLAP', conn=cid, type=t, part=name(everything[i]), other=name(everything[j]), value=round(v, 1), depth=depth(everything[i], everything[j]), ids=[everything[i]['id'], everything[j]['id']]))
         # 4 bolts
         groups = []
         if t == 'TKBOLT':
@@ -172,17 +178,32 @@ def check(path):
                     for y in B:
                         v = overlap(x, y); STATS['overlap pairs'] += 1
                         if v is not None and v > OVER: fails.append(dict(check='OVERLAP', conn=f'{cs[i]}+{cs[j]}', type='joint', part=name(x), other=name(y), value=round(v, 1)))
-    # 2 floating, .ss models: every detail plate touches a part of its assembly or is bolted
+    # 2 floating, .ss models: every detail plate touches a part of its assembly (its main part included) or is bolted
     if form == 'ss':
         by_asm = defaultdict(list)
         for b in bodies.values():
             if b['st'].get('asm') is not None and b['st'].get('kind') != 'bolts': by_asm[b['st']['asm']].append(b)
+        for a in list(by_asm):
+            if a in bodies: by_asm[a].append(bodies[a])
         for b in bodies.values():
             st = b['st']
             if st.get('kind') != 'plate' or b['id'] in bolted: continue
-            near = [y for y in by_asm.get(st.get('asm'), []) if y is not b]
+            if st.get('asm') is None and not by_asm.get(b['id']): continue     # a single-part assembly: nothing to hold on to inside it
+            near = [y for y in by_asm.get(st.get('asm') if st.get('asm') is not None else b['id'], []) if y is not b]
             if not any((g is not None and g <= TOUCH) for g in (gap(b, y) for y in near)):
                 fails.append(dict(check='FLOATING', conn=None, type='assembly', part=name(b), value=st.get('amark')))
+    # 3 overlap, .ss models: any two parts (bolts excluded) whose solids intersect by more than 1 mm³, wherever they are
+    if form == 'ss' and '--no-all-pairs' not in sys.argv:
+        ids = [k for k, b in bodies.items() if b['st'].get('kind') in ('plate', 'member')]
+        B = np.array([np.r_[bodies[k]['V'].min(0), bodies[k]['V'].max(0)] for k in ids])
+        for i in range(len(ids)):
+            hit = np.nonzero(~((B[i + 1:, :3] > B[i, 3:]).any(1) | (B[i + 1:, 3:] < B[i, :3]).any(1)))[0] + i + 1
+            for j in hit:
+                x, y = bodies[ids[i]], bodies[ids[j]]; v = overlap(x, y); STATS['model overlap pairs'] += 1
+                if v is not None and v > OVER:
+                    same = x['st'].get('amark') == y['st'].get('amark') and (x['st'].get('asm') or x['id']) == (y['st'].get('asm') or y['id'])
+                    fails.append(dict(check='OVERLAP', conn=None, type='model', part=name(x), other=name(y), value=round(v, 1), depth=depth(x, y), ids=[x['id'], y['id']], sameAsm=same))
+        STATS['parts without a valid solid'] = sum(1 for k in ids if man(bodies[k]) is None)
     return fails, len(conns)
 
 def main():

@@ -43,6 +43,21 @@ class SsCodecTest {
         println("R10 load %.0f ms, save %.0f ms".format(java.util.Locale.ROOT, loadMs, saveMs))
     }
 
+    /** R12 (Tekla IFC, tools/golden/r12_build.py): opens and saves byte-identical, Tekla's welds (st.tkWelds) and concrete bodies kept. */
+    @Test
+    fun r12LoadsAndSavesByteIdentical() {
+        val f = File(root, "tests/steel/models/Frame_28x53m_R12.ss")
+        val original = GZIPInputStream(f.inputStream()).readBytes().toString(Charsets.UTF_8)
+        val doc = SsCodec.read(f.inputStream())
+        assertEquals(6409, doc.bodyIds().size)
+        val sw = StringWriter(); SsCodec.writeJson(doc, sw, savedAtOf(original)); val again = sw.toString()
+        if (again != original) {
+            val i = again.indices.firstOrNull { it >= original.length || again[it] != original[it] } ?: again.length
+            fail("first difference at $i:\n orig …${original.substring(maxOf(0, i - 80), minOf(original.length, i + 80))}\n ours …${again.substring(maxOf(0, i - 80), minOf(again.length, i + 80))}")
+        }
+        assertEquals(6043, Regex("\"guid\":").findAll(again).count { true } - Regex("\"tk\":\\{\"guid\"").findAll(again).count())
+    }
+
     @Test
     fun unknownFieldsAtEveryLevelRoundTrip() {
         val json = """{"format":"solidsketch","zzTop":{"a":[1,2.5,"x\"y"]},"version":1,"app":"SolidSketch Web","unit":"mm","name":"t","rev":3,"savedAt":"2026-01-01T00:00:00.000Z","doc":{"v":1,"future":[true,null],"nextId":3,"bodies":[{"id":1,"name":"P 1","color":1483448,"hidden":false,"newBodyField":{"k":"ü€"},"st":{"kind":"plate","unknownSt":42},"shape":{"vp":[0,0,0,1,0,0,0,1,0,0.10000000149011612,-2.5,1e-7],"tv":[0,1,2,0,2,3]}},{"id":2,"name":"no shape","color":0,"hidden":true}],"stConns":[],"after":"bodies"}}"""

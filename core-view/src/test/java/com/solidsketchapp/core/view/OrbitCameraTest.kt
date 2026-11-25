@@ -75,4 +75,20 @@ class OrbitCameraTest {
         assertTrue(abs(d dot c.back) < 1e-6)
         assertTrue((d dot c.right) < 0)   // dragging right moves the target left
     }
+
+    @Test
+    fun orthographicKeepsScaleAndHasParallelRays() {
+        val c = cam(); c.orthographic = true
+        val t = c.target; val o = c.worldToScreen(t)!!
+        // a point 1000 mm nearer the eye lands on the same pixel (parallel projection)
+        val near = c.worldToScreen(t + c.back * 1000.0)!!
+        assertEquals(o.first, near.first, 0.01f); assertEquals(o.second, near.second, 0.01f)
+        // 100 mm to the right: pxPerUnit pixels, the same as the perspective scale at the target
+        val r = c.worldToScreen(t + c.right * 100.0)!!; val k = c.pxPerUnit(t)!!
+        assertEquals(100 * k, (r.first - o.first).toDouble(), 0.01)
+        c.orthographic = false; assertEquals(k, c.pxPerUnit(t)!!, 1e-9)
+        c.orthographic = true
+        val ray = c.screenRay(r.first, r.second); assertTrue(abs((ray.direction dot c.back) + 1) < 1e-9)
+        val back = ray.origin - (t + c.right * 100.0); assertTrue("ray through the point", (back - c.back * (back dot c.back)).let { abs(it dot it) } < 1e-6)
+    }
 }

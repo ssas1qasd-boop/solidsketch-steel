@@ -16,7 +16,7 @@ import kotlin.math.sin
 import kotlin.math.tan
 
 /**
- * Perspective camera that orbits a target. Orbit is fully free (owner rule): it rotates
+ * Perspective (or orthographic, [orthographic]) camera that orbits a target. Orbit is fully free (owner rule): it rotates
  * about the camera's own axes with a quaternion, so any number of turns in any direction
  * works, with no clamping at the poles and no gimbal flip. Model units are millimetres, Z up.
  */
@@ -28,6 +28,12 @@ class OrbitCamera {
     var rotation: Quat = defaultRotation()
         private set
     val fovY = Math.toRadians(45.0)
+    /**
+     * Orthographic view (owner rule B5: checked images are orthographic): parallel projection; the visible height is the one the
+     * perspective view has at the target (2 * distance * tan(fovY / 2)), so switching keeps the scale at the target.
+     */
+    var orthographic = false
+    private val halfH get() = distance * tan(fovY / 2)
     var viewportWidth = 1
     var viewportHeight = 1
     /** Radius of the scene, for near/far planes. */
@@ -89,9 +95,9 @@ class OrbitCamera {
         )
     }
 
-    fun near() = max(distance - sceneRadius * 2, distance * 1e-3).coerceAtLeast(0.5)
+    fun near() = if (orthographic) 0.5 else max(distance - sceneRadius * 2, distance * 1e-3).coerceAtLeast(0.5)
     fun far() = distance + sceneRadius * 4
-    fun projectionMatrix(): FloatArray = Mat4.perspective(fovY, aspect, near(), far())
+    fun projectionMatrix(): FloatArray = if (orthographic) Mat4.ortho(halfH, aspect, near(), far()) else Mat4.perspective(fovY, aspect, near(), far())
     fun viewProjection(): FloatArray = Mat4.multiply(projectionMatrix(), viewMatrix())
 
     /** Ray from the eye through pixel ([x], [y]) (origin top-left). */
@@ -99,6 +105,7 @@ class OrbitCamera {
         val nx = 2.0 * x / max(1, viewportWidth) - 1
         val ny = 1 - 2.0 * y / max(1, viewportHeight)
         val t = tan(fovY / 2)
+        if (orthographic) return Ray(eye + right * (nx * halfH * aspect) + up * (ny * halfH), back * -1.0)
         val dir = (right * (nx * t * aspect) + up * (ny * t) - back).normalized()
         return Ray(eye, dir)
     }
@@ -106,6 +113,7 @@ class OrbitCamera {
     /** Screen pixels per model unit at [p] (perspective: what a 1-unit sprite at [p] measures on screen), or null behind the camera. */
     fun pxPerUnit(p: Vec3): Double? {
         val zc = -((p - eye) dot back); if (zc <= 1e-9) return null
+        if (orthographic) return viewportHeight / (2 * halfH)
         return viewportHeight / (2 * tan(fovY / 2) * zc)
     }
 
@@ -115,8 +123,8 @@ class OrbitCamera {
         val zc = -(d dot back)
         if (zc <= 1e-9) return null
         val t = tan(fovY / 2)
-        val nx = (d dot right) / (zc * t * aspect)
-        val ny = (d dot up) / (zc * t)
+        val nx = if (orthographic) (d dot right) / (halfH * aspect) else (d dot right) / (zc * t * aspect)
+        val ny = if (orthographic) (d dot up) / halfH else (d dot up) / (zc * t)
         return Pair(((nx + 1) / 2 * viewportWidth).toFloat(), ((1 - ny) / 2 * viewportHeight).toFloat())
     }
 

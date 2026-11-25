@@ -1,0 +1,356 @@
+[
+ {
+  "key": "bolts",
+  "title": "Bolts at node gussets",
+  "file": "R12_bolts.ss",
+  "target": [
+   52905.59,
+   27637.5,
+   6995.24
+  ],
+  "dir": [
+   0.002,
+   1.0,
+   -0.0
+  ],
+  "dist": 700.0,
+  "count": 16,
+  "ids": [
+   3601,
+   3604
+  ],
+  "parts": [
+   "Connection Plate FLT12*140",
+   "Gusset Plate FLT12*400"
+  ],
+  "amark": [
+   "VL6011",
+   "13"
+  ],
+  "pos": [
+   "6508",
+   "6524"
+  ],
+  "value": "grip 26.7 vs stack 24.0",
+  "depth": null,
+  "vmin": null,
+  "vmax": null,
+  "dmin": null,
+  "dmax": null,
+  "kinds": {
+   "grip / ": 16
+  }
+ },
+ {
+  "key": "builtup",
+  "title": "Built-up member: web against flange",
+  "file": "R12_builtup.ss",
+  "target": [
+   45280.5,
+   27925.0,
+   8544.75
+  ],
+  "dir": [
+   -0.0,
+   -1.0,
+   0.0
+  ],
+  "dist": 700.0,
+  "count": 78,
+  "ids": [
+   20,
+   220
+  ],
+  "parts": [
+   "Web FLT8*130",
+   "Bottom flange FLT10*150"
+  ],
+  "amark": [
+   "R3008",
+   "R3008"
+  ],
+  "pos": [
+   "3515",
+   "3507"
+  ],
+  "value": 2.6,
+  "depth": 0.0002,
+  "vmin": 2.6,
+  "vmax": 13.0,
+  "dmin": 0.0002,
+  "dmax": 0.0002,
+  "kinds": {
+   "Web FLT8*130 / Bottom flange FLT10*150": 48,
+   "Bottom flange FLT10*150 / Web FLT8*200": 30
+  }
+ },
+ {
+  "key": "purlin_rafter",
+  "title": "Purlin / cleat on the rafter top flange, cleat on the purlin",
+  "file": "R12_purlin_rafter.ss",
+  "target": [
+   52521.48,
+   22355.0,
+   7583.33
+  ],
+  "dir": [
+   0.97458,
+   -0.03306,
+   -0.22158
+  ],
+  "dist": 700.0,
+  "count": 810,
+  "ids": [
+   213,
+   1378
+  ],
+  "parts": [
+   "Top flange FLT10*150",
+   "Cleat Angle L140*60*6"
+  ],
+  "amark": [
+   "R3023",
+   "R3023"
+  ],
+  "pos": [
+   "3509",
+   "8503"
+  ],
+  "value": 3.1,
+  "depth": 0.0004,
+  "vmin": 1.0,
+  "vmax": 28.1,
+  "dmin": 0.0001,
+  "dmax": 0.0039,
+  "kinds": {
+   "Cleat Angle L140*60*6 / Purlin CC200-2-20-60": 275,
+   "Top flange FLT10*150 / Purlin CC200-2-20-60": 260,
+   "Top flange FLT10*150 / Cleat Angle L140*60*6": 195,
+   "Top flange FLT8*120 / Purlin CC200-2-20-60": 40,
+   "Bottom flange FLT8*120 / Cleat Angle L140*60*6": 24,
+   "Bottom flange FLT8*120 / Purlin CC200-2-20-60": 16
+  }
+ },
+ {
+  "key": "gusset",
+  "title": "Node: connection plate / gusset plate / web",
+  "file": "R12_gusset.ss",
+  "target": [
+   52873.71,
+   5641.0,
+   7056.63
+  ],
+  "dir": [
+   1.0,
+   -5e-05,
+   -0.00057
+  ],
+  "dist": 700.0,
+  "count": 222,
+  "ids": [
+   288,
+   3354
+  ],
+  "parts": [
+   "Web FLT8*200",
+   "Gusset Plate PL12*222.9"
+  ],
+  "amark": [
+   "C2008",
+   "12"
+  ],
+  "pos": [
+   "2513",
+   "6510"
+  ],
+  "value": 4.7,
+  "depth": 0.0024,
+  "vmin": 1.0,
+  "vmax": 18.4,
+  "dmin": 0.0001,
+  "dmax": 0.0041,
+  "kinds": {
+   "Connection Plate FLT12*140 / Gusset Plate FLT12*140": 33,
+   "Connection Plate FLT12*140 / Gusset Plate PL12*213.4": 32,
+   "Connection Plate FLT12*140 / Gusset Plate PL12*330.1": 30,
+   "Connection Plate FLT12*140 / Gusset Plate PL12*213": 24,
+   "Connection Plate FLT12*140 / Gusset Plate PL12*279.7": 23,
+   "Connection Plate FLT12*140 / Gusset Plate PL12*280.4": 18,
+   "Connection Plate FLT12*140 / Gusset Plate PL12*330.5": 12,
+   "Connection Plate FLT12*140 / Gusset Plate PL12*230.7": 8
+  }
+ },
+ {
+  "key": "endplate",
+  "title": "End plate (post) / plate on a flange",
+  "file": "R12_endplate.ss",
+  "target": [
+   32154.38,
+   22355.0,
+   8786.03
+  ],
+  "dir": [
+   0.23067,
+   -0.97162,
+   0.05244
+  ],
+  "dist": 700.0,
+  "count": 25,
+  "ids": [
+   361,
+   1888
+  ],
+  "parts": [
+   "Top flange FLT10*150",
+   "End plate Post PL12*160"
+  ],
+  "amark": [
+   "R3017",
+   "PC7001"
+  ],
+  "pos": [
+   "3505",
+   "7501"
+  ],
+  "value": 4.9,
+  "depth": 0.0002,
+  "vmin": 3.3,
+  "vmax": 5.4,
+  "dmin": 0.0002,
+  "dmax": 0.0027,
+  "kinds": {
+   "Top flange FLT10*150 / End plate Post PL12*160": 24,
+   "Bottom flange FLT10*150 / PLATE FLT10*120": 1
+  }
+ },
+ {
+  "key": "rail_stanchion",
+  "title": "Hand rail / railing into the stanchion",
+  "file": "R12_rail_stanchion.ss",
+  "target": [
+   598.0,
+   12929.75,
+   3068.0
+  ],
+  "dir": [
+   0.0,
+   -0.7071,
+   -0.70711
+  ],
+  "dist": 700.0,
+  "count": 52,
+  "ids": [
+   797,
+   867
+  ],
+  "parts": [
+   "Hand Rail CHS48*3",
+   "Stanchion CHS48*3"
+  ],
+  "amark": [
+   "HR9003",
+   "STB9001"
+  ],
+  "pos": [
+   "9522",
+   "23"
+  ],
+  "value": 1065.2,
+  "depth": 1.4997,
+  "vmin": 989.3,
+  "vmax": 7722.1,
+  "dmin": 1.4265,
+  "dmax": 1.9862,
+  "kinds": {
+   "Hand Rail CHS48*3 / Stanchion CHS48*3": 26,
+   "RAILING PD50*5 / Stanchion CHS48*3": 26
+  }
+ },
+ {
+  "key": "anchor_grout",
+  "title": "Anchor rod through the grout (grout not drilled)",
+  "file": "R12_anchor_grout.ss",
+  "target": [
+   1569.0,
+   13047.75,
+   15.0
+  ],
+  "dir": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "dist": 700.0,
+  "count": 208,
+  "ids": [
+   843,
+   847
+  ],
+  "parts": [
+   "Anchor Bolt ROD16",
+   "GROUT PL30*230"
+  ],
+  "amark": [
+   "1002",
+   "7"
+  ],
+  "pos": [
+   "1502",
+   "24"
+  ],
+  "value": 5430.8,
+  "depth": 5.9301,
+  "vmin": 5430.5,
+  "vmax": 8485.5,
+  "dmin": 5.93,
+  "dmax": 7.0636,
+  "kinds": {
+   "Anchor Bolt ROD20 / GROUT PL30*260": 128,
+   "Anchor Bolt ROD20 / GROUT FLT30*300": 64,
+   "Anchor Bolt ROD16 / GROUT PL30*230": 16
+  }
+ },
+ {
+  "key": "anchor_nut",
+  "title": "Nut / washer on the anchor rod",
+  "file": "R12_anchor_nut.ss",
+  "target": [
+   49340.5,
+   27930.0,
+   270.0
+  ],
+  "dir": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "dist": 700.0,
+  "count": 384,
+  "ids": [
+   4157,
+   4159
+  ],
+  "parts": [
+   "NUT PD40*10",
+   "Anchor Bolt ROD20"
+  ],
+  "amark": [
+   "1001",
+   "1001"
+  ],
+  "pos": [
+   "5",
+   "1501"
+  ],
+  "value": 22.3,
+  "depth": 0.1618,
+  "vmin": 11.2,
+  "vmax": 22.5,
+  "dmin": 0.1605,
+  "dmax": 0.1625,
+  "kinds": {
+   "NUT PD40*10 / Anchor Bolt ROD20": 192,
+   "WASHER PD40*10 / Anchor Bolt ROD20": 192
+  }
+ }
+]

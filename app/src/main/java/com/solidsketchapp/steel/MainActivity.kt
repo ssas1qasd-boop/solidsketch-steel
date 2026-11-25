@@ -105,6 +105,8 @@ class MainActivity : ComponentActivity() {
     internal val testDoc get() = doc
     internal val testToast get() = toastMsg?.first
     internal val testBusy get() = busy
+    /** The GL view (its place on screen, for test images). */
+    @Volatile internal var testViewportView: android.view.View? = null
     /** The grid labels as the overlay drew them last (text, x, y in px). */
     @Volatile internal var testLabels: List<Triple<String, Float, Float>> = emptyList()
     /** Save / open through the same code as the menu's Save model / Open model (the system file picker is skipped). */
@@ -192,7 +194,7 @@ class MainActivity : ComponentActivity() {
         val state = com.solidsketchapp.steel.ui.ChromeState(doc.bodyIds().size, !busy && undo.canUndo(), !busy && undo.canRedo(), !busy && sel.isNotEmpty(), tool,
             "Tap a body to select · drag to orbit · pinch to zoom", menuOpen)
         com.solidsketchapp.steel.ui.AppLayout(state,
-            view = { AndroidView(factory = { ViewportView(it, viewport) }, modifier = Modifier.fillMaxSize()) },
+            view = { AndroidView(factory = { ViewportView(it, viewport).also { v -> testViewportView = v } }, modifier = Modifier.fillMaxSize()) },
             steel = if (m != null && m.on) ({ SteelOverlay(m, tick + viewTick, project = { viewport.worldToScreen(it) }, viewRev = { viewTick }, scaleAt = { viewport.camera.pxPerUnit(it)?.toFloat() }, onDrawn = { testLabels = it }); SteelPanel(m, tick, pics = compPics) }) else null,
             onUndo = { undo.undo() }, onRedo = { undo.redo() }, onDelete = { undo.group("Delete") { sel.forEach(doc::removeBody) } },
             onSoon = { toast("$it comes with the main SolidSketch port") }, onMore = { menuOpen = !menuOpen }, onTool = ::pickTool,

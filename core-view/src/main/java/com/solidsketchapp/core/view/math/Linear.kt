@@ -65,6 +65,14 @@ object Mat4 {
         return r
     }
 
+    /** Orthographic projection of the box [-halfH*aspect, halfH*aspect] x [-halfH, halfH] x [-near, -far] (column-major, GL). */
+    fun ortho(halfH: Double, aspect: Double, near: Double, far: Double): FloatArray {
+        val r = FloatArray(16)
+        r[0] = (1.0 / (halfH * aspect)).toFloat(); r[5] = (1.0 / halfH).toFloat()
+        r[10] = (-2.0 / (far - near)).toFloat(); r[14] = (-(far + near) / (far - near)).toFloat(); r[15] = 1f
+        return r
+    }
+
     fun perspective(fovYRad: Double, aspect: Double, near: Double, far: Double): FloatArray {
         val f = 1.0 / kotlin.math.tan(fovYRad / 2)
         val r = FloatArray(16)

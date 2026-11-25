@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+"""Rule-B failure groups of R12 -> orthographic emulator images next to Tekla's drawing (owner, step 1 of 2026-11-25).
+
+    python3 tools/golden/r12_views.py prepare     build/r12/geom_r12.json -> tests/steel/golden/r12/views/*.ss + views.json
+        one small .ss per failure group: the first instance's two parts (red, blue) and every R12 part within 400 mm (grey),
+        cut out of R12 unchanged; the camera: target = the overlap's centre, direction = along the contact face (the face is a
+        line on screen), the distance frames 500 mm
+    (CI) app/src/androidTest/.../R12ViewsTest opens each .ss in the app, orthographic camera, screenshot -> r12/<group>.png
+    python3 tools/golden/r12_views.py compose <dir with the screenshots>
+        -> docs/steel/parity/R12_<group>.png: emulator image (labels and the measured values written on it) | Tekla drawing page
+"""
+import gzip, json, math, os, re, subprocess, sys, zipfile, collections
+import numpy as np
+import manifold3d as mf
+
+REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+R12 = os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')
+VDIR = os.path.join(REPO, 'tests', 'steel', 'golden', 'r12', 'views')
+PKG = os.path.join(REPO, 'tests', 'steel', 'tekla', 'Frame_28mx53m_Package_1.zip')
+
+GROUPS = [   # (key, title, test on a failure) - first match wins
+    ('anchor_nut', 'Nut / washer on the anchor rod', lambda f: f['check'] == 'OVERLAP' and 'Anchor Bolt' in f.get('other', '') + f['part'] and ('NUT' in f['part'] or 'WASHER' in f['part'])),
+    ('anchor_grout', 'Anchor rod through the grout (grout not drilled)', lambda f: f['check'] == 'OVERLAP' and 'Anchor Bolt' in f['part'] + f.get('other', '') and 'GROUT' in f['part'] + f.get('other', '')),
+    ('rail_stanchion', 'Hand rail / railing into the stanchion', lambda f: f['check'] == 'OVERLAP' and 'Stanchion' in f['part'] + f.get('other', '')),
+    ('purlin_rafter', 'Purlin / cleat on the rafter top flange, cleat on the purlin', lambda f: f['check'] == 'OVERLAP' and ('Purlin' in f['part'] + f.get('other', '') or 'Cleat' in f['part'] + f.get('other', ''))),
+    ('builtup', 'Built-up member: web against flange', lambda f: f['check'] == 'OVERLAP' and {f['part'].split()[0], f.get('other', '').split()[0]} <= {'Web', 'Top', 'Bottom'}),
+    ('gusset', 'Node: connection plate / gusset plate / web', lambda f: f['check'] == 'OVERLAP' and ('Gusset' in f['part'] + f.get('other', '') or 'Connection' in f['part'] + f.get('other', ''))),
+    ('endplate', 'End plate (post) / plate on a flange', lambda f: f['check'] == 'OVERLAP'),
+    ('bolts', 'Bolts at node gussets', lambda f: f['check'] == 'BOLTS'),
+    ('floating', 'Floating part', lambda f: f['check'] == 'FLOATING'),
+    ('contact', 'Contact', lambda f: f['check'] == 'CONTACT'),
+]
+
+def doc(): return json.load(gzip.open(R12))
+
+def VT(b): s = b['shape']; return np.asarray(s['vp'], float).reshape(-1, 3), np.asarray(s['tv'], np.uint64).reshape(-1, 3)
+def man(b): V, T = VT(b); return mf.Manifold(mf.Mesh64(np.ascontiguousarray(V), np.ascontiguousarray(T)))
+
+def group_of(f):
+    for k, t, test in GROUPS:
+        if test(f): return k, t
+    return 'other', 'Other'
+
+def prepare(fails_path):
+    D = doc(); B = {b['id']: b for b in D['doc']['bodies']}; C = {c['id']: c for c in D['doc']['stConns']}
+    F = json.load(open(fails_path)); groups = collections.OrderedDict()
+    for f in F:
+        if f['check'] == 'OVERLAP' and f['type'] != 'model': continue          # the model-wide pass lists every overlap once
+        k, t = group_of(f); g = groups.setdefault(k, dict(key=k, title=t, fails=[]))
+        g['fails'].append(f)
+    os.makedirs(VDIR, exist_ok=True); views = []
+    boxes = {i: np.r_[VT(b)[0].min(0), VT(b)[0].max(0)] for i, b in B.items() if b.get('shape')}
+    for k, g in groups.items():
+        f = g['fails'][0]
+        if f.get('ids'): ids = f['ids']
+        else: c = C[int(f['conn'])]; ids = c['parts'][:2]
+        a, b = B[ids[0]], B[ids[1]] if len(ids) > 1 else None
+        if b is not None and f['check'] == 'OVERLAP':
+            I = man(a) ^ man(b); m = I.to_mesh64(); P = np.asarray(m.vert_properties)[:, :3]
+            ctr = (P.min(0) + P.max(0)) / 2; U, s, Vt = np.linalg.svd(P - P.mean(0), full_matrices=False)
+            n = Vt[2]; long_ = Vt[0]; view = Vt[1]         # look along the overlap's middle extent: its face shows edge-on, its length across
+        else:
+            c = C[int(f['conn'])]; q = c['q']; ctr = np.mean(np.array(q['pts'], float), 0); ax = np.array(q['ax'], float)
+            view = np.cross(ax, [0, 0, 1.0]); view = view / (np.linalg.norm(view) or 1); n = ax
+        if abs(view[2]) > 0.9: view = np.array([1.0, 0, 0]) if abs(n[0]) < 0.9 else np.array([0, 1.0, 0])
+        keep = [i for i, bx in boxes.items() if (bx[:3] < ctr + 400).all() and (bx[3:] > ctr - 400).all()]
+        bodies = []
+        for i in keep:
+            x = json.loads(json.dumps(B[i])); x['color'] = 0xd03030 if i == ids[0] else 0x3060d0 if (len(ids) > 1 and i == ids[1]) else 0xb0b0b8
+            bodies.append(x)
+        out = {k2: v for k2, v in D.items() if k2 != 'doc'}; d2 = json.loads(json.dumps({k2: v for k2, v in D['doc'].items() if k2 not in ('bodies', 'stConns')}))
+        d2['bodies'] = bodies; d2['stConns'] = [c for c in D['doc']['stConns'] if set(c['parts']) <= set(keep)]; out['doc'] = d2; out['name'] = 'R12_' + k
+        fn = 'R12_%s.ss' % k
+        with open(os.path.join(VDIR, fn), 'wb') as fh:
+            with gzip.GzipFile(fileobj=fh, mode='wb', mtime=0, filename='') as gz: gz.write(json.dumps(out, separators=(',', ':')).encode())
+        vals = [x['value'] for x in g['fails'] if isinstance(x['value'], (int, float))]; deps = [x['depth'] for x in g['fails'] if x.get('depth') is not None]
+        views.append(dict(key=k, title=g['title'], file=fn, target=[round(float(v), 2) for v in ctr], dir=[round(float(v), 5) for v in view], dist=700.0,
+                          count=len(g['fails']), ids=ids, parts=[a['st']['name'] + ' ' + a['st']['tprof'], (b['st']['name'] + ' ' + b['st']['tprof']) if b else ''],
+                          amark=[a['st'].get('amark'), b['st'].get('amark') if b else None], pos=[a['st'].get('pos'), b['st'].get('pos') if b else None],
+                          value=f['value'], depth=f.get('depth'), vmin=min(vals) if vals else None, vmax=max(vals) if vals else None,
+                          dmin=min(deps) if deps else None, dmax=max(deps) if deps else None,
+                          kinds=dict(collections.Counter('%s / %s' % (x['part'], x.get('other', '')) for x in g['fails']).most_common(8))))
+    json.dump(views, open(os.path.join(VDIR, 'views.json'), 'w'), indent=1)
+    for v in views: print(v['key'], v['count'], v['parts'], v['amark'], v['value'], v['depth'])
+
+def tekla_page(amark, out_png):
+    with zipfile.ZipFile(PKG) as z:
+        n = next((x for x in z.namelist() if x.endswith('/Assembly Drawings/%s - Assembly Drawings.pdf' % amark)), None)
+        if n is None: return False
+        tmp = out_png + '.pdf'; open(tmp, 'wb').write(z.read(n))
+    subprocess.run(['pdftoppm', '-png', '-r', '110', '-singlefile', tmp, out_png[:-4]], check=True); os.remove(tmp); return True
+
+def compose(shots):
+    from PIL import Image, ImageDraw, ImageFont
+    F = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 22); FB = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 26)
+    views = json.load(open(os.path.join(VDIR, 'views.json'))); outd = os.path.join(REPO, 'docs', 'steel', 'parity', 'r12'); os.makedirs(outd, exist_ok=True)
+    for v in views:
+        p = next((os.path.join(shots, x) for x in sorted(os.listdir(shots)) if x.endswith('_%s.png' % v['key'])), None)
+        if p is None: print('no screenshot for', v['key']); continue
+        em = Image.open(p).convert('RGB'); H = 1100; em = em.resize((int(em.width * H / em.height), H))
+        tk = os.path.join(outd, '_tekla_%s.png' % v['key']); ok = tekla_page(v['amark'][0], tk)
+        tim = Image.open(tk).convert('RGB') if ok else Image.new('RGB', (800, H), (240, 240, 240))
+        tim = tim.resize((int(tim.width * H / tim.height), H)) if ok else tim
+        W = em.width + tim.width + 60; im = Image.new('RGB', (W, H + 260), (255, 255, 255)); d = ImageDraw.Draw(im)
+        d.text((20, 14), 'R12 rule-B failure group: %s (%d)' % (v['title'], v['count']), font=FB, fill=(0, 0, 0))
+        d.text((20, 50), 'left: the app on the emulator, R12 opened, orthographic camera; red = %s, blue = %s (marks %s / %s, assembly %s)' % (v['parts'][0], v['parts'][1], v['pos'][0], v['pos'][1], v['amark'][0]), font=F, fill=(40, 40, 40))
+        d.text((20, 80), 'right: Tekla assembly drawing %s (package)' % v['amark'][0], font=F, fill=(40, 40, 40))
+        im.paste(em, (20, 120)); im.paste(tim, (40 + em.width, 120))
+        y = 130 + H
+        meas = ('overlap %.1f mm³ (all in group %.1f..%.1f), mean depth %.4f mm (group %.4f..%.4f)' % (v['value'], v['vmin'], v['vmax'], v['depth'] or 0, v['dmin'] or 0, v['dmax'] or 0)) if isinstance(v['value'], (int, float)) else 'measured: %s' % v['value']
+        d.text((20, y), meas, font=FB, fill=(200, 0, 0)); d.text((20, y + 40), 'in this group: ' + '; '.join('%s x%d' % (a, b) for a, b in list(v['kinds'].items())[:4]), font=F, fill=(60, 60, 60))
+        out = os.path.join(outd, 'R12_%s.png' % v['key']); im.save(out); os.remove(tk) if ok else None; print(out, im.size)
+
+if __name__ == '__main__':
+    if sys.argv[1] == 'prepare': prepare(sys.argv[2] if len(sys.argv) > 2 else os.path.join(REPO, 'build', 'r12', 'geom_r12.json'))
+    else: compose(sys.argv[2])
