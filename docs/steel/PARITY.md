@@ -8,8 +8,8 @@ Order, for each connection code (C04, …):
 2. **Fix it in BOTH** the web build (chapter `web/v70_tekla_parity.js`, built into `reference/solidsketch_v70.html` by `tools/web/build_v70.py`) and the app, with the same steps.
 3. **Checks:** the R10 golden (0.1 mm) and emulator screenshots of the same case (from the GitHub emulator CI), side by side with the video frames at the same view angles (ffmpeg), in `docs/steel/parity/<code>.png`, with notes on what matches and what differs.
 4. **Deliver to the owner, every time, in one message:**
-   - `reference/solidsketch_v70.html` built with the fix, as a download link the owner can open on the phone: a GitHub release asset (prerelease `parity-<code>`) or a CI artifact. It is the owner's DEV copy and never goes inside the APK.
-   - the APK from the same commit (the CI artifact `apk-phone` link)
+   - `reference/solidsketch_v70.html` built with the fix, **sent as a file in the chat** (releases cannot be created from the session, and CI has no v69 DEV copy). It is the owner's DEV copy and never goes inside the APK.
+   - the APK from the same commit, **sent as a file in the chat** next to the HTML (download the CI artifact `apk-phone` of that run, unzip it, send the .apk; give its version and sha256; the artifact link may be added)
    - `<code>.png` (video vs app)
    - matched before → after
 5. **Mark ✓ in R10-REPORT.md** ("✓ verified (R10 + video)") only after the owner replies "OK" from the phone test; otherwise "✗" with the reason.
