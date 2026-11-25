@@ -37,9 +37,10 @@ import re
 from collections import defaultdict, OrderedDict, Counter
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-G = os.path.join(REPO, 'tests', 'steel', 'golden', 'r10')
-R10 = os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R10.ss')
-REPORT = os.path.join(REPO, 'docs', 'steel', 'R10-REPORT.md')
+MODEL = os.environ.get('SS_MODEL', 'R11')   # R11 = the reference (docs/steel/PARITY.md); SS_MODEL=R10 for the old one
+G = os.path.join(REPO, 'tests', 'steel', 'golden', MODEL.lower())
+R10 = os.path.join(REPO, 'tests', 'steel', 'models', f'Frame_28x53m_{MODEL}.ss')
+REPORT = os.path.join(REPO, 'docs', 'steel', f'{MODEL}-REPORT.md')
 TOL = 0.1          # mm, positions and boxes
 NEAR, ROUGH = 5.0, 50.0
 VOL_TOL = 0.02
@@ -399,8 +400,8 @@ def write_report(o, inp):
              '**the app\'s rebuild equals v69\'s body by body** (`R10RebuildTest`, -PhostJni: 6,327 bodies and 1,272 connections, 0 differences in kind, name, volume, box, part fields, owners, bolt groups, connection settings and welds), so every number below holds for the app too.')
     L.append('')
     L.append('Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`, docs/steel/PARITY.md; the harness adds it to the '
-             'reference copy, `SS_ORACLE=v69` runs plain v69); "v69" below means that web build. v70 so far: C04 purlin cleat, Cleat location Front '
-             '(the Tekla default) for new cleats: 528 / 528 R10 parts and 1,056 / 1,056 bolts (`R10C04Test`, app vs R10, 0.1 mm).')
+             'reference copy, `SS_ORACLE=v69` runs plain v69); "v69" below means that web build. v70 so far: C04 purlin cleat, Cleat location Back '
+             '(Tekla, the default for new cleats; R11 fix 1): 528 / 528 parts and 1,056 / 1,056 bolts (`R11C04Test`, app vs R11, 0.1 mm).')
     L.append('')
     L.append('## Headline')
     L.append('')
@@ -528,7 +529,11 @@ def write_report(o, inp):
     L.append('- Component settings are taken from R10 where v69 has an option; positions along members (cleats, tongue plates, shear tabs) follow v69\'s rules, so many detail parts land NEAR or ROUGH rather than MATCHED.')
     L.append('- The app side is not part of this report: it replays `rebuild_inputs.json` through the ported applications later.')
     os.makedirs(os.path.dirname(REPORT), exist_ok=True)
-    with open(REPORT, 'w') as f: f.write('\n'.join(L) + '\n')
+    text = '\n'.join(L) + '\n'
+    if MODEL != 'R10':   # the report speaks of the model it compares with (R11 = R10 + Tekla-proven fixes, docs/steel/PARITY.md)
+        text = text.replace('R10', MODEL).replace(f'{MODEL}RebuildTest', 'R11RebuildTest')
+        text = text.replace('# ' + MODEL + ' rebuilt', '# ' + MODEL + ' rebuilt', 1)
+    with open(REPORT, 'w') as f: f.write(text)
 
 
 if __name__ == '__main__':

@@ -16,13 +16,13 @@ import java.util.zip.GZIPInputStream
 import kotlin.math.abs
 
 /**
- * C04 follow-up (owner 2026-11-25): the purlin BODY, not only the connection parts. Every R10 C / Z purlin (220) is built by
- * the app from its R10 input (p1, p2, rot, rAng, plane, depth, offsets) and compared with R10's own Tekla mesh (st.shape):
+ * C04 follow-up (owner 2026-11-25): the purlin BODY, not only the connection parts. Every R11 (= R10) C / Z purlin (220) is built by
+ * the app from its R11 input (p1, p2, rot, rAng, plane, depth, offsets) and compared with R11's own Tekla mesh (st.shape):
  * the side the web is on (the lips are the vertices 5…30 mm inside the section's depth ends, at the other flange edge), the
- * web's outer face along R10's st.v (0.1 mm) and the box (0.1 mm). The web build gives the same (tools/golden/r10_purlin_web.js,
+ * web's outer face along R11's st.v (0.1 mm) and the box (0.1 mm). The web build gives the same (tools/golden/r10_purlin_web.js,
  * tests/steel/golden/r10/purlin_web.json: 220 / 220, web faces within 0.003 mm). Needs Manifold: -PhostJni.
  */
-class R10PurlinBodyTest {
+class R11PurlinBodyTest {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
 
     private class Side(val web: Int, val face: Double?)
@@ -36,9 +36,9 @@ class R10PurlinBodyTest {
     }
     private fun pts(m: Mesh) = (0 until m.vertexCount).map { i -> DoubleArray(3) { m.positions[i * 3 + it].toDouble() } }
 
-    @Test fun purlinBodiesEqualR10() {
+    @Test fun purlinBodiesEqualR11() {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
-        val doc = Json.parseToJsonElement(GZIPInputStream(File(root, "tests/steel/models/Frame_28x53m_R10.ss").inputStream()).readBytes().decodeToString()).jsonObject.getValue("doc").jsonObject
+        val doc = Json.parseToJsonElement(GZIPInputStream(File(root, "tests/steel/models/Frame_28x53m_R11.ss").inputStream()).readBytes().decodeToString()).jsonObject.getValue("doc").jsonObject
         val purl = doc.getValue("bodies").jsonArray.map { it.jsonObject }.filter { b -> val st = b["st"] as? JsonObject
             st?.get("kind")?.jsonPrimitive?.content == "member" && Regex("^(C|CC|Z|ZZ)\\d").containsMatchIn(st["prof"]?.jsonPrimitive?.content ?: "") }
         val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
@@ -51,13 +51,13 @@ class R10PurlinBodyTest {
             val a = pts(mesh); val sr = side(r, st); val sa = side(a, st)
             val br = (0..2).map { k -> r.minOf { it[k] } } + (0..2).map { k -> r.maxOf { it[k] } }; val ba = (0..2).map { k -> a.minOf { it[k] } } + (0..2).map { k -> a.maxOf { it[k] } }
             val e = mutableListOf<String>()
-            if (sr.web == 0 || sr.web != sa.web) e += "web side app ${sa.web} vs R10 ${sr.web}"
+            if (sr.web == 0 || sr.web != sa.web) e += "web side app ${sa.web} vs R11 ${sr.web}"
             if (sr.face != null && sa.face != null && abs(sr.face - sa.face) > 0.1) e += "web face ${"%.2f".format(sa.face)} vs ${"%.2f".format(sr.face)}"
             if ((0..5).any { abs(br[it] - ba[it]) > 0.1 }) e += "box ${ba.map { Math.round(it * 10) / 10.0 }} vs ${br.map { Math.round(it * 10) / 10.0 }}"
             if (e.isEmpty()) ok++ else bad += "purlin $id ${st["prof"]} rAng ${st["rAng"]}: " + e.joinToString("; ")
         }
-        val rep = "R10 C / Z purlin bodies, app vs R10 (web side, web face 0.1 mm, box 0.1 mm): $ok / ${purl.size}\n" + bad.take(50).joinToString("\n")
-        File(root, "build").mkdirs(); File(root, "build/r10-purlin-bodies.txt").writeText(rep + "\n"); println(rep.lines().take(10).joinToString("\n"))
+        val rep = "R11 C / Z purlin bodies, app vs R11 (web side, web face 0.1 mm, box 0.1 mm): $ok / ${purl.size}\n" + bad.take(50).joinToString("\n")
+        File(root, "build").mkdirs(); File(root, "build/r11-purlin-bodies.txt").writeText(rep + "\n"); println(rep.lines().take(10).joinToString("\n"))
         assertTrue(rep, bad.isEmpty() && purl.size == 220)
     }
 }

@@ -10,8 +10,9 @@ Each stiffener and bolt group belongs to the cleat nearest to it (R10 has no lin
 """
 import gzip, json, math, os
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-G = os.path.join(REPO, 'tests', 'steel', 'golden', 'r10')
-d = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R10.ss')))['doc']
+MODEL = os.environ.get('SS_MODEL', 'R11')
+G = os.path.join(REPO, 'tests', 'steel', 'golden', MODEL.lower())
+d = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', f'Frame_28x53m_{MODEL}.ss')))['doc']
 B = {b['id']: b for b in d['bodies']}
 parts = {b['id']: b for b in json.load(open(os.path.join(G, 'r10_parts_v69.json')))['bodies']}
 inp = json.load(open(os.path.join(G, 'rebuild_inputs.json')))
@@ -36,5 +37,5 @@ for i, e in tcl:
                 'bolts': sorted([[round(v, 3) for v in p] for bid in bo_of[cid] for p in B[bid]['st']['pts']])})
 json.dump({'source': 'R10 (tests/steel/models/Frame_28x53m_R10.ss) via tools/golden/r10_c04.py: C04 purlin cleats, keyed by rebuild_inputs.json connectMany entries',
            'count': {'connections': len(out), 'parts': 2 * len(out), 'bolts': sum(len(o['bolts']) for o in out)}, 'cleats': out},
-          open(os.path.join(G, 'c04_r10.json'), 'w'), indent=None, separators=(',', ':'))
+          open(os.path.join(G, f'c04_{MODEL.lower()}.json'), 'w'), indent=None, separators=(',', ':'))
 print(len(out), 'connections,', 2 * len(out), 'parts,', sum(len(o['bolts']) for o in out), 'bolts')

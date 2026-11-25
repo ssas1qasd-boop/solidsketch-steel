@@ -5,6 +5,16 @@ History: S0–S4 in `docs/steel/PROGRESS-S0-S4.md` (incl. the postponed license 
 ## Current milestone
 **S10 done (owner 2026-11-24): applications, matched to v69 and to R10. Stopped before S11.** Steps: S10.1 golden harness ✓, S10.2 v69's own connection types ✓, S10.3 portal frame ✓, S10.4 stairs / railing / GEN ✓, S10.5 laps / sleeves / brace hardware / stub splices option cases ✓, S10.6 R10 vs v69 vs app ✓, S10.7 UI, emulator steps, UI golden, APK. Previous: S9b done (0.9.4-s9b from the CI, phone check below).
 
+## R11 and C04 = Tekla (2026-11-25, owner): Tekla's package proves R10 wrong at C04 and at the stairs
+- **Tekla package** merged (`tests/steel/tekla/Frame_28mx53m_Package_1.zip`: 418 drawings, 240 NC + DXF, reports, bolt list, db1; reference only, never in the APK).
+- **R11** = `tests/steel/models/Frame_28x53m_R11.ss`, built by `tools/golden/r11_build.py` from R10 (unchanged), one commit per fix, proofs in `docs/steel/PARITY.md`:
+  - fix 1: C04 cleats / stiffeners / bolts against the purlin web (bolt list 12X30 × 1056; R3022 / R3023 / R3001; NC 8503 / 8504);
+  - fix 2: stair stringers (web toward the treads) and brackets (bolted leg on the web), M12 8.8 L35 (bolt list 12X35 × 92; SGR9001; NC 9501 / 9502 / 9507).
+  - The bolt check on R11 shows no air on any bolt. Node gussets are proven misplaced in R10 (NC holes fit the bolts by an in-plane move), but the move isn't unique, so they are **not fixed** (owner question). The stair plate anchors are open.
+- **Reference switched to R11:** `R11-REPORT.md` (R10-REPORT retired), goldens in `tests/steel/golden/r11/`, tests `R11RebuildTest` (app = web: 6,327 bodies, 0 differences), `R11C04Test` (528 / 528, 1,056 / 1,056), `R11PurlinBodyTest` (220 / 220). Tools take `SS_MODEL` (default R11). The weight target is unchanged: R11 opened in the web build = **63,722.07 kg** (Tekla 63,711.7).
+- **C04 default = Back = Tekla** in web v70 and in the app. The s8 / S7 goldens were regenerated through v70 (`tcl_*_v69` cases keep v69), the emulator steps expect Back, the recording switches Back → v69, and the R11 views come from R11 itself.
+- All unit tests pass (110 test cases, -PhostJni).
+
 ## C04 purlin cleat parity (2026-11-25, owner): v70 · Tekla parity, Cleat location
 Only C04 (Tcl). Nothing from S11, no other connection touched. Details and proof: `docs/steel/PARITY.md` "C04".
 - **Rule:** Tekla Cold rolled overlap (1), Cleat tab → *Cleat location*, **Front is the default** ("positions the cleat according to the purlin profile"). In R10, Front on a C purlin = the **toe (open) side whatever the slope**: 264 / 264 cleats, toes uphill (96) and downhill (168). The long leg sits on the toe line and the short leg at its top points away. The L is placed like a Tekla L member at Middle / Middle: its turned profile's bounding box in the part's Top frame is centred on the axis, so it moves 1.3 / 5.8, 14.5 / 3.3, 1.8 / 6.8 mm on the slopes (0 on the column), equal to R10 to 0.1 mm. The PL6*44 stiffener uses R10's outline on the leg's outer face. Bolts: M12 L144 from the web back toward the toes.

@@ -701,7 +701,7 @@
     }
    ]
   },
-  "tcl_modify_loc_back": {
+  "tcl_modify_loc_v69": {
    "k": "Tcl",
    "members": [
     [
@@ -743,7 +743,7 @@
      "Parts",
      "row",
      "Cleat location",
-     "back"
+     "v69"
     ]
    ],
    "action": "Modify",
@@ -756,11 +756,11 @@
     "h1": 40,
     "h2": 100,
     "bolt": 12,
-    "grade": "8.8",
+    "grade": "4.6",
     "stiff": 1,
     "ts": 6,
     "a": 4,
-    "loc": "back",
+    "loc": "v69",
     "P": {
      "CLEAT": {},
      "STIFFENER": {}
@@ -834,7 +834,7 @@
     }
    ]
   },
-  "tcl_apply_loc_front": {
+  "tcl_apply_loc_back": {
    "k": "Tcl",
    "members": [
     [
@@ -876,7 +876,7 @@
      "Parts",
      "row",
      "Cleat location",
-     "front"
+     "back"
     ],
     [
      "Picture",
@@ -895,11 +895,11 @@
     "h1": 45,
     "h2": 100,
     "bolt": 12,
-    "grade": "8.8",
+    "grade": "4.6",
     "stiff": 1,
     "ts": 6,
     "a": 4,
-    "loc": "front",
+    "loc": "back",
     "P": {
      "CLEAT": {},
      "STIFFENER": {}
@@ -950,11 +950,11 @@
      "h1": 45,
      "h2": 100,
      "bolt": 12,
-     "grade": "8.8",
+     "grade": "4.6",
      "stiff": 1,
      "ts": 6,
      "a": 4,
-     "loc": "front",
+     "loc": "back",
      "P": {
       "CLEAT": {},
       "STIFFENER": {}
@@ -991,17 +991,17 @@
    "bolts": {
     "n": 2,
     "d": 12,
-    "L": 144,
+    "L": 30,
     "pts": [
      [
-      6583.97,
+      6589.82,
       22390,
-      8962.11
+      8963.44
      ],
      [
-      6596.16,
+      6602.01,
       22390,
-      8908.48
+      8909.81
      ]
     ]
    },

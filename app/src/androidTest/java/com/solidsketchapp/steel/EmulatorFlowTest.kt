@@ -241,7 +241,7 @@ class EmulatorFlowTest {
             act.runOnUiThread { mode().catDone() }
             assertTrue("column $col", true)
         }
-        // v70 · Tekla parity, C04: the Purlin cleat L dialog's Parts tab has 'Cleat location', Front for a new cleat (the Tekla default)
+        // v70 · Tekla parity, C04: the Purlin cleat L dialog's Parts tab has 'Cleat location', Back (Tekla's cleat, R11) for a new cleat
         step("cleat_dialog") {
             press("Components")
             waitFor("the catalog") { compose.onAllNodes(hasText("Applications & components")).fetchSemanticsNodes().isNotEmpty() }
@@ -252,7 +252,7 @@ class EmulatorFlowTest {
             waitFor("the Purlin cleat L dialog") { compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
             compose.onAllNodes(hasText("Parts") and hasClickAction())[0].performClick(); compose.waitForIdle()
             waitFor("Cleat location") { compose.onAllNodes(hasText("Cleat location")).fetchSemanticsNodes().isNotEmpty() }
-            assertTrue("Cleat location is not Front", compose.onAllNodes(hasText("Front")).fetchSemanticsNodes().isNotEmpty())
+            assertTrue("Cleat location is not Back", compose.onAllNodes(hasText("Back")).fetchSemanticsNodes().isNotEmpty())
             shot("cleat_dialog_parts")
             button("Cancel").performClick(); compose.waitForIdle()
         }

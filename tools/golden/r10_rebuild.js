@@ -18,8 +18,10 @@ const fs = require('fs');
 const path = require('path');
 const { REPO, GOLDEN, openV69, openSS } = require('./lib/v69');
 
-const INPUTS = path.join(GOLDEN, 'r10', 'rebuild_inputs.json');
-const MODEL = path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R10.ss');
+const M = process.env.SS_MODEL || 'R11';   // R11 = the reference (docs/steel/PARITY.md); SS_MODEL=R10 for the old one
+const DIR = path.join(GOLDEN, M.toLowerCase());
+const INPUTS = path.join(DIR, 'rebuild_inputs.json');
+const MODEL = path.join(REPO, 'tests', 'steel', 'models', `Frame_28x53m_${M}.ss`);
 
 function pageDump(opts) {   // runs in the page
   const S = __ss.S, st = __st;
@@ -65,14 +67,14 @@ async function main() {
     for (const b of dump.bodies) if (mi.has(b.id)) b.mi = mi.get(b.id);
     const out = { source: 'web v69 (reference/solidsketch_v69.html): tools/golden/r10_rebuild.js replaying tests/steel/golden/r10/rebuild_inputs.json',
       memberIds: rep.ids, errors: rep.errs, connResults: rep.log.connResults, grid: inp.grid, bodies: dump.bodies, conns: dump.conns, totals: dump.totals };
-    fs.writeFileSync(path.join(GOLDEN, 'r10', 'rebuild_v69.json'), JSON.stringify(out) + '\n');
+    fs.writeFileSync(path.join(DIR, 'rebuild_v69.json'), JSON.stringify(out) + '\n');
     console.error(`rebuild: ${JSON.stringify(dump.totals)}`);
 
     // R10 itself, opened in v69, dumped the same way (weights and solids from the same code)
     const t1 = Date.now(); const n = await openSS(page, MODEL);
     const r10 = await page.evaluate(pageDump, { full: false });
     console.error(`R10 opened (${n} bodies) and dumped in ${((Date.now() - t1) / 1000).toFixed(1)} s: ${JSON.stringify(r10.totals)}`);
-    fs.writeFileSync(path.join(GOLDEN, 'r10', 'r10_parts_v69.json'), JSON.stringify({ source: 'web v69: R10 opened with __ss.ssOpenData (tools/golden/r10_rebuild.js)', bodies: r10.bodies, totals: r10.totals }) + '\n');
+    fs.writeFileSync(path.join(DIR, 'r10_parts_v69.json'), JSON.stringify({ source: `web v69 + v70: ${M} opened with __ss.ssOpenData (tools/golden/r10_rebuild.js)`, bodies: r10.bodies, totals: r10.totals }) + '\n');
     if (errors.length) console.error('page errors:', errors.slice(0, 10));
   } finally { await browser.close(); }
 }

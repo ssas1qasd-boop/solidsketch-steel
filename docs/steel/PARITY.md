@@ -40,6 +40,8 @@ One connection at a time; do not move to another connection until the owner says
 
 ## C04 · Purlin cleat (Tcl, Tekla "Cold rolled overlap (1)")
 
+> **Superseded 2026-11-25 by Tekla's package (R11 fix 1 above).** The "Front = toe side" rule below was read from R10, and R10 was wrong there (an importer error: Tekla's bolt list has M12×30, and its drawings show the cleat against the web). **v70 now:** Cleat location **Back** is the default for new cleats and is Tekla's cleat: v69's angle and side, NC 8504's stiffener, bolts from the cleat face, M12 4.6 L30 (`web/v70_tekla_parity.js`, `FamCL.kt` `back()`). **v69** (or no `loc` = an old model) keeps the result from before v70. The Front placement is removed. Result against R11: 528 / 528 parts, 1,056 / 1,056 bolts within 0.1 mm (`R11C04Test`); with v69's placement 264 / 528 (the angles match, the stiffeners don't), 960 / 1,056 bolts. The text below is kept as the record of the R10 analysis.
+
 **Rule (one line):** Tekla's *Cleat location* is **Front** by default. On a C / U purlin, Front means the cleat stands on the purlin's **toe (open) side, whatever the slope**: its long leg sits on the toe line and its short leg is at the top, pointing away. The angle is placed like a Tekla L member at Middle / Middle, so on a slope it shifts a few mm. **Back** = v69: behind the web.
 
 ### Tekla help (text)

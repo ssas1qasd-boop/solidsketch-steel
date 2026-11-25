@@ -5,7 +5,8 @@
 'use strict';
 const fs = require('fs'), path = require('path'), zlib = require('zlib');
 const { REPO, GOLDEN, openV69 } = require('./lib/v69');
-const r10 = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(REPO, 'tests/steel/models/Frame_28x53m_R10.ss'))).toString());
+const M = process.env.SS_MODEL || 'R11';
+const r10 = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(REPO, `tests/steel/models/Frame_28x53m_${M}.ss`))).toString());
 const purl = r10.doc.bodies.filter(b => b.st && b.st.kind === 'member' && /^(C|CC|Z|ZZ)\d/.test(b.st.prof || ''));
 const side = (vp, st) => {   // web side along st.v: -1 / +1, and the web face position along v (outer face)
   const o = st.p1, u = st.u, v = st.v; const P = []; for (let i = 0; i < vp.length; i += 3) P.push([vp[i] - o[0], vp[i + 1] - o[1], vp[i + 2] - o[2]]);
@@ -25,6 +26,6 @@ const side = (vp, st) => {   // web side along st.v: -1 / +1, and the web face p
   const rows = purl.map(b => { const a = side(b.shape.vp, b.st), w = side(app[b.id], b.st); return { id: b.id, prof: b.st.prof, rot: b.st.rot, rAng: b.st.rAng, r10: a.web, web: w.web, r10Face: a.face, webFace: w.face, mirrored: a.web !== w.web }; });
   const n = rows.length, mir = rows.filter(r => r.mirrored).length;
   const byRot = {}; for (const r of rows) { const k = `${r.prof} rot ${r.rot} rAng ${Math.round(r.rAng * 100) / 100}`; (byRot[k] = byRot[k] || { n: 0, mirrored: 0 }); byRot[k].n++; if (r.mirrored) byRot[k].mirrored++; }
-  fs.writeFileSync(path.join(GOLDEN, 'r10', 'purlin_web.json'), JSON.stringify({ source: 'tools/golden/r10_purlin_web.js', n, mirrored: mir, byRot, rows }, null, 1) + '\n');
+  fs.mkdirSync(path.join(GOLDEN, M.toLowerCase()), { recursive: true }); fs.writeFileSync(path.join(GOLDEN, M.toLowerCase(), 'purlin_web.json'), JSON.stringify({ source: 'tools/golden/r10_purlin_web.js', n, mirrored: mir, byRot, rows }, null, 1) + '\n');
   console.log(`C / Z purlins: ${n}, web on the other side in the web build: ${mir}`); console.log(JSON.stringify(byRot, null, 1));
 })();

@@ -79,8 +79,9 @@ from collections import defaultdict, OrderedDict
 
 WEB_GAP = 40.0   # mm: a flange plane may sit up to this far from the web edge (R10's gable column webs are 28 mm off)
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-R10 = os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R10.ss')
-OUT = os.path.join(REPO, 'tests', 'steel', 'golden', 'r10', 'rebuild_inputs.json')
+MODEL = os.environ.get('SS_MODEL', 'R11')   # R11 = the reference since 2026-11-25 (R10 + Tekla-proven fixes, docs/steel/PARITY.md); SS_MODEL=R10 for the old one
+R10 = os.path.join(REPO, 'tests', 'steel', 'models', f'Frame_28x53m_{MODEL}.ss')
+OUT = os.path.join(REPO, 'tests', 'steel', 'golden', MODEL.lower(), 'rebuild_inputs.json')
 
 
 # ---------------------------------------------------------------- vectors

@@ -37,7 +37,7 @@ import kotlin.math.sqrt
  * The R10 case "toes down" (rafter BI220 at 12.8°, two CC200-2-20-60 purlins butting over it, rAng 347.191): the members are
  * placed one by one, the cleat is added through the catalog → Purlin cleat L dialog → Pick parts (rafter, purlin, purlin), the view
  * orbits slowly round the cleat (3D, front = along the purlins, end = along the rafter, top, 3D), then the dialog again:
- * Cleat location → Back, Modify, and the same orbit. Runs in its own pass after EmulatorFlowTest (its own screenrecord).
+ * Cleat location → v69 (the result before v70), Modify, and the same orbit. Runs in its own pass after EmulatorFlowTest (its own screenrecord).
  */
 @RunWith(AndroidJUnit4::class)
 class C04RecordingTest {
@@ -91,20 +91,20 @@ class C04RecordingTest {
     private val VIEWS = listOf("3d" to Vec3(1.0, -1.2, 0.9), "front" to Vec3(0.02, -1.0, 0.12), "end" to Vec3(1.0, 0.02, 0.12), "top" to Vec3(0.05, -0.08, 1.0), "3d_back" to Vec3(-1.0, 1.2, 0.9))
 
     /**
-     * The "R10 (Tekla)" row of docs/steel/parity/C04.png: R10 itself opened in the app (its stored Tekla meshes: purlins, cleat,
-     * stiffener, bolts), the same views at the same joint as c04Recording (the R10 cleat 3185 at the rafter of grid line 5).
+     * The "R11 (Tekla)" row of docs/steel/parity/C04.png: R11 itself opened in the app (R10's Tekla meshes with the Tekla-proven C04
+     * cleats, stiffeners and bolts, docs/steel/PARITY.md), the same views at the same joint as c04Recording (cleat 3185, rafter R3022).
      */
-    @Test fun c04R10Views() {
+    @Test fun c04R11Views() {
         waitFor("the steel data", 60_000) { act.testSteel != null }
-        val f = java.io.File(act.cacheDir, "r10.ss")
-        InstrumentationRegistry.getInstrumentation().context.assets.open("Frame_28x53m_R10.ss").use { i -> f.outputStream().use { i.copyTo(it) } }
+        val f = java.io.File(act.cacheDir, "r11.ss")
+        InstrumentationRegistry.getInstrumentation().context.assets.open("Frame_28x53m_R11.ss").use { i -> f.outputStream().use { i.copyTo(it) } }
         act.runOnUiThread { act.testOpen(f) }
-        waitFor("R10 opened", 240_000) { act.testToast?.startsWith("Opened") == true && !act.testBusy }
+        waitFor("R11 opened", 240_000) { act.testToast?.startsWith("Opened") == true && !act.testBusy }
         pause(3000)
         val want = Vec3(6480.0, 22355.0, 8990.0)
         val cl = act.testDoc.bodyIds().filter { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "Cleat Angle" }.minBy { centre(it).let { c -> (c.x - want.x) * (c.x - want.x) + (c.y - want.y) * (c.y - want.y) + (c.z - want.z) * (c.z - want.z) } }
         val c = centre(cl)
-        for ((name, dir) in VIEWS) { look(c, dir, 1500.0); pause(2500); shot("r10_$name") }
+        for ((name, dir) in VIEWS) { look(c, dir, 1500.0); pause(2500); shot("r11_$name") }
     }
     private fun centre(id: BodyId): Vec3 {
         val m = act.testDoc.bodyMesh(id)!!; val lo = doubleArrayOf(1e18, 1e18, 1e18); val hi = doubleArrayOf(-1e18, -1e18, -1e18)
@@ -135,7 +135,7 @@ class C04RecordingTest {
             val all = compose.onAllNodes(hasText("Properties") and hasClickAction()); val ns = all.fetchSemanticsNodes()
             all[ns.indices.filter { ns[it].boundsInRoot.width > 0f }.minBy { ns[it].boundsInRoot.top }].performClick()
             waitFor("the Purlin cleat L dialog") { compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
-            pause(1200); compose.onAllNodes(hasText("Parts") and hasClickAction())[0].performClick(); pause(1500); shot("dialog_front")
+            pause(1200); compose.onAllNodes(hasText("Parts") and hasClickAction())[0].performClick(); pause(1500); shot("dialog_back")
             press("Pick parts"); pause(800)
             val n0 = mode().comps!!.conns().size
             tapAt(screen(Vec3(5600.0, 22355.0, 8636.0))); pause(700)                   // rafter (its axis, below the purlins)
@@ -143,22 +143,22 @@ class C04RecordingTest {
             tapAt(screen(Vec3(6507.8, 21400.0, 9057.6))); pause(700)                   // purlin 2
             waitFor("the purlin cleat") { mode().comps!!.conns().size == n0 + 1 }
             act.runOnUiThread { mode().catDone() }; pause(800)
-            assertTrue("new cleat loc ${locOf()}", locOf() == "front")
+            assertTrue("new cleat loc ${locOf()}", locOf() == "back")
             val c = cleatCentre()
-            orbit(c, 1500.0, "front")
+            orbit(c, 1500.0, "back")
             // the dialog of this cleat (as a tap on its symbol), Parts → Cleat location → Back, Modify
             val cl = act.testDoc.bodyIds().first { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "CLEAT" }
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(cl)) }; pause(800)
             press("Components")   // with a component part selected: that component's dialog
             waitFor("the cleat's dialog") { compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
             pause(800); compose.onAllNodes(hasText("Parts") and hasClickAction())[0].performClick(); pause(1000)
-            compose.onAllNodes(hasText("Front") and hasClickAction())[0].performClick(); pause(900)
-            compose.onAllNodes(hasText("Back") and hasClickAction())[0].performClick(); pause(900); shot("dialog_back")
+            compose.onAllNodes(hasText("Back") and hasClickAction())[0].performClick(); pause(900)
+            compose.onAllNodes(hasText("v69 (before v70)") and hasClickAction())[0].performClick(); pause(900); shot("dialog_v69")
             press("Modify"); pause(800)
-            waitFor("Cleat location Back") { locOf() == "back" }
+            waitFor("Cleat location v69") { locOf() == "v69" }
             compose.onAllNodes(hasText("Cancel") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Cancel") and hasClickAction())[0].performClick() }
             act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; pause(800)
-            orbit(cleatCentre(), 1500.0, "back")
+            orbit(cleatCentre(), 1500.0, "v69")
             pause(1000)
         } finally {
             sh("pkill -INT screenrecord"); Thread.sleep(3000); rec.close()
