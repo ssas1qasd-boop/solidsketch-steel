@@ -22,13 +22,26 @@ rm -f "$OUT/.stop"
 REC=$!
 
 START=$(date +%s)
-./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden --stacktrace > "$OUT/connected.log" 2>&1
+./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.notClass=com.solidsketchapp.steel.C04RecordingTest --stacktrace > "$OUT/connected.log" 2>&1
 RC=$?
 echo "$(( $(date +%s) - START ))" > "$OUT/connected_seconds.txt"
 echo "$RC" > "$OUT/connected_rc.txt"
 
 touch "$OUT/.stop"; adb shell pkill -INT screenrecord || true; sleep 4; kill $REC 2>/dev/null || true; wait $REC 2>/dev/null || true
 for f in $(adb shell ls /sdcard/ | tr -d '\r' | grep '^ci_rec_.*\.mp4$'); do adb pull "/sdcard/$f" "$OUT/$f" || true; done
+
+# Parity video (docs/steel/PARITY.md, standing rule): the connection's own recording, in a second pass with no other
+# screenrecord running (C04RecordingTest starts and stops its own). Pass 1's screenshots and reports are kept.
+A=app/build/outputs/connected_android_test_additional_output; R1="$OUT/pass1"; mkdir -p "$R1"
+cp -r "$A" "$R1/additional" 2>/dev/null || true; cp -r app/build/reports/androidTests "$R1/reports" 2>/dev/null || true; cp -r app/build/outputs/androidTest-results "$R1/results" 2>/dev/null || true
+adb shell rm -f /sdcard/c04_rec.mp4 || true
+./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.C04RecordingTest --stacktrace > "$OUT/c04_recording.log" 2>&1
+echo $? > "$OUT/c04_rc.txt"
+adb pull /sdcard/c04_rec.mp4 "$OUT/C04_recording.mp4" || true
+mkdir -p "$A"; cp -rn "$R1/additional/." "$A/" 2>/dev/null || true
+rm -rf app/build/reports/androidTests app/build/outputs/androidTest-results
+cp -r "$R1/reports" app/build/reports/androidTests 2>/dev/null || true; cp -r "$R1/results" app/build/outputs/androidTest-results 2>/dev/null || true
+tail -n 30 "$OUT/c04_recording.log"
 adb logcat -d > "$OUT/logcat.txt" || true
 tail -n 60 "$OUT/connected.log"
 exit 0   # the result is read from connected_rc.txt (the summary step fails the job)

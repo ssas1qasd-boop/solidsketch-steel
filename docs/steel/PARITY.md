@@ -11,6 +11,7 @@ Order, for each connection code (C04, …):
    - `reference/solidsketch_v70.html` built with the fix, **sent as a file in the chat** (releases cannot be created from the session, and CI has no v69 DEV copy). It is the owner's DEV copy and never goes inside the APK.
    - the APK from the same commit, **sent as a file in the chat** next to the HTML (download the CI artifact `apk-phone` of that run, unzip it, send the .apk; give its version and sha256; the artifact link may be added)
    - `<code>.png` (video vs app)
+   - **an emulator screen recording `<code>_recording.mp4` (30–60 s), sent as a file in the chat**: place the connection's case (e.g. C04: a rafter and 2 C purlins), add the component through its dialog, orbit slowly round it (front, end, top, 3D), change the parity option (C04: Cleat location → Back), Modify, orbit again. Made by `<Code>RecordingTest` (androidTest) in its own second pass of `tools/ci/emulator_run.sh` (its own screenrecord), uploaded in the `screen-recording` artifact as `ci-out/<code>_recording.mp4`
    - matched before → after
 5. **Mark ✓ in R10-REPORT.md** ("✓ verified (R10 + video)") only after the owner replies "OK" from the phone test; otherwise "✗" with the reason.
 One connection at a time; do not move to another connection until the owner says so.
