@@ -79,9 +79,13 @@ Agreement (the same label and value in two sources):
 Notes (C20, 2026-11-26):
 - Models: the three KTS / user videos (XdvAYaGJ5OY, ebPk5Jc3ENI, lYG_CPzBR40) were read with the main model (gemini-flash-latest; pass 1
   low resolution, pass 2 high resolution, 60 s chunks). Tekla's own video "Stiffener and Gusset Plate Width Tolerance" (Tekla Software,
-  qvQZWnkhhas) was read with the LIGHTER model (gemini-flash-lite-latest) after the main model's daily quota ran out (429): it shows the
-  186 Stiffeners tab for 4 s (02:41-02:45, inch units) and read only "Picture 1 = 4"; not used. Re-read it with the main model when the
-  quota resets.
+  qvQZWnkhhas) was read with the LIGHTER model (gemini-flash-lite-latest) after the main model's daily quota ran out (429). The lite
+  model called 02:41-02:45 "the 186 Stiffeners tab"; the Apify frames (frames_qvQZWnkhhas/f_158-168, dialog title "Multiple stiffeners
+  (1064)") show it is a different component, Multiple stiffeners (1064). Not a 186 source; nothing from it is used. (A main-model re-read
+  is not needed for C20.)
+- Frames of a real 186 dialog (Apify emttn/frameskim): frames_lYG_CPzBR40/f_74-194 (01:14-03:14), dialog title "Column with stiffeners
+  (186)", Stiffeners tab with Top NS / Top FS / Bottom NS / Bottom FS t b h blank and the stiffener pictures; f_134 (02:14) is the video
+  panel of C20.png.
 - What the videos show: the 186 Stiffeners tab with the stiffener t / b / h boxes blank (read as 0 / 0"), i.e. Tekla computes them; the
   imperial video (ebPk5Jc3ENI) types t = 1/8" and 1/4". No video shows Stiffener gap 1 / 2, the chamfers or the flange strip. The only
   value two sources agree on is "Bottom NS = 0" (blank). So the videos give no number to start from; the starting values are Tekla's site

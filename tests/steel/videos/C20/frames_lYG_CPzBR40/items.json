@@ -1,0 +1,77 @@
+[
+ {
+  "videoId": "lYG_CPzBR40",
+  "t": 74,
+  "ts": "0:01:14",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "lYG_CPzBR40",
+  "t": 94,
+  "ts": "0:01:34",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "lYG_CPzBR40",
+  "t": 114,
+  "ts": "0:01:54",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "lYG_CPzBR40",
+  "t": 134,
+  "ts": "0:02:14",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "lYG_CPzBR40",
+  "t": 154,
+  "ts": "0:02:34",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "lYG_CPzBR40",
+  "t": 174,
+  "ts": "0:02:54",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "lYG_CPzBR40",
+  "t": 194,
+  "ts": "0:03:14",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "type": "summary",
+  "mode": "frames",
+  "videoId": "lYG_CPzBR40",
+  "title": "KTS - Column with Stiffeners (186) in Tekla Structures",
+  "frames": 7,
+  "every": 20,
+  "source": "media",
+  "resolution": "640x360",
+  "lowResolutionFallback": false,
+  "downloadedBytes": 11613415,
+  "proxy": "datacenter",
+  "variableCostUsd": 0.002523,
+  "stoppedByBudget": false,
+  "quality": "standard",
+  "hdAttempted": false,
+  "hdSkippedReason": "",
+  "videoEvent": "video-processed"
+ }
+]

@@ -1,0 +1,69 @@
+[
+ {
+  "videoId": "qvQZWnkhhas",
+  "t": 158,
+  "ts": "0:02:38",
+  "width": 596,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "qvQZWnkhhas",
+  "t": 160,
+  "ts": "0:02:40",
+  "width": 596,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "qvQZWnkhhas",
+  "t": 162,
+  "ts": "0:02:42",
+  "width": 596,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "qvQZWnkhhas",
+  "t": 164,
+  "ts": "0:02:44",
+  "width": 596,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "qvQZWnkhhas",
+  "t": 166,
+  "ts": "0:02:46",
+  "width": 596,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "qvQZWnkhhas",
+  "t": 168,
+  "ts": "0:02:48",
+  "width": 596,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "type": "summary",
+  "mode": "frames",
+  "videoId": "qvQZWnkhhas",
+  "title": "Stiffener and Gusset Plate Width Tolerance",
+  "frames": 6,
+  "every": 2,
+  "source": "media",
+  "resolution": "596x360",
+  "lowResolutionFallback": false,
+  "downloadedBytes": 1507165,
+  "proxy": "datacenter",
+  "variableCostUsd": 0.000501,
+  "stoppedByBudget": false,
+  "quality": "standard",
+  "hdAttempted": false,
+  "hdSkippedReason": "",
+  "videoEvent": "video-processed"
+ }
+]
