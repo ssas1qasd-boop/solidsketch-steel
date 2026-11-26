@@ -36,7 +36,8 @@ When sources disagree, the higher one wins:
 
    `APIFY_TOKEN` and `GEMINI_API_KEY` are set in the environment. Never print them, never write them to a file or a log.
 
-## Reverse-engineering method, per connection (owner, 2026-11-26)
+## Reverse-engineering method, per connection (owner, 2026-11-26; step 0 added 2026-11-26 with C13)
+0. **Tekla's own site first:** search support.tekla.com / help.trimble.com for the component and the tab in question (help page, picture captions, tips, release notes, the Tekla Discussion forum, Tekla User Assistance videos or animations). Cite every page used in the connection's section. Tekla's own material, including its videos, comes before YouTube. Also check which Tekla component can make the parts at all: a part name can belong to several components (C13: Top / Bottom NS / FS are both 144's and 186's names).
 1. **Starting settings:** the video's dialog values.
 2. **Target:** every instance of the connection in R12.
 3. **Search** the dialog inputs in code (headless web oracle / app over JNI) until the build reproduces **all** instances within 0.1 mm. That covers connection parts AND member bodies, with 0 rule-B failures.
@@ -96,6 +97,34 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 ### Checked with the package, not fixed (yet)
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
+
+## C13 · Mezzanine girder → column: evidence (owner 2026-11-26; waiting for the owner's decision)
+
+### Step 0: Tekla's own site
+- [End plate (144), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_144_help), Stiffeners tab:
+  - stiffeners in the main part: Top NS, Top FS, Bottom NS, Bottom FS (t, b, h);
+  - orientation; creation (Automatic / created / not created);
+  - shape (line chamfered / square / gap for the web rounding);
+  - positions 1–5 (gaps to the beam web and flange edges);
+  - chamfer 1 / 2, whose default is "the radius of the profile", and chamfer type.
+- [End plate (144), 2024](https://support.tekla.com/doc/tekla-structures/2024/conn_144_help): the same tab, with chamfer defaults of 10 mm.
+- [What's new in components, 2025](https://support.tekla.com/doc/tekla-structures/2025/rel_improvements_in_components): the "radius of the profile" default chamfer, which this note gives for Stiffener (1003).
+- [Shear plate simple (146), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_146_help): its Stiffeners tab makes only an "opposite web stiffener".
+- [Column with stiffeners (186), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_186_help):
+  - a square shear tab "welded to the main part web and stiffeners"; stiffeners Top / Bottom NS / FS;
+  - **Stiffener gap**: "distance from the edge of the flange to the edge of the stiffener" and "gap between the flanges and the stiffener";
+  - positions 1–5 as in 144.
+- Videos: none of Tekla's own videos found for 144's or 186's Stiffeners tab (search of support.tekla.com / help.trimble.com).
+
+### R12 (all 84 stiffeners; R10's grouping was a hint only)
+| Where | Joints | Parts | Fits |
+|---|---|---|---|
+| Mezzanine girder EB (BI320) → column C20 flange: End Plate PL16*120 (Tekla name "End Plate " with a trailing space), 16 × 120 × 430, ext 55 / 55; M16 8.8 L50, 2 × 4 at 60, rows 30 / 100 / 330 / 400 from the top | 6 | girder side "Top Stiff." / "Bot Stiff." FLT10*50: 2 per joint, against the extended end plate in the girder web plane, 50 × 55, clip 15 × 15, chamfer 12.5 | **144**: Haunch tab plates (as C09) |
+| The same 6 columns and 9 more C20 columns (all 15) | 15 | "Top FS / Top NS / Bot FS / Bot Ns" FLT10*70: 296 × 70 × 10, square, 2 mm from each column flange, 1 mm in from the flange edge, flush with the **BI312 web-side beam's** flanges (bottom at 3676: 4 mm below the 144 girder's bottom flange) | **186** at the BI312 beam on the column web (its shear tab FLT10*150, stiffener gaps 1 and 2): one rule for all 15; 144 would need a non-default 4 mm bottom gap at 6 of them and could not explain the other 9 |
+| Gable columns EGC2002 (2) | 2 | FS / NS FLT10*90 at shear-plate joints | 186 (or 146) at those joints |
+| Mezzanine column MBC2001 standing on the girders: End Plate PL16*120 | 2 | "Top / Bot Stiff." FLT10*50 | 144, column on beam (R04: row 15 "Cap 39") |
+
+**Input bug found:** `r10_inputs.py` takes the name "End Plate " (trailing space) as Cap 39. So all 8 PL16*120 end plates are rebuilt as T39 (row 15), and row 13 has no component. Only 2 of the 8 end plates match today.
 
 ## C02h · Eave haunch (our own component), at each eave with End plate 144 (owner 2026-11-26)
 
