@@ -117,8 +117,8 @@ class C20RecordingTest {
     private fun stiffeners() = act.testDoc.bodyIds().count { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "STIFFENER" }
     private fun closeDialog() { compose.onAllNodes(hasText("Cancel") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Cancel") and hasClickAction())[0].performClick() }
         act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; pause(800) }
-    private fun stills(c: Vec3, tag: String) {   // side (from +x: the tab, its bolts, the stiffener edges, the flange strip) and top (stiffeners, chamfers)
-        landscape(true); orthoShot(Vec3(c.x, c.y - 20.0, c.z), Vec3(1.0, 0.0, 0.0), 1100.0, "ortho_side$tag"); orthoShot(Vec3(c.x, c.y - 20.0, c.z), Vec3(0.0, -0.02, 1.0), 1100.0, "ortho_top$tag"); landscape(false)
+    private fun stills(c: Vec3, tag: String) {   // plan from above, centred between the far side stiffener's edge (y 16711) and the beam flange strip (16879): stiffeners, chamfers, gap 2, tab, strip 90
+        landscape(true); orthoShot(Vec3(52838.0, 16795.0, 4300.0), Vec3(0.0, -0.02, 1.0), 800.0, "ortho_top$tag"); landscape(false)
     }
 
     @Test fun c20Recording() {

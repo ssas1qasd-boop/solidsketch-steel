@@ -193,14 +193,14 @@ def c20(shots, video=None):
              f'after Top NS b 50 + Modify: {", ".join(b["stiff"])}; flange strip {b["strip"]:.1f} (50 + 20 = 70)',
              'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c20_case.ss')) + ' | b 50: ' + rule_b(os.path.join(shots, 'c20_b50.ss')),
              'R12 rebuild (web v70 and app): row 20 stiffeners 0 / 68 -> 56 / 68 (12 at beams with no web in R12), tabs 18 / 18, bolts 128 / 128, member bodies 36 / 36 (app vs R12, 0.1 mm)']
-    app, meta = shot(shots, 'ortho_side'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    app, meta = shot(shots, 'ortho_top'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
     label(app, (40, 140), 'stiffeners 10 x 70, gap 2, tab 150, strip 90')
     R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
     near_ = [b for b in RB if (VT(b)[0].min(0) < t + 1300).all() and (VT(b)[0].max(0) > t - 1300).all()]
     colr = lambda b: (230, 230, 230) if st(b).get('name') in ('Top FS', 'Top NS', 'Bot FS', 'Bot Ns') else (220, 160, 40) if st(b).get('name') == 'Shear Plate' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if st(b).get('amark', '').startswith('C') else (60, 150, 80)
     r12 = render(near_, t, dv, dist, colr, W=1400, H=900)
     vid = Image.open(video or os.path.join(REPO, 'tests', 'steel', 'videos', 'C20', 'frames_lYG_CPzBR40', 'f_134.jpg')).convert('RGB'); vid = vid.resize((vid.width * 2, vid.height * 2))
-    return compose('C20', [('R12 (Tekla IFC), C2020 / EB4007, orthographic side', r12), ('Tekla drawing C2020 (package)', tekla_page('C2020')), ('video lYG_CPzBR40 02:14: the 186 Stiffeners tab', vid), ('app on the emulator, orthographic side (landscape)', app)],
+    return compose('C20', [('R12 (Tekla IFC), C2020 / EB4007, plan, cut at +4300', r12), ('Tekla drawing C2020 (package)', tekla_page('C2020')), ('video lYG_CPzBR40 02:14: the 186 Stiffeners tab', vid), ('app on the emulator, orthographic plan (landscape)', app)],
                    'C20 Column with stiffeners (186) at the mezzanine column web: R12 | Tekla drawing | video | app (Picture + Plates + Stiffeners + Bolts tabs)', ['Measured on the models the emulator built and saved (c20_case.ss, c20_b50.ss):'] + ['! ' + m for m in lines])
 
 if __name__ == '__main__':
