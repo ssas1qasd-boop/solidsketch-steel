@@ -183,7 +183,7 @@ def c20(shots, video=None):
         sf = sorted([b for b in kids if st(b).get('name') == 'STIFFENER'], key=lambda b: (-VT(b)[0][:, 2].mean(), VT(b)[0][:, 1].mean()))
         tab = next(b for b in kids if st(b).get('name') == 'SHEAR TAB'); bo = next(b for b in kids if st(b).get('kind') == 'bolts')
         beam = next(b for b in D['bodies'] if st(b).get('kind') == 'member' and st(b).get('prof', '').startswith('BI324'))
-        bv = VT(beam)[0]; fl = bv[np.abs(bv[:, 2] - 3838) > 150 - 0.5]; strip = fl[:, 1].min() - 16789.0
+        bv = VT(beam)[0]; fl = bv[np.abs(bv[:, 2] - 3838) > 151]   # flange-only vertices (the web ends at 150); strip = fl[:, 1].min() - 16789.0
         sz = lambda b: np.ptp(VT(b)[0], axis=0)
         return dict(stiff=[f'{sz(b)[2]:.1f} x {sz(b)[1]:.1f} x {sz(b)[0]:.1f}' for b in sf], tab=sz(tab), bolt=st(bo), strip=strip)
     a = meas('c20_case.ss'); b = meas('c20_b50.ss')
@@ -191,7 +191,7 @@ def c20(shots, video=None):
              f'shear tab {a["tab"][0]:.1f} x {a["tab"][1]:.1f} x {a["tab"][2]:.1f} (R12 10 x 150 x 210), bolts M{a["bolt"]["d"]:g} {a["bolt"]["grade"]} L{a["bolt"]["L"]:g} x {a["bolt"].get("n", len(a["bolt"]["pts"]))} (R12 M16 8.8 L45 x 8)',
              f'beam flanges stripped to {a["strip"]:.1f} from the column web face (R12 90.0 = stiffener 70 + Picture 2 = 20)',
              f'after Top NS b 50 + Modify: {", ".join(b["stiff"])}; flange strip {b["strip"]:.1f} (50 + 20 = 70)',
-             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c20_case.ss')) + ' | b 50: ' + rule_b(os.path.join(shots, 'c20_b50.ss')),
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c20_case.ss')).split(';')[0] + ' | after b 50: ' + rule_b(os.path.join(shots, 'c20_b50.ss')).split(';')[0],
              'R12 rebuild (web v70 and app): row 20 stiffeners 0 / 68 -> 56 / 68 (12 at beams with no web in R12), tabs 18 / 18, bolts 128 / 128, member bodies 36 / 36 (app vs R12, 0.1 mm)']
     app, meta = shot(shots, 'ortho_top'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
     label(app, (40, 140), 'stiffeners 10 x 70, gap 2, tab 150, strip 90')
