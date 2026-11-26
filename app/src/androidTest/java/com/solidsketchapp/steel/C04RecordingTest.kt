@@ -190,7 +190,8 @@ class C04RecordingTest {
             tapAt(screen(purAt(pBC, 5570.0 + 420))); pause(700)
             waitFor("the purlin cleat") { mode().comps!!.conns().any { it.type == "Tcl" } }
             act.runOnUiThread { mode().catDone() }; pause(800)
-            val cs = mode().comps!!.conns(); assertTrue("one cleat per joint: Tpc ${cs.count { it.type == "Tpc" }} (was $tpc0)", cs.count { it.type == "Tpc" } == tpc0 - 2)
+            val cs = mode().comps!!.conns(); val left = cs.count { it.type == "Tpc" && it.parts[0] == raf[1].value && (pAB.value in it.parts || pBC.value in it.parts) }
+            assertTrue("one cleat per joint: plate cleats left at the C04 joint $left (Tpc ${cs.count { it.type == "Tpc" }}, was $tpc0)", left == 0)
             assertTrue("new cleat loc ${locOf()}", locOf() == "back")
             val c = cleatCentre()
             orbit(c, 1500.0, "back")
