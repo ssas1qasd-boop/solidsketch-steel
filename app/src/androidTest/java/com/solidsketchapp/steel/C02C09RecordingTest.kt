@@ -38,7 +38,7 @@ import kotlin.math.sqrt
  * C02 + C02h + C09, the owner's video check (docs/steel/PARITY.md "C02h", "C09"), each its own screen recording:
  *  - c02Recording: R12's eave (BI320 column, BI220 rafter at 12.8 deg). End plate (144) through its dialog with R12's settings (Picture
  *    t 20, 1 = -10, 2 = -104.385, gap 0; Bolts M20, 4 rows, 6 = 50.045, s = 70 70 80, 5 = 70, 3 = 40, Bolt length Tekla, Bolting
- *    direction 2), Pick parts (column, rafter); then the Eave haunch (C02h) through its dialog (D = depth at the column 82.91, L = haunch length
+ *    direction 2; Haunch tab: not created), Pick parts (column, rafter); then the Eave haunch (C02h) through its dialog (D = depth at the column 82.91, L = haunch length
  *    2000; Parts: web t 8, flange 10 x 150), Pick parts; orbit, orthographic stills, the model saved (c02/c02_case.ss), then the
  *    haunch's dialog again: Haunch length 1500, Modify, orbit again. /sdcard/c02_rec.mp4.
  *  - c09Recording: R12's monitor post (BI150 post on the BI220 rafter). End plate (144) with R12's settings (t 12, 1 = -55.358, 2 = -60.814,
@@ -137,6 +137,8 @@ class C02C09RecordingTest {
             // End plate (144), R12's eave settings
             openCatalog("144")
             tab("Picture"); field("tp", "20"); field("ext", "-10"); field("extb", "-104.385"); field("gap", "0"); shot("dialog144_picture")
+            // R12's eaves have no 144 haunch plates; set it, as the dialog keeps the last settings as the defaults for new components (CI 45828385900: C09 ran first)
+            tab("Haunch"); pick("hpc", "Haunch plates are not created"); shot("dialog144_haunch")
             tab("Bolts"); pick("bolt", "M20"); field("rows", "4"); field("e", "50.045"); field("pitches", "70 70 80"); field("gauge", "70"); field("side", "40")
             pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); pick("bdir", "Bolting direction 2"); shot("dialog144_bolts")
             pickParts("T144", cam, pairs)
@@ -146,12 +148,12 @@ class C02C09RecordingTest {
             tab("Picture"); field("hdep", "82.91"); field("hlen", "2000"); shot("dialogEH_picture")
             tab("Parts"); field("tw", "8"); field("tf", "10"); field("bf", "150"); shot("dialogEH_parts")
             pickParts("Teh", cam, pairs)
-            val c = centre(bodyNamed("Web"))
-            orbit(c, 3200.0, "len2000")
-            orthoShot(c, Vec3(0.0, -1.0, 0.0), 2600.0, "ortho_front")     // along the frame line: the haunch's profile, length and depth
+            val c = centre(bodyNamed("Web")).let { Vec3(it.x + 350.0, it.y, it.z) }   // a little toward the column: the end plate and column in the frame too
+            orbit(c, 4600.0, "len2000")
+            orthoShot(c, Vec3(0.0, -1.0, 0.0), 4300.0, "ortho_front")     // along the frame line: the haunch's profile, length and depth
             orthoShot(Vec3(52668.0, 22355.0, 7390.0), Vec3(-1.0, 0.0, 0.0), 900.0, "ortho_end")   // onto the end plate from the column side
-            orthoShot(c, Vec3(0.0, 0.0, -1.0), 2600.0, "ortho_under")
-            look(c, Vec3(0.9, -1.2, 0.7), 3200.0); pause(600)
+            orthoShot(c, Vec3(0.0, 0.0, -1.0), 4300.0, "ortho_under")
+            look(c, Vec3(0.9, -1.2, 0.7), 4600.0); pause(600)
             save("c02_case.ss")
             // the haunch's dialog again: Haunch length 1500, Modify
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(bodyNamed("Web"))) }; pause(800)
@@ -162,8 +164,8 @@ class C02C09RecordingTest {
             waitFor("Haunch length 1500") { q("Teh", "hlen")?.toDoubleOrNull() == 1500.0 }
             compose.onAllNodes(hasText("Cancel") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Cancel") and hasClickAction())[0].performClick() }
             act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; pause(800)
-            val c2 = centre(bodyNamed("Web")); orbit(c2, 3000.0, "len1500")
-            orthoShot(c2, Vec3(0.0, -1.0, 0.0), 2600.0, "ortho_front_len1500")
+            orbit(c, 4600.0, "len1500")
+            orthoShot(c, Vec3(0.0, -1.0, 0.0), 4300.0, "ortho_front_len1500")
             pause(800)
         } finally { sh("pkill -INT screenrecord"); Thread.sleep(3000); rec.close() }
     }
