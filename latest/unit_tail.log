@@ -1,9 +1,9 @@
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
+> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
-> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:generateDebugBuildConfig
 > Task :core-io:preBuild UP-TO-DATE
 > Task :core-io:preDebugBuild UP-TO-DATE
@@ -15,11 +15,11 @@ Daemon will be stopped at the end of the build
 > Task :steel:preDebugBuild UP-TO-DATE
 > Task :steel:writeDebugAarMetadata
 > Task :app:checkDebugAarMetadata
+> Task :core-api:processResources NO-SOURCE
 > Task :app:generateDebugResValues
 > Task :core-io:generateDebugResValues
 > Task :core-io:generateDebugResources
 > Task :core-io:packageDebugResources
-> Task :core-api:processResources NO-SOURCE
 > Task :core-view:generateDebugResValues
 > Task :core-view:generateDebugResources
 > Task :core-view:packageDebugResources
@@ -122,137 +122,28 @@ This will become an error in Kotlin 2.1.
 > Task :core-io:processDebugUnitTestJavaRes
 > Task :steel:compileDebugKotlin
 > Task :core-io:testDebugUnitTest
-> Task :core-view:compileDebugUnitTestKotlin
-> Task :core-view:compileDebugUnitTestJavaWithJavac NO-SOURCE
-> Task :core-view:processDebugUnitTestJavaRes
-> Task :core-view:testDebugUnitTest
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
 > Task :steel:bundleLibCompileToJarDebug
 > Task :steel:bundleLibRuntimeToJarDebug
 > Task :steel:processDebugJavaRes
-> Task :steel:compileDebugUnitTestKotlin
-> Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
-> Task :steel:processDebugUnitTestJavaRes
+> Task :core-view:compileDebugUnitTestKotlin
+> Task :core-view:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :core-view:processDebugUnitTestJavaRes
 > Task :app:compileDebugKotlin
+> Task :core-view:testDebugUnitTest
 > Task :app:compileDebugJavaWithJavac
 > Task :app:bundleDebugClassesToRuntimeJar
 > Task :app:bundleDebugClassesToCompileJar
-> Task :steel:testDebugUnitTest
+> Task :steel:compileDebugUnitTestKotlin
 > Task :app:processDebugJavaRes
+> Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :steel:processDebugUnitTestJavaRes
+> Task :steel:testDebugUnitTest
 > Task :app:compileDebugUnitTestKotlin
 > Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :app:processDebugUnitTestJavaRes
-
 > Task :app:testDebugUnitTest
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795670535345.json
 
-GridLabelsFollowViewTest > labelsFollowEveryViewChange FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > catalogBoxes FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > dialogT144Boxes FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > visibleGridSheet FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > visibleCatalog FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > visibleMain FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > portalSheetBoxes FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > visibleDialogT144 FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > panelBoxes FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > overlayFollowsEveryCameraState FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > visiblePortalSheet FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiGoldenTest > gridSheetBoxes FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiScreensTest > s01_main FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiScreensTest > s05_dialog_t144 FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiScreensTest > s07_menu FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiScreensTest > s06_dialog_t144_bolts FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiScreensTest > s03_grid_sheet FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiScreensTest > s02_steel_grid FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-UiScreensTest > s04_catalog FAILED
-    java.lang.AssertionError at MavenArtifactFetcher.java:129
-        Caused by: java.util.concurrent.ExecutionException at AbstractFuture.java:596
-            Caused by: java.io.IOException at HttpURLConnection.java:2059
-
-50 tests completed, 19 failed, 20 skipped
-
-> Task :app:testDebugUnitTest FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795669865265.json
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':app:testDebugUnitTest'.
-> There were failing tests. See the report at: file:///home/runner/work/solidsketch-steel/solidsketch-steel/app/build/reports/tests/testDebugUnitTest/index.html
-
-* Try:
-> Run with --scan to get full insights.
-
-BUILD FAILED in 1m 53s
+BUILD SUCCESSFUL in 2m 51s
 93 actionable tasks: 93 executed
