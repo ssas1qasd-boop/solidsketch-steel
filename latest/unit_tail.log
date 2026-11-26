@@ -1,8 +1,8 @@
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
+> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
-> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:generateDebugBuildConfig
 > Task :core-io:preBuild UP-TO-DATE
@@ -15,9 +15,9 @@ Daemon will be stopped at the end of the build
 > Task :steel:preDebugBuild UP-TO-DATE
 > Task :steel:writeDebugAarMetadata
 > Task :app:checkDebugAarMetadata
-> Task :core-api:processResources NO-SOURCE
 > Task :app:generateDebugResValues
 > Task :core-io:generateDebugResValues
+> Task :core-api:processResources NO-SOURCE
 > Task :core-io:generateDebugResources
 > Task :core-io:packageDebugResources
 > Task :core-view:generateDebugResValues
@@ -122,35 +122,33 @@ This will become an error in Kotlin 2.1.
 > Task :core-io:processDebugUnitTestJavaRes
 > Task :steel:compileDebugKotlin
 > Task :core-io:testDebugUnitTest
+> Task :steel:compileDebugJavaWithJavac NO-SOURCE
+> Task :steel:bundleLibCompileToJarDebug
+> Task :steel:bundleLibRuntimeToJarDebug
+> Task :steel:processDebugJavaRes
 > Task :core-view:compileDebugUnitTestKotlin
 > Task :core-view:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :core-view:processDebugUnitTestJavaRes
 > Task :core-view:testDebugUnitTest
-> Task :steel:compileDebugJavaWithJavac NO-SOURCE
-> Task :steel:bundleLibRuntimeToJarDebug
-> Task :steel:bundleLibCompileToJarDebug
-> Task :steel:processDebugJavaRes
+> Task :app:compileDebugKotlin
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:bundleDebugClassesToCompileJar
 > Task :steel:compileDebugUnitTestKotlin
+> Task :app:processDebugJavaRes
 > Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :steel:processDebugUnitTestJavaRes
-> Task :app:compileDebugKotlin
 
 > Task :steel:testDebugUnitTest
 
 S7CatalogTest > catalogHasEveryComponent FAILED
     java.lang.AssertionError at S7CatalogTest.kt:28
 
-> Task :app:compileDebugJavaWithJavac
-> Task :app:bundleDebugClassesToRuntimeJar
-> Task :app:bundleDebugClassesToCompileJar
-
-> Task :steel:testDebugUnitTest
-
 25 tests completed, 1 failed
 
 > Task :steel:testDebugUnitTest FAILED
 > Task :app:compileDebugUnitTestKotlin
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795698039518.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795699341969.json
 
 FAILURE: Build failed with an exception.
 
@@ -161,5 +159,5 @@ Execution failed for task ':steel:testDebugUnitTest'.
 * Try:
 > Run with --scan to get full insights.
 
-BUILD FAILED in 1m 55s
-90 actionable tasks: 90 executed
+BUILD FAILED in 2m 15s
+91 actionable tasks: 91 executed
