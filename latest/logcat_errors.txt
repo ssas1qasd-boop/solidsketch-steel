@@ -1,300 +1,300 @@
-11-26 05:41:23.053  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.055  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.055  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.057  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.057  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.218     0     0 E SELinux : avc:  denied  { find } for pid=6816 uid=2000 name=dnsresolver scontext=u:r:shell:s0 tcontext=u:object_r:dnsresolver_service:s0 tclass=service_manager permissive=0
-11-26 05:41:23.062  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.064  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.225     0     0 E SELinux : avc:  denied  { find } for pid=6816 uid=2000 name=incident scontext=u:r:shell:s0 tcontext=u:object_r:incident_service:s0 tclass=service_manager permissive=0
-11-26 05:41:23.230     0     0 E SELinux : avc:  denied  { find } for pid=6816 uid=2000 name=installd scontext=u:r:shell:s0 tcontext=u:object_r:installd_service:s0 tclass=service_manager permissive=0
-11-26 05:41:23.081  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.083  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.245     0     0 E SELinux : avc:  denied  { find } for pid=6816 uid=2000 name=mdns scontext=u:r:shell:s0 tcontext=u:object_r:mdns_service:s0 tclass=service_manager permissive=0
-11-26 05:41:23.095  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.259     0     0 E SELinux : avc:  denied  { find } for pid=6816 uid=2000 name=netd scontext=u:r:shell:s0 tcontext=u:object_r:netd_service:s0 tclass=service_manager permissive=0
-11-26 05:41:23.106  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.117  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.121  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.286     0     0 E SELinux : avc:  denied  { find } for pid=6816 uid=2000 name=suspend_control scontext=u:r:shell:s0 tcontext=u:object_r:system_suspend_control_service:s0 tclass=service_manager permissive=0
-11-26 05:41:23.289     0     0 E SELinux : avc:  denied  { find } for pid=6816 uid=2000 name=suspend_control_internal scontext=u:r:shell:s0 tcontext=u:object_r:system_suspend_control_internal_service:s0 tclass=service_manager permissive=0
-11-26 05:41:23.133  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.137  6816  6816 E Parcel  : Reading a NULL string not supported here.
-11-26 05:41:23.148  6816  6816 E IPCThreadState: Binder transaction failure. id: 492468, BR_*: 29201, error: -1 (Operation not permitted)
-11-26 05:41:23.304     0     0 E SELinux : avc:  denied  { find } for pid=6816 uid=2000 name=vold scontext=u:r:shell:s0 tcontext=u:object_r:vold_service:s0 tclass=service_manager permissive=0
-11-26 05:41:32.577     0     0 E audit   : rate limit exceeded
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: No service published for: persistent_data_block
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: persistent_data_block
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1071)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1068)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$StaticServiceFetcher.getService(SystemServiceRegistry.java:2293)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.markAsSealed(PackageInstallerSession.java:2394)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.commit(PackageInstallerSession.java:2143)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.content.pm.PackageInstaller$Session.commit(PackageInstaller.java:1977)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.doCommitSession(PackageManagerShellCommand.java:4298)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.runInstallCommit(PackageManagerShellCommand.java:1719)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:254)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.os.ShellCommand.exec(ShellCommand.java:38)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6561)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.os.Binder.shellCommand(Binder.java:1230)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.os.Binder.onTransact(Binder.java:1043)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4620)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6545)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.os.Binder.execTransactInternal(Binder.java:1505)
-11-26 05:41:32.440   559  1715 E SystemServiceRegistry: 	at android.os.Binder.execTransact(Binder.java:1444)
-11-26 05:41:32.442   559  1715 E SystemServiceRegistry: Manager wrapper not available: persistent_data_block
-11-26 05:41:32.653   559   646 E AtomicFile: Failed to rename /data/system/install_sessions.xml.new to /data/system/install_sessions.xml
-11-26 05:41:32.704   559   739 E AppOps  : attributionTag VCN not declared in manifest of android
-11-26 05:41:32.784   968   968 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-26 05:41:32.807   968   968 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-26 05:41:32.828   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: No service published for: persistent_data_block
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: persistent_data_block
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1071)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1068)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$StaticServiceFetcher.getService(SystemServiceRegistry.java:2293)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.markAsSealed(PackageInstallerSession.java:2394)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.commit(PackageInstallerSession.java:2143)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.content.pm.PackageInstaller$Session.commit(PackageInstaller.java:1977)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.doCommitSession(PackageManagerShellCommand.java:4298)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.runInstallCommit(PackageManagerShellCommand.java:1719)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:254)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.os.ShellCommand.exec(ShellCommand.java:38)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6561)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.os.Binder.shellCommand(Binder.java:1230)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.os.Binder.onTransact(Binder.java:1043)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4620)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6545)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.os.Binder.execTransactInternal(Binder.java:1505)
-11-26 05:41:32.897   559  1004 E SystemServiceRegistry: 	at android.os.Binder.execTransact(Binder.java:1444)
-11-26 05:41:32.902   559  1004 E SystemServiceRegistry: Manager wrapper not available: persistent_data_block
-11-26 05:41:32.915   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-26 05:41:32.928   968   968 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-26 05:41:32.929   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-26 05:41:32.935   968   968 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-26 05:41:33.017   559   594 E AppOps  : Trying to set mode for unknown uid 10216.
-11-26 05:41:34.096   968   968 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-26 05:41:34.267     0     0 E audit   : rate limit exceeded
-11-26 05:41:34.162   968   968 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-26 05:41:34.166   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-26 05:41:34.167   559   739 E AppOps  : attributionTag VCN not declared in manifest of android
-11-26 05:41:34.802   968   968 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-26 05:41:34.825   968   968 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-26 05:41:34.896   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-26 05:41:34.902   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-26 05:41:34.971   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-26 05:41:35.020   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-26 05:41:35.027   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: No service published for: persistent_data_block
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: persistent_data_block
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1071)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1068)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$StaticServiceFetcher.getService(SystemServiceRegistry.java:2293)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.markAsSealed(PackageInstallerSession.java:2394)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.commit(PackageInstallerSession.java:2143)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.content.pm.PackageInstaller$Session.commit(PackageInstaller.java:1977)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.doCommitSession(PackageManagerShellCommand.java:4298)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.runInstallCommit(PackageManagerShellCommand.java:1719)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:254)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.os.ShellCommand.exec(ShellCommand.java:38)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6561)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.os.Binder.shellCommand(Binder.java:1230)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.os.Binder.onTransact(Binder.java:1043)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4620)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6545)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.os.Binder.execTransactInternal(Binder.java:1505)
-11-26 05:41:35.159   559  1003 E SystemServiceRegistry: 	at android.os.Binder.execTransact(Binder.java:1444)
-11-26 05:41:35.161   559  1003 E SystemServiceRegistry: Manager wrapper not available: persistent_data_block
-11-26 05:41:35.406   559   597 E AtomicFile: Failed to rename /data/system/install_sessions.xml.new to /data/system/install_sessions.xml
-11-26 05:41:35.564     0     0 E audit   : rate limit exceeded
-11-26 05:41:35.413   559   739 E AppOps  : attributionTag VCN not declared in manifest of android
-11-26 05:41:35.443   968   968 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-26 05:41:35.451   968   968 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-26 05:41:35.504   968   968 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-26 05:41:35.505   968   968 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-26 05:41:35.719   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-26 05:41:35.773   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-26 05:41:35.778   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-26 05:41:36.452  6950  6950 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-11-26 05:41:36.459  6950  6950 I AndroidRuntime: Using default boot image
-11-26 05:41:36.459  6950  6950 I AndroidRuntime: Leaving lock profiling enabled
-11-26 05:41:36.721  6950  6950 D AndroidRuntime: Calling main entry com.android.commands.am.Am
-11-26 05:41:41.188   559  2823 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-26 05:41:41.578  6960  6998 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[MainActivity]#1) as ready
-11-26 05:41:41.585  6960  6998 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[MainActivity]#2) as ready
-11-26 05:41:49.466  1383  4997 E PickerDbFacade: Could not get first date taken millis for media id: 1000000049
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 318534 nanoseconds delay) for pxi@a79b086[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@73d2d47]]]
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at pug.get(PG:52)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kbd.g(PG:9)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kbd.f(PG:20)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kbd.t(PG:27)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kef.i(PG:7)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kef.h(PG:40)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kef.d(PG:38)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kfm.en(PG:15)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at joy.en(PG:3)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at fto.j(PG:9)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at jow.a(PG:13)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at joy.af(PG:15)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at jos.w(PG:141)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at jos.y(PG:7)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at jos.c(PG:49)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at jos.m(PG:128)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at dia.l(PG:1268)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.startViews(InputMethodService.java:3216)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.showWindow(InputMethodService.java:3115)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kfm.showWindow(PG:12)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInput(InputMethodService.java:1032)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at kfl.showSoftInput(PG:89)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInputWithToken(InputMethodService.java:992)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:232)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
-11-26 05:41:55.194  1292  1292 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 60 milliseconds, 294068 nanoseconds delay) for pxi@8150d1[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@554736]]]
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at pug.get(PG:52)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at kbd.g(PG:9)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at kbd.f(PG:20)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at kbd.t(PG:27)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at kef.e(PG:15)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at kfm.A(PG:21)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at joy.A(PG:3)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at jhz.g(PG:17)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at jov.a(PG:3)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at joy.af(PG:15)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at joy.I(PG:49)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at jos.k(PG:30)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at dia.q(PG:11)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at kfm.onFinishInputView(PG:75)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.finishViews(InputMethodService.java:3245)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.hideWindow(InputMethodService.java:3284)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInput(InputMethodService.java:967)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
-11-26 05:41:59.344  1292  1292 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
-11-26 05:42:09.226  6960  6973 E TestRunner: failed: c14Recording(com.solidsketchapp.steel.C14RecordingTest)
-11-26 05:42:09.367  6960  6973 E TestRunner: ----- begin exception -----
-11-26 05:42:09.367  6960  6973 E TestRunner: java.lang.AssertionError: Failed to perform text input.
-11-26 05:42:09.367  6960  6973 E TestRunner: Failed to assert the following: (RequestFocus is defined)
-11-26 05:42:09.367  6960  6973 E TestRunner: Semantics of the node:
-11-26 05:42:09.367  6960  6973 E TestRunner: Node #259 at (l=258.0, t=1803.0, r=395.0, b=1875.0)px, Tag: 'tk_gap'
-11-26 05:42:09.367  6960  6973 E TestRunner: Has 1 child, 5 siblings
-11-26 05:42:09.367  6960  6973 E TestRunner: Selector used: ((TestTag = 'tk_gap')[0])
-11-26 05:42:09.367  6960  6973 E TestRunner: 
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AssertionsKt.assert(Assertions.kt:265)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.TextActionsKt.getNodeAndFocus(TextActions.kt:116)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.TextActionsKt.getNodeAndFocus$default(TextActions.kt:108)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.TextActionsKt.performTextReplacement(TextActions.kt:73)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at com.solidsketchapp.steel.C14RecordingTest.field(C14RecordingTest.kt:81)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at com.solidsketchapp.steel.C14RecordingTest.c14Recording(C14RecordingTest.kt:109)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:272)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:271)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.withDisposableContent(ComposeUiTest.android.kt:505)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1$1.invoke(ComposeUiTest.android.kt:333)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withComposeIdlingResource(ComposeUiTest.android.kt:385)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withComposeIdlingResource(ComposeUiTest.android.kt:219)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:332)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withWindowRecomposer(ComposeUiTest.android.kt:359)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withWindowRecomposer(ComposeUiTest.android.kt:219)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1.invoke(ComposeUiTest.android.kt:331)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withTestCoroutines(ComposeUiTest.android.kt:372)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withTestCoroutines(ComposeUiTest.android.kt:219)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1.invoke(ComposeUiTest.android.kt:330)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.EspressoLink.withStrategy(EspressoLink.android.kt:66)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:329)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.IdlingResourceRegistry.withRegistry(IdlingResourceRegistry.jvm.kt:155)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1.invoke(ComposeUiTest.android.kt:328)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.ComposeRootRegistry.withRegistry(ComposeRootRegistry.android.kt:146)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:327)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:271)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:463)
-11-26 05:42:09.367  6960  6973 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2594)
-11-26 05:42:09.373  6960  6973 E TestRunner: ----- end exception -----
-11-26 05:42:09.555   559  1003 E ActivityManager: Unable to freeze binder for 6960: -11
-11-26 05:42:09.673  6950  6950 I AndroidRuntime: VM exiting with result code 0.
-11-26 05:42:12.099   559  2823 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-26 05:42:14.480   559   739 E AppOps  : attributionTag VCN not declared in manifest of android
-11-26 05:42:14.688   559  2823 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-26 05:42:14.696   968   968 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-26 05:42:15.012   559  2823 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-26 05:42:15.020   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-26 05:42:15.038   968   968 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-26 05:42:15.238   559   739 E AppOps  : attributionTag VCN not declared in manifest of android
-11-26 05:42:15.258   968   968 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-26 05:42:15.266   968   968 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-26 05:42:16.730   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-26 05:42:16.751   559  2823 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-26 05:42:17.014   559   739 E AppOps  : attributionTag VCN not declared in manifest of android
-11-26 05:42:17.040   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-26 05:42:17.172   559  2823 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-26 05:42:17.344   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-26 05:42:17.473   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-26 05:42:17.476   968   968 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-26 05:42:17.482   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-26 05:42:17.484   968   968 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-26 05:42:17.493   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-26 05:42:17.568   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-26 05:42:17.572   559   912 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.hideWindow(InputMethodService.java:3284)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInput(InputMethodService.java:967)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:06:53.307  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 6 milliseconds, 770342 nanoseconds delay) for pxi@fa79700[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@45d7b39]]]
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at kef.i(PG:7)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at kef.h(PG:40)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at kef.d(PG:38)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at kfm.onStartInput(PG:473)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3390)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.restartInput(InputMethodService.java:875)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:890)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:201)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:07:00.704  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 106052 nanoseconds delay) for pxi@e6f232c[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@21191f5]]]
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at kef.e(PG:15)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at kfm.A(PG:21)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at joy.A(PG:3)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at fto.g(PG:9)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at jov.a(PG:3)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at joy.I(PG:49)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at jos.m(PG:59)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at dia.l(PG:1268)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3396)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.restartInput(InputMethodService.java:875)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:890)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:201)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:07:01.293  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 31 milliseconds, 309276 nanoseconds delay) for pxi@a10abc4[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@b070aad]]]
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at kef.e(PG:15)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at kfm.A(PG:21)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at joy.A(PG:3)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at fto.g(PG:9)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at jov.a(PG:3)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at joy.I(PG:49)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at jos.k(PG:30)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at dia.q(PG:11)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at kfm.onFinishInputView(PG:75)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.finishViews(InputMethodService.java:3245)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.hideWindow(InputMethodService.java:3284)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInput(InputMethodService.java:967)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:07:02.819  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:07:06.777   557   779 E WindowManager: Unknown window type: 1002
+11-26 06:07:12.220   557   779 E WindowManager: Unknown window type: 1002
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 16 milliseconds, 398383 nanoseconds delay) for pxi@503b563[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@16a9560]]]
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kef.i(PG:7)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kef.h(PG:40)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kef.d(PG:38)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kfm.en(PG:15)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at joy.en(PG:3)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at fto.j(PG:9)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at jow.a(PG:13)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at jos.w(PG:141)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at jos.y(PG:7)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at jos.c(PG:49)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at jos.m(PG:128)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at dia.l(PG:1268)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.startViews(InputMethodService.java:3216)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.showWindow(InputMethodService.java:3115)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kfm.showWindow(PG:12)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInput(InputMethodService.java:1032)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at kfl.showSoftInput(PG:89)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInputWithToken(InputMethodService.java:992)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:232)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:07:13.728  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:07:14.151  7306  7306 E FrameTracker: force finish cuj, time out: J<IME_INSETS_HIDE_ANIMATION::1@1@com.solidsketchapp.steel>
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 500 milliseconds (plus 13 milliseconds, 674081 nanoseconds delay) for pxi@c3da7b6[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], kas@c1e0cb7]]]
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at kbd.u(PG:84)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at tui.q(PG:24)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at kbn.k(PG:8)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at kbn.j(PG:3)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at kbn.n(PG:40)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at kbd.b(PG:186)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at kfm.onUpdateSelection(PG:67)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodSessionImpl.updateSelection(InputMethodService.java:1422)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodSessionWrapper.executeMessage(IInputMethodSessionWrapper.java:107)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:07:15.044  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 16 milliseconds, 585502 nanoseconds delay) for pxi@dffa143[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@5cc43c0]]]
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at kef.i(PG:7)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at kef.h(PG:40)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at kef.d(PG:38)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at kfm.en(PG:15)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at joy.en(PG:3)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at fto.j(PG:9)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at jow.a(PG:13)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at jos.w(PG:141)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at jos.y(PG:7)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at jos.c(PG:49)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at jos.m(PG:128)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at dia.l(PG:1268)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3396)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.restartInput(InputMethodService.java:875)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:890)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:201)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:07:17.578  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 1 milliseconds, 63951 nanoseconds delay) for pxi@23b6133[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@b581cf0]]]
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at kef.e(PG:15)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at kfm.A(PG:21)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at joy.A(PG:3)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at fto.g(PG:9)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at jov.a(PG:3)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at joy.I(PG:49)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at jos.k(PG:30)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at dia.q(PG:11)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at kfm.onFinishInputView(PG:75)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.finishViews(InputMethodService.java:3245)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.hideWindow(InputMethodService.java:3284)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInput(InputMethodService.java:967)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:07:21.955  1241  1241 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:07:23.661   557  1217 E WindowManager: Unknown window type: 1002
+11-26 06:07:53.492  7306  7319 E TestRunner: failed: c14Recording(com.solidsketchapp.steel.C14RecordingTest)
+11-26 06:07:53.492  7306  7319 E TestRunner: ----- begin exception -----
+11-26 06:07:53.492  7306  7319 E TestRunner: java.lang.AssertionError: timed out waiting for the shear plate
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at com.solidsketchapp.steel.C14RecordingTest.waitFor(C14RecordingTest.kt:55)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at com.solidsketchapp.steel.C14RecordingTest.waitFor$default(C14RecordingTest.kt:54)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at com.solidsketchapp.steel.C14RecordingTest.c14Recording(C14RecordingTest.kt:120)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:272)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:271)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.withDisposableContent(ComposeUiTest.android.kt:505)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1$1.invoke(ComposeUiTest.android.kt:333)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withComposeIdlingResource(ComposeUiTest.android.kt:385)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withComposeIdlingResource(ComposeUiTest.android.kt:219)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:332)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withWindowRecomposer(ComposeUiTest.android.kt:359)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withWindowRecomposer(ComposeUiTest.android.kt:219)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1.invoke(ComposeUiTest.android.kt:331)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withTestCoroutines(ComposeUiTest.android.kt:372)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withTestCoroutines(ComposeUiTest.android.kt:219)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1.invoke(ComposeUiTest.android.kt:330)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.EspressoLink.withStrategy(EspressoLink.android.kt:66)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:329)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.IdlingResourceRegistry.withRegistry(IdlingResourceRegistry.jvm.kt:155)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1.invoke(ComposeUiTest.android.kt:328)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.ComposeRootRegistry.withRegistry(ComposeRootRegistry.android.kt:146)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:327)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:271)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:463)
+11-26 06:07:53.492  7306  7319 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2594)
+11-26 06:07:53.492  7306  7319 E TestRunner: ----- end exception -----
+11-26 06:07:53.641  7293  7293 I AndroidRuntime: VM exiting with result code 0.
+11-26 06:07:53.646   557  1217 E ActivityManager: Unable to freeze binder for 7306: -11
+11-26 06:07:57.000   557  2773 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:07:57.624   557  2773 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:07:57.718   557  2773 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:07:57.753   557   729 E AppOps  : attributionTag VCN not declared in manifest of android
+11-26 06:07:57.804   932   932 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-26 06:07:57.818   932   932 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-26 06:07:57.940   557   857 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-26 06:07:57.986   557   729 E AppOps  : attributionTag VCN not declared in manifest of android
+11-26 06:07:58.050   932   932 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-26 06:07:58.057   932   932 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-26 06:07:58.150   557  2773 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:07:58.382   557   729 E AppOps  : attributionTag VCN not declared in manifest of android
+11-26 06:07:58.701   557   557 E IPCThreadState: Binder transaction failure. id: 592119, BR_*: 29189, error: -3 (No such process)
+11-26 06:07:58.736   557   779 E AtomicFile: Failed to rename /data/system/cachequota.xml.new to /data/system/cachequota.xml
+11-26 06:07:58.878   932   932 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-26 06:07:58.889   932   932 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-26 06:07:58.914   557  2773 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:07:59.429   557   857 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-26 06:07:59.430   557   857 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-26 06:07:59.916   557   857 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-26 06:08:00.146   557   857 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-26 06:08:00.175   557   857 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
