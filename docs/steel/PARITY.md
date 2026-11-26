@@ -108,6 +108,25 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 
 ## C04 · Purlin cleat (Tcl, Tekla "Cold rolled overlap (1)")
 
+### C04 on R12 (owner 2026-11-26)
+**R11 had the purlins turned 180°.** R11's 220 purlins (from R10) are turned 180° about their axis compared with Tekla (R12: the web is on the other side, 220 / 220). That put R11's cleats on the wrong side.
+
+**Tekla's rule, measured on R12** (264 joints):
+- The cleat is on the web's back (Back).
+- Its underside is the purlin's underside, within 0.02 mm at every joint.
+- Tekla's built-up rafter flange is not quite parallel to the rafter axis, so a cleat placed from the rafter axis drifts up to 2 mm along a rafter.
+
+**Change, in web v70 and the app (`FamCL.back`):**
+- **Cleat level:** the cleat's underside is the purlin section's lowest point along the rafter normal.
+- **One cleat per joint:** adding a purlin cleat L on a rafter and purlin(s) removes the purlin generator's own plate cleat (Tpc) on that rafter and those purlins (web `stConnAdd`, app `Components.add`).
+- **Purlin application dialog:** the Profile field is text, so a typed CC200-2-20-60 is used. In v69 it was a number box, and a typed name was dropped.
+
+**Checks:**
+- Web rebuild vs R12 (`docs/steel/R12-REPORT.md`): 528 / 528 parts, 1,056 / 1,056 bolts (position, length, grade).
+- App `R12C04Test`: 528 / 528 parts and 1,056 / 1,056 bolts within 0.1 mm.
+- Workflow case (default RAFTER set, purlin application with CC200-2-20-60, C04): 0 rule-B failures in web and app; web = app 0.0 mm; purlin underside − rafter top 0.00 mm.
+- Emulator: `C04RecordingTest.c04Recording` follows the same workflow through the dialogs and saves the model it built (`c04/c04_workflow.ss`), which is measured again.
+
 > **Superseded 2026-11-25 by Tekla's package (R11 fix 1 above).** The "Front = toe side" rule below was read from R10, and R10 was wrong there (an importer error: Tekla's bolt list has M12×30, and its drawings show the cleat against the web). **v70 now:** Cleat location **Back** is the default for new cleats and is Tekla's cleat: v69's angle and side, NC 8504's stiffener, bolts from the cleat face, M12 4.6 L30 (`web/v70_tekla_parity.js`, `FamCL.kt` `back()`). **v69** (or no `loc` = an old model) keeps the result from before v70. The Front placement is removed. Result against R11: 528 / 528 parts, 1,056 / 1,056 bolts within 0.1 mm (`R11C04Test`); with v69's placement 264 / 528 (the angles match, the stiffeners don't), 960 / 1,056 bolts. The text below is kept as the record of the R10 analysis.
 
 **Rule (one line):** Tekla's *Cleat location* is **Front** by default. On a C / U purlin, Front means the cleat stands on the purlin's **toe (open) side, whatever the slope**: its long leg sits on the toe line and its short leg is at the top, pointing away. The angle is placed like a Tekla L member at Middle / Middle, so on a slope it shifts a few mm. **Back** = v69: behind the web.

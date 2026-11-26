@@ -24,8 +24,8 @@ Members: 836 placed (198 built-up equivalents, 638 R12 members as given): 380 IN
 - built-up equivalents: 42 matched of 198 (inputs equal R12 for all 198)
 - R12 members as given: 414 matched of 638 (inputs equal R12 for all 638)
 
-R12 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3713: 208 AS BOLT, 367 MATCHED, 1517 MISSING, 605 NEAR, 1016 ROUGH.
-Bolts on the same line (same diameter, R12 bolt within 0.1 mm of a v69 bolt axis): 1,026 of 4,548 R12 bolts (288 of them also with the same length and grade); whole groups: 219 of 1288. Per diameter: M12 288, M16 162, M20 576.
+R12 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3713: 208 AS BOLT, 751 MATCHED, 1517 MISSING, 221 NEAR, 1016 ROUGH.
+Bolts on the same line (same diameter, R12 bolt within 0.1 mm of a v69 bolt axis): 1,794 of 4,548 R12 bolts (1,056 of them also with the same length and grade); whole groups: 539 of 1288. Per diameter: M12 1,056, M16 162, M20 576.
 
 Status words: MATCHED = equal within the tolerances (0.1 mm points and boxes, volume within 2 % for plates); INPUT EQUAL, SOLID DIFFERS = the member's inputs equal R12 but its solid does not (built-ups: one BI solid against three Tekla plates with their end cuts; given members: v69's component cuts against R12's TKCUT cuts); NEAR = box within 5 mm; ROUGH = box within 50 mm; MISSING = no v69 part within 50 mm; AS BOLT = an R12 anchor rod member that v69 makes as a bolt of a bolt group.
 
@@ -48,7 +48,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | 1 | Base plate 1042: columns (frame BI220 / BI320, gable, mezzanine) | 48 | 144 / 192 | 720 | 48 | 48 / 48 (+192 as bolts) | 384 | partly |
 | 2 | End plate 144: eave (column -> rafter) | 48 | 48 / 384 | 144 | 48 | 0 / 0 | 96 | partly |
 | 3 | Apex haunch 106 (left rafter -> right rafter) | 24 | 144 / 192 | 192 | 48 | 96 / 0 | 48 | partly |
-| 4 | Purlin cleat (rafter -> purlin 1 -> purlin 2) | 264 | 528 / 1056 | 528 | 144 | 384 / 0 | 0 | partly |
+| 4 | Purlin cleat (rafter -> purlin 1 -> purlin 2) | 264 | 528 / 1056 | 528 | 528 | 0 / 0 | 0 | reproduced |
 | 5 | Tube gusset 20: tongue (main -> brace) | 352 | 1304 / 1408 | 1294 | 0 | 47 / 663 | 584 | partly |
 | 6 | Node gusset (several braces on one gusset) | (row 5) | 0 / 0 | 250 | 0 | 2 / 123 | 125 | partly |
 | 7 | Tube crossing (continuous -> half 1 -> half 2) | 52 | 364 / 416 | 118 | 0 | 0 / 100 | 18 | not |
@@ -123,8 +123,6 @@ Field differences on members (count of members): none (every placed member has R
 | 3 | apex stiffener / R Stiff. FLT10*60 | 48 | 48 MISSING | — | 16.8 → 0.0 | stiffener FLT10*60 (2504) under the apex plates: the v54 apex makes none | apex stiffener option (Tekla 106 Stiffeners tab) |
 | 3 | haunch (web / flange) / R Bottom flange FLT10*150 | 48 | 48 NEAR | 48 at 1.1 mm | 1,138.1 → 1,136.6 | the v54 apex makes the haunch (APEX HAUNCH WEB triangle + FLANGE) from len / depth / hw / hf / hb; the flanges land within 5 mm, the webs are about 26 mm off (outline and length rule differ) | haunch outline as Tekla 106 (start at the plate, depth measured square to the rafter) |
 | 3 | haunch (web / flange) / R Web FLT8*130 | 48 | 48 NEAR | 48 at 1.2 mm | 248.6 → 250.6 | as above | as above |
-| 4 | Cleat Angle / R Cleat Angle L140*60*6 | 216 | 24 MATCHED, 192 NEAR | 192 at 0.7 mm | 237.6 → 231.1 | Cleat location Back (v69, and models saved before v70) puts the cleat and its stiffener behind the purlin web: a same-size cleat is about 119 mm away, mirrored about the purlin | Cleat location Front (v70, the Tekla default) |
-| 4 | Stiff. / R Stiff. PL6*44 | 216 | 24 MATCHED, 192 NEAR | 192 at 0.7 mm | 34.6 → 34.6 | as above | as above |
 | 5 | tongue end cap / HZ Gusset Plate FLT5*100 | 336 | 54 MISSING, 282 ROUGH | 224 at 28.5 mm | 57.1 → 48.5 | v69's END CAP closes the tube around the tongue (about 52 x 98 mm, and FLT5*120 at crossings); R12 has two FLT5*100 plates 44 x 100 mm, one each side of the tongue | Tekla 20 cap plates (two per tongue) |
 | 5 | tongue end cap / ST Gusset Plate FLT5*100 | 286 | 176 MISSING, 34 NEAR, 76 ROUGH | 146 at 6.0 mm | 49.0 → 18.7 | as above | as above |
 | 5 | tongue end cap / VL Gusset Plate FLT5*100 | 216 | 136 MISSING, 80 ROUGH | 130 at 64.1 mm | 36.8 → 14.0 | as above | as above |

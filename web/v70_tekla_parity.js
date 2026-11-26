@@ -129,6 +129,12 @@
     Object.assign(window.__st, { partWeight: id => partWeight70(typeof id === 'object' ? id : stBody(id)), weights: weights70, weightRules: Object.assign({}, R66, { tkArea70 }) });
   }
 
+  // ---------- Generation of purlins (50): Profile is a text field (owner workflow 2026-11-26) ----------
+  // v69's generic dialog makes a field a number box unless its default is non-numeric text; T50p's default profile is '' (= the PURLIN
+  // property set), so 'Profile' was a number box and a typed name (CC200-2-20-60) was read as NaN and dropped. The default is now the
+  // PURLIN set's profile itself (same result) and the field is text.
+  if (CONN.T50p && !CONN.T50p.def.prof) CONN.T50p.def.prof = ST_SETS.PURLIN.prof;
+
   // ---------- C04 · one cleat per joint (owner 2026-11-26) ----------
   // Tekla has one cleat at each purlin joint (R12: 264 joints, 264 L140*60*6, no plate cleat). The purlin application (T50p) puts its
   // own plate cleat (Tpc) on every purlin end; adding a purlin cleat L (Tcl) on a rafter and purlin(s) now replaces the Tpc on that

@@ -112,44 +112,88 @@ class C04RecordingTest {
         return Vec3((lo[0] + hi[0]) / 2, (lo[1] + hi[1]) / 2, (lo[2] + hi[2]) / 2)
     }
 
+    /** A point on a member's solid seen from above: on its axis, moved down to the middle of its depth (RAFTER set: depth Behind). */
+    private fun onMember(id: BodyId, f: Double): Vec3 {
+        val st = mode().stOf(id)!!; fun v(k: String) = (st[k] as kotlinx.serialization.json.JsonArray).map { (it as JsonPrimitive).content.toDouble() }
+        val p1 = v("p1"); val p2 = v("p2"); val c = Vec3(p1[0] + (p2[0] - p1[0]) * f, p1[1] + (p2[1] - p1[1]) * f, p1[2] + (p2[2] - p1[2]) * f)
+        val m = act.testDoc.bodyMesh(id)!!; var zlo = 1e18; var zhi = -1e18
+        for (i in 0 until m.vertexCount) { val x = m.positions[i * 3].toDouble(); val y = m.positions[i * 3 + 1].toDouble(); if (kotlin.math.abs(x - c.x) < 60 && kotlin.math.abs(y - c.y) < 60) { val z = m.positions[i * 3 + 2].toDouble(); zlo = minOf(zlo, z); zhi = maxOf(zhi, z) } }
+        return if (zlo < zhi) Vec3(c.x, c.y, zhi - 5) else c
+    }
+    private fun named(n: String) = act.testDoc.bodyIds().filter { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == n }
+    private fun comp(search: String, title: String) {
+        press("Components")
+        waitFor("the catalog") { compose.onAllNodes(hasText("Applications & components")).fetchSemanticsNodes().isNotEmpty() }
+        compose.onAllNodes(hasSetTextAction())[0].performTextReplacement(search); pause(1200)
+        val all = compose.onAllNodes(hasText("Properties") and hasClickAction()); val ns = all.fetchSemanticsNodes()
+        all[ns.indices.filter { ns[it].boundsInRoot.width > 0f }.minBy { ns[it].boundsInRoot.top }].performClick()
+        waitFor("the $title dialog") { compose.onAllNodes(hasText("Pick parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }; pause(1000)
+    }
+    private fun orthoShot(t: Vec3, dir: Vec3, d: Double, name: String) {
+        act.runOnUiThread { act.testViewport.camera.orthographic = true }; look(t, dir, d); pause(1800); shot(name)
+        val px = act.testViewport.worldToScreen(t); val loc = IntArray(2); act.testViewportView?.getLocationOnScreen(loc)
+        storage.openOutputFile("c04/%02d_%s.txt".format(shotNo, name)).use { it.write("${loc[0]} ${loc[1]} ${px?.first} ${px?.second} ${t.x} ${t.y} ${t.z} ${dir.x} ${dir.y} ${dir.z} $d\n".toByteArray()) }
+        act.runOnUiThread { act.testViewport.camera.orthographic = false }
+    }
+
+    /**
+     * C04 in the owner's workflow (2026-11-26), through the app's own dialogs: three rafters from the default RAFTER property set
+     * (IPE360, depth Behind, 12.8°), purlins by "Generation of purlins" (its dialog: Profile CC200-2-20-60, Pick parts: rafter A, B,
+     * then B, C), then "Purlin cleat L" through its dialog on rafter B and the two purlins that butt over it (the generator's plate
+     * cleats there go: one cleat per joint, as in Tekla). Orbit, orthographic stills (end view along the purlins, front, top), the
+     * model as built is saved (c04/c04_workflow.ss: rule B and the dimension on the end view are measured on it), then Cleat location
+     * -> v69, Modify, orbit again. Screen recording /sdcard/c04_rec.mp4 (ci-out/C04_recording.mp4).
+     */
     @Test fun c04Recording() {
         waitFor("the steel data", 60_000) { act.testSteel != null }
         compose.onAllNodes(hasText("Steel") and hasClickAction())[0].performClick()
         waitFor("the Steel panel") { compose.onAllNodes(hasText("Grid") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
         waitFor("the component catalog data") { mode().comps != null }
-        val pp = Vec3(6507.8, 22355.0, 8957.6); look(pp, Vec3(1.0, -1.2, 0.9), 6000.0); pause(800)
-
-        val rec = ua.executeShellCommand("screenrecord --bit-rate 6000000 --time-limit 170 /sdcard/c04_rec.mp4")
+        val mid = Vec3(3234.0, 5570.0, 8000.0); look(mid, Vec3(1.0, -1.3, 1.1), 16000.0); pause(800)
+        val rec = ua.executeShellCommand("screenrecord --bit-rate 6000000 --time-limit 175 /sdcard/c04_rec.mp4")
         try {
             pause(1500)
-            // the R10 case: rafter, then the two C purlins (toes downhill)
-            member("RAFTER", """{"prof":"BI220-8-150-10","p1":[237.306,22355,7416.591],"p2":[6705.5,22355,8887.192],"rot":"Top","rAng":0,"plane":"Middle","depth":"Middle","pOff":0,"dOff":0,"dx1":0,"dx2":0}""")   // R11's position fields (the RAFTER set has depth Behind: 110 lower); pause(900)
-            val pu = """"prof":"CC200-2-20-60","rot":"Top","rAng":347.191,"plane":"Middle","depth":"Middle""""
-            member("PURLIN", """{$pu,"p1":[6507.808,22365,9057.605],"p2":[6507.808,28100,9057.605]}"""); pause(900)
-            member("PURLIN", """{$pu,"p1":[6507.808,16795,9057.605],"p2":[6507.808,22345,9057.605]}"""); pause(1200)
-            shot("members")
-            // catalog → Purlin cleat L → Properties (the dialog) → Pick parts
-            press("Components")
-            waitFor("the catalog") { compose.onAllNodes(hasText("Applications & components")).fetchSemanticsNodes().isNotEmpty() }
-            compose.onAllNodes(hasSetTextAction())[0].performTextReplacement("Purlin cleat"); pause(1200)
-            val all = compose.onAllNodes(hasText("Properties") and hasClickAction()); val ns = all.fetchSemanticsNodes()
-            all[ns.indices.filter { ns[it].boundsInRoot.width > 0f }.minBy { ns[it].boundsInRoot.top }].performClick()
-            waitFor("the Purlin cleat L dialog") { compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
-            pause(1200); compose.onAllNodes(hasText("Parts") and hasClickAction())[0].performClick(); pause(1500); shot("dialog_back")
-            press("Pick parts"); pause(800)
-            val n0 = mode().comps!!.conns().size
-            tapAt(screen(Vec3(5600.0, 22355.0, 8636.0))); pause(700)                   // rafter (its axis, below the purlins)
-            tapAt(screen(Vec3(6507.8, 23300.0, 9057.6))); pause(700)                   // purlin 1
-            tapAt(screen(Vec3(6507.8, 21400.0, 9057.6))); pause(700)                   // purlin 2
-            waitFor("the purlin cleat") { mode().comps!!.conns().size == n0 + 1 }
+            val raf = listOf(0.0, 5570.0, 11140.0).map { y -> member("RAFTER", """{"p1":[0,$y,7500],"p2":[6468,$y,8970]}""").also { pause(700) } }
+            shot("rafters")
+            // Generation of purlins: its dialog, Profile CC200-2-20-60, Pick parts (rafter A, B, then B, C)
+            comp("Generation of purlins", "Generation of purlins")
+            compose.onAllNodes(hasText("Parameters") and hasClickAction())[0].performClick(); pause(900)
+            compose.onAllNodes(hasSetTextAction() and hasText("IPE160"))[0].performTextReplacement("CC200-2-20-60"); pause(1200); shot("purlins_dialog")
+            press("Pick parts"); pause(800); look(mid, Vec3(0.15, -0.25, 1.0), 16000.0); pause(800)
+            for ((a, b) in listOf(raf[0] to raf[1], raf[1] to raf[2])) { tapAt(screen(onMember(a, 0.14))); pause(600); tapAt(screen(onMember(b, 0.14))); pause(1200) }
             act.runOnUiThread { mode().catDone() }; pause(800)
+            val purs = named("PURLIN"); assertTrue("purlins made: ${purs.size}", purs.size >= 8); shot("purlins")
+            // Purlin cleat L: its dialog, Pick parts (rafter B, the purlin from A, the purlin to C)
+            fun pv(id: BodyId) = (mode().stOf(id)!!["p1"] as kotlinx.serialization.json.JsonArray).map { (it as JsonPrimitive).content.toDouble() } to (mode().stOf(id)!!["p2"] as kotlinx.serialization.json.JsonArray).map { (it as JsonPrimitive).content.toDouble() }
+            val at = purs.map { it to pv(it) }.sortedBy { it.second.first[0] }
+            val pAB = at.first { (_, p) -> maxOf(p.first[1], p.second[1]) in 5400.0..5700.0 }.first
+            val xAB = pv(pAB).first[0]; val pBC = at.first { (id, p) -> id != pAB && kotlin.math.abs(p.first[0] - xAB) < 1 && minOf(p.first[1], p.second[1]) in 5400.0..5700.0 }.first
+            comp("Purlin cleat", "Purlin cleat L")
+            compose.onAllNodes(hasText("Parts") and hasClickAction())[0].performClick(); pause(1200); shot("cleat_dialog")
+            press("Pick parts"); pause(800)
+            val j = Vec3(xAB, 5570.0, pv(pAB).first[2]); look(j, Vec3(0.35, -0.55, 1.0), 2600.0); pause(1000)
+            val n0 = mode().comps!!.conns().size; val tpc0 = mode().comps!!.conns().count { it.type == "Tpc" }
+            fun purAt(id: BodyId, y: Double): Vec3 { val (p1, p2) = pv(id); val f = (y - p1[1]) / (p2[1] - p1[1]); val c = Vec3(p1[0] + (p2[0] - p1[0]) * f, y, p1[2] + (p2[2] - p1[2]) * f); return Vec3(c.x, c.y, c.z + 90) }
+            tapAt(screen(onMember(raf[1], (xAB - 60) / 6468.0 * 0 + ((xAB + 260) / 6468.0)))); pause(700)
+            tapAt(screen(purAt(pAB, 5570.0 - 420))); pause(700)
+            tapAt(screen(purAt(pBC, 5570.0 + 420))); pause(700)
+            waitFor("the purlin cleat") { mode().comps!!.conns().any { it.type == "Tcl" } }
+            act.runOnUiThread { mode().catDone() }; pause(800)
+            val cs = mode().comps!!.conns(); assertTrue("one cleat per joint: Tpc ${cs.count { it.type == "Tpc" }} (was $tpc0)", cs.count { it.type == "Tpc" } == tpc0 - 2)
             assertTrue("new cleat loc ${locOf()}", locOf() == "back")
             val c = cleatCentre()
             orbit(c, 1500.0, "back")
-            // the dialog of this cleat (as a tap on its symbol), Parts → Cleat location → Back, Modify
-            val cl = act.testDoc.bodyIds().first { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "CLEAT" }
+            // orthographic stills: end view along the purlins (the purlin underside on the rafter top), front (along the rafter), top
+            orthoShot(c, Vec3(0.0, -1.0, 0.0), 1100.0, "ortho_end")
+            orthoShot(c, Vec3(1.0, 0.0, 0.0), 1100.0, "ortho_front")
+            orthoShot(c, Vec3(0.0, 0.0, 1.0), 1100.0, "ortho_top")
+            look(c, Vec3(1.0, -1.2, 0.9), 1500.0); pause(600)
+            run { val f = java.io.File(act.cacheDir, "c04_workflow.ss"); act.runOnUiThread { act.testSave(f) }; waitFor("saved", 60_000) { f.exists() && f.length() > 0 && !act.testBusy }; pause(500)
+                storage.openOutputFile("c04/c04_workflow.ss").use { o -> f.inputStream().use { it.copyTo(o) } } }
+            // the dialog of this cleat (its part selected), Parts -> Cleat location -> v69, Modify
+            val cl = named("CLEAT").first()
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(cl)) }; pause(800)
-            press("Components")   // with a component part selected: that component's dialog
+            press("Components")
             waitFor("the cleat's dialog") { compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
             pause(800); compose.onAllNodes(hasText("Parts") and hasClickAction())[0].performClick(); pause(1000)
             compose.onAllNodes(hasText("Back") and hasClickAction())[0].performClick(); pause(900)
