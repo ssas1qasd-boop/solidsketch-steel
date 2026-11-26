@@ -139,8 +139,8 @@ class C20RecordingTest {
             tab("Bolts"); pick("bolt", "M16"); field("rows", "4"); field("e", "30"); field("pitch", "50"); field("cols", "2"); field("pitchH", "60"); field("eh", "35")
             pick("refV", "Middle"); field("posV", "0"); shot("dialog186_bolts")
             // picks square to the camera from +x: the column's flange outer face above the joint, then the beam's web away from it
-            val cam = { look(Vec3(52900.0, 18200.0, 4300.0), Vec3(1.0, -0.12, 0.06), 6000.0) }
-            val pairs = listOf(5200.0 to 19800.0, 5600.0 to 20400.0, 4800.0 to 19300.0, 6000.0 to 21000.0).map { (cz, by) -> Vec3(52998.0, 16785.0, cz) to Vec3(52842.0, by, 3838.0) }
+            val cam = { look(Vec3(52900.0, 17400.0, 4300.0), Vec3(1.0, -0.12, 0.06), 6000.0) }   // portrait: about 2.3 m across, the column 0.6 m left of the target
+            val pairs = listOf(4800.0 to 17900.0, 5200.0 to 18200.0, 4500.0 to 17700.0, 5500.0 to 18400.0).map { (cz, by) -> Vec3(52998.0, 16785.0, cz) to Vec3(52842.0, by, 3838.0) }
             pickParts("T186", cam, pairs)
             waitFor("the four stiffeners") { stiffeners() == 4 }
             assertTrue("186 stiffeners ${q("T186", "scr")}", q("T186", "scr") == "both")
