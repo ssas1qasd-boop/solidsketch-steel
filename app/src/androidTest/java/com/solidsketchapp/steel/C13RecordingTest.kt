@@ -140,7 +140,7 @@ class C13RecordingTest {
             assertTrue("144 haunch plates ${q("T144", "hpc")}", q("T144", "hpc") == "both")
             val c = endPlateCentre()
             orbit(c, 1600.0, "r12")
-            landscape(true); orthoShot(Vec3(c.x - 60.0, c.y, c.z), Vec3(0.0, -1.0, 0.0), 650.0, "ortho_front"); landscape(false)   // along the frame line: end plate, Stiff. plates, bolts
+            landscape(true); orthoShot(Vec3(c.x - 60.0, c.y, c.z), Vec3(0.0, -1.0, 0.0), 1100.0, "ortho_front"); landscape(false)   // along the frame line: end plate, Stiff. plates, bolts
             save("c13_case.ss")
             // 144's Stiffeners tab: Tekla's column stiffeners
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(act.testDoc.bodyIds().last { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "END PLATE" })) }; pause(800)
@@ -155,7 +155,7 @@ class C13RecordingTest {
             val cs = Vec3(13303.0, c.y, c.z)
             orbit(cs, 1500.0, "stiff70")
             // onto the column's open side (along y): the stiffeners between its flanges, flush with the girder's flanges
-            landscape(true); orthoShot(Vec3(cs.x - 120.0, cs.y, cs.z), Vec3(0.0, -1.0, 0.0), 600.0, "ortho_front_stiff"); landscape(false)
+            landscape(true); orthoShot(Vec3(cs.x - 120.0, cs.y, cs.z), Vec3(0.0, -1.0, 0.0), 1100.0, "ortho_front_stiff"); landscape(false)
             save("c13_stiff.ss")
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(act.testDoc.bodyIds().last { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "END PLATE" })) }; pause(800)
             press("Components")
@@ -166,7 +166,7 @@ class C13RecordingTest {
             compose.onAllNodes(hasText("Cancel") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Cancel") and hasClickAction())[0].performClick() }
             act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; pause(800)
             orbit(cs, 1500.0, "topNS50")
-            landscape(true); orthoShot(Vec3(cs.x - 120.0, cs.y, cs.z), Vec3(0.0, -1.0, 0.0), 600.0, "ortho_front_b50"); landscape(false)
+            landscape(true); orthoShot(Vec3(cs.x - 120.0, cs.y, cs.z), Vec3(0.0, -1.0, 0.0), 1100.0, "ortho_front_b50"); landscape(false)
             pause(800)
         } finally { runCatching { ua.setRotation(android.app.UiAutomation.ROTATION_UNFREEZE) }; sh("pkill -INT screenrecord"); Thread.sleep(3000); rec.close() }
     }
