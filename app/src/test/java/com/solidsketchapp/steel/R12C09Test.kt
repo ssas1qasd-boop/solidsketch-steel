@@ -21,7 +21,7 @@ import kotlin.math.abs
 import kotlin.math.sqrt
 
 /**
- * C02 + C09 End plate (144), v70 · Tekla parity (docs/steel/PARITY.md "C02 / C09"): the app rebuilds R12's 144 joints of rows 2 (eave,
+ * C02 + C09 + C13 End plate (144), v70 · Tekla parity (docs/steel/PARITY.md "C02 / C09"): the app rebuilds R12's 144 joints of rows 2 (eave,
  * column <- rafter, 48) and 9 (monitor post on the rafter, 24) with the R12 inputs (tests/steel/golden/r12/rebuild_inputs.json: Haunch tab
  * top / bottom plate t 8, b 60, h 60, chamfers 15 line, creation 'both'; Bolts tab bolt length Tekla, bolting direction 2) and checks
  * against R12 itself (Tekla's IFC), within 0.1 mm:
@@ -54,7 +54,7 @@ class R12C09Test {
         val steps = inp.getValue("steps").jsonArray.map { it.jsonObject }
         steps.first { it["op"]!!.jsonPrimitive.content == "grid" }.let { m.doc.setField("stGrid", it.getValue("grid").toString()) }
         val list = steps.first { it["op"]!!.jsonPrimitive.content == "connectMany" }.getValue("list").jsonArray.map { it.jsonArray }
-            .filter { it[0].jsonPrimitive.content in setOf("T144", "Teh") && it[3].jsonPrimitive.content in setOf("2", "9") }
+            .filter { it[0].jsonPrimitive.content in setOf("T144", "Teh") && it[3].jsonPrimitive.content in setOf("2", "9", "13") }
         val need = list.flatMap { e -> e[1].jsonArray.map { it.jsonPrimitive.int } }.toSortedSet()
         val ids = HashMap<Int, BodyId>(); for (i in need) { val st = members[i].getValue("st").jsonObject; ids[i] = m.parts.addBuilt(st, m.parts.mesh(st)) }
         m.comps.addMany(list.map { e -> Triple(e[0].jsonPrimitive.content, e[1].jsonArray.map { ids.getValue(it.jsonPrimitive.int) }, e[2].jsonObject) }, merge = true)
@@ -76,7 +76,8 @@ class R12C09Test {
                     n[0]++; val x = engine.volume(engine.subtract(rm, listOf(hit))) + engine.volume(engine.subtract(hit, listOf(rm)))
                     if (x <= 0.1 * area(rm)) n[4]++ else bad += "row $row R12 $r: solid differs by %.1f mm³".format(java.util.Locale.ROOT, x) }
                 continue }
-            val epId = refs.first { r -> Json.parseToJsonElement(r12.bodyJson(BodyId(r.toString()))!!).jsonObject["st"]!!.jsonObject["name"]!!.jsonPrimitive.content != "HAUNCH_PLATE" }
+            fun nameOf(r: Int) = Json.parseToJsonElement(r12.bodyJson(BodyId(r.toString()))!!).jsonObject["st"]!!.jsonObject["name"]!!.jsonPrimitive.content.trim()
+            val epId = refs.firstOrNull { r -> nameOf(r).lowercase().let { "end plate" in it || it == "plate" } } ?: refs.first { r -> nameOf(r) != "HAUNCH_PLATE" }
             for (r in refs) { n[1]++; val rb = box(pts(r12.bodyMesh(BodyId(r.toString()))!!))
                 if (k.any { b -> (0..5).all { abs(b[it] - rb[it]) <= 0.1 } }) n[0]++ else bad += "row $row R12 $r: no plate within 0.1 mm of ${rb.map { Math.round(it * 10) / 10.0 }}" }
             val ours = kids[c.id].orEmpty().filter { it.second["kind"]?.jsonPrimitive?.content == "bolts" }
@@ -98,12 +99,13 @@ class R12C09Test {
                 // flanges, flange plates not parallel to the axis: R12-REPORT "INPUT EQUAL, SOLID DIFFERS"), not the connection
                 val o0 = engine.intersect(m.parts.mesh(members[mi].getValue("st").jsonObject), cube)
                 val x0 = engine.volume(engine.subtract(rr, listOf(o0))) + engine.volume(engine.subtract(o0, listOf(rr)))
-                val cutVol = engine.volume(engine.subtract(o0, listOf(oo))); val cutInTekla = engine.volume(engine.intersect(engine.subtract(o0, listOf(oo)), rr))
-                val ok = x <= 0.1 * area(rr) || (x <= x0 + 1.0 && cutInTekla <= 0.1 * area(engine.subtract(o0, listOf(oo))).coerceAtLeast(1.0))
+                val cut = engine.subtract(o0, listOf(oo)); val none = cut.vertexCount == 0   // nothing removed in this box (Manifold rejects an empty operand)
+                val cutVol = if (none) 0.0 else engine.volume(cut); val cutInTekla = if (none) 0.0 else engine.volume(engine.intersect(cut, rr))
+                val ok = x <= 0.1 * area(rr) || (x <= x0 + 1.0 && cutInTekla <= 0.1 * (if (none) 0.0 else area(cut)).coerceAtLeast(1.0))
                 if (ok) n[4]++ else bad += "row $row R12 $epId: member $mi differs by %.0f mm³ (%.3f mm over its faces); with no connection %.0f; the connection removes %.0f mm³, %.0f of it inside Tekla's part".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla)
                 diag += "row $row member $mi: diff %.0f (%.3f mm), no-conn %.0f, removed %.0f, removed inside Tekla %.1f".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla) }
         }
-        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "2" -> "C02 eave, End plate 144"; "2h" -> "C02h Eave haunch"; else -> "C09 monitor post" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
+        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "2" -> "C02 eave, End plate 144"; "2h" -> "C02h Eave haunch"; "13" -> "C13 mezzanine girder, End plate 144"; else -> "C09 monitor post" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
         File(root, "build").mkdirs(); File(root, "build/r12-c09-report.txt").writeText(rep + "\n\n" + diag.joinToString("\n") + "\n"); println(rep.lines().take(14).joinToString("\n"))
         for ((_, n) in cnt) { assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
     }

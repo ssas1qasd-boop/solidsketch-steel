@@ -1,0 +1,53 @@
+"""Shared Gemini call for tools/video (reference order 3 in docs/steel/PARITY.md). The key comes from GEMINI_API_KEY and is never
+printed or written. Retries on 429 / 503 / dropped connections."""
+import json, os, time, urllib.request, urllib.error, http.client
+
+MODEL = os.environ.get('GEMINI_MODEL', 'gemini-flash-latest')
+FALLBACK = 'gemini-flash-lite-latest'   # when MODEL stays busy (503) or its daily free quota (20 requests) is used up; the result records which model read it
+USED = []
+
+def call(parts, tools=None, json_out=True, media_res=None, model=None, tries=4):
+    for m in ([model] if model else [MODEL, FALLBACK]):
+        try: r = _call(parts, tools, json_out, media_res, m, tries); USED.append(m); return r
+        except RuntimeError as e:
+            if '503' not in str(e) and 'connection' not in str(e) and 'PerDay' not in str(e): raise
+            last = e
+    raise last
+
+def _call(parts, tools, json_out, media_res, model, tries):
+    body = {'contents': [{'parts': parts}], 'generationConfig': {'temperature': 0}}
+    if json_out and not tools: body['generationConfig']['responseMimeType'] = 'application/json'
+    if media_res: body['generationConfig']['mediaResolution'] = media_res
+    if tools: body['tools'] = tools
+    req = urllib.request.Request(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent', data=json.dumps(body).encode(),
+                                 headers={'Content-Type': 'application/json', 'x-goog-api-key': os.environ['GEMINI_API_KEY']})
+    err = None
+    for k in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=900) as r: d = json.load(r); break
+        except urllib.error.HTTPError as e:
+            err = 'Gemini %d: %s' % (e.code, e.read()[:1500].decode('utf8', 'replace'))
+            if e.code not in (429, 500, 503): raise RuntimeError(err)
+            if e.code == 429 and 'PerDay' in err: raise RuntimeError(err)   # daily quota of this model used up: the caller falls back
+            if e.code == 429: time.sleep(65)   # free tier: tokens per minute
+        except (http.client.RemoteDisconnected, ConnectionError, TimeoutError, urllib.error.URLError) as e:
+            err = 'connection: %s' % e
+        time.sleep(20 * (k + 1))
+    else: raise RuntimeError(err)
+    cand = (d.get('candidates') or [{}])[0]
+    txt = ''.join(p.get('text', '') for p in cand.get('content', {}).get('parts', []))
+    meta = cand.get('groundingMetadata') or {}
+    return txt, meta
+
+def parse_json(txt):
+    t = txt.strip()
+    if t.startswith('```'): t = t.split('\n', 1)[1].rsplit('```', 1)[0]
+    try: return json.loads(t)
+    except Exception:
+        i, j = t.find('{'), t.rfind('}')
+        try: return json.loads(t[i:j + 1]) if i >= 0 else {'raw': txt}
+        except Exception: return {'raw': txt}
+
+def mmss(s):
+    s = str(s).strip(); p = [float(x) for x in s.split(':')]
+    return p[0] * 60 + p[1] if len(p) == 2 else p[0] * 3600 + p[1] * 60 + p[2] if len(p) == 3 else p[0]

@@ -61,4 +61,34 @@ module.exports = [
               member('RAFTER', { prof: 'BI220-8-150-10', p1: [52682.387, 22355, 7433.94], p2: [46290.5, 22355, 8887.194], rot: 'Top', plane: 'Middle', depth: 'Middle' })],
     conns: [['T144', [0, 1], { tp: 20, bolt: 20, ext: 10, extb: 104.385, gap: 0, cols: 2, gauge: 70, side: 40, rows: 4, e: 50.045, pitches: '70 70 80', blrule: 'tekla', bdir: 2 }]],
   },
+  // v70 C13 · 144 Stiffeners tab (Tekla's column stiffeners; docs/steel/PARITY.md "C13"): R12's mezzanine joint (stiffeners not created there:
+  // they are 186's), then the tab on other column / beam sizes, orientations, shapes and chamfers.
+  {
+    name: 't144_c13_r12',
+    description: 'R12 mezzanine joint C2015 / EB4002: BI320 column, BI320 girder on its flange, End plate 144 t 16, ext 55 / 55, M16 2 x 4 (70 230 70), Haunch tab 10 x 55 x 50, chamfer 12.5 (the girder-side Stiff. plates); Stiffeners tab not created.',
+    members: [member('COLUMN', { prof: 'BI320-8-150-10', p1: [13303, 16785, 230], p2: [13303, 16785, 7534.104], rot: 'Below', plane: 'Middle', depth: 'Middle' }),
+              member('BEAM', { prof: 'BI320-8-120-10', p1: [334, 16785, 3840], p2: [13127, 16785, 3840], rot: 'Top', plane: 'Middle', depth: 'Middle' })],
+    conns: [['T144', [0, 1], { tp: 16, bolt: 16, ext: 55, extb: 55, gap: 0, cols: 2, gauge: 60, side: 30, rows: 4, e: 30, pitches: '70 230 70', hpc: 'both', hct: 'line', hpt1: 10, hpb1: 55, hph1: 50, hc1: 12.5, hc2: 12.5, hpt2: 10, hpb2: 55, hph2: 50, hc3: 12.5, hc4: 12.5, blrule: 'tekla', bdir: 2, scr: 'none' }]],
+  },
+  {
+    name: 't144_c13_hea300_ipe360_stiff',
+    description: 'HEA300 column (rot Top: the beam on its flange), IPE360 beam, Stiffeners tab created with the defaults (t = beam flange, full width and depth, chamfer = the root radius 27).',
+    members: [member('COLUMN', { prof: 'HEA300', rot: 'Top', p1: [0, 0, 0], p2: [0, 0, 7500] }),
+              member('BEAM', { prof: 'IPE360', p1: [0, 0, 7000], p2: [6000, 0, 7000] })],
+    conns: [['T144', [0, 1], { gap: 0, scr: 'both' }]],
+  },
+  {
+    name: 't144_c13_hem300_ipe450_sloped_gaps',
+    description: 'HEM300 column, IPE450 beam sloped 8 deg on its flange, bolt rows 40 outside and inside each flange (ext 80), stiffeners parallel to the beam, gap for the web rounding (square with 27 mm root fillets clashes), gap 1 = 5, bottom gaps 3 / 4 = 4, t 15, b 120.',
+    members: [member('COLUMN', { prof: 'HEM300', rot: 'Top', p1: [0, 0, 0], p2: [0, 0, 8000] }),
+              member('BEAM', { prof: 'IPE450', p1: [0, 0, 7000], p2: [6000, 0, 7843.3] })],
+    conns: [['T144', [0, 1], { gap: 0, ext: 80, extb: 80, rows: 4, e: 40, pitches: '80 374.4 80', scr: 'both', sor: 'parallel', ssh: 'gap', sg1: 5, sg3: 4, sg4: 4, stt1: 15, stt2: 15, stt3: 15, stt4: 15, stb1: 120, stb2: 120, stb3: 120, stb4: 120 }]],
+  },
+  {
+    name: 't144_c13_heb400_ipe500_perp_concave',
+    description: 'HEB400 column, IPE500 beam sloped 5 deg, bolt rows 40 outside and inside each flange (ext 80), stiffeners perpendicular to the column, concave arc chamfers 20 x 15, automatic creation, h 300.',
+    members: [member('COLUMN', { prof: 'HEB400', rot: 'Top', p1: [0, 0, 0], p2: [0, 0, 8000] }),
+              member('BEAM', { prof: 'IPE500', p1: [0, 0, 7000], p2: [6000, 0, 7524.9] })],
+    conns: [['T144', [0, 1], { gap: 0, ext: 80, extb: 80, rows: 4, e: 40, pitches: '80 422 80', scr: 'auto', sor: 'perp', sct: 'concave', sc1: 20, sc2: 15, sth1: 300, sth2: 300, sth3: 300, sth4: 300 }]],
+  },
 ];

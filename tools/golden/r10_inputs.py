@@ -546,6 +546,7 @@ def main():
 
     # ---- end plates (144), apex (106 / 14), cap (39), shear plates (146), hangers
     EP = {('R', 'PLATE', 'FLT20*150'): '2', ('PC', 'End plate Post', 'PL12*160'): '9', ('PR', 'PLATE', 'FLT12*120'): '10',
+          ('EB', 'End Plate ', 'PL16*120'): '13',   # C13 (PARITY.md): Tekla's name has a trailing space; before C13 this was read as Cap 39
           ('EB', 'PLATE', 'PL16*120'): '13', ('STB', 'ENDPLATE', 'FLT10*150'): 'stair'}
     for b in plates:
         s = b['st']; g = pre(b['id']); key3 = (g, s['name'], s['tprof'])
@@ -558,11 +559,13 @@ def main():
             pts, ux, uy = bolt_layout(cs, p.X, p.Y)
             if key3 in EP:
                 refs = [b['id']]; hps = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'HAUNCH_PLATE'] if MODEL == 'R12' else []
+                if MODEL == 'R12' and EP[key3] == '13':   # C13: the girder-side 'Top Stiff.' / 'Bot Stiff.' next to this end plate are 144's haunch plates
+                    pc = Pl(b).centre(); hps = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] in ('Top Stiff.', 'Bot Stiff.') and norm(sub(Pl(byid[x]).centre(), pc)) < 300]
                 if hps:   # C09 (PARITY.md): Tekla's 144 Haunch tab, read off R12's haunch plates; the plate on Tekla's flange plate, 0.75 mm under the axis' top face
                     g = ep_gap(p, members[own]['st'], members[other]['st']); q = ep_q(p, members[own]['st'], pts, d, members[other]['st'], gap=g); q['gap'] = g
                     q.update(hp_q(b, hps, members[own]['st'])); refs += hps
                 else: q = ep_q(p, members[own]['st'], pts, d, members[other]['st'])
-                if MODEL == 'R12' and EP[key3] in ('2', '9'):   # C02 / C09 (PARITY.md): Tekla's bolt length and bolting direction
+                if MODEL == 'R12' and EP[key3] in ('2', '9', '13'):   # C02 / C09 / C13 (PARITY.md): Tekla's bolt length and bolting direction
                     c0 = p.centre(); far = max((members[own]['st']['p1'], members[own]['st']['p2']), key=lambda P: norm(sub(P, c0)))
                     tosec = p.N if dot(sub(far, c0), p.N) > 0 else mul(p.N, -1)
                     q['blrule'] = 'tekla'; q['bdir'] = 2 if dot(cs[0]['q']['ax'], tosec) > 0 else 1

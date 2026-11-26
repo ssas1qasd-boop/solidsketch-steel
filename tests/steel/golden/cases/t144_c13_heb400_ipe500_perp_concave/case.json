@@ -1,0 +1,72 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "e": 40,
+    "ext": 80,
+    "extb": 80,
+    "gap": 0,
+    "pitches": "80 422 80",
+    "rows": 4,
+    "sc1": 20,
+    "sc2": 15,
+    "scr": "auto",
+    "sct": "concave",
+    "sor": "perp",
+    "sth1": 300,
+    "sth2": 300,
+    "sth3": 300,
+    "sth4": 300
+   }
+  ]
+ ],
+ "description": "HEB400 column, IPE500 beam sloped 5 deg, bolt rows 40 outside and inside each flange (ext 80), stiffeners perpendicular to the column, concave arc chamfers 20 x 15, automatic creation, h 300.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     8000
+    ],
+    "prof": "HEB400",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     6000,
+     0,
+     7524.9
+    ],
+    "prof": "IPE500"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t144_c13_heb400_ipe500_perp_concave",
+ "pageErrors": []
+}

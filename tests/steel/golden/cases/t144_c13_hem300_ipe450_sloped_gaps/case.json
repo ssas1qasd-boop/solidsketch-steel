@@ -1,0 +1,77 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "e": 40,
+    "ext": 80,
+    "extb": 80,
+    "gap": 0,
+    "pitches": "80 374.4 80",
+    "rows": 4,
+    "scr": "both",
+    "sg1": 5,
+    "sg3": 4,
+    "sg4": 4,
+    "sor": "parallel",
+    "ssh": "gap",
+    "stb1": 120,
+    "stb2": 120,
+    "stb3": 120,
+    "stb4": 120,
+    "stt1": 15,
+    "stt2": 15,
+    "stt3": 15,
+    "stt4": 15
+   }
+  ]
+ ],
+ "description": "HEM300 column, IPE450 beam sloped 8 deg on its flange, bolt rows 40 outside and inside each flange (ext 80), stiffeners parallel to the beam, gap for the web rounding (square with 27 mm root fillets clashes), gap 1 = 5, bottom gaps 3 / 4 = 4, t 15, b 120.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     8000
+    ],
+    "prof": "HEM300",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     6000,
+     0,
+     7843.3
+    ],
+    "prof": "IPE450"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t144_c13_hem300_ipe450_sloped_gaps",
+ "pageErrors": []
+}

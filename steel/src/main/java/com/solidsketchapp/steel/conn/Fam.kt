@@ -166,6 +166,45 @@ object Fam {
         one(x.b!!, x.bId!!, 0.0)
         if (x.b2 != null) one(x.b2, x.b2Id!!, if (x.t("shared")) x.n("tp") + x.n("gap") else 0.0)
         val hpc = x.s("hpc"); if (hpc == "auto" || hpc == "both") { haunchPlates(x, x.b!!, hpc); x.b2?.let { haunchPlates(x, it, hpc) } }
+        val scr = x.s("scr"); if (scr == "auto" || scr == "both") { stiffeners(x, x.b!!, scr); x.b2?.let { stiffeners(x, it, scr) } }
+    }
+
+    /**
+     * v70 C13 · End plate (144) Stiffeners tab: Tekla's column stiffeners Top NS / Top FS / Bottom NS / Bottom FS (web v70 stiff70; proof
+     * docs/steel/PARITY.md "C13"). Only for a secondary on the main part's flange ('auto': and the main part a column). Each stiffener's
+     * outer face is flush with the secondary's flange outer face less its gap (2-5), it spans the clear depth between the main part's flanges
+     * (h, blank = all, centred) along the secondary ('parallel') or square to the main part ('perp'), from the web face + gap 1 (+ the root
+     * radius for the 'gap' shape) to the flange edge (b, blank = to the edge), thickness t (blank = the secondary's flange); web / flange
+     * corner chamfer 1 (along the depth) x 2 (across), default the root radius; near side = the main part's +es side.
+     */
+    private fun stiffeners(x: FamCtx, bm: JsonObject, scr: String) {
+        val j = Joints.joint(x.a, bm, x.profiles); val bp = j.b; val m = j.m; if (!j.flange) return
+        if (scr == "auto" && abs(m.a.z) <= 0.9) return
+        fun num(k: String, d: Double): Double { val v = optNum(x, k); return if (v.isFinite()) v else d }
+        val o = j.e.add(j.x, j.xFace); val hb = bp.h / 2
+        var de = m.eh
+        if (x.s("sor") != "perp") { val a = j.x.add(m.es, -(j.x dot m.es)); if (a.length() > 1e-6) { val an = a.normalize(); de = if ((an dot m.eh) < 0) -an else an } }
+        var n = (de cross m.es); if ((n dot m.a) < 0) { de = -de; n = -n }
+        val uin = (m.h / 2 - m.tf) / max(0.2, abs(de dot m.eh)); val r = m.r; val shape = x.s("ssh").ifEmpty { "line" }; val ct = x.s("sct").ifEmpty { "line" }
+        val w0 = m.tw / 2 + num("sg1", 0.0) + (if (shape == "gap") r else 0.0)
+        val noCh = shape == "square" || shape == "gap" || ct == "none"; val ch1 = if (noCh) 0.0 else num("sc1", r); val ch2 = if (noCh) 0.0 else num("sc2", r)
+        for ((lv, p) in listOf("top" to o.add(bp.eh, hb), "bot" to o.add(bp.eh, -hb))) for (sg in listOf(1, -1)) {
+            val k = if (lv == "top") (if (sg > 0) 1 else 4) else (if (sg > 0) 2 else 3); val gap = num("sg" + when (k) { 1 -> 2; 2 -> 3; 3 -> 4; else -> 5 }, 0.0)   // Tekla: 2 top NS, 3 bottom NS, 4 bottom FS, 5 top FS
+            val t = num("stt$k", max(8.0, bp.tf)); val b = num("stb$k", m.b / 2 - w0); val half = num("sth$k", 2 * uin) / 2; val w1 = w0 + b
+            val s = ((p - m.c1) dot n) / (m.a dot n).let { if (it == 0.0) 1.0 else it }; val oz = m.c1.add(m.a, s)
+            val z0 = if (lv == "top") -gap - t else gap; val z1 = z0 + t
+            fun corner(x0: Double, xs: Double): List<DoubleArray> {
+                if (!(ch1 > 0 && ch2 > 0) || abs(abs(x0) - uin) > 1e-6) return listOf(doubleArrayOf(x0, w0))
+                if (ct == "convex" || ct == "concave") return (0..8).map { i -> val f = i / 8.0 * Math.PI / 2
+                    if (ct == "concave") doubleArrayOf(x0 + xs * ch1 * Math.sin(f), w0 + ch2 * Math.cos(f)) else doubleArrayOf(x0 + xs * (ch1 - ch1 * Math.cos(f)), w0 + ch2 - ch2 * Math.sin(f)) }
+                return listOf(doubleArrayOf(x0, w0 + ch2), doubleArrayOf(x0 + xs * ch1, w0))
+            }
+            val pts = ArrayList<DoubleArray>(); pts += corner(-half, 1.0); pts += corner(half, -1.0).reversed(); pts += doubleArrayOf(half, w1); pts += doubleArrayOf(-half, w1)
+            val mf = Joints.Frame3(m.c1, m.eh, m.es); val hi = m.h / 2 - m.tf   // trimmed at the flanges' inner faces (a tilted stiffener's corners)
+            x.plate("STIFFENER", Joints.Frame3(oz, de, m.es).poly(pts.map { doubleArrayOf(it[0], sg * it[1]) }, z0, z1), t, "PL" + com.solidsketchapp.core.api.JsNumber.format(Math.round(t * 10) / 10.0),
+                minus = listOf(mf.box(hi, BIG, -BIG, BIG, -BIG, BIG), mf.box(-BIG, -hi, -BIG, BIG, -BIG, BIG)))
+            x.weld("Stiffener to main part", min(5.0, x.n("a").let { if (it == 0.0 || it.isNaN()) 5.0 else it }), 2 * (2 * half + b))
+        }
     }
 
     /** v70 C02 / C09: Tekla's bolt length = grip + nut (ISO 4032 m) + washer (ISO 7089) + 5, rounded up to 5 mm (R12: all 1,288 groups). */

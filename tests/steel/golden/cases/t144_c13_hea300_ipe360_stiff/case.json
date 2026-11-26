@@ -1,0 +1,59 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "gap": 0,
+    "scr": "both"
+   }
+  ]
+ ],
+ "description": "HEA300 column (rot Top: the beam on its flange), IPE360 beam, Stiffeners tab created with the defaults (t = beam flange, full width and depth, chamfer = the root radius 27).",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     7500
+    ],
+    "prof": "HEA300",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     6000,
+     0,
+     7000
+    ],
+    "prof": "IPE360"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t144_c13_hea300_ipe360_stiff",
+ "pageErrors": []
+}

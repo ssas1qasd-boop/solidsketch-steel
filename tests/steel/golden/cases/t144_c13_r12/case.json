@@ -1,0 +1,88 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "bdir": 2,
+    "blrule": "tekla",
+    "bolt": 16,
+    "cols": 2,
+    "e": 30,
+    "ext": 55,
+    "extb": 55,
+    "gap": 0,
+    "gauge": 60,
+    "hc1": 12.5,
+    "hc2": 12.5,
+    "hc3": 12.5,
+    "hc4": 12.5,
+    "hct": "line",
+    "hpb1": 55,
+    "hpb2": 55,
+    "hpc": "both",
+    "hph1": 50,
+    "hph2": 50,
+    "hpt1": 10,
+    "hpt2": 10,
+    "pitches": "70 230 70",
+    "rows": 4,
+    "scr": "none",
+    "side": 30,
+    "tp": 16
+   }
+  ]
+ ],
+ "description": "R12 mezzanine joint C2015 / EB4002: BI320 column, BI320 girder on its flange, End plate 144 t 16, ext 55 / 55, M16 2 x 4 (70 230 70), Haunch tab 10 x 55 x 50, chamfer 12.5 (the girder-side Stiff. plates); Stiffeners tab not created.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     13303,
+     16785,
+     230
+    ],
+    "p2": [
+     13303,
+     16785,
+     7534.104
+    ],
+    "plane": "Middle",
+    "prof": "BI320-8-150-10",
+    "rot": "Below"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     334,
+     16785,
+     3840
+    ],
+    "p2": [
+     13127,
+     16785,
+     3840
+    ],
+    "plane": "Middle",
+    "prof": "BI320-8-120-10",
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t144_c13_r12",
+ "pageErrors": []
+}

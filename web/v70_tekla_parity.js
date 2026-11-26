@@ -325,3 +325,51 @@
     weld('Haunch flange to end plate', q.a, q.bf + (q.bf - q.tw)); weld('Haunch flange to rafter flange', q.a, 2 * q.bf);
   };
   { const own70 = stOwner; stOwner = function (c, name, ix) { const CN = CONN[c.type]; if (CN && CN.fam === 'EH') return c.parts[1]; return own70(c, name, ix); }; }
+  //
+  // ---------- C13 · End plate (144) Stiffeners tab: Tekla's column stiffeners (docs/steel/PARITY.md "C13") ----------
+  // Tekla's 144 help (2025 / 2024), Stiffeners tab: Top NS / Top FS / Bottom NS / Bottom FS (t, b, h) in the main part; Stiffener
+  // orientation (parallel to the secondary part / perpendicular to the main part); Stiffener creation (Automatic / created / not created);
+  // Stiffener shape (line chamfered / square / gap for the main part web rounding); Stiffener positions 1 (gap to the main part's web) and
+  // 2-5 (gaps between the top NS / bottom NS / bottom FS / top FS stiffener and the secondary's flange edge); chamfer 1 (vertical) / 2
+  // (horizontal), default the profile's radius, and chamfer type. R12: at the 6 mezzanine 144 joints the column stiffeners are not 144's
+  // (they are Column with stiffeners (186)'s, at all 15 columns), so C13's 144 has them 'not created'; this tab is proven on other sizes
+  // (tools/golden/cases/t144.js t144_c13_*). Here: a stiffener's outer face is flush with the secondary's flange outer face (gap 0), it spans
+  // between the main part's flanges (length h, blank = the clear depth, centred), from the web face + gap 1 (+ the root radius for the
+  // 'gap' shape) out to the flange edge (width b, blank = to the edge), thickness t (blank = the secondary's flange thickness);
+  // near side = the main part's +es side. v69's own 'stiff' (thickness list) stays for old models; the default 'scr' = '' keeps every
+  // existing 144 unchanged.
+  ST_LBL.scr = 'Stiffener creation';
+  Object.assign(CONN.T144.def, { scr: '', sor: 'parallel', ssh: 'line', sg1: 0, sg2: 0, sg3: 0, sg4: 0, sg5: 0, sc1: '', sc2: '', sct: 'line', stt1: '', stb1: '', sth1: '', stt2: '', stb2: '', sth2: '', stt3: '', stb3: '', sth3: '', stt4: '', stb4: '', sth4: '' });
+  { const i = TKD.T144.tabs.findIndex(t => t.name === 'Stiffeners'); if (i >= 0) TKD.T144.tabs[i] = { name: 'Stiffeners',
+      parts: [['Top NS', 'STIFFENER', { t: 'stt1', b: 'stb1', h: 'sth1' }], ['Top FS', 'STIFFENER', { t: 'stt4', b: 'stb4', h: 'sth4' }], ['Bottom NS', 'STIFFENER', { t: 'stt2', b: 'stb2', h: 'sth2' }], ['Bottom FS', 'STIFFENER', { t: 'stt3', b: 'stb3', h: 'sth3' }]],
+      groups: [['Stiffener orientation', [TKF('sor', 'Stiffener orientation', { type: 'sel', dv: 'parallel', opts: [tkOpt('parallel', 'Stiffeners are parallel to the secondary part'), tkOpt('perp', 'Stiffeners are perpendicular to the main part')] })]],
+        ['Stiffener creation', [TKF('scr', 'Stiffener creation', { type: 'sel', dv: '', opts: [tkOpt('', 'Not created (v69)', 'off'), tkOpt('auto', 'Automatic: stiffeners are created when necessary', 'auto'), tkOpt('both', 'Stiffeners are created', 'on'), tkOpt('none', 'No stiffeners are created', 'off')] })]],
+        ['Stiffener shape', [TKF('ssh', 'Stiffener shape', { type: 'sel', dv: 'line', opts: [tkOpt('line', 'Line chamfered stiffener plates'), tkOpt('square', 'Square stiffener plates'), tkOpt('gap', 'Stiffener plates with a gap for the main part web rounding')] })]],
+        ['Stiffener positions', [TKF('sg1', '1 · Gap between the stiffener and the beam web edge'), TKF('sg2', '2 · Gap between the top near side stiffener and the beam flange edge'), TKF('sg3', '3 · Gap between the bottom near side stiffener and the beam flange edge'), TKF('sg4', '4 · Gap between the bottom far side stiffener and the beam flange edge'), TKF('sg5', '5 · Gap between the top far side stiffener and the beam flange edge')]],
+        ['Chamfer dimensions', [TKF('sc1', '1 · Vertical dimension of the chamfer', { ph: 'radius' }), TKF('sc2', '2 · Horizontal dimension of the chamfer', { ph: 'radius' }), TKF('sct', 'Chamfer type', { type: 'sel', dv: 'line', opts: [tkOpt('none', 'No chamfer'), tkOpt('line', 'Line chamfer'), tkOpt('convex', 'Convex arc chamfer'), tkOpt('concave', 'Concave arc chamfer')] })]]] }; }
+  const stiff70 = (X, Bm) => {
+    const { U, q, A, plate, weld } = X; const J = stJoint(A, Bm), Bp = J.B, M = J.M; if (!J.flange) return;
+    if (q.scr === 'auto' && !(Math.abs(M.a.z) > 0.9)) return;   // Automatic: a column with the secondary on its flange
+    const num = (v, d) => v === '' || v === undefined || v === null || !isFinite(+v) ? d : +v;
+    const O = J.E.clone().addScaledVector(J.X, J.xFace); const hb = Bp.h / 2 * U;
+    const levels = [['top', O.clone().addScaledVector(Bp.eh, hb)], ['bot', O.clone().addScaledVector(Bp.eh, -hb)]];
+    let dE = M.eh.clone(); if (q.sor !== 'perp') { const a = J.X.clone().addScaledVector(M.es, -J.X.dot(M.es)); if (a.length() > 1e-6) { a.normalize(); dE = a.dot(M.eh) < 0 ? a.negate() : a; } }
+    let N = new THREE.Vector3().crossVectors(dE, M.es); if (N.dot(M.a) < 0) { dE.negate(); N.negate(); }
+    const uin = (M.h / 2 - M.tf) * U / Math.max(0.2, Math.abs(dE.dot(M.eh))); const r = (M.r || 0) * U;
+    const w0 = M.tw / 2 * U + num(q.sg1, 0) * U + (q.ssh === 'gap' ? r : 0); const ch1 = q.ssh === 'square' || q.ssh === 'gap' || q.sct === 'none' ? 0 : num(q.sc1, M.r || 0) * U, ch2 = q.ssh === 'square' || q.ssh === 'gap' || q.sct === 'none' ? 0 : num(q.sc2, M.r || 0) * U;
+    for (const [lv, P] of levels) for (const sg of [1, -1]) {   // NS = +es side
+      const k = lv === 'top' ? (sg > 0 ? 1 : 4) : (sg > 0 ? 2 : 3); const gap = num(q['sg' + (k === 1 ? 2 : k === 2 ? 3 : k === 3 ? 4 : 5)], 0) * U;
+      const t = num(q['stt' + k], Math.max(8, Bp.tf)) * U; const b = num(q['stb' + k], (M.b / 2 * U - w0) / U) * U; const L = num(q['sth' + k], 2 * uin / U) * U / 2; const w1 = w0 + b;
+      const s = P.clone().sub(M.c1).dot(N) / (M.a.dot(N) || 1); const Oz = M.c1.clone().addScaledVector(M.a, s); const z0 = lv === 'top' ? -gap - t : gap, z1 = z0 + t;
+      const pts = []; const corner = (x0, xs) => {   // the chamfer at the web / flange corner (x0 = -L or +L side, xs = +1 toward the centre)
+        if (!(ch1 > 0 && ch2 > 0) || Math.abs(Math.abs(x0) - uin) > 1e-6 * U) return [[x0, w0]];
+        if (q.sct === 'convex' || q.sct === 'concave') { const o = []; for (let i = 0; i <= 8; i++) { const f = i / 8 * Math.PI / 2; o.push(q.sct === 'concave' ? [x0 + xs * ch1 * Math.sin(f), w0 + ch2 * Math.cos(f)] : [x0 + xs * (ch1 - ch1 * Math.cos(f)), w0 + ch2 - ch2 * Math.sin(f)]); } return o; }
+        return [[x0, w0 + ch2], [x0 + xs * ch1, w0]]; };
+      pts.push(...corner(-L, 1)); const right = corner(L, -1).reverse(); pts.push(...right); pts.push([L, w1], [-L, w1]);
+      const F = stFrame3(Oz, dE, M.es), MF = stFrame3(M.c1, M.eh, M.es), BIG = 60000 * U, hi = (M.h / 2 - M.tf) * U;   // trimmed at the flanges' inner faces (a tilted stiffener's corners)
+      const sm = F.poly(pts.map(p => [p[0], sg * p[1]]), z0, z1).subtract(MF.box(hi, BIG, -BIG, BIG, -BIG, BIG)).subtract(MF.box(-BIG, -hi, -BIG, BIG, -BIG, BIG));
+      plate('STIFFENER', sm, t / U, 'PL' + Math.round(t / U * 10) / 10);
+      weld('Stiffener to main part', Math.min(5, q.a || 5), 2 * (2 * L + b) / U);
+    }
+  };
+  { const ep70 = FAM.EP; FAM.EP = X => { const r = ep70(X); if ((X.q.scr === 'auto' || X.q.scr === 'both') && r !== null) for (const Bm of [X.B, X.B2].filter(Boolean)) stiff70(X, Bm); return r; }; }
