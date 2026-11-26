@@ -1,12 +1,12 @@
-# Emulator UI run 45867778321 (912d6d2)
+# Emulator UI run 45872405478 (8bb0212)
 
 - data files on main: true
 - KVM: yes · runner cores: 2
-- unit tests incl. UI golden (gate before the APK): success
+- unit tests incl. UI golden (gate before the APK): failure
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 0 (404 s)
-- job time until this step: 1753 s = 29.2 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 0 (283 s)
+- job time until this step: 1197 s = 19.9 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -20,27 +20,103 @@ Night mode: yes
 [ ] com.android.internal.systemui.navbar.gestural
 ```
 
-JUnit (unit + instrumented): 55 tests, 0 failed
+JUnit (unit + instrumented): 55 tests, 19 failed
+
+```
+com.solidsketchapp.steel.UiScreensTest.s01_main: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiScreensTest.s05_dialog_t144: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiScreensTest.s07_menu: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiScreensTest.s06_dialog_t144_bolts: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiScreensTest.s03_grid_sheet: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiScreensTest.s02_steel_grid: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiScreensTest.s04_catalog: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.GridLabelsFollowViewTest.labelsFollowEveryViewChange: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.catalogBoxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.dialogT144Boxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.visibleGridSheet: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.visibleCatalog: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.visibleMain: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.portalSheetBoxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.visibleDialogT144: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.panelBoxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.overlayFollowsEveryCameraState: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.visiblePortalSheet: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
+
+```
+com.solidsketchapp.steel.UiGoldenTest.gridSheetBoxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
+```
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 2491 |  |
-| steel | ✓ | 12007 |  |
-| grid | ✓ | 9166 |  |
-| orbit | ✓ | 4498 |  |
-| pan | ✓ | 2521 |  |
-| zoom | ✓ | 1730 |  |
-| column | ✓ | 5001 |  |
-| properties_apply | ✓ | 11550 |  |
-| beam | ✓ | 4043 |  |
-| properties_modify | ✓ | 8743 |  |
-| catalog | ✓ | 7316 |  |
-| endplate_dialog | ✓ | 3599 |  |
-| endplate_pick | ✓ | 5761 |  |
-| cleat_dialog | ✓ | 11662 |  |
-| save_open | ✓ | 2521 |  |
-| portal_create | ✓ | 38914 |  |
-| portal_modify | ✓ | 61527 |  |
+| start | ✓ | 2137 |  |
+| steel | ✓ | 3922 |  |
+| grid | ✓ | 6243 |  |
+| orbit | ✓ | 3721 |  |
+| pan | ✓ | 1247 |  |
+| zoom | ✓ | 1302 |  |
+| column | ✓ | 3015 |  |
+| properties_apply | ✓ | 7350 |  |
+| beam | ✓ | 3354 |  |
+| properties_modify | ✓ | 6327 |  |
+| catalog | ✓ | 5305 |  |
+| endplate_dialog | ✓ | 3109 |  |
+| endplate_pick | ✓ | 3601 |  |
+| cleat_dialog | ✓ | 8999 |  |
+| save_open | ✓ | 3080 |  |
+| portal_create | ✓ | 24398 |  |
+| portal_modify | ✓ | 32017 |  |
 
 connected.log (end):
 ```
@@ -80,9 +156,9 @@ emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 2/2 completed. (0 skipped) (0 failed)
 Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795714565717.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795716450393.json
 
-BUILD SUCCESSFUL in 6m 43s
+BUILD SUCCESSFUL in 4m 42s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```
