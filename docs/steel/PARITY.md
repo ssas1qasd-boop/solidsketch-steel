@@ -98,7 +98,9 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
-## C13 · Mezzanine girder → column: evidence (owner 2026-11-26; waiting for the owner's decision)
+## C13 · End plate (144) at the mezzanine, girder → column flange (owner 2026-11-26)
+
+**Owner's decision (2026-11-26):** C13 is the 144 only. The column stiffeners FLT10*70 / FLT10*90 are Column with stiffeners (186)'s and come next, as their own connection (replacing row 12's 146 there).
 
 ### Step 0: Tekla's own site
 - [End plate (144), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_144_help), Stiffeners tab:
@@ -124,7 +126,54 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 | Gable columns EGC2002 (2) | 2 | FS / NS FLT10*90 at shear-plate joints | 186 (or 146) at those joints |
 | Mezzanine column MBC2001 standing on the girders: End Plate PL16*120 | 2 | "Top / Bot Stiff." FLT10*50 | 144, column on beam (R04: row 15 "Cap 39") |
 
-**Input bug found:** `r10_inputs.py` takes the name "End Plate " (trailing space) as Cap 39. So all 8 PL16*120 end plates are rebuilt as T39 (row 15), and row 13 has no component. Only 2 of the 8 end plates match today.
+**Input bug found and fixed:** `r10_inputs.py` took the name "End Plate " (trailing space) as Cap 39, so all 8 PL16*120 end plates were rebuilt as T39 (row 15) and row 13 had no component. Now the 6 EB girder end plates are T144 (row 13); the 2 MBC2001 column end plates stay with row 15.
+
+### Step 1: videos (tools/video, its first real use)
+- `find.py`: Tekla's own pages first (conn_144_help 2025 / 2024: the Stiffeners tab text, no embedded video or animation), then YouTube (Tekla's own channel "Tekla Software" has no 144 Stiffeners video). Gemini's Google Search grounding has no quota on this key, so `find.py` reads the pages directly.
+- `gemini_read.py` on the 3 best candidates:
+  - pass 1 at low resolution for the time spans;
+  - pass 2 at high resolution on those spans, in 60 s pieces;
+  - the free tier's 20 requests a day on gemini-flash were used up, so the lite model read them; the result records the model.
+- What was read, and what two sources agree on: `tests/steel/videos/C13/VIDEO.txt`.
+
+### Step 2: the Tekla package
+- **NC 4512 (end plate):** 430 × 120 × 16, holes d18 at 30 / 100 / 330 / 400 × 30 / 90.
+- **NC 4513 (Stiff.):** 55 × 50 × 10, clip 15 × 15, chamfer 12.5 × 12.5.
+- **NC 4509 (186's column stiffener):** 296 × 70 × 10, with 5.6 corner chamfers and weld bevels, which R12's IFC solid does not show.
+- Assembly drawings EB4002 and C2015.
+
+### Step 3: the R12 inputs (row 13, 6 joints)
+- **End plate:** t 16, ext 55 / 55 (1 = −55, 2 = −55), gap 0.
+- **Bolts:** M16 8.8, 2 × 4, gauge 60, side 30, e 30, s = 70 230 70; Tekla bolt length (L50); bolting direction 2.
+- **Haunch tab:** Top / Bottom plate 10 × 55 × 50 (b along the end plate, h along the girder), chamfer 12.5 line, created. These are R12's girder-side "Top Stiff." / "Bot Stiff.".
+- **Stiffeners tab:** not created (186's, above).
+
+### Step 4: 144 Stiffeners tab with Tekla's fields (web v70 section "C13", app `Fam.stiffeners`)
+- **Fields:** Top NS / Top FS / Bottom NS / Bottom FS (t, b, h); orientation (parallel to the secondary / perpendicular to the main part); creation (Not created (v69) / Automatic / created / not created); shape (line chamfered / square / gap for the web rounding); positions 1–5; chamfer 1 / 2 (default the root radius) and chamfer type.
+- **Geometry:**
+  - a stiffener's outer face is flush with the secondary's flange outer face, less its gap 2–5;
+  - it spans the main part's clear depth (h, blank = all, centred) and runs from the web face + gap 1 (+ the root radius for "gap") to the flange edge (b);
+  - t defaults to the secondary's flange thickness;
+  - it is trimmed at the flanges' inner faces (a tilted "parallel" stiffener);
+  - near side = the main part's +es side.
+- The default "Not created (v69)" keeps every existing 144; v69's own `stiff` stays for old models.
+
+### Checks
+| Check | Result |
+|---|---|
+| Web rebuild vs R12 (R12-REPORT rows 13 / 15) | 6 / 6 end plates and 12 / 12 Stiff. plates at box 0.0; +48 bolts with the same point, length and grade (M16 8.8 L50). Before: 0 end plates as 144 (2 of 8 matched as Cap 39), 12 Stiff. MISSING |
+| App `R12C09Test` row 13 | plates 18 / 18, bolts 48 / 48, member bodies 12 / 12 (≤ 0.001 mm) |
+| App vs web, whole R12 (`R12RebuildTest`) | 0 differences; the Cap 39 bolt difference seen with C02 was these end plates |
+| Cases (`tools/golden/cases/t144.js` t144_c13_*) | R12's joint; HEA300 + IPE360 with the default stiffeners; HEM300 + IPE450 at 8°, parallel, "gap" shape, gaps 5 / 4 / 4, t 15, b 120; HEB400 + IPE500 at 5°, perpendicular, concave 20 × 15, automatic, h 300: 0 rule-B failures; app = web (`S7T144Test`) |
+| Weights vs Tekla (st.tkW) | Stiff. plates 0.20 kg vs 0.21 (12 plates: 2.40 vs 2.52; the chamfer weighting differs, as C09); end plate 6.24 vs 6.48: Tekla does not take bolt holes off, and our rule only skips holes made by imported TKBOLT groups (open item for the Weights rule) |
+
+**Emulator** (`C13RecordingTest`):
+- R12's joint through the dialog (Picture, Haunch, Stiffeners "not created", Bolts), Pick parts, orbit, saved `c13_case.ss`;
+- then the Stiffeners tab created (square, t 10, b 70), Modify, orbit, saved `c13_stiff.ss`; then Top NS b 50, Modify, orbit;
+- landscape orthographic stills. The activity now keeps its model on rotation (`configChanges`): before, turning the phone recreated it and lost the model.
+
+### Status
+Delivered; waiting for the owner's phone OK; not marked.
 
 ## C02h · Eave haunch (our own component), at each eave with End plate 144 (owner 2026-11-26)
 

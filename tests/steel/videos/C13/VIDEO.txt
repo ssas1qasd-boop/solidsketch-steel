@@ -1,0 +1,54 @@
+C13 · End plate (144) Stiffeners tab: video evidence (docs/steel/PARITY.md "C13", method step 1)
+Tools: tools/video/find.py (Tekla's help pages + YouTube; tests/steel/videos/C13/find.json), tools/video/gemini_read.py (pass 1 low resolution for
+the spans, pass 2 high resolution in 60 s pieces). Model used: gemini-flash-lite-latest (gemini-flash's free 20 requests a day were used up).
+
+Tekla's own material first: conn_144_help 2025 / 2024 (support.tekla.com) has the Stiffeners tab text and pictures but no video or animation;
+Tekla's own YouTube channel ("Tekla Software") has no 144 Stiffeners video. Videos used:
+  09dfdrUR_q8  "Tekla Structures Practice Session 6: End Plate Connections & Stiffener" (Indonesian): pass 1 found no 144 Stiffeners tab.
+  Bds3oxGdc2k  "Tekla Structures /V022.END PLATE (144)" (Spanish UI): Stiffeners tab 05:27-06:17.
+  VLQiysAuEr4  "01I End Plate 144 in Tekla Structures" (Arabic speech, English UI): Stiffeners tab 12:16-18:07.
+
+Values read, and what two sources agree on:
+  Stiffener thickness t = 10 (Top NS, Top FS, Bottom NS, Bottom FS)
+      Bds3oxGdc2k: Gemini 10.00 for "SC superior" / "SC inferior" (t and b) at 05:53; frame 05:47 (frames_Bds3oxGdc2k/f_347.jpg,
+                   f_367_table_zoom5.png) shows the four rows with t 10.00 and b 10.00, h blank; the narrator: "let's see, 10 10".
+      VLQiysAuEr4: Gemini 10.00 for Top NS / Top FS / Bottom NS / Bottom FS at 12:37-17:21.
+      -> AGREED by two videos (and the frame): t = 10 (the presenters' value; Tekla's help gives no default thickness).
+  Row labels Top NS / Top FS / Bottom NS / Bottom FS: VLQiysAuEr4 (English UI) and Tekla's help (conn_144_help) -> AGREED.
+  b = 10 (Bds3oxGdc2k only: frame + Gemini; one source). h: blank in both (Tekla: blank = automatic).
+  Stiffener positions 40 / -40 / 20 / 0 (VLQiysAuEr4 only, 15:10-17:21, the presenter trying values; one source, not used).
+  Material St-52 (VLQiysAuEr4 only).
+Use in C13: R12's own column stiffeners at the C13 joints are Column with stiffeners (186)'s, so no value above is needed for R12; the
+emulator run uses the agreed t = 10 when it shows the tab creating stiffeners (b 70 = R12's 186 stiffener width).
+
+--- automatic summary (tools/video/gemini_read.py summary) ---
+Values read (tools/video/gemini_read.py; pass 2 at high resolution on the spans where the tab is open).
+
+Source: https://www.youtube.com/watch?v=09dfdrUR_q8
+  spans: -
+
+Source: https://www.youtube.com/watch?v=Bds3oxGdc2k
+  spans: 05:27-06:17
+  SC inferior: 10.00 / check
+  SC superior: 10.00 / check
+  Stiffeners: check
+
+Source: https://www.youtube.com/watch?v=VLQiysAuEr4
+  spans: 12:16-18:07
+  -40.00: -40.00
+  0: 0 / 300
+  0.00: 0.00
+  20.00: 20.00
+  30.00: 30.00
+  40.00: 40.00
+  Bottom FS: 10.00
+  Bottom NS: 10.00
+  Bottom PS: 10.00
+  Material: St 52 / St-52
+  Pos. No: St 52 / St-52
+  Save: standard
+  Top FS: 10.00
+  Top NS: 10.00
+
+Agreement (the same label and value in two sources):
+  none
