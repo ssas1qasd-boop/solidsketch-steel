@@ -151,6 +151,30 @@ def c09(shots):
     return compose('C09', [('R12 (Tekla IFC), monitor post PC7001, orthographic', r12), ('Tekla drawing PC7001 (package)', tekla_page('PC7001')), ('Tekla 144 help: haunch plates, chamfers 1-4 (video frames blocked)', help_pic('EDF9C3E4-BCA0-4F18-B080-8B9C6A92AFA8', '6BFC0874-1B37-4A14-A4E9-212C4534F173')), ('app on the emulator, orthographic front view', app)],
                    'C09 End plate (144) Haunch tab at the monitor post: R12 | Tekla drawing | Tekla help | app (Haunch tab: Top / Bottom plate 8 x 60 x 60, chamfers 15)', ['Measured on the model the emulator built and saved (c09_case.ss):'] + ['! ' + m for m in meas])
 
+def c13(shots, video=None):
+    """C13: c13_case.ss (R12's joint through the dialog) and c13_stiff.ss (+ 144's Stiffeners tab: created, square, 10 x 70)"""
+    D = json.load(gzip.open(os.path.join(shots, 'c13_case.ss')))['doc']; st = lambda b: b.get('st') or {}
+    ep = next(c for c in D['stConns'] if c['type'] == 'T144'); kids = [b for b in D['bodies'] if st(b).get('conn') == ep['id']]
+    epb = next(b for b in kids if st(b).get('name') == 'END PLATE'); hp = [b for b in kids if st(b).get('name') == 'HAUNCH_PLATE']; bo = next(b for b in kids if st(b).get('kind') == 'bolts')
+    ev = VT(epb)[0]; hb = [np.ptp(VT(h)[0], axis=0) for h in hp]
+    D2 = json.load(gzip.open(os.path.join(shots, 'c13_stiff.ss')))['doc']; ep2 = next(c for c in D2['stConns'] if c['type'] == 'T144')
+    sf = [b for b in D2['bodies'] if st(b).get('conn') == ep2['id'] and st(b).get('name') == 'STIFFENER']; sb = [np.ptp(VT(b)[0], axis=0) for b in sf]
+    meas = [f'end plate {np.ptp(ev[:, 2]):.1f} x {np.ptp(ev[:, 1]):.1f} x {np.ptp(ev[:, 0]):.1f} (R12 430 x 120 x 16), bolts M{st(bo)["d"]:g} {st(bo)["grade"]} L{st(bo)["L"]:g} x {st(bo).get("n", len(st(bo)["pts"]))} (R12 M16 8.8 L50 x 8)',
+            f'girder-side Stiff. plates (144 Haunch tab): {", ".join(f"{a[0]:.1f} x {a[2]:.1f} x {a[1]:.1f}" for a in hb)} (R12 50 x 55 x 10, clip 15, chamfer 12.5)',
+            f'144 Stiffeners tab (created, square, t 10, b 70): {len(sf)} stiffeners {", ".join(f"{a[0]:.0f} x {a[1]:.0f} x {a[2]:.0f}" for a in sb[:1])} (R12\'s own FS / NS there: 296 x 70 x 10, by Column with stiffeners (186))',
+            'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c13_case.ss')) + ' | with stiffeners: ' + rule_b(os.path.join(shots, 'c13_stiff.ss')),
+            'R12 rebuild (web v70 and app): before 0 / 6 end plates as 144 (read as Cap 39), 12 Stiff. MISSING  ->  after 6 / 6 end plates + 12 / 12 Stiff. at box 0.0, 48 / 48 bolts']
+    app, meta = shot(shots, 'ortho_front'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'end plate 430, Stiff. 55 x 50, M16 L50')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = R['bodies']
+    re_ = next(b for b in RB if str(b['id']) == '3001'); cc = (VT(re_)[0].min(0) + VT(re_)[0].max(0)) / 2
+    near_ = [b for b in RB if b.get('shape') and (VT(b)[0].min(0) < cc + 1300).all() and (VT(b)[0].max(0) > cc - 1300).all()]
+    colr = lambda b: (200, 60, 60) if st(b).get('name', '').strip() in ('Top Stiff.', 'Bot Stiff.') else (220, 160, 40) if st(b).get('name', '').strip() == 'End Plate' else (230, 230, 230) if st(b).get('name') in ('Top FS', 'Top NS', 'Bot FS', 'Bot Ns') else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if st(b).get('amark', '').startswith('C') else (60, 150, 80)
+    r12 = render(near_, cc + np.array([-400.0, 0, 0]), dv, dist, colr, W=1400, H=900)
+    vid = Image.open(video).convert('RGB') if video and os.path.exists(video) else help_pic('6BFC0874-1B37-4A14-A4E9-212C4534F173')
+    return compose('C13', [('R12 (Tekla IFC), C2015 / EB4002, orthographic', r12), ('Tekla drawing EB4002 (package)', tekla_page('EB4002')), ('video / Tekla help (see VIDEO.txt)', vid), ('app on the emulator, orthographic front view (landscape)', app)],
+                   'C13 End plate (144) at the mezzanine girder -> column flange: R12 | Tekla drawing | video | app (144 Picture + Haunch + Bolts; Stiffeners tab)', ['Measured on the models the emulator built and saved (c13_case.ss, c13_stiff.ss):'] + ['! ' + m for m in meas])
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09}[sys.argv[1]](sys.argv[2])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13}[sys.argv[1]](*sys.argv[2:])
