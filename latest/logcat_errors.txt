@@ -1,0 +1,300 @@
+11-26 18:46:51.811  7073  7108 E PhFileGroupPop: Failed to add file group 
+11-26 18:46:51.811  7073  7108 E PhFileGroupPop: Failed to add file group 
+11-26 18:46:51.811  7073  7108 E PhFileGroupPop: Failed to add file group 
+11-26 18:46:51.823  7073  7108 E PhFileGroupPop: Failed to add file group 
+11-26 18:46:51.823  7073  7108 E PhFileGroupPop: Failed to add file group 
+11-26 18:46:51.828  7073  7108 E dqod    : RuntimeException while executing runnable dqra{dkqj@cf0d499} with executor MoreExecutors.directExecutor()
+11-26 18:46:51.828  7073  7108 E dqod    : java.lang.NullPointerException: Attempt to read from field 'java.lang.String cwru.b' on a null object reference in method 'void cyar.b(java.lang.Object)'
+11-26 18:46:51.828  7073  7108 E dqod    : 	at cyar.b(PG:11)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dkqj.b(PG:13)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dqra.run(PG:30)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dqqd.execute(PG:1)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dqod.o(PG:1)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dqod.b(PG:41)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dqrh.s(PG:9)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dksz.l(PG:5)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at cyat.a(PG:138)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at bilp.a(PG:29)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at cwzc.r(PG:24)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at cwws.a(PG:5)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dkqe.a(PG:13)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dqoh.d(PG:3)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dqoj.run(PG:42)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at dqso.run(PG:76)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at crzm.run(PG:3)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at cryq.run(PG:6)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at java.lang.Thread.run(Thread.java:1012)
+11-26 18:46:51.828  7073  7108 E dqod    : 	at csaw.run(PG:64)
+11-26 18:46:51.829  7073  7108 E dqod    : RuntimeException while executing runnable dqra{dkqj@d59533f} with executor MoreExecutors.directExecutor()
+11-26 18:46:51.829  7073  7108 E dqod    : java.lang.NullPointerException: Attempt to read from field 'java.lang.String cwru.b' on a null object reference in method 'void cyar.b(java.lang.Object)'
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cyar.b(PG:11)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dkqj.b(PG:13)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqra.run(PG:30)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqqd.execute(PG:1)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqod.o(PG:1)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqod.b(PG:41)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqrh.s(PG:9)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dksz.l(PG:5)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cyat.a(PG:138)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at bilp.a(PG:29)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cwzc.r(PG:24)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cwws.a(PG:5)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dkqe.a(PG:13)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqoh.d(PG:3)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqoj.run(PG:42)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqso.run(PG:76)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at crzm.run(PG:3)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cryq.run(PG:6)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at java.lang.Thread.run(Thread.java:1012)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at csaw.run(PG:64)
+11-26 18:46:51.829  7073  7108 E dqod    : RuntimeException while executing runnable dqra{dkqj@5712155} with executor MoreExecutors.directExecutor()
+11-26 18:46:51.829  7073  7108 E dqod    : java.lang.NullPointerException: Attempt to read from field 'java.lang.String cwru.b' on a null object reference in method 'void cyar.b(java.lang.Object)'
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cyar.b(PG:11)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dkqj.b(PG:13)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqra.run(PG:30)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqqd.execute(PG:1)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqod.o(PG:1)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqod.b(PG:41)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqrh.s(PG:9)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dksz.l(PG:5)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cyat.a(PG:138)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at bilp.a(PG:29)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cwzc.r(PG:24)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cwws.a(PG:5)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dkqe.a(PG:13)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqoh.d(PG:3)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqoj.run(PG:42)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at dqso.run(PG:76)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at crzm.run(PG:3)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at cryq.run(PG:6)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at java.lang.Thread.run(Thread.java:1012)
+11-26 18:46:51.829  7073  7108 E dqod    : 	at csaw.run(PG:64)
+11-26 18:46:51.829  7073  7108 E PhFileGroupPop: Failed to add file group 
+11-26 18:46:51.875  7073  7108 E MDD     : FileGroupManager: Trying to add expired group webref-model-local-index.
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: Failed to add file group
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: cxev
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at cxns.a(PG:941)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at dkqe.a(PG:13)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at dqoh.d(PG:3)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at dqoj.run(PG:42)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at dqso.run(PG:76)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at crzm.run(PG:3)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at cryq.run(PG:6)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at java.lang.Thread.run(Thread.java:1012)
+11-26 18:46:51.875  7073  7108 E PhFileGroupPop: 	at csaw.run(PG:64)
+11-26 18:46:53.738   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
+11-26 18:46:53.738   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
+11-26 18:46:53.738   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
+11-26 18:46:53.738   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
+11-26 18:46:53.738   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
+11-26 18:46:53.738   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
+11-26 18:46:53.738   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
+11-26 18:46:53.738   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
+11-26 18:46:53.738   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
+11-26 18:46:53.738   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
+11-26 18:46:53.739   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
+11-26 18:46:53.739   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: No service published for: ethernet
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+11-26 18:46:53.820   861   938 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-26 18:46:55.624  1228  1901 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[Taskbar]#76) as ready
+11-26 18:46:55.859  2868  3085 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[ScreenDecorOverlay]#70) as ready
+11-26 18:46:55.859  2868  3085 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[ScreenDecorOverlay]#71) as ready
+11-26 18:46:55.936  2868  3085 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[StatusBar]#72) as ready
+11-26 18:46:55.937  2868  3085 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[StatusBar]#73) as ready
+11-26 18:46:56.592  1222  7251 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-26 18:46:57.343   559  7255 E GnssPsdsDownloader: No Long-Term PSDS servers were specified in the GnssConfiguration
+11-26 18:46:58.182   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
+11-26 18:46:58.182   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
+11-26 18:46:58.183   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
+11-26 18:46:58.183   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
+11-26 18:46:58.183   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
+11-26 18:46:58.183   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
+11-26 18:46:58.183   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
+11-26 18:46:58.183   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
+11-26 18:46:58.183   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
+11-26 18:46:58.183   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
+11-26 18:46:58.183   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
+11-26 18:46:58.183   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: No service published for: ethernet
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+11-26 18:46:58.326   861   938 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-26 18:46:59.197  6502  6543 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[MainActivity]#53) as ready
+11-26 18:47:02.037  1222  7253 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 30 milliseconds, 808645 nanoseconds delay) for pxi@d48f1a8[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@1a044c1]]]
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at kef.e(PG:15)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at kfm.A(PG:21)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at joy.A(PG:3)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at fto.g(PG:9)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at jov.a(PG:3)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at joy.I(PG:49)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at jos.k(PG:30)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at dia.q(PG:11)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at kfm.onFinishInputView(PG:75)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.finishViews(InputMethodService.java:3245)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.hideWindow(InputMethodService.java:3284)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInput(InputMethodService.java:967)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 18:47:12.275  1222  1222 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 18:47:24.010  6502  6502 E FrameTracker: force finish cuj, time out: J<IME_INSETS_HIDE_ANIMATION::1@1@com.solidsketchapp.steel>
+11-26 18:50:01.297   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
+11-26 18:50:01.297   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
+11-26 18:50:01.318   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
+11-26 18:50:01.368   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
+11-26 18:50:01.391   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
+11-26 18:50:01.391   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
+11-26 18:50:01.391   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
+11-26 18:50:01.391   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
+11-26 18:50:01.392   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
+11-26 18:50:01.392   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: No service published for: ethernet
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+11-26 18:50:01.409   861   938 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-26 18:50:01.496   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
+11-26 18:50:01.496   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
+11-26 18:50:04.367  1222  7267 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-26 18:50:06.148   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
+11-26 18:50:06.148   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
+11-26 18:50:06.171   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
+11-26 18:50:06.171   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
+11-26 18:50:06.172   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
+11-26 18:50:06.172   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
+11-26 18:50:06.172   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
+11-26 18:50:06.172   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
+11-26 18:50:06.172   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
+11-26 18:50:06.172   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
+11-26 18:50:06.172   559   724 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
+11-26 18:50:06.172   559   724 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: No service published for: ethernet
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+11-26 18:50:06.237   861   938 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-26 18:50:07.243  6502  6543 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[MainActivity]#61) as ready
+11-26 18:50:07.243  6502  6543 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[MainActivity]#62) as ready
+11-26 18:50:07.260  6502  6543 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(SurfaceView[com.solidsketchapp.steel/com.solidsketchapp.steel.MainActivity]#60) as ready
+11-26 18:50:08.217  2868  3085 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[ScreenDecorOverlay]#16) as ready
+11-26 18:50:08.221  2868  3085 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[ScreenDecorOverlay]#17) as ready
+11-26 18:50:08.926  1222  7266 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-26 18:50:13.884   559  1629 E ActivityManager: Unable to freeze binder for 6502: -11
+11-26 18:50:13.886  6489  6489 I AndroidRuntime: VM exiting with result code 0.
+11-26 18:50:17.332   559  2472 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 18:50:21.098   559  2472 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 18:50:21.288   559  2472 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 18:50:21.297   971   971 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-26 18:50:21.323  7481  7481 E .apps.wellbeing: Not starting debugger since process cannot load the jdwp agent.
+11-26 18:50:21.331   559   730 E AppOps  : attributionTag VCN not declared in manifest of android
+11-26 18:50:21.393   559  2472 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 18:50:21.412   971   971 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-26 18:50:21.457   559   893 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-26 18:50:21.583   971   971 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-26 18:50:21.587   971   971 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-26 18:50:21.589   559   730 E AppOps  : attributionTag VCN not declared in manifest of android
+11-26 18:50:21.784   559  2472 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 18:50:21.887   559   893 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-26 18:50:21.889   559  2472 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 18:50:21.896   559   893 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-26 18:50:22.139   559   730 E AppOps  : attributionTag VCN not declared in manifest of android
+11-26 18:50:22.405   559   893 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-26 18:50:22.724   971   971 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-26 18:50:22.815   559   893 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-26 18:50:22.820   971   971 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-26 18:50:22.933   559   893 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-26 18:50:24.084   559  1656 E AtomicFile: Failed to rename /data/system/cachequota.xml.new to /data/system/cachequota.xml
