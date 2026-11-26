@@ -30,7 +30,7 @@ import kotlin.math.sqrt
  *   - the two members' solids inside a box 300 mm round the end plate: symmetric difference <= 0.1 mm x surface area, or (built-up
  *     members whose own section differs from Tekla's: R12-REPORT "INPUT EQUAL, SOLID DIFFERS") no larger than the same member with no
  *     connection, with what the connection removes (end cut, holes) outside Tekla's part.
- * Row 2's tapered eave haunch (Web FLT8*80 + Bottom flange FLT10*150, 48 + 48) is C02h, Eaves haunch (102) haunch plates (Haunch length
+ * Row 2's tapered eave haunch (Web FLT8*80 + Bottom flange FLT10*150, 48 + 48) is C02h, the Eave haunch (Teh: Haunch length
  * 2,000, depth 82.91; row "2h"): each part's box within 0.1 mm, and R12's solid covered by ours (missing volume <= 0.1 mm x its surface).
  * Needs Manifold: -PhostJni. Writes build/r12-c09-report.txt.
  */
@@ -54,7 +54,7 @@ class R12C09Test {
         val steps = inp.getValue("steps").jsonArray.map { it.jsonObject }
         steps.first { it["op"]!!.jsonPrimitive.content == "grid" }.let { m.doc.setField("stGrid", it.getValue("grid").toString()) }
         val list = steps.first { it["op"]!!.jsonPrimitive.content == "connectMany" }.getValue("list").jsonArray.map { it.jsonArray }
-            .filter { it[0].jsonPrimitive.content in setOf("T144", "T102h") && it[3].jsonPrimitive.content in setOf("2", "9") }
+            .filter { it[0].jsonPrimitive.content in setOf("T144", "Teh") && it[3].jsonPrimitive.content in setOf("2", "9") }
         val need = list.flatMap { e -> e[1].jsonArray.map { it.jsonPrimitive.int } }.toSortedSet()
         val ids = HashMap<Int, BodyId>(); for (i in need) { val st = members[i].getValue("st").jsonObject; ids[i] = m.parts.addBuilt(st, m.parts.mesh(st)) }
         m.comps.addMany(list.map { e -> Triple(e[0].jsonPrimitive.content, e[1].jsonArray.map { ids.getValue(it.jsonPrimitive.int) }, e[2].jsonObject) }, merge = true)
@@ -66,7 +66,7 @@ class R12C09Test {
         val cnt = HashMap<String, IntArray>()   // row -> [plates ok, plates, bolts ok, bolts, members ok, members]
         val bad = ArrayList<String>(); val diag = ArrayList<String>()
         for ((e, c) in list.zip(conns)) {
-            val row = e[3].jsonPrimitive.content + (if (e[0].jsonPrimitive.content == "T102h") "h" else ""); val n = cnt.getOrPut(row) { IntArray(6) }; val refs = e[4].jsonArray.map { it.jsonPrimitive.int }
+            val row = e[3].jsonPrimitive.content + (if (e[0].jsonPrimitive.content == "Teh") "h" else ""); val n = cnt.getOrPut(row) { IntArray(6) }; val refs = e[4].jsonArray.map { it.jsonPrimitive.int }
             val k = kids[c.id].orEmpty().filter { it.second["kind"]?.jsonPrimitive?.content != "bolts" }.map { pts(m.doc.bodyMesh(it.first)!!) }.map(::box)
             if (row == "2h") {   // each R12 haunch part: our part with the same box (0.1 mm) and the same solid (symmetric difference <= 0.1 mm x its surface)
                 val ours = kids[c.id].orEmpty().filter { it.second["kind"]?.jsonPrimitive?.content != "bolts" }.map { m.doc.bodyMesh(it.first)!! }
@@ -103,7 +103,7 @@ class R12C09Test {
                 if (ok) n[4]++ else bad += "row $row R12 $epId: member $mi differs by %.0f mm³ (%.3f mm over its faces); with no connection %.0f; the connection removes %.0f mm³, %.0f of it inside Tekla's part".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla)
                 diag += "row $row member $mi: diff %.0f (%.3f mm), no-conn %.0f, removed %.0f, removed inside Tekla %.1f".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla) }
         }
-        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "2" -> "C02 eave, End plate 144"; "2h" -> "C02h eave haunch, 102"; else -> "C09 monitor post" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
+        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "2" -> "C02 eave, End plate 144"; "2h" -> "C02h Eave haunch"; else -> "C09 monitor post" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
         File(root, "build").mkdirs(); File(root, "build/r12-c09-report.txt").writeText(rep + "\n\n" + diag.joinToString("\n") + "\n"); println(rep.lines().take(14).joinToString("\n"))
         for ((_, n) in cnt) { assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
     }

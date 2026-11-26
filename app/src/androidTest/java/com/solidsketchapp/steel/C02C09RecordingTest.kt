@@ -38,8 +38,8 @@ import kotlin.math.sqrt
  * C02 + C02h + C09, the owner's video check (docs/steel/PARITY.md "C02h", "C09"), each its own screen recording:
  *  - c02Recording: R12's eave (BI320 column, BI220 rafter at 12.8 deg). End plate (144) through its dialog with R12's settings (Picture
  *    t 20, 1 = -10, 2 = -104.385, gap 0; Bolts M20, 4 rows, 6 = 50.045, s = 70 70 80, 5 = 70, 3 = 40, Bolt length Tekla, Bolting
- *    direction 2), Pick parts (column, rafter); then Eaves haunch (102) · haunch (C02h) through its dialog (5 = 82.91, Haunch length 2000,
- *    Vert haunch pl t 8, Horiz haunch pl 10 x 150), Pick parts; orbit, orthographic stills, the model saved (c02/c02_case.ss), then the
+ *    direction 2), Pick parts (column, rafter); then the Eave haunch (C02h) through its dialog (D = depth at the column 82.91, L = haunch length
+ *    2000; Parts: web t 8, flange 10 x 150), Pick parts; orbit, orthographic stills, the model saved (c02/c02_case.ss), then the
  *    haunch's dialog again: Haunch length 1500, Modify, orbit again. /sdcard/c02_rec.mp4.
  *  - c09Recording: R12's monitor post (BI150 post on the BI220 rafter). End plate (144) with R12's settings (t 12, 1 = -55.358, 2 = -60.814,
  *    gap 0; Haunch tab: Top / Bottom plate 8 x 60 x 60, chamfers 15 line, Top and bottom created; Bolts M16, 4 rows, 6 = 30.025,
@@ -139,11 +139,11 @@ class C02C09RecordingTest {
             pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); pick("bdir", "Bolting direction 2"); shot("dialog144_bolts")
             pickParts("T144", cam, pairs)
             assertTrue("144 bolt length rule ${q("T144", "blrule")}", q("T144", "blrule") == "tekla")
-            // Eaves haunch (102) · haunch (C02h)
-            openCatalog("t102h")
-            tab("Picture"); field("hdep", "82.91"); field("hlen", "2000"); shot("dialog102h_picture")
-            tab("Parts"); field("tw", "8"); field("tf", "10"); field("bf", "150"); shot("dialog102h_parts")
-            pickParts("T102h", cam, pairs)
+            // Eave haunch (C02h)
+            openCatalog("teh")
+            tab("Picture"); field("hdep", "82.91"); field("hlen", "2000"); shot("dialogEH_picture")
+            tab("Parts"); field("tw", "8"); field("tf", "10"); field("bf", "150"); shot("dialogEH_parts")
+            pickParts("Teh", cam, pairs)
             val c = centre(bodyNamed("Web"))
             orbit(c, 3200.0, "len2000")
             orthoShot(c, Vec3(0.0, -1.0, 0.0), 2600.0, "ortho_front")     // along the frame line: the haunch's profile, length and depth
@@ -154,10 +154,10 @@ class C02C09RecordingTest {
             // the haunch's dialog again: Haunch length 1500, Modify
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(bodyNamed("Web"))) }; pause(800)
             press("Components")
-            waitFor("the haunch's dialog") { compose.onAllNodes(hasText("Parameters") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }; pause(800)
-            tab("Parameters"); field("hlen", "1500"); pause(600); shot("dialog102h_len1500")
+            waitFor("the haunch's dialog") { compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }; pause(800)
+            tab("Picture"); field("hlen", "1500"); pause(600); shot("dialogEH_len1500")
             press("Modify"); pause(800)
-            waitFor("Haunch length 1500") { q("T102h", "hlen")?.toDoubleOrNull() == 1500.0 }
+            waitFor("Haunch length 1500") { q("Teh", "hlen")?.toDoubleOrNull() == 1500.0 }
             compose.onAllNodes(hasText("Cancel") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Cancel") and hasClickAction())[0].performClick() }
             act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; pause(800)
             val c2 = centre(bodyNamed("Web")); orbit(c2, 3000.0, "len1500")

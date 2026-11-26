@@ -567,9 +567,9 @@ def main():
                     tosec = p.N if dot(sub(far, c0), p.N) > 0 else mul(p.N, -1)
                     q['blrule'] = 'tekla'; q['bdir'] = 2 if dot(cs[0]['q']['ax'], tosec) > 0 else 1
                 conn('T144', [other, own], q, EP[key3], refs)
-                if MODEL == 'R12' and EP[key3] == '2':   # C02h (PARITY.md): Eaves haunch (102) haunch plates, read off R12's web + flange
+                if MODEL == 'R12' and EP[key3] == '2':   # C02h (PARITY.md): Eave haunch (Teh), read off R12's web + flange
                     hq = eave_haunch_q(b, other, own)
-                    if hq: conn('T102h', [other, own], hq[0], '2', hq[1])
+                    if hq: conn('Teh', [other, own], hq[0], '2', hq[1])
             elif s['name'] == 'End Plate' and s['tprof'] == 'FLT20*400':   # apex 106 with haunch (v54 apex)
                 hw = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'Web' and byid[x]['st']['tprof'] == 'FLT8*130']
                 hf = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'Bottom flange' and x not in member_of]

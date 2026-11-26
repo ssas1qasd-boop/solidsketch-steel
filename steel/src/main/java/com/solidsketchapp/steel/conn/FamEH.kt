@@ -11,12 +11,12 @@ import kotlin.math.max
 import kotlin.math.sqrt
 
 /**
- * C02h · Eaves haunch (102), haunch plates only (web v70 FAM.EH; proof docs/steel/PARITY.md "C02h"). Main part = column, secondary =
- * rafter. Tekla 102's Haunch length (horizontal, from the column's centre line to where the haunch flange meets the rafter's bottom
- * flange) and Picture dimension 5 (the haunch plate's plumb depth from the rafter flange, at the end plate); Vert haunch pl t, Horiz
- * haunch pl t and width. The haunch starts at the back face of the End plate (144) joining the same column and rafter (column face +
- * gap + shim / front + plate), else at the column face. Web = triangle under the rafter's underside; flange under its lower edge, ends
- * cut plumb. R12: 48 / 48 eaves with length 2,000 and depth 82.91.
+ * C02h · Eave haunch (SolidSketch's own component, key Teh; web v70 FAM.EH; proof docs/steel/PARITY.md "C02h"). Main part = column,
+ * secondary = rafter. Haunch length: horizontal, from the column's centre line to where the haunch flange meets the rafter's bottom flange
+ * (Tekla 102's definition); Depth at the column: the web's plumb depth at the end plate below the rafter's underside; web t; flange t and
+ * width. The haunch starts at the back face of the End plate (144) joining the same column and rafter (column face + gap + shim / front +
+ * plate), else at the column face. Web = triangle under the rafter's underside; flange under its lower edge, ends cut plumb.
+ * R12: 48 / 48 eaves with length 2,000 and depth 82.91.
  */
 object FamEH {
     fun gen(x: FamCtx) {

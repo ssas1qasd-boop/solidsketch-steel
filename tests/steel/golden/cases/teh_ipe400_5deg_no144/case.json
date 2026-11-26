@@ -7,7 +7,7 @@
  ],
  "conns": [
   [
-   "T102h",
+   "Teh",
    [
     0,
     1
@@ -56,6 +56,6 @@
    "set": "RAFTER"
   }
  ],
- "name": "t102h_ipe400_5deg_no144",
+ "name": "teh_ipe400_5deg_no144",
  "pageErrors": []
 }

@@ -17,28 +17,29 @@
     1
    ],
    {
+    "blrule": "tekla",
     "ext": 20,
-    "extb": 160,
+    "extb": 280,
     "gap": 0,
-    "tp": 25
+    "tp": 20
    }
   ],
   [
-   "T102h",
+   "Teh",
    [
     0,
     1
    ],
    {
-    "bf": 150,
-    "hdep": 120,
-    "hlen": 1800,
-    "tf": 10,
+    "bf": 170,
+    "hdep": 200,
+    "hlen": 1500,
+    "tf": 12,
     "tw": 8
    }
   ]
  ],
- "description": "HEA240 column, IPE300 rafter at 15 deg, End plate 144 tp 25 gap 0 (extb 160) + haunch length 1800, depth 120.",
+ "description": "HEA300 column, IPE360 rafter at 10 deg, End plate 144 (tp 20, extb 280: the lowest bolt row below the haunch flange) + haunch length 1500, depth 200, flange 12 x 170.",
  "members": [
   {
    "extra": {
@@ -50,9 +51,9 @@
     "p2": [
      0,
      0,
-     6000
+     7500
     ],
-    "prof": "HEA240"
+    "prof": "HEA300"
    },
    "set": "COLUMN"
   },
@@ -61,18 +62,18 @@
     "p1": [
      0,
      0,
-     6000
+     7500
     ],
     "p2": [
-     8000,
+     10000,
      0,
-     8143.6
+     9263.3
     ],
-    "prof": "IPE300"
+    "prof": "IPE360"
    },
    "set": "RAFTER"
   }
  ],
- "name": "t102h_hea240_ipe300_15deg_tp25",
+ "name": "teh_hea300_ipe360_10deg",
  "pageErrors": []
 }

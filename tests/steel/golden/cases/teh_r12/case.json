@@ -33,7 +33,7 @@
    }
   ],
   [
-   "T102h",
+   "Teh",
    [
     0,
     1
@@ -47,7 +47,7 @@
    }
   ]
  ],
- "description": "R12 eave R3023 / C2017: BI320 column, BI220 rafter at 12.8 deg, End plate 144 (R12 settings) + Eaves haunch (102) haunch: length 2000, depth 82.91, web 8, flange 10 x 150.",
+ "description": "R12 eave R3023 / C2017: BI320 column, BI220 rafter at 12.8 deg, End plate 144 (R12 settings) + Eave haunch: length 2000 from the column axis, depth at the column 82.91, web 8, flange 10 x 150.",
  "members": [
   {
    "extra": {
@@ -88,6 +88,6 @@
    "set": "RAFTER"
   }
  ],
- "name": "t102h_r12",
+ "name": "teh_r12",
  "pageErrors": []
 }
