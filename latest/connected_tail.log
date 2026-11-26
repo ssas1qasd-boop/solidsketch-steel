@@ -49,30 +49,27 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :steel:generateDebugRFile UP-TO-DATE
 > Task :core-io:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:checkDebugAarMetadata UP-TO-DATE
-> Task :app:generateDebugResValues UP-TO-DATE
-> Task :app:mapDebugSourceSetPaths UP-TO-DATE
-> Task :app:generateDebugResources UP-TO-DATE
 > Task :core-io:compileDebugKotlin UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
 > Task :core-io:javaPreCompileDebug UP-TO-DATE
 > Task :core-io:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-io:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :core-view:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :app:mergeDebugResources UP-TO-DATE
-> Task :app:packageDebugResources UP-TO-DATE
-> Task :app:parseDebugLocalResources UP-TO-DATE
-> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
 > Task :core-view:compileDebugKotlin UP-TO-DATE
 > Task :core-view:javaPreCompileDebug UP-TO-DATE
 > Task :core-view:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-view:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :steel:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
 > Task :app:processDebugMainManifest UP-TO-DATE
 > Task :app:processDebugManifest UP-TO-DATE
 > Task :app:processDebugManifestForPackage UP-TO-DATE
-> Task :app:processDebugResources UP-TO-DATE
-> Task :app:javaPreCompileDebug UP-TO-DATE
-> Task :app:preDebugAndroidTestBuild SKIPPED
 > Task :steel:compileDebugKotlin UP-TO-DATE
 > Task :steel:javaPreCompileDebug UP-TO-DATE
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
@@ -90,7 +87,7 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :steel:generateDebugAssets UP-TO-DATE
 > Task :steel:packageDebugAssets UP-TO-DATE
 > Task :core-view:bundleLibRuntimeToJarDebug UP-TO-DATE
-> Task :app:processDebugAndroidTestManifest UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
 > Task :core-io:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :steel:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :core-io:processDebugJavaRes UP-TO-DATE
@@ -98,17 +95,20 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :steel:processDebugJavaRes UP-TO-DATE
 > Task :core-view:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :core-io:bundleLibRuntimeToDirDebug UP-TO-DATE
-> Task :steel:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :app:compileDebugKotlin UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :steel:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+> Task :app:preDebugAndroidTestBuild SKIPPED
 > Task :core-io:mergeDebugJniLibFolders UP-TO-DATE
 > Task :core-io:mergeDebugNativeLibs NO-SOURCE
 > Task :core-io:copyDebugJniLibsProjectOnly UP-TO-DATE
-> Task :app:compileDebugJavaWithJavac UP-TO-DATE
-> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+> Task :fetchManifold
+> Task :app:processDebugAndroidTestManifest UP-TO-DATE
 > Task :app:generateDebugAndroidTestBuildConfig UP-TO-DATE
 > Task :app:checkDebugAndroidTestAarMetadata UP-TO-DATE
 > Task :app:generateDebugAndroidTestResValues UP-TO-DATE
-> Task :fetchManifold
 > Task :app:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
 > Task :app:generateDebugAndroidTestResources UP-TO-DATE
 > Task :app:mergeDebugAndroidTestResources UP-TO-DATE
@@ -120,11 +120,11 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
 > Task :app:mergeDebugAssets UP-TO-DATE
+> Task :core-view:configureCMakeDebug[x86_64]
 > Task :app:compressDebugAssets UP-TO-DATE
 > Task :app:desugarDebugFileDependencies UP-TO-DATE
-> Task :app:dexBuilderDebug UP-TO-DATE
-> Task :core-view:configureCMakeDebug[x86_64]
 > Task :core-view:buildCMakeDebug[x86_64]
+> Task :app:dexBuilderDebug UP-TO-DATE
 > Task :core-view:mergeDebugJniLibFolders UP-TO-DATE
 > Task :core-view:mergeDebugNativeLibs UP-TO-DATE
 > Task :core-view:copyDebugJniLibsProjectOnly UP-TO-DATE
@@ -177,7 +177,7 @@ emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 2/2 completed. (0 skipped) (0 failed)
 Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795723670633.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795725376407.json
 
-BUILD SUCCESSFUL in 6m 20s
+BUILD SUCCESSFUL in 6m 53s
 133 actionable tasks: 6 executed, 127 up-to-date
