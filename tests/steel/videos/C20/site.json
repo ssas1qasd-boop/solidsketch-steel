@@ -1,0 +1,4 @@
+{"source": "https://support.tekla.com/doc/tekla-structures/2025/conn_186_help (Column with stiffeners (186), Tekla Structures 2025 help: Picture, Plates, Stiffeners tabs)",
+ "values": {"Picture 1 (cut of the secondary part)": "20", "Picture 2 (strip of the secondary flange)": "20", "Beam end cut": "Bevel", "Beam flange cut": "Bevel",
+            "Stiffener orientation": "parallel to the secondary part", "Stiffener creation": "Stiffeners are created", "Stiffener shape": "Line chamfered stiffener plates",
+            "Chamfer 1": "10", "Chamfer 2": "10", "Chamfer type": "Line chamfer", "Shear tab chamfer type": "Line chamfer"}}

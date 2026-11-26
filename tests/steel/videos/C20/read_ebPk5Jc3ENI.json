@@ -1,0 +1,482 @@
+{
+ "url": "https://www.youtube.com/watch?v=ebPk5Jc3ENI",
+ "component": "Column with stiffeners (186)",
+ "tab": "Stiffeners",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "09:03",
+    "end": "11:23",
+    "note": "changing the stiffeners parameters"
+   }
+  ],
+  "language": "english",
+  "units": "inch"
+ },
+ "pass2": [
+  {
+   "span": [
+    "09:03",
+    "11:23"
+   ],
+   "seconds": [
+    540,
+    600
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Top NS t",
+      "value": "1/8",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top FS t",
+      "value": "1/8",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS t",
+      "value": "1/8",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS t",
+      "value": "1/8",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top NS b",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top FS b",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS b",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS b",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top NS h",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top FS h",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS h",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS h",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top NS Pos_No",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top FS Pos_No",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Pos_No",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS Pos_No",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top NS Material",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top FS Material",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Material",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS Material",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top NS Name",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Top FS Name",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Name",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS Name",
+      "value": "",
+      "t": "09:34",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "09:03",
+    "11:23"
+   ],
+   "seconds": [
+    600,
+    686
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Top NS",
+      "value": "1/8",
+      "t": "10:00",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "1/8",
+      "t": "10:00",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "1/8",
+      "t": "10:00",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "1/8",
+      "t": "10:00",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "1/4",
+      "t": "10:09",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "1/8",
+      "t": "10:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "1/8",
+      "t": "10:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "1/0",
+      "t": "10:09",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "1/4",
+      "t": "10:14",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "1/4",
+      "t": "10:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "1/8",
+      "t": "10:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "1/0",
+      "t": "10:14",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "1/4",
+      "t": "10:15",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "1/4",
+      "t": "10:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "1/8",
+      "t": "10:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "1/4",
+      "t": "10:15",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "1/4",
+      "t": "10:16",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "1/4",
+      "t": "10:16",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "1/4",
+      "t": "10:16",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "1/4",
+      "t": "10:16",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "0",
+      "t": "10:39",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "1/4",
+      "t": "10:39",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "1/4",
+      "t": "10:39",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "1/4",
+      "t": "10:39",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "0",
+      "t": "10:41",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "0",
+      "t": "10:41",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "1/4",
+      "t": "10:41",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "1/4",
+      "t": "10:41",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "0",
+      "t": "10:52",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "0",
+      "t": "10:52",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "0",
+      "t": "10:52",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "1/4",
+      "t": "10:52",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "0",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "0",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "0",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "0",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "1/4",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "0",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "0",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "0",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "1/4",
+      "t": "11:13",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "1/4",
+      "t": "11:13",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "0",
+      "t": "11:13",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "0",
+      "t": "11:13",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "1/4",
+      "t": "11:14",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "1/4",
+      "t": "11:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "1/4",
+      "t": "11:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "0",
+      "t": "11:14",
+      "sure": true
+     }
+    ]
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

@@ -257,6 +257,7 @@ object Fam {
 
     /** ST · shear tabs (v40 L14939, the live definition): a tab on the main part, bolted through the secondary's web. */
     fun st(x: FamCtx) {
+        val v186 = x.conn?.type == "T186" && x.s("scr").isNotEmpty()   // v70 C20 (web FAM.ST wrapper): Tekla's 186
         fun one(bm: JsonObject, bmId: String) {
             val j = Joints.joint(x.a, bm, x.profiles); val bp = j.b; val t = x.n("t"); val e = x.n("e"); val nC = max(1, jsInt(x.n("cols")))
             val n0 = if (x.t("rows")) jsInt(x.n("rows")) else max(2, tkRows(bp.h)); val yc = (j.yHi + j.yLo) / 2
@@ -272,9 +273,11 @@ object Fam {
             if (x.t("full") || x.t("top")) { val yT = if (mainBeam && j.yTop.isFinite()) j.yTop - mr else bp.h / 2 - bp.tf - 5; val yB = if (mainBeam && j.yBot.isFinite()) j.yBot + mr else -(bp.h / 2 - bp.tf - 5)
                 y1 = max(y1, yT); if (x.t("full")) y0 = min(y0, yB) }
             val xs0 = if (x.t("through")) j.xFace - j.m.h else j.xFace
-            val xe = if (x.t("colstiff") && !j.flange && !mainBeam && j.m.kind == "I") j.m.b / 2 - j.m.tw / 2 else 0.0; val xF2 = j.xFace + xe
+            val colstiff = x.t("colstiff") && !v186; val stiffQ = x.t("stiff") && !v186   // v70 C20: 186 with Stiffener creation set makes Tekla's stiffeners (colStiff186)
+            val xe = if (colstiff && !j.flange && !mainBeam && j.m.kind == "I") j.m.b / 2 - j.m.tw / 2 else 0.0; val xF2 = j.xFace + xe
             val eH = optNum(x, "eh").let { if (it.isFinite()) it else e }   // v70: horizontal edge distance
-            val x1 = xF2 + x.n("gap") + 2 * eH + (nC - 1) * x.n("pitchH"); val z0 = bp.tw / 2
+            val tb = optNum(x, "tb")   // v70 C20: Plates tab 'Tab plate b' sets the tab's length from the main part
+            val x1 = if (tb > 0) xs0 + tb else xF2 + x.n("gap") + 2 * eH + (nC - 1) * x.n("pitchH"); val z0 = bp.tw / 2
             val side = x.n("side"); val sides = if (side == 2.0 || x.t("two")) listOf(1, -1) else if (side == -1.0) listOf(-1) else listOf(1)
             val f = Joints.Frame3(j.e, j.x, j.y)
             val tabs = sides.map { sg -> if (x.t("shaped")) f.poly(listOf(doubleArrayOf(xs0, y0), doubleArrayOf(x1 - 15, y0), doubleArrayOf(x1, y0 + 15), doubleArrayOf(x1, y1 - 15), doubleArrayOf(x1 - 15, y1), doubleArrayOf(xs0, y1)), sg * z0, sg * (z0 + t)) else f.box(xs0, x1, y0, y1, sg * z0, sg * (z0 + t)) }
@@ -286,23 +289,87 @@ object Fam {
             val bb = x.group(bl, bax, x.n("bolt"), grip)
             for (hc in bb.holes) x.cut(bmId, hc)
             for (m in j.cutEnd(xF2 + x.n("gap"))) x.cut(bmId, m)
-            tabs.forEach { x.plate("SHEAR TAB", it, x.n("t"), minus = bb.holes) }
+            // v70 C20: a skewed secondary's tab ends on the main part's web face (Tekla welds it there), not square to the beam
+            val webClip = if (v186 && !j.flange && abs(j.x dot j.m.es) <= 0.9999) listOf(Joints.Frame3(j.m.c1, j.m.es, j.m.a).box(-j.m.tw / 2, j.m.tw / 2, -BIG, BIG, -BIG, BIG)) else emptyList()
+            tabs.forEach { x.plate("SHEAR TAB", it, x.n("t"), minus = bb.holes + webClip) }
             for (sgn in listOf(1, -1)) { val fy0 = sgn * (bp.h / 2 - bp.tf - bp.r); val fy1 = sgn * bp.h / 2
                 if (if (sgn > 0) y1 > fy0 else y0 < fy0) for (sg in sides) x.cut(bmId, j.box(j.xFace - 1, x1 + 20, min(fy0, fy1) - 1, max(fy0, fy1) + 1, sg * (z0 - 0.5), sg * (bp.b / 2 + 5))) }
             x.bolts(bb, bl.size, if (tk) Math.ceil((sides.size * x.n("t") + bp.tw + 1.5 * x.n("bolt") + 2) / 5) * 5 else grip + 2 * x.n("bolt"))   // v70: Tekla's bolt length
             if (x.t("through")) x.cut(x.aId, j.box(xs0 - 1, j.xFace + 1, y0 - 1, y1 + 1, if (sides.size > 1) -z0 - t - 1 else z0 - 1, z0 + t + 1))
             x.weld("Shear tab to main part", x.n("a"), 2 * (y1 - y0) * sides.size, listOf(doubleArrayOf(j.xFace, y0, z0), doubleArrayOf(j.xFace, y1, z0), doubleArrayOf(j.xFace, y1, z0 + t), doubleArrayOf(j.xFace, y0, z0 + t)).map { j.p(it[0], it[1], it[2]) })
             if (x.t("tee")) x.plate("TEE FLANGE", f.box(j.xFace, j.xFace + 12, y0, y1, z0 + t / 2 - 60, z0 + t / 2 + 60), 12.0)
-            if (x.t("colstiff") || x.t("stiff")) {
+            if (colstiff || stiffQ) {
                 val nn = (j.m.eh cross j.m.es).normalize()
                 if (!mainBeam && j.flange) { for (yy in listOf(bp.h / 2 - bp.tf / 2, -(bp.h / 2 - bp.tf / 2))) stiffPair(x, j.m, (j.p(0.0, yy, 0.0) - j.m.c1) dot nn, max(10.0, bp.tf), 15.0, listOf(1, -1)) }
-                else if (!mainBeam && !j.flange) { val sg = (Math.signum(j.x dot j.m.es).let { if (it == 0.0) 1.0 else it } * (if (x.t("colstiff")) 1 else -1)).toInt()
+                else if (!mainBeam && !j.flange) { val sg = (Math.signum(j.x dot j.m.es).let { if (it == 0.0) 1.0 else it } * (if (colstiff) 1 else -1)).toInt()
                     for (yy in listOf(bp.h / 2 - bp.tf / 2, -(bp.h / 2 - bp.tf / 2))) stiffPair(x, j.m, (j.p(0.0, yy, 0.0) - j.m.c1) dot nn, max(10.0, bp.tf), 15.0, listOf(sg)) }
                 else if (mainBeam && j.m.kind == "I") { val mh = j.m.h / 2 - j.m.tf
                     x.plate("STIFFENER", f.box(j.xFace - j.m.tw, j.xFace - j.m.tw - (j.m.b / 2 - j.m.tw / 2 - 5), (if (j.yBot.isFinite()) j.yBot else -mh) + mr, (if (j.yTop.isFinite()) j.yTop else mh) - mr, z0, z0 + t), x.n("t")) }
             }
         }
         one(x.b!!, x.bId!!); if (x.b2 != null) one(x.b2, x.b2Id!!)
+        if (v186) for ((bm, id) in listOfNotNull(x.b!! to x.bId!!, x.b2?.let { it to x.b2Id!! })) {
+            if (x.s("scr") == "both" || x.s("scr") == "auto") colStiff186(x, bm, false); strip186(x, bm, id) }
+    }
+
+    /**
+     * v70 C20 · Column with stiffeners (186), Stiffeners tab (web v70 colStiff70; proof docs/steel/PARITY.md "C20"): Top / Bottom NS / FS
+     * between the main part's flanges at the secondary's flange levels, flush with the secondary's flange outer faces (less positions 2-5),
+     * Stiffener gap 2 to each flange, width b (blank = the outstand less gap 1), web-side corner chamfers 1 / 2 (blank = Tekla's 10, never
+     * less than the root radius), near side = the secondary's side, K preparation (45 deg, t / 3 from each face) on the web and flange
+     * edges. Returns, per level, how far along the secondary the near side stiffener's outer edge reaches (for the flange strip).
+     */
+    private fun colStiff186(x: FamCtx, bm: JsonObject, dry: Boolean): Map<String, Double> {
+        val j = Joints.joint(x.a, bm, x.profiles); val bp = j.b; val m = j.m
+        fun num(k: String, d: Double): Double { val v = optNum(x, k); return if (v.isFinite()) v else d }
+        val o = j.e.add(j.x, j.xFace); val hb = bp.h / 2
+        var de = m.eh
+        if (x.s("sor") != "perp") { val a = j.x.add(m.es, -(j.x dot m.es)); if (a.length() > 1e-6) { val an = a.normalize(); de = if ((an dot m.eh) < 0) -an else an } }
+        var n = (de cross m.es); if ((n dot m.a) < 0) { de = -de; n = -n }
+        val g2 = num("sgap2", 0.0); val uin = ((m.h / 2 - m.tf) - g2) / max(0.2, abs(de dot m.eh)); val r = m.r
+        val shape = x.s("ssh").ifEmpty { "line" }; val ct = x.s("sct").ifEmpty { "line" }
+        val w0 = m.tw / 2 + num("sg1", 0.0) + (if (shape == "gap") r else 0.0); val out = m.b / 2 - m.tw / 2
+        val chD = max(10.0, r); val noCh = shape == "square" || shape == "gap" || ct == "none"; val ch1 = if (noCh) 0.0 else num("sc1", chD); val ch2 = if (noCh) 0.0 else num("sc2", chD)
+        val ns = if ((j.x dot m.es) >= 0) 1 else -1; val edges = HashMap<String, Double>()
+        for ((lv, p) in listOf("top" to o.add(bp.eh, hb), "bot" to o.add(bp.eh, -hb))) for (sg in listOf(ns, -ns)) {
+            val near = sg == ns; val k = if (lv == "top") (if (near) 1 else 4) else (if (near) 2 else 3)
+            val gap = num("sg" + when (k) { 1 -> 2; 2 -> 3; 3 -> 4; else -> 5 }, 0.0)
+            val t = num("stt$k", max(8.0, bp.tf)); val b = num("stb$k", out - num("sgap1", 0.0) - (w0 - m.tw / 2)); val half = num("sth$k", 2 * uin) / 2; val w1 = w0 + b
+            val s = ((p - m.c1) dot n) / (m.a dot n).let { if (it == 0.0) 1.0 else it }; val oz = m.c1.add(m.a, s)
+            val z0 = if (lv == "top") -gap - t else gap; val z1 = z0 + t
+            if (near) edges[lv] = ((oz - j.e) dot j.x) + sg * w1 * (m.es dot j.x) + half * abs(de dot j.x)
+            if (dry) continue
+            fun corner(x0: Double, xs: Double): List<DoubleArray> {
+                if (!(ch1 > 0 && ch2 > 0)) return listOf(doubleArrayOf(x0, w0))
+                if (ct == "convex" || ct == "concave") return (0..8).map { i -> val f = i / 8.0 * Math.PI / 2
+                    if (ct == "concave") doubleArrayOf(x0 + xs * ch1 * Math.sin(f), w0 + ch2 * Math.cos(f)) else doubleArrayOf(x0 + xs * (ch1 - ch1 * Math.cos(f)), w0 + ch2 - ch2 * Math.sin(f)) }
+                return listOf(doubleArrayOf(x0, w0 + ch2), doubleArrayOf(x0 + xs * ch1, w0))
+            }
+            val pts = ArrayList<DoubleArray>(); pts += corner(-half, 1.0); pts += corner(half, -1.0).reversed(); pts += doubleArrayOf(half, w1); pts += doubleArrayOf(-half, w1)
+            val mf = Joints.Frame3(m.c1, m.eh, m.es); val hi = m.h / 2 - m.tf
+            val minus = arrayListOf(mf.box(hi, BIG, -BIG, BIG, -BIG, BIG), mf.box(-BIG, -hi, -BIG, BIG, -BIG, BIG))
+            if (x.s("sprep") == "K") {   // the welded edges (web edge, both flange edges): 45 deg double bevel, t / 3 from each face
+                val d = t / 3; val e = 1.0
+                fun wedge(fe: Joints.Frame3, a0: Double, a1: Double) = listOf(fe.poly(listOf(doubleArrayOf(-e, z1 + e), doubleArrayOf(-e, z1 - d - e), doubleArrayOf(d + e, z1 + e)), a0, a1),
+                    fe.poly(listOf(doubleArrayOf(-e, z0 - e), doubleArrayOf(-e, z0 + d + e), doubleArrayOf(d + e, z0 - e)), a0, a1))
+                minus += wedge(Joints.Frame3(oz.add(m.es, sg * w0), m.es * sg.toDouble(), n), -half - e, half + e)
+                for (sx in listOf(1.0, -1.0)) minus += wedge(Joints.Frame3(oz.add(de, sx * half), de * (-sx), n), -BIG, BIG)
+            }
+            x.plate("STIFFENER", Joints.Frame3(oz, de, m.es).poly(pts.map { doubleArrayOf(it[0], sg * it[1]) }, z0, z1), t, "PL" + com.solidsketchapp.core.api.JsNumber.format(Math.round(t * 10) / 10.0), minus = minus)
+            x.weld("Stiffener to main part", min(5.0, x.n("a").let { if (it == 0.0 || it.isNaN()) 5.0 else it }), 2 * (2 * half + b))
+        }
+        return edges
+    }
+
+    /** v70 C20 · Picture tab 2, the strip of the secondary's flanges (default 20): both flanges cut back to 20 past the near side stiffener's
+     *  outer edge (R12: 90 / 110 from the web face), also where a second beam shares the first one's stiffeners (Stiffener creation 'No'). */
+    private fun strip186(x: FamCtx, bm: JsonObject, bmId: String) {
+        val edges = colStiff186(x, bm, true); val j = Joints.joint(x.a, bm, x.profiles); val bp = j.b
+        if (abs(j.m.a.z) < 0.9 || j.flange || j.m.kind != "I") return
+        val sp = optNum(x, "strip").let { if (it.isFinite()) it else 20.0 }
+        for ((lv, s) in listOf("top" to 1, "bot" to -1)) { val xe = edges[lv] ?: continue; if (!xe.isFinite()) continue
+            val fy0 = s * (bp.h / 2 - bp.tf - bp.r); val fy1 = s * (bp.h / 2 + 1)
+            x.cut(bmId, j.box(j.xFace - 1, xe + sp, min(fy0, fy1), max(fy0, fy1), -(bp.b / 2 + 5), bp.b / 2 + 5)) }
     }
 
     /** v69 famGeom + the v58 wrapper (bolt info d0 / std / thr / sw, Welds tab). Returns null when the family is not ported or a part is missing. */

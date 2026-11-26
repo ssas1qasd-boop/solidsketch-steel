@@ -494,6 +494,43 @@ def main():
         q['side'] = 1 if dot(sub(c0, near), Zb) >= 0 else -1
         return q
 
+    c20_taken = set()
+    def c20_q(sp, col, beam):
+        """C20: a shear plate on a column web that has Tekla's Top / Bottom NS / FS stiffeners next to it = Column with stiffeners (186).
+        Tab: Tekla's beam end gap 20 is the tab start to the first bolt column less the horizontal edge (sp_qh), the tab length (Plates b),
+        the bolt group centred (Bolts tab Middle 0: Tekla's grip and bolt length). Stiffeners (created by the first 186 at a column, the
+        next has them 'not created' but the same sizes: they set its flange strip): t, b, chamfer at the web-side corners (on the root plane), the gap to the flanges, K preparation."""
+        pc = Pl(sp).centre(); names = ('Top FS', 'Top NS', 'Bot FS', 'Bot Ns')
+        stf = [x for x in asm_parts[asm_of[sp['id']]] if byid[x]['st']['name'] in names and norm(sub(Pl(byid[x]).centre(), pc)) < 600]
+        if len(stf) != 4: return None
+        p = Pl(sp); pts = [q3 for c in bolted_to(sp['id']).get(beam, []) for q3 in c['q']['pts']]
+        if not pts: return None
+        q = OrderedDict(sp_qh(p, pts, members[beam]['st']))
+        V, Hd = (p.X, p.Y) if abs(dot(p.X, v69_eh(members[beam]['st'])[1])) >= abs(dot(p.Y, v69_eh(members[beam]['st'])[1])) else (p.Y, p.X)
+        Pv = [add(add(mul(p.X, x), mul(p.Y, y)), mul(p.N, p.n0)) for x, y in p.poly]; q['tb'] = r3(max(dot(v, Hd) for v in Pv) - min(dot(v, Hd) for v in Pv))
+        q['refV'] = 'Middle'; q['posV'] = 0
+        # Bolts tab 'Bolting direction': v70 puts the heads on the beam's Y x X side (C14); R12 joint 4893 (C2016 / EB4009) has them on the other side
+        bst = members[beam]['st']; cp = members[col]['st']['p1']; a1, a2 = bst['p1'], bst['p2']
+        near, far = (a1, a2) if math.hypot(a1[0] - cp[0], a1[1] - cp[1]) < math.hypot(a2[0] - cp[0], a2[1] - cp[1]) else (a2, a1)
+        X = [far[0] - near[0], far[1] - near[1]]; gax = bolted_to(sp['id']).get(beam)[0]['q']['ax']
+        if gax[0] * -X[1] + gax[1] * X[0] < 0: q['bdir'] = 2
+        key = (col, round(pc[2]))
+        taken = key in c20_taken; c20_taken.add(key)
+        import numpy as _np
+        V0 = _np.asarray(byid[stf[0]]['shape']['vp'], float).reshape(-1, 3); ext = V0.max(0) - V0.min(0); t, L = sorted(ext)[0], sorted(ext)[2]; bw = sorted(ext)[1]
+        cst = members[col]['st']; H, Bf = section_hb(cst); m = re.match(r'^BI(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)', cst['prof'])
+        tw, tf = (float(m.group(2)), float(m.group(4))) if m else (8.0, 10.0)
+        # the chamfer at the web-side corners, on the root face (the 3.4 mm between the K bevels): how far the web edge stops short of the ends
+        ax = int(_np.argmin(ext)); lax = int(_np.argmax(ext)); wax = 3 - ax - lax; zc = (V0[:, ax].min() + V0[:, ax].max()) / 2
+        root = V0[_np.abs(V0[:, ax] - zc) < t / 6 + 0.05]; cpt = _np.asarray(cst['p1'], float)
+        web_w = V0[:, wax].min() if abs(V0[:, wax].min() - cpt[wax]) < abs(V0[:, wax].max() - cpt[wax]) else V0[:, wax].max()
+        on_web = root[_np.abs(root[:, wax] - web_w) < 0.05][:, lax]
+        ch = round(((on_web.min() - V0[:, lax].min()) + (V0[:, lax].max() - on_web.max())) / 2, 1) if len(on_web) else 0.0
+        q.update(scr='both', ssh='line', sct='line', sc1=ch, sc2=ch, sgap2=r3(((H - 2 * tf) - L) / 2), sprep='K')
+        for k in (1, 2, 3, 4): q['stt%d' % k] = r3(t); q['stb%d' % k] = r3(bw)
+        if taken: q['scr'] = 'none'; return q, []   # the stiffeners are the first 186's; the sizes still set the flange strip (Picture 2)
+        return q, stf
+
     def section_hb(bst):
         m = re.match(r'^BI(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)', bst['prof'])
         if m: return float(m.group(1)), float(m.group(3))
@@ -605,7 +642,9 @@ def main():
                     jt = max(max(byid[i]['shape']['vp'][2::3]) for i in members[other]['r10'])
                     q['refV'] = 'Top'; q['posV'] = r3(jt - max(pp[2] for pp in pts))
                     q.update(sp_qh(p, pts, members[other]['st']))
-                conn('T146', [own, other], q, row, [b['id']])
+                c20 = c20_q(b, own, other) if MODEL == 'R12' and row == '12' else None
+                if c20: q.update(c20[0]); conn('T186', [own, other], q, '20', [b['id']] + c20[1])   # C20 (PARITY.md): Column with stiffeners (186)
+                else: conn('T146', [own, other], q, row, [b['id']])
             elif s['name'] in ('PLATE', 'D') and s['tprof'] == 'FLT10*120':   # hanger under the rafter for the gable column top
                 rf, gc = (own, other) if members[own]['st']['name'] == 'RAFTER' else (other, own)
                 q = sp_q(p, pts, d, members[gc]['st'])

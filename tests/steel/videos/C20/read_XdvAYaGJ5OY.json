@@ -1,0 +1,802 @@
+{
+ "url": "https://www.youtube.com/watch?v=XdvAYaGJ5OY",
+ "component": "Column with stiffeners (186)",
+ "tab": "Stiffeners",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "01:10",
+    "end": "03:13",
+    "note": "explaining the stiffeners tab of column with stiffeners (186)"
+   },
+   {
+    "start": "03:48",
+    "end": "04:40",
+    "note": "explaining the stiffeners tab of column with stiffeners (186)"
+   },
+   {
+    "start": "08:54",
+    "end": "09:25",
+    "note": "explaining the stiffeners tab of column with stiffeners (186)"
+   }
+  ],
+  "language": "Indonesian",
+  "units": "mm"
+ },
+ "pass2": [
+  {
+   "span": [
+    "01:10",
+    "03:13"
+   ],
+   "seconds": [
+    67,
+    127
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Picture",
+      "value": "50",
+      "t": "01:31",
+      "sure": true
+     },
+     {
+      "label": "Picture",
+      "value": "0.00",
+      "t": "01:53",
+      "sure": true
+     },
+     {
+      "label": "Picture",
+      "value": "",
+      "t": "01:59",
+      "sure": true
+     },
+     {
+      "label": "Picture",
+      "value": "",
+      "t": "02:00",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "01:10",
+    "03:13"
+   ],
+   "seconds": [
+    127,
+    196
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Picture",
+      "value": "selected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Plates",
+      "value": "unselected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Stiffeners",
+      "value": "unselected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "General",
+      "value": "unselected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Haunch",
+      "value": "unselected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Notch",
+      "value": "unselected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Bolts",
+      "value": "unselected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Doubler plate",
+      "value": "unselected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Design",
+      "value": "unselected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Analysis",
+      "value": "unselected",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Tab plate",
+      "value": "",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Pos. No",
+      "value": "",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "02:15",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "02:15",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "03:48",
+    "04:40"
+   ],
+   "seconds": [
+    225,
+    283
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Picture",
+      "value": "selected",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Plates",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Stiffeners",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "General",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Haunch",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Notch",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Bolts",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Doubler plate",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Design",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Analysis",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "modify connection type",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Save",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Load",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Save as",
+      "value": "standard",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Help...",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Tab plate",
+      "value": "unchecked",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Pos. No",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "03:45",
+      "sure": true
+     },
+     {
+      "label": "Picture",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Plates",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Stiffeners",
+      "value": "selected",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "General",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Haunch",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Notch",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Bolts",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Doubler plate",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Design",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Analysis",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "modify connection type",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Save",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Load",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Save as",
+      "value": "standard",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Help...",
+      "value": "",
+      "t": "03:49",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Pos. No",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "Pos. No",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "",
+      "t": "04:15",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "",
+      "t": "04:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "",
+      "t": "04:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "",
+      "t": "04:15",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "0.00",
+      "t": "04:16",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "04:16",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "04:16",
+      "sure": true
+     },
+     {
+      "label": "Pos. No",
+      "value": "",
+      "t": "04:16",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "04:16",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "04:16",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "04:16",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "",
+      "t": "04:22",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "",
+      "t": "04:22",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "0",
+      "t": "04:27",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "",
+      "t": "04:27",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "0.00",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "0.00",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "0.00",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "0.00",
+      "t": "04:31",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "08:54",
+    "09:25"
+   ],
+   "seconds": [
+    531,
+    568
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Top NS",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "Pos. No",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "08:57",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "09:17",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "09:17",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "09:17",
+      "sure": true
+     },
+     {
+      "label": "Pos. No",
+      "value": "",
+      "t": "09:17",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "09:17",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "09:17",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "09:17",
+      "sure": true
+     }
+    ]
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

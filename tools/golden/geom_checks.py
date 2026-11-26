@@ -90,7 +90,8 @@ def stack_and_holes(bolt_pts, ax, d, tol, parts, L):
             hits = H.line_hits(p['V'], p['T'], P, a, s0, s1)
             n, lo, hi = H.ring(p['V'], P, a, -0.65 * d, L, d / 2 - 0.5, d / 2 + tol + 3)
             # material along the line, as the hole wall: the ring's extent along the bolt (the hole passes the plate's thickness)
-            beside = [H.line_hits(p['V'], p['T'], P + u * (d / 2 + tol + 3), a, -0.65 * d - 50, L + 50) for u in perp(a)]
+            reach = lambda h: len(h) >= 2 and h[0] < L and h[-1] > -0.65 * d     # C20: a part wholly past the shank end (a column flange 45 mm on) is not drilled
+            beside = [h if reach(h) else [] for h in (H.line_hits(p['V'], p['T'], P + u * (d / 2 + tol + 3), a, -0.65 * d - 50, L + 50) for u in perp(a))]
             if len(H.line_hits(p['V'], p['T'], P, a, -0.65 * d, L)): res.append((p, 'NO HOLE'))
             elif n >= 6 or sum(len(h) >= 2 for h in beside) >= 3:     # a hole wall, or solid plate all round the empty bolt line
                 res.append((p, 'HOLE'))
@@ -98,7 +99,7 @@ def stack_and_holes(bolt_pts, ax, d, tol, parts, L):
                 best = None
                 for u in perp(a):
                     h2 = H.line_hits(p['V'], p['T'], P + u * (d / 2 + tol + 3), a, -0.65 * d - 50, L + 50)
-                    if len(h2) >= 2:
+                    if reach(h2):
                         th = sum(h2[i + 1] - h2[i] for i in range(0, len(h2) - 1, 2)); best = th if best is None else max(best, th); span += [float(h2[0]), float(h2[-1])]
                 mat += best or 0.0
             else: res.append((p, 'MISSES'))

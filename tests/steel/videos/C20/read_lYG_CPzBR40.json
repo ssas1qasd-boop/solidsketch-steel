@@ -1,0 +1,1154 @@
+{
+ "url": "https://www.youtube.com/watch?v=lYG_CPzBR40",
+ "component": "Column with stiffeners (186)",
+ "tab": "Stiffeners",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "01:12",
+    "end": "03:44",
+    "note": "Dialog of 'Column with stiffeners (186)' is shown on its 'Stiffeners' tab."
+   },
+   {
+    "start": "03:44",
+    "end": "04:38",
+    "note": "Dialog of 'Column with stiffeners (186)' is shown on its 'Stiffeners' tab."
+   },
+   {
+    "start": "04:52",
+    "end": "06:09",
+    "note": "Dialog of 'Column with stiffeners (186)' is shown on its 'Stiffeners' tab."
+   },
+   {
+    "start": "13:37",
+    "end": "14:04",
+    "note": "Dialog of 'Column with stiffeners (186)' is shown on its 'Stiffeners' tab."
+   },
+   {
+    "start": "17:00",
+    "end": "17:34",
+    "note": "Dialog of 'Column with stiffeners (186)' is shown on its 'Stiffeners' tab."
+   }
+  ],
+  "language": "English",
+  "units": "inch"
+ },
+ "pass2": [
+  {
+   "span": [
+    "01:12",
+    "03:44"
+   ],
+   "seconds": [
+    69,
+    129
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Top NS t",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top NS b",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top NS h",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top NS Pos_No",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top NS Material",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top NS Name",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top NS Finish",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top PS t",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top PS b",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top PS h",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top PS Pos_No",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top PS Material",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top PS Name",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Top PS Finish",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS t",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS b",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS h",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Pos_No",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Material",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Name",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Finish",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS t",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS b",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS h",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Pos_No",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Material",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Name",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Finish",
+      "value": "",
+      "t": "01:14",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "01:12",
+    "03:44"
+   ],
+   "seconds": [
+    129,
+    189
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Top NS",
+      "value": "",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "Top PS",
+      "value": "",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "0\"",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS",
+      "value": "0\"",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "Pos_No",
+      "value": "",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "02:14",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "02:14",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "01:12",
+    "03:44"
+   ],
+   "seconds": [
+    189,
+    227
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Top NS",
+      "value": "0\"",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Top PS",
+      "value": "0\"",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "0\"",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS",
+      "value": "0\"",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Top NS",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Top PS",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "l",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "l",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "l",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "l",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Prf_No",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Prf_No",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Prf_No",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Prf_No",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "03:15",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "03:44",
+    "04:38"
+   ],
+   "seconds": [
+    221,
+    281
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "modify connection type",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top NS h",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top NS b",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top NS t",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top NS h",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top NS Pos_No",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top NS Material",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top NS Name",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top NS Finish",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top PS h",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top PS b",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top PS t",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top PS h",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top PS Pos_No",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top PS Material",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top PS Name",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Top PS Finish",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS h",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS b",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS t",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS h",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Pos_No",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Material",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Name",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Finish",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS h",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS b",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS t",
+      "value": "0\"",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS h",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Pos_No",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Material",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Name",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Finish",
+      "value": "",
+      "t": "03:50",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "04:52",
+    "06:09"
+   ],
+   "seconds": [
+    289,
+    372
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Top NS t",
+      "value": "0\"",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top NS h",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top NS b",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top NS h1",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top PS t",
+      "value": "0\"",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top PS h",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top PS b",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top PS h1",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS t",
+      "value": "0\"",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS h",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS b",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS h1",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS t",
+      "value": "0\"",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS h",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS b",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS h1",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top NS check box",
+      "value": "unchecked",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top NS Pos. No",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top NS Material",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top NS Name",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top NS Finish",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top PS check box",
+      "value": "unchecked",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top PS Pos. No",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top PS Material",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top PS Name",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Top PS Finish",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS check box",
+      "value": "unchecked",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Pos. No",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Material",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Name",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Finish",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS check box",
+      "value": "unchecked",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Pos. No",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Material",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Name",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS Finish",
+      "value": "",
+      "t": "05:09",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "13:37",
+    "14:04"
+   ],
+   "seconds": [
+    814,
+    847
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Picture",
+      "value": "",
+      "t": "14:05",
+      "sure": true
+     },
+     {
+      "label": "Plates",
+      "value": "",
+      "t": "14:05",
+      "sure": true
+     },
+     {
+      "label": "Stiffeners",
+      "value": "",
+      "t": "14:05",
+      "sure": true
+     },
+     {
+      "label": "General",
+      "value": "",
+      "t": "14:05",
+      "sure": true
+     },
+     {
+      "label": "Haunch",
+      "value": "",
+      "t": "14:05",
+      "sure": true
+     },
+     {
+      "label": "Notch",
+      "value": "",
+      "t": "14:05",
+      "sure": true
+     },
+     {
+      "label": "Bolts",
+      "value": "",
+      "t": "14:05",
+      "sure": true
+     },
+     {
+      "label": "Doubler plate",
+      "value": "",
+      "t": "14:05",
+      "sure": true
+     },
+     {
+      "label": "Design",
+      "value": "",
+      "t": "14:05",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "17:00",
+    "17:34"
+   ],
+   "seconds": [
+    1017,
+    1057
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Top NS",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "Top PS",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "Bottom PS",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "Pos_No",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "2",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "3",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "4",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     },
+     {
+      "label": "5",
+      "value": "",
+      "t": "17:15",
+      "sure": true
+     }
+    ]
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

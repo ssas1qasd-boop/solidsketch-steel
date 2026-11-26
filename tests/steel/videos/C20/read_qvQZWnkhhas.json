@@ -1,0 +1,48 @@
+{
+ "url": "https://www.youtube.com/watch?v=qvQZWnkhhas",
+ "component": "Column with stiffeners (186)",
+ "tab": "Stiffeners",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "02:41",
+    "end": "02:45",
+    "note": "Dialog of 'Column with stiffeners (186)' shown on 'Stiffeners' tab"
+   }
+  ],
+  "language": "English",
+  "units": "inch"
+ },
+ "pass2": [
+  {
+   "span": [
+    "02:41",
+    "02:45"
+   ],
+   "seconds": [
+    158,
+    168
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Picture",
+      "value": "1",
+      "t": "02:41",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "4",
+      "t": "02:41",
+      "sure": true
+     }
+    ]
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

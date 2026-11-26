@@ -1,0 +1,89 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T186",
+   [
+    0,
+    1
+   ],
+   {
+    "bolt": 16,
+    "cols": 1,
+    "e": 30,
+    "eh": 45,
+    "gap": 10,
+    "pitch": 50,
+    "posV": 0,
+    "refV": "Middle",
+    "rows": 4,
+    "sc1": 4.2,
+    "sc2": 4.2,
+    "scr": "both",
+    "sct": "line",
+    "sgap2": 2,
+    "side": 1,
+    "sprep": "K",
+    "ssh": "line",
+    "stb1": 90,
+    "stb2": 90,
+    "stb3": 90,
+    "stb4": 90,
+    "stt1": 10,
+    "stt2": 10,
+    "stt3": 10,
+    "stt4": 10,
+    "t": 10,
+    "tb": 100
+   }
+  ]
+ ],
+ "description": "R12 EGC2002: BI220-6-200-10 gable column, BI320-8-120-10 beam on its web at +3840: tab 10 x 100, 1 x 4 M16, stiffeners 10 x 90, chamfer 4.2, K prep.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     3705.5,
+     27890,
+     230
+    ],
+    "p2": [
+     3705.5,
+     27890,
+     8043.935
+    ],
+    "plane": "Middle",
+    "prof": "BI220-6-200-10",
+    "rot": "Front"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     3728.5,
+     27925,
+     3840
+    ],
+    "p2": [
+     9682.5,
+     27925,
+     3840
+    ],
+    "plane": "Middle",
+    "prof": "BI320-8-120-10",
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t186_r12_egc2002",
+ "pageErrors": []
+}

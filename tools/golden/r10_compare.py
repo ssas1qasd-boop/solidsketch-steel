@@ -67,6 +67,7 @@ ROW_TITLES = OrderedDict([
     ('12', 'Shear plate 146: column -> beam'), ('13', '144: mezzanine girder to column'), ('14', '146: joist to girder'),
     ('15', 'Cap 39: mezzanine column -> girder'), ('16', 'Base plate 1004: stair landing post'),
     ('17', '146 hanger: gable column top'), ('18', 'Stairs: grating treads'), ('19', 'Railing welds'),
+    ('20', 'Column with stiffeners 186: mezzanine column web -> beam'),
 ])
 
 def classify(st, amark):
@@ -94,7 +95,8 @@ def classify(st, amark):
     if n == 'PLATE' and tp == 'PL12*155': return '11', 'monitor apex joining plate'
     if n == 'Shear Plate' and tp == 'FLT10*130' and g in ('EB',): return '14', 'joist shear plate'
     if n == 'Shear Plate': return '12', 'shear plate'
-    if n == 'PLATE' and tp == 'PL16*120' or n in ('Top Stiff.', 'Bot Stiff.') or n in ('Top FS', 'Bot FS', 'Top NS', 'Bot Ns'): return '13', n
+    if n in ('Top FS', 'Bot FS', 'Top NS', 'Bot Ns'): return '20', n
+    if n == 'PLATE' and tp == 'PL16*120' or n in ('Top Stiff.', 'Bot Stiff.'): return '13', n
     if n == 'End Plate ': return '15', 'cap plate'
     if n in ('PLATE', 'D') and tp == 'FLT10*120': return '17', 'gable hanger'
     if n in ('THREAD', 'BRACKET', 'Stair Plate', 'STRINGER') or g in ('STR', 'STB') and n in ('ENDPLATE', 'PLATE'): return '18', n
@@ -132,9 +134,10 @@ REASONS = [
     (r'^7 \| crossing cap', 'small PL5 caps at the crossing halves: v69 makes FLT5*120 end caps instead', 'Tekla cap plates at the crossing'),
     (r'^9 \| HAUNCH_PLATE', 'Tekla 144 haunch plates under the monitor post end plate: v70 144 Haunch tab (t 8, b 60, h 60, chamfers 15)', 'done (v70 C09)'),
     (r'^10 \| .* 14 PLATE', 'a monitor rafter end plate that is its own assembly (mark 14) and not bolted to anything: no component added', 'none (R10 data)'),
-    (r'^12 \| shear plate \| C ', 'seven column shear plates are not bolted to any beam in R10 (no secondary part to pick): no component added; the other 13 match', 'none (R10 data)'),
+    (r'^12 \| shear plate \| C ', 'six column shear plates (at EB4006 / EB4008, beams with flanges only in R10) are not bolted to any beam (no secondary part to pick): no component added; the other 4 (146) match, and the 18 at 186 joints are row 20', 'none (R10 data)'),
     (r'^12 \| shear plate \| STR', 'two stair-post shear plates are not bolted to anything in R10 (or bolted to a part with no member): no component added', 'none (R10 data)'),
-    (r'^13 \| (Top|Bot) (FS|NS|Ns)', 'column stiffeners at all 15 mezzanine columns (and 2 gable columns): Column with stiffeners (186) at the BI312 beam on the column web (stiffener gaps 1 / 2 mm, flush with that beam), not End plate 144 (PARITY.md C13)', 'next: Column with stiffeners (186) (owner 2026-11-26)'),
+    (r'^20 \| (Top|Bot) (FS|NS|Ns) \| C ', 'Column with stiffeners (186) at the beam on the column web (v70 C20): 12 of 15 columns match; at C2019 and the two C2023 joints the beam on the web is EB4006 / EB4008, which has flanges only and no web in R12 (no member placed, so no secondary to pick)', 'none (R12 data)'),
+    (r'^20 \| shear tab', 'Column with stiffeners (186) shear tab (v70 C20)', 'done (v70 C20)'),
     (r'^13 \| (Top|Bot) Stiff', 'girder-side Stiff. plates FLT10*50: End plate 144 Haunch tab (C13: 12 / 12 at the 6 girder joints); the 4 at the MBC2001 column end plates are row 15', 'done (v70 C13) / row 15'),
     (r'^14 \|', 'same plate size and plan position; v69 centres the tab on the joist web depth, R10\'s tab is 7.8 mm higher', 'vertical position of the tab (Tekla 146 plate position)'),
     (r'^17 \|', 'v69 146 makes the hanger in the gable column\'s web plane turned 90 degrees and about 33 mm off; R10\'s FLT10*120 hanger hangs under the rafter', 'hanger orientation (Tekla 146 used as a hanger)'),
@@ -243,10 +246,12 @@ def main():
     def haunch_row(i):
         c = cen(rv[i]['box']); w = min(hwebs, key=lambda x: dist(x[2], c))
         return ('2', 'eave haunch flange') if w[1] == 'FLT8*80' else ('3', 'haunch (web / flange)')
+    c20_ids = {i for st_ in inp['steps'] if st_['op'] == 'connectMany' for e in st_['list'] if e[3] == '20' for i in (e[4] if len(e) > 4 else [])}
     det_rows = []
     for d in sorted(details, key=lambda x: x['id']):
         s = d['st']; row_, label = classify(s, s.get('amark', ''))
         if s['name'] == 'Bottom flange' and pre(s.get('amark', '')) == 'R': row_, label = haunch_row(d['id'])
+        if d['id'] in c20_ids and s['name'] == 'Shear Plate': row_, label = '20', 'shear tab'
         r = OrderedDict(id=d['id'], kind=s['kind'], name=s['name'], tprof=s.get('tprof') or s.get('prof'), amark=s.get('amark', ''),
                         row=row_, label=label, kg=r2((rv[d['id']]['w'] or {}).get('weight', 0) or 0))
         if s['name'] == 'Anchor Bolt':

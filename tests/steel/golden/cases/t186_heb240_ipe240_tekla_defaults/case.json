@@ -1,0 +1,58 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T186",
+   [
+    0,
+    1
+   ],
+   {
+    "scr": "both"
+   }
+  ]
+ ],
+ "description": "HEB240 column, IPE240 beam on its web: Stiffener creation on, every other field the Tekla default (square-free line chamfer 10, no gaps, no weld prep).",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     5000
+    ],
+    "prof": "HEB240",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     3000
+    ],
+    "p2": [
+     0,
+     -5000,
+     3000
+    ],
+    "prof": "IPE240"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t186_heb240_ipe240_tekla_defaults",
+ "pageErrors": []
+}

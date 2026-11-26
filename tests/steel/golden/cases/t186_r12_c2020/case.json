@@ -1,0 +1,90 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T186",
+   [
+    0,
+    1
+   ],
+   {
+    "bolt": 16,
+    "cols": 2,
+    "e": 30,
+    "eh": 35,
+    "gap": 20,
+    "pitch": 50,
+    "pitchH": 60,
+    "posV": 0,
+    "refV": "Middle",
+    "rows": 4,
+    "sc1": 5.6,
+    "sc2": 5.6,
+    "scr": "both",
+    "sct": "line",
+    "sgap2": 2,
+    "side": -1,
+    "sprep": "K",
+    "ssh": "line",
+    "stb1": 70,
+    "stb2": 70,
+    "stb3": 70,
+    "stb4": 70,
+    "stt1": 10,
+    "stt2": 10,
+    "stt3": 10,
+    "stt4": 10,
+    "t": 10,
+    "tb": 150
+   }
+  ]
+ ],
+ "description": "R12 C2020: BI320-8-150-10 column, BI324-8-250-12 beam on its web at +3838: tab 10 x 150, 2 x 4 M16 (55 / 115 from the web face, 50 apart), stiffeners 10 x 70, gap 2, chamfer 5.6, K prep.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     52838,
+     16785,
+     230
+    ],
+    "p2": [
+     52838,
+     16785,
+     7547.745
+    ],
+    "plane": "Middle",
+    "prof": "BI320-8-150-10",
+    "rot": "Below"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     52838,
+     16809,
+     3838
+    ],
+    "p2": [
+     52838,
+     22331,
+     3838
+    ],
+    "plane": "Middle",
+    "prof": "BI324-8-250-12",
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t186_r12_c2020",
+ "pageErrors": []
+}

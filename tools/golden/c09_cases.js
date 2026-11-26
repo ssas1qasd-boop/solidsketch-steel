@@ -1,10 +1,10 @@
-// C02 / C09 End plate (144) cases for rule B (owner method: the R12 settings on other sizes / slopes): the t144_c0* cases of
+// C02 / C09 / C13 End plate (144), C02h Teh and C20 Column with stiffeners (186) cases for rule B (owner method: the R12 settings on other sizes / slopes): the t144_c0* cases of
 // tools/golden/cases/t144.js built in web v70, every body dumped with its mesh and every connection, like c14_cases.js, for
 // geom_checks.py.   node tools/golden/c09_cases.js -> build/c09/case_<name>-web.json
 'use strict';
 const fs = require('fs'), path = require('path');
 const { REPO, openV69 } = require('./lib/v69');
-const CASES = require('./cases/t144.js').filter(c => /^t144_c(0[29]|13)_/.test(c.name)).concat(require('./cases/teh.js'));
+const CASES = require('./cases/t144.js').filter(c => /^t144_c(0[29]|13)_/.test(c.name)).concat(require('./cases/teh.js'), require('./cases/t186.js'));
 (async () => {
   const { browser, page } = await openV69({ log: false });
   try {

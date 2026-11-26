@@ -183,7 +183,7 @@
         let top = NaN; if (q.refV === 'Top' && isFinite(pv)) top = hb - pv * U; else if (q.refV === 'Below' && isFinite(pv)) top = -hb + pv * U + sp; else if (q.refV === 'Middle') top = sp / 2 - (isFinite(pv) ? pv : 0) * U;
         if (isFinite(top)) { y1 = top + q.e * U; y0 = top - sp - q.e * U; } }
       const mainBeam = Math.abs(J.M.a.z) < 0.9; const mr = ((J.M.r || 0) + 1) * U; if (q.full || q.top) { const yT = mainBeam && isFinite(J.yTop) ? J.yTop - mr : (Bp.h / 2 - Bp.tf - 5) * U, yB = mainBeam && isFinite(J.yBot) ? J.yBot + mr : -(Bp.h / 2 - Bp.tf - 5) * U; if (q.top || q.full) y1 = Math.max(y1, yT); if (q.full) y0 = Math.min(y0, yB); }
-      const xs0 = q.through ? J.xFace - (J.M.h - J.M.tw * 0) * U : J.xFace; const xe = (q.colstiff && !J.flange && !mainBeam && J.M.p.kind === 'I') ? (J.M.b / 2 - J.M.tw / 2) * U : 0; const xF2 = J.xFace + xe; const eH = q.eh === '' || q.eh === undefined || !isFinite(+q.eh) ? e : +q.eh * U;   /* v70: horizontal edge distance (Tekla 146 Bolts tab) */ const x1 = xF2 + q.gap * U + 2 * eH + (nC - 1) * q.pitchH * U; const z0 = Bp.tw / 2 * U; const sides = q.side === 2 || q.two ? [1, -1] : q.side === -1 ? [-1] : [1];
+      const xs0 = q.through ? J.xFace - (J.M.h - J.M.tw * 0) * U : J.xFace; const xe = (q.colstiff && !J.flange && !mainBeam && J.M.p.kind === 'I') ? (J.M.b / 2 - J.M.tw / 2) * U : 0; const xF2 = J.xFace + xe; const eH = q.eh === '' || q.eh === undefined || !isFinite(+q.eh) ? e : +q.eh * U;   /* v70: horizontal edge distance (Tekla 146 Bolts tab) */ const x1 = +q.tb > 0 ? xs0 + q.tb * U : xF2 + q.gap * U + 2 * eH + (nC - 1) * q.pitchH * U;   /* v70 C20: Plates tab 'Tab plate b' sets the tab's length from the main part */ const z0 = Bp.tw / 2 * U; const sides = q.side === 2 || q.two ? [1, -1] : q.side === -1 ? [-1] : [1];
       const tabs = sides.map(sg => { const F = stFrame3(J.E, J.X, J.Y); return q.shaped ? F.poly([[xs0, y0], [x1 - 15 * U, y0], [x1, y0 + 15 * U], [x1, y1 - 15 * U], [x1 - 15 * U, y1], [xs0, y1]], sg * z0, sg * (z0 + t)) : F.box(xs0, x1, y0, y1, sg * z0, sg * (z0 + t)); });
       const bl = []; const yb0 = y1 - (q.full || q.top ? Math.max(q.e, (y1 - y0) / U / 2 - (n - 1) * q.pitch / 2) : q.e) * U;
       for (let j = 0; j < nC; j++) for (let i = 0; i < n; i++) bl.push(J.P(xF2 + q.gap * U + eH + j * q.pitchH * U, yb0 - i * q.pitch * U, sides[0] * (z0 + t + (q.refV ? 0 : 0.1 * U))));
@@ -373,3 +373,84 @@
     }
   };
   { const ep70 = FAM.EP; FAM.EP = X => { const r = ep70(X); if ((X.q.scr === 'auto' || X.q.scr === 'both') && r !== null) for (const Bm of [X.B, X.B2].filter(Boolean)) stiff70(X, Bm); return r; }; }
+  //
+  // ---------- C20 · Column with stiffeners (186): Tekla's shear tab + column stiffeners (docs/steel/PARITY.md "C20") ----------
+  // Tekla's 186 help (conn_186_help 2025): a square shear tab welded to the main part web and stiffeners, bolted to the secondary web;
+  // Stiffeners tab Top / Bottom NS / FS (t, b, h), orientation, creation, shape, Stiffener gap 1 (distance from the flange edge to the
+  // stiffener edge) and 2 (gap between the flanges and the stiffener), positions 1-5, chamfer 1 / 2 (default 10) and chamfer type.
+  // R12 (14 C20 joints + 4 EGC2002 joints): stiffeners t 10, b 70 / 90, 2 mm from each flange, flush with the secondary's flange outer
+  // faces, near side = the secondary's side, web-side corners chamfered 0.7 x the main web (5.6 / 4.2), and the three welded edges (web,
+  // both flanges) prepared for a K weld (45 deg double bevel, t / 3 deep from each face, root t / 3), as Tekla's IFC solid and NC show;
+  // tab from the main web face, Tab plate b 150 / 100, the secondary 20 from the main part (Picture 1). v69's T186 (colstiff: v69's
+  // stiffeners and the tab moved out past them) stays for old models: v70 applies when 'scr' is set.
+  ST_LBL.sgap1 = 'Stiffener gap 1'; ST_LBL.sgap2 = 'Stiffener gap 2'; ST_LBL.sprep = 'Stiffener weld preparation';
+  const colStiff70 = (X, Bm, o) => {   // Tekla's Top / Bottom NS / FS between the main part's flanges at the secondary's flange levels
+    const { U, q, A, plate, weld } = X; const J = stJoint(A, Bm), Bp = J.B, M = J.M; const num = (v, d) => v === '' || v === undefined || v === null || !isFinite(+v) ? d : +v;
+    const O = J.E.clone().addScaledVector(J.X, J.xFace); const hb = Bp.h / 2 * U; const levels = [['top', O.clone().addScaledVector(Bp.eh, hb)], ['bot', O.clone().addScaledVector(Bp.eh, -hb)]];
+    let dE = M.eh.clone(); if (q.sor !== 'perp') { const a = J.X.clone().addScaledVector(M.es, -J.X.dot(M.es)); if (a.length() > 1e-6) { a.normalize(); dE = a.dot(M.eh) < 0 ? a.negate() : a; } }
+    let N = new THREE.Vector3().crossVectors(dE, M.es); if (N.dot(M.a) < 0) { dE.negate(); N.negate(); }
+    const g2 = num(q.sgap2, 0) * U, uin = ((M.h / 2 - M.tf) * U - g2) / Math.max(0.2, Math.abs(dE.dot(M.eh))); const r = (M.r || 0) * U;
+    const w0 = M.tw / 2 * U + num(q.sg1, 0) * U + (q.ssh === 'gap' ? r : 0); const out = (M.b / 2 - M.tw / 2) * U;
+    const chD = Math.max(o.chDef, M.r || 0);   // Tekla's default 10; on a rolled main part never less than the root radius (rule B: a 10 chamfer cuts into an HEA300's r 27)
+    const ch1 = q.ssh === 'square' || q.ssh === 'gap' || q.sct === 'none' ? 0 : num(q.sc1, chD) * U, ch2 = q.ssh === 'square' || q.ssh === 'gap' || q.sct === 'none' ? 0 : num(q.sc2, chD) * U;
+    const ns = o.nsSign(J);   // the near side
+    const edges = {};   // per level: how far along the secondary (from J.E) the near side stiffener's outer edge reaches
+    for (const [lv, P] of levels) for (const sg of [ns, -ns]) {
+      const near = sg === ns, k = lv === 'top' ? (near ? 1 : 4) : (near ? 2 : 3); const gap = num(q['sg' + (k === 1 ? 2 : k === 2 ? 3 : k === 3 ? 4 : 5)], 0) * U;
+      const t = num(q['stt' + k], Math.max(8, Bp.tf)) * U; const b = num(q['stb' + k], (out - num(q.sgap1, 0) * U - (w0 - M.tw / 2 * U)) / U) * U; const L = num(q['sth' + k], 2 * uin / U) * U / 2; const w1 = w0 + b;
+      const s = P.clone().sub(M.c1).dot(N) / (M.a.dot(N) || 1); const Oz = M.c1.clone().addScaledVector(M.a, s); const z0 = lv === 'top' ? -gap - t : gap, z1 = z0 + t;
+      if (near) edges[lv] = Oz.clone().sub(J.E).dot(J.X) + sg * w1 * M.es.dot(J.X) + L * Math.abs(dE.dot(J.X));
+      if (o.dry) continue;
+      const corner = (x0, xs) => { if (!(ch1 > 0 && ch2 > 0)) return [[x0, w0]];
+        if (q.sct === 'convex' || q.sct === 'concave') { const o2 = []; for (let i = 0; i <= 8; i++) { const f = i / 8 * Math.PI / 2; o2.push(q.sct === 'concave' ? [x0 + xs * ch1 * Math.sin(f), w0 + ch2 * Math.cos(f)] : [x0 + xs * (ch1 - ch1 * Math.cos(f)), w0 + ch2 - ch2 * Math.sin(f)]); } return o2; }
+        return [[x0, w0 + ch2], [x0 + xs * ch1, w0]]; };
+      const pts = [...corner(-L, 1), ...corner(L, -1).reverse(), [L, w1], [-L, w1]];
+      const F = stFrame3(Oz, dE, M.es), MF = stFrame3(M.c1, M.eh, M.es), BIG = 60000 * U, hi = (M.h / 2 - M.tf) * U;
+      let sm = F.poly(pts.map(p => [p[0], sg * p[1]]), z0, z1).subtract(MF.box(hi, BIG, -BIG, BIG, -BIG, BIG)).subtract(MF.box(-BIG, -hi, -BIG, BIG, -BIG, BIG));
+      if (q.sprep === 'K') {   // the welded edges (the web edge and both flange edges): 45 deg double bevel, t / 3 from each face
+        const d = t / 3, e = 1 * U, zt = z1, zb = z0, wedge = (Fe, a0, a1) => [Fe.poly([[-e, zt + e], [-e, zt - d - e], [d + e, zt + e]], a0, a1), Fe.poly([[-e, zb - e], [-e, zb + d + e], [d + e, zb - e]], a0, a1)];   // 45 deg faces through (0, zt - d) / (0, zb + d)
+        const cuts = [];
+        { const Fe = stFrame3(Oz.clone().addScaledVector(M.es, sg * w0), M.es.clone().multiplyScalar(sg), N); cuts.push(...wedge(Fe, -L - e, L + e).map(m => m)); }   // web edge: n along +sg·es, extruded along es x N
+        for (const sx of [1, -1]) { const Fe = stFrame3(Oz.clone().addScaledVector(dE, sx * L), dE.clone().multiplyScalar(-sx), N); cuts.push(...wedge(Fe, -BIG, BIG)); }
+        for (const c of cuts) sm = sm.subtract(c);
+      }
+      plate(o.name || 'STIFFENER', sm, t / U, 'PL' + Math.round(t / U * 10) / 10);
+      weld('Stiffener to main part', Math.min(5, q.a || 5), 2 * (2 * L + b) / U);
+    }
+    return { J, edges };
+  };
+  // Picture tab 2 (Tekla 186 help: 'Size of the strip made to the secondary part flange', default 20): R12 cuts both flanges of every
+  // 186 beam back to 20 past the near side stiffener's outer edge (C20 70 + 20 = 90, EGC2002 90 + 20 = 110 from the web face), also
+  // where the second beam at the column shares the first one's stiffeners ('No stiffeners are created'), so the strip is made from the
+  // stiffener the settings would make. Square to the beam, the full flange width (and the root radius, as v69's strip).
+  const strip70 = (X, Bm) => {
+    const { U, q, cut } = X; const r0 = colStiff70(X, Bm, { chDef: 10, nsSign: J => (J.X.dot(J.M.es) >= 0 ? 1 : -1), dry: true }); const J = r0.J, Bp = J.B;
+    if (Math.abs(J.M.a.z) < 0.9 || J.flange || J.M.p.kind !== 'I') return;
+    const sp = q.strip === '' || q.strip === undefined || !isFinite(+q.strip) ? 20 : +q.strip;
+    for (const [lv, s] of [['top', 1], ['bot', -1]]) { const xe = r0.edges[lv]; if (!isFinite(xe)) continue;
+      const fy0 = s * (Bp.h / 2 - Bp.tf - (Bp.r || 0)) * U, fy1 = s * (Bp.h / 2 + 1) * U;
+      cut(Bm.id, J.box(J.xFace - 1 * U, xe + sp * U, Math.min(fy0, fy1), Math.max(fy0, fy1), -(Bp.b / 2 + 5) * U, (Bp.b / 2 + 5) * U)); }
+  };
+  { const st70 = FAM.ST; FAM.ST = X => {
+      if (!(X.c && X.c.type === 'T186' && X.q.scr)) return st70(X);
+      const n0 = X.out.parts.length; const r = st70(Object.assign({}, X, { q: Object.assign({}, X.q, { colstiff: 0, stiff: 0 }) }));
+      if (r !== null) for (const Bm of [X.B, X.B2].filter(Boolean)) {   // a skewed secondary: the tab ends on the main part's web face (Tekla welds it there), not square to the beam
+        const J = stJoint(X.A, Bm), M = J.M; if (Math.abs(J.X.dot(M.es)) > 0.9999 || J.flange) continue; const U = X.U, BIG = 60000 * U;
+        const web = stFrame3(M.c1, M.es, M.a).box(-M.tw / 2 * U, M.tw / 2 * U, -BIG, BIG, -BIG, BIG);
+        for (let i = n0; i < X.out.parts.length; i++) if (X.out.parts[i].name === 'SHEAR TAB') X.out.parts[i].man = X.out.parts[i].man.subtract(web); }
+      if (r !== null) for (const Bm of [X.B, X.B2].filter(Boolean)) { if (X.q.scr === 'both' || X.q.scr === 'auto') colStiff70(X, Bm, { chDef: 10, nsSign: J => (J.X.dot(J.M.es) >= 0 ? 1 : -1) }); strip70(X, Bm); }
+      return r; }; }
+  Object.assign(CONN.T186.def, { scr: '', sor: 'parallel', ssh: 'line', sgap1: '', sgap2: '', sg1: 0, sg2: 0, sg3: 0, sg4: 0, sg5: 0, sc1: '', sc2: '', sct: 'line', sprep: '', tb: '', strip: 20, stt1: '', stb1: '', sth1: '', stt2: '', stb2: '', sth2: '', stt3: '', stb3: '', sth3: '', stt4: '', stb4: '', sth4: '' });
+  TKD.T186 = JSON.parse(JSON.stringify({ help: 'conn_186_help' })); TKD.T186.tabs = TKD.T146.tabs.map(t => Object.assign({}, t));
+  { const tabs = TKD.T186.tabs; tabs[0] = Object.assign({}, tabs[0], { dims: [...tabs[0].dims, TKF('strip', '2', { at: [60, 70], tip: 'Size of the strip made to the secondary part flange (from the stiffener edge)' })] }); const pi = tabs.findIndex(t => t.name === 'Plates'); if (pi >= 0) tabs[pi] = Object.assign({}, tabs[pi], { parts: [['Tab plate', 'SHEAR TAB', { t: 't', b: 'tb' }]] });
+    const si = tabs.findIndex(t => t.name === 'Stiffeners'); const stiffTab = { name: 'Stiffeners',
+      parts: [['Top NS', 'STIFFENER', { t: 'stt1', b: 'stb1', h: 'sth1' }], ['Top FS', 'STIFFENER', { t: 'stt4', b: 'stb4', h: 'sth4' }], ['Bottom NS', 'STIFFENER', { t: 'stt2', b: 'stb2', h: 'sth2' }], ['Bottom FS', 'STIFFENER', { t: 'stt3', b: 'stb3', h: 'sth3' }]],
+      groups: [['Stiffener orientation', [TKF('sor', 'Stiffener orientation', { type: 'sel', dv: 'parallel', opts: [tkOpt('parallel', 'Stiffeners are parallel to the secondary part'), tkOpt('perp', 'Stiffeners are perpendicular to the main part')] })]],
+        ['Stiffener creation', [TKF('scr', 'Stiffener creation', { type: 'sel', dv: '', opts: [tkOpt('', 'v69 (before v70)', 'off'), tkOpt('auto', 'Automatic: stiffeners are created when necessary', 'auto'), tkOpt('both', 'Stiffeners are created', 'on'), tkOpt('none', 'No stiffeners are created', 'off')] })]],
+        ['Stiffener shape', [TKF('ssh', 'Stiffener shape', { type: 'sel', dv: 'line', opts: [tkOpt('line', 'Line chamfered stiffener plates'), tkOpt('square', 'Square stiffener plates'), tkOpt('gap', 'Stiffener plates with a gap for the main part web rounding')] })]],
+        ['Stiffener gap', [TKF('sgap1', '1 · Distance from the edge of the flange to the edge of the stiffener'), TKF('sgap2', '2 · Size of the gap between the flanges and the stiffener')]],
+        ['Stiffener positions', [TKF('sg1', '1 · Gap between the stiffener and the beam web edge'), TKF('sg2', '2 · Gap between the top near side stiffener and the beam flange edge'), TKF('sg3', '3 · Gap between the bottom near side stiffener and the beam flange edge'), TKF('sg4', '4 · Gap between the bottom far side stiffener and the beam flange edge'), TKF('sg5', '5 · Gap between the top far side stiffener and the beam flange edge')]],
+        ['Chamfer dimensions', [TKF('sc1', '1 · Vertical dimension of the chamfer', { ph: '10' }), TKF('sc2', '2 · Horizontal dimension of the chamfer', { ph: '10' }), TKF('sct', 'Chamfer type', { type: 'sel', dv: 'line', opts: [tkOpt('none', 'No chamfer'), tkOpt('line', 'Line chamfer'), tkOpt('convex', 'Convex arc chamfer'), tkOpt('concave', 'Concave arc chamfer')] })]],
+        ['Welds (stiffeners)', [TKF('sprep', 'Stiffener weld preparation', { type: 'sel', dv: '', opts: [tkOpt('', 'None'), tkOpt('K', 'K: 45 deg double bevel, t / 3 from each face')], note: 'Tekla sets this with the stiffener welds (Welds tab); R12 has K' })]]] };
+    if (si >= 0) tabs[si] = stiffTab; else tabs.splice(3, 0, stiffTab);
+    const hi = tabs.findIndex(t => t.name === 'Beam cut'); if (hi >= 0) tabs.splice(hi, 1, tkOff('Doubler plate', ['Doubler plates'])); }

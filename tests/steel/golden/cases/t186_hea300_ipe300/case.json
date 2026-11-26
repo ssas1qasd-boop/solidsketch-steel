@@ -1,0 +1,62 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T186",
+   [
+    0,
+    1
+   ],
+   {
+    "scr": "both",
+    "sgap2": 2,
+    "sprep": "K",
+    "t": 10,
+    "tb": 150
+   }
+  ]
+ ],
+ "description": "HEA300 column, IPE300 beam on its web: R12 stiffener settings, width / length / chamfer left blank (b = outstand - gap 1, chamfer 10).",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     6000
+    ],
+    "prof": "HEA300",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     4000
+    ],
+    "p2": [
+     0,
+     6000,
+     4000
+    ],
+    "prof": "IPE300"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t186_hea300_ipe300",
+ "pageErrors": []
+}

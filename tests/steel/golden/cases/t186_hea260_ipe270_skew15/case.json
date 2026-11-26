@@ -1,0 +1,62 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T186",
+   [
+    0,
+    1
+   ],
+   {
+    "scr": "both",
+    "sgap2": 2,
+    "sprep": "K",
+    "t": 10,
+    "tb": 150
+   }
+  ]
+ ],
+ "description": "HEA260 column, IPE270 beam on its web skewed 15 deg in plan: stiffeners parallel to the beam (Tekla default orientation), R12 settings.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     6000
+    ],
+    "prof": "HEA260",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     3500
+    ],
+    "p2": [
+     1552.9,
+     5795.6,
+     3500
+    ],
+    "prof": "IPE270"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t186_hea260_ipe270_skew15",
+ "pageErrors": []
+}

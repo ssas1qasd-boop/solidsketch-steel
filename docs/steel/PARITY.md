@@ -110,6 +110,66 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C20 · Column with stiffeners (186) at the mezzanine column webs, and row 12 (owner 2026-11-26)
+
+**Scope (owner):** the column stiffeners FLT10*70 / FLT10*90 (Top / Bot, FS / NS) at the mezzanine columns, and the shear tab 186 makes on the column web; where R12 has 186 (tab + column stiffeners together), 186 replaces 146 in row 12. No other connection touched.
+
+### Step 0: Tekla's own site
+- [Column with stiffeners (186), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_186_help) (also [2024](https://support.tekla.com/doc/tekla-structures/2024/conn_186_help), the same text):
+  - **Picture tab:** 1 "Cut of the secondary part … creates a gap between the main part and the secondary part", default 20; 2 "Size of the strip made to the secondary part flange. The cut of the flange is defined from the shear tab edge. The flange is automatically stripped when the shear tab crosses the flange", default 20; Beam end cut (Automatic / Square / Bevel, default Bevel); Beam flange cut (Bevel / Square, default Bevel).
+  - **Plates tab:** Tab plate t, b, h; shear tab chamfers 1 / 2 and type; position.
+  - **Stiffeners tab:** Top NS / Top FS / Bottom NS / Bottom FS (t, b, h); orientation (default parallel to the secondary part); creation (default: created; Automatic; not created); shape (default line chamfered; square; gap for the web rounding); **Stiffener gap** 1 "distance from the edge of the flange to the edge of the stiffener", 2 "size of the gap between the flanges and the stiffener"; positions 1–5; chamfer 1 / 2, **default 10 mm**; chamfer type (none / line / convex / concave / line and arc).
+  - Bolts tab (as 146: horizontal position, edge distance, number, spacing, vertical position Top / Middle / Below, delete, staggering, orientation), Haunch, Notch, Doubler plate, General, Welds.
+- [Shear plate simple (146), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_146_help) and [End plate (144), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_144_help): the same Bolts tab and the same stiffener names (C13).
+- Tekla's own video: "Stiffener and Gusset Plate Width Tolerance" (channel Tekla Software, [qvQZWnkhhas](https://www.youtube.com/watch?v=qvQZWnkhhas)): 4 s of the 186 Stiffeners tab, read with the lighter model only (see Step 1).
+
+### Step 1: videos (`tests/steel/videos/C20/VIDEO.txt`)
+- `find.py` → Tekla's page above, then YouTube: [lYG_CPzBR40](https://www.youtube.com/watch?v=lYG_CPzBR40), [XdvAYaGJ5OY](https://www.youtube.com/watch?v=XdvAYaGJ5OY), [ebPk5Jc3ENI](https://www.youtube.com/watch?v=ebPk5Jc3ENI) and Tekla's qvQZWnkhhas.
+- > **Gemini model used (2026-11-26):** the three YouTube videos were read with the main model (gemini-flash-latest). Tekla's own video qvQZWnkhhas was read with the **lighter model** (gemini-flash-lite-latest): the main model's daily quota was spent (429). Re-read it with the main model when the quota resets.
+- Result: every video leaves the stiffener t / b / h blank (computed by Tekla); none shows the gaps, the chamfers or the strip. The only two-source agreement is "Bottom NS blank". So the starting values are Tekla's site defaults (Picture 1 = 20, 2 = 20, chamfer 10 × 10 line) and the targets are R12's parts.
+
+### Step 2: the Tekla package
+- NC 4511 (C20 tab): 210 × 150 × 10, holes d18 at 55 / 115 from the welded edge, rows 50 apart; NC 4501 (EGC2002 tab): 210 × 100 × 10, one column at 55.
+- NC 4509 / 4510 (stiffeners FLT10*70) and the FLT10*90 ones at EGC2002: 296 / 196 long, corner chamfers 5.6 / 4.2 on the web side, weld bevels on three edges.
+- Assembly drawings C2013, C2020, EGC2002: tab and stiffener positions, beam gap 20.
+
+### R12 (all 68 stiffeners, 24 column-web shear tabs)
+| | R12 | Fits |
+|---|---|---|
+| Stiffeners | 60 FLT10*70 on 15 C20 columns, 8 FLT10*90 on EGC2002 (2 sets) | t 10; width 70 / 90 (set; the outstand is 71 / 97); length = clear depth − 2 × 2 (**Stiffener gap 2 = 2**); flush with the secondary's flange outer faces; NS = the secondary's side; web-side corner chamfers 5.6 / 4.2 (0.7 × the column web, on the root face); the web edge and both flange edges prepared for a K weld (45°, t / 3 from each face, root t / 3) |
+| Shear tabs | 20 FLT10*150 on C20 webs, 4 FLT10*100 on EGC2002 | tab from the web face, b 150 / 100, h 210; M16 8.8 L45, 2 × 4 (55 / 115, rows 50) and 1 × 4 (55), centred (Middle 0), grip 18 |
+| Beams | BI324-8-250-12 and BI320-8-120-10 | web 20 from the column web (Picture 1 = 20); **both flanges stripped to the near side stiffener's edge + 20** (90 / 110 from the web face, Picture 2 = 20), also at the second beam of a column, which shares the first one's stiffeners |
+| Not reproducible | 3 stiffener sets (12 plates) at C2019 and the two C2023 joints; 6 tabs (3615, 3620, 3688, 3693, 3761, 3766) | the beams there, EB4006 / EB4008, have flanges only and no web in R12: no member, so no secondary part to pick (R12 data) |
+| Bolt heads | 16 of 18 joints on the beam's Y × X side (C14's rule) | joints C2014 / EB4009 and C2016 / EB4009 have them on the other side: Bolts tab **Bolting direction 2** there |
+
+### Change, in web v70 (section "C20") and the app (`Fam.st` → `colStiff186`, `strip186`)
+- New catalog component **T186 Column with stiffeners (186)** with Tekla's tabs: Picture (gap, t, **2 = strip**), Plates (Tab plate t, **b**), Stiffeners (Tekla's groups, including Stiffener gap 1 / 2 and "Welds (stiffeners): K preparation"), Haunch / Notch off, Bolts, **Doubler plate** (off), General, Welds.
+- v69's T186 stays for old models: the v70 behaviour applies when Stiffener creation is set.
+- Stiffeners: between the main part's flanges at the secondary's flange levels; t default max(8, secondary tf); b default = outstand − gap 1; length = clear depth − 2 × gap 2; chamfer default Tekla's 10, never less than a rolled main part's root radius (rule B: a 10 chamfer cuts into an HEA300's r 27); NS on the secondary's side; K preparation when set.
+- Flange strip: both secondary flanges cut square to the beam, the full width, to Picture 2 (default 20) past the near side stiffener's outer edge, also when that 186 creates no stiffeners (the second beam at a column).
+- A skewed secondary's tab ends on the main part's web face.
+
+### Search result: the R12 inputs (`tools/golden/r10_inputs.py` `c20_q`)
+- 18 joints → T186 (row 20): t 10, tb 150 / 100, bolts as measured (eh 35 / 45, gap 20 / 10 in v69's tab rule), refV Middle 0; Stiffeners: created at the first beam of a column, "not created" at the second (with the same sizes, for the strip), line shape, gap 2 = 2, t 10, b 70 / 90, chamfer 5.6 / 4.2 line, K; bdir 2 at the 2 joints above.
+- Every input is measured from R12's parts (no fitting constants).
+
+### Checks
+| Check | C20 (row 20) before → after | C12 (row 12) before → after |
+|---|---|---|
+| Components | 0 → 18 T186 | 22 T146 → 4 T146 (R12 9–12: stair posts STR9001–9004 to the stair beam STB9002; inputs unchanged) |
+| R12 parts, web rebuild | stiffeners 0 / 68 → 56 / 68 at box 0.0 mm, volume 1.000–1.002 (12 = R12 data, above); tabs (in row 12 before) 18 / 18 → 18 / 18 | 22 / 28 → 4 / 10 (the same 4 146 tabs at box 0.0; the 6 un-bolted tabs MISSING as before) |
+| App, `R12C20Test` (vs R12 itself, 0.1 mm) | plates 74 / 74, bolts 128 / 128 (point, axis, length, grade), member bodies 36 / 36 | plates 4 / 4 as before; their 16 bolts and 2 of 8 member bodies were not reproduced before C20 either (bolts 5 mm off, L 50 vs Tekla 40: a row 12 item of its own) |
+| Member bodies, web rebuild | EB BI324 beams 7 INPUT EQUAL, SOLID DIFFERS (volume 1.015–1.019) → 7 MATCHED (1.000); EB BI320 3 + 2 → 5 MATCHED (1.000–1.001) | — |
+| Bolts, web rebuild | M16 on the same line 674 → 802 of R12's | — |
+| Rule B (`build/c09/case_t186_*-web.json`) | 5 cases (R12 C2020, R12 EGC2002, HEA300 / IPE300, HEB240 / IPE240 Tekla defaults, HEA260 / IPE270 skewed 15°): 0 failures; the 13 C02 / C09 / C13 / C02h cases still 0 | — |
+| Golden (app = web) | `S7T144Test`: the 5 t186 cases (every body's volume and box, bolts, welds) + the 16 earlier cases; `R12RebuildTest`: app = web on the whole R12, 0 differences | |
+| Weights vs Tekla (`st.tkW`) | stiffeners 1.59 / 1.35 kg each = Tekla (56 plates, K preparation included); tabs 2.32 / 1.57 vs Tekla 2.47 / 1.65 kg: ours are weighed with their bolt holes (the open component-hole item in "Weights") | — |
+
+Checker fix on the way (`geom_checks.py`, rule 4): a part wholly past the shank's end (EGC2002's column flange, 45 mm beyond a 45 mm bolt) was counted as drilled ("air 61 along the shank"); now only parts the shank reaches count.
+
+### Status
+Delivered for the owner's phone check; ✓ only after the owner's OK.
+
 ## C13 · End plate (144) at the mezzanine, girder → column flange (owner 2026-11-26)
 
 **Owner's decision (2026-11-26):** C13 is the 144 only. The column stiffeners FLT10*70 / FLT10*90 are Column with stiffeners (186)'s and come next, as their own connection (replacing row 12's 146 there).

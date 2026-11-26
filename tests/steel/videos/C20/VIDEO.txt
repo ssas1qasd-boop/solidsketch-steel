@@ -1,0 +1,88 @@
+Values read (tools/video/gemini_read.py; pass 2 at high resolution on the spans where the tab is open).
+
+Source: https://www.youtube.com/watch?v=XdvAYaGJ5OY
+  spans: 01:10-03:13, 03:48-04:40, 08:54-09:25
+  Analysis: unselected
+  Bolts: unselected
+  Bottom FS: 0.00
+  Bottom NS: 0 / 0.00
+  Design: unselected
+  Doubler plate: unselected
+  General: unselected
+  Haunch: unselected
+  Notch: unselected
+  Picture: 0.00 / 50 / selected
+  Plates: unselected
+  Save as: standard
+  Stiffeners: selected / unselected
+  Tab plate: unchecked
+  Top FS: 0.00
+  Top NS: 0.00
+  t: 0.00
+
+Source: https://www.youtube.com/watch?v=ebPk5Jc3ENI
+  spans: 09:03-11:23
+  Bottom FS: 0 / 1/0 / 1/4 / 1/8
+  Bottom FS t: 1/8
+  Bottom NS: 0 / 1/4 / 1/8
+  Bottom NS t: 1/8
+  Top FS: 0 / 1/4 / 1/8
+  Top FS t: 1/8
+  Top NS: 0 / 1/4 / 1/8
+  Top NS t: 1/8
+
+Source: https://www.youtube.com/watch?v=lYG_CPzBR40
+  spans: 01:12-03:44, 03:44-04:38, 04:52-06:09, 13:37-14:04, 17:00-17:34
+  Bottom NS: 0"
+  Bottom NS b: 0"
+  Bottom NS check box: unchecked
+  Bottom NS h: 0"
+  Bottom NS t: 0"
+  Bottom PS: 0"
+  Bottom PS b: 0"
+  Bottom PS check box: unchecked
+  Bottom PS h: 0"
+  Bottom PS t: 0"
+  Top NS: 0"
+  Top NS b: 0"
+  Top NS check box: unchecked
+  Top NS h: 0"
+  Top NS t: 0"
+  Top PS: 0"
+  Top PS b: 0"
+  Top PS check box: unchecked
+  Top PS h: 0"
+  Top PS t: 0"
+
+Source: https://www.youtube.com/watch?v=qvQZWnkhhas
+  spans: 02:41-02:45
+  1: 4
+  Picture: 1
+
+Source: https://support.tekla.com/doc/tekla-structures/2025/conn_186_help (Column with stiffeners (186), Tekla Structures 2025 help: Picture, Plates, Stiffeners tabs)
+  spans: -
+  Beam end cut: Bevel
+  Beam flange cut: Bevel
+  Chamfer 1: 10
+  Chamfer 2: 10
+  Chamfer type: Line chamfer
+  Picture 1 (cut of the secondary part): 20
+  Picture 2 (strip of the secondary flange): 20
+  Shear tab chamfer type: Line chamfer
+  Stiffener creation: Stiffeners are created
+  Stiffener orientation: parallel to the secondary part
+  Stiffener shape: Line chamfered stiffener plates
+
+Agreement (the same label and value in two sources):
+  bottom ns = 0  (2 sources)
+
+Notes (C20, 2026-11-26):
+- Models: the three KTS / user videos (XdvAYaGJ5OY, ebPk5Jc3ENI, lYG_CPzBR40) were read with the main model (gemini-flash-latest; pass 1
+  low resolution, pass 2 high resolution, 60 s chunks). Tekla's own video "Stiffener and Gusset Plate Width Tolerance" (Tekla Software,
+  qvQZWnkhhas) was read with the LIGHTER model (gemini-flash-lite-latest) after the main model's daily quota ran out (429): it shows the
+  186 Stiffeners tab for 4 s (02:41-02:45, inch units) and read only "Picture 1 = 4"; not used. Re-read it with the main model when the
+  quota resets.
+- What the videos show: the 186 Stiffeners tab with the stiffener t / b / h boxes blank (read as 0 / 0"), i.e. Tekla computes them; the
+  imperial video (ebPk5Jc3ENI) types t = 1/8" and 1/4". No video shows Stiffener gap 1 / 2, the chamfers or the flange strip. The only
+  value two sources agree on is "Bottom NS = 0" (blank). So the videos give no number to start from; the starting values are Tekla's site
+  defaults (site.json: Picture 1 = 20, 2 = 20, chamfer 10 x 10, line) and the targets are R12's own parts (PARITY.md C20).
