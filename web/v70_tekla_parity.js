@@ -71,3 +71,57 @@
     if (!made.length) return; step(() => { S.bodies = [...S.bodies, ...made]; ensureFolder28('stBrace'); const ids = []; for (const [ck, ps] of conns) { if (!CONN[ck]) continue; stConnAdd(ck, ps, stCQ(ck)); ids.push(...ps); } if (ids.length) stRegen([...new Set(ids)]); }, CN.label); commit(); stWeldsDraw(); toast(`${CN.label}: ${made.length} parts${conns.length ? ` · ${conns.length} connections` : ''}`);
   };
   window.__st.genRun = (k, p, q) => stGenRun(k, p, q);
+
+  // ---------- Weights · Tekla's own rule (R12, owner 2026-11-26) ----------
+  // Proof (docs/steel/PARITY.md "Weights", tools/golden/r12_weights.py): in Tekla's IFC every part's weight is its own faceted
+  // solid x density, bolt holes not taken off (sum over 4,945 parts 63,705.8 kg; Part List 63,711.7). Tekla builds a circle as
+  // an inscribed polygon: solid rods (ROD / D) 8 sides, tubes (PD / CHS) 12 sides below D50 and 16 from D50 (the model's sizes:
+  // ROD12/16/20, CHS48*3, PD40*10, PD50*5); SHS / RHS with square corners; grating 1,333 kg/m3, grout 0. v66 scaled every round
+  // section by a fixed table (taken from R10's meshes, e.g. ROD16 188.4 instead of 181.0, PD40*10 942.5 instead of 900) and SHS by
+  // the ratio to v69's own section, so a part that already has Tekla's polygon (an imported model, R12) was scaled twice. v70: the
+  // factor is Tekla's section area / the part's own section area, measured on the solid (10 mm slabs at 20 / 35 / 50 / 65 / 80 %
+  // of the length, the median). Catalog
+  // profiles keep catalog kg/m x length (v66).
+  {
+    const R66 = window.__st.weightRules, P66 = window.__st.partWeight;
+    R66.TK_DENS.GRATING = 1333;
+    R66.TK_KGM['CC200-2-20-60'] = 5.5264;                           // Tekla weighs the C by its section (704 mm² x 7850), not the rounded 5.53
+    const r2 = x => Math.round(x * 100) / 100, ngon = (n, r) => n / 2 * Math.sin(2 * Math.PI / n) * r * r;
+    const profOf = st => String(st.tprof || st.prof || '').trim().toUpperCase();
+    function tkArea70(p) {                                          // Tekla's section area, mm²; null = no rule (v66 stays)
+      let m = /^(?:ROD|RD|D)(\d+(?:\.\d+)?)$/.exec(p); if (m) return ngon(8, +m[1] / 2);
+      m = /^(?:PD|CHS)(\d+(?:\.\d+)?)\*(\d+(?:\.\d+)?)$/.exec(p); if (m) { const D = +m[1], t = +m[2], n = D < 50 ? 12 : 16; return ngon(n, D / 2) - ngon(n, Math.max(0, D / 2 - t)); }
+      m = /^SHS(\d+(?:\.\d+)?)\*(\d+(?:\.\d+)?)$/.exec(p); if (m) { const b = +m[1], t = +m[2]; return b * b - (b - 2 * t) ** 2; }
+      m = /^RHS(\d+(?:\.\d+)?)\*(\d+(?:\.\d+)?)\*(\d+(?:\.\d+)?)$/.exec(p); if (m) { const h = +m[1], b = +m[2], t = +m[3]; return h * b - (h - 2 * t) * (b - 2 * t); }
+      return null;
+    }
+    function ownArea70(b) {                                         // the solid's section area (10 mm slabs, median of 5), mm²
+      const U = stU(), st = b.st, P1 = V3(st.p1), P2 = V3(st.p2), a = P2.clone().sub(P1).normalize(), c = P1.clone().add(P2).multiplyScalar(0.5);
+      const X = new THREE.Vector3().crossVectors(a, Math.abs(a.z) < 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0)).normalize(), Y = new THREE.Vector3().crossVectors(a, X).normalize();
+      const big = 5000 * U, L = P2.distanceTo(P1), A = [];          // 10 mm slabs at 20 / 35 / 50 / 65 / 80 % of the length: the median (a slot or notch, e.g. a tube crossing, is not the section)
+      for (const f of [0.2, 0.35, 0.5, 0.65, 0.8]) { const o = P1.clone().addScaledVector(a, L * f); const slab = stBox3(o, X, Y, -big, big, -big, big, -5 * U, 5 * U); A.push(Math.abs(b.man.intersect(slab).volume()) / (U * U * U) / 10); }
+      A.sort((x, y) => x - y); return A[2];
+    }
+    function partWeight70(b) {
+      const r = P66(b); if (!b || !b.st || b.st.kind !== 'member' || !b.man || !b.st.p1 || !b.st.p2) return r;
+      const At = tkArea70(profOf(b.st)); if (!At) return r;
+      const U = stU(); let Am = 0; try { Am = ownArea70(b); } catch (e) { return r; } if (!(Am > 0)) return r;
+      const rho = (R66.TK_DENS[String(b.st.mat || '').toUpperCase()] ?? 7850);
+      let vol0 = Math.abs(b.man.volume()) / (U * U * U);              // the solid without bolt holes (v66 solidNoHoles, exact here)
+      if (r.holesKg > 0 || (S.stConns || []).some(c => c.type === 'TKBOLT' && c.parts.includes(b.id))) {
+        try { const cuts = []; for (const c of S.stConns || []) { if (c.type === 'TKBOLT' || !c.parts.includes(b.id)) continue; const g = stConnGeom(c); const cs = g && g.cuts.get(b.id); if (cs) cuts.push(...cs); }
+          let m0 = stBuild(b.st); if (cuts.length) m0 = m0.subtract(stUnion(cuts)); const v0 = Math.abs(m0.volume()) / (U * U * U); if (v0 >= vol0 - 1e-6 && v0 < vol0 * 1.25 + 1e5) vol0 = v0; } catch (e) { } }
+      const net = vol0 * 1e-9 * rho * At / Am;
+      return Object.assign({}, r, { weight: r2(net), net: r2(net), gross: r2(Math.max(r.gross, net)), tkArea: r2(At), ownArea: r2(Am) });
+    }
+    function weights70() {                                          // v66 tkWeights with the v70 part weight
+      const asm = new Map(), part = new Map(); let W = 0, N = 0, G = 0, bolts = 0, n = 0;
+      for (const b of S.bodies) { if (!b.st) continue; if (b.st.kind === 'bolts' || b.st.kind === 'bolt') { bolts++; continue; } const w = partWeight70(b); n++; W += w.weight; N += w.net; G += w.gross;
+        const ak = b.st.amark || b.st.asm || ''; let a = asm.get(ak); if (!a) asm.set(ak, a = { weight: 0, net: 0, gross: 0, parts: 0 }); a.weight += w.weight; a.net += w.net; a.gross += w.gross; a.parts++;
+        const pk = b.st.pos || b.st.pmark || ''; let p = part.get(pk); if (!p) part.set(pk, p = { prof: String(b.st.tprof || b.st.prof || ''), mat: b.st.mat || '', n: 0, weight: 0, net: 0, gross: 0 }); p.n++; p.weight += w.weight; p.net += w.net; p.gross += w.gross; }
+      const fx = o => Object.fromEntries([...o].map(([k, v]) => [k, Object.assign({}, v, { weight: r2(v.weight), net: r2(v.net), gross: r2(v.gross) })]));
+      return { weight_t: Math.round(W) / 1000, net_t: Math.round(N) / 1000, gross_t: Math.round(G) / 1000, parts: n, boltBodiesExcluded: bolts, asm: fx(asm), part: fx(part),
+        note: 'Tekla rules (v70): WEIGHT = catalog kg/m x L for standard profiles, otherwise the solid without bolt holes; round sections as Tekla polygons (rods 8, tubes 12 < D50 <= 16 sides), SHS/RHS square corners.' };
+    }
+    Object.assign(window.__st, { partWeight: id => partWeight70(typeof id === 'object' ? id : stBody(id)), weights: weights70, weightRules: Object.assign({}, R66, { tkArea70 }) });
+  }

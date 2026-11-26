@@ -7,6 +7,24 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 
 **Weight target:** Tekla's per-part weights (`st.tkW`). They sum to 63,705.8 kg; Tekla's Part List total is 63,711.7 kg.
 
+## Weights (owner, 2026-11-26)
+**Target:** Tekla's per-part weights (`st.tkW`, 63,705.8 kg; Part List 63,711.7).
+
+**Proof** (Tekla's IFC, `docs/steel/WEIGHTS-R12.md`): every part's Tekla weight is its faceted solid × density, with bolt holes not subtracted.
+- Tekla's circles are inscribed polygons. ROD12 / ROD16 / ROD20 are 8-gons (101.82 / 181.02 / 282.84 mm²). CHS48*3 and PD40*10 are 12-gons (405.0 / 900.0 mm²). PD50*5 is a 16-gon (688.83 mm²).
+- SHS100*3 has square corners (1,164 mm²).
+- Grating density is 1,333 kg/m³; grout is 0.
+- The CC purlin is weighed by its section (704 mm² → 5.5264 kg/m).
+
+**Rule (web v70 section "Weights", app `steel/.../model/TeklaWeight.kt`, the same steps):**
+- Base: the part's solid without bolt holes.
+- Round and square-hollow parametric members: × Tekla's section area ÷ the part's own section area. The own area is measured on the solid: the median of five 10 mm slabs at 20–80 % of the length, which skips a crossing slot.
+- Catalog profiles: catalog kg/m × length (v66).
+
+**What v66 got wrong:** it scaled round sections by a fixed table taken from R10 (ROD16 188.4, PD40*10 942.5), so an imported part with Tekla's polygons was scaled twice.
+
+**Result on R12:** web 63,710.3 kg, app 63,711.1 kg, every part web = app within 0.01 kg (`R12WeightTest`). The segment counts are proven only for the sizes in this model.
+
 ## Reference order (owner, 2026-11-26)
 When sources disagree, the higher one wins:
 1. **Tekla itself:** R12 (Tekla's IFC) and Tekla's dialog settings.
