@@ -1,12 +1,12 @@
-# Emulator UI run 45875510138 (3f63ebe)
+# Emulator UI run 45885404725 (fe36d67)
 
 - data files on main: true
 - KVM: yes · runner cores: 2
 - unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 0 (380 s)
-- job time until this step: 1704 s = 28.4 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 0 (267 s)
+- job time until this step: 976 s = 16.3 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -20,27 +20,27 @@ Night mode: yes
 [ ] com.android.internal.systemui.navbar.gestural
 ```
 
-JUnit (unit + instrumented): 55 tests, 0 failed
+JUnit (unit + instrumented): 56 tests, 0 failed
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 3051 |  |
-| steel | ✓ | 9484 |  |
-| grid | ✓ | 8410 |  |
-| orbit | ✓ | 3957 |  |
-| pan | ✓ | 1934 |  |
-| zoom | ✓ | 1531 |  |
-| column | ✓ | 3703 |  |
-| properties_apply | ✓ | 10394 |  |
-| beam | ✓ | 3701 |  |
-| properties_modify | ✓ | 7938 |  |
-| catalog | ✓ | 8068 |  |
-| endplate_dialog | ✓ | 3800 |  |
-| endplate_pick | ✓ | 5683 |  |
-| cleat_dialog | ✓ | 10411 |  |
-| save_open | ✓ | 2567 |  |
-| portal_create | ✓ | 35982 |  |
-| portal_modify | ✓ | 53768 |  |
+| start | ✓ | 3104 |  |
+| steel | ✓ | 6675 |  |
+| grid | ✓ | 8325 |  |
+| orbit | ✓ | 1553 |  |
+| pan | ✓ | 1454 |  |
+| zoom | ✓ | 1554 |  |
+| column | ✓ | 3312 |  |
+| properties_apply | ✓ | 8202 |  |
+| beam | ✓ | 3006 |  |
+| properties_modify | ✓ | 6822 |  |
+| catalog | ✓ | 5268 |  |
+| endplate_dialog | ✓ | 2725 |  |
+| endplate_pick | ✓ | 3583 |  |
+| cleat_dialog | ✓ | 9056 |  |
+| save_open | ✓ | 1989 |  |
+| portal_create | ✓ | 23070 |  |
+| portal_modify | ✓ | 37717 |  |
 
 connected.log (end):
 ```
@@ -73,16 +73,16 @@ connected.log (end):
 > Task :app:packageDebugAndroidTest UP-TO-DATE
 > Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 [EmulatorConsole]: Failed to start Emulator console for 5554
+
 > Task :app:connectedDebugAndroidTest
 Starting 2 tests on emulator-5554 - 15
 
 emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
-emulator-5554 - 15 Tests 2/2 completed. (0 skipped) (0 failed)
 Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795717932992.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795722518839.json
 
-BUILD SUCCESSFUL in 6m 19s
+BUILD SUCCESSFUL in 4m 26s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```

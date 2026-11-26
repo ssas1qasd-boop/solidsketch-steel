@@ -4,8 +4,8 @@ Daemon will be stopped at the end of the build
 > Configure project :app
 Passing custom test runner argument android.testInstrumentationRunnerArguments.notClass from gradle.properties or command line is not compatible with configuration caching. Please specify this argument using android gradle dsl.
 
-> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:generateDebugBuildConfig UP-TO-DATE
@@ -73,8 +73,9 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :steel:compileDebugKotlin UP-TO-DATE
 > Task :steel:javaPreCompileDebug UP-TO-DATE
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
-> Task :steel:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :app:processDebugResources UP-TO-DATE
+> Task :steel:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
 > Task :core-io:mergeDebugShaders UP-TO-DATE
 > Task :core-io:compileDebugShaders NO-SOURCE
 > Task :core-io:generateDebugAssets UP-TO-DATE
@@ -91,24 +92,23 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :core-io:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :steel:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :app:compileDebugKotlin UP-TO-DATE
-> Task :app:javaPreCompileDebug UP-TO-DATE
 > Task :core-io:processDebugJavaRes UP-TO-DATE
 > Task :core-view:processDebugJavaRes UP-TO-DATE
 > Task :app:compileDebugJavaWithJavac UP-TO-DATE
-> Task :steel:processDebugJavaRes UP-TO-DATE
 > Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
 > Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :steel:processDebugJavaRes UP-TO-DATE
 > Task :core-view:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :core-io:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :steel:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :core-io:mergeDebugJniLibFolders UP-TO-DATE
 > Task :core-io:mergeDebugNativeLibs NO-SOURCE
 > Task :core-io:copyDebugJniLibsProjectOnly UP-TO-DATE
-> Task :fetchManifold
 > Task :app:processDebugAndroidTestManifest UP-TO-DATE
 > Task :app:generateDebugAndroidTestBuildConfig UP-TO-DATE
 > Task :app:checkDebugAndroidTestAarMetadata UP-TO-DATE
 > Task :app:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :fetchManifold
 > Task :app:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
 > Task :app:generateDebugAndroidTestResources UP-TO-DATE
 > Task :app:mergeDebugAndroidTestResources UP-TO-DATE
@@ -128,13 +128,13 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :core-view:mergeDebugJniLibFolders UP-TO-DATE
 > Task :core-view:mergeDebugNativeLibs UP-TO-DATE
 > Task :core-view:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
 > Task :steel:configureCMakeDebug[x86_64]
+> Task :app:processDebugJavaRes UP-TO-DATE
 > Task :steel:buildCMakeDebug[x86_64]
 > Task :steel:mergeDebugJniLibFolders UP-TO-DATE
 > Task :steel:mergeDebugNativeLibs UP-TO-DATE
 > Task :steel:copyDebugJniLibsProjectOnly UP-TO-DATE
-> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
-> Task :app:processDebugJavaRes UP-TO-DATE
 > Task :app:mergeDebugJavaResource UP-TO-DATE
 > Task :app:checkDebugDuplicateClasses UP-TO-DATE
 > Task :app:mergeExtDexDebug UP-TO-DATE
@@ -170,14 +170,14 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :app:packageDebugAndroidTest UP-TO-DATE
 > Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 [EmulatorConsole]: Failed to start Emulator console for 5554
+
 > Task :app:connectedDebugAndroidTest
 Starting 2 tests on emulator-5554 - 15
 
 emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
-emulator-5554 - 15 Tests 2/2 completed. (0 skipped) (0 failed)
 Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795717932992.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795722518839.json
 
-BUILD SUCCESSFUL in 6m 19s
+BUILD SUCCESSFUL in 4m 26s
 133 actionable tasks: 6 executed, 127 up-to-date
