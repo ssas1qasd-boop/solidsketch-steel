@@ -3,6 +3,7 @@ package com.solidsketchapp.steel.conn
 import com.solidsketchapp.core.api.JsNumber
 import com.solidsketchapp.core.api.Mesh
 import com.solidsketchapp.steel.geom.D3
+import com.solidsketchapp.steel.geom.Sections
 import com.solidsketchapp.steel.geom.StBuild.Companion.str
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
@@ -81,7 +82,9 @@ object FamCL {
     private fun back(x: FamCtx, purs: List<Pair<JsonObject, String>>, ma: MemberFrame, mp: MemberFrame) {
         val w0 = ma.c1 - mp.c1; val b = ma.a dot mp.a; val dd = ma.a dot w0; val ee = mp.a dot w0; val den = (1 - b * b).let { if (it == 0.0) 1e-9 else it }
         val pp = mp.c1.add(mp.a, (ee - b * dd) / den)
-        val fa = faceAt(ma, pp); val n = fa.n; val base = fa.pc.add(n, fa.off); val y = mp.a.add(n, -(mp.a dot n)).normalize()
+        val fa = faceAt(ma, pp); val n = fa.n; var base = fa.pc.add(n, fa.off); val y = mp.a.add(n, -(mp.a dot n)).normalize()
+        // R12 (Tekla's IFC): the cleat's underside is the purlin's underside, not the rafter axis' top face (web v70 the same)
+        Sections.of(x.profiles.lookup(purs[0].first.str("prof") ?: ""))?.let { sec -> val lo = sec.outer.minOf { q -> (mp.es dot n) * q[0] + (mp.eh dot n) * q[1] }; base = base.add(n, (pp dot n) + lo - (base dot n)) }
         val wb = purlinWeb(x, purs[0].first, mp); val out = wb.dir.add(n, -(wb.dir dot n)).add(y, -(wb.dir dot y)).normalize()
         val webPt = pp.add(wb.dir, wb.off); val sw = (webPt - base) dot out; val o = base.add(out, sw)
         val t = x.n("t"); val l1 = x.n("L1"); val l2 = x.n("L2"); val w = x.n("w") / 2; val f = Joints.Frame3(o, out, n)

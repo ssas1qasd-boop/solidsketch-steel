@@ -80,6 +80,16 @@ class Components(val ui: TkUi, private val doc: DocumentApi, private val undo: U
     }
 
     /** v69 stConnAdd + stRegen in one undo step (label = the component's name); `pt` = the first picked point. */
+    /**
+     * v70 (owner 2026-11-26: one cleat per joint, as in Tekla): a purlin cleat L (Tcl) on a rafter and purlin(s) replaces the purlin
+     * generator's own plate cleat (Tpc) on that rafter and those purlins. Returns the ids of the Tpc connections that go.
+     */
+    fun tpcUnder(k: String, parts: List<BodyId>): Set<String> {
+        if (k != "Tcl" || parts.size < 2) return emptySet()
+        val raf = parts[0].value; val purs = parts.drop(1).map { it.value }.toSet()
+        return conns().filter { it.type == "Tpc" && it.parts.size >= 2 && it.parts[0] == raf && it.parts[1] in purs }.map { it.id }.toSet()
+    }
+
     fun add(k: String, parts: List<BodyId>, q: JsonObject, pt: DoubleArray? = null): StConn {
         var out: StConn? = null
         val run = {
@@ -87,7 +97,9 @@ class Components(val ui: TkUi, private val doc: DocumentApi, private val undo: U
             val m = linkedMapOf<String, JsonElement>("id" to jsNum(next.toDouble()), "type" to JsonPrimitive(k), "parts" to JsonArray(parts.map { p -> p.value.toLongOrNull()?.let { jsNum(it.toDouble()) } ?: JsonPrimitive(p.value) }), "q" to JsonObject(LinkedHashMap(q)))
             if (pt != null) m["pt"] = jsArr(*pt)
             doc.setField("stNextConn", (next + 1).toString())
-            setConns(conns().map { it.raw } + JsonObject(m))
+            val gone = tpcUnder(k, parts)
+            if (gone.isNotEmpty()) for (id in doc.bodyIds()) if (Js.str(stOf(id)?.get("conn")) in gone) doc.removeBody(id)
+            setConns(conns().filter { it.id !in gone }.map { it.raw } + JsonObject(m))
             regen?.regen(doc, parts)
             out = conn(next.toString())
         }

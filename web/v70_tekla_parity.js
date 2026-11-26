@@ -24,6 +24,9 @@
     const MA = stMF(A.st);
     const w0 = MA.c1.clone().sub(MP.c1); const b = MA.a.dot(MP.a), dd = MA.a.dot(w0), ee = MP.a.dot(w0), den = (1 - b * b) || 1e-9; const PP = MP.c1.clone().addScaledVector(MP.a, (ee - b * dd) / den);
     const FA = stFaceAt(A.st, PP); const n = FA.n.clone(); const base = FA.Pc.clone().addScaledVector(n, FA.off * U); const y = MP.a.clone().addScaledVector(n, -MP.a.dot(n)).normalize();
+    // R12 (Tekla's IFC): the cleat's underside is the purlin's underside (264 / 264 within 0.02 mm), not the rafter axis' top face (Tekla's
+    // flange plates are not quite parallel to the axis: up to 2 mm along a rafter). The level is the purlin section's lowest point along n.
+    { const sec = stSection(MP.p); if (sec) { let lo = Infinity; for (const q of sec.outer) lo = Math.min(lo, MP.es.dot(n) * q[0] + MP.eh.dot(n) * q[1]); base.addScaledVector(n, PP.dot(n) + lo * U - base.dot(n)); } }
     const W = purlinWeb(MP, q); const out = W.dir.clone().addScaledVector(n, -W.dir.dot(n)).addScaledVector(y, -W.dir.dot(y)).normalize();
     const webPt = PP.clone().addScaledVector(W.dir, W.off * U); const sw = webPt.clone().sub(base).dot(out); const O = base.clone().addScaledVector(out, sw);   // rafter top, web back, frame line (as v69)
     const t = q.t * U, L1 = q.L1 * U, L2 = q.L2 * U, w = q.w / 2 * U; const F = stFrame3(O, out, n);   // x = away from the web, y = up from the rafter top, z = along the purlin (as v69)
@@ -124,4 +127,20 @@
         note: 'Tekla rules (v70): WEIGHT = catalog kg/m x L for standard profiles, otherwise the solid without bolt holes; round sections as Tekla polygons (rods 8, tubes 12 < D50 <= 16 sides), SHS/RHS square corners.' };
     }
     Object.assign(window.__st, { partWeight: id => partWeight70(typeof id === 'object' ? id : stBody(id)), weights: weights70, weightRules: Object.assign({}, R66, { tkArea70 }) });
+  }
+
+  // ---------- C04 · one cleat per joint (owner 2026-11-26) ----------
+  // Tekla has one cleat at each purlin joint (R12: 264 joints, 264 L140*60*6, no plate cleat). The purlin application (T50p) puts its
+  // own plate cleat (Tpc) on every purlin end; adding a purlin cleat L (Tcl) on a rafter and purlin(s) now replaces the Tpc on that
+  // rafter and those purlins (its plate and bolts go; the parts are rebuilt by the caller's stRegen, as for any new connection).
+  {
+    const stConnAdd70 = stConnAdd;
+    stConnAdd = function (type, parts, q) {
+      if (type === 'Tcl' && parts && parts.length >= 2) {
+        const raf = parts[0], purs = new Set(parts.slice(1));
+        const gone = new Set((S.stConns || []).filter(c => c.type === 'Tpc' && c.parts.length >= 2 && c.parts[0] === raf && purs.has(c.parts[1])).map(c => c.id));
+        if (gone.size) { S.stConns = S.stConns.filter(c => !gone.has(c.id)); S.bodies = S.bodies.filter(b => !(b.st && gone.has(b.st.conn))); }
+      }
+      return stConnAdd70.apply(this, arguments);
+    };
   }
