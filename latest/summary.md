@@ -1,12 +1,12 @@
-# Emulator UI run 45690639610 (e93f740)
+# Emulator UI run 45750860915 (6894c13)
 
 - data files on main: true
 - KVM: yes · runner cores: 2
 - unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
-- emulator tests step: success
-- connectedDebugAndroidTest exit code: 0 (280 s)
-- job time until this step: 1165 s = 19.4 min (billed: whole minutes, rounded up per job)
+- emulator tests step: cancelled
+- connectedDebugAndroidTest exit code: - (- s)
+- job time until this step: 798 s = 13.3 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -20,30 +20,18 @@ Night mode: yes
 [ ] com.android.internal.systemui.navbar.gestural
 ```
 
-JUnit (unit + instrumented): 48 tests, 0 failed
-
-| step | ok | ms | message |
-|---|---|---|---|
-| start | ✓ | 2204 |  |
-| steel | ✓ | 5906 |  |
-| grid | ✓ | 5274 |  |
-| orbit | ✓ | 1768 |  |
-| pan | ✓ | 2060 |  |
-| zoom | ✓ | 1405 |  |
-| column | ✓ | 3130 |  |
-| properties_apply | ✓ | 8731 |  |
-| beam | ✓ | 3288 |  |
-| properties_modify | ✓ | 5355 |  |
-| catalog | ✓ | 6129 |  |
-| endplate_dialog | ✓ | 3044 |  |
-| endplate_pick | ✓ | 3945 |  |
-| cleat_dialog | ✓ | 10109 |  |
-| save_open | ✓ | 2109 |  |
-| portal_create | ✓ | 27259 |  |
-| portal_modify | ✓ | 38757 |  |
+JUnit (unit + instrumented): 46 tests, 0 failed
 
 connected.log (end):
 ```
+> Task :app:processDebugJavaRes UP-TO-DATE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
 > Task :app:stripDebugDebugSymbols UP-TO-DATE
 > Task :app:validateSigningDebug UP-TO-DATE
 > Task :app:writeDebugAppMetadata UP-TO-DATE
@@ -72,17 +60,9 @@ connected.log (end):
 > Task :app:packageDebugAndroidTest UP-TO-DATE
 > Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 [EmulatorConsole]: Failed to start Emulator console for 5554
-
 > Task :app:connectedDebugAndroidTest
 Starting 2 tests on emulator-5554 - 15
 
 emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
-emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
-emulator-5554 - 15 Tests 2/2 completed. (0 skipped) (0 failed)
-Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795637306012.json
-
-BUILD SUCCESSFUL in 4m 38s
-133 actionable tasks: 6 executed, 127 up-to-date
 
 ```
