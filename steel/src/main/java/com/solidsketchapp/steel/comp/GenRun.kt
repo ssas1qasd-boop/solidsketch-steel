@@ -40,6 +40,9 @@ class GenRun(private val data: SteelData, private val doc: DocumentApi, private 
     private fun addBody(st: JsonObject, mesh: Mesh): BodyId { val nm = Js.str(st["name"]).let { if (st["name"] == null) "undefined" else it }
         val id = doc.addBody(bodyJson(nm, st), mesh); doc.replaceBody(id, bodyJson("$nm ${id.value}", st), mesh); return id }
     private fun arr(p: D3) = jsArr(p.x, p.y, p.z)
+    /** v70 (one cleat per joint, as in Tekla): rafter [raf] already has a cleat (Tpc / Tcl) for a purlin ending at [p] (web v70 taken70). */
+    private fun taken(raf: String, p: D3): Boolean = comps.conns().any { c -> (c.type == "Tpc" || c.type == "Tcl") && c.parts.firstOrNull() == raf &&
+        c.parts.drop(1).any { id -> stOf(BodyId(id))?.let { st -> listOfNotNull(st["p1"], st["p2"]).any { vec(it).distanceTo(p) < 2.0 } } == true } }
 
     /** v69 stGenRun(k, parts, pts). */
     fun run(k: String, picked: List<BodyId>, pts: List<DoubleArray> = emptyList()): String? {
@@ -119,7 +122,7 @@ class GenRun(private val data: SteelData, private val doc: DocumentApi, private 
                     val extra = LinkedHashMap(data.propertySet("PURLIN")!!.raw).apply { put("name", JsonPrimitive("PURLIN")); put("prof", JsonPrimitive(prof)); put("rot", JsonPrimitive("Top"))
                         put("rAng", jsNum(Math.floor(th * 1e4 + 0.5) / 1e4)); put("plane", JsonPrimitive("Middle")); put("depth", JsonPrimitive("Middle")); put("pOff", jsNum(0.0)); put("dOff", jsNum(0.0)) }
                     val r = mem("PURLIN", prof, pa, pb, extra)
-                    if (r != null) { conns += "Tpc" to listOf(A, "$ref$r"); conns += "Tpc" to listOf(B, "$ref$r") }
+                    if (r != null) { if (!taken(A, pa)) conns += "Tpc" to listOf(A, "$ref$r"); if (!taken(B, pb)) conns += "Tpc" to listOf(B, "$ref$r") }
                     x += s }
             } else v69Purlins(false)
             "bridging" -> v69Purlins(true)

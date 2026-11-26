@@ -64,4 +64,33 @@ class C04WorkflowTest {
         File(root, "build/c04-workflow-app.txt").writeText(rep.toString()); println(rep)
         assertTrue(rep.toString(), ok)
     }
+
+    /** The emulator's case (C04RecordingTest): three rafters, two purlin runs (A-B, B-C), Tcl on B and the two purlins over it; one cleat per joint. */
+    @Test fun threeRaftersOneCleatPerJoint() {
+        assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
+        val data = SteelData.load { File(root, "steel/src/main/assets/steel/$it").readText() }
+        val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
+        val store = com.solidsketchapp.steel.comp.MemoryStore().apply { put("ss.connDef", "{\"T50p\":{\"prof\":\"CC200-2-20-60\"}}") }
+        val comps = com.solidsketchapp.steel.comp.Components(com.solidsketchapp.steel.comp.TkUi.parse(File(root, "steel/src/main/assets/steel/tk_ui.json").readText()), m.doc, null, store, m.regen)
+        val raf = listOf(0.0, 5570.0, 11140.0).map { y -> val st = JsonObject(LinkedHashMap<String, JsonElement>(data.propertySet("RAFTER")!!.raw).apply {
+            put("kind", JsonPrimitive("member")); put("p1", JsonArray(listOf(0.0, y, 7500.0).map { JsonPrimitive(it) })); put("p2", JsonArray(listOf(6468.0, y, 8970.0).map { JsonPrimitive(it) })) }); m.parts.add(st, "w") }
+        val gr = GenRun(data, m.doc, null, m.parts, comps, m.regen); gr.run("T50p", listOf(raf[0], raf[1])); gr.run("T50p", listOf(raf[1], raf[2]))
+        val stOf = { id: BodyId -> Json.parseToJsonElement(m.doc.bodyJson(id)!!).jsonObject["st"]?.jsonObject }
+        fun p1(id: BodyId) = stOf(id)!!.getValue("p1").jsonArray.map { it.jsonPrimitive.double }
+        val pur = m.doc.bodyIds().filter { stOf(it)?.get("name")?.jsonPrimitive?.content == "PURLIN" }.sortedWith(compareBy({ p1(it)[0] }, { p1(it)[1] }))
+        val x0 = p1(pur[0])[0]; val two = pur.filter { abs(p1(it)[0] - x0) < 1 }
+        comps.add("Tcl", listOf(raf[1]) + two, comps.cq("Tcl"))
+        val keep = setOf("prof", "p1", "p2", "rot", "rAng", "plane", "depth", "conn", "pts", "ax", "d", "L", "n", "grade")
+        val bodies = m.doc.bodyIds().map { id -> val st = stOf(id) ?: JsonObject(emptyMap())
+            "{\"id\":\"${id.value}\",\"name\":${st["name"] ?: "null"},\"kind\":${st["kind"] ?: "null"},\"st\":${JsonObject(st.filterKeys { it in keep })},\"m\":${meshJson(m.doc.bodyMesh(id)!!)}}" }
+        val conns = comps.conns().map { c -> "{\"id\":\"${c.id}\",\"type\":\"${c.type}\",\"parts\":${JsonArray(c.parts.map { JsonPrimitive(it) })},\"q\":${c.q}}" }
+        File(root, "build").mkdirs()
+        File(root, "build/c04-workflow3-app.json").writeText("{\"A\":\"${raf[1].value}\",\"B\":\"${raf[2].value}\",\"bodies\":[${bodies.joinToString(",")}],\"conns\":[${conns.joinToString(",")}]}")
+        // one cleat per rafter-B joint: every purlin end on rafter B has exactly one cleat (Tpc or Tcl)
+        val cs = comps.conns(); val onB = cs.filter { (it.type == "Tpc" || it.type == "Tcl") && it.parts[0] == raf[1].value }
+        // the joints on rafter B: the purlins' positions along the rafter (both runs' purlins butt there); each joint has exactly one cleat
+        val joints = pur.groupBy { Math.round(p1(it)[0]) }
+        val perJoint = joints.values.map { ids -> onB.count { c -> ids.any { it.value in c.parts } } }
+        assertTrue("cleats per joint on rafter B: $perJoint", perJoint.all { it == 1 } && onB.count { it.type == "Tcl" } == 1)
+    }
 }

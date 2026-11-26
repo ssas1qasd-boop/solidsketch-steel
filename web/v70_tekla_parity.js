@@ -69,10 +69,13 @@
       const ap = pb.clone().sub(pa).normalize(); const base = Z.clone().addScaledVector(ap, -ap.dot(Z)).normalize(); const n = nA.clone().add(nB).normalize();
       const th = Math.atan2(new THREE.Vector3().crossVectors(base, n).dot(ap), base.dot(n)) * 180 / Math.PI;
       const st = Object.assign({ kind: 'member' }, ST_SETS.PURLIN, { name: 'PURLIN', prof, p1: pa.toArray(), p2: pb.toArray(), rot: 'Top', rAng: Math.round(th * 1e4) / 1e4, plane: 'Middle', depth: 'Middle', pOff: 0, dOff: 0 });
-      try { const r = stRecord(st); made.push(r); conns.push(['Tpc', [A.id, r.id]], ['Tpc', [B.id, r.id]]); } catch (e) { toast(e.message || String(e)); }
+      try { const r = stRecord(st); made.push(r); if (!taken70(A.id, pa)) conns.push(['Tpc', [A.id, r.id]]); if (!taken70(B.id, pb)) conns.push(['Tpc', [B.id, r.id]]); } catch (e) { toast(e.message || String(e)); }
     }
     if (!made.length) return; step(() => { S.bodies = [...S.bodies, ...made]; ensureFolder28('stBrace'); const ids = []; for (const [ck, ps] of conns) { if (!CONN[ck]) continue; stConnAdd(ck, ps, stCQ(ck)); ids.push(...ps); } if (ids.length) stRegen([...new Set(ids)]); }, CN.label); commit(); stWeldsDraw(); toast(`${CN.label}: ${made.length} parts${conns.length ? ` · ${conns.length} connections` : ''}`);
   };
+  // one cleat per joint (owner 2026-11-26, Tekla): a purlin end on a rafter that already has a cleat (Tpc / Tcl) for a purlin ending at the same
+  // point (a purlin run on each side of a middle rafter) gets no second plate cleat
+  function taken70(rafId, P) { return (S.stConns || []).some(c => (c.type === 'Tpc' || c.type === 'Tcl') && c.parts[0] === rafId && c.parts.slice(1).some(id => { const b = stBody(id); return b && b.st && b.st.p1 && [b.st.p1, b.st.p2].some(q => V3(q).distanceTo(P) < 2 * stU()); })); }
   window.__st.genRun = (k, p, q) => stGenRun(k, p, q);
 
   // ---------- Weights · Tekla's own rule (R12, owner 2026-11-26) ----------
