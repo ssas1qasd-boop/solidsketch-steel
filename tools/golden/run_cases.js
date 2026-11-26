@@ -10,7 +10,7 @@ const { dumpModel } = require('./lib/dump');
 
 const filter = process.argv[2] || '';
 const cases = fs.readdirSync(path.join(__dirname, 'cases')).filter(f => f.endsWith('.js')).sort()
-  .flatMap(f => require(path.join(__dirname, 'cases', f))).filter(c => c.name.includes(filter));
+  .flatMap(f => require(path.join(__dirname, 'cases', f))).filter(c => c && typeof c.name === 'string' && c.name.includes(filter));
 
 (async () => {
   let failed = 0;

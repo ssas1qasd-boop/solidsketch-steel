@@ -1,0 +1,87 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "bdir": 2,
+    "blrule": "tekla",
+    "bolt": 16,
+    "cols": 2,
+    "e": 30.025,
+    "ext": 55.52,
+    "extb": 60.641,
+    "gap": 0,
+    "gauge": 90,
+    "hc1": 15,
+    "hc2": 15,
+    "hc3": 15,
+    "hc4": 15,
+    "hct": "line",
+    "hpb1": 60,
+    "hpb2": 60,
+    "hpc": "both",
+    "hph1": 60,
+    "hph2": 60,
+    "hpt1": 8,
+    "hpt2": 8,
+    "pitches": "70 70 70",
+    "rows": 4,
+    "side": 35,
+    "tp": 12
+   }
+  ]
+ ],
+ "description": "R12 monitor post PC7001 (BI150 post) on the BI220 rafter at 12.8 deg (gap 0: the nominal rafter face; R12 itself has the plate 0.75 mm into it, Tekla flange plate data): Haunch tab top / bottom plate 8 x 60 x 60, chamfers 15 line, Tekla bolt length, bolting direction 2.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     39537.187,
+     27925,
+     7421.544
+    ],
+    "p2": [
+     33095.5,
+     27925,
+     8888.267
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     34039.28,
+     27925,
+     8782.496
+    ],
+    "p2": [
+     34039.28,
+     27925,
+     9579.802
+    ],
+    "plane": "Middle",
+    "prof": "BI150-6-120-8",
+    "rot": "Below"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t144_c09_r12",
+ "pageErrors": []
+}

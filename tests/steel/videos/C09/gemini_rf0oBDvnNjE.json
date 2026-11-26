@@ -1,0 +1,92 @@
+{
+ "url": "https://www.youtube.com/watch?v=rf0oBDvnNjE",
+ "model": "gemini-flash-latest",
+ "answer": {
+  "component": "End plate (144)",
+  "haunch": "Yes, the video creates top and bottom haunch plates (haunch stiffeners on the beam flanges at the connection) using the End plate (144) component under the 'Haunch' tab.",
+  "haunch_tab_seen": [
+   {
+    "t": "10:53",
+    "tab": "Haunch",
+    "fields": {
+     "Top plate t": "",
+     "Top plate b": "",
+     "Top plate h": "",
+     "Bottom plate t": "",
+     "Bottom plate b": "",
+     "Bottom plate h": "",
+     "chamfer fields": "blank"
+    }
+   },
+   {
+    "t": "11:08",
+    "tab": "Haunch",
+    "fields": {
+     "Top plate t": "3/16",
+     "Top plate b": "",
+     "Top plate h": "",
+     "Bottom plate t": "3/16",
+     "Bottom plate b": "",
+     "Bottom plate h": "",
+     "chamfer fields": "blank"
+    }
+   },
+   {
+    "t": "11:35",
+    "tab": "Haunch",
+    "fields": {
+     "Top plate t": "3/16",
+     "Top plate b": "5",
+     "Top plate h": "",
+     "Bottom plate t": "3/16",
+     "Bottom plate b": "5",
+     "Bottom plate h": "",
+     "chamfer fields": "blank"
+    }
+   },
+   {
+    "t": "12:15",
+    "tab": "Haunch",
+    "fields": {
+     "Top plate t": "3/16",
+     "Top plate b": "4",
+     "Top plate h": "",
+     "Bottom plate t": "3/16",
+     "Bottom plate b": "4",
+     "Bottom plate h": "",
+     "chamfer fields": "blank"
+    }
+   }
+  ],
+  "plates_tab_seen": [
+   {
+    "t": "02:32",
+    "tab": "Plates",
+    "fields": {
+     "End plate t": "1/2",
+     "Folded Plate": "",
+     "Fitting Plate 1": "",
+     "Fitting Plate 2": "",
+     "Fitting Plate 3": ""
+    }
+   }
+  ],
+  "parts_created": [
+   {
+    "time": "11:16",
+    "part": "Top and bottom haunch plates (thickness 3/16\") on beam flange",
+    "dimensions": "t=3/16\", length automatically matches end plate projection"
+   },
+   {
+    "time": "11:39",
+    "part": "Haunch plates modified to 5\" width (b=5\")",
+    "dimensions": "t=3/16\", b=5\""
+   },
+   {
+    "time": "12:22",
+    "part": "Haunch plates modified to 4\" width (b=4\")",
+    "dimensions": "t=3/16\", b=4\""
+   }
+  ]
+ }
+}

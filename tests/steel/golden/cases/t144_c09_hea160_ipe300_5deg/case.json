@@ -1,0 +1,70 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "bdir": 2,
+    "blrule": "tekla",
+    "bolt": 16,
+    "ext": 50,
+    "extb": 50,
+    "gap": 0,
+    "hpb1": "",
+    "hpb2": "",
+    "hpc": "both",
+    "hph1": "",
+    "hph2": "",
+    "hpt1": 8,
+    "hpt2": 8,
+    "tp": 12
+   }
+  ]
+ ],
+ "description": "HEA160 post on an IPE300 rafter at 5 deg, R12 Haunch tab settings with b and h blank (b = the end plate reach, h = b), ext 50 / 50.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     6000
+    ],
+    "p2": [
+     8000,
+     0,
+     6699.9
+    ],
+    "prof": "IPE300"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "p1": [
+     4000,
+     0,
+     6500
+    ],
+    "p2": [
+     4000,
+     0,
+     8000
+    ],
+    "prof": "HEA160"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t144_c09_hea160_ipe300_5deg",
+ "pageErrors": []
+}

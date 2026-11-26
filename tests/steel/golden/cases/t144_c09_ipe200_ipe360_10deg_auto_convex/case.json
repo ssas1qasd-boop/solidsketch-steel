@@ -1,0 +1,73 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "bolt": 20,
+    "ext": 60,
+    "extb": 0,
+    "gap": 0,
+    "hc1": 20,
+    "hc2": 20,
+    "hc3": 20,
+    "hc4": 20,
+    "hct": "convex",
+    "hpb1": 50,
+    "hpb2": 50,
+    "hpc": "auto",
+    "hph1": 70,
+    "hph2": 70,
+    "hpt1": 10,
+    "hpt2": 10,
+    "tp": 15
+   }
+  ]
+ ],
+ "description": "IPE200 post on an IPE360 rafter at 10 deg: Automatic creation (end plate past the top flange only), plates 10 x 50 x 70, convex arc chamfers 20.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     6000
+    ],
+    "p2": [
+     8000,
+     0,
+     7410.6
+    ],
+    "prof": "IPE360"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "p1": [
+     3000,
+     0,
+     6700
+    ],
+    "p2": [
+     3000,
+     0,
+     8500
+    ],
+    "prof": "IPE200"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t144_c09_ipe200_ipe360_10deg_auto_convex",
+ "pageErrors": []
+}

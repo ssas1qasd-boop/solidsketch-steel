@@ -344,7 +344,38 @@ def main():
         m = re.match(r'^BI\d+(?:\.\d+)?-(\d+(?:\.\d+)?)', st_['prof'])
         return float(m.group(1)) if m else 8.0
 
-    def ep_q(p, bst, pts, d, mst=None):
+    def hp_q(ep, hps, bst):
+        """144 Haunch tab from R12's HAUNCH_PLATEs (C09): b along the end plate, h square to the secondary from the lower bottom
+        corner, outer top chamfer (1 / 2 top plate, 4 / 3 bottom plate). The plates lie in the secondary's web plane, the end plate
+        square to it; works in that plane: x = along the secondary's depth (eh), z = along its axis."""
+        a, eh, es = v69_eh(bst); E = ep['st']['pts3']; c = [sum(v[k] for v in E) / len(E) for k in range(3)]
+        far = max((bst['p1'], bst['p2']), key=lambda P: norm(sub(P, c))); ax = unit(sub(far, c)) if dot(sub(far, c), a) else a
+        if dot(ax, a) < 0: a = mul(a, -1)
+        # end plate back (secondary side) surface as a line in the (eh, a) plane
+        e2 = [(dot(v, eh), dot(v, a)) for v in E]; (x0, z0), (x1, z1) = min(e2), max(e2); tn = (z1 - z0) / (x1 - x0)
+        t = Pl(ep).t; cs = math.sqrt(1 + tn * tn); zb = lambda x: z0 + (x - x0) * tn + t / 2 * cs
+        Pc = dot(bst['p1'], eh); H, Bw = section_hb(bst)
+        q = OrderedDict(hpc='both', hct='line')
+        for hid in hps:
+            P = [(dot(v, eh), dot(v, a)) for v in byid[hid]['st']['pts3']]; s = 1 if sum(x for x, _ in P) / len(P) > Pc else -1; k = 1 if s > 0 else 2
+            xf = Pc + s * H / 2; xo = max(P, key=lambda v: s * v[0])[0]; tz = max(z for _, z in P)
+            b = abs(xo - xf) * cs; h = tz - min(zb(xf), zb(xo))
+            top = [v for v in P if abs(v[1] - tz) < 0.05]; xi = max(top, key=lambda v: s * v[0])[0]; outer = [v for v in P if abs(v[0] - xo) < 0.05]
+            cw = abs(xo - xi); ch = tz - max(z for _, z in outer)
+            q['hpt%d' % k] = Pl(byid[hid]).t; q['hpb%d' % k] = r3(b); q['hph%d' % k] = r3(h)
+            q['hc1' if k == 1 else 'hc4'] = r3(cw); q['hc2' if k == 1 else 'hc3'] = r3(ch)
+        return q
+
+    def ep_gap(p, bst, mst):
+        """The end plate's distance from the main part's nominal face (negative: into it), measured as in ep_q."""
+        a, eh, es = v69_eh(bst); n = p.N; c0 = p.centre(); far = max((bst['p1'], bst['p2']), key=lambda P: norm(sub(P, c0)))
+        sgn = 1 if dot(sub(far, c0), n) > 0 else -1; c0 = sub(c0, mul(n, sgn * p.t / 2))
+        Hm, Bm = section_hb(mst); am, ehm, esm = v69_eh(mst)
+        dm, tm = point_seg(c0, mst['p1'], mst['p2']); Pm = add(mst['p1'], mul(sub(mst['p2'], mst['p1']), tm))
+        flange = abs(dot(n, ehm)) >= abs(dot(n, esm)); half = Hm / 2 if flange else web_t(mst) / 2
+        return r3(abs(dot(sub(c0, Pm), n)) - half)
+
+    def ep_q(p, bst, pts, d, mst=None, gap=None):
         """End plate 144 settings from the R10 plate and its bolts (FAM.EP, L15547): plate height = the beam depth on the
         face + ext (top) + extb (bottom), width = gauge + 2 side, e = top edge to the first row, pitches top down."""
         a, eh, es = v69_eh(bst)
@@ -357,6 +388,7 @@ def main():
         c0 = p.centre(); far = max((bst['p1'], bst['p2']), key=lambda P: norm(sub(P, c0)))
         sgn = 1 if dot(sub(far, c0), n) > 0 else -1
         c0 = sub(c0, mul(n, sgn * p.t / 2))          # the face against the main part (v69 measures the beam depth there)
+        if gap: c0 = sub(c0, mul(n, sgn * gap))      # v69 measures it on the main part's face: the gap away (C09: -0.75)
         dd, t = point_seg(c0, bst['p1'], bst['p2']); Pc = add(bst['p1'], mul(sub(bst['p2'], bst['p1']), t))
         an = dot(a, n) or 1e-9; cs = []
         for sy in (-1, 1):
@@ -365,6 +397,8 @@ def main():
         rows = sorted({round(dot(q3, X), 1) for q3 in pts}, reverse=True); cols = sorted({round(dot(q3, Y), 1) for q3 in pts})
         q = OrderedDict(tp=p.t, bolt=d, ext=r3(top - max(cs)), extb=r3(min(cs) - bot))
         if mst is not None:   # gap between the main part's face and the plate (v69 default 2)
+            q['gap'] = r3(max(0.0, ep_gap(p, bst, mst)))
+        if False:
             Hm, Bm = section_hb(mst); am, ehm, esm = v69_eh(mst)
             dm, tm = point_seg(c0, mst['p1'], mst['p2']); Pm = add(mst['p1'], mul(sub(mst['p2'], mst['p1']), tm))
             flange = abs(dot(n, ehm)) >= abs(dot(n, esm)); half = Hm / 2 if flange else web_t(mst) / 2
@@ -488,7 +522,16 @@ def main():
             other = sorted(bt, key=lambda m: -len(bt[m]))[0]; cs = bt[other]; d = bolt_d(cs)
             pts, ux, uy = bolt_layout(cs, p.X, p.Y)
             if key3 in EP:
-                conn('T144', [other, own], ep_q(p, members[own]['st'], pts, d, members[other]['st']), EP[key3], [b['id']])
+                refs = [b['id']]; hps = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'HAUNCH_PLATE'] if MODEL == 'R12' else []
+                if hps:   # C09 (PARITY.md): Tekla's 144 Haunch tab, read off R12's haunch plates; the plate on Tekla's flange plate, 0.75 mm under the axis' top face
+                    g = ep_gap(p, members[own]['st'], members[other]['st']); q = ep_q(p, members[own]['st'], pts, d, members[other]['st'], gap=g); q['gap'] = g
+                    q.update(hp_q(b, hps, members[own]['st'])); refs += hps
+                else: q = ep_q(p, members[own]['st'], pts, d, members[other]['st'])
+                if MODEL == 'R12' and EP[key3] in ('2', '9'):   # C02 / C09 (PARITY.md): Tekla's bolt length and bolting direction
+                    c0 = p.centre(); far = max((members[own]['st']['p1'], members[own]['st']['p2']), key=lambda P: norm(sub(P, c0)))
+                    tosec = p.N if dot(sub(far, c0), p.N) > 0 else mul(p.N, -1)
+                    q['blrule'] = 'tekla'; q['bdir'] = 2 if dot(cs[0]['q']['ax'], tosec) > 0 else 1
+                conn('T144', [other, own], q, EP[key3], refs)
             elif s['name'] == 'End Plate' and s['tprof'] == 'FLT20*400':   # apex 106 with haunch (v54 apex)
                 hw = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'Web' and byid[x]['st']['tprof'] == 'FLT8*130']
                 hf = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'Bottom flange' and x not in member_of]

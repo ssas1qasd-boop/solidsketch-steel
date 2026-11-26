@@ -200,3 +200,79 @@
     };
     one(X.B); if (X.B2) one(X.B2);
   };
+  //
+  // ---------- C09 · End plate (144) Haunch tab: Tekla's haunch plates (R12 PC7001 x 24) ----------
+  // Proof (docs/steel/PARITY.md "C09"): Tekla's 144 help (Haunch tab: Top plate / Bottom plate t, b, h; Haunch plate chamfers 1-4 and
+  // chamfer type; Haunch plate creation Automatic / Top and bottom / Not created) and the video rf0oBDvnNjE 10:53-12:22 (t set, b and h
+  // left blank, then b = 5" and 4"). R12: the 24 monitor-post joints have two HAUNCH_PLATE t 8 in the post's web plane, standing on the
+  // end plate against each post flange: the bottom edge on the end plate is b = 60 long (measured along the end plate), the outer edge runs
+  // along the post, the top edge is square to the post at h = 60 above the lower bottom corner, the outer top corner is chamfered 15 x 15
+  // (line) and the inner corner (flange / end plate weld) is cut 15 x 15. v69's 'Haunch plate creation' made a 250 mm FLANGE PLATE
+  // ('comp'); old models keep it. v70 adds the Tekla plates under new keys (hpc = '' : none, as v69, so other 144 joints are unchanged).
+  ST_LBL.hpc = 'Haunch plate creation';
+  Object.assign(CONN.T144.def, { hpc: '', hpt1: 8, hpb1: '', hph1: '', hpt2: 8, hpb2: '', hph2: '', hc1: 15, hc2: 15, hc3: 15, hc4: 15, hct: 'line' });
+  { const i = TKD.T144.tabs.findIndex(t => t.name === 'Haunch'); if (i >= 0) TKD.T144.tabs[i] = { name: 'Haunch',
+      parts: [['Top plate', 'HAUNCH_PLATE', { t: 'hpt1', b: 'hpb1', h: 'hph1' }], ['Bottom plate', 'HAUNCH_PLATE', { t: 'hpt2', b: 'hpb2', h: 'hph2' }]],
+      groups: [['Haunch plate chamfers', [TKF('hc1', '1 · Width of the top haunch plate chamfer'), TKF('hc2', '2 · Height of the top haunch plate chamfer'), TKF('hc3', '3 · Height of the bottom haunch plate chamfer'), TKF('hc4', '4 · Width of the bottom haunch plate chamfer'), TKF('hct', 'Chamfer type', { type: 'sel', dv: 'line', opts: [tkOpt('none', 'No chamfer'), tkOpt('line', 'Line chamfer'), tkOpt('convex', 'Convex arc chamfer'), tkOpt('concave', 'Concave arc chamfer')] })]],
+        ['Haunch plate creation', [TKF('hpc', 'Haunch plate creation', { type: 'sel', dv: '', opts: [tkOpt('', 'Not created (v69)', 'off'), tkOpt('auto', 'Automatic', 'auto'), tkOpt('both', 'Top and bottom haunch plates are created', 'on'), tkOpt('none', 'Haunch plates are not created', 'off')], note: 'Automatic: a plate on each side where the end plate reaches past the flange. Thickness 0 = no plate on that side.' })]]] }; }
+  const hp70 = (X, Bm) => {   // the haunch plates of one secondary (same frame as FAM.EP)
+    const { U, q, A, plate, weld } = X; const J = stJoint(A, Bm), Bp = J.B; const u = J.u.clone(); const xu = J.X.dot(u) || 1; const O = J.E.clone().addScaledVector(J.X, J.xFace);
+    let FY = Bp.eh.clone().addScaledVector(u, -Bp.eh.dot(u)); if (FY.length() < 1e-6) FY = J.Y.clone().addScaledVector(u, -J.Y.dot(u)); FY.normalize();
+    const onFace = p => { const s = p.clone().sub(O).dot(u) / xu; return p.clone().addScaledVector(J.X, -s); };
+    const ys = []; for (const sy of [-1, 1]) for (const sz of [-1, 1]) ys.push(onFace(O.clone().addScaledVector(Bp.eh, sy * Bp.h / 2 * U).addScaledVector(Bp.es, sz * Bp.b / 2 * U)).sub(O).dot(FY));
+    const fr = (q.front || q.double || q.stub || q.stiffT ? Math.max(q.tp, 10) : 0) * U; const n1 = ((q.gap || 0) + (q.shim || 0) + q.tp) * U + fr;
+    const yh = Math.max(...ys) + q.ext * U, yl = Math.min(...ys) - q.extb * U; const num = (v, d) => v === '' || v === undefined || v === null || !isFinite(+v) ? d : +v;
+    for (const s of [1, -1]) {
+      const k = s > 0 ? 1 : 2, t = num(q['hpt' + k], 8); if (!(t > 0)) continue;
+      const Pf = O.clone().addScaledVector(Bp.eh, s * Bp.h / 2 * U); const lam = (n1 - Pf.clone().sub(O).dot(u)) / (J.X.dot(u) || 1); const C = Pf.clone().addScaledVector(J.X, lam);
+      const reach = s > 0 ? yh - C.clone().sub(O).dot(FY) : C.clone().sub(O).dot(FY) - yl;   // end plate past this flange, along the plate
+      if (q.hpc === 'auto' && reach < 10 * U) continue;
+      const e1 = Bp.eh.clone().multiplyScalar(s), e2 = J.X.clone(); const w = e1.clone().addScaledVector(u, -e1.dot(u)).normalize(); const we = w.dot(e1), wa = w.dot(e2);
+      const b = num(q['hpb' + k], Math.max(reach / U, 10)) * U, h = num(q['hph' + k], b / U) * U, cw = (s > 0 ? num(q.hc1, 0) : num(q.hc4, 0)) * U, ch = (s > 0 ? num(q.hc2, 0) : num(q.hc3, 0)) * U, cl = 15 * U;
+      const nP = new THREE.Vector3().crossVectors(e1, e2).normalize(), dl = t / 2 * U * Math.abs(u.dot(nP)) / (Math.abs(u.dot(e2)) || 1) + 0.01 * U;   // across a slope: down to the end plate, trimmed below
+      const tz = Math.min(0, b * wa) + h, xo = b * we; const pts = [[0, cl], [cl * we, cl * wa - dl], [xo, b * wa - dl]];
+      if (q.hct !== 'none' && cw > 0 && ch > 0) { if (q.hct === 'convex' || q.hct === 'concave') { for (let i = 0; i <= 8; i++) { const f = i / 8 * Math.PI / 2; pts.push(q.hct === 'concave' ? [xo - cw * Math.sin(f), tz - ch * Math.cos(f)] : [xo - cw + cw * Math.cos(f), tz - ch + ch * Math.sin(f)]); } } else pts.push([xo, tz - ch], [xo - cw, tz]); }
+      else pts.push([xo, tz]);
+      pts.push([0, tz]);
+      const F = stFrame3(C, e1, e2), BIG = 60000 * U; plate('HAUNCH_PLATE', F.poly(pts, -t / 2 * U, t / 2 * U).subtract(stFrame3(O, u, FY).box(-BIG, n1, -BIG, BIG, -BIG, BIG)), t);
+      weld('Haunch plate to end plate and flange', Math.min(5, q.a || 5), 2 * ((b - cl) + (tz - cl)) / U);
+    }
+  };
+  // Bolts (R12, all 1,288 Tekla bolt groups: M12 grip 8 / 15.5 -> L30 / 35, M16 16 / 18-22 / 24-26.7 -> 40 / 45 / 50, M20 30 / 40 -> 60 / 70):
+  // Tekla's length = grip + nut (ISO 4032 m) + washer (ISO 7089) + 5, rounded up to 5 mm, with the grip = the plate stack. 'Bolt length'
+  // in the Bolts tab (Bolt assembly): v69 (grip + 2 mm + 2 d; old models and the default) / Tekla. R12 C09: M16 grip 22 -> L45, bolting
+  // direction 2 (heads under the rafter flange).
+  const tkBoltLen70 = (d, grip) => { const m = { 10: 8.4, 12: 10.8, 14: 12.8, 16: 14.8, 20: 18, 22: 19.4, 24: 21.5, 27: 23.8, 30: 25.6, 36: 31 }[d] || 0.9 * d, w = { 10: 2, 12: 2.5, 14: 2.5, 16: 3, 20: 3, 22: 3, 24: 4, 27: 4, 30: 4, 36: 5 }[d] || 0.16 * d; return Math.ceil((grip + m + w + 5) / 5 - 1e-6) * 5; };
+  ST_LBL.blrule = 'Bolt length';
+  { const bt = TKD.T144.tabs.find(t => t.name === 'Bolts'); const g = bt && bt.groups.find(x => x[0] === 'Bolt assembly'); if (g && !g[1].some(f => f.k === 'blrule')) { g[1] = g[1].slice(); g[1].push(TKF('blrule', 'Bolt length', { type: 'sel', dv: '', opts: [tkOpt('', 'v69 (grip + 2 d)'), tkOpt('tekla', 'Tekla (grip + nut + washer + 5, up to 5 mm)')] })); } }
+  CONN.T144.def.blrule = '';
+  const FAM_EP70 = X => {   // v69 live FAM.EP (L15931658 of the v69 file) with the v70 bolt length (marked)
+    const { U, q, A, cut, plate, bolts, weld } = X; const BIG = v49Big();
+    const one = (Bm, sharedGrip) => {
+      const J = stJoint(A, Bm), Bp = J.B; const u = J.u.clone(); const xu = J.X.dot(u) || 1; const O = J.E.clone().addScaledVector(J.X, J.xFace);
+      let FY = Bp.eh.clone().addScaledVector(u, -Bp.eh.dot(u)); if (FY.length() < 1e-6) FY = J.Y.clone().addScaledVector(u, -J.Y.dot(u)); FY.normalize(); const FZ = new THREE.Vector3().crossVectors(u, FY).normalize(); const Ff = stFrame3(O, u, FY);
+      const onFace = p => { const s = p.clone().sub(O).dot(u) / xu; return p.clone().addScaledVector(J.X, -s); };   // carry a point along the beam onto the face plane
+      const cs = []; for (const sy of [-1, 1]) for (const sz of [-1, 1]) { const p = onFace(O.clone().addScaledVector(Bp.eh, sy * Bp.h / 2 * U).addScaledVector(Bp.es, sz * Bp.b / 2 * U)); cs.push([p.clone().sub(O).dot(FY), p.clone().sub(O).dot(FZ), p]); }
+      const yT = Math.max(...cs.map(c => c[0])), yB = Math.min(...cs.map(c => c[0])); let zC = (Math.max(...cs.map(c => c[1])) + Math.min(...cs.map(c => c[1]))) / 2;
+      const tp = q.tp * U, gp = (q.gap || 0) * U, sh = (q.shim || 0) * U, fr = (q.front || q.double || q.stub || q.stiffT ? Math.max(q.tp, 10) : 0) * U; const n0 = gp + fr + sh, n1 = n0 + tp;
+      let yh = yT + q.ext * U, yl = yB - q.extb * U; if (J.cope) { const yTf = (J.yTop - 10 * U) / Math.max(0.2, Math.abs(J.Y.dot(FY))), yBf = (J.yBot + 10 * U) / Math.max(0.2, Math.abs(J.Y.dot(FY))); yh = Math.min(yh, yTf); yl = Math.max(yl, yBf); }
+      const nc = (q.cols | 0) === 4 ? 4 : 2; const g = q.gauge * U, g2 = (q.gauge2 || q.gauge) * U; const zs = nc === 4 ? [-g / 2 - g2, -g / 2, g / 2, g / 2 + g2] : [-g / 2, g / 2]; const zw = (nc === 4 ? g / 2 + g2 : g / 2) + q.side * U; { const ph = +q.posH || 0, gw = zw - q.side * U; if (q.refH === 'Left') zC = zC - Bp.b / 2 * U + ph * U + gw; else if (q.refH === 'Right') zC = zC + Bp.b / 2 * U - ph * U - gw; else zC += ph * U; }
+      let ep = Ff.box(n0, n1, yl, yh, zC - zw, zC + zw); const H = (yh - yl) / U; let nr = q.rows ? q.rows | 0 : tkRows(H); let ps = v49Pitches(q, nr); if (String(q.pitches || '').trim()) nr = ps.length + 1;
+      let top = yh - q.e * U; { const sp = v58Span(ps, nr, q), pv = q.posV === '' || q.posV === undefined ? NaN : +q.posV; if (q.refV === 'Middle') top = (yh + yl) / 2 + sp / 2 * U + (isFinite(pv) ? pv : 0) * U; else if (q.refV === 'Below') top = yl + (isFinite(pv) ? pv : q.e) * U + sp * U; } const ys = []; if (!String(q.pitches || '').trim() && !(+q.pitch)) { for (let i = 0; i < nr; i++) ys.push(top - (top - (yl + q.e * U)) * i / Math.max(1, nr - 1)); } else { let y = top; for (let i = 0; i < nr; i++) { ys.push(y); y -= (ps[i] || ps[ps.length - 1] || 70) * U; } }
+      const tkL = q.blrule === 'tekla'; const bl = []; for (const y of ys) for (const z of zs) bl.push(Ff.P(n1 + (tkL ? 0 : 0.1) * U, y, zC + z)); const grip = tkL ? tp + Math.max(0, gp) + sh + fr + J.tPrim * U + (sharedGrip || 0) : n1 + J.tPrim * U + (sharedGrip || 0) + 2 * U;   /* v70: Tekla's grip = the plate stack */
+      const BB = stBolts(bl, u.clone().negate().toArray(), q.bolt, grip, U); for (const hc of BB.holes) { ep = ep.subtract(hc); cut(A.id, hc); }
+      cut(Bm.id, Ff.box(-BIG, n1, -BIG, BIG, -BIG, BIG));   // the secondary ends on the plate's back face, parallel to the main face
+      if (J.cope) { const hb = Bp.h / 2 * U; if (hb > J.yTop - 10 * U) cut(Bm.id, J.box(-BIG, J.xFace + J.copeL, J.yTop - 10 * U, BIG / 10, -BIG / 10, BIG / 10)); if (-hb < J.yBot + 10 * U) cut(Bm.id, J.box(-BIG, J.xFace + J.copeL, -BIG / 10, J.yBot + 10 * U, -BIG / 10, BIG / 10)); }
+      plate('END PLATE', ep, q.tp); bolts(BB, bl.length, tkL ? tkBoltLen70(q.bolt, grip / U) : grip / U + 2 * q.bolt);   /* v70: Tekla's bolt length */
+      if (sh) { let s = Ff.box(n0 - sh, n0, yl, yh, zC - zw, zC + zw); for (const hc of BB.holes) s = s.subtract(hc); plate('SHIM', s, q.shim); }
+      if (fr) { const mr2 = ((J.M.r || 0) + 1) * U; let f = Ff.box(gp, gp + fr, Math.max(yl - 20 * U, isFinite(J.yBot) ? J.yBot + mr2 : -BIG), Math.min(yh + 20 * U, isFinite(J.yTop) ? J.yTop - mr2 : BIG), zC - zw - 10 * U, zC + zw + 10 * U); for (const hc of BB.holes) f = f.subtract(hc); plate(q.stub ? 'STUB PLATE' : 'FRONT PLATE', f, fr / U); weld('Front plate to main part', q.a, 2 * (yh - yl + 2 * zw) / U); }
+      const lp = [cs[0], cs[1], cs[3], cs[2]].map(c => c[2].clone().addScaledVector(u, n1).toArray()); weld('Beam to end plate', q.a, 2 * (yT - yB) / U + 4 * Bp.b, lp);
+      const x1J = J.xFace + n1 / xu;
+      if (q.comp) for (const s of [1, -1]) { const y0 = s * Bp.h / 2 * U; plate('FLANGE PLATE', J.box(x1J, x1J + 250 * U, y0, y0 + s * Math.max(8, Bp.tf) * U, -Bp.b / 2 * U, Bp.b / 2 * U), Math.max(8, Bp.tf)); }
+      if (q.seat && !(Math.abs(J.M.a.z) < 0.9 && !J.flange)) { const F = stFrame3(J.E, J.X, J.Y); plate('SEAT ANGLE', stLAngle(F, x1J, -Bp.h / 2 * U, 90 * U, 90 * U, 10 * U, 1, -1, -Bp.b / 2 * U, Bp.b / 2 * U), 10, 'L90*90*10'); }
+      if ((q.stiff || q.stiffT) && J.flange && Math.abs(J.M.a.z) > 0.9) { const N = new THREE.Vector3().crossVectors(J.M.eh, J.M.es).normalize(); for (const c of [cs.reduce((a, b) => a[0] > b[0] ? a : b), cs.reduce((a, b) => a[0] < b[0] ? a : b)]) stStiffPair(J.M, c[2].clone().addScaledVector(FY, -Math.sign(c[0]) * Bp.tf / 2 * U).sub(J.M.c1).dot(N), Math.max(10, Bp.tf), 15 * U, [1, -1], plate); }
+      return { n1 };
+    };
+    one(X.B, 0); if (X.B2) one(X.B2, q.shared ? (q.tp + (q.gap || 0)) * U : 0);
+  };
+  FAM.EP = X => { const r = FAM_EP70(X); const hpc = X.q.hpc; if ((hpc === 'auto' || hpc === 'both') && r !== null) for (const Bm of [X.B, X.B2].filter(Boolean)) hp70(X, Bm); return r; };

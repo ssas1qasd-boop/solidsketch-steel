@@ -97,6 +97,46 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C09 · End plate (144) Haunch tab at the monitor post, and C02 · 144 at the eave (owner 2026-11-26)
+
+### References
+- **Tekla's 144 help** (`conn_144_help`, Haunch tab): *Haunch plates*: Top plate and Bottom plate, each t, b, h; *Haunch plate chamfers* 1 (width, top), 2 (height, top), 3 (height, bottom), 4 (width, bottom) and *Chamfer type* (No chamfer / Line / Convex arc / Concave arc); *Haunch plate creation* (Automatic / Top and bottom haunch plates are created / Not created; t = 0 leaves one plate out). Part 4 of the picture is "Haunch plate".
+- **Video** rf0oBDvnNjE 10:53–12:22 (Gemini; the Apify frames were blocked by YouTube that day): the Haunch tab with all boxes blank, then t set (plates created, their length = the end plate's reach past the flange), then b = 5" and 4". Notes in `tests/steel/videos/C09/`.
+- **R12**: the 24 monitor-post joints (PC7001) each have two HAUNCH_PLATE t 8 (marks 7503 FLT8*60 and 7502 PL8*56.7) in the post's assembly. All 24 are the same:
+  - in the post's web plane, standing on the end plate against each post flange;
+  - bottom edge on the end plate, **b = 60 measured along the end plate**;
+  - outer edge along the post; top edge square to the post at **h = 60** above the lower bottom corner;
+  - outer top corner **chamfered 15 × 15** (line); inner corner (flange / end plate weld) **cut 15 × 15**.
+
+### What Tekla's 144 Haunch tab does not make: C02's tapered haunch
+R12's eave haunch (48 × Web FLT8*80 + 48 × Bottom flange FLT10*150, rafter assembly) is a **tapered haunch under the rafter**: the web is a triangle 1,820 or 1,870 horizontal × 82.9 at the end plate (its far end is 2,000 from the column's axis in both cases), and the flange runs along its lower edge at 15.2–15.3°. Tekla's 144 Haunch tab makes only the haunch plates above; it has no length, depth or flange fields. These parts are named like the rafter's own plates and like the apex haunch (row 3, Apex haunch 106). They match Tekla's **Eaves haunch (102)**, the eave twin of 106 (v69 catalog: fam HA, kind knee), or Haunch (40). Under the reference order (Tekla first), C02's haunch is **not** added to 144. **Owner decision needed** (see the delivery message). 144's own part of C02 (end plate, bolts) is reproduced.
+
+### Change, in web v70 (section "C09") and the app (`Fam.ep`, `Fam.haunchPlates`, `Fam.tkBoltLen`)
+- **144 Haunch tab** with Tekla's fields: Top plate / Bottom plate t, b, h (part name HAUNCH_PLATE); chamfers 1–4 and chamfer type; Haunch plate creation.
+  - Blank b = the end plate's reach past the flange (the video); blank h = b.
+  - Automatic = a plate where the end plate reaches more than 10 mm past the flange.
+  - Across a slope (the end plate tilted square to the plate's plane) the plate is fitted to the end plate: its bottom is trimmed at the end plate's back face.
+  - The new default 'Not created (v69)' keeps every existing 144 joint unchanged. v69's own 'comp' (a 250 mm FLANGE PLATE) stays for old models that set it; the dialog no longer shows it.
+- **Bolts tab, Bolt assembly: 'Bolt length'** = v69 (grip + 2 + 2 d; the default and old models) / **Tekla**. Tekla's rule fits all 1,288 R12 bolt groups: grip = the plate stack, length = grip + nut (ISO 4032 m) + washer (ISO 7089) + 5, rounded up to 5 mm (M12 8 → 30, 15.5 → 35; M16 16 → 40, 18–22 → 45, 24–26.7 → 50; M20 30 → 60, 40 → 70). With 'Bolting direction 2' (Tekla's heads on the other side), C09's bolts are M16 L45 with heads under the rafter flange and C02's are M20 L60.
+
+### Search result: the R12 inputs (`tools/golden/r10_inputs.py`)
+- **Row 9:**
+  - Haunch tab: both plates t 8, b 60, h 60, chamfers 15, Line, created;
+  - Bolts: Tekla length, direction 2;
+  - **gap −0.75**: Tekla's built-up rafter flange plate is 0.75 mm under the axis' nominal top face there (the drift seen in C04), so the end plate sits 0.75 into the nominal member. ext / extb are measured on the main part's face, as 144 does.
+- **Row 2:** Bolts: Tekla length, direction 2.
+
+| Check | Result |
+|---|---|
+| Web rebuild vs R12 (`docs/steel/R12-REPORT.md`) | C09: 24 / 24 end plates and 48 / 48 haunch plates MATCHED (≤ 0.044 mm), was 24 NEAR 0.8 + 48 MISSING; C02: 48 / 48 end plates; bolts with the same point, axis, length and grade +576 (C09 192, C02 384) |
+| App `R12C09Test` | C09: plates 72 / 72, bolts 192 / 192, member bodies 48 / 48; C02: plates 48 / 48, bolts 384 / 384, member bodies 96 / 96 |
+| Member bodies | the post within 0.003 mm. The built-up rafters and columns differ from R12 by 0.15–0.99 mm averaged over their faces **with or without the connection**: their own section (web 1.04 mm off the flanges, flange plates not parallel to the axis; R12-REPORT "INPUT EQUAL, SOLID DIFFERS"). The test also checks that the connection's cut and holes remove no material Tekla keeps (≤ 28 mm³ of 19,000–114,000 mm³ removed) |
+| Other sizes and slopes (`tools/golden/cases/t144.js`, `tools/golden/c09_cases.js` + `geom_checks.py`) | R12's post joint; HEA160 on IPE300 at 5° (b, h blank); IPE200 on IPE360 at 10°, Automatic, convex; IPE240 on a level HEB300, concave; R12's eave (C02): 0 rule-B failures each; app = web on all (`S7T144Test`, 8 cases) |
+| Weights | Haunch plate 0.18 kg each (= Tekla's own IFC solid, 0.182 kg); Tekla's st.tkW says 0.17 (48 plates: 8.74 vs 8.16 kg). Not explained yet: Tekla's IFC solid itself weighs 0.18 |
+
+### Status
+C09: waiting for the emulator run and the owner's phone OK; not marked. C02: the end plate and bolts are reproduced, and the haunch waits for the owner's decision.
+
 ## C14 · Shear plate (146), joist ← girder (reverse-engineered on R12, owner 2026-11-26)
 
 ### Starting settings: the video (reference order 3)

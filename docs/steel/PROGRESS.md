@@ -333,3 +333,8 @@ Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, n
 - R11 vs R12: purlins turned 180° (220/220), so C04 cleats on the wrong side of the web; node gussets moved (1,053/1,206); stair brackets confirmed; R11's 280 M10 bolts are holes only in Tekla; R11 bolt lengths are not Tekla's.
 - App: orthographic camera mode (`OrbitCamera.orthographic`), `R12ViewsTest`; R12 opens and saves byte-identical in core-io.
 - Steps 2 and 3 (R12 as the reference, C04 fix, reverse-engineering per connection starting with C14) not started.
+
+## 2026-11-26 · C02 + C09 (End plate 144: eave, monitor post), PARITY.md "C09 / C02"
+- C09 done in web v70 + app: Tekla's 144 Haunch tab (Top / Bottom plate t b h, chamfers 1-4 + type, creation), 'Bolt length' Tekla in the Bolts tab. R12: 72 / 72 parts, 192 / 192 bolts (web and app `R12C09Test`); 4 other sizes / slopes 0 rule-B failures, app = web (`S7T144Test` 8 cases).
+- C02: end plates 48 / 48 and bolts 384 / 384 (M20 L60, Tekla length and direction). The tapered eave haunch is not a 144 feature in Tekla (help + video): owner decision asked (Eaves haunch 102 / Haunch 40).
+- Open: emulator recording and delivery images after the owner's C02 answer; haunch plate tkW 0.17 vs solid 0.18 kg.

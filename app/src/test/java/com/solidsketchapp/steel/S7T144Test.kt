@@ -41,7 +41,7 @@ class S7T144Test {
     @Test
     fun t144EqualsGolden() {
         val bad = mutableListOf<String>()
-        for (case in listOf("t144_standard", "t144_odd_profile", "t144_sloped")) {
+        for (case in listOf("t144_standard", "t144_odd_profile", "t144_sloped", "t144_c09_r12", "t144_c09_hea160_ipe300_5deg", "t144_c09_ipe200_ipe360_10deg_auto_convex", "t144_c09_concave_level", "t144_c02_r12")) {
             val gold = Json.parseToJsonElement(File(root, "tests/steel/golden/cases/$case/dump.json").readText()).jsonObject
             val input = Json.parseToJsonElement(File(root, "tests/steel/golden/cases/$case/case.json").readText()).jsonObject
             val doc = MemoryDocument(); val build = StBuild(data.profiles, union = { engine.union(it) })

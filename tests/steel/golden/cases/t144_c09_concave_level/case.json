@@ -1,0 +1,73 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "bolt": 16,
+    "ext": 80,
+    "extb": 80,
+    "gap": 0,
+    "hc1": 15,
+    "hc2": 25,
+    "hc3": 25,
+    "hc4": 15,
+    "hct": "concave",
+    "hpb1": 70,
+    "hpb2": 70,
+    "hpc": "both",
+    "hph1": 80,
+    "hph2": 80,
+    "hpt1": 8,
+    "hpt2": 8,
+    "tp": 12
+   }
+  ]
+ ],
+ "description": "IPE240 post standing on a level HEB300 beam, concave arc chamfers 15 x 25, plates 8 x 70 x 80.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     5000
+    ],
+    "p2": [
+     6000,
+     0,
+     5000
+    ],
+    "prof": "HEB300"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "p1": [
+     3000,
+     0,
+     5150
+    ],
+    "p2": [
+     3000,
+     0,
+     7000
+    ],
+    "prof": "IPE240"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t144_c09_concave_level",
+ "pageErrors": []
+}

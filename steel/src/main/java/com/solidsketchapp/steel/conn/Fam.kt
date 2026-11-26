@@ -137,15 +137,16 @@ object Fam {
             val ys = ArrayList<Double>()
             if (x.s("pitches").trim().isEmpty() && !x.t("pitch")) { for (i in 0 until nr) ys += top - (top - (yl + x.n("e"))) * i / max(1, nr - 1) }
             else { var y = top; for (i in 0 until nr) { ys += y; y -= (ps.getOrNull(i)?.takeIf { it != 0.0 } ?: ps.lastOrNull()?.takeIf { it != 0.0 } ?: 70.0) } }
-            val bl = ArrayList<D3>(); for (y in ys) for (z in zs) bl += ff.p(n1 + 0.1, y, zC + z)
-            val grip = n1 + j.tPrim + sharedGrip + 2
+            val tkL = x.s("blrule") == "tekla"   // v70 C02 / C09: Tekla's grip = the plate stack and Tekla's bolt length
+            val bl = ArrayList<D3>(); for (y in ys) for (z in zs) bl += ff.p(n1 + (if (tkL) 0.0 else 0.1), y, zC + z)
+            val grip = if (tkL) tp + max(0.0, gp) + sh + fr + j.tPrim + sharedGrip else n1 + j.tPrim + sharedGrip + 2
             val bb = x.group(bl, -u, x.n("bolt"), grip)   // v58: the component's settings (TKB_Q) reach stBolts here
             for (hc in bb.holes) x.cut(x.aId, hc)
             x.cut(bmId, ff.box(-BIG, n1, -BIG, BIG, -BIG, BIG))   // the secondary ends on the plate's back face
             if (j.cope) { val hb = bp.h / 2
                 if (hb > j.yTop - 10) x.cut(bmId, j.box(-BIG, j.xFace + j.copeL, j.yTop - 10, BIG / 10, -BIG / 10, BIG / 10))
                 if (-hb < j.yBot + 10) x.cut(bmId, j.box(-BIG, j.xFace + j.copeL, -BIG / 10, j.yBot + 10, -BIG / 10, BIG / 10)) }
-            x.plate("END PLATE", ep, x.n("tp"), minus = bb.holes); x.bolts(bb, bl.size, grip + 2 * x.n("bolt"))
+            x.plate("END PLATE", ep, x.n("tp"), minus = bb.holes); x.bolts(bb, bl.size, if (tkL) tkBoltLen(x.n("bolt"), grip) else grip + 2 * x.n("bolt"))
             if (sh != 0.0) x.plate("SHIM", ff.box(n0 - sh, n0, yl, yh, zC - zw, zC + zw), x.n("shim"), minus = bb.holes)
             if (fr != 0.0) { val mr2 = j.m.r + 1
                 val f = ff.box(gp, gp + fr, max(yl - 20, if (j.yBot.isFinite()) j.yBot + mr2 else -BIG), min(yh + 20, if (j.yTop.isFinite()) j.yTop - mr2 else BIG), zC - zw - 10, zC + zw + 10)
@@ -164,6 +165,52 @@ object Fam {
         }
         one(x.b!!, x.bId!!, 0.0)
         if (x.b2 != null) one(x.b2, x.b2Id!!, if (x.t("shared")) x.n("tp") + x.n("gap") else 0.0)
+        val hpc = x.s("hpc"); if (hpc == "auto" || hpc == "both") { haunchPlates(x, x.b!!, hpc); x.b2?.let { haunchPlates(x, it, hpc) } }
+    }
+
+    /** v70 C02 / C09: Tekla's bolt length = grip + nut (ISO 4032 m) + washer (ISO 7089) + 5, rounded up to 5 mm (R12: all 1,288 groups). */
+    fun tkBoltLen(d: Double, grip: Double): Double {
+        val m = mapOf(10 to 8.4, 12 to 10.8, 14 to 12.8, 16 to 14.8, 20 to 18.0, 22 to 19.4, 24 to 21.5, 27 to 23.8, 30 to 25.6, 36 to 31.0)[d.toInt()] ?: (0.9 * d)
+        val w = mapOf(10 to 2.0, 12 to 2.5, 14 to 2.5, 16 to 3.0, 20 to 3.0, 22 to 3.0, 24 to 4.0, 27 to 4.0, 30 to 4.0, 36 to 5.0)[d.toInt()] ?: (0.16 * d)
+        return Math.ceil((grip + m + w + 5) / 5 - 1e-6) * 5
+    }
+
+    /**
+     * v70 C09 · End plate (144) Haunch tab: Tekla's haunch plates (web v70 hp70; proof docs/steel/PARITY.md "C09"). One plate per
+     * flange of the secondary, in its web plane, standing on the end plate against the flange: bottom edge b along the end plate,
+     * outer edge along the secondary, top edge square to it at h above the lower bottom corner, outer top chamfer (1 / 2 top plate,
+     * 4 / 3 bottom plate; line, convex or concave arc), inner corner cut 15 x 15. Blank b = the end plate's reach past the flange, blank h = b.
+     */
+    private fun haunchPlates(x: FamCtx, bm: JsonObject, hpc: String) {
+        val j = Joints.joint(x.a, bm, x.profiles); val bp = j.b; val u = j.uDir; val xu = (j.x dot u).let { if (it == 0.0) 1.0 else it }
+        val o = j.e.add(j.x, j.xFace)
+        var fy = bp.eh.add(u, -(bp.eh dot u)); if (fy.length() < 1e-6) fy = j.y.add(u, -(j.y dot u)); fy = fy.normalize()
+        fun onFace(p: D3): D3 { val s = ((p - o) dot u) / xu; return p.add(j.x, -s) }
+        val ys = ArrayList<Double>(); for (sy in listOf(-1, 1)) for (sz in listOf(-1, 1)) ys += (onFace(o.add(bp.eh, sy * bp.h / 2).add(bp.es, sz * bp.b / 2)) - o) dot fy
+        val fr = if (x.t("front") || x.t("double") || x.t("stub") || x.t("stiffT")) max(x.n("tp"), 10.0) else 0.0
+        val n1 = x.n("gap") + x.n("shim") + x.n("tp") + fr
+        val yh = ys.max() + x.n("ext"); val yl = ys.min() - x.n("extb")
+        fun num(k: String, d: Double): Double { val v = optNum(x, k); return if (v.isFinite()) v else d }
+        for (s in listOf(1, -1)) {
+            val k = if (s > 0) 1 else 2; val t = num("hpt$k", 8.0); if (!(t > 0)) continue
+            val pf = o.add(bp.eh, s * bp.h / 2); val lam = (n1 - ((pf - o) dot u)) / (j.x dot u).let { if (it == 0.0) 1.0 else it }; val c = pf.add(j.x, lam)
+            val reach = if (s > 0) yh - ((c - o) dot fy) else ((c - o) dot fy) - yl
+            if (hpc == "auto" && reach < 10) continue
+            val e1 = bp.eh * s.toDouble(); val e2 = j.x; val w = e1.add(u, -(e1 dot u)).normalize(); val we = w dot e1; val wa = w dot e2
+            val b = num("hpb$k", max(reach, 10.0)); val h = num("hph$k", b)
+            val cw = if (s > 0) num("hc1", 0.0) else num("hc4", 0.0); val ch = if (s > 0) num("hc2", 0.0) else num("hc3", 0.0); val cl = 15.0
+            val nP = (e1 cross e2).normalize(); val dl = t / 2 * abs(u dot nP) / abs(u dot e2).let { if (it == 0.0) 1.0 else it } + 0.01   // across a slope: down to the end plate, trimmed below
+            val tz = min(0.0, b * wa) + h; val xo = b * we; val ct = x.s("hct")
+            val pts = arrayListOf(doubleArrayOf(0.0, cl), doubleArrayOf(cl * we, cl * wa - dl), doubleArrayOf(xo, b * wa - dl))
+            if (ct != "none" && cw > 0 && ch > 0) {
+                if (ct == "convex" || ct == "concave") for (i in 0..8) { val f = i / 8.0 * Math.PI / 2
+                    pts += if (ct == "concave") doubleArrayOf(xo - cw * Math.sin(f), tz - ch * Math.cos(f)) else doubleArrayOf(xo - cw + cw * Math.cos(f), tz - ch + ch * Math.sin(f)) }
+                else { pts += doubleArrayOf(xo, tz - ch); pts += doubleArrayOf(xo - cw, tz) }
+            } else pts += doubleArrayOf(xo, tz)
+            pts += doubleArrayOf(0.0, tz)
+            x.plate("HAUNCH_PLATE", Joints.Frame3(c, e1, e2).poly(pts, -t / 2, t / 2), t, minus = listOf(Joints.Frame3(o, u, fy).box(-BIG, n1, -BIG, BIG, -BIG, BIG)))
+            x.weld("Haunch plate to end plate and flange", min(5.0, x.n("a").let { if (it == 0.0 || it.isNaN()) 5.0 else it }), 2 * ((b - cl) + (tz - cl)))
+        }
     }
 
     /** A q value as a number, NaN when it is missing or blank (v69 `q.k === '' || q.k === undefined ? NaN : +q.k`). */
