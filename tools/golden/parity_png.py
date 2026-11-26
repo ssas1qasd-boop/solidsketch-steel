@@ -5,6 +5,7 @@ and the measured values from the model the emulator itself built and saved.
 
     python3 tools/golden/parity_png.py C04 <shots dir with NN_ortho_end.png/.txt and c04_workflow.ss>
     python3 tools/golden/parity_png.py C14 <shots dir with NN_ortho_end.png/.txt and c14_case.ss>
+    python3 tools/golden/parity_png.py C02 | C09 <shots dir with NN_ortho_front.png/.txt and c02_case.ss / c09_case.ss>
       -> docs/steel/parity/<code>.png and build/<code>_measure.txt
 """
 import gzip, json, math, os, subprocess, sys, zipfile
@@ -100,6 +101,56 @@ def c14(shots):
     return compose('C14', [('R12 (Tekla IFC), tab at EB4002, orthographic', r12), ('Tekla drawing EB4002 (package)', tekla_page('EB4002')), ('video MrhM4X9opLo 14:50: Bolts tab, Top', vid), ('app on the emulator, orthographic end view', app)],
                    'C14 Shear plate (146), joist <- girder: R12 | Tekla drawing | video | app (the 146 dialog: Vertical measurement Top 77.2)', ['Measured on the model the emulator built and saved (c14_case.ss):'] + ['! ' + m for m in meas])
 
+def help_pic(*guids):
+    """Tekla help pictures (downloaded to build/help/ from help.trimble.com; not kept in the repo), side by side"""
+    ims = [Image.open(os.path.join(REPO, 'build', 'help', f'{g}.png')).convert('RGB') for g in guids]; H = max(i.height for i in ims)
+    out = Image.new('RGB', (sum(i.width for i in ims) + 20 * (len(ims) - 1), H), 'white'); x = 0
+    for i in ims: out.paste(i, (x, 0)); x += i.width + 20
+    return out
+
+def rule_b(path): return subprocess.run([sys.executable, os.path.join(REPO, 'tools', 'golden', 'geom_checks.py'), path, '--no-all-pairs'], capture_output=True, text=True).stdout.splitlines()[0].split(': ', 1)[1]
+
+def c02(shots):
+    D = json.load(gzip.open(os.path.join(shots, 'c02_case.ss')))['doc']; st = lambda b: b.get('st') or {}
+    eh = next(c for c in D['stConns'] if c['type'] == 'Teh'); ep = next(c for c in D['stConns'] if c['type'] == 'T144'); B = {b['id']: b for b in D['bodies']}
+    col = B[int(eh['parts'][0])]; cx = np.array(st(col)['p1'][:2], float)
+    web = next(b for b in D['bodies'] if st(b).get('conn') == eh['id'] and st(b).get('name') == 'Web'); fl = next(b for b in D['bodies'] if st(b).get('conn') == eh['id'] and st(b).get('name') == 'Bottom flange')
+    wv = VT(web)[0]; raf = B[int(eh['parts'][1])]; rd = np.array(st(raf)['p2'][:2], float) - np.array(st(raf)['p1'][:2], float); rd /= np.linalg.norm(rd)
+    hx = (wv[:, :2] - cx) @ rd; sgn = 1 if np.abs(hx.max()) > np.abs(hx.min()) else -1; hx = hx * sgn
+    L = hx.max(); xn = hx.min(); near = wv[np.abs(hx - xn) < 0.5]; Dp = near[:, 2].max() - near[:, 2].min()
+    fv = VT(fl)[0]; bo = next(b for b in D['bodies'] if st(b).get('conn') == ep['id'] and st(b).get('kind') == 'bolts')
+    meas = [f'haunch length from the column axis {L:.2f} mm (R12 2,000.00), depth at the column {Dp:.2f} mm (R12 82.93 / 82.90), starts {xn:.1f} from the axis = end plate back face (R12 180.0)',
+            f'flange {np.ptp(fv[:, 1]):.1f} wide (R12 150), bolts M{st(bo)["d"]:g} {st(bo)["grade"]} L{st(bo)["L"]:g} (R12 M20 8.8 L60)', 'rule B on the emulator model: ' + rule_b(os.path.join(shots, 'c02_case.ss')),
+            'R12 rebuild (web v70 and app): before 48 end plates MATCHED, 96 haunch parts MISSING  ->  after 144 / 144 MATCHED within 0.1 mm (worst 0.016), 384 / 384 bolts']
+    app, meta = shot(shots, 'ortho_front'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), f'L {L:.1f} from the column axis,  D {Dp:.2f} at the column')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = R['bodies']
+    rw = next(b for b in RB if str(b['id']) == '48'); cc = (VT(rw)[0].min(0) + VT(rw)[0].max(0)) / 2; off = cc - t
+    near_ = [b for b in RB if b.get('shape') and (VT(b)[0].min(0) < cc + 2600).all() and (VT(b)[0].max(0) > cc - 2600).all()]
+    colr = lambda b: (200, 60, 60) if str(b['id']) in ('47', '48') else (220, 160, 40) if str(b['id']) == '2239' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if st(b).get('amark', '').startswith('C') else (60, 150, 80)
+    r12 = render(near_, t + off, dv, dist, colr)
+    return compose('C02', [('R12 (Tekla IFC), eave R3023 / C2017, orthographic', r12), ('Tekla drawing R3023 (package)', tekla_page('R3023')), ('Tekla 102 help, Picture tab (haunch length as Tekla 102; no eave video readable)', help_pic('707DEAAA-1114-4B38-829F-02812A94E415')), ('app on the emulator, orthographic front view', app)],
+                   'C02 End plate (144) + C02h Eave haunch at the eave: R12 | Tekla drawing | Tekla help | app (dialogs: 144 Picture + Bolts; Eave haunch L 2000, D 82.91)', ['Measured on the model the emulator built and saved (c02_case.ss):'] + ['! ' + m for m in meas])
+
+def c09(shots):
+    D = json.load(gzip.open(os.path.join(shots, 'c09_case.ss')))['doc']; st = lambda b: b.get('st') or {}
+    ep = next(c for c in D['stConns'] if c['type'] == 'T144'); hp = [b for b in D['bodies'] if st(b).get('conn') == ep['id'] and st(b).get('name') == 'HAUNCH_PLATE']
+    epb = next(b for b in D['bodies'] if st(b).get('conn') == ep['id'] and st(b).get('name') == 'END PLATE'); bo = next(b for b in D['bodies'] if st(b).get('conn') == ep['id'] and st(b).get('kind') == 'bolts')
+    bx = [(np.ptp(VT(h)[0][:, 0]), np.ptp(VT(h)[0][:, 2])) for h in hp]
+    meas = [f'{len(hp)} haunch plates, box {", ".join(f"{a:.1f} x {b:.1f}" for a, b in bx)} mm (R12 58.5 x 60.0 and 58.5 x 56.7: b 60 along the end plate, h 60, chamfer 15)',
+            f'end plate {np.ptp(VT(epb)[0][:, 0]):.1f} x {np.ptp(VT(epb)[0][:, 2]):.1f} (R12 265.9 x 71.6), bolts M{st(bo)["d"]:g} {st(bo)["grade"]} L{st(bo)["L"]:g} (R12 M16 8.8 L45, heads under the rafter flange)',
+            'rule B on the emulator model: ' + rule_b(os.path.join(shots, 'c09_case.ss')),
+            'R12 rebuild (web v70 and app): before 24 end plates NEAR 0.8 mm, 48 haunch plates MISSING  ->  after 72 / 72 MATCHED within 0.044 mm, 192 / 192 bolts']
+    app, meta = shot(shots, 'ortho_front'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'haunch plates b 60, h 60, chamfer 15')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = R['bodies']
+    re_ = next(b for b in RB if str(b['id']) == '1872'); cc = (VT(re_)[0].min(0) + VT(re_)[0].max(0)) / 2
+    near_ = [b for b in RB if b.get('shape') and (VT(b)[0].min(0) < cc + 900).all() and (VT(b)[0].max(0) > cc - 900).all()]
+    colr = lambda b: (200, 60, 60) if st(b).get('name') == 'HAUNCH_PLATE' else (220, 160, 40) if st(b).get('name') == 'End plate Post' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if st(b).get('amark', '').startswith('PC') else (60, 150, 80)
+    r12 = render(near_, cc, dv, dist, colr)
+    return compose('C09', [('R12 (Tekla IFC), monitor post PC7001, orthographic', r12), ('Tekla drawing PC7001 (package)', tekla_page('PC7001')), ('Tekla 144 help: haunch plates, chamfers 1-4 (video frames blocked)', help_pic('EDF9C3E4-BCA0-4F18-B080-8B9C6A92AFA8', '6BFC0874-1B37-4A14-A4E9-212C4534F173')), ('app on the emulator, orthographic front view', app)],
+                   'C09 End plate (144) Haunch tab at the monitor post: R12 | Tekla drawing | Tekla help | app (Haunch tab: Top / Bottom plate 8 x 60 x 60, chamfers 15)', ['Measured on the model the emulator built and saved (c09_case.ss):'] + ['! ' + m for m in meas])
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14}[sys.argv[1]](sys.argv[2])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09}[sys.argv[1]](sys.argv[2])
