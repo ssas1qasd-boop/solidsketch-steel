@@ -1,0 +1,15 @@
+{
+ "url": "https://www.youtube.com/watch?v=09dfdrUR_q8",
+ "component": "End plate (144)",
+ "tab": "Stiffeners",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [],
+  "language": "Indonesian",
+  "units": "mm"
+ },
+ "pass2": [],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}
