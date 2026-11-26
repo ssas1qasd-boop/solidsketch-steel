@@ -1,29 +1,61 @@
-# Tekla parity: web v70 chapter and app, against Tekla and R10
+# Tekla parity: web v70 chapter and app, against Tekla (R12)
 
 Each section covers one connection where v69 differs from Tekla (shown by `tests/steel/models/Frame_28x53m_R10.ss` and Tekla's help). It gives the rule, the proof, the change and the tests. The web change is the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`). It goes into the reference copy just before the `v28 · BIM layers` chapter: `python3 tools/web/build_v70.py` writes `reference/solidsketch_v70.html`, and the golden harness (`tools/golden/lib/v69.js`) adds the same text in memory, so every golden made from now on comes from v69 + v70 (`SS_ORACLE=v69` runs plain v69). The app port follows the same steps in the same order. Models saved before v70 keep their v69 result unless the new option is set.
 
-## Standing rule for every Tekla parity connection (owner, 2026-11-25)
-Order, for each connection code (C04, …):
-1. **Before coding:** send the owner 2–3 video links for the Tekla component (with timestamps if they can be read). The owner downloads one and sends the .mp4 (into `tests/steel/videos/`, never in the APK). The video and R10 together are the reference.
-2. **Fix it in BOTH** the web build (chapter `web/v70_tekla_parity.js`, built into `reference/solidsketch_v70.html` by `tools/web/build_v70.py`) and the app, with the same steps.
-3. **Checks:** the R10 golden (0.1 mm) and emulator screenshots of the same case (from the GitHub emulator CI), side by side with the video frames at the same view angles (ffmpeg), in `docs/steel/parity/<code>.png`, with notes on what matches and what differs.
-4. **Deliver to the owner, every time, in one message:**
-   - `reference/solidsketch_v70.html` built with the fix, **sent as a file in the chat** (releases cannot be created from the session, and CI has no v69 DEV copy). It is the owner's DEV copy and never goes inside the APK.
-   - the APK from the same commit, **sent as a file in the chat** next to the HTML (download the CI artifact `apk-phone` of that run, unzip it, send the .apk; give its version and sha256; the artifact link may be added)
-   - `<code>.png` (video vs app)
-   - **an emulator screen recording `<code>_recording.mp4` (30–60 s), sent as a file in the chat**: place the connection's case (e.g. C04: a rafter and 2 C purlins), add the component through its dialog, orbit slowly round it (front, end, top, 3D), change the parity option (C04: Cleat location → Back), Modify, orbit again. Made by `<Code>RecordingTest` (androidTest) in its own second pass of `tools/ci/emulator_run.sh` (its own screenrecord), uploaded in the `screen-recording` artifact as `ci-out/<code>_recording.mp4`
-   - matched before → after
-5. **Mark ✓ in R10-REPORT.md** ("✓ verified (R10 + video)") only after the owner replies "OK" from the phone test; otherwise "✗" with the reason.
-One connection at a time; do not move to another connection until the owner says so.
+## Reference model: R12 (owner, 2026-11-26)
+`tests/steel/models/Frame_28x53m_R12.ss`, built by `tools/golden/r12_build.py` from Tekla's own IFC export (`tests/steel/tekla/Frame_28x53m_tekla_v2.ifc`), is the reference for everything: golden tests, `docs/steel/R12-REPORT.md`, rule B and the weight target. See `docs/steel/R12.md` for how it is built and how it differs from R11. R10 and R11 stay unchanged, for history.
 
-## Standing rule B: measured checks, never images (owner, 2026-11-25)
+**Weight target:** Tekla's per-part weights (`st.tkW`). They sum to 63,705.8 kg; Tekla's Part List total is 63,711.7 kg.
+
+## Reference order (owner, 2026-11-26)
+When sources disagree, the higher one wins:
+1. **Tekla itself:** R12 (Tekla's IFC) and Tekla's dialog settings.
+2. **The Tekla package:** drawings, NC files, bolt list and reports (`tests/steel/tekla/Frame_28mx53m_Package_1.zip`).
+3. **A YouTube video of the component:**
+   - frames via the Apify actor `emttn/frameskim`;
+   - timestamps and dialog values via the Gemini API, given the YouTube URL;
+   - Gemini's values are cross-checked with the frames before use.
+
+   `APIFY_TOKEN` and `GEMINI_API_KEY` are set in the environment. Never print them, never write them to a file or a log.
+
+## Reverse-engineering method, per connection (owner, 2026-11-26)
+1. **Starting settings:** the video's dialog values.
+2. **Target:** every instance of the connection in R12.
+3. **Search** the dialog inputs in code (headless web oracle / app over JNI) until the build reproduces **all** instances within 0.1 mm. That covers connection parts AND member bodies, with 0 rule-B failures.
+4. **Several settings fit:** prefer the video's or Tekla's default.
+5. **Check** the settings on 2–3 other member sizes or slopes.
+6. **Fix** in BOTH web v70 (`web/v70_tekla_parity.js` → `reference/solidsketch_v70.html`) and the app. Old models keep their saved result.
+7. **Verify on the emulator through the real dialog**, as a user would: place the case, add the component through its dialog, change an option, Modify. The images and the recording sent to the owner come from that final emulator run.
+
+## Delivery after each connection (owner, 2026-11-25 / 2026-11-26)
+Sent as files in the chat, in one message:
+- the APK (CI artifact `apk-phone`, unzipped; version and sha256);
+- `reference/solidsketch_v70.html` from the same commit (the owner's DEV copy, never inside the APK);
+- `Frame_28x53m_R12.ss`, if it changed;
+- the comparison images (orthographic, labelled, R12 | Tekla drawing | app);
+- the emulator recording `<code>_recording.mp4`: 30–60 s, made by `<Code>RecordingTest` in its own pass of `tools/ci/emulator_run.sh`.
+
+Mark ✓ in `docs/steel/R12-REPORT.md` only after the owner's "OK" from the phone. One connection at a time.
+
+## Standing rule B: measured checks, never images (owner, 2026-11-25; rule 3 amended 2026-11-26)
 **Never mark a connection OK from looking at images.** Images are for the owner; the checks are measured. Every connection case gets automatic geometry checks (`python3 tools/golden/geom_checks.py <model.ss | case dump>`), and the case fails on any of them:
-1. **Contact:** parts that should bear on each other (purlin on rafter, plate on flange, cleat on web) have a gap ≤ 1 mm, measured perpendicular to the contact face (Manifold `min_gap` between the solids; the per-type pairs are in `DESIGNED`).
-2. **No floating part:** every part touches (≤ 1 mm) or is bolted / welded to another part of its connection (in an .ss model: of its own assembly).
-3. **No overlap:** no volume intersection beyond 1 mm³ between the members and plates of a connection, or between plates of two connections at one joint, except designed contact (which has zero volume).
-4. **Bolts:** each bolt passes through a hole in every part it joins, and its grip equals the plate stack ± 2 mm (an .ss TKBOLT: q.grip vs the plate thicknesses measured beside the hole; a component bolt group: no air along the shank between the plates it passes).
-5. **Images:** orthographic views (not perspective), large, one view per image, with the key dimensions written on them.
-The checks run on the connection's own case(s) and on all R11 connections; failures are reported in a table. A check tool that finds nothing has to be shown failing on a known-bad case first (C04: plain v69's upright purlins, 26 failures).
+1. **Contact:** parts that should bear on each other (purlin on rafter, plate on flange, cleat on web) have a gap ≤ 1 mm. The gap is measured perpendicular to the contact face (Manifold `min_gap` between the solids; the per-type pairs are in `DESIGNED`).
+2. **No floating part:** every part touches (≤ 1 mm) or is bolted / welded to another part of its connection. In an .ss model: of its own assembly, its main part included.
+3. **No overlap:** two parts must not intersect.
+   - An intersection with a **mean depth under 0.01 mm** counts as contact.
+   - Mean depth = 2 × volume ÷ surface area of the intersection solid, i.e. the slab's thickness.
+   - Such shallow overlaps come from float32 storage of faces in contact 20–50 m from the origin.
+   - Any deeper intersection fails, whatever its volume.
+   - The check runs within a connection, between plates of two connections at one joint, and in an .ss model between any two parts of the model.
+4. **Bolts:** each bolt passes through a hole in every part it joins, and its grip equals the plate stack ± 2 mm.
+   - For an .ss TKBOLT: `q.grip` against the plate thicknesses measured beside the hole.
+   - For a component bolt group: no air along the shank between the plates it passes.
+5. **Images:** orthographic views (not perspective), large, one view per image, with the key dimensions written on them. The app has an orthographic camera (`OrbitCamera.orthographic`).
+
+The checks run on the connection's own case(s) and on all R12 connections; failures are reported in a table. A check tool that finds nothing has to be shown failing on a known-bad case first (C04: plain v69's upright purlins, 26 failures).
+
+## Earlier rule (2026-11-25, replaced by the sections above)
+The first version of the standing rule (send 2–3 video links and wait for the owner's .mp4; R10 / R11 as reference) is replaced by the reference order, the method and the delivery above.
 
 ## R11 = R10 with Tekla-proven data fixes (owner 2026-11-25)
 `tests/steel/models/Frame_28x53m_R11.ss` is built by `python3 tools/golden/r11_build.py` from R10 (R10 stays unchanged). The source is Tekla's own package `tests/steel/tekla/Frame_28mx53m_Package_1.zip` (drawings, NC, reports, `Tekla Model.db1`), which is reference data only and never goes in the APK. Each fix is one function in the script and one commit. From now on R11 is the reference (golden tests, `R11-REPORT.md`, weight target).

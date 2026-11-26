@@ -7,7 +7,9 @@ these numbers decide. A check fails on any of:
               contact) - or they overlap (check 3)
   2 FLOATING  a connection part (plate / angle a component made; in an .ss model every detail plate) neither touches (<= 1 mm) nor is
               bolted to another part of its connection or of its own assembly
-  3 OVERLAP   two non-bolt parts of the same connection intersect by more than 1 mm³ (a designed contact has 0 volume)
+  3 OVERLAP   two non-bolt parts intersect with a mean depth (2 x volume / surface area of the intersection) of 0.01 mm or more
+              (shallower = contact: float32 storage of touching faces); within a connection, across connections at a joint, and
+              (.ss) between any two parts of the model
   4 BOLTS     a bolt does not pass a hole in every part it joins (tools/golden/bolt_hole_check.py rules), or its grip differs from the
               material stack along the bolt by more than 2 mm
 
@@ -24,7 +26,7 @@ import manifold3d as mf
 sys.path.insert(0, os.path.dirname(__file__))
 import bolt_hole_check as H
 
-TOUCH = 1.0; OVER = 1.0; GRIP = 2.0
+TOUCH = 1.0; OVER = 1.0; DEPTH = 0.01; GRIP = 2.0   # rule 3 (2026-11-26): an overlap under 0.01 mm mean depth is contact
 STATS = Counter()
 
 def load(path):
@@ -58,9 +60,14 @@ def gap(a, b):
     return float(ma.min_gap(mb, 50.0))      # 50 = search length: larger gaps report as 50
 
 def overlap(a, b):
+    """volume of the intersection, or 0 when it is contact (mean depth < DEPTH)"""
     ma, mb = man(a), man(b)
     if ma is None or mb is None: return None
-    return float((ma ^ mb).volume())
+    i = ma ^ mb; v = float(i.volume())
+    if v <= 0: return 0.0
+    ar = i.surface_area()
+    if ar > 0 and 2 * v / ar < DEPTH: STATS['contacts (overlap < 0.01 mm deep)'] += 1; return 0.0
+    return v
 
 def depth(a, b):
     """mean thickness of the overlap solid: 2 x volume / its surface area (a thin slab: its thickness), mm"""

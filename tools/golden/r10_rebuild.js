@@ -18,7 +18,7 @@ const fs = require('fs');
 const path = require('path');
 const { REPO, GOLDEN, openV69, openSS } = require('./lib/v69');
 
-const M = process.env.SS_MODEL || 'R11';   // R11 = the reference (docs/steel/PARITY.md); SS_MODEL=R10 for the old one
+const M = process.env.SS_MODEL || 'R12';   // R11 = the reference (docs/steel/PARITY.md); SS_MODEL=R10 for the old one
 const DIR = path.join(GOLDEN, M.toLowerCase());
 const INPUTS = path.join(DIR, 'rebuild_inputs.json');
 const MODEL = path.join(REPO, 'tests', 'steel', 'models', `Frame_28x53m_${M}.ss`);

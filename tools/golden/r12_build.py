@@ -341,6 +341,12 @@ def main():
             t = thick_of(r['tprof']); P, n = plate_fields(f, r['items'], r['W'], t)
             ext = r['V'] @ n; mid = (ext.min() + ext.max()) / 2; P = P + n * (mid - P @ n)[:, None]
             r['kind'] = 'plate'; r['t'] = t; r['pts3'] = [[r3(v) for v in q] for q in P]; r['thick_meas'] = float(ext.max() - ext.min())
+            # NC frame (as R10's importer wrote it): N = the plate normal, X = Tekla's part x axis in the plate's plane (its length
+            # direction), else the outline's longest edge; Y = N x X
+            Xa = r['W'][:3, 0] - n * float(r['W'][:3, 0] @ n)
+            if np.linalg.norm(Xa) < 0.5:
+                e = max(((P[(k + 1) % len(P)] - P[k]) for k in range(len(P))), key=lambda v: float(np.linalg.norm(v))); Xa = e - n * float(e @ n)
+            Xa = unit(Xa); r['ncF'] = {'X': [r3(v) for v in Xa], 'Y': [r3(v) for v in np.cross(n, Xa)], 'N': [r3(v) for v in n]}
         else:
             r['kind'] = 'member'; r['mf'], r['fit'] = solve_member(r['W'], Vl, sec, r['tprof'])
 
@@ -424,7 +430,7 @@ def main():
         st = {'kind': r['kind'], 'name': r['name'], 'prof': ('PL%g' % r['t']) if r['kind'] == 'plate' else r['tprof'], 'mat': r['mat'],
               'cls': int(float(r['cls'])) if r['cls'] not in (None, '') else 0, 'fin': 'PAINT', 'pp': '', 'ps': 1, 'ap': '', 'as': 1,
               'tk': r['guid'], 'tprof': r['tprof']}
-        if r['kind'] == 'plate': st.update({'depth': 'Middle', 'pts3': r['pts3']})
+        if r['kind'] == 'plate': st.update({'depth': 'Middle', 'pts3': r['pts3'], 'ncF': r['ncF']})
         else: st.update(r['mf'])
         st.update({'pos': r['pos'], 'amark': r['amark'], 'tkW': r['w']})
         if r['len'] is not None: st['tkL'] = r3(r['len'])

@@ -37,7 +37,7 @@ import re
 from collections import defaultdict, OrderedDict, Counter
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-MODEL = os.environ.get('SS_MODEL', 'R11')   # R11 = the reference (docs/steel/PARITY.md); SS_MODEL=R10 for the old one
+MODEL = os.environ.get('SS_MODEL', 'R12')   # R11 = the reference (docs/steel/PARITY.md); SS_MODEL=R10 for the old one
 G = os.path.join(REPO, 'tests', 'steel', 'golden', MODEL.lower())
 R10 = os.path.join(REPO, 'tests', 'steel', 'models', f'Frame_28x53m_{MODEL}.ss')
 REPORT = os.path.join(REPO, 'docs', 'steel', f'{MODEL}-REPORT.md')
@@ -153,6 +153,7 @@ def main():
     reb = load(os.path.join(G, 'rebuild_v69.json'))
     r10v = load(os.path.join(G, 'r10_parts_v69.json'))
     doc = json.load(gzip.open(R10))['doc']
+    doc['bodies'] = [b for b in doc['bodies'] if b.get('st')]   # R12: Tekla's concrete bodies have no st (not steel)
     rb = {b['id']: b for b in doc['bodies']}
     rv = {b['id']: b for b in r10v['bodies']}
     asm_of = {b['id']: b['st'].get('asm', b['id']) for b in doc['bodies'] if b['st']['kind'] != 'bolts'}

@@ -79,7 +79,7 @@ from collections import defaultdict, OrderedDict
 
 WEB_GAP = 40.0   # mm: a flange plane may sit up to this far from the web edge (R10's gable column webs are 28 mm off)
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-MODEL = os.environ.get('SS_MODEL', 'R11')   # R11 = the reference since 2026-11-25 (R10 + Tekla-proven fixes, docs/steel/PARITY.md); SS_MODEL=R10 for the old one
+MODEL = os.environ.get('SS_MODEL', 'R12')   # R11 = the reference since 2026-11-25 (R10 + Tekla-proven fixes, docs/steel/PARITY.md); SS_MODEL=R10 for the old one
 R10 = os.path.join(REPO, 'tests', 'steel', 'models', f'Frame_28x53m_{MODEL}.ss')
 OUT = os.path.join(REPO, 'tests', 'steel', 'golden', MODEL.lower(), 'rebuild_inputs.json')
 
@@ -187,6 +187,7 @@ class Pl:
 
 def main():
     doc = json.load(gzip.open(R10))['doc']
+    doc['bodies'] = [b for b in doc['bodies'] if b.get('st')]   # R12: Tekla's concrete bodies have no st (not steel)
     bodies = sorted(doc['bodies'], key=lambda b: b['id'])
     byid = {b['id']: b for b in bodies}
     asm_of = {b['id']: b['st'].get('asm', b['id']) for b in bodies if b['st']['kind'] != 'bolts'}
