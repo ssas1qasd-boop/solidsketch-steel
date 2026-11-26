@@ -25,6 +25,18 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 
 **Result on R12:** web 63,710.3 kg, app 63,711.1 kg, every part web = app within 0.01 kg (`R12WeightTest`). The segment counts are proven only for the sizes in this model.
 
+### Owner's hypothesis tested (2026-11-26): "Tekla's weight is the gross weight (kg/m × length, or the plate's bounding size), with no bolt holes and no chamfers subtracted"
+Tested on all 4,945 R12 parts with `st.tkW` (plate bounding size from each part's NC header: length × width × t). **It does not hold:**
+- the gross rule matches 2,160 of the 3,405 plates it can be computed for, and none of the 357 parts the current rule misses; it would make the total 65,098 kg against Tekla's 63,706;
+- Tekla **does subtract** chamfers, clips and cuts. For example, the C13 Stiff. plate FLT10*50 is 0.22 gross against Tekla's 0.21, and C09's haunch plate is 0.22 / 0.21 gross against Tekla's 0.17. Tekla does **not** subtract bolt holes: the C13 end plate is 6.48 without holes and 6.24 with them.
+
+**The current rule (the solid without bolt holes):**
+- 4,588 parts match exactly;
+- 353 more are within ±0.01 kg, in both directions: 192 washers PD40*10, C09's haunch plates 0.18 vs 0.17, C13's Stiff. plates 0.20 vs 0.21, gussets. This is Tekla's internal rounding of the same solid, and gross does not explain it;
+- the real misses are 4 stair stringers UPN240 (+0.40 / +0.43 kg): our UPN240 kg/m against Tekla's section (open).
+
+**Real gap found (the cause of C13's 6.24 vs 6.48):** the rule fills bolt holes back only for parts drilled by imported TKBOLT groups (v66 `solidNoHoles`). A part drilled by a component's own bolts (the end plate a 144 makes, a column flange a 144 drills) is weighed with its holes, so a model built in the app is weighed light by the holes' weight. **Proposed fix (owner's OK first):** a component records each part's solid before its bolt holes (web `plate()` / app `FamCtx.plate(minus = holes)` already keep them apart), and the weight uses that solid.
+
 ## Reference order (owner, 2026-11-26)
 When sources disagree, the higher one wins:
 1. **Tekla itself:** R12 (Tekla's IFC) and Tekla's dialog settings.
@@ -129,6 +141,7 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 **Input bug found and fixed:** `r10_inputs.py` took the name "End Plate " (trailing space) as Cap 39, so all 8 PL16*120 end plates were rebuilt as T39 (row 15) and row 13 had no component. Now the 6 EB girder end plates are T144 (row 13); the 2 MBC2001 column end plates stay with row 15.
 
 ### Step 1: videos (tools/video, its first real use)
+> **Gemini model used (2026-11-26):** gemini-flash-lite-latest read all three videos. gemini-flash's free tier (20 requests a day) was used up by the first attempts. When the quota resets, re-read the values marked one-source or unread with gemini-flash (`GEMINI_MODEL=gemini-flash-latest`).
 - `find.py`: Tekla's own pages first (conn_144_help 2025 / 2024: the Stiffeners tab text, no embedded video or animation), then YouTube (Tekla's own channel "Tekla Software" has no 144 Stiffeners video). Gemini's Google Search grounding has no quota on this key, so `find.py` reads the pages directly.
 - `gemini_read.py` on the 3 best candidates:
   - pass 1 at low resolution for the time spans;
