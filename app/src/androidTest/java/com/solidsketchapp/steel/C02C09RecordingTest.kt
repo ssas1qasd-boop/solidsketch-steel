@@ -104,7 +104,7 @@ class C02C09RecordingTest {
         press("Pick parts"); pause(800); cam(); pause(1200)
         val n0 = mode().comps!!.conns().count { it.type == type }
         for ((a, b) in pairs) { if (mode().comps!!.conns().count { it.type == type } > n0) break
-            act.runOnUiThread { mode().catPick(mode().catK ?: type) }; pause(400); tapAt(screen(a)); pause(700); tapAt(screen(b)); pause(1300) }
+            act.runOnUiThread { mode().catPick(mode().catK ?: type) }; pause(400); shot("pick_${type}"); tapAt(screen(a)); pause(700); tapAt(screen(b)); pause(1300) }
         waitFor("the $type") { mode().comps!!.conns().count { it.type == type } == n0 + 1 }
         act.runOnUiThread { mode().catDone() }; pause(800)
     }
@@ -119,6 +119,7 @@ class C02C09RecordingTest {
 
     // R12 rafter R3023: top of its section on the web plane at x (horizontal), slope 0.227356, half depth 110 / cos
     private fun rafterTop(x: Double, x1: Double, z1: Double) = z1 + (x1 - x) * 0.227356 + 110.0 * sqrt(1 + 0.227356 * 0.227356)
+    private fun rafterAxis(x: Double, x1: Double, z1: Double) = z1 + (x1 - x) * 0.227356
 
     @Test fun c02Recording() {
         dir = "c02"; start()
@@ -129,9 +130,10 @@ class C02C09RecordingTest {
             member("COLUMN", """{"prof":"BI320-8-150-10","p1":[52838,22355,230],"p2":[52838,22355,7547.745],"rot":"Below","plane":"Middle","depth":"Middle"}"""); pause(900)
             member("RAFTER", """{"prof":"BI220-8-150-10","p1":[52682.387,22355,7433.94],"p2":[46290.5,22355,8887.194],"rot":"Top","plane":"Middle","depth":"Middle"}"""); pause(1200)
             shot("members")
-            val cam = { look(Vec3(51400.0, 22355.0, 7300.0), Vec3(0.35, -1.0, 0.45), 6500.0) }
-            val pairs = listOf(52998.0 to 50300.0, 52998.0 to 49800.0, 52998.0 to 50800.0, 52998.0 to 49300.0).mapIndexed { i, (cx, rx) ->
-                Vec3(cx, 22355.0 - 40.0 * (i % 2), 6300.0 - 300.0 * i) to Vec3(rx, 22355.0, rafterTop(rx, 52682.387, 7433.94)) }
+            // picks on the web faces, square to the camera (CI 45824776463: taps on the flanges, seen edge-on, missed)
+            val cam = { look(Vec3(51600.0, 22355.0, 6900.0), Vec3(0.12, -1.0, 0.22), 7500.0) }
+            val pairs = listOf(6200.0 to 50300.0, 5600.0 to 49800.0, 6600.0 to 50800.0, 5000.0 to 49300.0).map { (cz, rx) ->
+                Vec3(52838.0, 22345.0, cz) to Vec3(rx, 22345.0, rafterAxis(rx, 52682.387, 7433.94)) }
             // End plate (144), R12's eave settings
             openCatalog("144")
             tab("Picture"); field("tp", "20"); field("ext", "-10"); field("extb", "-104.385"); field("gap", "0"); shot("dialog144_picture")
@@ -181,9 +183,9 @@ class C02C09RecordingTest {
             field("hc1", "15"); field("hc2", "15"); field("hc3", "15"); field("hc4", "15"); pick("hct", "Line chamfer"); pick("hpc", "Top and bottom haunch plates are created"); shot("dialog144_haunch")
             tab("Bolts"); pick("bolt", "M16"); field("rows", "4"); field("e", "30.025"); field("pitches", "70 70 70"); field("gauge", "90"); field("side", "35")
             pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); pick("bdir", "Bolting direction 2"); shot("dialog144_bolts")
-            val cam = { look(Vec3(35000.0, 27925.0, 8900.0), Vec3(0.35, -1.0, 0.5), 3800.0) }
-            val pairs = listOf(36500.0 to 9300.0, 37000.0 to 9450.0, 36000.0 to 9200.0, 37500.0 to 9400.0).map { (rx, pz) ->
-                Vec3(rx, 27925.0, rafterTop(rx, 39537.387, 7422.572)) to Vec3(34114.28, 27925.0, pz) }
+            val cam = { look(Vec3(35000.0, 27925.0, 8900.0), Vec3(0.12, -1.0, 0.22), 6500.0) }
+            val pairs = listOf(35700.0 to 9300.0, 35950.0 to 9450.0, 35400.0 to 9200.0, 36100.0 to 9400.0).map { (rx, pz) ->
+                Vec3(rx, 27915.0, rafterAxis(rx, 39537.387, 7422.572)) to Vec3(34039.28, 27917.0, pz) }
             pickParts("T144", cam, pairs)
             assertTrue("144 haunch plates ${q("T144", "hpc")}", q("T144", "hpc") == "both")
             val c = centre(bodyNamed("END PLATE"))
