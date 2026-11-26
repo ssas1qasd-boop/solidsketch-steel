@@ -1,0 +1,300 @@
+11-26 06:37:36.685  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:37:36.685  1235  1235 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:37:36.685  1235  1235 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:37:36.685  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:37:36.685  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:37:41.680   577  1656 E WindowManager: Unknown window type: 1002
+11-26 06:37:44.136  7489  7489 E FrameTracker: force finish cuj, time out: J<IME_INSETS_SHOW_ANIMATION::0@1@com.solidsketchapp.steel>
+11-26 06:37:47.797   577  1658 E WindowManager: Unknown window type: 1002
+11-26 06:37:48.150  7489  7489 E FrameTracker: force finish cuj, time out: J<IME_INSETS_HIDE_ANIMATION::1@1@com.solidsketchapp.steel>
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 8 milliseconds, 579107 nanoseconds delay) for pxi@2e0f462[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@a0a19f3]]]
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at kef.e(PG:15)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at kfm.A(PG:21)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at joy.A(PG:3)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at fto.g(PG:9)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at jov.a(PG:3)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at joy.I(PG:49)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at jos.m(PG:59)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at dia.l(PG:1268)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3396)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.restartInput(InputMethodService.java:875)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:890)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:201)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:37:54.988  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 23 milliseconds, 722098 nanoseconds delay) for pxi@6ddf4ae[status=PENDING, info=[task=[running=[NOT STARTED YET], fch@9a2624f]]]
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at kef.i(PG:7)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at kef.h(PG:40)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at kef.d(PG:38)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at kfm.en(PG:15)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at joy.en(PG:3)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at fto.j(PG:9)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at jow.a(PG:13)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at jos.w(PG:141)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at jos.y(PG:7)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at jos.c(PG:49)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at jos.m(PG:128)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at dia.l(PG:1268)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3396)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.restartInput(InputMethodService.java:875)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:890)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:201)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:37:55.112  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 21 milliseconds, 789696 nanoseconds delay) for pxi@95d9461[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@413eb86]]]
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at kef.e(PG:15)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at kfm.A(PG:21)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at joy.A(PG:3)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at fto.g(PG:9)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at jov.a(PG:3)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at joy.I(PG:49)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at jos.m(PG:59)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at dia.l(PG:1268)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3396)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.restartInput(InputMethodService.java:875)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:890)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:201)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:37:55.802  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 1 milliseconds, 545836 nanoseconds delay) for pxi@d2b6e99[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@a86e55e]]]
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at kef.e(PG:15)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at kfm.A(PG:21)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at joy.A(PG:3)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at fto.g(PG:9)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at jov.a(PG:3)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at joy.I(PG:49)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at jos.k(PG:30)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at dia.q(PG:11)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at kfm.onFinishInputView(PG:75)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.finishViews(InputMethodService.java:3245)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.hideWindow(InputMethodService.java:3284)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInput(InputMethodService.java:967)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:37:58.840  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:38:00.914   577  1682 E WindowManager: Unknown window type: 1002
+11-26 06:38:01.383  7489  7489 E FrameTracker: force finish cuj, time out: J<IME_INSETS_SHOW_ANIMATION::0@1@com.solidsketchapp.steel>
+11-26 06:40:05.467  7962  7962 E d.configupdater: Not starting debugger since process cannot load the jdwp agent.
+11-26 06:40:06.104  1470  1470 E A       : onError
+11-26 06:40:06.104  1470  1470 E A       : com.google.android.apps.gsa.shared.speech.b.l: errorCode: 65561, engine: 2
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.staticplugins.bp.a.f.a(PG:23)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.s3.o.hi(PG:13)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.ci.g.a.f.e(PG:9)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.speech.k.a.g.d(PG:162)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.speech.k.a.g.iO(PG:26)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.s3.p.c(PG:102)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.s3.q.run(PG:1)
+11-26 06:40:06.104  1470  1470 E A       : 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-26 06:40:06.104  1470  1470 E A       : 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.e.run(PG:12)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.bg.run(PG:3)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.bg.run(PG:3)
+11-26 06:40:06.104  1470  1470 E A       : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-26 06:40:06.104  1470  1470 E A       : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-26 06:40:06.104  1470  1470 E A       : 	at java.lang.Thread.run(Thread.java:1012)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.l.run(PG:42)
+11-26 06:40:06.104  1470  1470 E A       : Caused by: com.google.android.apps.gsa.shared.speech.b.n: errorCode: 65586, engine: 2
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.s3.o.hi(PG:6)
+11-26 06:40:06.104  1470  1470 E A       : 	... 14 more
+11-26 06:40:06.104  1470  1470 E A       : Caused by: com.google.android.apps.gsa.shared.speech.b.j: errorCode: 401, engine: 2
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.assistant.shared.n.i.b(PG:30)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.s3.producers.j.hs(PG:11)
+11-26 06:40:06.104  1470  1470 E A       : 	at com.google.android.apps.gsa.speech.k.a.g.d(PG:135)
+11-26 06:40:06.104  1470  1470 E A       : 	... 12 more
+11-26 06:40:57.939   577  1267 E WindowManager: Unknown window type: 1002
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 2 milliseconds, 163830 nanoseconds delay) for pxi@2eb7a27[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@ea514d4]]]
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kef.i(PG:7)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kef.h(PG:40)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kef.d(PG:38)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kfm.en(PG:15)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at joy.en(PG:3)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at fto.j(PG:9)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at jow.a(PG:13)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at jos.w(PG:141)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at jos.y(PG:7)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at jos.c(PG:49)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at jos.m(PG:128)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at dia.l(PG:1268)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.startViews(InputMethodService.java:3216)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.showWindow(InputMethodService.java:3115)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kfm.showWindow(PG:12)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInput(InputMethodService.java:1032)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at kfl.showSoftInput(PG:89)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInputWithToken(InputMethodService.java:992)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:232)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:40:58.891  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 500 milliseconds (plus 23 milliseconds, 708812 nanoseconds delay) for pxi@80874ca[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], kas@d6b763b]]]
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at kbd.u(PG:84)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at tui.q(PG:24)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at kbn.k(PG:8)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at kbn.j(PG:3)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at kbn.n(PG:40)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at kbd.b(PG:186)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at kfm.onUpdateSelection(PG:67)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodSessionImpl.updateSelection(InputMethodService.java:1422)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodSessionWrapper.executeMessage(IInputMethodSessionWrapper.java:107)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:40:59.976  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 102908 nanoseconds delay) for pxi@da15b04[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@8728ed]]]
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at kef.e(PG:15)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at kfm.A(PG:21)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at joy.A(PG:3)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at fto.g(PG:9)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at jov.a(PG:3)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at joy.I(PG:49)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at jos.k(PG:30)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at dia.q(PG:11)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at kfm.onFinishInputView(PG:75)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.finishViews(InputMethodService.java:3245)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.hideWindow(InputMethodService.java:3284)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInput(InputMethodService.java:967)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-26 06:41:05.364  1235  1235 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-26 06:41:16.610  7489  7489 E FrameTracker: force finish cuj, time out: J<IME_INSETS_HIDE_ANIMATION::1@1@com.solidsketchapp.steel>
+11-26 06:41:40.832   577   734 E WifiStaIfaceAidlImpl: stopRssiMonitoring failed with service-specific exception: android.os.ServiceSpecificException:  (code 5)
+11-26 06:41:40.836   577   734 E WifiStaIfaceAidlImpl: setRoamingState failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+11-26 06:41:41.184   577   734 E WifiScoringParams: Invalid frequency(-1), using 5G as default rssi array
+11-26 06:41:41.296   577   734 E WifiStaIfaceAidlImpl: setDtimMultiplier failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+11-26 06:41:41.441   577  1656 E WifiService: Attempt to retrieve passpoint with invalid scanResult List
+11-26 06:41:41.786  1067  6928 E WakeLock: GCM_HB_ALARM release without a matched acquire!
+11-26 06:41:42.332  1067  6928 E WakeLock: GCM_CONN_ALARM release without a matched acquire!
+11-26 06:41:43.508  1067  7006 E WakeLock: GCM_CONN_ALARM release without a matched acquire!
+11-26 06:41:43.990  1235  8027 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-26 06:41:45.563   577   734 E WifiStaIfaceAidlImpl: setDtimMultiplier failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+11-26 06:41:45.564   371   431 E Netd    : no such netId 104
+11-26 06:41:45.715   371   431 E Netd    : no such netId 104
+11-26 06:41:45.715   577   741 E ConnectivityService: Exception in addRoute for non-gateway: android.os.ServiceSpecificException: Machine is not on the network (code 64)
+11-26 06:41:45.783   577   734 E WifiStaIfaceAidlImpl: setRoamingMode failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+11-26 06:41:45.783   577   734 E WifiRoamingModeManager: Failed to set roaming mode due to unknown error.
+11-26 06:41:45.798   371   431 E Netd    : no such netId 104
+11-26 06:41:45.799   577   741 E ConnectivityService: Exception in addRoute for gateway: android.os.ServiceSpecificException: Machine is not on the network (code 64)
+11-26 06:41:45.852   577  1710 E WifiService: Attempt to retrieve passpoint with invalid scanResult List
+11-26 06:41:45.877   371   406 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'INTERFACE' not found
+11-26 06:41:45.877   371   406 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'STATE' not found
+11-26 06:41:45.877   371   406 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'TIME_NS' not found
+11-26 06:41:45.877   371   406 E NetlinkEvent: NetlinkEvent::FindParam(): Parameter 'UID' not found
+11-26 06:41:45.883   577   734 E WifiStaIfaceAidlImpl: stopRssiMonitoring failed with service-specific exception: android.os.ServiceSpecificException:  (code 5)
+11-26 06:41:46.460   577   734 E WifiStaIfaceAidlImpl: setDtimMultiplier failed with service-specific exception: android.os.ServiceSpecificException:  (code 4)
+11-26 06:41:46.471   371   431 E netd    : Error adding route ::/0 -> fe80::2 wlan0 to table 1016: File exists
+11-26 06:41:47.680  1067  6928 E WakeLock: GCM_HB_ALARM release without a matched acquire!
+11-26 06:41:47.969  1067  8053 E WakeLock: GCM_CONN_ALARM release without a matched acquire!
+11-26 06:41:57.244  1235  8054 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-26 06:43:51.122  7456  7456 I AndroidRuntime: VM exiting with result code 0.
+11-26 06:43:51.148   577  1658 E ActivityManager: Unable to freeze binder for 7489: -11
+11-26 06:43:53.641   577  2756 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:43:56.725   577  2756 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:43:57.535   577  2756 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:43:57.614   577   747 E AppOps  : attributionTag VCN not declared in manifest of android
+11-26 06:43:57.714   976   976 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-26 06:43:57.812   577  2756 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:43:57.853   976   976 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-26 06:43:57.867   577  2756 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:43:57.897   577   918 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-26 06:43:57.972   577   918 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-26 06:43:58.225   577   747 E AppOps  : attributionTag VCN not declared in manifest of android
+11-26 06:43:58.247   976   976 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-26 06:43:58.248   577  2756 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:43:58.254   976   976 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-26 06:43:58.467   577   918 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-26 06:43:58.824   976   976 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-26 06:43:58.826   976   976 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-26 06:43:58.890   577  2756 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-26 06:44:00.012   577   918 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-26 06:44:01.216   577   747 E AppOps  : attributionTag VCN not declared in manifest of android
+11-26 06:44:01.432   577  2040 E AtomicFile: Failed to rename /data/system/cachequota.xml.new to /data/system/cachequota.xml
+11-26 06:44:01.816   577   918 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-26 06:44:01.823   577   918 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-26 06:44:01.827   577   918 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-26 06:44:01.843   577   918 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-26 06:44:01.846   577   918 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
