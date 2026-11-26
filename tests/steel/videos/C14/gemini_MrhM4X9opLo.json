@@ -1,0 +1,70 @@
+{
+ "url": "https://www.youtube.com/watch?v=MrhM4X9opLo",
+ "model": "gemini-flash-latest",
+ "answer": {
+  "component_seen": true,
+  "moments": [
+   {
+    "t": "0:43",
+    "what": "3D view of the created shear plate simple connection (146)",
+    "tab": null,
+    "values": {}
+   },
+   {
+    "t": "1:18",
+    "what": "Component dialog opens on Picture tab",
+    "tab": "Picture",
+    "values": {
+     "clearance": "1/2\""
+    }
+   },
+   {
+    "t": "2:21",
+    "what": "Plates tab modified",
+    "tab": "Plates",
+    "values": {
+     "Tab plate thickness": "1/2\"",
+     "Material": "A572-GR.50",
+     "Name": "PLATE"
+    }
+   },
+   {
+    "t": "9:37",
+    "what": "Notch tab modified",
+    "tab": "Notch",
+    "values": {
+     "top notch cut depth": "1/2\"",
+     "top notch cut length": "1 1/2\"",
+     "top notch corner radius": "1/2\""
+    }
+   },
+   {
+    "t": "13:13",
+    "what": "Bolts tab modified",
+    "tab": "Bolts",
+    "values": {
+     "Bolt size": "3/4\"",
+     "Bolt standard": "A325N",
+     "Tolerance": "1/16\"",
+     "Vertical reference": "Top",
+     "Vertical edge distance": "1 1/2\"",
+     "Bolt spacing vertical": "4 3\"",
+     "Horizontal edge distance": "1 1/2\"",
+     "Bolt spacing horizontal": "2 3\""
+    }
+   }
+  ],
+  "bolt_vertical_position": {
+   "reference": "Top",
+   "dimension": "1 1/2\"",
+   "t": "15:48"
+  },
+  "plate": {
+   "thickness": "1/2\"",
+   "width": "unreadable",
+   "height": "unreadable",
+   "t": "2:31"
+  },
+  "notes": "Shear plate simple (146) component applied between main beam W16X40 and secondary beam, configuring plate dimensions, corner chamfer/radius, notch geometry, and bolt patterns."
+ }
+}
