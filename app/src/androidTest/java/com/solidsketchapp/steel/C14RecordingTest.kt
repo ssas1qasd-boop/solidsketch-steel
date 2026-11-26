@@ -113,10 +113,15 @@ class C14RecordingTest {
             tab("Bolts"); pick("bolt", "M16"); field("e", "30"); field("rows", "2"); field("pitch", "70"); field("cols", "2"); field("pitchH", "60"); field("eh", "35"); field("posV", "77.2")
             pick("refV", "Top"); pause(600); shot("dialog_bolts")
             press("Pick parts"); pause(800)
-            look(j0, Vec3(0.6, 0.5, 1.0), 2200.0); pause(900)
+            look(Vec3(1300.0, 17700.0, 3950.0), Vec3(0.1, 0.15, 1.0), 4200.0); pause(1200)
             val n0 = mode().comps!!.conns().size
-            tapAt(screen(Vec3(1700.0, 16785.0, 3840.0))); pause(700)          // the girder (its axis, away from the joint)
-            tapAt(screen(Vec3(888.28, 18800.0, 3990.0))); pause(700)          // the joist (its top, away from the joint)
+            // the girder and the joist, on their top faces away from the joint; another pair of points if a tap missed
+            for ((xg, yj) in listOf(1500.0 to 18400.0, 1900.0 to 18900.0, 1200.0 to 19300.0, 2100.0 to 18100.0)) {
+                if (mode().comps!!.conns().size > n0) break
+                act.runOnUiThread { mode().catPick(mode().catK ?: "T146") }; pause(400)
+                tapAt(screen(Vec3(xg, 16785.0, 3997.0))); pause(700)
+                tapAt(screen(Vec3(888.28, yj, 3997.0))); pause(1200)
+            }
             waitFor("the shear plate") { mode().comps!!.conns().size == n0 + 1 }
             act.runOnUiThread { mode().catDone() }; pause(800)
             assertTrue("new 146 refV ${refV()}", refV() == "Top")
