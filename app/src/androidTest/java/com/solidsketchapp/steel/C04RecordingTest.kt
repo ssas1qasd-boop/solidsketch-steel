@@ -160,7 +160,17 @@ class C04RecordingTest {
             compose.onAllNodes(hasText("Parameters") and hasClickAction())[0].performClick(); pause(900)
             compose.onAllNodes(hasSetTextAction() and hasText("IPE160"))[0].performTextReplacement("CC200-2-20-60"); pause(1200); shot("purlins_dialog")
             press("Pick parts"); pause(800); look(mid, Vec3(0.15, -0.25, 1.0), 16000.0); pause(800)
-            for ((a, b) in listOf(raf[0] to raf[1], raf[1] to raf[2])) { tapAt(screen(onMember(a, 0.14))); pause(600); tapAt(screen(onMember(b, 0.14))); pause(1200) }
+            // each run: tap the two rafters between purlins; if no purlins came (a tap missed: a toast or a purlin under it), try another point
+            for ((a, b) in listOf(raf[0] to raf[1], raf[1] to raf[2])) {
+                val before = named("PURLIN").size
+                for (f in listOf(0.12, 0.33, 0.56, 0.79)) {
+                    if (mode().catK == null) { comp("Generation of purlins", "Generation of purlins"); press("Pick parts"); pause(800); look(mid, Vec3(0.15, -0.25, 1.0), 16000.0); pause(800) }
+                    act.runOnUiThread { mode().catPick(mode().catK ?: "T50p") }; pause(300)
+                    tapAt(screen(onMember(a, f))); pause(700); tapAt(screen(onMember(b, f))); pause(1500)
+                    if (named("PURLIN").size > before) break
+                }
+                shot("purlins_${named("PURLIN").size}")
+            }
             act.runOnUiThread { mode().catDone() }; pause(800)
             val purs = named("PURLIN"); assertTrue("purlins made: ${purs.size}", purs.size >= 8); shot("purlins")
             // Purlin cleat L: its dialog, Pick parts (rafter B, the purlin from A, the purlin to C)
