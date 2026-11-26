@@ -1,0 +1,31 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "component": "End plate (144)",
+ "tab": "Stiffeners",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "12:16",
+    "end": "18:07",
+    "note": "dialog of End plate (144) is open on its Stiffeners tab"
+   }
+  ],
+  "language": "Arabic",
+  "units": "mm"
+ },
+ "pass2": [
+  {
+   "span": [
+    "12:16",
+    "18:07"
+   ],
+   "read": {
+    "error": "Gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

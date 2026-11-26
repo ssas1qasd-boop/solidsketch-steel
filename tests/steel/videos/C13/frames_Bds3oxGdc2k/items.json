@@ -1,0 +1,84 @@
+[
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 327,
+  "ts": "0:05:27",
+  "imageUrl": "https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-000-327000.jpg?signature=1qPnWzxdVvWNeUZ1Ygfdp",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "stiffeners, we have this, which shows us how it will be visualized, right? We have several options: straight or"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 337,
+  "ts": "0:05:37",
+  "imageUrl": "https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-001-337000.jpg?signature=CYCZKo10FqmkLPC2cneE",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "diagonal. In this case, our beam doesn't come in at a diagonal; it is practically perpendicular to the column . So, I'm going to leave it as 10 as"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 347,
+  "ts": "0:05:47",
+  "imageUrl": "https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-002-347000.jpg?signature=40e2Od8wU8mGnA0uHSfz",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "well. Let's see, 10 10, and let's see if it modifies correctly. Nothing has"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 357,
+  "ts": "0:05:57",
+  "imageUrl": "https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-003-357000.jpg?signature=1PGhs78OvZgKAOn6fdUd7",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "changed, as you can see. Why hasn't it changed? Because we still haven't activated it here in this panel. Here it shows us how the column looks from a"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 367,
+  "ts": "0:06:07",
+  "imageUrl": "https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-004-367000.jpg?signature=1czyB9V6CJBGDnjaoHTE0",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "plan view. Currently, it's like this, but if we change it, it should show up. Okay. Okay. There it is. It shows up"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 377,
+  "ts": "0:06:17",
+  "imageUrl": "https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-005-377000.jpg?signature=x8PIfcSKrkIB97LcaMO1",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": ""
+ },
+ {
+  "type": "summary",
+  "mode": "segment",
+  "videoId": "Bds3oxGdc2k",
+  "title": "Tekla Structures \ud83c\udfd7 /V022.PLACA UNI\u00d3N (144)\u2728",
+  "frames": 6,
+  "every": 10,
+  "source": "media",
+  "resolution": "640x360",
+  "lowResolutionFallback": false,
+  "downloadedBytes": 14593831,
+  "proxy": "residential",
+  "variableCostUsd": 0.125051,
+  "stoppedByBudget": false,
+  "quality": "hd",
+  "hdAttempted": true,
+  "hdSkippedReason": "",
+  "videoEvent": "video-processed-hd",
+  "transcriptAvailable": true,
+  "lang": "en",
+  "markdown": "# Tekla Structures \ud83c\udfd7 /V022.PLACA UNI\u00d3N (144)\u2728\n\n- [0:05:27](https://youtu.be/Bds3oxGdc2k?t=327) stiffeners, we have this, which shows us how it will be visualized, right? We have several options: straight or ![frame](https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-000-327000.jpg?signature=1qPnWzxdVvWNeUZ1Ygfdp)\n- [0:05:37](https://youtu.be/Bds3oxGdc2k?t=337) diagonal. In this case, our beam doesn't come in at a diagonal; it is practically perpendicular to the column . So, I'm going to leave it as 10 as ![frame](https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-001-337000.jpg?signature=CYCZKo10FqmkLPC2cneE)\n- [0:05:47](https://youtu.be/Bds3oxGdc2k?t=347) well. Let's see, 10 10, and let's see if it modifies correctly. Nothing has ![frame](https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-002-347000.jpg?signature=40e2Od8wU8mGnA0uHSfz)\n- [0:05:57](https://youtu.be/Bds3oxGdc2k?t=357) changed, as you can see. Why hasn't it changed? Because we still haven't activated it here in this panel. Here it shows us how the column looks from a ![frame](https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-003-357000.jpg?signature=1PGhs78OvZgKAOn6fdUd7)\n- [0:06:07](https://youtu.be/Bds3oxGdc2k?t=367) plan view. Currently, it's like this, but if we change it, it should show up. Okay. Okay. There it is. It shows up ![frame](https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-004-367000.jpg?signature=1czyB9V6CJBGDnjaoHTE0)\n- [0:06:17](https://youtu.be/Bds3oxGdc2k?t=377) ![frame](https://api.apify.com/v2/key-value-stores/9te34BZU47wmuTS5O/records/frame-005-377000.jpg?signature=x8PIfcSKrkIB97LcaMO1)\n"
+ }
+]

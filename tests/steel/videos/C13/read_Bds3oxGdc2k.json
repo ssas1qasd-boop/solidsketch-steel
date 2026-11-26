@@ -1,0 +1,110 @@
+{
+ "url": "https://www.youtube.com/watch?v=Bds3oxGdc2k",
+ "component": "End plate (144)",
+ "tab": "Stiffeners",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "05:27",
+    "end": "06:17",
+    "note": "The user is on the \"Stiffeners\" tab of the \"End plate (144)\" dialog."
+   }
+  ],
+  "language": "Spanish",
+  "units": "mm"
+ },
+ "pass2": [
+  {
+   "span": [
+    "05:27",
+    "06:17"
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Stiffeners",
+      "value": "check",
+      "t": "05:25",
+      "sure": true
+     },
+     {
+      "label": "SC superior",
+      "value": "check",
+      "t": "05:39",
+      "sure": true
+     },
+     {
+      "label": "SC superior",
+      "value": "10.00",
+      "t": "05:53",
+      "sure": true
+     },
+     {
+      "label": "SC superior",
+      "value": "10.00",
+      "t": "05:53",
+      "sure": true
+     },
+     {
+      "label": "SC superior",
+      "value": "check",
+      "t": "05:39",
+      "sure": true
+     },
+     {
+      "label": "SC superior",
+      "value": "10.00",
+      "t": "05:53",
+      "sure": true
+     },
+     {
+      "label": "SC superior",
+      "value": "10.00",
+      "t": "05:53",
+      "sure": true
+     },
+     {
+      "label": "SC inferior",
+      "value": "check",
+      "t": "05:39",
+      "sure": true
+     },
+     {
+      "label": "SC inferior",
+      "value": "10.00",
+      "t": "05:54",
+      "sure": true
+     },
+     {
+      "label": "SC inferior",
+      "value": "10.00",
+      "t": "05:54",
+      "sure": true
+     },
+     {
+      "label": "SC inferior",
+      "value": "check",
+      "t": "05:39",
+      "sure": true
+     },
+     {
+      "label": "SC inferior",
+      "value": "10.00",
+      "t": "05:54",
+      "sure": true
+     },
+     {
+      "label": "SC inferior",
+      "value": "10.00",
+      "t": "05:54",
+      "sure": true
+     }
+    ]
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

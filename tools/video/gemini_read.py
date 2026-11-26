@@ -18,17 +18,21 @@ Answer JSON: {{"spans": [{{"start": "mm:ss", "end": "mm:ss", "note": "what is do
     # pass 1 at low resolution and 0.5 fps: only the minutes are needed (a whole video at full resolution exceeds the free tier's tokens per minute)
     t1, _ = vlib.call([{'file_data': vid['file_data'], 'video_metadata': {'fps': 0.5}}, {'text': p1}], media_res='MEDIA_RESOLUTION_LOW'); r1 = vlib.parse_json(t1)
     res = {'url': url, 'component': comp, 'tab': tab, 'model': vlib.MODEL, 'pass1': r1, 'pass2': []}
-    for sp in (r1.get('spans') or [])[:6]:
+    chunks = []   # spans over 90 s are read in 60 s pieces (a long span at high resolution is refused / times out)
+    for sp in (r1.get('spans') or []):
         try: a, b = vlib.mmss(sp['start']), vlib.mmss(sp['end'])
         except Exception: continue
         a = max(0, a - 3); b = b + 3
+        while b - a > 90: chunks.append((sp, a, a + 60)); a += 60
+        chunks.append((sp, a, b))
+    for sp, a, b in chunks[:8]:
         seg = {'file_data': vid['file_data'], 'video_metadata': {'start_offset': f'{int(a)}s', 'end_offset': f'{int(b)}s', 'fps': 2}}
         p2 = f'''Read the "{tab}" tab of the "{comp}" dialog in this part of the video, at full resolution. For every input box, list, check box and
 picture dimension: its label (as written, or the number on the picture) and its value exactly as shown (blank if empty), and the time.
 Only report what you can read; mark unsure readings. Answer JSON: {{"fields": [{{"label": "...", "value": "...", "t": "mm:ss", "sure": true}}]}}'''
         try: t2, _ = vlib.call([seg, {'text': p2}], media_res='MEDIA_RESOLUTION_HIGH'); r2 = vlib.parse_json(t2)
         except Exception as e: r2 = {'error': str(e)}
-        res['pass2'].append({'span': [sp.get('start'), sp.get('end')], 'read': r2})
+        res['pass2'].append({'span': [sp.get('start'), sp.get('end')], 'seconds': [int(a), int(b)], 'read': r2})
     res['models_used'] = sorted(set(vlib.USED))
     os.makedirs(os.path.dirname(out) or '.', exist_ok=True); json.dump(res, open(out, 'w'), indent=1)
     print(json.dumps(res, indent=1)[:4000])
