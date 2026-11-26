@@ -147,8 +147,10 @@ R12 frames now come from the plate outline (exact plane, and the outline edge al
 | Other sizes and slopes (`tools/golden/cases/teh.js`) | R12's eave; HEA300 / IPE360 at 10° (length 1,500, depth 200, flange 12 × 170); HEA240 / IPE300 at 15° with tp 25; IPE400 / IPE330 at 5° with no end plate: 0 rule-B failures each (`c09_cases.js` + `geom_checks.py`); app = web on all (`S7T144Test`, 13 cases) |
 | Weights (`compare_v69.json`, v70 weight rule) | 48 webs 230.64 kg (Tekla st.tkW 230.64); 48 flanges 1,080.72 kg (Tekla 1,080.72): equal |
 
+**Emulator** (`C02C09RecordingTest.c02Recording`, CI 45833553102): End plate 144 through its dialog (Picture, Haunch tab "not created", Bolts: Tekla length, direction 2), Pick parts; Eave haunch through its dialog (L 2000, D 82.91, web 8, flange 10 × 150), Pick parts; orbit, orthographic stills, model saved (`c02_case.ss`); then L 1500, Modify, orbit. Measured on the saved model: L 2000.00, D 82.91, start 180.0, flange 150, M20 8.8 L60, rule B 0 failures. Image: `docs/steel/parity/C02.png`.
+
 ### Status
-Waiting for the emulator run and the owner's phone OK; not marked.
+Delivered; waiting for the owner's phone OK; not marked.
 
 ## Exploded connections in R12 (no component in Tekla, so the dialog cannot be proven by Tekla)
 Tekla's IFC carries no component information. Which connections were components in the owner's model, and which were exploded, cannot be read from R12. Known so far:
@@ -199,8 +201,10 @@ Tekla's 144 Haunch tab makes only the haunch plates above. R12's eave haunch (48
 | Other sizes and slopes (`tools/golden/cases/t144.js`, `tools/golden/c09_cases.js` + `geom_checks.py`) | R12's post joint; HEA160 on IPE300 at 5° (b, h blank); IPE200 on IPE360 at 10°, Automatic, convex; IPE240 on a level HEB300, concave; R12's eave (C02): 0 rule-B failures each; app = web on all (`S7T144Test`, 8 cases) |
 | Weights | Haunch plate 0.18 kg each (= Tekla's own IFC solid, 0.182 kg); Tekla's st.tkW says 0.17 (48 plates: 8.74 vs 8.16 kg). Not explained yet: Tekla's IFC solid itself weighs 0.18 |
 
+**Emulator** (`C02C09RecordingTest.c09Recording`, CI 45833553102): End plate 144 through its dialog (Picture; Haunch tab 8 × 60 × 60, chamfers 15 line, created; Bolts: Tekla length, direction 2), Pick parts; orbit, orthographic stills, model saved (`c09_case.ss`); then Top plate b 40, Modify, orbit. Measured on the saved model: haunch plates 58.5 × 60.0 and 58.5 × 56.7 (as R12), end plate 265.9 × 71.6, M16 8.8 L45, rule B 0 failures. Image: `docs/steel/parity/C09.png`.
+
 ### Status
-C09: waiting for the emulator run and the owner's phone OK; not marked. C02: the end plate and bolts are reproduced, and the haunch waits for the owner's decision.
+C09: owner OK on the work (2026-11-26); delivered, waiting for the phone OK; not marked. C02: the end plate and bolts with C02h (above).
 
 ## C14 · Shear plate (146), joist ← girder (reverse-engineered on R12, owner 2026-11-26)
 
