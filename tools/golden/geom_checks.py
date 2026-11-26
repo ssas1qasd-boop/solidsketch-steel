@@ -105,13 +105,15 @@ def stack_and_holes(bolt_pts, ax, d, tol, parts, L):
         out.append((mat, res, (max(span) - min(span)) if span else 0.0))
     return out
 
-DESIGNED = {'Tcl': [('PURLIN', 'RAFTER'), ('CLEAT', 'PURLIN'), ('CLEAT', 'RAFTER')], 'Tpc': [('PURLIN', 'RAFTER')]}
+DESIGNED = {'Tcl': [('PURLIN', 'RAFTER'), ('CLEAT', 'PURLIN'), ('CLEAT', 'RAFTER')], 'Tpc': [('PURLIN', 'RAFTER')],
+            'T146': [('SHEAR TAB', 'RAFTER'), ('SHEAR TAB', 'SECONDARY')]}   # C14: tab welded to the main part, bolted to the secondary's web
 
 def role(b, conn, bodies):
     st = b['st']; n = (st.get('name') or '').upper()
     if st.get('kind') == 'bolts': return 'BOLT'
     if 'PURLIN' in n: return 'PURLIN'
     if st.get('kind') == 'member' and conn and conn['parts'] and b['id'] == conn['parts'][0]: return 'RAFTER'
+    if st.get('kind') == 'member' and conn and conn['type'] == 'T146': return 'SECONDARY'
     if 'CLEAT' in n and 'STIFF' not in n: return 'CLEAT'
     return n or 'PART'
 

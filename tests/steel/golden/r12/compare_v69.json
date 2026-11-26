@@ -1929,14 +1929,14 @@
     389,
     387
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 102,
@@ -1948,14 +1948,14 @@
     392,
     390
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 103,
@@ -1967,14 +1967,14 @@
     395,
     393
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 104,
@@ -1986,14 +1986,14 @@
     398,
     396
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 105,
@@ -2005,14 +2005,14 @@
     401,
     399
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 106,
@@ -2024,14 +2024,14 @@
     404,
     402
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 107,
@@ -2043,14 +2043,14 @@
     407,
     405
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 108,
@@ -2062,14 +2062,14 @@
     410,
     408
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 109,
@@ -2081,14 +2081,14 @@
     413,
     411
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 110,
@@ -2100,14 +2100,14 @@
     416,
     414
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 111,
@@ -2119,14 +2119,14 @@
     419,
     417
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 112,
@@ -2138,14 +2138,14 @@
     422,
     420
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 113,
@@ -2157,14 +2157,14 @@
     425,
     423
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 114,
@@ -2176,14 +2176,14 @@
     428,
     426
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 115,
@@ -2195,14 +2195,14 @@
     431,
     429
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 116,
@@ -2214,14 +2214,14 @@
     434,
     432
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 117,
@@ -2233,14 +2233,14 @@
     437,
     435
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 118,
@@ -2290,14 +2290,14 @@
     727,
     725
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 121,
@@ -2309,14 +2309,14 @@
     730,
     728
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 122,
@@ -2328,14 +2328,14 @@
     733,
     731
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 123,
@@ -2347,14 +2347,14 @@
     736,
     734
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 124,
@@ -2366,14 +2366,14 @@
     739,
     737
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 125,
@@ -2385,14 +2385,14 @@
     742,
     740
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 126,
@@ -2404,14 +2404,14 @@
     745,
     743
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 127,
@@ -2423,14 +2423,14 @@
     748,
     746
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 128,
@@ -2442,14 +2442,14 @@
     751,
     749
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 129,
@@ -2461,14 +2461,14 @@
     754,
     752
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 130,
@@ -2480,14 +2480,14 @@
     757,
     755
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 131,
@@ -2499,14 +2499,14 @@
     760,
     758
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 132,
@@ -2518,14 +2518,14 @@
     763,
     761
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 133,
@@ -2537,14 +2537,14 @@
     766,
     764
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 134,
@@ -2556,14 +2556,14 @@
     769,
     767
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 135,
@@ -2575,14 +2575,14 @@
     772,
     770
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 136,
@@ -2594,14 +2594,14 @@
     775,
     773
    ],
-   "boxDiff": 10.0,
+   "boxDiff": 0.0,
    "volR10": 24144539.175,
-   "volV69": 24071888,
-   "volRatio": 0.997,
+   "volV69": 24130288,
+   "volRatio": 0.999,
    "kgR10": 189.67,
    "kgV69": 190.73,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 137,
@@ -43660,11 +43660,10 @@
    "v69": 1419,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3021,
@@ -43678,11 +43677,10 @@
    "v69": 1421,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3022,
@@ -43696,11 +43694,10 @@
    "v69": 1423,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3023,
@@ -43714,11 +43711,10 @@
    "v69": 1425,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3024,
@@ -43732,11 +43728,10 @@
    "v69": 1427,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3025,
@@ -43750,11 +43745,10 @@
    "v69": 1429,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3026,
@@ -43768,11 +43762,10 @@
    "v69": 1431,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3027,
@@ -43786,11 +43779,10 @@
    "v69": 1433,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3028,
@@ -43804,11 +43796,10 @@
    "v69": 1435,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3029,
@@ -43822,11 +43813,10 @@
    "v69": 1437,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3030,
@@ -43840,11 +43830,10 @@
    "v69": 1439,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3031,
@@ -43858,11 +43847,10 @@
    "v69": 1441,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3032,
@@ -43876,11 +43864,10 @@
    "v69": 1443,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3033,
@@ -43894,11 +43881,10 @@
    "v69": 1445,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3034,
@@ -43912,11 +43898,10 @@
    "v69": 1447,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3035,
@@ -43930,11 +43915,10 @@
    "v69": 1449,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3036,
@@ -43948,11 +43932,10 @@
    "v69": 1451,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3037,
@@ -43966,11 +43949,10 @@
    "v69": 1453,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3038,
@@ -43984,11 +43966,10 @@
    "v69": 1455,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3039,
@@ -44002,11 +43983,10 @@
    "v69": 1457,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3040,
@@ -44020,11 +44000,10 @@
    "v69": 1459,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3041,
@@ -44038,11 +44017,10 @@
    "v69": 1461,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3042,
@@ -44056,11 +44034,10 @@
    "v69": 1463,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3043,
@@ -44074,11 +44051,10 @@
    "v69": 1465,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3044,
@@ -44092,11 +44068,10 @@
    "v69": 1467,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3045,
@@ -44110,11 +44085,10 @@
    "v69": 1469,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3046,
@@ -44128,11 +44102,10 @@
    "v69": 1471,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3047,
@@ -44146,11 +44119,10 @@
    "v69": 1473,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3048,
@@ -44164,11 +44136,10 @@
    "v69": 1475,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3049,
@@ -44182,11 +44153,10 @@
    "v69": 1477,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3050,
@@ -44200,11 +44170,10 @@
    "v69": 1479,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3051,
@@ -44218,11 +44187,10 @@
    "v69": 1481,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3052,
@@ -44236,11 +44204,10 @@
    "v69": 1483,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3053,
@@ -44254,11 +44221,10 @@
    "v69": 1485,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3054,
@@ -44272,11 +44238,10 @@
    "v69": 1487,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3055,
@@ -44290,11 +44255,10 @@
    "v69": 1489,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3056,
@@ -44308,11 +44272,10 @@
    "v69": 1491,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3057,
@@ -44326,11 +44289,10 @@
    "v69": 1493,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3058,
@@ -44344,11 +44306,10 @@
    "v69": 1495,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3059,
@@ -44362,11 +44323,10 @@
    "v69": 1497,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3060,
@@ -44380,11 +44340,10 @@
    "v69": 1499,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3061,
@@ -44398,11 +44357,10 @@
    "v69": 1501,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3062,
@@ -44416,11 +44374,10 @@
    "v69": 1503,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3063,
@@ -44434,11 +44391,10 @@
    "v69": 1505,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3064,
@@ -44452,11 +44408,10 @@
    "v69": 1507,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3065,
@@ -44470,11 +44425,10 @@
    "v69": 1509,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3066,
@@ -44488,11 +44442,10 @@
    "v69": 1511,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3067,
@@ -44506,11 +44459,10 @@
    "v69": 1513,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3068,
@@ -44524,11 +44476,10 @@
    "v69": 1515,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3069,
@@ -44542,11 +44493,10 @@
    "v69": 1517,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3070,
@@ -44560,11 +44510,10 @@
    "v69": 1519,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3071,
@@ -44578,11 +44527,10 @@
    "v69": 1521,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3072,
@@ -44596,11 +44544,10 @@
    "v69": 1523,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3073,
@@ -44614,11 +44561,10 @@
    "v69": 1525,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3074,
@@ -44632,11 +44578,10 @@
    "v69": 1527,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3075,
@@ -44650,11 +44595,10 @@
    "v69": 1529,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3076,
@@ -44668,11 +44612,10 @@
    "v69": 1531,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3077,
@@ -44686,11 +44629,10 @@
    "v69": 1533,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3078,
@@ -44704,11 +44646,10 @@
    "v69": 1535,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3079,
@@ -44722,11 +44663,10 @@
    "v69": 1537,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3080,
@@ -44740,11 +44680,10 @@
    "v69": 1539,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3081,
@@ -44758,11 +44697,10 @@
    "v69": 1541,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3082,
@@ -44776,11 +44714,10 @@
    "v69": 1543,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3083,
@@ -44794,11 +44731,10 @@
    "v69": 1545,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3084,
@@ -44812,11 +44748,10 @@
    "v69": 1547,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3085,
@@ -44830,11 +44765,10 @@
    "v69": 1549,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3086,
@@ -44848,11 +44782,10 @@
    "v69": 1551,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3087,
@@ -44866,11 +44799,10 @@
    "v69": 1553,
    "v69name": "SHEAR TAB",
    "v69prof": "PL10",
-   "boxDiff": 7.8,
+   "boxDiff": 0.0,
    "volRatio": 1.002,
    "kgV69": 1.45,
-   "status": "ROUGH",
-   "sameSizeAt": 7.8
+   "status": "MATCHED"
   },
   {
    "id": 3088,
@@ -69896,8 +69828,9 @@
     "M12 8.8 L41": 40,
     "M16 4.6 L194": 8,
     "M16 4.6 L250": 16,
+    "M16 8.8 L45": 272,
     "M16 8.8 L50": 96,
-    "M16 8.8 L52": 400,
+    "M16 8.8 L52": 128,
     "M16 8.8 L54": 162,
     "M16 8.8 L56": 2064,
     "M16 8.8 L60": 16,
@@ -69908,15 +69841,15 @@
   },
   "matchedPerDiameter": {
    "M12": 1056,
-   "M16": 162,
+   "M16": 434,
    "M20": 576
   },
   "positions": {
    "bolts": 4548,
-   "boltsMatched": 1794,
-   "boltsMatchedSameLengthGrade": 1056,
+   "boltsMatched": 2066,
+   "boltsMatchedSameLengthGrade": 1328,
    "groups": 1288,
-   "groupsMatched": 539
+   "groupsMatched": 607
   }
  },
  "totals": {
@@ -70132,7 +70065,7 @@
    },
    "v69Weights": {
     "weight_t": 62.049,
-    "net_t": 61.269,
+    "net_t": 61.285,
     "gross_t": 62.177,
     "parts": 4741,
     "boltBodiesExcluded": 1203
@@ -71414,17 +71347,14 @@
   {
    "group": "14 | joist shear plate | EB Shear Plate FLT10*130",
    "counts": {
-    "ROUGH": 68,
+    "MATCHED": 68,
     "total": 68
    },
    "kgR10": 104.04,
    "kgV69": 98.6,
-   "sameSize": {
-    "n": 68,
-    "median": 7.8
-   },
-   "reason": "same plate size and plan position; v69 centres the tab on the joist web depth, R10's tab is 7.8 mm higher",
-   "option": "vertical position of the tab (Tekla 146 plate position)"
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "15 | cap plate | EB End Plate  PL16*120",
@@ -71753,14 +71683,14 @@
   {
    "group": "builtup | MB BI220-8-140-10",
    "counts": {
-    "INPUT EQUAL, SOLID DIFFERS": 34,
+    "MATCHED": 34,
     "total": 34
    },
    "kgR10": 6448.78,
    "kgV69": 6484.82,
    "sameSize": null,
-   "reason": "Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent",
-   "option": "built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "builtup | MBC BI320-8-150-10",
@@ -72111,11 +72041,11 @@
    "v69Bolts": 272,
    "r10Parts": 68,
    "status": {
-    "ROUGH": 68
+    "MATCHED": 68
    },
    "givenMembers": 0,
    "givenMatched": 0,
-   "verdict": "not"
+   "verdict": "reproduced"
   },
   "15": {
    "title": "Cap 39: mezzanine column -> girder",

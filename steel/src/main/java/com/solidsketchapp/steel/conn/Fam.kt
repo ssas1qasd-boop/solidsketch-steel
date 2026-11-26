@@ -166,6 +166,9 @@ object Fam {
         if (x.b2 != null) one(x.b2, x.b2Id!!, if (x.t("shared")) x.n("tp") + x.n("gap") else 0.0)
     }
 
+    /** A q value as a number, NaN when it is missing or blank (v69 `q.k === '' || q.k === undefined ? NaN : +q.k`). */
+    private fun optNum(x: FamCtx, k: String): Double { val e = x.q[k] as? JsonPrimitive ?: return Double.NaN; if (e.isString && e.content.isBlank()) return Double.NaN; return StBuild.jsNum(e) }
+
     /** ST · shear tabs (v40 L14939, the live definition): a tab on the main part, bolted through the secondary's web. */
     fun st(x: FamCtx) {
         fun one(bm: JsonObject, bmId: String) {
@@ -174,24 +177,33 @@ object Fam {
             val room = j.yHi - j.yLo - 2 * (bp.tf + (bp.r.takeIf { it != 0.0 } ?: 10.0) + 5); var n = n0
             while (n > 1 && ((n - 1) * x.n("pitch") + 2 * x.n("e")) > room + 1e-9 && !x.t("full")) n--
             var y1 = yc + ((n - 1) * x.n("pitch") / 2 + x.n("e")); var y0 = yc - ((n - 1) * x.n("pitch") / 2 + x.n("e"))
+            // v70 (web/v70_tekla_parity.js "C14"): Tekla's vertical position of the bolt group, measured on the secondary's own section
+            val tk = x.s("refV").let { it == "Top" || it == "Middle" || it == "Below" }
+            run { val pv = optNum(x, "posV"); val sp = (n - 1) * x.n("pitch"); val hb = bp.h / 2
+                val top = when { x.s("refV") == "Top" && pv.isFinite() -> hb - pv; x.s("refV") == "Below" && pv.isFinite() -> -hb + pv + sp; x.s("refV") == "Middle" -> sp / 2 - (if (pv.isFinite()) pv else 0.0); else -> Double.NaN }
+                if (top.isFinite()) { y1 = top + x.n("e"); y0 = top - sp - x.n("e") } }
             val mainBeam = abs(j.m.a.z) < 0.9; val mr = j.m.r + 1
             if (x.t("full") || x.t("top")) { val yT = if (mainBeam && j.yTop.isFinite()) j.yTop - mr else bp.h / 2 - bp.tf - 5; val yB = if (mainBeam && j.yBot.isFinite()) j.yBot + mr else -(bp.h / 2 - bp.tf - 5)
                 y1 = max(y1, yT); if (x.t("full")) y0 = min(y0, yB) }
             val xs0 = if (x.t("through")) j.xFace - j.m.h else j.xFace
             val xe = if (x.t("colstiff") && !j.flange && !mainBeam && j.m.kind == "I") j.m.b / 2 - j.m.tw / 2 else 0.0; val xF2 = j.xFace + xe
-            val x1 = xF2 + x.n("gap") + 2 * e + (nC - 1) * x.n("pitchH"); val z0 = bp.tw / 2
+            val eH = optNum(x, "eh").let { if (it.isFinite()) it else e }   // v70: horizontal edge distance
+            val x1 = xF2 + x.n("gap") + 2 * eH + (nC - 1) * x.n("pitchH"); val z0 = bp.tw / 2
             val side = x.n("side"); val sides = if (side == 2.0 || x.t("two")) listOf(1, -1) else if (side == -1.0) listOf(-1) else listOf(1)
             val f = Joints.Frame3(j.e, j.x, j.y)
             val tabs = sides.map { sg -> if (x.t("shaped")) f.poly(listOf(doubleArrayOf(xs0, y0), doubleArrayOf(x1 - 15, y0), doubleArrayOf(x1, y0 + 15), doubleArrayOf(x1, y1 - 15), doubleArrayOf(x1 - 15, y1), doubleArrayOf(xs0, y1)), sg * z0, sg * (z0 + t)) else f.box(xs0, x1, y0, y1, sg * z0, sg * (z0 + t)) }
             val bl = ArrayList<D3>(); val yb0 = y1 - (if (x.t("full") || x.t("top")) max(x.n("e"), (y1 - y0) / 2 - (n - 1) * x.n("pitch") / 2) else x.n("e"))
-            for (jj in 0 until nC) for (i in 0 until n) bl += j.p(xF2 + x.n("gap") + e + jj * x.n("pitchH"), yb0 - i * x.n("pitch"), sides[0] * (z0 + t + 0.1))
-            val grip = sides.size * t + bp.tw + 2; val bb = x.group(bl, j.zb * (-sides[0].toDouble()), x.n("bolt"), grip)
+            for (jj in 0 until nC) for (i in 0 until n) bl += j.p(xF2 + x.n("gap") + eH + jj * x.n("pitchH"), yb0 - i * x.n("pitch"), sides[0] * (z0 + t + (if (tk) 0.0 else 0.1)))
+            val grip = sides.size * t + bp.tw + (if (tk) 0.0 else 2.0); var bax = j.zb * (-sides[0].toDouble())
+            // v70: Tekla's heads on the Y x X side (R12: 68 / 68), grip = the plate stack
+            if (tk && ((j.y cross j.x) dot bax) < 0) { for (k in bl.indices) bl[k] = bl[k].add(bax, grip); bax = -bax }
+            val bb = x.group(bl, bax, x.n("bolt"), grip)
             for (hc in bb.holes) x.cut(bmId, hc)
             for (m in j.cutEnd(xF2 + x.n("gap"))) x.cut(bmId, m)
             tabs.forEach { x.plate("SHEAR TAB", it, x.n("t"), minus = bb.holes) }
             for (sgn in listOf(1, -1)) { val fy0 = sgn * (bp.h / 2 - bp.tf - bp.r); val fy1 = sgn * bp.h / 2
                 if (if (sgn > 0) y1 > fy0 else y0 < fy0) for (sg in sides) x.cut(bmId, j.box(j.xFace - 1, x1 + 20, min(fy0, fy1) - 1, max(fy0, fy1) + 1, sg * (z0 - 0.5), sg * (bp.b / 2 + 5))) }
-            x.bolts(bb, bl.size, grip + 2 * x.n("bolt"))
+            x.bolts(bb, bl.size, if (tk) Math.ceil((sides.size * x.n("t") + bp.tw + 1.5 * x.n("bolt") + 2) / 5) * 5 else grip + 2 * x.n("bolt"))   // v70: Tekla's bolt length
             if (x.t("through")) x.cut(x.aId, j.box(xs0 - 1, j.xFace + 1, y0 - 1, y1 + 1, if (sides.size > 1) -z0 - t - 1 else z0 - 1, z0 + t + 1))
             x.weld("Shear tab to main part", x.n("a"), 2 * (y1 - y0) * sides.size, listOf(doubleArrayOf(j.xFace, y0, z0), doubleArrayOf(j.xFace, y1, z0), doubleArrayOf(j.xFace, y1, z0 + t), doubleArrayOf(j.xFace, y0, z0 + t)).map { j.p(it[0], it[1], it[2]) })
             if (x.t("tee")) x.plate("TEE FLANGE", f.box(j.xFace, j.xFace + 12, y0, y1, z0 + t / 2 - 60, z0 + t / 2 + 60), 12.0)

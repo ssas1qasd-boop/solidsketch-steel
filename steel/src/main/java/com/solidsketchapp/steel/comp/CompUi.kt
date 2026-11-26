@@ -203,8 +203,8 @@ private fun InputBox(d: CompDialog, pics: CompPics, i: CompDialog.Input, rev: In
     @Suppress("UNUSED_EXPRESSION") rev
     when (i.f.type) {
         "chk" -> TkCheck(Js.str(i.value) != "0") { i.value = Js.n(if (it) 1.0 else 0.0); bump() }
-        "sel" -> TkPicker(pics, i.f, i.value, { i.value = it; bump() }, modifier)
-        else -> TkText(d.text(i), { d.setText(i, it); bump() }, d.placeholder(i.f), i.f.type == "num", modifier)
+        "sel" -> TkPicker(pics, i.f, i.value, { i.value = it; bump() }, modifier.testTag("tk_${i.f.k}"))   // tag: the field key (emulator tests)
+        else -> TkText(d.text(i), { d.setText(i, it); bump() }, d.placeholder(i.f), i.f.type == "num", modifier.testTag("tk_${i.f.k}"))
     }
 }
 

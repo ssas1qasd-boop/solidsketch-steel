@@ -22,7 +22,7 @@ rm -f "$OUT/.stop"
 REC=$!
 
 START=$(date +%s)
-./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.notClass=com.solidsketchapp.steel.C04RecordingTest --stacktrace > "$OUT/connected.log" 2>&1
+./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.notClass=com.solidsketchapp.steel.C04RecordingTest,com.solidsketchapp.steel.C14RecordingTest --stacktrace > "$OUT/connected.log" 2>&1
 RC=$?
 echo "$(( $(date +%s) - START ))" > "$OUT/connected_seconds.txt"
 echo "$RC" > "$OUT/connected_rc.txt"
@@ -38,6 +38,13 @@ adb shell rm -f /sdcard/c04_rec.mp4 || true
 ./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.C04RecordingTest --stacktrace > "$OUT/c04_recording.log" 2>&1
 echo $? > "$OUT/c04_rc.txt"
 adb pull /sdcard/c04_rec.mp4 "$OUT/C04_recording.mp4" || true
+mkdir -p "$R1/c04_additional"; cp -r "$A/." "$R1/c04_additional/" 2>/dev/null || true
+# C14 recording pass (its own screenrecord), the same way
+adb shell rm -f /sdcard/c14_rec.mp4 || true
+./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.C14RecordingTest --stacktrace > "$OUT/c14_recording.log" 2>&1
+echo $? > "$OUT/c14_rc.txt"
+adb pull /sdcard/c14_rec.mp4 "$OUT/C14_recording.mp4" || true
+cp -rn "$R1/c04_additional/." "$A/" 2>/dev/null || true
 mkdir -p "$A"; cp -rn "$R1/additional/." "$A/" 2>/dev/null || true
 rm -rf app/build/reports/androidTests app/build/outputs/androidTest-results
 cp -r "$R1/reports" app/build/reports/androidTests 2>/dev/null || true; cp -r "$R1/results" app/build/outputs/androidTest-results 2>/dev/null || true

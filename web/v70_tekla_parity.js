@@ -150,3 +150,50 @@
       return stConnAdd70.apply(this, arguments);
     };
   }
+
+
+  // ---------- C14 · Shear plate (146): vertical position of the bolt group (owner 2026-11-26) ----------
+  // Tekla's 146 Bolts tab sets the bolt group's vertical position by a reference (Top / Middle / Below) and a dimension (video
+  // MrhM4X9opLo 14:50: "Top", frame-checked; docs/steel/PARITY.md "C14"). v69 always centres the group on the secondary's depth. v70
+  // (only when 'Vertical measurement' is set; old models and new ones with the default keep v69's centred group):
+  //   Top    = the top bolt row this far below the secondary's top
+  //   Below  = the bottom bolt row this far above the secondary's bottom
+  //   Middle = the group's centre this far below the secondary's middle (0 = centred)
+  // measured on the secondary's own section, not its coped zone (R12: the 68 joist tabs are 20 mm off if measured from the cope).
+  // The tab follows the rows (edge distance e above and below), as in v69. Also from Tekla's 146 Bolts tab: the horizontal edge distance
+  // (eh: bolts to the tab's far end and from the beam end; R12 35 with the vertical one 30) and, when a vertical measurement is set,
+  // Tekla's bolt length: stack + 1.5 d + 2, rounded up to 5 mm (R12: M16, 18 mm -> L45), the grip = the plate stack, and the bolt heads
+  // on the left looking along the secondary from the main part (J.Y x J.X; R12: 34 tabs on that side with heads on the tab, 34 on the
+  // other side with heads on the beam web).
+  ST_LBL.refV = ST_LBL.refV || 'Vertical measurement'; ST_LBL.posV = ST_LBL.posV || 'Vertical position';
+  { const bt = TKD.T146.tabs.find(t => t.name === 'Bolts'); if (bt && !bt.dims.some(f => f.k === 'posV')) {
+      bt.dims.push(TKF('posV', '1', { at: [8, 8], tip: 'Vertical position of the bolt group (from the reference)', dv: '' }));
+      bt.dims.push(TKF('eh', '5', { at: [64, 8], tip: 'Horizontal edge distance (bolts to the tab end; empty = the vertical one)', dv: '' }));
+      bt.groups[0][1].push(TKF('refV', 'Vertical measurement', { type: 'sel', dv: '', opts: [tkOpt('', 'Centred (v69)'), tkOpt('Top', 'Top', 'top'), tkOpt('Middle', 'Middle', 'mid'), tkOpt('Below', 'Below', 'bot')] })); } }
+    FAM.ST = X => {   // v69 L14939 with the v70 vertical position (marked)
+    const { U, q, A, cut, plate, bolts, weld } = X; const one = Bm => {
+      const J = stJoint(A, Bm), Bp = J.B, t = q.t * U, e = q.e * U; const nC = Math.max(1, q.cols | 0); const n0 = q.rows ? q.rows | 0 : Math.max(2, tkRows(Bp.h)); const yc = (J.yHi + J.yLo) / 2;
+      const room = J.yHi - J.yLo - 2 * (Bp.tf + (Bp.r || 10) + 5) * U; let n = n0; while (n > 1 && ((n - 1) * q.pitch + 2 * q.e) * U > room + 1e-9 && !q.full) n--;
+      let y1 = yc + ((n - 1) * q.pitch / 2 + q.e) * U, y0 = yc - ((n - 1) * q.pitch / 2 + q.e) * U;
+      { const pv = q.posV === '' || q.posV === undefined ? NaN : +q.posV, sp = (n - 1) * q.pitch * U;    // v70: Tekla's vertical position of the bolt group (Bolts tab)
+        const hb = Bp.h / 2 * U;   // from the secondary's own top / middle / bottom (not the coped zone J.yHi / J.yLo: R12, 68 tabs)
+        let top = NaN; if (q.refV === 'Top' && isFinite(pv)) top = hb - pv * U; else if (q.refV === 'Below' && isFinite(pv)) top = -hb + pv * U + sp; else if (q.refV === 'Middle') top = sp / 2 - (isFinite(pv) ? pv : 0) * U;
+        if (isFinite(top)) { y1 = top + q.e * U; y0 = top - sp - q.e * U; } }
+      const mainBeam = Math.abs(J.M.a.z) < 0.9; const mr = ((J.M.r || 0) + 1) * U; if (q.full || q.top) { const yT = mainBeam && isFinite(J.yTop) ? J.yTop - mr : (Bp.h / 2 - Bp.tf - 5) * U, yB = mainBeam && isFinite(J.yBot) ? J.yBot + mr : -(Bp.h / 2 - Bp.tf - 5) * U; if (q.top || q.full) y1 = Math.max(y1, yT); if (q.full) y0 = Math.min(y0, yB); }
+      const xs0 = q.through ? J.xFace - (J.M.h - J.M.tw * 0) * U : J.xFace; const xe = (q.colstiff && !J.flange && !mainBeam && J.M.p.kind === 'I') ? (J.M.b / 2 - J.M.tw / 2) * U : 0; const xF2 = J.xFace + xe; const eH = q.eh === '' || q.eh === undefined || !isFinite(+q.eh) ? e : +q.eh * U;   /* v70: horizontal edge distance (Tekla 146 Bolts tab) */ const x1 = xF2 + q.gap * U + 2 * eH + (nC - 1) * q.pitchH * U; const z0 = Bp.tw / 2 * U; const sides = q.side === 2 || q.two ? [1, -1] : q.side === -1 ? [-1] : [1];
+      const tabs = sides.map(sg => { const F = stFrame3(J.E, J.X, J.Y); return q.shaped ? F.poly([[xs0, y0], [x1 - 15 * U, y0], [x1, y0 + 15 * U], [x1, y1 - 15 * U], [x1 - 15 * U, y1], [xs0, y1]], sg * z0, sg * (z0 + t)) : F.box(xs0, x1, y0, y1, sg * z0, sg * (z0 + t)); });
+      const bl = []; const yb0 = y1 - (q.full || q.top ? Math.max(q.e, (y1 - y0) / U / 2 - (n - 1) * q.pitch / 2) : q.e) * U;
+      for (let j = 0; j < nC; j++) for (let i = 0; i < n; i++) bl.push(J.P(xF2 + q.gap * U + eH + j * q.pitchH * U, yb0 - i * q.pitch * U, sides[0] * (z0 + t + (q.refV ? 0 : 0.1 * U))));
+      const grip = sides.length * t + Bp.tw * U + (q.refV ? 0 : 2 * U); let bax = J.Zb.clone().multiplyScalar(-sides[0]);
+      if (q.refV && new THREE.Vector3().crossVectors(J.Y, J.X).dot(bax) < 0) { for (let k = 0; k < bl.length; k++) bl[k] = bl[k].clone().addScaledVector(bax, grip); bax.negate(); }   /* v70: Tekla's heads on the Y x X side (R12: 68 / 68), grip = the plate stack */
+      const BB = stBolts(bl, bax.toArray(), q.bolt, grip, U); let tb = tabs; for (const hc of BB.holes) { tb = tb.map(x => x.subtract(hc)); cut(Bm.id, hc); }
+      J.cutEnd(xF2 + q.gap * U, cut, Bm.id); tb.forEach(x => plate('SHEAR TAB', x, q.t)); for (const s of [1, -1]) { const fy0 = s * (Bp.h / 2 - Bp.tf - (Bp.r || 0)) * U, fy1 = s * Bp.h / 2 * U; if ((s > 0 ? y1 > fy0 : y0 < fy0)) for (const sg of sides) cut(Bm.id, J.box(J.xFace - 1 * U, x1 + 20 * U, Math.min(fy0, fy1) - 1 * U, Math.max(fy0, fy1) + 1 * U, sg * (z0 - 0.5 * U), sg * (Bp.b / 2 + 5) * U)); } bolts(BB, bl.length, q.refV ? Math.ceil((sides.length * q.t + Bp.tw + 1.5 * q.bolt + 2) / 5) * 5 : grip / U + 2 * q.bolt);   /* v70: Tekla's bolt length (stack + 1.5 d + 2, up to 5 mm; R12: M16 grip 18 -> L45, C04 M12 grip 8 -> L30) */
+      if (q.through) cut(A.id, J.box(xs0 - 1 * U, J.xFace + 1 * U, y0 - 1 * U, y1 + 1 * U, sides.length > 1 ? -z0 - t - 1 * U : z0 - 1 * U, z0 + t + 1 * U));
+      weld('Shear tab to main part', q.a, 2 * (y1 - y0) / U * sides.length, [[J.xFace, y0, z0], [J.xFace, y1, z0], [J.xFace, y1, z0 + t], [J.xFace, y0, z0 + t]].map(v => J.P(v[0], v[1], v[2]).toArray()));
+      if (q.tee) { const F = stFrame3(J.E, J.X, J.Y); plate('TEE FLANGE', F.box(J.xFace, J.xFace + 12 * U, y0, y1, z0 + t / 2 - 60 * U, z0 + t / 2 + 60 * U), 12); }
+      if (q.colstiff || q.stiff) { if (!mainBeam && J.flange) { const N = new THREE.Vector3().crossVectors(J.M.eh, J.M.es).normalize(); for (const yy of [Bp.h / 2 - Bp.tf / 2, -(Bp.h / 2 - Bp.tf / 2)]) stStiffPair(J.M, J.P(0, yy * U, 0).sub(J.M.c1).dot(N), Math.max(10, Bp.tf), 15 * U, [1, -1], plate); }
+        else if (!mainBeam && !J.flange) { const N = new THREE.Vector3().crossVectors(J.M.eh, J.M.es).normalize(); const sg = (Math.sign(J.X.dot(J.M.es)) || 1) * (q.colstiff ? 1 : -1); for (const yy of [Bp.h / 2 - Bp.tf / 2, -(Bp.h / 2 - Bp.tf / 2)]) stStiffPair(J.M, J.P(0, yy * U, 0).sub(J.M.c1).dot(N), Math.max(10, Bp.tf), 15 * U, [sg], plate); }
+        else if (mainBeam && J.M.p.kind === 'I') { const F = stFrame3(J.E, J.X, J.Y); const mh = (J.M.h / 2 - J.M.tf) * U; plate('STIFFENER', F.box(J.xFace - J.M.tw * U, J.xFace - J.M.tw * U - (J.M.b / 2 - J.M.tw / 2 - 5) * U, (isFinite(J.yBot) ? J.yBot : -mh) + mr, (isFinite(J.yTop) ? J.yTop : mh) - mr, z0, z0 + t), q.t); } }
+    };
+    one(X.B); if (X.B2) one(X.B2);
+  };

@@ -11,6 +11,7 @@ import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextReplacement
+import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.click
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -201,13 +202,14 @@ class C04RecordingTest {
             run { val f = java.io.File(act.cacheDir, "c04_workflow.ss"); act.runOnUiThread { act.testSave(f) }; waitFor("saved", 60_000) { f.exists() && f.length() > 0 && !act.testBusy }; pause(500)
                 storage.openOutputFile("c04/c04_workflow.ss").use { o -> f.inputStream().use { it.copyTo(o) } } }
             // the dialog of this cleat (its part selected), Parts -> Cleat location -> v69, Modify
-            val cl = named("CLEAT").first()
+            val tclId = mode().comps!!.conns().last { it.type == "Tcl" }.id   // the purlin cleat L's own cleat (the generator's plate cleats are named CLEAT too)
+            val cl = act.testDoc.bodyIds().first { (mode().stOf(it)?.get("conn") as? JsonPrimitive)?.contentOrNull == tclId && (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "CLEAT" }
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(cl)) }; pause(800)
             press("Components")
             waitFor("the cleat's dialog") { compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }
             pause(800); compose.onAllNodes(hasText("Parts") and hasClickAction())[0].performClick(); pause(1000)
-            compose.onAllNodes(hasText("Back") and hasClickAction())[0].performClick(); pause(900)
-            compose.onAllNodes(hasText("v69 (before v70)") and hasClickAction())[0].performClick(); pause(900); shot("dialog_v69")
+            compose.onAllNodesWithTag("tk_loc")[0].let { runCatching { it.performScrollTo() }; it.performClick() }; pause(900)
+            compose.onAllNodes(hasText("v69 (before v70)") and hasClickAction()).let { a -> a[a.fetchSemanticsNodes().size - 1] }.performClick(); pause(900); shot("dialog_v69")
             press("Modify"); pause(800)
             waitFor("Cleat location v69") { locOf() == "v69" }
             compose.onAllNodes(hasText("Cancel") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Cancel") and hasClickAction())[0].performClick() }

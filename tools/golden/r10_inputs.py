@@ -394,6 +394,17 @@ def main():
         H, _ = section_hb(st_); run = math.hypot(new[0] - far[0], new[1] - far[1]) or 1; th = math.atan((new[2] - far[2]) / run)
         return new[2] + H / math.cos(th) / 2
 
+    def sp_qh(p, pts, bst):
+        """C14 (R12): the horizontal edge distance (last bolt column to the tab's far end) and the gap that follows from it"""
+        a, eh, es = v69_eh(bst)
+        V, Hd = (p.X, p.Y) if abs(dot(p.X, eh)) >= abs(dot(p.Y, eh)) else (p.Y, p.X)
+        Pv = [add(add(mul(p.X, x), mul(p.Y, y)), mul(p.N, p.n0)) for x, y in p.poly]
+        hs = [dot(v, Hd) for v in Pv]; cols = sorted({round(dot(q3, Hd), 1) for q3 in pts})
+        c0 = p.centre(); near = min((bst['p1'], bst['p2']), key=lambda P: norm(sub(P, c0))); far = bst['p2'] if near is bst['p1'] else bst['p1']
+        sg = 1 if dot(sub(far, near), Hd) > 0 else -1             # along the beam, away from the main part
+        h0 = min(hs) if sg > 0 else -max(hs); h1 = max(hs) if sg > 0 else -min(hs); cs = sorted(c * sg for c in cols)
+        eH = h1 - cs[-1]; return OrderedDict(eh=r3(eH), gap=r3(cs[0] - h0 - eH))
+
     def sp_q(p, pts, d, bst):
         """Shear plate 146 settings (FAM.ST, L14939): bolt rows run along the secondary beam's depth (eh), columns along
         its axis; plate height = (rows - 1) pitch + 2 e, plate length = gap + 2 e + (cols - 1) pitchH; side = the side of
@@ -506,6 +517,10 @@ def main():
             elif s['name'] == 'Shear Plate':
                 q = sp_q(p, pts, d, members[other]['st'])
                 row = '14' if s['tprof'] == 'FLT10*130' and g == 'EB' else '12'
+                if row == '14' and MODEL == 'R12':   # C14 (PARITY.md): Tekla's Bolts tab 'Top' + the dimension from the joist's top to the top bolt row
+                    jt = max(max(byid[i]['shape']['vp'][2::3]) for i in members[other]['r10'])
+                    q['refV'] = 'Top'; q['posV'] = r3(jt - max(pp[2] for pp in pts))
+                    q.update(sp_qh(p, pts, members[other]['st']))
                 conn('T146', [own, other], q, row, [b['id']])
             elif s['name'] in ('PLATE', 'D') and s['tprof'] == 'FLT10*120':   # hanger under the rafter for the gable column top
                 rf, gc = (own, other) if members[own]['st']['name'] == 'RAFTER' else (other, own)

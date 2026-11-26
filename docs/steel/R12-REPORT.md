@@ -20,12 +20,12 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 | … given members | 16,361.46 kg | 16,287.79 kg |
 | … detail parts (R12) / component parts (v69) | 10,528.27 kg | 8,683.32 kg |
 
-Members: 836 placed (198 built-up equivalents, 638 R12 members as given): 380 INPUT EQUAL, SOLID DIFFERS, 456 MATCHED.
-- built-up equivalents: 42 matched of 198 (inputs equal R12 for all 198)
+Members: 836 placed (198 built-up equivalents, 638 R12 members as given): 346 INPUT EQUAL, SOLID DIFFERS, 490 MATCHED.
+- built-up equivalents: 76 matched of 198 (inputs equal R12 for all 198)
 - R12 members as given: 414 matched of 638 (inputs equal R12 for all 638)
 
-R12 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3713: 208 AS BOLT, 751 MATCHED, 1517 MISSING, 221 NEAR, 1016 ROUGH.
-Bolts on the same line (same diameter, R12 bolt within 0.1 mm of a v69 bolt axis): 1,794 of 4,548 R12 bolts (1,056 of them also with the same length and grade); whole groups: 539 of 1288. Per diameter: M12 1,056, M16 162, M20 576.
+R12 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3713: 208 AS BOLT, 819 MATCHED, 1517 MISSING, 221 NEAR, 948 ROUGH.
+Bolts on the same line (same diameter, R12 bolt within 0.1 mm of a v69 bolt axis): 2,066 of 4,548 R12 bolts (1,328 of them also with the same length and grade); whole groups: 607 of 1288. Per diameter: M12 1,056, M16 434, M20 576.
 
 Status words: MATCHED = equal within the tolerances (0.1 mm points and boxes, volume within 2 % for plates); INPUT EQUAL, SOLID DIFFERS = the member's inputs equal R12 but its solid does not (built-ups: one BI solid against three Tekla plates with their end cuts; given members: v69's component cuts against R12's TKCUT cuts); NEAR = box within 5 mm; ROUGH = box within 50 mm; MISSING = no v69 part within 50 mm; AS BOLT = an R12 anchor rod member that v69 makes as a bolt of a bolt group.
 
@@ -58,7 +58,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | 11 | Joining plates 14: monitor apex | 12 | 24 / 48 | 24 | 24 | 0 / 0 | 0 | reproduced |
 | 12 | Shear plate 146: column -> beam | 22 | 22 / 144 | 28 | 22 | 0 / 0 | 6 | partly |
 | 13 | 144: mezzanine girder to column | 0 | 0 / 0 | 84 | 0 | 0 / 0 | 84 | not |
-| 14 | 146: joist to girder | 68 | 68 / 272 | 68 | 0 | 0 / 68 | 0 | not |
+| 14 | 146: joist to girder | 68 | 68 / 272 | 68 | 68 | 0 / 0 | 0 | reproduced |
 | 15 | Cap 39: mezzanine column -> girder | 8 | 2 / 40 | 8 | 2 | 0 / 0 | 6 | partly |
 | 16 | Base plate 1004: stair landing post | 4 | 8 / 16 | 24 | 4 | 4 / 0 (+16 as bolts) | 0 | partly |
 | 17 | 146 hanger: gable column top | 14 | 14 / 56 | 16 | 0 | 0 / 14 | 2 | not |
@@ -74,7 +74,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | builtup EB BEAM BI320-8-120-10 | 5 | 3 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | 20.0 | 1.000–1.009 | 1,435.7 → 1,442.7 |
 | builtup EB BEAM BI324-8-250-12 | 7 | 7 INPUT EQUAL, SOLID DIFFERS | 10.0 | 1.015–1.015 | 2,501.7 → 2,548.8 |
 | builtup EGC COLUMN BI220-6-200-10 | 16 | 14 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | 23.8 | 0.997–1.000 | 5,090.2 → 5,103.4 |
-| builtup MB BEAM BI220-8-140-10 | 34 | 34 INPUT EQUAL, SOLID DIFFERS | 10.0 | 0.997–0.997 | 6,448.8 → 6,484.8 |
+| builtup MB BEAM BI220-8-140-10 | 34 | 34 MATCHED | 0.0 | 0.999–0.999 | 6,448.8 → 6,484.8 |
 | builtup MBC COLUMN BI320-8-150-10 | 2 | 2 MATCHED | 0.0 | 1.000–1.000 | 289.4 → 291.1 |
 | builtup PC COLUMN BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | 1.8 | 1.026–1.031 | 391.2 → 409.2 |
 | builtup PR RAFTER BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | 36.8 | 0.997–1.018 | 448.8 → 464.4 |
@@ -184,7 +184,6 @@ Field differences on members (count of members): none (every placed member has R
 | 13 | Top NS / EGC Top NS FLT10*90 | 2 | 2 MISSING | — | 2.7 → 0.0 | as above | as above |
 | 13 | Top Stiff. / EB Top Stiff. FLT10*50 | 6 | 6 MISSING | — | 1.2 → 0.0 | stiffeners FLT10*50 at the girder end plate / column cap: not made by v69 144 / 39 | beam-side stiffeners (Tekla 144 Stiffeners tab) |
 | 13 | Top Stiff. / MBC Top Stiff. FLT10*50 | 2 | 2 MISSING | — | 0.4 → 0.0 | as above | as above |
-| 14 | joist shear plate / EB Shear Plate FLT10*130 | 68 | 68 ROUGH | 68 at 7.8 mm | 104.0 → 98.6 | same plate size and plan position; v69 centres the tab on the joist web depth, R12's tab is 7.8 mm higher | vertical position of the tab (Tekla 146 plate position) |
 | 15 | cap plate / EB End Plate  PL16*120 | 6 | 6 MISSING | — | 38.9 → 0.0 |  |  |
 | 16 | Anchor Bolt / 1002 Anchor Bolt ROD16 | 16 | 16 AS BOLT | — | 6.7 → 0.0 | v69 base plates make the anchors as one bolt group (kind bolts: M20 L677 / M16 L284, grade 4.6) on the same axes; R12 has ROD20 / ROD16 members | base plate option "anchor rods as parts" (ROD members + nut / washer parts in the assembly) |
 | 16 | GROUT / 7 GROUT PL30*230 | 4 | 4 NEAR | 4 at 0.0 mm | 0.0 → 55.4 | R12's grout is 130 to 150 mm off the base plate centre (one side flush with the plate) and its own assembly; v69 centres it with the margin gm on every side (same-size part 130 mm away) | grout position / margins per side |
@@ -200,7 +199,6 @@ Field differences on members (count of members): none (every placed member has R
 | builtup | EB BI320-8-120-10 | 5 | 3 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | — | 1,435.7 → 1,442.7 | Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent | built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part |
 | builtup | EB BI324-8-250-12 | 7 | 7 INPUT EQUAL, SOLID DIFFERS | — | 2,501.7 → 2,548.8 | as above | as above |
 | builtup | EGC BI220-6-200-10 | 16 | 14 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | — | 5,090.2 → 5,103.4 | as above | as above |
-| builtup | MB BI220-8-140-10 | 34 | 34 INPUT EQUAL, SOLID DIFFERS | — | 6,448.8 → 6,484.8 | as above | as above |
 | builtup | PC BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | — | 391.2 → 409.2 | as above | as above |
 | builtup | PR BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | — | 448.8 → 464.4 | as above | as above |
 | builtup | R BI220-8-150-10 | 48 | 48 INPUT EQUAL, SOLID DIFFERS | — | 11,405.0 → 11,484.2 | as above | as above |
@@ -220,9 +218,9 @@ END CAP FLT5*100: 294, END CAP FLT5*120: 96, FIN PLATE PL12: 78, FOOT PLATE PL12
 | M16 4.6 L194 | 0 | 8 |
 | M16 4.6 L250 | 0 | 16 |
 | M16 8.8 L40 | 104 | 0 |
-| M16 8.8 L45 | 768 | 0 |
+| M16 8.8 L45 | 768 | 272 |
 | M16 8.8 L50 | 1952 | 96 |
-| M16 8.8 L52 | 0 | 400 |
+| M16 8.8 L52 | 0 | 128 |
 | M16 8.8 L54 | 0 | 162 |
 | M16 8.8 L56 | 0 | 2064 |
 | M16 8.8 L60 | 0 | 16 |

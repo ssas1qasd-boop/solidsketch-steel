@@ -97,14 +97,59 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
-## C14 · Shear plate (146), joist ← girder (in progress, owner 2026-11-25)
-**Status: reference research done; fix NOT started (no usable video yet: owner rule "do not start the fix without the video").**
-- **Help page** conn_146_help (text): Bolts tab, dimension 5 = vertical bolt group position, measured from the bolt group to the edge of the secondary part (default, "sloped dimension"), and dimension 6 chooses **Top** (upper edge of the secondary to the uppermost bolt) / **Middle** (bolt centre line to the secondary's centre line) / **Below** (lower edge to the lowest bolt). The tab follows the bolt group + edge distances.
-- **R11 (68 joist tabs FLT10*130, mark 4515, girders EB4001-EB4005, joists MB400x 220 deep):** all 68 the same: joist top − tab top **47.2**, tab bottom − joist bottom **42.8**, joist top − upper bolt row **77.2** (bolt centre 2.2 below the joist centre), girder top level with the joist top. v69 puts the tab 7.8 lower (centre 10 below the joist centre).
-- **NC:** 4515 (tab) 150 × 130, holes Ø18 at x 35 / 95, y 30 / 100 (edge 30, pitch 70); 4520 (joist web FLT8*200) holes at **67.2 / 137.2** from the web's top edge (+10 flange = 77.2), and a 10 × 46 notch at the top corners of both ends; MB4001: the top flange 4519 is 46 shorter at each end (cope 20 deep × 46).
-- **Drawings:** MB4001 (joist) dimensions the holes 67 / 70 from the coped edge; EB4002 (girder) sections B-B / C-C / D-D: bolt rows 70 apart, **163** from the lower row to the girder's bottom flange (R11: 162.8).
-- **Not decided yet:** every joint has the same girder, joist and cope, so "Top 77.2", "Middle −2.2" and "Below 72.8" all reproduce R11 exactly. Tekla's actual setting sits in `Tekla Model.db1` (gzip of Tekla's binary model; the part names are readable, the component attributes are not as text). The video is needed to see the dialog's default / the setting.
-- **Video:** the YouTube player is blocked (reCAPTCHA); thumbnails of 5 videos saved in `tests/steel/videos/C14/` are 480 × 360: the 146 dialog and tabs are visible but the Bolts tab values cannot be read. Owner asked for the .mp4.
+## C14 · Shear plate (146), joist ← girder (reverse-engineered on R12, owner 2026-11-26)
+
+### Starting settings: the video (reference order 3)
+- Video: https://www.youtube.com/watch?v=MrhM4X9opLo (imperial units). Evidence is in `tests/steel/videos/C14/`.
+- Gemini gives the dialog's timestamps: Picture 1:18, Plates 2:21, Notch 9:37, Bolts 13:13–15:48.
+- Apify frames (`emttn/frameskim`, 12:50–16:10) show the Bolts tab: the bolt group's vertical position is a dimension with a reference list set to **Top**.
+- Cross-check: frame 14:50 reads 3"1/2 with Top. Gemini gave 1 1/2", so its value is not used; the reference "Top" agrees in both.
+
+### Target: R12 (68 joist tabs FLT10*130, mark 4515, on 59 girders 430 deep and 9 girders 320 deep)
+**Fixed relative to the joist** (the same on both girder depths, so any rule measured from the girder is ruled out):
+- top bolt row 77.2 below the joist top;
+- bottom row 72.8 above the joist bottom;
+- rows 70 apart;
+- tab 130 tall, top 47.2 below the joist top (vertical edge 30).
+
+**Along the joist:**
+- the joist end is 20 from the girder face;
+- the bolt columns are 35 from the joist end and 60 apart;
+- the tab runs 35 beyond the last column (horizontal edge 35);
+- the tab is 150 long from the girder face.
+
+**Bolts:**
+- M16 8.8 L45, grip 18 (tab 10 + joist web 8);
+- the length follows ⌈(grip + 1.5·d + 2) / 5⌉ × 5, the same rule as C04 (M12, 8 → 30);
+- the heads are on the left looking along the joist from the girder: on the tab for 34 tabs, on the joist web for the other 34.
+
+**What R12 cannot decide:** every joist has the same depth (220), so "Top 77.2" and "Middle, 2.2 below the centre" both reproduce R12. The video's setting, Top, is used.
+
+### Change, in web v70 (section "C14") and the app (`Fam.st`)
+- **146 Bolts tab:**
+  - 'Vertical measurement': Centred (v69, the default) / Top / Middle / Below;
+  - 'Vertical position' (dimension 1);
+  - 'Horizontal edge distance' (dimension 5).
+- **Where they are measured:** on the secondary's own section, not its coped zone. Measured from the cope, all 68 tabs were 20 mm off.
+- **When a vertical measurement is set:** the grip is the plate stack, Tekla's bolt length applies, and the heads go on the Y × X side.
+- **Old models and the default:** they keep v69's centred group.
+
+### Search result: the R12 inputs
+Row 14 now has refV Top, posV 77.2, e 30, eh 35, gap 20, M16, 2 × 2 at 70 / 60.
+
+| Check | Result |
+|---|---|
+| Web rebuild vs R12 (`docs/steel/R12-REPORT.md`) | 68 / 68 tabs, 272 / 272 bolts (point, axis, length, grade) |
+| App `R12C14Test` | the same, within 0.1 mm |
+| Member bodies within 300 mm of each tab (`tools/golden/c14_check.py`, `R12C14Test`) | joists 68 / 68; girders 66 / 68 |
+| Other sizes (`tools/golden/c14_cases.js`): R12's built-up pair, IPE450 + IPE240, HEA300 + IPE300 (joist 40 below) | top bolt 77.2 below the joist top, tab 47.2–177.2, L45, 0 rule-B failures; app = web on these and on Middle / Below cases (`CompGoldenTest`, 83 cases) |
+
+The two girders that differ are girder ends cut by the column's own shear plate (row 12), which is not built in the C14-only run.
+
+**Emulator:** `C14RecordingTest` goes through the real dialog (Picture, Plates, Bolts tabs), picks the girder and joist, orbits, takes orthographic stills, saves the model, then changes the reference to Middle and runs Modify.
+
+### Status
+Waiting for the owner's phone OK; not marked.
 
 ## C04 · Purlin cleat (Tcl, Tekla "Cold rolled overlap (1)")
 
