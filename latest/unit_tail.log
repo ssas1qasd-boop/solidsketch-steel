@@ -122,28 +122,44 @@ This will become an error in Kotlin 2.1.
 > Task :core-io:processDebugUnitTestJavaRes
 > Task :steel:compileDebugKotlin
 > Task :core-io:testDebugUnitTest
+> Task :steel:compileDebugJavaWithJavac NO-SOURCE
+> Task :steel:bundleLibCompileToJarDebug
 > Task :core-view:compileDebugUnitTestKotlin
+> Task :steel:bundleLibRuntimeToJarDebug
+> Task :steel:processDebugJavaRes
 > Task :core-view:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :core-view:processDebugUnitTestJavaRes
 > Task :core-view:testDebugUnitTest
-> Task :steel:compileDebugJavaWithJavac NO-SOURCE
-> Task :steel:bundleLibCompileToJarDebug
-> Task :steel:bundleLibRuntimeToJarDebug
-> Task :steel:processDebugJavaRes
 > Task :steel:compileDebugUnitTestKotlin
 > Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :steel:processDebugUnitTestJavaRes
 > Task :app:compileDebugKotlin
+
 > Task :steel:testDebugUnitTest
+
+S7CatalogTest > catalogHasEveryComponent FAILED
+    java.lang.AssertionError at S7CatalogTest.kt:28
+
 > Task :app:compileDebugJavaWithJavac
 > Task :app:bundleDebugClassesToRuntimeJar
 > Task :app:bundleDebugClassesToCompileJar
-> Task :app:processDebugJavaRes
-> Task :app:compileDebugUnitTestKotlin
-> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
-> Task :app:processDebugUnitTestJavaRes
-> Task :app:testDebugUnitTest
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795688105887.json
 
-BUILD SUCCESSFUL in 2m 6s
-93 actionable tasks: 93 executed
+> Task :steel:testDebugUnitTest
+
+25 tests completed, 1 failed
+
+> Task :steel:testDebugUnitTest FAILED
+> Task :app:compileDebugUnitTestKotlin
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795697004119.json
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':steel:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/runner/work/solidsketch-steel/solidsketch-steel/steel/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 1m 46s
+90 actionable tasks: 90 executed
