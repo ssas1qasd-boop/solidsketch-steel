@@ -276,3 +276,53 @@
     one(X.B, 0); if (X.B2) one(X.B2, q.shared ? (q.tp + (q.gap || 0)) * U : 0);
   };
   FAM.EP = X => { const r = FAM_EP70(X); const hpc = X.q.hpc; if ((hpc === 'auto' || hpc === 'both') && r !== null) for (const Bm of [X.B, X.B2].filter(Boolean)) hp70(X, Bm); return r; };
+  //
+  // ---------- C02h · Eaves haunch (102), haunch plates only (R12 eave R3xxx x 48; docs/steel/PARITY.md "C02h") ----------
+  // In the owner's Tekla model the eave haunch is exploded (plain plates, no component), so no dialog can be proven by Tekla itself. Tekla's
+  // Eaves haunch (102) help (conn_102_help_eaves_haunch) defines the haunch by its *Haunch length*: "horizontal distance from the centre
+  // line of the column to the intersection between the haunch flange and the bottom flange of the rafter", and Picture dimension 5:
+  // "vertical dimension of the haunch plate from the rafter flange"; parts *Vert haunch pl* (t) and *Horiz haunch pl* (t, width). Those
+  // settings reproduce all 48 R12 eave haunches (length 2,000 for both column sizes, BI320: 1,820 from the end plate, BI220: 1,870;
+  // depth 82.91 at the end plate; web t 8; flange 10 x 150, ends cut plumb). 102's end plate, stiffeners, cap plate and bolts are made by
+  // End plate (144) at the same eave (C02), so this component makes only the haunch: it starts at the back face of the end plate of the
+  // 144 joining the same column and rafter (column face + gap + shim / front + plate), or at the column face when there is none.
+  // Welds as R12's (a 6): web to rafter flange and to end plate both sides, flange to web all round, flange to end plate (2 x top
+  // outstand + underside), flange end to rafter flange both sides.
+  CONN.T102h = { label: 'Eaves haunch (102) · haunch', tekla: 'Eaves haunch (102)', code: 'C02h', parts: ['main part (column)', 'secondary part (rafter)'], fam: 'EH', grp: 'Haunch and moment', gen: false, ro: [],
+    def: { hlen: 2000, hdep: 82.91, tw: 8, tf: 10, bf: 150, a: 6, nweb: 'Web', nfl: 'Bottom flange', cls: 1 } };
+  ST_LBL.hlen = 'Haunch length'; ST_LBL.hdep = 'Haunch depth (5)';
+  { const g = ST_CATALOG.find(x => x.g === 'Haunch and moment'); if (g && !g.items.includes('T102h')) g.items.splice(Math.max(0, g.items.indexOf('T102') + 1), 0, 'T102h'); }
+  TKD.T102h = { help: 'conn_102_help_eaves_haunch', tabs: [
+    { name: 'Picture', pic: 'apex', dims: [TKF('hdep', '5', { at: [77, 64], tip: 'Vertical dimension of the haunch plate from the rafter flange (at the end plate)' }), TKF('hlen', 'Haunch length', { at: [72, 92], tip: 'Horizontal distance from the centre line of the column to the intersection between the haunch flange and the bottom flange of the rafter' })] },
+    { name: 'Parts', parts: [['Vert haunch pl', 'Web', { t: 'tw' }], ['Horiz haunch pl', 'Bottom flange', { t: 'tf', b: 'bf' }]],
+      groups: [['Made by End plate (144) at this eave', [TKF('_ep', 'End plate', { off: 'End plate (144): plate and bolts' }), TKF('_cs', 'Comp stiffener', { off: 'Not used by this component in SolidSketch' }), TKF('_ms', 'Morris stiffener', { off: 'Not used by this component in SolidSketch' }), TKF('_rs', 'Rib stiffeners', { off: 'Not used by this component in SolidSketch' }), TKF('_cp', 'Cap plate', { off: 'Not used by this component in SolidSketch' })]]] },
+    { name: 'Parameters', groups: [['Haunch length and rib stiffeners', [TKF('hlen', 'Haunch length')]]] },
+    tkGeneralTab(), tkOff('Design', ['Design type']), tkOff('Analysis', ['Analysis']), tkWeldsTab()] };
+  FAM.EH = X => {
+    const { U, q, A, B, plate, weld } = X; if (!B) return null;
+    const MC = stMF(A.st), M = stMF(B.st); const Z = new THREE.Vector3(0, 0, 1);
+    let hd = M.a.clone().addScaledVector(Z, -M.a.dot(Z)); if (hd.length() < 1e-6) return null; hd.normalize();
+    const col = MC.c1.clone(); const far = M.c1.clone().sub(col).dot(hd) > M.c2.clone().sub(col).dot(hd) ? M.c1 : M.c2; if (far.clone().sub(col).dot(hd) < 0) hd.negate();
+    // the rafter's underside on its web plane: the section's lowest point along the plumb-ish direction square to the axis
+    const dz = Z.clone().addScaledVector(M.a, -M.a.dot(Z)).normalize(); const sec = stSection(M.p || stProf(B.st.prof)); let lo = Infinity;
+    for (const p of (sec ? sec.outer : [[0, -M.h / 2]])) lo = Math.min(lo, M.es.dot(dz) * p[0] + M.eh.dot(dz) * p[1]);
+    const U0 = M.c1.clone().addScaledVector(dz, lo * U); const ad = M.a.dot(hd) || 1e-9;
+    const under = x => U0.clone().addScaledVector(M.a, (x - U0.clone().sub(col).dot(hd)) / ad);   // underside point at horizontal distance x from the column axis
+    // start: the back face of the 144 end plate at this joint, else the column face
+    const half = Math.abs(MC.eh.dot(hd)) * MC.h / 2 + Math.abs(MC.es.dot(hd)) * MC.b / 2; let xs = half * U;
+    const ep = (S.stConns || []).find(k => k !== X.c && k.type === 'T144' && k.parts && k.parts[0] === A.id && k.parts[1] === B.id);
+    if (ep) { const e = Object.assign({}, CONN.T144.def, ep.q); xs += ((+e.gap || 0) + (+e.shim || 0) + (e.front || e.double || e.stub || e.stiffT ? Math.max(+e.tp, 10) : 0) + (+e.tp || 0)) * U; }
+    const L = q.hlen * U, D = q.hdep * U; if (!(L > xs + 1 * U) || !(D > 0)) return null;
+    const N0 = under(xs), Fp = under(L), N1 = N0.clone().addScaledVector(Z, -D);
+    const O = col.clone().addScaledVector(Z, -col.dot(Z)); const Y = new THREE.Vector3().crossVectors(hd, Z).normalize();
+    const zc = M.c1.clone().sub(O).dot(Y);   // the web plane
+    const F2 = stFrame3(O.clone().addScaledVector(Y, zc), hd, Z); const p2 = P => [P.clone().sub(O).dot(hd), P.dot(Z)];
+    const a0 = p2(N0), a1 = p2(Fp), a2 = p2(N1); const tw = q.tw * U, tf = q.tf * U, bf = q.bf * U;
+    plate(q.nweb || 'Web', F2.poly([a0, a1, a2], -tw / 2, tw / 2), q.tw, 'PL' + q.tw);
+    const m = (a1[1] - a2[1]) / (a1[0] - a2[0]), tv = tf * Math.sqrt(1 + m * m);
+    plate(q.nfl || 'Bottom flange', F2.poly([a2, a1, [a1[0], a1[1] - tv], [a2[0], a2[1] - tv]], -bf / 2, bf / 2), q.tf, 'PL' + q.tf);
+    const lw = Math.hypot(a1[0] - a0[0], a1[1] - a0[1]) / U, lf = Math.hypot(a1[0] - a2[0], a1[1] - a2[1]) / U;
+    weld('Haunch web to rafter flange', q.a, 2 * lw); weld('Haunch web to end plate', q.a, 2 * D / U); weld('Haunch flange to web (around)', q.a, 2 * lf + 2 * q.tw);
+    weld('Haunch flange to end plate', q.a, q.bf + (q.bf - q.tw)); weld('Haunch flange to rafter flange', q.a, 2 * q.bf);
+  };
+  { const own70 = stOwner; stOwner = function (c, name, ix) { const CN = CONN[c.type]; if (CN && CN.fam === 'EH') return c.parts[1]; return own70(c, name, ix); }; }

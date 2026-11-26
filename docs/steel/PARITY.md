@@ -97,6 +97,62 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C02h · Eaves haunch (102), haunch plates, at each eave with End plate 144 (owner 2026-11-26)
+
+### References
+- **The owner:** the eave haunch is exploded in Tekla (plain plates, no component symbol). Tekla itself cannot say which component made it, so R12's geometry is the truth.
+- **Tekla's Eaves haunch (102) help** (`conn_102_help_eaves_haunch`):
+  - **Haunch length** (Parameters tab): "horizontal distance from the center line of the column to the intersection between the haunch flange and the bottom flange of the rafter".
+  - **Picture dimension 5:** "vertical dimension of the haunch plate from the rafter flange".
+  - **Parts:** Vert haunch pl (t); Horiz haunch pl (t, width).
+  - 102 also makes the end plate, compression / Morris / rib stiffeners, cap plate and bolts; at these eaves those come from End plate 144 (C02).
+- **Haunch (40)** (`conn_40_help`) was read too. It is not needed: 102's haunch settings already reproduce R12 (method step 1 prefers the first Tekla component that fits).
+- **Videos:** the two eave videos (2FK1f5_Nzj4, MjAJSPlILsY) could not be read (Gemini dropped the connection or answered 503, YouTube blocked Apify). This is noted, not hidden.
+- **R12, all 48 eaves** (24 at the BI320 frame columns, 24 at the BI220 gable-end columns):
+  - the web's far corner is **2,000 from the column axis** in both cases (1,820 / 1,870 from the end plate);
+  - the web's plumb depth at the end plate is 82.926 (BI320) / 82.900 (BI220): **one setting, 82.91**, reproduces both within 0.02;
+  - the web is t 8, a triangle under the rafter's underside;
+  - the flange is 10 × 150 along the web's lower edge, with plumb ends at the end plate and at the far corner;
+  - welds (a 6): web to rafter flange, both sides, 1,866.4; web to end plate, both sides, 82.9; flange to web, all round, 3,789.1; flange to end plate, 2 × 71 on top and 150 underneath; flange end to rafter flange, both sides, 150;
+  - no cut of the rafter.
+
+### Input fix found on the way (all R12 built-up members)
+`r10_inputs.py` read each plate's frame from Tekla's NC data (`ncF`), whose directions are rounded to 3 decimals (0.975, −0.222). A 6.3 m rafter's axis was therefore tilted 0.00033 rad against its own flanges (the "webGap −1.04"), so its underside at the eave was 1.07 mm low.
+
+R12 frames now come from the plate outline (exact plane, and the outline edge along ncF's X). Every built-up web now sits on its flanges (webGap 0), and the rafter's underside at the eave equals Tekla's (7,326.68). No R12-REPORT row lost a match, and app C04 / C14 / C09 stay 528 / 528, 68 / 68 and 72 / 72.
+
+### Change, in web v70 (section "C02h") and the app (`FamEH`)
+- **New catalog component:** T102h "Eaves haunch (102) · haunch", code C02h, group Haunch and moment. Main part = column, secondary = rafter.
+- **Dialog (Tekla 102's names):**
+  - Picture: 5 (depth) and Haunch length;
+  - Parts: Vert haunch pl t, Horiz haunch pl t and width. 102's end plate and stiffeners are listed as made by End plate 144 / not used;
+  - Parameters: Haunch length;
+  - General, Welds.
+- **Where the haunch starts:** at the back face of the End plate (144) joining the same column and rafter (column face + gap + shim / front + plate), else at the column face.
+- **Parts:** web triangle (rafter underside at the start, the far corner on the underside at the haunch length, depth plumb below the start); flange under its lower edge with plumb ends. Parts belong to the rafter's assembly. Welds as R12.
+
+| Check | Result |
+|---|---|
+| Web rebuild vs R12 (`docs/steel/R12-REPORT.md` row 2) | 144 / 144 MATCHED: 48 end plates, 48 haunch webs, 48 haunch flanges (worst box 0.016 mm); 384 / 384 bolts |
+| App `R12C09Test` (row "2h") | 96 / 96 haunch parts: box within 0.1 mm and the same solid (symmetric difference ≤ 0.1 mm × its surface) |
+| Other sizes and slopes (`tools/golden/cases/t102h.js`) | R12's eave; HEA300 / IPE360 at 10° (length 1,500, depth 200, flange 12 × 170); HEA240 / IPE300 at 15° with tp 25; IPE400 / IPE330 at 5° with no end plate: 0 rule-B failures each (`c09_cases.js` + `geom_checks.py`); app = web on all (`S7T144Test`, 13 cases) |
+| Weights (`compare_v69.json`, v70 weight rule) | 48 webs 230.64 kg (Tekla st.tkW 230.64); 48 flanges 1,080.72 kg (Tekla 1,080.72): equal |
+
+### Status
+Waiting for the emulator run and the owner's phone OK; not marked.
+
+## Exploded connections in R12 (no component in Tekla, so the dialog cannot be proven by Tekla)
+Tekla's IFC carries no component information. Which connections were components in the owner's model, and which were exploded, cannot be read from R12. Known so far:
+
+| Connection | Status in Tekla | Evidence | Consequence |
+|---|---|---|---|
+| C02h eave haunch (row 2: Web FLT8*80 + Bottom flange FLT10*150, 48 + 48) | **exploded** | the owner, 2026-11-26 | Dialog from Tekla 102's definitions, values from R12 geometry only |
+| Apex haunch (row 3: Web FLT8*130 + Bottom flange FLT10*150 + End Plate FLT20*400 + Stiff. FLT10*60) | **likely exploded** (to confirm) | same naming as the built-up rafter's own plates (Web / Bottom flange) and the eave haunch, in the rafter's assembly | as C02h |
+| Built-up members (BI columns, rafters, beams, monitor posts: Web / Top flange / Bottom flange plates) | **likely exploded** (to confirm) | plain FLT / PL plates named Web / Top flange / Bottom flange, no profile | modelled as one BI member each |
+| C09 monitor post haunch plates (HAUNCH_PLATE) | likely a component (144) | Tekla 144's default part name style (HAUNCH_PLATE) | 144 Haunch tab |
+
+The owner can see the component symbols in Tekla. Rows marked "to confirm" wait for that.
+
 ## C09 · End plate (144) Haunch tab at the monitor post, and C02 · 144 at the eave (owner 2026-11-26)
 
 ### References
@@ -108,8 +164,8 @@ The first version of the standing rule (send 2–3 video links and wait for the 
   - outer edge along the post; top edge square to the post at **h = 60** above the lower bottom corner;
   - outer top corner **chamfered 15 × 15** (line); inner corner (flange / end plate weld) **cut 15 × 15**.
 
-### What Tekla's 144 Haunch tab does not make: C02's tapered haunch
-R12's eave haunch (48 × Web FLT8*80 + 48 × Bottom flange FLT10*150, rafter assembly) is a **tapered haunch under the rafter**: the web is a triangle 1,820 or 1,870 horizontal × 82.9 at the end plate (its far end is 2,000 from the column's axis in both cases), and the flange runs along its lower edge at 15.2–15.3°. Tekla's 144 Haunch tab makes only the haunch plates above; it has no length, depth or flange fields. These parts are named like the rafter's own plates and like the apex haunch (row 3, Apex haunch 106). They match Tekla's **Eaves haunch (102)**, the eave twin of 106 (v69 catalog: fam HA, kind knee), or Haunch (40). Under the reference order (Tekla first), C02's haunch is **not** added to 144. **Owner decision needed** (see the delivery message). 144's own part of C02 (end plate, bolts) is reproduced.
+### C02's tapered eave haunch is not a 144 feature: it is C02h (below)
+Tekla's 144 Haunch tab makes only the haunch plates above. R12's eave haunch (48 × Web FLT8*80 + 48 × Bottom flange FLT10*150) is a tapered haunch under the rafter. In the owner's Tekla model it is **exploded** (plain plates, no component symbol; owner 2026-11-26), so it is the separate component C02h.
 
 ### Change, in web v70 (section "C09") and the app (`Fam.ep`, `Fam.haunchPlates`, `Fam.tkBoltLen`)
 - **144 Haunch tab** with Tekla's fields: Top plate / Bottom plate t, b, h (part name HAUNCH_PLATE); chamfers 1–4 and chamfer type; Haunch plate creation.

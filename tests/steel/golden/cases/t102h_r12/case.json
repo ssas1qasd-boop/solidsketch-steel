@@ -1,0 +1,93 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  },
+  {
+   "id": 2,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "bdir": 2,
+    "blrule": "tekla",
+    "bolt": 20,
+    "cols": 2,
+    "e": 50.045,
+    "ext": 11.056,
+    "extb": 103.313,
+    "gap": 0,
+    "gauge": 70,
+    "pitches": "70 70 80",
+    "rows": 4,
+    "side": 40,
+    "tp": 20
+   }
+  ],
+  [
+   "T102h",
+   [
+    0,
+    1
+   ],
+   {
+    "bf": 150,
+    "hdep": 82.91,
+    "hlen": 2000,
+    "tf": 10,
+    "tw": 8
+   }
+  ]
+ ],
+ "description": "R12 eave R3023 / C2017: BI320 column, BI220 rafter at 12.8 deg, End plate 144 (R12 settings) + Eaves haunch (102) haunch: length 2000, depth 82.91, web 8, flange 10 x 150.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     52838,
+     22355,
+     230
+    ],
+    "p2": [
+     52838,
+     22355,
+     7547.745
+    ],
+    "plane": "Middle",
+    "prof": "BI320-8-150-10",
+    "rot": "Below"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     52682.387,
+     22355,
+     7433.94
+    ],
+    "p2": [
+     46290.5,
+     22355,
+     8887.194
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  }
+ ],
+ "name": "t102h_r12",
+ "pageErrors": []
+}

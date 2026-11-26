@@ -4,7 +4,7 @@
 'use strict';
 const fs = require('fs'), path = require('path');
 const { REPO, openV69 } = require('./lib/v69');
-const CASES = require('./cases/t144.js').filter(c => /^t144_c0[29]_/.test(c.name));
+const CASES = require('./cases/t144.js').filter(c => /^t144_c0[29]_/.test(c.name)).concat(require('./cases/t102h.js'));
 (async () => {
   const { browser, page } = await openV69({ log: false });
   try {

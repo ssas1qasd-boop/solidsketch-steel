@@ -137,6 +137,7 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
         return when (fam) {
             "EP", "CA", "BE" -> if (Regex("FRONT|STUB|STIFF|SHIM").containsMatchIn(name)) p[0] else if (p.getOrNull(2) != null && ix >= 0 && name == "END PLATE" && ix > 0) p[2] else sec
             "MF" -> if ("CONTINUITY" in name) p[0] else sec
+            "EH" -> sec   // v70 C02h: the haunch belongs to the rafter
             else -> p[0]
         }
     }

@@ -1,0 +1,79 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  },
+  {
+   "id": 2,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "blrule": "tekla",
+    "ext": 20,
+    "extb": 280,
+    "gap": 0,
+    "tp": 20
+   }
+  ],
+  [
+   "T102h",
+   [
+    0,
+    1
+   ],
+   {
+    "bf": 170,
+    "hdep": 200,
+    "hlen": 1500,
+    "tf": 12,
+    "tw": 8
+   }
+  ]
+ ],
+ "description": "HEA300 column, IPE360 rafter at 10 deg, End plate 144 (tp 20, extb 280: the lowest bolt row below the haunch flange) + haunch length 1500, depth 200, flange 12 x 170.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     7500
+    ],
+    "prof": "HEA300"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7500
+    ],
+    "p2": [
+     10000,
+     0,
+     9263.3
+    ],
+    "prof": "IPE360"
+   },
+   "set": "RAFTER"
+  }
+ ],
+ "name": "t102h_hea300_ipe360_10deg",
+ "pageErrors": []
+}

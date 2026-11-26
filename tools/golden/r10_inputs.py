@@ -151,7 +151,23 @@ class Pl:
         s = b['st']; self.id = b['id']; self.st = s; self.name = s['name']
         self.t, self.w = thick_width(s.get('tprof'))
         if s['kind'] == 'plate':
-            P = s['pts3']; N = unit(s['ncF']['N']); X = unit(s['ncF']['X']); Y = unit(cross(N, X))
+            P = s['pts3']; N = unit(s['ncF']['N']); X = unit(s['ncF']['X'])
+            if MODEL == 'R12' and len(P) >= 3:   # C02h (PARITY.md): ncF's directions are rounded to 3 decimals (a 6 m rafter tilts 1 mm);
+                # the exact plane from the outline (Newell) and the outline edge along ncF's X
+                nw = [0.0, 0.0, 0.0]
+                for i in range(len(P)):
+                    a, b = P[i], P[(i + 1) % len(P)]; nw = [nw[0] + (a[1] - b[1]) * (a[2] + b[2]), nw[1] + (a[2] - b[2]) * (a[0] + b[0]), nw[2] + (a[0] - b[0]) * (a[1] + b[1])]
+                if norm(nw) > 1e-6:
+                    nw = unit(nw); N = nw if dot(nw, N) > 0 else mul(nw, -1)
+                    best = None
+                    for i in range(len(P)):
+                        e = sub(P[(i + 1) % len(P)], P[i])
+                        if norm(e) < 20: continue
+                        e = unit(e); c = dot(e, X)
+                        if abs(c) > 0.9999 and (best is None or abs(c) > abs(best[0])): best = (c, e)
+                    X = (best[1] if best[0] > 0 else mul(best[1], -1)) if best else X
+                    X = unit(sub(X, mul(N, dot(X, N))))
+            Y = unit(cross(N, X))
             ex = lambda D: max(dot(p, D) for p in P) - min(dot(p, D) for p in P)
             if ex(Y) > ex(X): X, Y = Y, mul(X, -1)
             self.N, self.X, self.Y = N, X, Y
@@ -344,6 +360,25 @@ def main():
         m = re.match(r'^BI\d+(?:\.\d+)?-(\d+(?:\.\d+)?)', st_['prof'])
         return float(m.group(1)) if m else 8.0
 
+    def eave_haunch_q(ep, col, raf):
+        """C02h settings from R12's eave haunch next to end plate `ep`: hlen = the web's far corner from the column axis (horizontal,
+        along the rafter), hdep = the web's plumb depth at the end plate, web t, flange t and width."""
+        cst = members[col]['st']; rst = members[raf]['st']; cx = cst['p1']
+        far = max((rst['p1'], rst['p2']), key=lambda P: math.hypot(P[0] - cx[0], P[1] - cx[1]))
+        hd = [far[0] - cx[0], far[1] - cx[1], 0.0]; hd = unit(hd); X = lambda P: (P[0] - cx[0]) * hd[0] + (P[1] - cx[1]) * hd[1]
+        epx = X(ep['st']['pts3'][0]); parts = asm_parts[asm_of[ep['id']]]
+        webs = [byid[x] for x in parts if byid[x]['st']['name'] == 'Web' and x not in member_of]
+        if not webs: return None
+        w = min(webs, key=lambda b: min(abs(X(p) - epx) for p in b['st']['pts3']))
+        if min(abs(X(p) - epx) for p in w['st']['pts3']) > 60: return None
+        P = w['st']['pts3']; xn = min(X(p) for p in P); near = [p for p in P if abs(X(p) - xn) < 0.5]
+        fls = [byid[x] for x in parts if byid[x]['st']['name'] == 'Bottom flange' and x not in member_of]
+        f = min(fls, key=lambda b: norm(sub(Pl(b).centre(), Pl(w).centre())))
+        fp = Pl(f)
+        dep = max(p[2] for p in near) - min(p[2] for p in near)   # R12: 82.926 (BI320 eaves) / 82.900 (BI220): one setting, 82.91, for all
+        q = OrderedDict(hlen=r3(max(X(p) for p in P)), hdep=82.91 if abs(dep - 82.91) < 0.05 else r3(dep), tw=Pl(w).t, tf=fp.t, bf=fp.w)
+        return q, [w['id'], f['id']]
+
     def hp_q(ep, hps, bst):
         """144 Haunch tab from R12's HAUNCH_PLATEs (C09): b along the end plate, h square to the secondary from the lower bottom
         corner, outer top chamfer (1 / 2 top plate, 4 / 3 bottom plate). The plates lie in the secondary's web plane, the end plate
@@ -532,6 +567,9 @@ def main():
                     tosec = p.N if dot(sub(far, c0), p.N) > 0 else mul(p.N, -1)
                     q['blrule'] = 'tekla'; q['bdir'] = 2 if dot(cs[0]['q']['ax'], tosec) > 0 else 1
                 conn('T144', [other, own], q, EP[key3], refs)
+                if MODEL == 'R12' and EP[key3] == '2':   # C02h (PARITY.md): Eaves haunch (102) haunch plates, read off R12's web + flange
+                    hq = eave_haunch_q(b, other, own)
+                    if hq: conn('T102h', [other, own], hq[0], '2', hq[1])
             elif s['name'] == 'End Plate' and s['tprof'] == 'FLT20*400':   # apex 106 with haunch (v54 apex)
                 hw = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'Web' and byid[x]['st']['tprof'] == 'FLT8*130']
                 hf = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'Bottom flange' and x not in member_of]

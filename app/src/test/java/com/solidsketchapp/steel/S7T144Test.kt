@@ -41,7 +41,7 @@ class S7T144Test {
     @Test
     fun t144EqualsGolden() {
         val bad = mutableListOf<String>()
-        for (case in listOf("t144_standard", "t144_odd_profile", "t144_sloped", "t144_c09_r12", "t144_c09_hea160_ipe300_5deg", "t144_c09_ipe200_ipe360_10deg_auto_convex", "t144_c09_concave_level", "t144_c02_r12")) {
+        for (case in listOf("t144_standard", "t144_odd_profile", "t144_sloped", "t144_c09_r12", "t144_c09_hea160_ipe300_5deg", "t144_c09_ipe200_ipe360_10deg_auto_convex", "t144_c09_concave_level", "t144_c02_r12", "t102h_r12", "t102h_hea300_ipe360_10deg", "t102h_hea240_ipe300_15deg_tp25", "t102h_ipe400_5deg_no144")) {
             val gold = Json.parseToJsonElement(File(root, "tests/steel/golden/cases/$case/dump.json").readText()).jsonObject
             val input = Json.parseToJsonElement(File(root, "tests/steel/golden/cases/$case/case.json").readText()).jsonObject
             val doc = MemoryDocument(); val build = StBuild(data.profiles, union = { engine.union(it) })
@@ -49,8 +49,9 @@ class S7T144Test {
             for (m in input.getValue("members").jsonArray) { val o = m.jsonObject
                 parts.add(JsonObject(LinkedHashMap<String, kotlinx.serialization.json.JsonElement>().apply { put("kind", JsonPrimitive("member")); putAll(data.propertySet(o.getValue("set").jsonPrimitive.content)!!.raw); putAll(o.getValue("extra").jsonObject) }), "m") }
             val gc = gold.getValue("conns").jsonArray[0].jsonObject
-            doc.setField("stConns", JsonArray(listOf(JsonObject(linkedMapOf("id" to JsonPrimitive(1), "type" to JsonPrimitive("T144"), "parts" to JsonArray(listOf(JsonPrimitive(1), JsonPrimitive(2))), "q" to gc.getValue("q"))))).toString())
-            StRegen(build, engine, data.profiles, data.tk).regen(doc, listOf(BodyId("1"), BodyId("2")))
+            // every component of the case (C02h cases: End plate 144 + Eaves haunch 102), as the golden has them
+            doc.setField("stConns", JsonArray(gold.getValue("conns").jsonArray.map { it.jsonObject }.map { g -> JsonObject(linkedMapOf("id" to g.getValue("id"), "type" to g.getValue("type"), "parts" to g.getValue("parts"), "q" to g.getValue("q"))) }).toString())
+            StRegen(build, engine, data.profiles, data.tk).also { it.ui = com.solidsketchapp.steel.comp.TkUi.parse(File(root, "steel/src/main/assets/steel/tk_ui.json").readText()) }.regen(doc, listOf(BodyId("1"), BodyId("2")))
             // Bodies (members, plates): volume and box.
             for (gp in gold.getValue("parts").jsonArray) { val g = gp.jsonObject; val id = BodyId(g.getValue("id").jsonPrimitive.content)
                 val m = doc.bodyMesh(id); if (m == null) { bad += "$case: body ${id.value} missing"; continue }
@@ -67,9 +68,11 @@ class S7T144Test {
                 val op = st.getValue("pts").jsonArray.map { p -> p.jsonArray.map { it.jsonPrimitive.double } }; val gpts = gb.getValue("pts").jsonArray.map { p -> p.jsonArray.map { it.jsonPrimitive.double } }
                 if (op.size != gpts.size || op.indices.any { i -> (0..2).any { abs(op[i][it] - gpts[i][it]) > 0.1 } }) bad += "$case: bolt points $op vs $gpts" }
             // Welds.
-            val ow = Json.parseToJsonElement(doc.field("stConns")!!).jsonArray[0].jsonObject.getValue("welds").jsonArray.map { it.jsonObject.let { w -> Triple(w.getValue("name").jsonPrimitive.content, w.getValue("a").jsonPrimitive.double, w.getValue("len").jsonPrimitive.double) } }
-            val gw = gc.getValue("welds").jsonArray.map { it.jsonObject.let { w -> Triple(w.getValue("name").jsonPrimitive.content, w.getValue("a").jsonPrimitive.double, w.getValue("len").jsonPrimitive.double) } }
-            if (ow != gw) bad += "$case: welds $ow vs $gw"
+            val ocs = Json.parseToJsonElement(doc.field("stConns")!!).jsonArray; val gcs = gold.getValue("conns").jsonArray
+            for (i in 0 until gcs.size) {
+                val ow = (ocs[i].jsonObject["welds"]?.jsonArray ?: JsonArray(emptyList())).map { it.jsonObject.let { w -> Triple(w.getValue("name").jsonPrimitive.content, w.getValue("a").jsonPrimitive.double, Math.round(w.getValue("len").jsonPrimitive.double * 10) / 10.0) } }
+                val gw = (gcs[i].jsonObject["welds"]?.jsonArray ?: JsonArray(emptyList())).map { it.jsonObject.let { w -> Triple(w.getValue("name").jsonPrimitive.content, w.getValue("a").jsonPrimitive.double, Math.round(w.getValue("len").jsonPrimitive.double * 10) / 10.0) } }
+                if (ow != gw) bad += "$case: welds ${gcs[i].jsonObject["type"]} $ow vs $gw" }
         }
         assertTrue(bad.joinToString("\n"), bad.isEmpty())
     }

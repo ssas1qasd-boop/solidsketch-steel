@@ -1,0 +1,61 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T102h",
+   [
+    0,
+    1
+   ],
+   {
+    "bf": 160,
+    "hdep": 150,
+    "hlen": 1200,
+    "tf": 10,
+    "tw": 8
+   }
+  ]
+ ],
+ "description": "IPE400 column, IPE330 rafter at 5 deg, no end plate (the rafter starts at the column face): the haunch starts at the column face; length 1200, depth 150.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     6000
+    ],
+    "prof": "IPE400"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     200,
+     0,
+     6017.5
+    ],
+    "p2": [
+     8000,
+     0,
+     6699.9
+    ],
+    "prof": "IPE330"
+   },
+   "set": "RAFTER"
+  }
+ ],
+ "name": "t102h_ipe400_5deg_no144",
+ "pageErrors": []
+}
