@@ -24,9 +24,10 @@ def render(bodies, t, d, dist, colour, W=900, H=1100):
     k = H / (2 * dist * math.tan(math.radians(22.5))); im = Image.new('RGB', (W, H), (30, 30, 34)); dr = ImageDraw.Draw(im); tris = []
     for b in bodies:
         V, T = VT(b); X = (V - t) @ r * k + W / 2; Y = H / 2 - (V - t) @ u * k; Z = (V - t) @ d
-        if Z.max() > dist: continue
         c = colour(b)
-        for tr in T: tris.append((Z[tr].mean(), [(X[i], Y[i]) for i in tr], c))
+        for tr in T:
+            if Z[tr].max() > 0: continue                 # in front of the target plane: cut away, the part shows in section (like the app's near plane)
+            tris.append((Z[tr].mean(), [(X[i], Y[i]) for i in tr], c))
     for z, pts, c in sorted(tris, key=lambda x: x[0]): dr.polygon(pts, fill=c, outline=tuple(max(0, x - 50) for x in c))
     return im
 
@@ -71,7 +72,7 @@ def c04(shots):
     # R12 at a C04 joint: the same view relative to that joint's cleat
     R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = R['bodies']
     rc = next(b for b in RB if st(b).get('name') == 'Cleat Angle' and st(b).get('amark') == 'R3022'); c = (VT(rc)[0].min(0) + VT(rc)[0].max(0)) / 2
-    near = [b for b in RB if b.get('shape') and (np.abs((VT(b)[0].min(0) + VT(b)[0].max(0)) / 2 - c) < 1500).all()]
+    near = [b for b in RB if b.get('shape') and (VT(b)[0].min(0) < c + 700).all() and (VT(b)[0].max(0) > c - 700).all()]
     col = lambda b: (200, 60, 60) if st(b).get('name') == 'Cleat Angle' else (70, 110, 210) if st(b).get('name') == 'Purlin' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 150, 80)
     r12 = render(near, c, dv, dist, col)
     vid = Image.open(os.path.join(REPO, 'tests', 'steel', 'videos', 'C04', 'a5N_x5zrTYk_~50pct_cleat_zoom4x.png')).convert('RGB')
@@ -92,7 +93,7 @@ def c14(shots):
     label(app, (40, int(float(meta[1]) + float(meta[3])) + 260), f'joist top - top bolt {jt - zs[-1]:.1f} mm')
     R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = R['bodies']
     rt = next(b for b in RB if st(b).get('name') == 'Shear Plate' and st(b).get('tprof') == 'FLT10*130' and st(b).get('amark') == 'EB4002'); cc = (VT(rt)[0].min(0) + VT(rt)[0].max(0)) / 2
-    near = [b for b in RB if b.get('shape') and (np.abs((VT(b)[0].min(0) + VT(b)[0].max(0)) / 2 - cc) < 1200).all()]
+    near = [b for b in RB if b.get('shape') and (VT(b)[0].min(0) < cc + 700).all() and (VT(b)[0].max(0) > cc - 700).all()]
     col = lambda b: (200, 60, 60) if st(b).get('name') == 'Shear Plate' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if st(b).get('amark', '').startswith('MB') else (60, 150, 80)
     r12 = render(near, cc, dv, dist, col)
     vid = Image.open(os.path.join(REPO, 'tests', 'steel', 'videos', 'C14', 'MrhM4X9opLo_14m50s_bolts_tab_zoom.png')).convert('RGB')
