@@ -22,7 +22,7 @@ rm -f "$OUT/.stop"
 REC=$!
 
 START=$(date +%s)
-./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.notClass=com.solidsketchapp.steel.C04RecordingTest,com.solidsketchapp.steel.C14RecordingTest --stacktrace > "$OUT/connected.log" 2>&1
+./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.notClass=com.solidsketchapp.steel.C04RecordingTest,com.solidsketchapp.steel.C14RecordingTest,com.solidsketchapp.steel.C02C09RecordingTest --stacktrace > "$OUT/connected.log" 2>&1
 RC=$?
 echo "$(( $(date +%s) - START ))" > "$OUT/connected_seconds.txt"
 echo "$RC" > "$OUT/connected_rc.txt"
@@ -34,21 +34,20 @@ for f in $(adb shell ls /sdcard/ | tr -d '\r' | grep '^ci_rec_.*\.mp4$'); do adb
 # screenrecord running (C04RecordingTest starts and stops its own). Pass 1's screenshots and reports are kept.
 A=app/build/outputs/connected_android_test_additional_output; R1="$OUT/pass1"; mkdir -p "$R1"
 cp -r "$A" "$R1/additional" 2>/dev/null || true; cp -r app/build/reports/androidTests "$R1/reports" 2>/dev/null || true; cp -r app/build/outputs/androidTest-results "$R1/results" 2>/dev/null || true
-adb shell rm -f /sdcard/c04_rec.mp4 || true
-./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.C04RecordingTest --stacktrace > "$OUT/c04_recording.log" 2>&1
-echo $? > "$OUT/c04_rc.txt"
-adb pull /sdcard/c04_rec.mp4 "$OUT/C04_recording.mp4" || true
-mkdir -p "$R1/c04_additional"; cp -r "$A/." "$R1/c04_additional/" 2>/dev/null || true
-# C14 recording pass (its own screenrecord), the same way
-adb shell rm -f /sdcard/c14_rec.mp4 || true
-./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.C14RecordingTest --stacktrace > "$OUT/c14_recording.log" 2>&1
-echo $? > "$OUT/c14_rc.txt"
-adb pull /sdcard/c14_rec.mp4 "$OUT/C14_recording.mp4" || true
-cp -rn "$R1/c04_additional/." "$A/" 2>/dev/null || true
+# The connection being delivered now (C04 and C14 recordings were delivered with their own runs; set REC_CLASSES to run them again)
+REC_CLASSES="${REC_CLASSES:-C02C09RecordingTest}"
+for CLS in $REC_CLASSES; do
+  adb shell rm -f /sdcard/c02_rec.mp4 /sdcard/c09_rec.mp4 /sdcard/c04_rec.mp4 /sdcard/c14_rec.mp4 || true
+  ./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.$CLS --stacktrace > "$OUT/${CLS}.log" 2>&1
+  echo $? > "$OUT/${CLS}_rc.txt"
+  for v in c02 c09 c04 c14; do adb pull /sdcard/${v}_rec.mp4 "$OUT/$(echo $v | tr a-z A-Z)_recording.mp4" 2>/dev/null || true; done
+  mkdir -p "$R1/${CLS}_additional"; cp -r "$A/." "$R1/${CLS}_additional/" 2>/dev/null || true
+done
+for CLS in $REC_CLASSES; do cp -rn "$R1/${CLS}_additional/." "$A/" 2>/dev/null || true; done
 mkdir -p "$A"; cp -rn "$R1/additional/." "$A/" 2>/dev/null || true
 rm -rf app/build/reports/androidTests app/build/outputs/androidTest-results
 cp -r "$R1/reports" app/build/reports/androidTests 2>/dev/null || true; cp -r "$R1/results" app/build/outputs/androidTest-results 2>/dev/null || true
-tail -n 30 "$OUT/c04_recording.log"
+for CLS in $REC_CLASSES; do tail -n 30 "$OUT/${CLS}.log"; done
 adb logcat -d > "$OUT/logcat.txt" || true
 tail -n 60 "$OUT/connected.log"
 exit 0   # the result is read from connected_rc.txt (the summary step fails the job)

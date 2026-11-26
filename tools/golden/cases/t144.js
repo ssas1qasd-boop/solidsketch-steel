@@ -28,10 +28,10 @@ module.exports = [
   // joints, then the same settings on other sizes and slopes, the Automatic creation and the arc chamfers.
   {
     name: 't144_c09_r12',
-    description: 'R12 monitor post PC7001 (BI150 post) on the BI220 rafter at 12.8 deg (gap 0: the nominal rafter face; R12 itself has the plate 0.75 mm into it, Tekla flange plate data): Haunch tab top / bottom plate 8 x 60 x 60, chamfers 15 line, Tekla bolt length, bolting direction 2.',
-    members: [member('RAFTER', { prof: 'BI220-8-150-10', p1: [39537.187, 27925, 7421.544], p2: [33095.5, 27925, 8888.267], rot: 'Top', plane: 'Middle', depth: 'Middle' }),
+    description: 'R12 monitor post PC7001 (BI150 post) on the BI220 rafter at 12.8 deg: Haunch tab top / bottom plate 8 x 60 x 60, chamfers 15 line, Tekla bolt length, bolting direction 2.',
+    members: [member('RAFTER', { prof: 'BI220-8-150-10', p1: [39537.387, 27925, 7422.572], p2: [33095.5, 27925, 8887.194], rot: 'Top', plane: 'Middle', depth: 'Middle' }),
               member('COLUMN', { prof: 'BI150-6-120-8', p1: [34039.28, 27925, 8782.496], p2: [34039.28, 27925, 9579.802], rot: 'Below', plane: 'Middle', depth: 'Middle' })],
-    conns: [['T144', [0, 1], { tp: 12, bolt: 16, ext: 55.52, extb: 60.641, gap: 0, cols: 2, gauge: 90, side: 35, rows: 4, e: 30.025, pitches: '70 70 70', hpc: 'both', hct: 'line', hpt1: 8, hpb1: 60, hph1: 60, hc1: 15, hc2: 15, hpt2: 8, hpb2: 60, hph2: 60, hc4: 15, hc3: 15, blrule: 'tekla', bdir: 2 }]],
+    conns: [['T144', [0, 1], { tp: 12, bolt: 16, ext: 55.358, extb: 60.814, gap: 0, cols: 2, gauge: 90, side: 35, rows: 4, e: 30.025, pitches: '70 70 70', hpc: 'both', hct: 'line', hpt1: 8, hpb1: 60, hph1: 60, hc1: 15, hc2: 15, hpt2: 8, hpb2: 60, hph2: 60, hc4: 15, hc3: 15, blrule: 'tekla', bdir: 2 }]],
   },
   {
     name: 't144_c09_hea160_ipe300_5deg',
@@ -58,7 +58,7 @@ module.exports = [
     name: 't144_c02_r12',
     description: 'R12 eave R3023 / C2017: BI320 column, BI220 rafter at 12.8 deg, end plate 20 with 4 rows, Tekla bolt length (M20 grip 30 -> L60), bolting direction 2.',
     members: [member('COLUMN', { prof: 'BI320-8-150-10', p1: [52838, 22355, 230], p2: [52838, 22355, 7547.745], rot: 'Below', plane: 'Middle', depth: 'Middle' }),
-              member('RAFTER', { prof: 'BI220-8-150-10', p1: [52682.189, 22355, 7432.92], p2: [46290.5, 22355, 8888.258], rot: 'Top', plane: 'Middle', depth: 'Middle' })],
-    conns: [['T144', [0, 1], { tp: 20, bolt: 20, ext: 11.056, extb: 103.313, gap: 0, cols: 2, gauge: 70, side: 40, rows: 4, e: 50.045, pitches: '70 70 80', blrule: 'tekla', bdir: 2 }]],
+              member('RAFTER', { prof: 'BI220-8-150-10', p1: [52682.387, 22355, 7433.94], p2: [46290.5, 22355, 8887.194], rot: 'Top', plane: 'Middle', depth: 'Middle' })],
+    conns: [['T144', [0, 1], { tp: 20, bolt: 20, ext: 10, extb: 104.385, gap: 0, cols: 2, gauge: 70, side: 40, rows: 4, e: 50.045, pitches: '70 70 80', blrule: 'tekla', bdir: 2 }]],
   },
 ];

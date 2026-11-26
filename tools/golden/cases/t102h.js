@@ -2,7 +2,7 @@
 // component on other sizes and slopes, with and without an End plate (144) at the joint.
 'use strict';
 const member = (set, extra) => ({ set, extra });
-const R12EP = { tp: 20, bolt: 20, ext: 11.056, extb: 103.313, gap: 0, cols: 2, gauge: 70, side: 40, rows: 4, e: 50.045, pitches: '70 70 80', blrule: 'tekla', bdir: 2 };
+const R12EP = { tp: 20, bolt: 20, ext: 10, extb: 104.385, gap: 0, cols: 2, gauge: 70, side: 40, rows: 4, e: 50.045, pitches: '70 70 80', blrule: 'tekla', bdir: 2 };
 module.exports = [
   {
     name: 't102h_r12',

@@ -18,8 +18,8 @@
     "bolt": 16,
     "cols": 2,
     "e": 30.025,
-    "ext": 55.52,
-    "extb": 60.641,
+    "ext": 55.358,
+    "extb": 60.814,
     "gap": 0,
     "gauge": 90,
     "hc1": 15,
@@ -41,20 +41,20 @@
    }
   ]
  ],
- "description": "R12 monitor post PC7001 (BI150 post) on the BI220 rafter at 12.8 deg (gap 0: the nominal rafter face; R12 itself has the plate 0.75 mm into it, Tekla flange plate data): Haunch tab top / bottom plate 8 x 60 x 60, chamfers 15 line, Tekla bolt length, bolting direction 2.",
+ "description": "R12 monitor post PC7001 (BI150 post) on the BI220 rafter at 12.8 deg: Haunch tab top / bottom plate 8 x 60 x 60, chamfers 15 line, Tekla bolt length, bolting direction 2.",
  "members": [
   {
    "extra": {
     "depth": "Middle",
     "p1": [
-     39537.187,
+     39537.387,
      27925,
-     7421.544
+     7422.572
     ],
     "p2": [
      33095.5,
      27925,
-     8888.267
+     8887.194
     ],
     "plane": "Middle",
     "prof": "BI220-8-150-10",

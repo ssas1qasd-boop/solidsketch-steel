@@ -179,8 +179,8 @@ Tekla's 144 Haunch tab makes only the haunch plates above. R12's eave haunch (48
 - **Row 9:**
   - Haunch tab: both plates t 8, b 60, h 60, chamfers 15, Line, created;
   - Bolts: Tekla length, direction 2;
-  - **gap −0.75**: Tekla's built-up rafter flange plate is 0.75 mm under the axis' nominal top face there (the drift seen in C04), so the end plate sits 0.75 into the nominal member. ext / extb are measured on the main part's face, as 144 does.
-- **Row 2:** Bolts: Tekla length, direction 2.
+  - gap 0, ext 55.36, extb 60.81 (with the exact plate frames of C02h; before that fix the nominal rafter face was 0.75 mm off Tekla's flange plate and the inputs needed gap −0.75).
+- **Row 2:** ext 10, extb 104.39, gap 0; Bolts: Tekla length, direction 2.
 
 | Check | Result |
 |---|---|
