@@ -167,7 +167,7 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 | Cases (`tools/golden/cases/t144.js` t144_c13_*) | R12's joint; HEA300 + IPE360 with the default stiffeners; HEM300 + IPE450 at 8°, parallel, "gap" shape, gaps 5 / 4 / 4, t 15, b 120; HEB400 + IPE500 at 5°, perpendicular, concave 20 × 15, automatic, h 300: 0 rule-B failures; app = web (`S7T144Test`) |
 | Weights vs Tekla (st.tkW) | Stiff. plates 0.20 kg vs 0.21 (12 plates: 2.40 vs 2.52; the chamfer weighting differs, as C09); end plate 6.24 vs 6.48: Tekla does not take bolt holes off, and our rule only skips holes made by imported TKBOLT groups (open item for the Weights rule) |
 
-**Emulator** (`C13RecordingTest`):
+**Emulator** (`C13RecordingTest`, CI 45875510138; image `docs/steel/parity/C13.png`):
 - R12's joint through the dialog (Picture, Haunch, Stiffeners "not created", Bolts), Pick parts, orbit, saved `c13_case.ss`;
 - then the Stiffeners tab created (square, t 10, b 70), Modify, orbit, saved `c13_stiff.ss`; then Top NS b 50, Modify, orbit;
 - landscape orthographic stills. The activity now keeps its model on rotation (`configChanges`): before, turning the phone recreated it and lost the model.
