@@ -1,62 +1,62 @@
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
 > Task :core-view:preBuild UP-TO-DATE
-> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-io:preBuild UP-TO-DATE
 > Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :core-io:preDebugBuild UP-TO-DATE
 > Task :core-view:preDebugBuild UP-TO-DATE
+> Task :core-view:writeDebugAarMetadata
+> Task :core-io:writeDebugAarMetadata
 > Task :app:generateDebugBuildConfig
 > Task :steel:preBuild UP-TO-DATE
 > Task :steel:preDebugBuild UP-TO-DATE
-> Task :steel:writeDebugAarMetadata
-> Task :core-io:writeDebugAarMetadata
-> Task :core-view:writeDebugAarMetadata
-> Task :app:generateDebugResValues
 > Task :core-io:generateDebugResValues
+> Task :app:generateDebugResValues
 > Task :core-view:generateDebugResValues
-> Task :core-view:generateDebugResources
+> Task :steel:writeDebugAarMetadata
 > Task :core-io:generateDebugResources
+> Task :core-view:generateDebugResources
+> Task :core-view:packageDebugResources
 > Task :core-io:packageDebugResources
 > Task :steel:generateDebugResValues
-> Task :core-view:packageDebugResources
 > Task :core-io:extractDeepLinksDebug
 > Task :steel:generateDebugResources
 > Task :steel:packageDebugResources
 > Task :core-view:extractDeepLinksDebug
+> Task :core-io:processDebugManifest
 > Task :core-view:processDebugManifest
 > Task :steel:extractDeepLinksDebug
-> Task :core-io:processDebugManifest
 > Task :steel:processDebugManifest
-> Task :app:checkDebugAarMetadata
 > Task :core-io:compileDebugLibraryResources
-> Task :core-api:processResources NO-SOURCE
+> Task :app:checkDebugAarMetadata
 > Task :core-view:compileDebugLibraryResources
 > Task :app:mapDebugSourceSetPaths
+> Task :core-api:processResources NO-SOURCE
 > Task :app:generateDebugResources
-> Task :core-view:parseDebugLocalResources
 > Task :core-io:parseDebugLocalResources
-> Task :core-io:generateDebugRFile
+> Task :core-view:parseDebugLocalResources
 > Task :core-view:generateDebugRFile
+> Task :core-io:generateDebugRFile
 > Task :core-io:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :steel:compileDebugLibraryResources
 > Task :core-io:javaPreCompileDebug
+> Task :steel:compileDebugLibraryResources
 > Task :core-view:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-view:javaPreCompileDebug
 > Task :steel:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :steel:javaPreCompileDebug
-> Task :core-io:mergeDebugShaders
-> Task :core-io:compileDebugShaders NO-SOURCE
-> Task :core-io:generateDebugAssets UP-TO-DATE
 > Task :steel:parseDebugLocalResources
-> Task :core-io:packageDebugAssets
+> Task :steel:generateDebugRFile
+> Task :core-io:mergeDebugShaders
 > Task :core-view:mergeDebugShaders
 > Task :core-view:compileDebugShaders NO-SOURCE
+> Task :core-io:compileDebugShaders NO-SOURCE
 > Task :core-view:generateDebugAssets UP-TO-DATE
+> Task :core-io:generateDebugAssets UP-TO-DATE
+> Task :core-io:packageDebugAssets
 > Task :core-view:packageDebugAssets
-> Task :steel:generateDebugRFile
 > Task :core-io:preDebugUnitTestBuild UP-TO-DATE
 > Task :steel:mergeDebugShaders
 > Task :steel:compileDebugShaders NO-SOURCE
@@ -80,8 +80,8 @@ Daemon will be stopped at the end of the build
 > Task :app:preDebugUnitTestBuild UP-TO-DATE
 > Task :app:javaPreCompileDebug
 > Task :app:javaPreCompileDebugUnitTest
-> Task :app:processDebugManifestForPackage
 > Task :app:mergeDebugShaders
+> Task :app:processDebugManifestForPackage
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
 > Task :app:mergeDebugAssets
@@ -109,41 +109,41 @@ To learn more, see the documentation of the '@ConsistentCopyVisibility' and '@Ex
 This will become an error in Kotlin 2.1.
 
 > Task :core-io:compileDebugJavaWithJavac NO-SOURCE
-> Task :core-io:bundleLibCompileToJarDebug
 > Task :core-io:bundleLibRuntimeToJarDebug
+> Task :core-io:bundleLibCompileToJarDebug
 > Task :core-io:processDebugJavaRes
 > Task :core-io:compileDebugUnitTestKotlin
 > Task :core-io:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :core-io:processDebugUnitTestJavaRes
 > Task :core-view:compileDebugKotlin
 > Task :core-view:compileDebugJavaWithJavac NO-SOURCE
-> Task :core-view:bundleLibCompileToJarDebug
 > Task :core-view:bundleLibRuntimeToJarDebug
+> Task :core-view:bundleLibCompileToJarDebug
 > Task :core-view:processDebugJavaRes
 > Task :core-view:compileDebugUnitTestKotlin
 > Task :core-view:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :core-view:processDebugUnitTestJavaRes
 > Task :core-view:testDebugUnitTest
-> Task :core-io:testDebugUnitTest
 > Task :steel:compileDebugKotlin
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
-> Task :steel:processDebugJavaRes
 > Task :steel:bundleLibCompileToJarDebug
+> Task :steel:processDebugJavaRes
 > Task :steel:bundleLibRuntimeToJarDebug
+> Task :core-io:testDebugUnitTest
 > Task :steel:compileDebugUnitTestKotlin
 > Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :steel:processDebugUnitTestJavaRes
 > Task :app:compileDebugKotlin
 > Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToCompileJar
 > Task :app:processDebugJavaRes
 > Task :app:bundleDebugClassesToRuntimeJar
-> Task :app:bundleDebugClassesToCompileJar
 > Task :steel:testDebugUnitTest
 > Task :app:compileDebugUnitTestKotlin
 > Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :app:processDebugUnitTestJavaRes
 > Task :app:testDebugUnitTest
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795802517884.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795803238235.json
 
-BUILD SUCCESSFUL in 1m 14s
+BUILD SUCCESSFUL in 1m 21s
 93 actionable tasks: 93 executed
