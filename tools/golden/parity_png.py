@@ -203,6 +203,38 @@ def c20(shots, video=None):
     return compose('C20', [('R12 (Tekla IFC), C2020 / EB4007, plan, cut at +4300', r12), ('Tekla drawing C2020 (package)', tekla_page('C2020')), ('video lYG_CPzBR40 02:14: the 186 Stiffeners tab', vid), ('app on the emulator, orthographic plan (landscape)', app)],
                    'C20 Column with stiffeners (186) at the mezzanine column web: R12 | Tekla drawing | video | app (Picture + Plates + Stiffeners + Bolts tabs)', ['Measured on the models the emulator built and saved (c20_case.ss, c20_b50.ss):'] + ['! ' + m for m in lines])
 
+def c05(shots, video=None):
+    """C05: c05_case.ss (R12's node R3019 through the 20 dialog: HZ6014 + strut ST5008) and c05_e40.ss (HZ brace e 30 -> 40, Modify)"""
+    st = lambda b: b.get('st') or {}
+    def meas(f):
+        D = json.load(gzip.open(os.path.join(shots, f)))['doc']; cs = [c for c in D['stConns'] if c['type'] == 'Ttg']; out = []
+        for c in cs:
+            kids = [b for b in D['bodies'] if st(b).get('conn') == c['id']]
+            tg = next(b for b in kids if st(b).get('name') == 'TONGUE PLATE'); caps = [b for b in kids if st(b).get('name') == 'END CAP']; bo = next(b for b in kids if st(b).get('kind') == 'bolts')
+            sz = lambda b: sorted(np.round(np.ptp(VT(b)[0], axis=0), 1))
+            out.append(f"tube end {c['id']}: plate {' x '.join(str(x) for x in sz(tg))}, {len(caps)} end plates, bolts M{st(bo)['d']:g} L{st(bo)['L']:g} x {st(bo).get('n', len(st(bo)['pts']))}")
+        return out
+    a = meas('c05_case.ss'); b = meas('c05_e40.ss')
+    lines = ['before the e change: ' + '; '.join(a), 'after HZ e 30 -> 40 + Modify: ' + '; '.join(b),
+             'R12 (NC 6508 / 6512 / 1): plate 315 x 140 x 12 (285 x 140 x 12), holes d18 at 40 / 100 x 40 / 100 (30 / 80 x 45 / 95), end plates 44 x 100 x 5; M16 8.8 L50, grip 24',
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c05_case.ss')).split(';')[0] + ' | after e 40: ' + rule_b(os.path.join(shots, 'c05_e40.ss')).split(';')[0],
+             'R12 rebuild (web v70 and app): row 5 parts 0 -> 943 / 1,294 (the rest: crossing halves C07, own-assembly gusset nodes C06); app vs R12 plates 916 / 916, bolts 1,264 / 1,264, member bodies 632 / 632']
+    app, meta = shot(shots, 'ortho_top'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'plates 12 x 140, 150 in the tube, end plates 5')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
+    near_ = [b for b in RB if (VT(b)[0].min(0) < t + 1300).all() and (VT(b)[0].max(0) > t - 1300).all()]
+    colr = lambda b: (230, 170, 40) if st(b).get('name', '').strip() == 'Connection Plate' else (235, 235, 235) if st(b).get('tprof') == 'FLT5*100' else (150, 90, 200) if st(b).get('name', '').strip() == 'Gusset Plate' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if st(b).get('amark', '').startswith('R') else (60, 150, 80)
+    r12 = render(near_, t + np.array([0, 0, 400.0]), dv, dist, colr, W=1400, H=900)
+    vid = Image.open(video or os.path.join(REPO, 'tests', 'steel', 'videos', 'C05', 'frames_Z5SVpvwDdv8', 'f_660.jpg')).convert('RGB'); vid = vid.resize((vid.width * 2, vid.height * 2))
+    return compose('C05', [('R12 (Tekla IFC), node on R3019, plan', r12), ('Tekla single-part drawing 6508 (package)', tekla_sp('6508')), ('video Z5SVpvwDdv8 11:00: Tube gusset (20), Brace conn tab', vid), ('app on the emulator, orthographic plan (landscape)', app)],
+                   'C05 Tube gusset (20), the tube end: R12 | Tekla drawing | video | app (Picture + Gusset + Bolts tabs)', ['Measured on the models the emulator built and saved (c05_case.ss, c05_e40.ss):'] + ['! ' + m for m in lines])
+
+def tekla_sp(mark):
+    with zipfile.ZipFile(PKG) as z:
+        n = next(x for x in z.namelist() if x.endswith(f'/Single Part Drawings/{mark} - Standard.pdf'))
+        tmp = os.path.join(REPO, 'build', f'_{mark}_sp.pdf'); open(tmp, 'wb').write(z.read(n))
+    out = tmp[:-4]; subprocess.run(['pdftoppm', '-png', '-r', '120', '-singlefile', tmp, out], check=True); os.remove(tmp); return Image.open(out + '.png').convert('RGB')
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05}[sys.argv[1]](*sys.argv[2:])

@@ -1,0 +1,77 @@
+[
+ {
+  "videoId": "Z5SVpvwDdv8",
+  "t": 630,
+  "ts": "0:10:30",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "Z5SVpvwDdv8",
+  "t": 645,
+  "ts": "0:10:45",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "Z5SVpvwDdv8",
+  "t": 660,
+  "ts": "0:11:00",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "Z5SVpvwDdv8",
+  "t": 675,
+  "ts": "0:11:15",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "Z5SVpvwDdv8",
+  "t": 690,
+  "ts": "0:11:30",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "Z5SVpvwDdv8",
+  "t": 705,
+  "ts": "0:11:45",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "videoId": "Z5SVpvwDdv8",
+  "t": 720,
+  "ts": "0:12:00",
+  "width": 640,
+  "height": 360,
+  "source": "media"
+ },
+ {
+  "type": "summary",
+  "mode": "frames",
+  "videoId": "Z5SVpvwDdv8",
+  "title": "TUBE GUSSET 20",
+  "frames": 7,
+  "every": 15,
+  "source": "media",
+  "resolution": "640x360",
+  "lowResolutionFallback": false,
+  "downloadedBytes": 12654573,
+  "proxy": "datacenter",
+  "variableCostUsd": 0.002731,
+  "stoppedByBudget": false,
+  "quality": "standard",
+  "hdAttempted": false,
+  "hdSkippedReason": "",
+  "videoEvent": "video-processed"
+ }
+]

@@ -1,0 +1,64 @@
+Values read (tools/video/gemini_read.py; pass 2 at high resolution on the spans where the tab is open).
+
+Source: https://www.youtube.com/watch?v=Z5SVpvwDdv8
+  spans: 10:28-12:08
+  Connection plate: False / True
+  Connection plate Material: Q245B
+  Connection plate Name: PLATE
+  Connection plate Pos. No: PL 1
+  Connection plate b: 190.00 / 6.00
+  Connection plate h: 190.00
+  Connection plate material: Q245B
+  Connection plate name: PLATE
+  Connection plate pos no: PL 1
+  Connection plate t: 8.00
+  Cover plate: False
+  End plate: False / True
+  End plate Material: Q245B
+  End plate Name: PLATE
+  End plate Pos. No: PL 1
+  End plate b: 6.00
+  End plate h: 190.00
+  End plate t: 8.00
+  End plates material: Q245B
+  End plates name: PLATE
+  End plates pos no: PL 1
+  End plates t: 8.00
+  Middle end plate: False
+  Tongue plate: False
+
+Source: https://www.youtube.com/watch?v=igIjArVFNn0
+  spans: 03:56-04:13, 05:07-05:33, 06:04-06:48, 07:07-07:27
+  1: 13
+  10: 32
+  11: 30
+  12: 30
+  13: 30
+  14: 30
+  15: 20
+  16: 20
+  17: 20
+  18: 20
+  2: 20
+  3: 20
+  4: 20
+  5: 1 / 20
+  6: 13
+  7: 32
+  8: 32
+  9: 32
+  Connection plate: 6.0 / 8.0
+  End plates: 180 / 6.0
+
+Agreement (the same label and value in two sources):
+  none
+
+Notes (C05, 2026-11-27):
+- Model: both reads ran on the LIGHTER model (gemini-flash-lite-latest): the main model's daily quota was still spent (429). Re-read
+  with the main model when the quota resets.
+- What the videos show: Tube gusset (20)'s Brace conn tab with the Connection plate / End plates / Tongue plate / Cover plate rows
+  (Z5SVpvwDdv8 10:28-12:08: connection plate t 8, h 190, end plates t 8, material Q245B; igIjArVFNn0: plates 6 / 8, end plates
+  180 x 6). These are the videos' own projects, not R12, and no value is read by two sources. They confirm the tab layout (connection
+  plate + end plates on both sides, no tongue plate), not the numbers.
+- Starting values therefore Tekla's site defaults (Picture 4 = 150 brace length on the connection plate, 5 = 20 gusset to brace; end
+  plates t 5) and the targets R12's parts (PARITY.md C05); R12 agrees with 150 and t 5.

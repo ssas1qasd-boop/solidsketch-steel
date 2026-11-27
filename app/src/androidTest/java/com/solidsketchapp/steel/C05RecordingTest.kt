@@ -118,7 +118,8 @@ class C05RecordingTest {
         act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; pause(800) }
     private val node = Vec3(42760.0, 22620.0, 8110.0)
     private fun stills(tag: String) {   // plan from above the rafter (the gusset, the plates, the end plates, the bolts) and along the strut
-        landscape(true); orthoShot(node, Vec3(0.0, -0.02, 1.0), 900.0, "ortho_top$tag"); orthoShot(node, Vec3(0.02, -1.0, 0.05), 900.0, "ortho_strut$tag"); landscape(false)
+        val c = Vec3(node.x, node.y - 130.0, node.z)   // landscape: the panel covers the lower third, so the gusset edge on the rafter sits mid-screen
+        landscape(true); orthoShot(c, Vec3(0.0, -0.02, 1.0), 1200.0, "ortho_top$tag"); orthoShot(c, Vec3(0.02, -1.0, 0.05), 1200.0, "ortho_strut$tag"); landscape(false)
     }
     private fun tg(L: String, e: String, p: String, g: String, plane: String?) {
         openCatalog("Tongue plate")
