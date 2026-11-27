@@ -534,6 +534,37 @@
         TKF('gpos', 'Gusset plate position on the brace', { type: 'sel', dv: '', opts: [tkOpt('', 'Beside the first brace\'s plate'), tkOpt('middle', 'Middle of the brace (plates beside it)')] })]]); }
     const bt = tabs.find(t => t.name === 'Bolts'); if (bt) { const g = (bt.groups || []).find(x => x[0] === 'Bolt assembly'); const f = TKF('blrule', 'Bolt length', { type: 'sel', dv: '', opts: [tkOpt('', 'v69 (grip + 2 d)'), tkOpt('tekla', 'Tekla (grip + nut + washer + 5, up to 5 mm)')] });
       if (g) { if (!g[1].some(x => x.k === 'blrule')) g[1] = g[1].concat([f]); } else bt.fields = (bt.fields || []).concat([f]); } }
+  // ---------- C07 · Tube crossing (Tekla 20 at a crossing): the halves end on a gusset through the continuous brace (docs/steel/PARITY.md "C07") ----------
+  // R12 (52 crossings): each half's tube end as C05 (Tube end at the brace end, the connection plate on its axis, two end plates, Tekla's
+  // slot and bolt length); the crossing gusset beside the plates (gusset side), through the continuous tube; its outline by C06's rule:
+  // each half's edge square to it 20 before its end plate, the convex hull with those corners brought onto the continuous tube's far
+  // face (square to the tube and along the half). v69's crossing (its own size and centre, tongues lapping the gusset) stays for old models.
+  Object.assign(CONN.Ttgx.def, { tend: '', blrule: '', side: 1, gd: 20, gwa: '', gwb: '' });
+  { const tabs = TKD.Ttgx.tabs; const gt = tabs.find(t => t.name === 'Gusset');
+    if (gt) { gt.groups = (gt.groups || []).concat([['Crossing (Tekla 20)', [TKF('tend', 'Tube end', { type: 'sel', dv: '', opts: [tkOpt('', 'Cut back to the clearance (v69)'), tkOpt('end', 'At the brace end (as Tekla): gusset through the continuous brace, edges square to the halves')] }),
+      TKF('side', 'Gusset side', { type: 'sel', dv: 1, opts: [tkOpt(1, 'Side 1'), tkOpt(-1, 'Side 2')] }), TKF('gd', '5 · Gusset to the end plate', { ph: '20' })]]]); }
+    const bt = tabs.find(t => t.name === 'Bolts'); if (bt) { const g = (bt.groups || []).find(x => x[0] === 'Bolt assembly'); const f = TKF('blrule', 'Bolt length', { type: 'sel', dv: '', opts: [tkOpt('', 'v69 (grip + 2 d)'), tkOpt('tekla', 'Tekla (grip + nut + washer + 5, up to 5 mm)')] });
+      if (g && !g[1].some(x => x.k === 'blrule')) g[1] = g[1].concat([f]); } }
+  { const tgX = FAM.TG;
+    FAM.TG = X => {
+      const { U, q, A, cut, plate, bolts, weld } = X; if (q.kind !== 'cross' || q.tend !== 'end' || !X.B) return tgX(X);
+      const MC = stMF(A.st), halves = [[X.B, 1], [X.B2, 2]].filter(h => h[0]); const M1 = stMF(X.B.st); let g = new THREE.Vector3().crossVectors(MC.a, M1.a); if (g.length() < 1e-6) return null; g.normalize();
+      const w0 = MC.c1.clone().sub(M1.c1); const b = MC.a.dot(M1.a), dd = MC.a.dot(w0), ee = M1.a.dot(w0), den = (1 - b * b) || 1e-9; const P0 = MC.c1.clone().addScaledVector(MC.a, (b * ee - dd) / den);
+      const pC = new THREE.Vector3().crossVectors(g, MC.a).normalize(); const G = stFrame3(P0, MC.a, pC); const hwC = tubeHalf(MC, pC) * U; const sg = +q.side || 1;
+      const t = q.t * U, tf = q.tf * U, num = (v, dflt) => v === '' || v === undefined || v === null || !isFinite(+v) ? dflt : +v; const pts = [], ends = [];
+      for (const [Hh] of halves) { const MH = stMF(Hh.st); const near = MH.c1.distanceTo(P0) <= MH.c2.distanceTo(P0); const E = near ? MH.c1 : MH.c2; const d = (near ? MH.c2 : MH.c1).clone().sub(E).normalize();
+        const sTip = E.clone().sub(P0).dot(d) - (q.L - q.ins) * U; const r = tgEnd(Object.assign({}, X, { q: Object.assign({}, q, { tend: 'end' }) }), Hh, P0, d, g, sTip, 0, sg); ends.push(r);
+        const pIn = new THREE.Vector3().crossVectors(g, d).normalize(); const sE = sTip + (q.L - q.ins - num(q.cap, 5) - num(q.gd, 20)) * U, w2 = q.w / 2;
+        const side = Math.sign(d.dot(pC)) || 1; const pa = pIn.dot(MC.a) >= 0 ? 1 : -1; const hp = num(pa > 0 ? q.gwa : q.gwb, w2) * U, hn = num(pa > 0 ? q.gwb : q.gwa, w2) * U;
+        for (const y of [hp, -hn]) { const c = P0.clone().addScaledVector(d, sE).addScaledVector(pIn, y); const vc = c.clone().sub(P0); const x0 = vc.dot(MC.a), y0 = vc.dot(pC), yF = -side * hwC;   // the far face of the continuous tube
+          pts.push([x0, y0], [x0, yF]); const dy = d.dot(pC); if (Math.abs(dy) > 1e-6) { const k = (yF - y0) / dy; pts.push([x0 + k * d.dot(MC.a), yF]); } } }
+      const z0 = sg * t / 2, z1 = sg * (t / 2 + tf); let gus = G.poly(v54ccw(stHull2(pts)), Math.min(z0, z1), Math.max(z0, z1));
+      cut(A.id, G.poly(v54ccw(stHull2(pts)), Math.min(z0, z1), Math.max(z0, z1)));   // the continuous tube slotted for the gusset (Tekla: the gusset passes through)
+      for (const r of ends) { const BB = stBolts(r.bl, g.clone().multiplyScalar(sg).toArray(), q.bolt, t + tf, U); let tg = r.tg; for (const hc of BB.holes) { tg = tg.subtract(hc); gus = gus.subtract(hc); }
+        plate('TONGUE PLATE', tg, q.t, 'FLT' + q.t + '*' + q.w); bolts(BB, r.bl.length, q.blrule === 'tekla' ? tkBoltLen70(q.bolt, q.t + q.tf) : q.t + q.tf + 2 * q.bolt); }
+      plate('CROSSING GUSSET', gus, q.tf); weld('Crossing gusset to brace', q.a, 4 * 2 * hwC / U);
+    };
+  }
   // C05 · Tekla's parametric hollow sections have square corners (R12's SHS100*3: 1,164 mm², the IFC solid; docs/steel/PARITY.md
   // "Weights"): a profile written in Tekla's * notation (SHS100*3, RHS200*100*5) gets r 0; v69's own names (SHS80x5) keep r = 2 t.
   { const stProf69 = stProf; stProf = function (name) { const r = stProf69(name); if (!r || r.kind !== 'R' || !/^\s*(SHS|RHS)\s*\d+(\.\d+)?\s*\*/i.test(String(name || ''))) return r;

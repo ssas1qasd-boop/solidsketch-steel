@@ -240,6 +240,60 @@ def tekla_sp(mark):
         tmp = os.path.join(REPO, 'build', f'_{mark}_sp.pdf'); open(tmp, 'wb').write(z.read(n))
     out = tmp[:-4]; subprocess.run(['pdftoppm', '-png', '-r', '120', '-singlefile', tmp, out], check=True); os.remove(tmp); return Image.open(out + '.png').convert('RGB')
 
+def c06(shots, video=None):
+    """C06: c06_case.ss (R12's node R3019 with Gusset shape = Tekla) and c06_gd30.ss (HZ brace Picture 5 = 30, Modify)"""
+    st = lambda b: b.get('st') or {}
+    def outline(f):
+        D = json.load(gzip.open(os.path.join(shots, f)))['doc']; g = next(b for b in D['bodies'] if st(b).get('name') == 'GUSSET PLATE'); v = VT(g)[0]
+        c0 = v.mean(0); w_, vv = np.linalg.eigh((v - c0).T @ (v - c0)); n_ = vv[:, 0]; best = None
+        for a_ in np.radians(np.arange(0, 180, 0.01)):
+            x_ = np.cos(a_) * vv[:, 1] + np.sin(a_) * vv[:, 2]; y_ = np.cross(n_, x_); e_ = (np.ptp((v - c0) @ x_), np.ptp((v - c0) @ y_))
+            if best is None or e_[0] * e_[1] < best[0] * best[1]: best = e_
+        return sorted(np.round(best, 1), reverse=True), st(g).get('conn')
+    a, _ = outline('c06_case.ss'); b, _ = outline('c06_gd30.ss')
+    lines = [f'gusset {a[0]} x {a[1]} x 12 (R12 / NC 6532: PL12 549.34 x 280.39; outline (0,0) (549.34,0) (549.34,190.21) (426.53,257.42) (339.32,280.39) (199.32,280.39) ...)',
+             f'after the HZ brace Picture 5 = 30 + Modify: gusset {b[0]} x {b[1]} x 12 (its edge 10 mm nearer the gusset\'s centre)',
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c06_case.ss')).split(';')[0] + ' | after 5 = 30: ' + rule_b(os.path.join(shots, 'c06_gd30.ss')).split(';')[0],
+             'R12 rebuild (web v70 and app): row 6 gussets 82 -> 233 / 250 at 0.1 mm (17 near: the gable / end-frame nodes, braces skewed out of the gusset plane); app vs R12 230 / 230']
+    app, meta = shot(shots, 'ortho_top'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'gusset: edges 20 before the end plates')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
+    near_ = [b for b in RB if (VT(b)[0].min(0) < t + 1300).all() and (VT(b)[0].max(0) > t - 1300).all()]
+    colr = lambda b: (150, 90, 200) if st(b).get('name', '').strip() == 'Gusset Plate' else (230, 170, 40) if st(b).get('name', '').strip() == 'Connection Plate' else (235, 235, 235) if st(b).get('tprof') == 'FLT5*100' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if st(b).get('amark', '').startswith('R') else (60, 150, 80)
+    r12 = render(near_, t + np.array([0, 0, 400.0]), dv, dist, colr, W=1400, H=900)
+    pic = Image.open(video or os.path.join(REPO, 'build', 'help', 'c20', '07.png')).convert('RGB'); pic = pic.resize((pic.width * 3, pic.height * 3))
+    return compose('C06', [('R12 (Tekla IFC), node on R3019 (gusset 6532), plan', r12), ('Tekla single-part drawing 6532 (package)', tekla_sp('6532')), ('Tekla help: Tube gusset (20) Picture tab (dims 1-10; 5 = gusset to end plate)', pic), ('app on the emulator, orthographic plan (landscape)', app)],
+                   'C06 Tube gusset (20), the gusset: R12 | Tekla drawing | Tekla help picture | app (Gusset tab: Gusset shape = Tekla)', ['Measured on the models the emulator built and saved (c06_case.ss, c06_gd30.ss):'] + ['! ' + m for m in lines])
+
+def c07(shots, video=None):
+    """C07: c07_case.ss (R12's roof crossing HZ6004 / HZ6002 / HZ6006 through the Tube crossing dialog) and c07_gd30.ss (Picture 5 = 30, Modify)"""
+    st = lambda b: b.get('st') or {}
+    def box(v):
+        c0 = v.mean(0); w_, vv = np.linalg.eigh((v - c0).T @ (v - c0)); n_ = vv[:, 0]; best = None
+        for a_ in np.radians(np.arange(0, 180, 0.01)):
+            x_ = np.cos(a_) * vv[:, 1] + np.sin(a_) * vv[:, 2]; y_ = np.cross(n_, x_); e_ = (np.ptp((v - c0) @ x_), np.ptp((v - c0) @ y_))
+            if best is None or e_[0] * e_[1] < best[0] * best[1]: best = e_
+        return sorted(np.round(best, 1), reverse=True)
+    def meas(f):
+        D = json.load(gzip.open(os.path.join(shots, f)))['doc']; c = next(c for c in D['stConns'] if c['type'] == 'Ttgx'); kids = [b for b in D['bodies'] if st(b).get('conn') == c['id']]
+        g = next(b for b in kids if st(b).get('name') == 'CROSSING GUSSET'); tg = [b for b in kids if st(b).get('name') == 'TONGUE PLATE']; caps = [b for b in kids if st(b).get('name') == 'END CAP']
+        bo = [b for b in kids if st(b).get('kind') == 'bolts']; gb = box(VT(g)[0])
+        return gb, f"gusset {gb[0]} x {gb[1]} x 12, {len(tg)} connection plates {' / '.join('x'.join(str(x) for x in box(VT(b)[0])) for b in tg)}, {len(caps)} end plates, bolts " + ', '.join(f"M{st(b)['d']:g} L{st(b)['L']:g} x {st(b).get('n', len(st(b)['pts']))}" for b in bo)
+    (ga, a), (gb, b) = meas('c07_case.ss'), meas('c07_gd30.ss')
+    lines = ['R12 / NC 6534: gusset PL12 572.73 x 330.06 (hexagon (0,130.82) (49.85,0) (425.18,0) (572.74,199.23) (522.89,330.06) (147.55,330.06)), 8 holes d18; plates 315 x 140 x 12; end plates 100 x 44 x 5; M16 8.8',
+             'app: ' + a, f'after Picture 5 = 30 + Modify: gusset {gb[0]} x {gb[1]} x 12 (each half\'s edge 10 mm nearer the crossing)',
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c07_case.ss')).split(';')[0] + ' | after 5 = 30: ' + rule_b(os.path.join(shots, 'c07_gd30.ss')).split(';')[0],
+             'R12 rebuild (web v70 and app): row 7 crossing gussets 0 -> 52 / 52 at 0.1 mm, caps 48 / 66 (18 near, 0.1-1.7 mm, Tekla turned them 0.3 deg); app vs R12 parts 364 / 364, bolts 416 / 416']
+    app, meta = shot(shots, 'ortho_top'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), f'crossing gusset {ga[0]} x {ga[1]}')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
+    near_ = [b for b in RB if (VT(b)[0].min(0) < t + 1500).all() and (VT(b)[0].max(0) > t - 1500).all()]
+    colr = lambda b: (150, 90, 200) if st(b).get('name', '').strip() == 'Gusset Plate' and str(st(b).get('tprof', '')).startswith('PL12') else (230, 170, 40) if st(b).get('name', '').strip() == 'Connection Plate' else (235, 235, 235) if str(st(b).get('tprof', '')).startswith(('FLT5', 'PL5')) else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 150, 80)
+    r12 = render(near_, t + np.array([0, 0, 400.0]), dv, dist, colr, W=1400, H=900)
+    pic = Image.open(video or os.path.join(REPO, 'build', 'help', 'c20', '07.png')).convert('RGB'); pic = pic.resize((pic.width * 3, pic.height * 3))
+    return compose('C07', [('R12 (Tekla IFC), crossing HZ6004 (gusset 6534), plan', r12), ('Tekla single-part drawing 6534 (package)', tekla_sp('6534')), ('Tekla help: Tube gusset (20) Picture tab (5 = gusset to end plate)', pic), ('app on the emulator, orthographic plan (landscape)', app)],
+                   'C07 Tube crossing (Tekla 20): R12 | Tekla drawing | Tekla help picture | app (Tube end = at the brace end)', ['Measured on the models the emulator built and saved (c07_case.ss, c07_gd30.ss):'] + ['! ' + m for m in lines])
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07}[sys.argv[1]](*sys.argv[2:])

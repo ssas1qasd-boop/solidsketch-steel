@@ -167,9 +167,40 @@ object FamTG {
         x.weld("Gusset plate to main part", x.n("a"), 2.0 * 400)
     }
 
+    /**
+     * v70 C07 · Tube crossing as Tekla 20 (web "C07"): each half's tube end as C05 (Tube end at the brace end, plate on its axis), the crossing
+     * gusset beside the plates through the continuous tube, its outline by C06's rule with each half's corners brought onto the continuous
+     * tube's far face (square to it and along the half); the continuous tube slotted by the gusset.
+     */
+    private fun cross70(x: FamCtx) {
+        val mc = Joints.mf(x.a, x.profiles); val h1 = x.b ?: throw IllegalStateException("not built"); val m1 = Joints.mf(h1, x.profiles)
+        var g = mc.a cross m1.a; if (g.length() < 1e-6) throw IllegalStateException("not built"); g = g.normalize()
+        val w0 = mc.c1 - m1.c1; val b = mc.a dot m1.a; val dd = mc.a dot w0; val ee = m1.a dot w0; val den = (1 - b * b).let { if (it == 0.0) 1e-9 else it }
+        val p0 = mc.c1.add(mc.a, (b * ee - dd) / den); val pC = (g cross mc.a).normalize(); val gf = Joints.Frame3(p0, mc.a, pC); val hwC = tubeHalf(mc, pC)
+        val sg = if (x.t("side")) x.n("side") else 1.0; val t = x.n("t"); val tf = x.n("tf")
+        fun num(k: String, d: Double): Double { val e = x.q[k] as? JsonPrimitive ?: return d; if (e.isString && e.content.isBlank()) return d; val v = StBuild.jsNum(e); return if (v.isFinite()) v else d }
+        val pts = ArrayList<DoubleArray>(); val ends = ArrayList<End>()
+        for ((hst, hid) in listOfNotNull(h1 to x.bId!!, x.b2?.let { it to x.b2Id!! })) {
+            val mh = Joints.mf(hst, x.profiles); val near = mh.c1.distanceTo(p0) <= mh.c2.distanceTo(p0); val e = if (near) mh.c1 else mh.c2; val d = ((if (near) mh.c2 else mh.c1) - e).normalize()
+            val sTip = ((e - p0) dot d) - (x.n("L") - x.n("ins")); ends += tgEnd(x, hst, hid, p0, d, g, sTip, 0.0, sg)
+            val pIn = (g cross d).normalize(); val sE = sTip + (x.n("L") - x.n("ins") - num("cap", 5.0) - num("gd", 20.0)); val w2 = x.n("w") / 2
+            val side = Math.signum(d dot pC).let { if (it == 0.0) 1.0 else it }; val pa = if ((pIn dot mc.a) >= 0) 1 else -1
+            val hp = num(if (pa > 0) "gwa" else "gwb", w2); val hn = num(if (pa > 0) "gwb" else "gwa", w2)
+            for (y in listOf(hp, -hn)) { val c = p0.add(d, sE).add(pIn, y); val vc = c - p0; val x0 = vc dot mc.a; val y0 = vc dot pC; val yF = -side * hwC
+                pts += doubleArrayOf(x0, y0); pts += doubleArrayOf(x0, yF); val dy = d dot pC; if (abs(dy) > 1e-6) { val k = (yF - y0) / dy; pts += doubleArrayOf(x0 + k * (d dot mc.a), yF) } }
+        }
+        val z0 = sg * t / 2; val z1 = sg * (t / 2 + tf); val outline = hull(pts)
+        val gus = gf.poly(outline, min(z0, z1), max(z0, z1)); x.cut(x.aId, gf.poly(outline, min(z0, z1), max(z0, z1)))
+        val gh = ArrayList<Mesh>()
+        for (r in ends) { val bb = x.group(r.bl, g * sg, x.n("bolt"), t + tf); gh += bb.holes
+            x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes); x.bolts(bb, r.bl.size, blen(x, x.n("t") + x.n("tf") + 2 * x.n("bolt"))) }
+        x.plate("CROSSING GUSSET", gus, tf, minus = gh); x.weld("Crossing gusset to brace", x.n("a"), 4 * 2 * hwC)
+    }
+
     /** v69 FAM.TG (L15612, FAM_TG22): tongue plate tube end on a fin plate, or a tube crossing (kind 'cross'). */
     private fun tg22(x: FamCtx) {
         val t = x.n("t"); val w2 = x.n("w") / 2
+        if (x.s("kind") == "cross" && x.s("tend") == "end") return cross70(x)
         if (x.s("kind") == "cross") {
             val h1 = x.b ?: throw IllegalStateException("not built"); val mc = Joints.mf(x.a, x.profiles)
             val halves = listOfNotNull(h1 to x.bId!!, x.b2?.let { it to x.b2Id!! }); val m1 = Joints.mf(h1, x.profiles)

@@ -117,6 +117,43 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C07 · Tube crossing (Tekla 20 crossing): continuous brace, two halves, crossing gusset (owner 2026-11-27)
+
+### Step 0: Tekla's own site
+- [Tube gusset (20), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_20_help): 20's help also covers crossing braces (its Cross plates tab); the halves are connected like any brace (connection plate, end plates, Picture 5 = gusset to end plate, default 20) and use the same Brace conn / Bolts tabs as C05.
+- So R12's crossings are Tube gusset (20) with three parts (continuous, half 1, half 2); our Ttgx (v69 "Tube crossing (tongues)") is the place for it. Tekla's own videos: none.
+
+### Step 1: videos — the same as C05 (`tests/steel/videos/C05/VIDEO.txt`); neither shows a crossing (lighter model); nothing from the videos is used.
+
+### Step 2: the Tekla package
+- NC 6534 (16 pieces, HZ roof crossings): PL12 572.73 × 330.06, contour (0, 130.82) (49.85, 0) (425.18, 0) (572.74, 199.23) (522.89, 330.06) (147.55, 330.06), 8 holes d18 (two 2 × 2 groups, gauge 60, pitch 60): the hexagon of the rule below. Single-part drawings 6534, 6536, 6554 (HZ), 6514, 6507, 6522, 6523 (VL).
+
+### R12 (52 crossings: 28 HZ roof, 24 VL wall; 52 crossing gussets PL12*318–334, 104 halves)
+- The continuous brace runs through; each half ends at its own end point (as C05's tube end) with a 315 × 140 × 12 connection plate on its axis (150 inside, 165 out), two 100 × 44 × 5 end plates and 4 M16 (e 40, p 60, g 60, Tekla bolt length).
+- **The crossing gusset**: each half has an edge square to it 20 before its end plate (half-length 70 each side); the outline is the hull of those corners and of each corner brought, along its half, onto the continuous brace's far face (−side × half its width). It lies beside the connection plates (12 thick) and passes through the continuous brace, which is slotted by it.
+
+### Change, in web v70 (section "C07") and the app (`FamTG.cross70`)
+- Ttgx Gusset tab, group "Crossing (Tekla 20)": **Tube end** = at the brace end (Tekla's rule above; v69's cut-back tongues for old models), **Gusset side**, **5 · Gusset to the end plate** (20); Bolts tab **Bolt length** = Tekla. Old models unchanged (tend '').
+
+### Search result: the R12 inputs (`c07_q`)
+- L, ins, e, p, g measured on the first half (as `c05_q`); tend 'end', blrule 'tekla', gshape 'tekla', side 1 at all 52.
+
+### Checks
+| Check | Before (C06, 7b1ec0e) | After |
+|---|---|---|
+| Row 7 R12 parts (web rebuild, 0.1 mm boxes) | crossing gussets 0 / 52, caps 0 / 66 | 100 / 118: gussets 52 / 52, caps 48 / 66 (18 NEAR at 0.1–1.7 mm, below) |
+| Row 5 (the halves' plates and end plates) | 943 / 1,294 | 1,239 / 1,294 (the rest: the C06 gable nodes) |
+| App vs R12 (`R12C07Test`, 0.1 mm) | — | parts 364 / 364, bolts 416 / 416, member bodies 156 / 156 |
+| Rule B | — | 0 failures: R12 HZ6004, R12 VL crossing on line 6, SHS80*4 X at 60° (halves 330 from the crossing: at 230 the connection plate would clash with the continuous tube, also in Tekla), SHS120*5 X at 90° side 2 with 285 plates |
+| App = web | — | `R12RebuildTest` 0 differences; `S7T144Test` + 4 t20x cases |
+| Weight (rebuild, web) | 62,742.75 kg | 62,982.42 kg (app 62,982.56; Tekla 63,705.8) |
+
+### Open
+- 18 PL5 "crossing caps" (R12 names them Gusset Plate PL5*32–93): they are the halves' end plates at the upper ends of the wall crossings VL6011–VL6014 on the frame lines, trimmed by Tekla. Ours have the same trimmed size (within 0.2 mm) but Tekla's are turned about 0.3° about the brace axis (X axis (−1, 0.003, −0.004) in R12), 0.1–1.7 mm at the far corner. Probably the IFC export's rounding; not changed.
+
+### Status
+Delivered for the owner's phone check; ✓ only after the owner's OK.
+
 ## C06 · Tube gusset (20), the gusset: node gussets, single-brace gussets, fins (owner 2026-11-27)
 
 ### Step 0: Tekla's own site

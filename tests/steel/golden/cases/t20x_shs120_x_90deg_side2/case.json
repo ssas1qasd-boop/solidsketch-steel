@@ -1,0 +1,97 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttgx",
+   [
+    0,
+    1,
+    2
+   ],
+   {
+    "L": 285,
+    "blrule": "tekla",
+    "e": 30,
+    "g": 50,
+    "ins": 150,
+    "kind": "cross",
+    "p": 50,
+    "side": 1,
+    "tend": "end"
+   }
+  ]
+ ],
+ "description": "SHS120*5 square X (90 deg) in a horizontal plane, gusset on side 2, plates 285 / 150 (e 30, p 50, g 50).",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "HZ Bracing",
+    "p1": [
+     -3000,
+     -3000,
+     6000
+    ],
+    "p2": [
+     3000,
+     3000,
+     6000
+    ],
+    "plane": "Middle",
+    "prof": "SHS120*5",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "HZ Bracing",
+    "p1": [
+     250,
+     -250,
+     6000
+    ],
+    "p2": [
+     3000,
+     -3000,
+     6000
+    ],
+    "plane": "Middle",
+    "prof": "SHS120*5",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "HZ Bracing",
+    "p1": [
+     -250,
+     250,
+     6000
+    ],
+    "p2": [
+     -3000,
+     3000,
+     6000
+    ],
+    "plane": "Middle",
+    "prof": "SHS120*5",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20x_shs120_x_90deg_side2",
+ "pageErrors": []
+}

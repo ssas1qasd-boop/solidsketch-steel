@@ -22,7 +22,7 @@ rm -f "$OUT/.stop"
 REC=$!
 
 START=$(date +%s)
-./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.notClass=com.solidsketchapp.steel.C04RecordingTest,com.solidsketchapp.steel.C14RecordingTest,com.solidsketchapp.steel.C02C09RecordingTest,com.solidsketchapp.steel.C13RecordingTest,com.solidsketchapp.steel.C20RecordingTest,com.solidsketchapp.steel.C05RecordingTest,com.solidsketchapp.steel.C06RecordingTest --stacktrace > "$OUT/connected.log" 2>&1
+./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.notClass=com.solidsketchapp.steel.C04RecordingTest,com.solidsketchapp.steel.C14RecordingTest,com.solidsketchapp.steel.C02C09RecordingTest,com.solidsketchapp.steel.C13RecordingTest,com.solidsketchapp.steel.C20RecordingTest,com.solidsketchapp.steel.C05RecordingTest,com.solidsketchapp.steel.C06RecordingTest,com.solidsketchapp.steel.C07RecordingTest --stacktrace > "$OUT/connected.log" 2>&1
 RC=$?
 echo "$(( $(date +%s) - START ))" > "$OUT/connected_seconds.txt"
 echo "$RC" > "$OUT/connected_rc.txt"
@@ -35,7 +35,7 @@ for f in $(adb shell ls /sdcard/ | tr -d '\r' | grep '^ci_rec_.*\.mp4$'); do adb
 A=app/build/outputs/connected_android_test_additional_output; R1="$OUT/pass1"; mkdir -p "$R1"
 cp -r "$A" "$R1/additional" 2>/dev/null || true; cp -r app/build/reports/androidTests "$R1/reports" 2>/dev/null || true; cp -r app/build/outputs/androidTest-results "$R1/results" 2>/dev/null || true
 # The connection being delivered now (C04 and C14 recordings were delivered with their own runs; set REC_CLASSES to run them again)
-REC_CLASSES="${REC_CLASSES:-C06RecordingTest}"
+REC_CLASSES="${REC_CLASSES:-C07RecordingTest}"
 for CLS in $REC_CLASSES; do
   adb shell rm -f /sdcard/c02_rec.mp4 /sdcard/c09_rec.mp4 /sdcard/c04_rec.mp4 /sdcard/c14_rec.mp4 /sdcard/c13_rec.mp4 /sdcard/c20_rec.mp4 /sdcard/c05_rec.mp4 /sdcard/c06_rec.mp4 || true
   ./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.$CLS --stacktrace > "$OUT/${CLS}.log" 2>&1

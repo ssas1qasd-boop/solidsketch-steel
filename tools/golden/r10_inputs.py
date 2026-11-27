@@ -754,6 +754,21 @@ def main():
         if MODEL == 'R12': q.update(c05_q(b, br, bt[other], other))   # C05 (PARITY.md): Tekla's 20 tube end as R12
         conn('Ttg', [other, br], q, '5', [b['id']])
     # crossings: halves whose tongues bolt to a gusset of a continuous brace
+    def c07_q(cont, hv):
+        """C07: the crossing as Tekla 20 (R12): each half's tube end and plate as C05 (measured on the first half's plate), the gusset side
+        (gusset centre against the crossing plane's normal g = continuous axis x half axis, v70's own definition), Tekla's bolt length."""
+        import numpy as _np
+        cps = [b['id'] for b in plates if b['st']['name'] == 'Connection Plate' and member_for(b['id']) in hv and cont in bolted_to(b['id'])]
+        if not cps: return OrderedDict()
+        cp = byid[cps[0]]; h = member_for(cps[0]); q = c05_q(cp, h, bolted_to(cps[0])[cont], cont)
+        out = OrderedDict((k, q[k]) for k in ('L', 'ins', 'e', 'p', 'g') if k in q); out.update(tend='end', blrule='tekla', gshape='tekla')
+        c1, c2 = _np.asarray(members[cont]['st']['p1'], float), _np.asarray(members[cont]['st']['p2'], float); ca = (c2 - c1) / _np.linalg.norm(c2 - c1)
+        hst = members[hv[0]]['st']; h1, h2 = _np.asarray(hst['p1'], float), _np.asarray(hst['p2'], float); ha = (h2 - h1) / _np.linalg.norm(h2 - h1)
+        g = _np.cross(ca, ha); g /= _np.linalg.norm(g)
+        gid = [i for c in bolted_to(cps[0])[cont] for i in c['parts'] if i != cps[0] and byid.get(i, {}).get('st', {}).get('name', '').strip() == 'Gusset Plate']
+        if gid:
+            gc = _np.asarray(byid[gid[0]]['shape']['vp'], float).reshape(-1, 3).mean(0); out['side'] = 1 if (gc - c1) @ g > 0 else -1
+        return out
     crossing = defaultdict(set)
     for b in plates:
         s = b['st']
@@ -763,7 +778,7 @@ def main():
             if members[other]["kind"] == "given" and re.search(r"Bracing|Strut", members[other]["st"]["name"]): crossing[other].add(br)
     for cont, halves in sorted(crossing.items()):
         hv = sorted(halves)
-        if len(hv) == 2: conn('Ttgx', [cont] + hv, OrderedDict(), '7', [])
+        if len(hv) == 2: conn('Ttgx', [cont] + hv, c07_q(cont, hv) if MODEL == 'R12' else OrderedDict(), '7', [])
         else: unhandled[f'crossing with {len(hv)} halves'].append(members[cont]['r10'][0])
 
     # ---- row 8: sag rods through purlins

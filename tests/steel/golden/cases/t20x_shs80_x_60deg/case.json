@@ -1,0 +1,97 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttgx",
+   [
+    0,
+    1,
+    2
+   ],
+   {
+    "L": 315,
+    "blrule": "tekla",
+    "e": 40,
+    "g": 60,
+    "ins": 150,
+    "kind": "cross",
+    "p": 60,
+    "side": 1,
+    "tend": "end"
+   }
+  ]
+ ],
+ "description": "SHS80*4 X-bracing at 60 deg in a vertical plane: R12 settings, halves ending 330 from the crossing (230 makes the tongue clash with the continuous tube at 60 deg, as it would in Tekla).",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     3000,
+     0,
+     5196
+    ],
+    "plane": "Middle",
+    "prof": "SHS80*4",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     1665,
+     0,
+     2312.2
+    ],
+    "p2": [
+     3000,
+     0,
+     0
+    ],
+    "plane": "Middle",
+    "prof": "SHS80*4",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     1335,
+     0,
+     2883.8
+    ],
+    "p2": [
+     0,
+     0,
+     5196
+    ],
+    "plane": "Middle",
+    "prof": "SHS80*4",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20x_shs80_x_60deg",
+ "pageErrors": []
+}

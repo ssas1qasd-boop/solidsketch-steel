@@ -1,0 +1,97 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttgx",
+   [
+    0,
+    1,
+    2
+   ],
+   {
+    "L": 315,
+    "blrule": "tekla",
+    "e": 40,
+    "g": 60,
+    "ins": 150,
+    "kind": "cross",
+    "p": 60,
+    "side": 1,
+    "tend": "end"
+   }
+  ]
+ ],
+ "description": "R12 wall crossing on grid line 6 (VL, continuous + two halves), gusset through the continuous tube.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     52888,
+     287.789,
+     3187.357
+    ],
+    "p2": [
+     52888,
+     5432.211,
+     562.949
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     52888,
+     2576.263,
+     1733.952
+    ],
+    "p2": [
+     52888,
+     287.775,
+     563.224
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     52888,
+     5458.933,
+     3208.646
+    ],
+    "p2": [
+     52888,
+     3136.003,
+     2020.299
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20x_r12_vl_gable",
+ "pageErrors": []
+}

@@ -1,0 +1,97 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttgx",
+   [
+    0,
+    1,
+    2
+   ],
+   {
+    "L": 315,
+    "blrule": "tekla",
+    "e": 40,
+    "g": 60,
+    "ins": 150,
+    "kind": "cross",
+    "p": 60,
+    "side": 1,
+    "tend": "end"
+   }
+  ]
+ ],
+ "description": "R12 roof crossing HZ6004 (continuous) with halves HZ6002 / HZ6006: gusset PL12*330.1 through the continuous tube, plates 315 / 150.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "HZ Bracing",
+    "p1": [
+     45984.326,
+     27712.652,
+     8827.837
+    ],
+    "p2": [
+     43258.451,
+     22604.743,
+     8208.085
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 191.279,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "HZ Bracing",
+    "p1": [
+     44468.733,
+     25407.359,
+     8483.253
+    ],
+    "p2": [
+     43258.451,
+     27675.257,
+     8208.085
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 168.721,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "HZ Bracing",
+    "p1": [
+     45984.326,
+     22567.348,
+     8827.837
+    ],
+    "p2": [
+     44754.089,
+     24872.641,
+     8548.131
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 168.721,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20x_r12_hz6004",
+ "pageErrors": []
+}

@@ -14,8 +14,8 @@ android {
         applicationId = "com.solidsketchapp.steel"
         minSdk = 24
         targetSdk = 35
-        versionCode = 24
-        versionName = "0.14.0-c06"
+        versionCode = 25
+        versionName = "0.15.0-c07"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // instrumented tests write screenshots with TestStorage → build/outputs/connected_android_test_additional_output
         testInstrumentationRunnerArguments["useTestStorageService"] = "true"
