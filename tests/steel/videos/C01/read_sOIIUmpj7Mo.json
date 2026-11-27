@@ -1,0 +1,324 @@
+{
+ "url": "https://www.youtube.com/watch?v=sOIIUmpj7Mo",
+ "component": "Base plate (1042)",
+ "tab": "Anchor rods",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "03:12",
+    "end": "04:04",
+    "note": "Adjusting anchor rod values for base plate (1042)"
+   }
+  ],
+  "language": "english",
+  "units": "inch"
+ },
+ "pass2": [
+  {
+   "span": [
+    "03:12",
+    "04:04"
+   ],
+   "seconds": [
+    189,
+    247
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Rod profile",
+      "value": "ROD3/4",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Nut profile",
+      "value": "3/4_HEAVY_HEX_NUT",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Washer profile",
+      "value": "3/4_WASHER",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Plate washer",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Cast plate",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Pos No",
+      "value": "m",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "AB",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "m",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "m",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "lp",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "dnd",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "DND",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "ANCHOR_ROD",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "ANCHOR_ROD",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Comment",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Class",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "1",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Grout",
+      "value": "1/2",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Below",
+      "value": "Below",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Base plate with",
+      "value": "Anchor rods",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Component",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Custom settings",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Up direction",
+      "value": "Auto",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Rotation",
+      "value": "Default",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Rotation value",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "3/4",
+      "value": "3/4",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "3/16",
+      "value": "3/16",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "1'-4\"",
+      "value": "1'-4\"",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "2\"",
+      "value": "2\"",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "4\"",
+      "value": "4\"",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "a",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "c",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "d",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "e",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Yes",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "No",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Cast plate holes tolerance",
+      "value": "",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Create hole in washer",
+      "value": "No",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "label": "Create assembly from all anchors",
+      "value": "Default",
+      "t": "03:12",
+      "sure": true
+     }
+    ]
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

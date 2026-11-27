@@ -11,7 +11,11 @@ import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
+import com.solidsketchapp.steel.geom.Prism
+import com.solidsketchapp.steel.geom.Region
+import kotlin.math.PI
 import kotlin.math.abs
+import kotlin.math.cos
 import kotlin.math.atan2
 import kotlin.math.ceil
 import kotlin.math.floor
@@ -116,6 +120,7 @@ object ClassicApps {
 
     /** v44 L15377: treads between two stringers on angle supports bolted to the stringers' webs, foot plates with anchors. */
     fun stairtreads(x: FamCtx) {
+        if (x.s("tmode") == "tekla") return stairs70(x)   // v70 C18
         val bS = x.b ?: run { x.nullResult = true; return }; val bId = x.bId!!
         val m1 = Joints.mf(x.a, x.profiles); val m2 = Joints.mf(bS, x.profiles)
         val lo1 = if (m1.c1.z <= m1.c2.z) m1.c1 else m1.c2; val hi1 = if (lo1 === m1.c1) m1.c2 else m1.c1; val lo2 = if (m2.c1.z <= m2.c2.z) m2.c1 else m2.c2
@@ -161,6 +166,56 @@ object ClassicApps {
         weld(x, "Treads to supports", 3.0, 2.0 * (n - 1) * g)
         x.connSet["nSteps"] = jsNum(n.toDouble())   // c.nSteps = n (L15397)
     }
+
+    // ---------- v70 C18 (web v70 section "C18"): R12's treads, brackets and bolts, and the stringers' mitre fit ----------
+    private fun n70(x: FamCtx, k: String, d: Double) = StBolts.tkNum(x.q[k], d)
+    /** The bent tread's section (u along the going, v up from the legs' bottom), CCW (web st70Tread). */
+    private fun treadSec(tt: Double, ri: Double, th: Double, tw: Double): List<DoubleArray> {
+        val r = ri + tt; val a = listOf(0.0, 30.0, 60.0, 90.0).map { it * PI / 180 }; val p = ArrayList<DoubleArray>(); p += doubleArrayOf(0.0, 0.0); p += doubleArrayOf(tt, 0.0)
+        for (t in a) p += doubleArrayOf(r - ri * cos(t), th - r + ri * sin(t))
+        for (t in a.reversed()) p += doubleArrayOf(tw - r + ri * cos(t), th - r + ri * sin(t))
+        p += doubleArrayOf(tw - tt, 0.0); p += doubleArrayOf(tw, 0.0); for (t in a) p += doubleArrayOf(tw - r + r * cos(t), th - r + r * sin(t))
+        for (t in a.reversed()) p += doubleArrayOf(r - r * cos(t), th - r + r * sin(t))
+        val out = p.filterIndexed { i, q -> i == 0 || kotlin.math.hypot(q[0] - p[i - 1][0], q[1] - p[i - 1][1]) > 1e-9 }
+        return if (Prism.area(out) < 0) out.reversed() else out
+    }
+    private fun stairs70(x: FamCtx) {
+        val bS = x.b ?: run { x.nullResult = true; return }; val bId = x.bId!!
+        val m1 = Joints.mf(x.a, x.profiles); val m2 = Joints.mf(bS, x.profiles)
+        val lo1 = if (m1.c1.z <= m1.c2.z) m1.c1 else m1.c2; val hi1 = if (lo1 === m1.c1) m1.c2 else m1.c1; val lo2 = if (m2.c1.z <= m2.c2.z) m2.c1 else m2.c2
+        val hH = hi1.z - lo1.z; val dh0 = (hi1 - lo1).let { D3(it.x, it.y, 0.0) }; val run = dh0.length(); val dh = dh0.normalize(); if (hH <= 0 || run <= 0) { x.nullResult = true; return }
+        val lat0 = (lo2 - lo1).let { D3(it.x, it.y, 0.0) }; val latV = lat0.add(dh, -(lat0 dot dh)); val wW = latV.length(); val lat = latV.normalize()
+        fun half(m: MemberFrame) = (abs(lat dot m.es) * m.b + abs(lat dot m.eh) * m.h) / 2
+        val in0 = half(m1); val in1 = wW - half(m2)
+        val n = max(1, jsInt(n70(x, "ntr", 12.0))); val rise = n70(x, "rise", 156.667); val go = rise * run / hH
+        val tt = n70(x, "tt", 10.0); val th = n70(x, "th", 40.0); val tw = n70(x, "tw", 300.0); val gap = n70(x, "tgap", 5.0); val ri = n70(x, "tri", 5.0)
+        val sec = treadSec(tt, ri, th, tw); val dev = 2 * (th - tt - ri) + (tw - 2 * (tt + ri)) + PI * ri
+        val tprof = "PL" + js(x, "tt") + "*" + JsNumber.format(Math.round(dev * 10) / 10.0)
+        val bl = n70(x, "bl", 140.0); val leg = n70(x, "bleg", 60.0); val ta = n70(x, "bta", 6.0); val d = n70(x, "bbolt", 12.0).takeIf { it != 0.0 } ?: 12.0
+        val lsec = listOf(doubleArrayOf(0.0, 0.0), doubleArrayOf(ta, 0.0), doubleArrayOf(ta, leg - ta), doubleArrayOf(leg, leg - ta), doubleArrayOf(leg, leg), doubleArrayOf(0.0, leg))
+        val brs = ArrayList<Pair<BoltGroup, Double>>(); val mat = x.s("tmat").ifEmpty { "Grating" }
+        for (k in 0 until n) { val s = n70(x, "s0", 0.0) + k * go; val zt = lo1.z + s * hH / run + n70(x, "dz", 0.0); val o0 = lo1.add(dh, s); val o = D3(o0.x, o0.y, zt)
+            val ob = o.add(dh, -tw / 2).add(Z, -th).add(lat, in0 + gap); val tl = in1 - in0 - 2 * gap; val rh = ((dh cross Z) dot lat) > 0
+            x.parts += ConnPart("TREAD", listOf(Prism.extrude(Region(sec), tl, Prism.Frame(if (rh) ob else ob.add(lat, tl), dh, Z, if (rh) lat else -lat))), prof = tprof, mat = mat)
+            for ((y0, sg, mm) in listOf(Triple(in0, 1.0, m1), Triple(in1, -1.0, m2))) {
+                val ul = lat * sg; val obr = o.add(lat, y0).add(Z, -tt - leg).add(dh, -bl / 2); val nn = ul cross Z; val fwd = (nn dot dh) > 0
+                val m = Prism.extrude(Region(lsec), bl, Prism.Frame(if (fwd) obr else obr.add(dh, bl), ul, Z, if (fwd) dh else -dh))
+                val pts = listOf(-1.0, 1.0).map { e -> o.add(dh, e * n70(x, "bp", 90.0) / 2 + n70(x, "bo", 0.0)).add(Z, -tt - n70(x, "bz", 30.0)).add(lat, y0 - sg * mm.tw) }
+                val grip = mm.tw + ta; val bg = x.group(pts, ul, d, grip); for (hc in bg.holes) x.cut(if (sg > 0) x.aId else bId, hc)
+                x.parts += ConnPart("BRACKET", listOf(m), prof = "L" + js(x, "bleg") + "*" + js(x, "bta"), minus = bg.holes, len = bl); brs += bg to grip } }
+        for ((bg, grip) in brs) bolts(x, "BOLTS", bg, 2, d, x.s("bgrade").ifEmpty { "8.8" }, if (x.s("blrule") == "tekla") Fam.tkBoltLen(d, grip) else grip + 2 * d)
+        // the stringers' mitre fit to the pieces they meet (parts[2..5])
+        val ps = x.conn?.parts ?: emptyList()
+        for ((sid, mm, lo, ix) in listOf(Quad(x.aId, m1, lo1, 2), Quad(bId, m2, lo2, 4))) for ((j, endP) in listOf(0 to lo, 1 to (if (lo === mm.c1) mm.c2 else mm.c1))) {
+            val pid = ps.getOrNull(ix + j) ?: continue; val pst = x.stOf(pid) ?: continue; val mp = Joints.mf(pst, x.profiles)
+            val u = if (endP === mm.c1) (mm.c1 - mm.c2).normalize() else (mm.c2 - mm.c1).normalize(); val w0 = (mp.c2 - mp.c1).normalize()
+            val r = endP - mp.c1; val a = u dot u; val b = u dot w0; val cc = w0 dot w0; val d0 = u dot r; val e0 = w0 dot r; val den = a * cc - b * b; if (abs(den) < 1e-9) continue
+            val x0 = endP.add(u, (b * e0 - cc * d0) / den); val far = if (mp.c1.distanceTo(x0) > mp.c2.distanceTo(x0)) mp.c1 else mp.c2; val w = (far - x0).normalize()
+            val mdir = (u + w).normalize(); val big = 20000.0; val xa = ((if (abs(mdir.z) < 0.9) Z else D3(1.0, 0.0, 0.0)) cross mdir).normalize(); val ya = mdir cross xa
+            x.cut(sid, Joints.box3(x0, xa, ya, -big, big, -big, big, 0.0, big)); x.cut(pid, Joints.box3(x0, xa, ya, -big, big, -big, big, -big, 0.0)) }   // both pieces on the one mitre plane (R12)
+        x.connSet["nSteps"] = jsNum(n.toDouble())
+    }
+    private data class Quad(val a: String, val b: MemberFrame, val c: D3, val d: Int)
 
     /** v44 L15376: a weld with no parts; the secondary is cut with the main part's envelope (stEnvelope, v40 L14883). */
     fun weldonly(x: FamCtx) {

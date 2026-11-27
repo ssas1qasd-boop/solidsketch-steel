@@ -1,0 +1,958 @@
+{
+ "url": "https://www.youtube.com/watch?v=hB6GCajcLbo",
+ "component": "Base plate (1042)",
+ "tab": "Anchor rods",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "01:17",
+    "end": "01:45",
+    "note": "dialog of Base plate (1042) on its Anchor rods tab"
+   },
+   {
+    "start": "01:57",
+    "end": "02:04",
+    "note": "dialog of Base plate (1042) on its Anchor rods tab"
+   },
+   {
+    "start": "02:08",
+    "end": "02:35",
+    "note": "dialog of Base plate (1042) on its Anchor rods tab"
+   },
+   {
+    "start": "03:22",
+    "end": "03:23",
+    "note": "dialog of Base plate (1042) on its Anchor rods tab"
+   },
+   {
+    "start": "04:26",
+    "end": "04:41",
+    "note": "dialog of Base plate (1042) on its Anchor rods tab"
+   }
+  ],
+  "language": "EN",
+  "units": "mm"
+ },
+ "pass2": [
+  {
+   "span": [
+    "01:17",
+    "01:45"
+   ],
+   "seconds": [
+    74,
+    108
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Rod profile",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Nut profile",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Washer profile",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Plate washer",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Cast plate",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Grout",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Base plate with Component",
+      "value": "Default",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Class",
+      "value": "1",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Comment",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Up direction",
+      "value": "Auto",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Rotation",
+      "value": "Default",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Rotation value",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "50.00",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "0.00",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "500.00",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "a",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "c",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "d",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "e",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Default",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "Default",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Cast plate holes tolerance",
+      "value": "",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Create hole in washer",
+      "value": "Default",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Create assembly from all anchors",
+      "value": "Default",
+      "t": "01:18",
+      "sure": true
+     },
+     {
+      "label": "Rod profile",
+      "value": "ROD50",
+      "t": "01:26",
+      "sure": true
+     },
+     {
+      "label": "Rod profile",
+      "value": "ROD19",
+      "t": "01:31",
+      "sure": true
+     },
+     {
+      "label": "Grout",
+      "value": "25.00",
+      "t": "01:38",
+      "sure": true
+     },
+     {
+      "label": "Base plate with Component",
+      "value": "Anchor rods",
+      "t": "01:42",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "01:57",
+    "02:04"
+   ],
+   "seconds": [
+    114,
+    127
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Rod profile",
+      "value": "ROD19",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Nut profile",
+      "value": "",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Washer profile",
+      "value": "",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Plate washer",
+      "value": "",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Cast plate",
+      "value": "",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Grout",
+      "value": "25.00",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Component",
+      "value": "Default",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Base plate with",
+      "value": "Anchor rods",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Up direction",
+      "value": "Auto",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Rotation",
+      "value": "Default",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Rotation value",
+      "value": "",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Cast plate holes tolerance",
+      "value": "",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Create hole in washer",
+      "value": "Default",
+      "t": "01:54",
+      "sure": true
+     },
+     {
+      "label": "Create assembly from all anchors",
+      "value": "Default",
+      "t": "01:54",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "02:08",
+    "02:35"
+   ],
+   "seconds": [
+    125,
+    158
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Rod profile",
+      "value": "ROD19",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Nut profile",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Washer profile",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Plate washer",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Cast plate",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Grout",
+      "value": "25.00",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Base plate with",
+      "value": "Anchor rods",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Component",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Mirror",
+      "value": "Default",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Custom settings",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Up direction",
+      "value": "Auto",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Rotation",
+      "value": "Default",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Rotation value",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "a",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "c",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "d",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "e",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Cast plate holes tolerance",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Create hole in washer",
+      "value": "Default",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "Create assembly from all anchors",
+      "value": "",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "500.00",
+      "value": "500.00",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "50.00",
+      "value": "50.00",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "label": "0.00",
+      "value": "0.00",
+      "t": "02:05",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "03:22",
+    "03:23"
+   ],
+   "seconds": [
+    199,
+    206
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Rod profile",
+      "value": "ROD19",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Pos No",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Class",
+      "value": "1",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Nut profile",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Pos No",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Class",
+      "value": "1",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Washer profile",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Pos No",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Class",
+      "value": "1",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Plate washer",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Pos No",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Class",
+      "value": "1",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Cast plate",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Pos No",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Class",
+      "value": "1",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Grout",
+      "value": "25.00",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Component",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Base plate with",
+      "value": "Anchor rods",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Component",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Mirror",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Up direction",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Rotation",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Rotation value",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "500.00",
+      "value": "500.00",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "50.00",
+      "value": "50.00",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "0.00",
+      "value": "0.00",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "a",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "c",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "d",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "e",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "f",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Yes",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Yes",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Yes",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Yes",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Yes",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Yes",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Yes",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create",
+      "value": "Yes",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Anchor rod assembly",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Cast plate holes tolerance",
+      "value": "",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create hole in washer",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     },
+     {
+      "label": "Create assembly from all anchors",
+      "value": "Default",
+      "t": "03:21",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "04:26",
+    "04:41"
+   ],
+   "seconds": [
+    263,
+    284
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Rod profile",
+      "value": "ROD19",
+      "t": "04:26",
+      "sure": true
+     },
+     {
+      "label": "Nut profile",
+      "value": "",
+      "t": "04:26",
+      "sure": true
+     },
+     {
+      "label": "Washer profile",
+      "value": "",
+      "t": "04:26",
+      "sure": true
+     },
+     {
+      "label": "Plate washer",
+      "value": "",
+      "t": "04:26",
+      "sure": true
+     },
+     {
+      "label": "Cast plate",
+      "value": "",
+      "t": "04:26",
+      "sure": true
+     },
+     {
+      "label": "Grout",
+      "value": "30.00",
+      "t": "04:35",
+      "sure": true
+     },
+     {
+      "label": "Base plate with",
+      "value": "Anchor rods",
+      "t": "04:26",
+      "sure": true
+     },
+     {
+      "label": "Component",
+      "value": "",
+      "t": "04:26",
+      "sure": true
+     },
+     {
+      "label": "500.00",
+      "value": "500.00",
+      "t": "04:26",
+      "sure": true
+     },
+     {
+      "label": "50.00",
+      "value": "50.00",
+      "t": "04:26",
+      "sure": true
+     },
+     {
+      "label": "0.00",
+      "value": "0.00",
+      "t": "04:26",
+      "sure": true
+     }
+    ]
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

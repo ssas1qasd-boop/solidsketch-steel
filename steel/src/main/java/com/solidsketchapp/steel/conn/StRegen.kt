@@ -117,11 +117,12 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
         val pp = c.q["P"] as? JsonObject; val P = (pp?.get(p.name) ?: pp?.get("ALL")) as? JsonObject ?: JsonObject(emptyMap())
         fun ps(k: String) = (P[k] as? JsonPrimitive)?.contentOrNull ?: ""
         val m = linkedMapOf<String, JsonElement>("kind" to JsonPrimitive("conn"), "conn" to (c.raw["id"] ?: JsonPrimitive(c.id)), "name" to JsonPrimitive(ps("name").ifEmpty { p.name }),
-            "role" to JsonPrimitive(p.name), "prof" to JsonPrimitive(p.prof ?: ""), "mat" to JsonPrimitive(ps("mat").ifEmpty { "S275" }),
+            "role" to JsonPrimitive(p.name), "prof" to JsonPrimitive(p.prof ?: ""), "mat" to JsonPrimitive(ps("mat").ifEmpty { p.mat ?: "S275" }),
             "cls" to jsNum(StBolts.tkNum(c.q["cls"], 1.0).toInt().let { if (it == 0) 1 else it }.toDouble()))
         if (asm != null) m["asm"] = asm.toLongOrNull()?.let { jsNum(it.toDouble()) } ?: JsonPrimitive(asm)
         if (ps("pp").isNotEmpty()) m["pp"] = JsonPrimitive(ps("pp")); if (ps("ps").isNotEmpty()) m["ps"] = jsNum(StBuild.jsNum(P["ps"])); if (ps("fin").isNotEmpty()) m["fin"] = JsonPrimitive(ps("fin"))
         p.hole?.let { m["hole"] = it }   // v70 C01 (web tkKidSt wrapper: after the v69 fields)
+        p.len?.takeIf { it > 0 }?.let { m["len70"] = jsNum(it) }   // v70 C18
         return JsonObject(m)
     }
 
@@ -134,6 +135,7 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
         if (fam == "TG") { if (Regex("FIN|CROSSING").containsMatchIn(name)) return p[0]
             if ((d?.def?.get("kind") as? JsonPrimitive)?.contentOrNull == "cross") return p.getOrNull(1 + minOf(1, maxOf(0, ix - 1) shr 1)) ?: p.getOrNull(1); return p.getOrNull(1) }
         if (fam == "CL") return p[0]
+        if (c.type == "Tsep") return if (name == "COUNTER PLATE") p.getOrNull(1) else p[0]   // v70 C18 (web stOwner wrapper)
         if ((c.type == "T133" || c.type == "T135") && name == "STUB") return p[0]
         return when (fam) {
             "EP", "CA", "BE" -> if (Regex("FRONT|STUB|STIFF|SHIM").containsMatchIn(name)) p[0] else if (p.getOrNull(2) != null && ix >= 0 && name == "END PLATE" && ix > 0) p[2] else sec

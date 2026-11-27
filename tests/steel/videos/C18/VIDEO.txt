@@ -1,0 +1,6 @@
+C18 Stairs: no video read.
+Tekla's own page (Stairs (S71), https://support.tekla.com/doc/tekla-structures/2025/macro_s71_help) describes R12's stair: U-pan
+profile steps on brackets, the Bracket tab (bracket length, offset from the step's centre line, bracket-to-step and
+bracket-to-stringer bolts). No Tekla video of S71's U-pan steps was found, so no values come from a video; every number in
+C18 comes from R12 (the treads, brackets, plates and bolts measured part by part) and the Tekla package (SGR9001, SR9001-9004,
+PLSTR9001, STR9001-9004, GA 9 - Stairs View).

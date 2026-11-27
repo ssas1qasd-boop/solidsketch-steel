@@ -169,7 +169,9 @@
     function partWeight70(b) {
       const r = partWeight70net(b); if (!b || !b.st || r == null) return r;
       if (/^GROUT$/i.test(String(b.st.name || '').trim())) return Object.assign({}, r, { weight: 0, net: 0, gross: 0 });   // Tekla's grout weighs 0 (material GROUT); components name it GROUT on S275 (docs/steel/WEIGHT-ANALYSIS.md D1)
-      if (r.catalog && r.kgm > 0 && r.len > 0) return r;   // catalog kg/m x length: holes never counted; a catalog part with no length (a cleat angle) is weighed by its solid
+      if (r.catalog && r.kgm > 0 && r.len > 0) return r;
+      if (b.st.kind === 'conn' && +b.st.len70 > 0) { const kgm = R66.TK_KGM[String(b.st.prof || '').toUpperCase()] ?? R66.TK_KGM[b.st.prof] ?? (stProf(b.st.prof) || {}).m;   // C18: a component's catalog angle (the stair brackets): Tekla's kg/m x its length
+        if (kgm > 0) { const w = r2(kgm * +b.st.len70 / 1000); return Object.assign({}, r, { weight: w, net: w, gross: w, catalog: true, kgm, len: +b.st.len70 }); } }   // catalog kg/m x length: holes never counted; a catalog part with no length (a cleat angle) is weighed by its solid
       let f = 0; try { f = holeFill70(b); } catch (e) { f = 0; } if (!(f > 0)) return r;
       const rho = (R66.TK_DENS[String(b.st.mat || '').toUpperCase()] ?? 7850), k = r.tkArea && r.ownArea ? r.tkArea / r.ownArea : 1, add = f * 1e-9 * rho * k, U = stU();
       const base = !r.tkArea && !(r.holesKg > 0) ? Math.abs(b.man.volume()) / (U * U * U) * 1e-9 * rho : r.net;   // unrounded, so the fill is added before rounding
@@ -729,3 +731,106 @@
         for (let k = 0; k < Math.min(2, nn); k++) { X.out.parts.push({ name: 'NUT', man: bpRing70(P.clone().addScaledVector(n, z), n, d, d / 2, nutL, U), prof: pd }); z += nutL * U; } }
     }; }
   { const kid69 = tkKidSt; tkKidSt = function (c, p, asm) { const st = kid69(c, p, asm); if (p.hole && st && st.kind === 'conn') st.hole = p.hole; return st; }; }
+  // ---------- C18 · Stairs as Tekla (R12): grating treads on L60*6 brackets bolted to the stringer webs; stringer end plates FLT12*150 ----------
+  // R12 (2 flights, 23 treads, docs/steel/PARITY.md "C18"): each tread a bent plate PL10 (developed 335.7: a 300 x 40 channel, legs down,
+  // inner bend radius 5 in 3 chords), material Grating (1,333 kg/m3), 990 long = 5 clear of each stringer web; treads on the stringer's
+  // slope (going = rise x run / height), 12 at rise 156.67 and 11 at rise 170; under each tread's top plate two L60*6 x 140 brackets, the
+  // vertical leg on the web, bolted with 2 M12 8.8 (90 apart, 30 below the bracket's top; head on the web's outer face). Tekla's stair
+  // component is not in the IFC: our own Tekla mode of v69's Stair treads with the fewest fields that reproduce R12 (count, rise, first
+  // tread's position along the run and its top above the stringer line, tread / bracket sizes). Old models (tmode '') are v69's.
+  Object.assign(CONN.stairtreads.def, { tmode: '', ntr: 12, rise: 156.667, s0: 145.863, dz: 47.43, tw: 300, th: 40, tt: 10, tri: 5, tgap: 5, tmat: 'Grating', bl: 140, bleg: 60, bta: 6, bbolt: 12, bp: 90, bo: 5, bz: 30, bgrade: '8.8', blrule: 'tekla' });
+  Object.assign(ST_LBL, { tmode: 'Treads', ntr: 'Number of treads', rise: 'Rise', s0: 'First tread: centre along the run from the stringer\'s lower end', dz: 'Tread top above the stringer centre line',
+    tw: 'Tread depth (going side)', th: 'Tread height', tt: 'Tread plate thickness', tri: 'Bend inner radius', tgap: 'Gap to the stringer web', tmat: 'Tread material', bl: 'Bracket length', bleg: 'Bracket leg', bta: 'Bracket thickness', bbolt: 'Bracket bolt size', bp: 'Bracket bolt spacing', bo: 'Bracket bolts off the bracket centre (up the run)', bz: 'Bracket bolts below its top' });
+  function st70Tread(q) {   // the bent tread's section (u along the going, v up from the legs' bottom), CCW
+    const tt = +q.tt, ri = +q.tri, R = ri + tt, th = +q.th, tw = +q.tw, a = [0, 30, 60, 90].map(x => x * Math.PI / 180), P = [[0, 0], [tt, 0]];
+    for (const t of a) P.push([R - ri * Math.cos(t), th - R + ri * Math.sin(t)]);
+    for (const t of a.slice().reverse()) P.push([tw - R + ri * Math.cos(t), th - R + ri * Math.sin(t)]);
+    P.push([tw - tt, 0], [tw, 0]); for (const t of a) P.push([tw - R + R * Math.cos(t), th - R + R * Math.sin(t)]);
+    for (const t of a.slice().reverse()) P.push([R - R * Math.cos(t), th - R + R * Math.sin(t)]);
+    const out = P.filter((p, i) => i === 0 || Math.hypot(p[0] - P[i - 1][0], p[1] - P[i - 1][1]) > 1e-9); let A2 = 0; for (let i = 0; i < out.length; i++) { const p = out[i], n = out[(i + 1) % out.length]; A2 += p[0] * n[1] - n[0] * p[1]; }
+    return A2 < 0 ? out.reverse() : out; }
+  function st70Geom(c, q) {
+    const U = stU(); const A = stBody(c.parts[0]), B = stBody(c.parts[1]); if (!A || !B) return null; const out = { parts: [], cuts: new Map(), welds: [] }; const cut = (id, m) => { if (!out.cuts.has(id)) out.cuts.set(id, []); out.cuts.get(id).push(m); };
+    const M1 = stMF(A.st), M2 = stMF(B.st); const Z = new THREE.Vector3(0, 0, 1); const lo1 = M1.c1.z <= M1.c2.z ? M1.c1 : M1.c2, hi1 = lo1 === M1.c1 ? M1.c2 : M1.c1; const lo2 = M2.c1.z <= M2.c2.z ? M2.c1 : M2.c2;
+    const H = hi1.z - lo1.z; const dh = hi1.clone().sub(lo1).setZ(0); const run = dh.length(); dh.normalize(); if (H <= 0 || run <= 0) return null;
+    const lat0 = lo2.clone().sub(lo1).setZ(0); const lat = lat0.clone().addScaledVector(dh, -lat0.dot(dh)); const W = lat.length(); lat.normalize();
+    const half = M => (Math.abs(lat.dot(M.es)) * M.b + Math.abs(lat.dot(M.eh)) * M.h) / 2 * U; const in0 = half(M1), in1 = W - half(M2);
+    const n = Math.max(1, +q.ntr | 0), rise = +q.rise * U, go = rise * run / H, tt = +q.tt * U, th = +q.th * U, tw = +q.tw * U, gap = +q.tgap * U, sec = st70Tread(q).map(p => [p[0] * U, p[1] * U]);
+    const dev = 2 * (+q.th - +q.tt - +q.tri) + (+q.tw - 2 * (+q.tt + +q.tri)) + Math.PI * +q.tri; const tprof = 'PL' + q.tt + '*' + Math.round(dev * 10) / 10;
+    const bl = +q.bl * U, leg = +q.bleg * U, ta = +q.bta * U, d = +q.bbolt || 12; const Lsec = [[0, 0], [ta, 0], [ta, leg - ta], [leg, leg - ta], [leg, leg], [0, leg]].map(p => [p[0], p[1]]);
+    const bl1 = [], bl2 = [], brs = [];
+    for (let k = 0; k < n; k++) { const s = +q.s0 * U + k * go; const zt = lo1.z + s * H / run + +q.dz * U; const O = lo1.clone().addScaledVector(dh, s).setZ(zt);
+      const o = O.clone().addScaledVector(dh, -tw / 2).addScaledVector(Z, -th).addScaledVector(lat, in0 + gap);
+      const tl = in1 - in0 - 2 * gap, rh = new THREE.Vector3().crossVectors(dh, Z).dot(lat) > 0;   // a right-handed frame (u along the going, v up, n across)
+      out.parts.push({ name: 'TREAD', man: C.placeInFrame(C.extrudeRegions([{ outer: sec, holes: [] }], tl)[0], { origin: (rh ? o : o.clone().addScaledVector(lat, tl)).toArray(), u: dh.toArray(), v: Z.toArray(), n: (rh ? lat : lat.clone().negate()).toArray() }), prof: tprof, mat70: q.tmat || 'Grating' });
+      for (const [y0, sg, blist, M] of [[in0, 1, bl1, M1], [in1, -1, bl2, M2]]) { const ul = lat.clone().multiplyScalar(sg), ob = O.clone().addScaledVector(lat, y0).addScaledVector(Z, -tt - leg).addScaledVector(dh, -bl / 2);
+        const nn = new THREE.Vector3().crossVectors(ul, Z); const m = C.placeInFrame(C.extrudeRegions([{ outer: Lsec, holes: [] }], bl)[0], { origin: (nn.dot(dh) > 0 ? ob : ob.clone().addScaledVector(dh, bl)).toArray(), u: ul.toArray(), v: Z.toArray(), n: (nn.dot(dh) > 0 ? dh : dh.clone().negate()).toArray() });
+        const pts = [-1, 1].map(e => O.clone().addScaledVector(dh, e * +q.bp * U / 2 + (+q.bo || 0) * U).addScaledVector(Z, -tt - +q.bz * U).addScaledVector(lat, y0 - sg * (M.tw || 8) * U)); const grip = ((M.tw || 8) + +q.bta) * U;
+        const BG = stBolts(pts, ul.toArray(), d, grip, U); let mm = m; for (const hc of BG.holes) { mm = mm.subtract(hc); cut(sg > 0 ? A.id : B.id, hc); }
+        out.parts.push({ name: 'BRACKET', man: mm, prof: 'L' + q.bleg + '*' + q.bta, len70: +q.bl }); brs.push([BG, pts, grip]); } }
+    for (const [BG, pts, grip] of brs) out.parts.push({ name: 'BOLTS', man: BG.man, bolts: { pts: BG.pts, ax: BG.ax, d, n: pts.length, grade: q.bgrade || '8.8', L: q.blrule === 'tekla' ? tkBoltLen70(d, grip / U) : Math.round(grip / U + 2 * d),
+      d0: d + (d <= 24 ? 2 : 3), ...(q.grade ? { std: q.grade + 'XOX' } : {}), thr: String(q.thr) === '0' ? 'No' : 'Yes', sw: q.sw || 'Site' } });   // the v58 bolt fields (this mode returns past the v58 wrapper)
+    // R12's stringer fit: each sloped stringer mitred to the piece it meets at either end (the plane through the centre lines' crossing,
+    // square to the sum of the two directions): parts[2..3] adjoin A at its lower / upper end, parts[4..5] adjoin B (optional)
+    for (const [sid, M, lo, ix] of [[A.id, M1, lo1, 2], [B.id, M2, lo2, 4]]) for (const [j, endP] of [[0, lo], [1, lo === M.c1 ? M.c2 : M.c1]]) {
+      const P = c.parts[ix + j] != null ? stBody(c.parts[ix + j]) : null; if (!P) continue; const Mp = stMF(P.st);
+      const u = endP === M.c1 ? M.c1.clone().sub(M.c2).normalize() : M.c2.clone().sub(M.c1).normalize();   // along the stringer, toward this end
+      const w0 = Mp.c2.clone().sub(Mp.c1).normalize();
+      // the centre lines' crossing (closest points), then the piece's direction away from it (toward its far end)
+      const r = endP.clone().sub(Mp.c1), a = u.dot(u), b = u.dot(w0), cc = w0.dot(w0), d0 = u.dot(r), e0 = w0.dot(r), den = a * cc - b * b; if (Math.abs(den) < 1e-9) continue;
+      const X0 = endP.clone().addScaledVector(u, (b * e0 - cc * d0) / den); const far = Mp.c1.distanceTo(X0) > Mp.c2.distanceTo(X0) ? Mp.c1 : Mp.c2; const w = far.clone().sub(X0).normalize();
+      const m = u.clone().add(w).normalize(); const big = 20000 * U;
+      const x = new THREE.Vector3().crossVectors(Math.abs(m.z) < 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0), m).normalize(), y = new THREE.Vector3().crossVectors(m, x);
+      cut(sid, stBox3(X0, x, y, -big, big, -big, big, 0, big)); cut(P.id, stBox3(X0, x, y, -big, big, -big, big, -big, 0)); }   // both pieces on the one mitre plane (R12)
+    c.nSteps = n; return out;
+  }
+  { const geom69 = stConnGeom; stConnGeom = function (c) { if (c && c.type === 'stairtreads') { const q = Object.assign({}, CONN.stairtreads.def, c.q); if (q.tmode === 'tekla') return st70Geom(c, q); } return geom69(c); }; }
+  { const kid70 = tkKidSt; tkKidSt = function (c, p, asm) { const st = kid70(c, p, asm); if (p.mat70 && st && st.kind === 'conn' && !(((c.q || {}).P || {})[p.name] || {}).mat) st.mat = p.mat70; if (p.len70 > 0 && st && st.kind === 'conn') st.len70 = p.len70; return st; }; }
+  // Stair end plate (SolidSketch, C18): R12's FLT12*150 plates on the stringer pieces' ends (feet, landing, top): a plate square to the
+  // member at its end (t x b along the profile's width x h along its depth, centre offset de / dw), a bolt grid (nr x nc, pitch bp along
+  // the depth, gauge bg, group offset bx / by) through the main part (head on its far side, toward the member: the landing posts'
+  // flanges) or outward from the member end (the feet; the top, through a counter plate on the main part). The fewest fields that
+  // reproduce R12's plates; no Tekla component for them is in the IFC.
+  CONN.Tsep = { label: 'Stair end plate', tekla: 'Stair end plate (SolidSketch, C18)', code: 'C18', parts: ['stringer piece', 'main part (optional)'], fam: 'SEP', grp: 'Other', gen: false, ro: [],
+    def: { t: 12, b: 150, h: 320, de: 0, dw: 0, end: '', cplate: 0, bd: 16, nr: 4, nc: 2, bp: 85, bg: 70, bx: 0, by: 0, bside: 'main', mgrip: '', bgrip: 0, bL: '', bgrade: '8.8', a: 6, cls: 1 } };
+  Object.assign(ST_LBL, { de: 'Plate centre along the depth', dw: 'Plate centre along the width', end: 'Member end', cplate: 'Counter plate on the main part', bd: 'Bolt size', nr: 'Bolt rows', nc: 'Bolt columns', bp: 'Bolt pitch (along the depth)', bg: 'Bolt gauge (along the width)', bx: 'Bolt group offset along the width', by: 'Bolt group offset along the depth', bside: 'Bolt heads', mgrip: 'Main part thickness at the bolts', bgrip: 'Extra grip', bL: 'Bolt length' });
+  { const g = ST_CATALOG.find(x => x.g === 'Other'); if (g && !g.items.includes('Tsep')) g.items.unshift('Tsep'); }
+  TKD.Tsep = { help: 'detail_1002_help', tabs: [
+    { name: 'Picture', pic: 'ep', dims: [TKF('h', 'h', { at: [80, 30], tip: 'Plate height (along the member depth)' }), TKF('b', 'b', { at: [50, 92], tip: 'Plate width' }), TKF('t', 't', { at: [30, 64], tip: 'Plate thickness' })] },
+    { name: 'Plates', parts: [['End plate', 'STAIR PLATE', { t: 't', b: 'b', h: 'h' }]], groups: [['Position', [TKF('de', 'Plate centre along the depth'), TKF('dw', 'Plate centre along the width'), TKF('end', 'Member end', { type: 'sel', dv: '', opts: [tkOpt('', 'Nearest the main part (else the lower end)'), tkOpt('1', 'Start'), tkOpt('2', 'End')] }),
+      TKF('cplate', 'Counter plate on the main part', { type: 'sel', dv: 0, opts: [tkOpt(0, 'No'), tkOpt(1, 'Yes')] })]]] },
+    tkBoltsTab({ dims: [TKF('nr', 'rows', { at: [8, 50], tip: 'Bolt rows (along the depth)' }), TKF('bp', 'p', { at: [8, 34], tip: 'Bolt pitch' }), TKF('nc', 'cols', { at: [30, 95], tip: 'Bolt columns' }), TKF('bg', 'g', { at: [64, 95], tip: 'Bolt gauge' })],
+      fields: [TKF('bd', 'Bolt size', { type: 'sel', opts: [12, 16, 20, 24].map(v => tkOpt(v, 'M' + v)) }), TKF('bx', 'Group offset along the width'), TKF('by', 'Group offset along the depth'), TKF('bside', 'Bolt heads', { type: 'sel', dv: 'main', opts: [tkOpt('main', 'On the main part\'s far side'), tkOpt('out', 'On the member end, outward')] }),
+        TKF('mgrip', 'Main part thickness at the bolts', { ph: 'flange thickness' }), TKF('bgrip', 'Extra grip'), TKF('bL', 'Bolt length', { ph: 'Tekla rule' })] }),
+    tkGeneralTab(), tkWeldsTab()] };
+  FAM.SEP = X => {
+    const { U, q, A, B, plate, weld, cut } = X; const M = stMF(A.st); const N = new THREE.Vector3().crossVectors(M.eh, M.es).normalize();
+    let atEnd; if (q.end === '1' || q.end === '2') atEnd = q.end === '2' ? 1 : 0;
+    else if (B) { const Mb = stMF(B.st), seg = (p) => { const d = Mb.c2.clone().sub(Mb.c1), t = Math.max(0, Math.min(1, p.clone().sub(Mb.c1).dot(d) / d.lengthSq())); return Mb.c1.clone().addScaledVector(d, t).distanceTo(p); }; atEnd = seg(M.c2) < seg(M.c1) ? 1 : 0; }
+    else atEnd = M.c2.z < M.c1.z ? 1 : 0;
+    const endP = atEnd ? M.c2 : M.c1, out = atEnd ? M.a.clone() : M.a.clone().negate(), sg = out.dot(N) >= 0 ? 1 : -1, t = q.t * U;
+    const h2 = q.h / 2 * U, b2 = q.b / 2 * U, de = (+q.de || 0) * U, dw = (+q.dw || 0) * U;
+    const box = (z0, z1) => stBox3(endP, M.eh, M.es, de - h2, de + h2, dw - b2, dw + b2, sg > 0 ? z0 : -z1, sg > 0 ? z1 : -z0);
+    const mg = tkNum(q.mgrip, B ? (stMF(B.st).tf || 10) : 0), ct = +q.cplate && B ? t : 0, main = q.bside !== 'out' && B;
+    const pts = []; for (let i = 0; i < (q.nr | 0); i++) for (let j = 0; j < (q.nc | 0); j++) { const e = (+q.by || 0) + (i - ((q.nr | 0) - 1) / 2) * q.bp, w = (+q.bx || 0) + (j - ((q.nc | 0) - 1) / 2) * q.bg;
+      pts.push(endP.clone().addScaledVector(M.eh, e * U).addScaledVector(M.es, w * U).addScaledVector(out, main ? t + mg * U : 0)); }
+    const grip = main ? t + mg * U : t + ct + (+q.bgrip || 0) * U; const d = +q.bd || 16;
+    const BG = pts.length ? stBolts(pts, (main ? out.clone().negate() : out).toArray(), d, grip, U) : null;
+    let pm = box(0, t); if (BG) for (const hc of BG.holes) pm = pm.subtract(hc); plate('STAIR PLATE', pm, q.t, 'FLT' + q.t + '*' + q.b);
+    if (ct) { let cm = box(t, 2 * t); if (BG) for (const hc of BG.holes) cm = cm.subtract(hc); X.out.parts.push({ name: 'COUNTER PLATE', man: cm, prof: 'FLT' + q.t + '*' + q.b }); }
+    if (BG) { if (main) for (const hc of BG.holes) cut(B.id, hc);
+      X.out.parts.push({ name: 'BOLTS', man: BG.man, bolts: { pts: BG.pts, ax: BG.ax, d, n: pts.length, grade: q.bgrade || '8.8', L: String(q.bL ?? '').trim() !== '' ? +q.bL : tkBoltLen70(d, grip / U) } }); }
+    weld('Plate to member', q.a, (M.p.P || 1) * 1000);
+  };
+  { const own70 = stOwner; stOwner = function (c, name, ix) { if (c.type === 'Tsep') return name === 'COUNTER PLATE' ? c.parts[1] : c.parts[0]; return own70(c, name, ix); }; }
+  // C18: Stair treads in the catalog (group Other, after Stair end plate) with a Tekla-style dialog for the Tekla mode
+  { const g = ST_CATALOG.find(x => x.g === 'Other'); if (g && !g.items.includes('stairtreads')) g.items.splice(g.items.indexOf('Tsep') + 1, 0, 'stairtreads'); }
+  TKD.stairtreads = { help: 'conn_s71_help', tabs: [
+    { name: 'Treads', groups: [['Treads', [TKF('tmode', 'Treads', { type: 'sel', dv: '', opts: [tkOpt('', 'v69: flat plates on angle supports (riser rule)'), tkOpt('tekla', 'Tekla (R12): bent grating treads on bolted brackets')] }),
+      TKF('ntr', 'Number of treads'), TKF('rise', 'Rise'), TKF('s0', 'First tread: centre along the run from the stringer\'s lower end'), TKF('dz', 'Tread top above the stringer centre line')]],
+      ['Tread (Tekla)', [TKF('tw', 'Tread depth'), TKF('th', 'Tread height'), TKF('tt', 'Tread plate thickness'), TKF('tri', 'Bend inner radius'), TKF('tgap', 'Gap to the stringer web'), TKF('tmat', 'Tread material', { type: 'text' })]],
+      ['v69', [TKF('tread', 'Tread plate thickness (v69)'), TKF('riserMax', 'Maximum riser (v69)'), TKF('nosing', 'Nosing (v69)'), TKF('foot', 'Foot plates (v69)', { type: 'sel', opts: [tkOpt(1, 'Yes'), tkOpt(0, 'No')] })]]] },
+    { name: 'Brackets', groups: [['Brackets (Tekla)', [TKF('bl', 'Bracket length'), TKF('bleg', 'Bracket leg'), TKF('bta', 'Bracket thickness')]]] },
+    { name: 'Bolts', groups: [['Bracket bolts (Tekla)', [TKF('bbolt', 'Bolt size', { type: 'sel', opts: [10, 12, 16].map(v => tkOpt(v, 'M' + v)) }), TKF('bp', 'Bolt spacing'), TKF('bo', 'Bolts off the bracket centre (up the run)'), TKF('bz', 'Bolts below the bracket top'),
+      TKF('bgrade', 'Bolt standard', { type: 'sel', opts: [tkOpt('8.8', '8.8XOX'), tkOpt('10.9', '10.9XOX'), tkOpt('4.6', '4.6XOX')] }), TKF('blrule', 'Bolt length', { type: 'sel', dv: 'tekla', opts: [tkOpt('', 'grip + 2 d'), tkOpt('tekla', 'Tekla (grip + nut + washer + 5, up to 5 mm)')] })]]] },
+    tkGeneralTab()] };

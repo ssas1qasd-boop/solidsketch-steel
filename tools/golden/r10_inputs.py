@@ -821,7 +821,62 @@ def main():
         for b2 in str_[i + 1:]:
             pa = sorted([a['st']['p1'], a['st']['p2']], key=lambda p: p[2]); pb = sorted([b2['st']['p1'], b2['st']['p2']], key=lambda p: p[2])
             if abs(pa[0][2] - pb[0][2]) < 5 and abs(pa[0][1] - pb[0][1]) < 5:
-                conn('stairtreads', [a['i'], b2['i']], OrderedDict(), '18', [])
+                q = OrderedDict()
+                if MODEL == 'R12':   # C18 (v70): the treads as Tekla, measured on R12's treads between these stringers
+                    lo = pa[0]; hi = pa[1]; dh = [hi[0] - lo[0], hi[1] - lo[1], 0]; run = math.hypot(dh[0], dh[1]); dh = [dh[0] / run, dh[1] / run, 0]; H = hi[2] - lo[2]
+                    xlo, xhi = sorted([pa[0][0], pb[0][0]]); ts = []
+                    for t in plates:
+                        if t['st']['name'] != 'THREAD': continue
+                        tv = mesh_v(t); cx = sum(v[0] for v in tv) / len(tv)
+                        if not (xlo < cx < xhi): continue
+                        top = max(v[2] for v in tv); cs = [(min(v[k] for v in tv) + max(v[k] for v in tv)) / 2 for k in range(2)]
+                        sr = (cs[0] - lo[0]) * dh[0] + (cs[1] - lo[1]) * dh[1]
+                        if -200 < sr < run + 200 and abs(top - (lo[2] + sr * H / run)) < 200: ts.append((sr, top))
+                    ts.sort()
+                    if len(ts) >= 2:
+                        rise = (ts[-1][1] - ts[0][1]) / (len(ts) - 1)
+                        q.update(tmode='tekla', ntr=len(ts), rise=r3(rise), s0=r3(ts[0][0]), dz=r3(ts[0][1] - (lo[2] + ts[0][0] * H / run)))
+                ext = []
+                if q.get('tmode') == 'tekla':   # the pieces each sloped stringer meets at its lower / upper end (same assembly), for the mitre fit
+                    for sm in (a, b2):
+                        lo_, hi_ = sorted([sm['st']['p1'], sm['st']['p2']], key=lambda p: p[2]); others = [m for m in members if m['amark'] == sm['amark'] and m['i'] != sm['i'] and m['st']['name'] == 'STRINGER']
+                        for E in (lo_, hi_):
+                            cand = sorted((min(norm(sub(E, m['st']['p1'])), norm(sub(E, m['st']['p2']))), m['i']) for m in others)
+                            ext.append(cand[0][1] if cand and cand[0][0] < 300 else None)
+                    if None in ext: ext = []
+                conn('stairtreads', [a['i'], b2['i']] + ext, q, '18', [])
+    # ---- row 18 (v70 C18): stair end plates FLT12*150 on the stringer pieces' ends (R12; the counter plates on EB4002 are a mezzanine
+    # girder's part: left for R13, owner 2026-11-27)
+    def tk_bolt_len(d, grip):
+        m = {10: 8.4, 12: 10.8, 14: 12.8, 16: 14.8, 20: 18, 22: 19.4, 24: 21.5, 27: 23.8, 30: 25.6, 36: 31}.get(int(d), 0.9 * d); w = {10: 2, 12: 2.5, 14: 2.5, 16: 3, 20: 3, 22: 3, 24: 4, 27: 4, 30: 4, 36: 5}.get(int(d), 0.16 * d)
+        return math.ceil((grip + m + w + 5) / 5 - 1e-6) * 5
+    if MODEL == 'R12':
+        strs = [m for m in members if m['st']['name'] == 'STRINGER']
+        for pb in plates:
+            if pb['st']['name'] != 'Stair Plate' or str(pb['st'].get('amark', '')).startswith('EB'): continue
+            pv = mesh_v(pb); pc = [sum(v[k] for v in pv) / len(pv) for k in range(3)]; best = None
+            for m in strs:
+                a, eh, es = v69_eh(m['st'])
+                for k, E in ((2, m['st']['p2']), (1, m['st']['p1'])):
+                    out = a if k == 2 else [-x for x in a]; rel = sub(pc, E); ax_ = dot(rel, out); lat = norm(sub(rel, mul(out, ax_)))
+                    if 0 < ax_ < 30 and lat < 250 and (best is None or lat < best[0]): best = (lat, m, k, E, out, eh, es)
+            if best is None: unhandled['Stair Plate with no stringer end'].append(pb['id']); continue
+            _, m, k, E, out, eh, es = best
+            pe = [dot(sub(v, E), eh) for v in pv]; pw = [dot(sub(v, E), es) for v in pv]; po = [dot(sub(v, E), out) for v in pv]
+            q = OrderedDict(t=r3(max(po) - min(po)), b=r3(max(pw) - min(pw)), h=r3(max(pe) - min(pe)), de=r3((max(pe) + min(pe)) / 2), dw=r3((max(pw) + min(pw)) / 2), end=str(k))
+            bcs = [c for c in doc['stConns'] if c['type'] == 'TKBOLT' and pb['id'] in c['parts']]; parts_ = [m['i']]
+            if bcs:
+                P = [pt for c in bcs for pt in c['q']['pts']]; d = bcs[0]['q']['d']; grip = float(bcs[0]['q'].get('grip') or q['t']); L = bcs[0]['q'].get('L')
+                es_ = sorted({round(dot(sub(pt, E), eh), 1) for pt in P}); ws_ = sorted({round(dot(sub(pt, E), es), 1) for pt in P}); hz = dot(sub(P[0], E), out)
+                q.update(bd=d, nr=len(es_), nc=len(ws_), bp=r3((es_[-1] - es_[0]) / max(1, len(es_) - 1)) if len(es_) > 1 else 85, bg=r3((ws_[-1] - ws_[0]) / max(1, len(ws_) - 1)) if len(ws_) > 1 else 70,
+                         by=r3((es_[-1] + es_[0]) / 2), bx=r3((ws_[-1] + ws_[0]) / 2))
+                others = [o for c in bcs for o in c['parts'] if o != pb['id']]
+                mo = member_for(others[0]) if others and not str(byid[others[0]]['st'].get('amark', '')).startswith('EB') else None
+                if mo is not None and hz > q['t'] + 0.5: q.update(bside='main', mgrip=r3(grip - q['t'])); parts_.append(mo)
+                else: q.update(bside='out', bgrip=r3(max(0.0, grip - q['t'])) if grip - q['t'] > 0.5 else 0)
+                if L is not None and tk_bolt_len(d, grip) != int(L): q['bL'] = L
+            else: q.update(nr=0, nc=0)
+            conn('Tsep', parts_, q, '18', [pb['id']])
     # ---- row 19: railing welds (stanchion top on a hand rail)
     rails = [m for m in members if m['st']['name'] == 'Hand Rail']
     for m in members:

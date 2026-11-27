@@ -321,6 +321,35 @@ def c01(shots, video=None):
     return compose('C01', [('R12 (Tekla IFC), base of C2020, front elevation', r12), ('Tekla single-part drawing 1501 (package)', tekla_sp('1501')), ('video / Tekla assembly drawing 1001', pic), ('app on the emulator, orthographic front (landscape)', app)],
                    'C01 / C16 Base plate 1042 / 1004: R12 | Tekla drawing | video | app (Anchor rods tab: Base plate with = Anchor rods)', ['Measured on the models the emulator built and saved (c01_case.ss, c01_hooky.ss):'] + ['! ' + m for m in lines])
 
+def c18(shots, video=None):
+    """C18: c18_case.ss (R12's lower flight: Stair treads in Tekla mode + a Stair end plate at the landing) and c18_ntr10.ss (10 treads, Modify)"""
+    st = lambda b: b.get('st') or {}
+    def meas(f):
+        D = json.load(gzip.open(os.path.join(shots, f)))['doc']; tr = [b for b in D['bodies'] if st(b).get('name') == 'TREAD']; br = [b for b in D['bodies'] if st(b).get('name') == 'BRACKET']
+        sp = [b for b in D['bodies'] if st(b).get('name') == 'STAIR PLATE']; bo = [b for b in D['bodies'] if st(b).get('kind') == 'bolts']
+        t0 = sorted(tr, key=lambda b: VT(b)[0][:, 2].max())[:2]; z = [VT(b)[0][:, 2].max() for b in t0]; y = [VT(b)[0][:, 1].min() for b in t0]
+        tb = np.ptp(VT(t0[0])[0], 0); bb = np.ptp(VT(br[0])[0], 0) if br else [0, 0, 0]
+        return (f"{len(tr)} treads {st(t0[0]).get('prof')} {st(t0[0]).get('mat')} {tb[0]:.0f} x {tb[1]:.0f} x {tb[2]:.0f}, rise {z[1] - z[0]:.3f}, going {y[1] - y[0]:.2f}; {len(br)} brackets {st(br[0]).get('prof') if br else ''} {bb[1]:.0f} long",
+                f"{len(sp)} stair plate(s) {', '.join(st(b).get('prof', '') for b in sp)}; bolts " + ', '.join(sorted({f"M{st(b)['d']:g} {st(b).get('grade')} L{st(b)['L']:g} x {st(b).get('n', len(st(b)['pts']))}" for b in bo})))
+    a1, a2 = meas('c18_case.ss'); b1, _ = meas('c18_ntr10.ss')
+    lines = ['app (c18_case.ss): ' + a1, '   ' + a2, 'after 10 treads + Modify (c18_ntr10.ss): ' + b1,
+             'R12: 12 treads PL10*335.7 Grating 990 x 300 x 40, rise 156.667, going 309.92; L60*6 x 140 brackets, 2 M12 8.8 L35 each; landing plate FLT12*150 320 x 150, 2 x 4 M16 L45 through the post',
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c18_case.ss')).split(';')[0] + ' | after 10 treads: ' + rule_b(os.path.join(shots, 'c18_ntr10.ss')).split(';')[0],
+             'R12 rebuild (web v70 and app): row 18 4 -> 81 / 83 parts (the 2 counter plates on EB4002 left for R13), 12 / 12 stringer pieces, 148 / 148 bolts; treads + brackets 141.22 kg = Tekla']
+    app, meta = shot(shots, 'ortho_tread'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'U-pan grating tread on L60*6 brackets, 2 M12 each')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
+    near_ = [b for b in RB if (VT(b)[0].min(0) < t + 900).all() and (VT(b)[0].max(0) > t - 900).all()]
+    colr = lambda b: (150, 150, 150) if st(b).get('name') == 'THREAD' else (230, 170, 40) if st(b).get('name') == 'BRACKET' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200)
+    r12 = render(near_, t + np.array([0, -500.0, 0]), dv, dist, colr, W=1100, H=1100)
+    def tekla_file(rel):
+        with zipfile.ZipFile(PKG) as z:
+            n = next(x for x in z.namelist() if x.endswith('/' + rel)); tmp = os.path.join(REPO, 'build', '_c18.pdf'); open(tmp, 'wb').write(z.read(n))
+        out = tmp[:-4]; subprocess.run(['pdftoppm', '-png', '-r', '120', '-singlefile', tmp, out], check=True); os.remove(tmp); return Image.open(out + '.png').convert('RGB')
+    pic = Image.open(video).convert('RGB') if video else tekla_file('GA Drawings/9 - Stairs View.pdf')
+    return compose('C18', [('R12 (Tekla IFC), first tread of the lower flight, section', r12), ('Tekla assembly drawing SGR9001: treads + brackets (package)', tekla_page('SGR9001')), ('Tekla GA 9 - Stairs View (package)', pic), ('app on the emulator, orthographic tread section (landscape)', app)],
+                   'C18 Stairs as Tekla: R12 | Tekla drawing | Tekla GA | app (Stair treads: Treads = Tekla; Stair end plate)', ['Measured on the models the emulator built and saved (c18_case.ss, c18_ntr10.ss):'] + ['! ' + m for m in lines])
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18}[sys.argv[1]](*sys.argv[2:])

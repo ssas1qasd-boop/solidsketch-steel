@@ -2710,8 +2710,8 @@
    ],
    "boxDiff": 0.0,
    "volR10": 5470667.918,
-   "volV69": 5483052,
-   "volRatio": 1.002,
+   "volV69": 5471388,
+   "volRatio": 1.0,
    "kgR10": 43.11,
    "kgV69": 43.45,
    "diffs": {},
@@ -2729,8 +2729,8 @@
    ],
    "boxDiff": 0.0,
    "volR10": 5470667.907,
-   "volV69": 5483052,
-   "volRatio": 1.002,
+   "volV69": 5471388,
+   "volRatio": 1.0,
    "kgR10": 43.11,
    "kgV69": 43.45,
    "diffs": {},
@@ -2748,8 +2748,8 @@
    ],
    "boxDiff": 0.0,
    "volR10": 5470667.947,
-   "volV69": 5483052,
-   "volRatio": 1.002,
+   "volV69": 5471388,
+   "volRatio": 1.0,
    "kgR10": 43.11,
    "kgV69": 43.45,
    "diffs": {},
@@ -2767,8 +2767,8 @@
    ],
    "boxDiff": 0.0,
    "volR10": 5470667.923,
-   "volV69": 5483052,
-   "volRatio": 1.002,
+   "volV69": 5471388,
+   "volRatio": 1.0,
    "kgR10": 43.11,
    "kgV69": 43.45,
    "diffs": {},
@@ -4348,12 +4348,12 @@
    "r10": [
     831
    ],
-   "boxDiff": 0.0,
+   "boxDiff": 0.001,
    "volR10": 536924.476,
-   "volV69": 682287.129,
-   "volRatio": 1.271,
+   "volV69": 544280.646,
+   "volRatio": 1.014,
    "kgR10": 5.34,
-   "kgV69": 5.36,
+   "kgV69": 5.34,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -4365,12 +4365,12 @@
    "r10": [
     832
    ],
-   "boxDiff": 0.0,
+   "boxDiff": 0.001,
    "volR10": 536923.941,
-   "volV69": 682287.129,
-   "volRatio": 1.271,
+   "volV69": 544280.646,
+   "volRatio": 1.014,
    "kgR10": 5.34,
-   "kgV69": 5.36,
+   "kgV69": 5.34,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -4382,12 +4382,12 @@
    "r10": [
     833
    ],
-   "boxDiff": 0.0,
+   "boxDiff": 0.001,
    "volR10": 482439.603,
-   "volV69": 627055.998,
-   "volRatio": 1.3,
+   "volV69": 489049.515,
+   "volRatio": 1.014,
    "kgR10": 4.91,
-   "kgV69": 4.92,
+   "kgV69": 4.91,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -4399,12 +4399,12 @@
    "r10": [
     834
    ],
-   "boxDiff": 0.0,
+   "boxDiff": 0.001,
    "volR10": 482439.603,
-   "volV69": 627055.998,
-   "volRatio": 1.3,
+   "volV69": 489049.515,
+   "volRatio": 1.014,
    "kgR10": 4.91,
-   "kgV69": 4.92,
+   "kgV69": 4.91,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -4416,14 +4416,14 @@
    "r10": [
     835
    ],
-   "boxDiff": 3125.187,
+   "boxDiff": 0.002,
    "volR10": 15882300.355,
-   "volV69": 258474.814,
-   "volRatio": 0.016,
+   "volV69": 16101627.293,
+   "volRatio": 1.014,
    "kgR10": 128.81,
    "kgV69": 128.39,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 237,
@@ -4433,14 +4433,14 @@
    "r10": [
     836
    ],
-   "boxDiff": 3125.187,
+   "boxDiff": 0.002,
    "volR10": 15882286.161,
-   "volV69": 258474.814,
-   "volRatio": 0.016,
+   "volV69": 16101627.293,
+   "volRatio": 1.014,
    "kgR10": 128.81,
    "kgV69": 128.39,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 238,
@@ -4452,10 +4452,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 550656.057,
-   "volV69": 679584.338,
-   "volRatio": 1.234,
+   "volV69": 558202.879,
+   "volRatio": 1.014,
    "kgR10": 5.32,
-   "kgV69": 5.33,
+   "kgV69": 5.32,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -4469,10 +4469,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 550656.125,
-   "volV69": 679584.338,
-   "volRatio": 1.234,
+   "volV69": 558202.879,
+   "volRatio": 1.014,
    "kgR10": 5.32,
-   "kgV69": 5.33,
+   "kgV69": 5.32,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -4486,10 +4486,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 419099.432,
-   "volV69": 737980.747,
-   "volRatio": 1.761,
+   "volV69": 424849.695,
+   "volRatio": 1.014,
    "kgR10": 5.77,
-   "kgV69": 5.79,
+   "kgV69": 5.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -4503,10 +4503,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 419099.595,
-   "volV69": 737980.747,
-   "volRatio": 1.761,
+   "volV69": 424849.695,
+   "volRatio": 1.014,
    "kgR10": 5.77,
-   "kgV69": 5.79,
+   "kgV69": 5.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -4518,14 +4518,14 @@
    "r10": [
     841
    ],
-   "boxDiff": 3507.659,
+   "boxDiff": 0.0,
    "volR10": 17109394.225,
-   "volV69": 300948.389,
-   "volRatio": 0.018,
+   "volV69": 17345636.657,
+   "volRatio": 1.014,
    "kgR10": 139.84,
    "kgV69": 139.39,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 243,
@@ -4535,14 +4535,14 @@
    "r10": [
     842
    ],
-   "boxDiff": 3507.659,
+   "boxDiff": 0.0,
    "volR10": 17109360.576,
-   "volV69": 300948.389,
-   "volRatio": 0.018,
+   "volV69": 17345636.657,
+   "volRatio": 1.014,
    "kgR10": 139.84,
    "kgV69": 139.39,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 244,
@@ -18589,7 +18589,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 3.67,
-   "status": "MISSING"
+   "v69": 6740,
+   "v69name": "STAIR PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.67,
+   "status": "MATCHED"
   },
   {
    "id": 876,
@@ -18600,7 +18606,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING"
+   "v69": 6742,
+   "v69name": "STAIR PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.01,
+   "volRatio": 1.001,
+   "kgV69": 4.52,
+   "status": "MATCHED"
   },
   {
    "id": 877,
@@ -18611,7 +18623,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING"
+   "v69": 6744,
+   "v69name": "STAIR PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.01,
+   "volRatio": 1.001,
+   "kgV69": 4.52,
+   "status": "MATCHED"
   },
   {
    "id": 878,
@@ -18622,7 +18640,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING"
+   "v69": 6746,
+   "v69name": "STAIR PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 4.52,
+   "status": "MATCHED"
   },
   {
    "id": 879,
@@ -18633,7 +18657,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 3.67,
-   "status": "MISSING"
+   "v69": 6748,
+   "v69name": "STAIR PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.67,
+   "status": "MATCHED"
   },
   {
    "id": 880,
@@ -18644,7 +18674,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING"
+   "v69": 6750,
+   "v69name": "STAIR PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 4.52,
+   "status": "MATCHED"
   },
   {
    "id": 881,
@@ -18655,7 +18691,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING"
+   "v69": 6752,
+   "v69name": "STAIR PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 4.52,
+   "status": "MATCHED"
   },
   {
    "id": 882,
@@ -18666,7 +18708,8 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING"
+   "status": "MISSING",
+   "sameSizeAt": 12.0
   },
   {
    "id": 883,
@@ -18677,7 +18720,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING"
+   "v69": 6754,
+   "v69name": "STAIR PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 4.52,
+   "status": "MATCHED"
   },
   {
    "id": 884,
@@ -18688,7 +18737,8 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING"
+   "status": "MISSING",
+   "sameSizeAt": 12.0
   },
   {
    "id": 885,
@@ -18699,7 +18749,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6656,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 886,
@@ -18710,7 +18766,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6657,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 887,
@@ -18721,7 +18783,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6655,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 888,
@@ -18732,7 +18800,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6653,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 889,
@@ -18743,7 +18817,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6654,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 890,
@@ -18754,7 +18834,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6652,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 891,
@@ -18765,7 +18851,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6650,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 892,
@@ -18776,7 +18868,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6651,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 893,
@@ -18787,7 +18885,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6649,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 894,
@@ -18798,7 +18902,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6714,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.007,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 895,
@@ -18809,7 +18919,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6715,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.007,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 896,
@@ -18820,7 +18936,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6713,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.007,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 897,
@@ -18831,7 +18953,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6711,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.006,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 898,
@@ -18842,7 +18970,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6712,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.006,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 899,
@@ -18853,7 +18987,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6710,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.006,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 900,
@@ -18864,7 +19004,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6708,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.006,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 901,
@@ -18875,7 +19021,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6709,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.006,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 902,
@@ -18886,7 +19038,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6707,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.006,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 903,
@@ -18897,7 +19055,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6705,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.006,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 904,
@@ -18908,7 +19072,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6706,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.006,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 905,
@@ -18919,7 +19089,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6704,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.006,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 906,
@@ -18930,7 +19106,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6702,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.004,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 907,
@@ -18941,7 +19123,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6703,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.004,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 908,
@@ -18952,7 +19140,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6701,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.004,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 909,
@@ -18963,7 +19157,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6699,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.004,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 910,
@@ -18974,7 +19174,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6700,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.004,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 911,
@@ -18985,7 +19191,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6698,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.004,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 912,
@@ -18996,7 +19208,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6695,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.004,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 913,
@@ -19007,7 +19225,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6692,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 914,
@@ -19018,7 +19242,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6689,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 915,
@@ -19029,7 +19259,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6686,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.002,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 916,
@@ -19040,7 +19276,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6683,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 917,
@@ -19051,7 +19293,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6680,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 918,
@@ -19062,7 +19310,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6643,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 919,
@@ -19073,7 +19327,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6640,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 920,
@@ -19084,7 +19344,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6637,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 921,
@@ -19095,7 +19361,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6634,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 922,
@@ -19106,7 +19378,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6631,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 923,
@@ -19117,7 +19395,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6628,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 924,
@@ -19128,7 +19412,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6625,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 925,
@@ -19139,7 +19429,13 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "status": "MISSING"
+   "v69": 6646,
+   "v69name": "TREAD",
+   "v69prof": "PL10*335.7",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 4.62,
+   "status": "MATCHED"
   },
   {
    "id": 926,
@@ -19150,7 +19446,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6647,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 927,
@@ -19161,7 +19463,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6648,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 928,
@@ -19172,7 +19480,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6644,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 929,
@@ -19183,7 +19497,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6645,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 930,
@@ -19194,7 +19514,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6635,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 931,
@@ -19205,7 +19531,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6633,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 932,
@@ -19216,7 +19548,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6630,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 933,
@@ -19227,7 +19565,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6632,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 934,
@@ -19238,7 +19582,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6629,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 935,
@@ -19249,7 +19599,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6627,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 936,
@@ -19260,7 +19616,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6626,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 937,
@@ -19271,7 +19633,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6638,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 938,
@@ -19282,7 +19650,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6636,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 939,
@@ -19293,7 +19667,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6639,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 940,
@@ -19304,7 +19684,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6641,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 941,
@@ -19315,7 +19701,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6642,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 942,
@@ -19326,7 +19718,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6696,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.004,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 943,
@@ -19337,7 +19735,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6697,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.004,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 944,
@@ -19348,7 +19752,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6693,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 945,
@@ -19359,7 +19769,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6694,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 946,
@@ -19370,7 +19786,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6690,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 947,
@@ -19381,7 +19803,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6691,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 948,
@@ -19392,7 +19820,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6687,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 949,
@@ -19403,7 +19837,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6688,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 950,
@@ -19414,7 +19854,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6684,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 951,
@@ -19425,7 +19871,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6685,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 952,
@@ -19436,7 +19888,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6681,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 953,
@@ -19447,7 +19905,13 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "status": "MISSING"
+   "v69": 6682,
+   "v69name": "BRACKET",
+   "v69prof": "L60*6",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 0.76,
+   "status": "MATCHED"
   },
   {
    "id": 1094,
@@ -76805,10 +77269,7 @@
   }
  ],
  "v69Extra": {
-  "FOOT PLATE PL12": 4,
   "NUT NUT M12": 560,
-  "TREAD PL6": 20,
-  "TREAD SUPPORT L50*5": 40,
   "WASHER WASHER M12": 560
  },
  "bolts": {
@@ -76831,20 +77292,20 @@
    }
   },
   "v69": {
-   "groups": 1151,
-   "bolts": 4442,
+   "groups": 1197,
+   "bolts": 4542,
    "byDiameter": {
-    "M12": 1096,
-    "M16": 2770,
+    "M12": 1148,
+    "M16": 2818,
     "M20": 576
    },
    "bySize": {
     "M12 4.6 L30": 1056,
-    "M12 8.8 L41": 40,
-    "M16 4.6 L194": 8,
+    "M12 8.8 L35": 92,
+    "M16 8.8 L12": 8,
     "M16 8.8 L40": 16,
-    "M16 8.8 L45": 592,
-    "M16 8.8 L50": 1952,
+    "M16 8.8 L45": 624,
+    "M16 8.8 L50": 1968,
     "M16 8.8 L54": 138,
     "M16 8.8 L56": 48,
     "M16 8.8 L60": 16,
@@ -76853,22 +77314,22 @@
    }
   },
   "matchedPerDiameter": {
-   "M12": 1056,
-   "M16": 2618,
+   "M12": 1148,
+   "M16": 2666,
    "M20": 576
   },
   "positions": {
    "bolts": 4548,
-   "boltsMatched": 4250,
-   "boltsMatchedSameLengthGrade": 3896,
+   "boltsMatched": 4390,
+   "boltsMatchedSameLengthGrade": 4036,
    "groups": 1288,
-   "groupsMatched": 1109
+   "groupsMatched": 1203
   }
  },
  "totals": {
   "bodies": {
    "r10": 6233,
-   "v69": 6696
+   "v69": 6755
   },
   "kinds": {
    "r10": {
@@ -76877,14 +77338,14 @@
     "plate": 3405
    },
    "v69": {
-    "bolts": 1151,
-    "conn": 4709,
+    "bolts": 1197,
+    "conn": 4722,
     "member": 836
    }
   },
   "connections": {
    "r10": 1694,
-   "v69": 1323,
+   "v69": 1331,
    "r10Types": {
     "TKBOLT": 1694
    },
@@ -76898,6 +77359,7 @@
     "Tcl": 264,
     "Teh": 48,
     "Tsag": 280,
+    "Tsep": 8,
     "Ttg": 352,
     "Ttgx": 52,
     "apex": 36,
@@ -77029,6 +77491,7 @@
     "BEAM | BI220-8-140-10": 34,
     "BEAM | BI320-8-120-10": 5,
     "BEAM | BI324-8-250-12": 7,
+    "BRACKET | L60*6": 46,
     "Bottom flange | PL10": 48,
     "CAP PLATE | PL16*120": 2,
     "CAST PLATE | PL4": 48,
@@ -77048,7 +77511,6 @@
     "END PLATE | PL16": 6,
     "END PLATE | PL20": 48,
     "FIN PLATE | PL12": 82,
-    "FOOT PLATE | PL12": 4,
     "GROUT | PL30": 52,
     "GUSSET PLATE | PL12": 166,
     "HAUNCH_PLATE | PL10": 12,
@@ -77062,13 +77524,13 @@
     "RAFTER | BI220-8-150-10": 48,
     "RAILING | PD50*5": 6,
     "SHEAR TAB | PL10": 104,
+    "STAIR PLATE | FLT12*150": 8,
     "STIFFENER | PL10": 56,
     "STRINGER | UPN240": 12,
     "Stanchion | CHS48*3": 26,
     "Strut | SHS100*3": 72,
     "TONGUE PLATE | FLT12*140": 456,
-    "TREAD SUPPORT | L50*5": 40,
-    "TREAD | PL6": 20,
+    "TREAD | PL10*335.7": 23,
     "Tie Rod THREAD100MM | ROD12": 140,
     "VL Bracing | SHS100*3": 60,
     "WASHER | PD40*10": 192,
@@ -77078,8 +77540,8 @@
   },
   "weightKg": {
    "r10": 63710.29,
-   "v69": 63323.22,
-   "diff": -387.07,
+   "v69": 63086.22,
+   "diff": -624.07,
    "r10Weights": {
     "weight_t": 63.71,
     "net_t": 63.698,
@@ -77088,11 +77550,11 @@
     "boltBodiesExcluded": 1288
    },
    "v69Weights": {
-    "weight_t": 63.323,
-    "net_t": 62.518,
-    "gross_t": 63.377,
-    "parts": 5545,
-    "boltBodiesExcluded": 1151
+    "weight_t": 63.086,
+    "net_t": 62.786,
+    "gross_t": 63.14,
+    "parts": 5558,
+    "boltBodiesExcluded": 1197
    }
   },
   "weightByCategory": {
@@ -77102,11 +77564,11 @@
    ],
    "given members": [
     16361.46,
-    16361.78
+    16361.66
    ],
    "detail parts (R10) / component parts (v69)": [
     10528.27,
-    9883.88
+    9647.0
    ]
   }
  },
@@ -78366,14 +78828,14 @@
   {
    "group": "18 | BRACKET | SGR BRACKET L60*6",
    "counts": {
-    "MISSING": 46,
+    "MATCHED": 46,
     "total": 46
    },
    "kgR10": 34.96,
-   "kgV69": 0.0,
+   "kgV69": 34.96,
    "sameSize": null,
-   "reason": "v69 stair treads make PL6 treads on L50*5 supports by their own riser rule (20 treads); R10 has 23 gratings PL10*336 L990 (stored as vertical plates in the import) on L60*6 brackets",
-   "option": "stairs: tread / bracket profiles, count and orientation"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "18 | ENDPLATE | STB ENDPLATE FLT10*150",
@@ -78395,57 +78857,59 @@
    },
    "kgR10": 9.04,
    "kgV69": 0.0,
-   "sameSize": null,
-   "reason": "stringer end plates FLT12*150 (floor, landing, mezzanine) and a stair beam top plate: no v69 stair option makes them",
-   "option": "stringer end plates in the stairs application"
+   "sameSize": {
+    "n": 2,
+    "median": 12.0
+   },
+   "reason": "the counter plates FLT12*150 on mezzanine girder EB4002 (the top stair plates bolt to them): a mezzanine girder part, left until R13 (owner 2026-11-27); Stair end plate option Counter plate on the main part makes them",
+   "option": "R13"
   },
   {
    "group": "18 | Stair Plate | PLSTR Stair Plate FLT12*150",
    "counts": {
-    "MISSING": 2,
+    "MATCHED": 2,
     "total": 2
    },
    "kgR10": 9.04,
-   "kgV69": 0.0,
+   "kgV69": 9.04,
    "sameSize": null,
-   "reason": "stringer end plates FLT12*150 (floor, landing, mezzanine) and a stair beam top plate: no v69 stair option makes them",
-   "option": "stringer end plates in the stairs application"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "18 | Stair Plate | SR Stair Plate FLT12*150",
    "counts": {
-    "MISSING": 6,
+    "MATCHED": 6,
     "total": 6
    },
    "kgR10": 25.42,
-   "kgV69": 0.0,
+   "kgV69": 25.42,
    "sameSize": null,
-   "reason": "stringer end plates FLT12*150 (floor, landing, mezzanine) and a stair beam top plate: no v69 stair option makes them",
-   "option": "stringer end plates in the stairs application"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "18 | THREAD | SGR THREAD PL10*335.7",
    "counts": {
-    "MISSING": 23,
+    "MATCHED": 23,
     "total": 23
    },
    "kgR10": 106.26,
-   "kgV69": 0.0,
+   "kgV69": 106.26,
    "sameSize": null,
-   "reason": "v69 stair treads make PL6 treads on L50*5 supports by their own riser rule (20 treads); R10 has 23 gratings PL10*336 L990 (stored as vertical plates in the import) on L60*6 brackets",
-   "option": "stairs: tread / bracket profiles, count and orientation"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "18 | given member | SR STRINGER UPN240",
    "counts": {
-    "INPUT EQUAL, SOLID DIFFERS": 4,
-    "MATCHED": 8,
+    "MATCHED": 12,
     "total": 12
    },
    "kgR10": 579.98,
-   "kgV69": 578.36,
+   "kgV69": 578.24,
    "sameSize": null,
-   "reason": "placed with R10's inputs; v69 stair treads cut / fit the stringer ends differently from R10's TKCUT cuts",
+   "reason": "",
    "option": ""
   },
   {
@@ -78833,9 +79297,9 @@
    "parts": 14
   },
   "18": {
-   "boltCount": 48,
-   "bolts": 8,
-   "parts": 64
+   "boltCount": 148,
+   "bolts": 54,
+   "parts": 77
   },
   "2": {
    "boltCount": 384,
@@ -79112,16 +79576,16 @@
   },
   "18": {
    "title": "Stairs: grating treads",
-   "components": 2,
-   "v69Parts": 64,
-   "v69Bolts": 48,
+   "components": 10,
+   "v69Parts": 77,
+   "v69Bolts": 148,
    "r10Parts": 83,
    "status": {
-    "MATCHED": 4,
-    "MISSING": 79
+    "MATCHED": 81,
+    "MISSING": 2
    },
    "givenMembers": 12,
-   "givenMatched": 8,
+   "givenMatched": 12,
    "verdict": "partly"
   },
   "19": {
@@ -80369,8 +80833,8 @@
  },
  "replay": {
   "errors": [],
-  "connectionsListed": 1323,
-  "connectionsInV69": 1323,
+  "connectionsListed": 1331,
+  "connectionsInV69": 1331,
   "notOk": 0
  }
 }

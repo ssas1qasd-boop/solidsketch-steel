@@ -135,8 +135,8 @@ REASONS = [
     (r'^13 \| (Top|Bot) Stiff', 'girder-side Stiff. plates FLT10*50: End plate 144 Haunch tab (C13: 12 / 12 at the 6 girder joints); the 4 at the MBC2001 column end plates are row 15', 'done (v70 C13) / row 15'),
     (r'^14 \|', 'same plate size and plan position; v69 centres the tab on the joist web depth, R10\'s tab is 7.8 mm higher', 'vertical position of the tab (Tekla 146 plate position)'),
     (r'^17 \|', 'v69 146 makes the hanger in the gable column\'s web plane turned 90 degrees and about 33 mm off; R10\'s FLT10*120 hanger hangs under the rafter', 'hanger orientation (Tekla 146 used as a hanger)'),
-    (r'^18 \| THREAD|^18 \| BRACKET', 'v69 stair treads make PL6 treads on L50*5 supports by their own riser rule (20 treads); R10 has 23 gratings PL10*336 L990 (stored as vertical plates in the import) on L60*6 brackets', 'stairs: tread / bracket profiles, count and orientation'),
-    (r'^18 \| Stair Plate|^18 \| PLATE', 'stringer end plates FLT12*150 (floor, landing, mezzanine) and a stair beam top plate: no v69 stair option makes them', 'stringer end plates in the stairs application'),
+    (r'^18 \| Stair Plate \| EB', 'the counter plates FLT12*150 on mezzanine girder EB4002 (the top stair plates bolt to them): a mezzanine girder part, left until R13 (owner 2026-11-27); Stair end plate option Counter plate on the main part makes them', 'R13'),
+    (r'^18 \|', 'C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates): every stair part matches', 'done (v70 C18)'),
     (r'^-', 'no v69 component in the checklist makes this part', ''),
 ]
 def reason_for(key):

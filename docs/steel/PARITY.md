@@ -123,6 +123,43 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C18 · Stairs as Tekla: U-pan grating treads on bolted brackets, stringer mitre fits, stair end plates (owner 2026-11-27)
+
+### Step 0: Tekla's own site
+- [Stairs (S71)](https://support.tekla.com/doc/tekla-structures/2025/macro_s71_help): "U pan profile steps with brackets"; the steps are placed from the nosing points of the first and last step; **Bracket tab**: bracket length, "the bracket offset dimension from the center line of the step", bracket-to-step connection (bolted by default, welded, no connection, plate bracket, holes only) and **bracket-to-stringer connection** (bolt size, standard, tolerance, group dimensions, bolt direction, exact length). Step type Catalogue step ignores the U-pan / bracket tabs.
+- So R12's treads are S71's U-pan steps (a bent PL10 channel, material Grating) on L60*6 brackets bolted to the stringer webs (no bracket-to-step bolts in R12). The stringer pieces' end plates are not S71's: no Tekla component for them is in the IFC.
+
+### Step 1: videos — none read for C18 (no Tekla video found for S71's U-pan steps; noted in VIDEO.txt).
+
+### R12 (2 flights, 23 treads, 46 brackets, 10 stair plates, 12 stringer pieces)
+- **Treads:** PL10 bent channel 300 x 40 (legs down, inner bend radius 5 in 3 chords; developed 335.7), 990 long = 5 clear of each web, material Grating (1,333 kg/m3, 4.62 kg); on the stringer's slope (going = rise x run / height): 12 at rise 156.667 (going 309.92) and 11 at rise 170 (going 290.57); top 47.43 / 39.68 above the stringer centre line.
+- **Brackets:** L60*6 x 140 under the tread's top plate, the vertical leg on the stringer web; 2 M12 8.8 L35 per bracket, 90 apart, 30 below the bracket top, 5 up the run from the bracket centre, head on the web's outer face (grip 15.5). Tekla weighs them by catalog kg/m x length (5.42 x 0.14 = 0.76).
+- **Stringer pieces:** each sloped stringer mitred to the piece it meets (foot / landing / top): one plane through the centre lines' crossing, square to the sum of the two directions, cutting both pieces.
+- **Stair plates FLT12*150:** at the feet 260 x 150 (2 x 2 M16 L12 outward), at the landings 320 x 150 through the posts' flanges (2 x 4 M16 L45, pitch 85, gauge 70), at the top 320 x 150 bolted outward to a counter plate on EB4002 (2 x 4 M16 L50, grip 24).
+
+### Change, in web v70 (section "C18") and the app (`ClassicApps.stairs70`, `FamSEP`)
+- Stair treads, **Treads = Tekla**: number of treads, rise, first tread's centre along the run, its top above the stringer line, tread / bracket sizes, bracket bolts (spacing, offset, depth, Tekla length); optional parts 3–6 = the pieces each stringer meets (mitre fit). Old models (Treads = v69) unchanged. Stair treads is now in the catalog (Other) with a Tekla-style dialog.
+- **Stair end plate** (SolidSketch, our own; catalog Other): plate t x b x h with its centre offsets, a bolt grid through the main part (head on its far side) or outward, an optional counter plate on the main part.
+- Weight: a component's catalog angle part carries its length (st.len70) and is weighed kg/m x length (the brackets).
+
+### Search result: the R12 inputs (`r10_inputs.py`)
+- Per flight, measured on R12's treads: ntr, rise, s0, dz; the 4 adjoining pieces (same assembly mark, nearest end). Per stair plate: its stringer end, size and offsets, bolt grid, main part (the post the bolts pass) or outward, explicit bolt length where R12's is not Tekla's rule (the feet's L12).
+
+### Checks
+| Check | Before (C01, d7d5374) | After |
+|---|---|---|
+| Row 18 R12 parts (web rebuild, 0.1 mm) | 4 / 83 (treads, brackets, stair plates missing) + 8 / 12 stringer pieces (4 sloped ones not mitred) | 81 / 83 (all but the 2 counter plates on EB4002) + 12 / 12 stringer pieces |
+| R12 bolts matched by position (web rebuild, 0.1 mm) | 4,250 / 4,548 | 4,390 / 4,548 (+140: the 92 bracket bolts and the stair plates' 48) |
+| App vs R12 (`R12C18Test`, 0.1 mm) | — | treads 23 / 23, brackets 46 / 46, stair plates 8 / 8, stringer pieces 12 / 12, bolts 148 / 148; treads + brackets 141.22 kg = Tekla 141.22 |
+| Rule B | — | 0 failures: R12 flight 1 and 2, UPN200 defaults, UPN240 at 40 deg in plan |
+| Weight (rebuild, web) | 63,323.22 kg | 63,086.22 kg (Tekla 63,705.8): -237.0 (v69's PL6 steel treads and L50 supports replaced by R12's grating and brackets) |
+
+### Open
+- The 2 counter plates FLT12*150 on EB4002 (and the PLSTR-to-EB bolts then go through them): a mezzanine girder's part, left until R13 (owner 2026-11-27). The Stair end plate's "Counter plate on the main part" makes them when wanted.
+
+### Status
+Delivered for the owner's phone check; ✓ only after the owner's OK.
+
 ## C01 / C16 · Base plate 1042 / 1004 as Tekla: anchor rods as parts, nut and washer, grout with slopes, cast plate under the grout (owner 2026-11-27)
 
 ### Step 0: Tekla's own site

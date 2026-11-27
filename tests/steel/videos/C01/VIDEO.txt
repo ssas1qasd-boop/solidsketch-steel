@@ -1,0 +1,59 @@
+Values read (tools/video/gemini_read.py; pass 2 at high resolution on the spans where the tab is open).
+
+Source: https://www.youtube.com/watch?v=hB6GCajcLbo
+  spans: 01:17-01:45, 01:57-02:04, 02:08-02:35, 03:22-03:23, 04:26-04:41
+  0.00: 0.00
+  50.00: 50.00
+  500.00: 500.00
+  Anchor rod assembly: Default
+  Base plate with: Anchor rods
+  Base plate with Component: Anchor rods / Default
+  Class: 1
+  Component: Default
+  Create: Default / Yes
+  Create assembly from all anchors: Default
+  Create hole in washer: Default
+  Grout: 25.00 / 30.00
+  Mirror: Default
+  Rod profile: ROD19 / ROD50
+  Rotation: Default
+  Up direction: Auto / Default
+
+Source: https://www.youtube.com/watch?v=sOIIUmpj7Mo
+  spans: 03:12-04:04
+  1: 1
+  1'-4": 1'-4"
+  2": 2"
+  3/16: 3/16
+  3/4: 3/4
+  4": 4"
+  AB: 1
+  Anchor rod assembly: No
+  Base plate with: Anchor rods
+  Below: Below
+  Class: 1
+  Create: Yes
+  Create assembly from all anchors: Default
+  Create hole in washer: No
+  DND: 1
+  Grout: 1/2
+  Name: ANCHOR_ROD
+  Nut profile: 3/4_HEAVY_HEX_NUT
+  Pos No: m
+  Rod profile: ROD3/4
+  Rotation: Default
+  Up direction: Auto
+  Washer profile: 3/4_WASHER
+  dnd: 1
+  lp: 1
+  m: 1
+
+Agreement (the same label and value in two sources):
+  base plate with = anchorrods  (2 sources)
+  class = 1  (2 sources)
+  create = yes  (2 sources)
+  create assembly from all anchors = default  (2 sources)
+  rotation = default  (2 sources)
+  up direction = auto  (2 sources)
+
+Note: both reads used gemini-flash-latest (the lighter Gemini model). What the videos confirm for C01: the Anchor rods tab has Rod / Nut / Washer profiles, Grout thickness, 'Create hole in washer' (default No: R12's washers are plain rings on the rod, PD40*10), Up direction, Anchor rod assembly. Neither video shows R12's values (US inch rods in one, ROD19 / ROD50 in the other); every number in C01 comes from R12 and Tekla's package (1001 / 1501 / 1502).

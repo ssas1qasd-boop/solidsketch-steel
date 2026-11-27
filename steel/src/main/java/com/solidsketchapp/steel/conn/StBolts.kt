@@ -103,7 +103,9 @@ class ConnGeom(val parts: List<ConnPart>, val cuts: Map<String, List<Mesh>>, val
                /** Fields the geometry writes back on the connection (v69 `c.nSteps = n`, v44 L15397); stRegen stores them in its JSON. */ val set: Map<String, JsonElement> = emptyMap())
 /** A part a connection makes: its solid pieces (unioned), the holes still to subtract ([minus]), profile, bolt info. */
 class ConnPart(val name: String, val pieces: List<Mesh>, val bolts: JsonObject? = null, val prof: String? = null, val minus: List<Mesh> = emptyList(), val group: BoltGroup? = null,
-               /** v70 C01: an anchor rod made as a part carries its hole (st.hole: pts, ax, d, d0, L, poly) for the gross weight. */ val hole: JsonObject? = null)
+               /** v70 C01: an anchor rod made as a part carries its hole (st.hole: pts, ax, d, d0, L, poly) for the gross weight. */ val hole: JsonObject? = null,
+               /** v70 C18: the part's material unless the Parts tab sets one (web p.mat70: the treads' Grating). */ val mat: String? = null,
+               /** v70 C18: a catalog angle part's length (st.len70: weighed kg/m x length, the stair brackets). */ val len: Double? = null)
 
 /**
  * Tekla-import connection types (v64 L17092): `TKCUT` cuts every part it lists with a member solid (`q.cut`, built

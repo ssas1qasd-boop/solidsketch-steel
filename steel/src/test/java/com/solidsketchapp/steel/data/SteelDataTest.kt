@@ -90,11 +90,11 @@ class SteelDataTest {
         assertEquals("End plate", data.tk.familyNames["EP"])
         assertEquals(listOf("main part", "secondary part"), data.tk.pickOrders["ms"])
         assertNotNull(data.tk.byId("T144")); assertEquals("End plates", data.tk.byId("T144")!!.group)
-        // 246 TK + 5 CONN items (tube crossing, tube gusset, sag rod, purlin cleat; v70 C02h eave haunch Teh) + 2 applications = 253 sheet items.
-        assertEquals(listOf("Teh", "Ttgx", "Ttg", "Tsag", "Tcl"), data.tk.connItems.map { it.id })
+        // 246 TK + 7 CONN items (tube crossing, tube gusset, sag rod, purlin cleat; v70 C02h eave haunch Teh, C18 stair end plate Tsep and stair treads) + 2 applications = 255 sheet items.
+        assertEquals(listOf("Teh", "Ttgx", "Ttg", "Tsag", "Tcl", "Tsep", "stairtreads"), data.tk.connItems.map { it.id })
         assertEquals("Tube crossing (tongues)", data.tk.connItem("Ttgx")!!.label)
         assertEquals(listOf("continuous brace", "half 1", "half 2"), data.tk.connItem("Ttgx")!!.parts)
-        assertEquals(253, data.tk.catalog.sumOf { it.second.size })
+        assertEquals(255, data.tk.catalog.sumOf { it.second.size })
     }
 
     @Test

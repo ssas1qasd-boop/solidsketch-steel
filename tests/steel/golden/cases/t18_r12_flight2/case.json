@@ -1,0 +1,343 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  },
+  {
+   "id": 2,
+   "ok": true
+  },
+  {
+   "id": 3,
+   "ok": true
+  },
+  {
+   "id": 4,
+   "ok": true
+  },
+  {
+   "id": 5,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "stairtreads",
+   [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   {
+    "dz": 39.684,
+    "ntr": 11,
+    "rise": 170,
+    "s0": 250.812,
+    "tmode": "tekla"
+   }
+  ],
+  [
+   "Tsep",
+   [
+    2,
+    6
+   ],
+   {
+    "b": 150,
+    "bd": 16,
+    "bg": 70,
+    "bp": 85,
+    "bside": "main",
+    "bx": -32.9,
+    "by": 38.7,
+    "de": 40,
+    "dw": -32.5,
+    "end": "2",
+    "h": 320,
+    "mgrip": 6,
+    "nc": 2,
+    "nr": 4,
+    "t": 12
+   }
+  ],
+  [
+   "Tsep",
+   [
+    4,
+    7
+   ],
+   {
+    "b": 150,
+    "bd": 16,
+    "bg": 70,
+    "bp": 85,
+    "bside": "main",
+    "bx": -32.9,
+    "by": 38.7,
+    "de": 40,
+    "dw": -32.5,
+    "end": "1",
+    "h": 320,
+    "mgrip": 6,
+    "nc": 2,
+    "nr": 4,
+    "t": 12
+   }
+  ],
+  [
+   "Tsep",
+   [
+    5
+   ],
+   {
+    "b": 150,
+    "bd": 16,
+    "bg": 70,
+    "bgrip": 12,
+    "bp": 85,
+    "bside": "out",
+    "bx": -32.9,
+    "by": 38.7,
+    "de": 40,
+    "dw": -32.5,
+    "end": "2",
+    "h": 320,
+    "nc": 2,
+    "nr": 4,
+    "t": 12
+   }
+  ],
+  [
+   "Tsep",
+   [
+    3
+   ],
+   {
+    "b": 150,
+    "bd": 16,
+    "bg": 70,
+    "bgrip": 12,
+    "bp": 85,
+    "bside": "out",
+    "bx": -32.9,
+    "by": 38.7,
+    "de": 40,
+    "dw": -32.5,
+    "end": "1",
+    "h": 320,
+    "nc": 2,
+    "nr": 4,
+    "t": 12
+   }
+  ]
+ ],
+ "description": "R12 upper flight (SR9003 / SR9004): 11 treads at rise 170, mitre fits, landing plates through posts STR9003 / STR9004, top plates (PLSTR) bolted outward (grip 24, no counter plate).",
+ "members": [
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "STRINGER",
+    "p1": [
+     565.5,
+     16600.795,
+     3896.424
+    ],
+    "p2": [
+     565.5,
+     13262.938,
+     1943.576
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "UPN240",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "STRINGER",
+    "p1": [
+     1650.5,
+     13262.938,
+     1943.576
+    ],
+    "p2": [
+     1650.5,
+     16600.795,
+     3896.424
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "UPN240",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "STRINGER",
+    "p1": [
+     565.5,
+     13323.536,
+     1960
+    ],
+    "p2": [
+     565.5,
+     13175.75,
+     1960
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "UPN240",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "STRINGER",
+    "p1": [
+     565.5,
+     16701,
+     3880
+    ],
+    "p2": [
+     565.5,
+     16540.197,
+     3880
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "UPN240",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "STRINGER",
+    "p1": [
+     1650.5,
+     13175.75,
+     1960
+    ],
+    "p2": [
+     1650.5,
+     13323.536,
+     1960
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "UPN240",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "STRINGER",
+    "p1": [
+     1650.5,
+     16540.197,
+     3880
+    ],
+    "p2": [
+     1650.5,
+     16701,
+     3880
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "UPN240",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "COLUMN",
+    "p1": [
+     598,
+     13082.75,
+     30
+    ],
+    "p2": [
+     598,
+     13082.75,
+     2080
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "BI162-6-150-6",
+    "rAng": 0,
+    "rot": "Back"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "COLUMN",
+    "p1": [
+     1619,
+     13082.75,
+     30
+    ],
+    "p2": [
+     1619,
+     13082.75,
+     2080
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "BI162-6-150-6",
+    "rAng": 0,
+    "rot": "Back"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t18_r12_flight2",
+ "pageErrors": []
+}

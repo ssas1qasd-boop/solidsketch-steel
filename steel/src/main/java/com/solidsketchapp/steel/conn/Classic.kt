@@ -26,7 +26,9 @@ object Classic {
         "gabletop" to Fam.obj("tp" to 15, "ext" to 60, "side" to 10, "bolt" to 16, "grade" to "8.8", "a" to 6),
         "craneseat" to Fam.obj("tp" to 20, "bolt" to 20, "grade" to "8.8", "ts" to 12, "gx" to 60, "a" to 6),
         "railclip" to Fam.obj("s" to 750, "t" to 12, "w" to 80, "l" to 60, "bolt" to 16, "grade" to "8.8", "stop" to 1),
-        "stairtreads" to Fam.obj("sl" to 0, "tread" to 6, "riserMax" to 180, "nosing" to 25, "leg" to 50, "ta" to 5, "bolt" to 12, "grade" to "8.8", "foot" to 1, "tf" to 12),
+        "stairtreads" to Fam.obj("sl" to 0, "tread" to 6, "riserMax" to 180, "nosing" to 25, "leg" to 50, "ta" to 5, "bolt" to 12, "grade" to "8.8", "foot" to 1, "tf" to 12,
+            // v70 C18 (web CONN.stairtreads.def additions)
+            "tmode" to "", "ntr" to 12, "rise" to 156.667, "s0" to 145.863, "dz" to 47.43, "tw" to 300, "th" to 40, "tt" to 10, "tri" to 5, "tgap" to 5, "tmat" to "Grating", "bl" to 140, "bleg" to 60, "bta" to 6, "bbolt" to 12, "bp" to 90, "bo" to 5, "bz" to 30, "bgrade" to "8.8", "blrule" to "tekla"),
         "weldonly" to Fam.obj("a" to 4),
     )
     /** v69 CONN[type].label, as the toasts and lists show them. */

@@ -2779,6 +2779,8 @@
   {
    "g": "Other",
    "items": [
+    "Tsep",
+    "stairtreads",
     "T5w",
     "T47p",
     "T114",
@@ -2964,7 +2966,13 @@
     "grade": "8.8",
     "clear": 20,
     "cap": 5,
-    "a": 3.5
+    "a": 3.5,
+    "tend": "",
+    "blrule": "",
+    "side": 1,
+    "gd": 20,
+    "gwa": "",
+    "gwb": ""
    }
   },
   {
@@ -2998,7 +3006,12 @@
     "a": 3.5,
     "tend": "",
     "blrule": "",
-    "tpos": ""
+    "tpos": "",
+    "gshape": "",
+    "gwa": "",
+    "gwb": "",
+    "gd": 20,
+    "gpos": ""
    }
   },
   {
@@ -3043,6 +3056,84 @@
     "ts": 6,
     "a": 4,
     "loc": "back"
+   }
+  },
+  {
+   "id": "Tsep",
+   "label": "Stair end plate",
+   "tekla": "Stair end plate (SolidSketch, C18)",
+   "code": "C18",
+   "parts": [
+    "stringer piece",
+    "main part (optional)"
+   ],
+   "fam": "SEP",
+   "grp": "Other",
+   "gen": false,
+   "ro": [],
+   "def": {
+    "t": 12,
+    "b": 150,
+    "h": 320,
+    "de": 0,
+    "dw": 0,
+    "end": "",
+    "cplate": 0,
+    "bd": 16,
+    "nr": 4,
+    "nc": 2,
+    "bp": 85,
+    "bg": 70,
+    "bx": 0,
+    "by": 0,
+    "bside": "main",
+    "mgrip": "",
+    "bgrip": 0,
+    "bL": "",
+    "bgrade": "8.8",
+    "a": 6,
+    "cls": 1
+   }
+  },
+  {
+   "id": "stairtreads",
+   "label": "Stair treads",
+   "tekla": "Stairs (S71) treads",
+   "parts": [
+    "stringer",
+    "stringer"
+   ],
+   "def": {
+    "sl": 0,
+    "tread": 6,
+    "riserMax": 180,
+    "nosing": 25,
+    "leg": 50,
+    "ta": 5,
+    "bolt": 12,
+    "grade": "8.8",
+    "foot": 1,
+    "tf": 12,
+    "tmode": "",
+    "ntr": 12,
+    "rise": 156.667,
+    "s0": 145.863,
+    "dz": 47.43,
+    "tw": 300,
+    "th": 40,
+    "tt": 10,
+    "tri": 5,
+    "tgap": 5,
+    "tmat": "Grating",
+    "bl": 140,
+    "bleg": 60,
+    "bta": 6,
+    "bbolt": 12,
+    "bp": 90,
+    "bo": 5,
+    "bz": 30,
+    "bgrade": "8.8",
+    "blrule": "tekla"
    }
   }
  ]

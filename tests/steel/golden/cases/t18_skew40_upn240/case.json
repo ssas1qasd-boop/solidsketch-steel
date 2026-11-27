@@ -1,0 +1,74 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "stairtreads",
+   [
+    0,
+    1
+   ],
+   {
+    "bp": 80,
+    "dz": 45,
+    "ntr": 10,
+    "rise": 160,
+    "s0": 220,
+    "tmode": "tekla",
+    "tt": 8,
+    "tw": 280
+   }
+  ]
+ ],
+ "description": "UPN240 stringers running at 40 deg in plan, 1000 apart, rise 160, 10 treads, tread 280 x 40 PL8, bracket bolts M12 at 80.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "STRINGER",
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     2298.1,
+     1928.4,
+     1700
+    ],
+    "plane": "Middle",
+    "prof": "UPN240",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "STRINGER",
+    "p1": [
+     642.8,
+     -766,
+     0
+    ],
+    "p2": [
+     2940.9,
+     1162.4,
+     1700
+    ],
+    "plane": "Middle",
+    "prof": "UPN240",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t18_skew40_upn240",
+ "pageErrors": []
+}

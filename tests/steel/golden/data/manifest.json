@@ -8,9 +8,9 @@
   "tkComponents": 246,
   "tkGroups": 17,
   "catalogGroups": 18,
-  "catalogItems": 253,
+  "catalogItems": 255,
   "families": 18,
-  "connItems": 5,
+  "connItems": 7,
   "apps": 2,
   "profileCases": 636
  },
@@ -19,6 +19,6 @@
   "property_sets.json": "52abce3dc9620a1263432adcd562a98c8a131d1d71baaf11456b038080e3cfd3",
   "classes.json": "54d4439daa6313dd4a9d21a682a2a73b43cea812cf35e830e061100f9f45faef",
   "materials.json": "3dc2840bf14494c045a60b4b1c9a9ea8ec5902d2b19163d5fd2759761b8b38fc",
-  "tk_catalog.json": "6aa7a14944760541b8ab74487bd1a6b8705524852f6b47d38dd81abdd1614000"
+  "tk_catalog.json": "afbb85f5275d91f35715ca4610b958f203c34907248152632ada4cdcc280b5b7"
  }
 }

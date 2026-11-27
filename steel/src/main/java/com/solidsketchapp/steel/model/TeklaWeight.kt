@@ -89,6 +89,9 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
     fun part(st: JsonObject, mesh: Mesh, holed: Boolean, noHoles: () -> Mesh?, bolts: List<Bolts> = emptyList()): W {
         val kind = str(st, "kind"); if (kind == "bolts" || kind == "bolt") return W(0.0, 0.0, false, 0.0, 0.0)
         if ((str(st, "name") ?: "").trim().equals("GROUT", true)) return W(0.0, 0.0, false, 0.0, 0.0)   // Tekla's grout weighs 0 (components name it GROUT on S275)
+        if (kind == "conn" && num(st, "len70") > 0) {   // C18 (web partWeight70): a component's catalog angle (the stair brackets): Tekla's kg/m x its length
+            val kg = KGM[prof(st)] ?: profiles.lookup(prof(st))?.m ?: 0.0
+            if (kg > 0) { val w = r2(kg * num(st, "len70") / 1000); return W(w, w, true, r2(kg), round(num(st, "len70") * 10) / 10) } }
         val rho = density(str(st, "mat") ?: str(st, "material"))
         var vol = abs(booleans.volume(mesh))
         if (holed) runCatching { noHoles() }.getOrNull()?.let { m0 -> val v0 = abs(booleans.volume(m0)); if (v0 >= vol - 1e-6 && v0 < vol * 1.25 + 1e5) vol = v0 }
