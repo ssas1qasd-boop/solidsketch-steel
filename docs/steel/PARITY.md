@@ -63,6 +63,12 @@ For EACH component:
    - a short report: the settings differences found and fixed, the number of loops, rule-B results, golden status, before → after.
 7. **Acceptance.** A component is "accepted (pending phone OK)" when it matches both videos. After delivery, go straight to the next component without waiting for a reply. The owner gives the ✓ in R12-REPORT.md from the phone. If the owner reports a problem, that component is fixed first.
 
+**Time tracking (owner, 2026-11-28).**
+1. **One row per component** in `docs/steel/parity/TIMES.md`: code, family, agent, start (UTC), end (UTC), hours, wait hours, videos found (0/1/2), loops, blocked by. "Blocked by" is what cost the most time (no video, engine change, CI queue, rule B...).
+2. **Only real work counts:** from picking the videos to the component being "accepted (pending phone OK)". Waiting (session paused, usage limits, CI queue) goes in "wait hours", not in "hours".
+3. **Every combined delivery report** carries the TIMES.md rows of the components it delivers.
+4. **Forecast, after the first 5 accepted components:** the delivery report adds average hours per component (first-of-family vs. rest-of-family), components left, agents running, and the estimated finish date for Group 1. It is updated in every delivery after that.
+
 **How this runs with the integration rule:** one agent per component, in its own worktree and branch `agent/g1-<code>`. It reports to the main session (integration rule step 2). The main session merges it, runs `tools/ci/full_suite.sh`, runs CI on main, and sends that component's delivery (step 6) from the merge commit. Then the next component's agent starts.
 
 ## Weights (owner, 2026-11-26)
