@@ -37,10 +37,10 @@ cp -r "$A" "$R1/additional" 2>/dev/null || true; cp -r app/build/reports/android
 # The connection being delivered now (C04 and C14 recordings were delivered with their own runs; set REC_CLASSES to run them again)
 REC_CLASSES="${REC_CLASSES:-C07RecordingTest}"
 for CLS in $REC_CLASSES; do
-  adb shell rm -f /sdcard/c02_rec.mp4 /sdcard/c09_rec.mp4 /sdcard/c04_rec.mp4 /sdcard/c14_rec.mp4 /sdcard/c13_rec.mp4 /sdcard/c20_rec.mp4 /sdcard/c05_rec.mp4 /sdcard/c06_rec.mp4 || true
+  adb shell rm -f /sdcard/c02_rec.mp4 /sdcard/c09_rec.mp4 /sdcard/c04_rec.mp4 /sdcard/c14_rec.mp4 /sdcard/c13_rec.mp4 /sdcard/c20_rec.mp4 /sdcard/c05_rec.mp4 /sdcard/c06_rec.mp4 /sdcard/c07_rec.mp4 || true
   ./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.$CLS --stacktrace > "$OUT/${CLS}.log" 2>&1
   echo $? > "$OUT/${CLS}_rc.txt"
-  for v in c02 c09 c04 c14 c13 c20 c05 c06; do adb pull /sdcard/${v}_rec.mp4 "$OUT/$(echo $v | tr a-z A-Z)_recording.mp4" 2>/dev/null || true; done
+  for v in c02 c09 c04 c14 c13 c20 c05 c06 c07; do adb pull /sdcard/${v}_rec.mp4 "$OUT/$(echo $v | tr a-z A-Z)_recording.mp4" 2>/dev/null || true; done
   mkdir -p "$R1/${CLS}_additional"; cp -r "$A/." "$R1/${CLS}_additional/" 2>/dev/null || true
 done
 for CLS in $REC_CLASSES; do cp -rn "$R1/${CLS}_additional/." "$A/" 2>/dev/null || true; done
