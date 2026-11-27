@@ -343,7 +343,7 @@ def c18(shots, video=None):
     lines = ['app (c18_case.ss): ' + a1, '   ' + a2, 'after 10 treads + Modify (c18_ntr10.ss): ' + b1,
              'R12: 12 treads PL10*335.7 Grating 990 x 300 x 40, rise 156.667, going 309.92; L60*6 x 140 brackets, 2 M12 8.8 L35 each; landing plate FLT12*150 320 x 150, 2 x 4 M16 L45 through the post',
              'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c18_case.ss')).split(';')[0] + ' | after 10 treads: ' + rule_b(os.path.join(shots, 'c18_ntr10.ss')).split(';')[0],
-             'R12 rebuild (web v70 and app): row 18 4 -> 81 / 83 parts (the 2 counter plates on EB4002 left for R13), 12 / 12 stringer pieces, 148 / 148 bolts; treads + brackets 141.22 kg = Tekla']
+             'R13 rebuild (web v70 and app): row 18 81 -> 83 / 83 parts (+ the 2 counter plates FLT12*150 on EB4002, agent C18), 12 / 12 stringer pieces, 148 / 148 stair bolts; treads + brackets 141.22 kg = Tekla; each tread its own assembly (SGR9001 6.1)']
     app, meta = shot(shots, 'ortho_tread'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
     label(app, (40, 140), 'U-pan grating tread on L60*6 brackets, 2 M12 each')
     R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
@@ -469,6 +469,35 @@ def c08(shots, video=None):
     pic = Image.open(video).convert('RGB') if video else tekla_page('PU8009')
     return compose('C08', [('R13 (Tekla IFC), rod TR8002 at purlin PU8008, along the purlin', r12), ('Tekla assembly drawing PU8008 (package)', tekla_page('PU8008')), ('Tekla assembly drawing PU8009 (package)', pic), ('app on the emulator, orthographic, along the purlin (landscape)', app)],
                    'C08 Sag rod at purlin: R13 | Tekla drawing | Tekla drawing | app (Parts: Nuts / Washers off)', ['Measured on the models the emulator built and saved (c08_case.ss, c08_nuts.ss):'] + ['! ' + m for m in lines])
+
+def c06(shots, video=None):
+    """C06 on R13 (agent TUBES): R13's gable node 3425 (column C 39693 / 75, strut ST5007 0.51 deg out of the wall, VL6014) with Gusset plane at a node = Tekla;
+    c06_case.ss, then the strut's Picture 5 = 30 + Modify (c06_gd30.ss)"""
+    st = lambda b: b.get('st') or {}
+    def outline(v):
+        c0 = v.mean(0); w_, vv = np.linalg.eigh((v - c0).T @ (v - c0)); n_ = vv[:, 0]; best = None
+        for a_ in np.radians(np.arange(0, 180, 0.01)):
+            x_ = np.cos(a_) * vv[:, 1] + np.sin(a_) * vv[:, 2]; y_ = np.cross(n_, x_); e_ = (np.ptp((v - c0) @ x_), np.ptp((v - c0) @ y_))
+            if best is None or e_[0] * e_[1] < best[0] * best[1]: best = e_
+        return sorted(np.round(best, 2), reverse=True), n_
+    def gus(f):
+        D = json.load(gzip.open(os.path.join(shots, f)))['doc']; g = next(b for b in D['bodies'] if st(b).get('name') == 'GUSSET PLATE'); return VT(g)[0]
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R13.ss')))['doc']; RB = {b['id']: b for b in R['bodies'] if b.get('shape')}
+    ga, na = outline(gus('c06_case.ss')); gb, _ = outline(gus('c06_gd30.ss')); gr, nr = outline(VT(RB[3425])[0])
+    ang = math.degrees(math.acos(min(1.0, abs(float(np.dot(na, nr))))))
+    lines = [f'app (c06_case.ss): gusset {ga[0]} x {ga[1]} x 12; R13 gusset 3425 (mark 6509, PL12*223.1): {gr[0]} x {gr[1]}; the two planes {ang:.3f} deg apart (square to the strut ST5007)',
+             f'after the strut\'s Picture 5 = 30 + Modify (c06_gd30.ss): gusset {gb[0]} x {gb[1]} x 12',
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c06_case.ss')).split(';')[0] + ' | after 5 = 30: ' + rule_b(os.path.join(shots, 'c06_gd30.ss')).split(';')[0],
+             'R13 rebuild (web v70 and app, 0.1 mm): row 5 tube ends 1,239 -> 1,294 / 1,294; row 6 gussets 233 -> 244 / 250 (6 left at 0.126 mm: strut-first nodes, open); row 7 crossings 100 -> 118 / 118',
+             'Tekla rules measured on R13 (PARITY.md C05 / C06 / C07): gusset plane square to the strut; plates turned to the gusset; plates\' plane through the first brace\'s middle; edge at the least end-plate gap 20']
+    app, meta = shot(shots, 'ortho_wall'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'gusset square to the strut, plates turned to it')
+    near_ = [b for b in RB.values() if (VT(b)[0].min(0) < t + 1300).all() and (VT(b)[0].max(0) > t - 1300).all()]
+    colr = lambda b: (150, 90, 200) if str(st(b).get('name', '')).strip() == 'Gusset Plate' else (230, 170, 40) if str(st(b).get('name', '')).strip() == 'Connection Plate' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 150, 80)
+    r13 = render(near_, t, dv, dist, colr, W=1100, H=1100)
+    pic = Image.open(video).convert('RGB') if video else shot(shots, 'r13_3d')[0]
+    return compose('C06', [('R13 (Tekla IFC v3), gable node 3425 (gusset 6509), wall view', r13), ('Tekla assembly drawing 11 (Package_2): gusset 6509', tekla_page2('11')), ('app on the emulator, 3D', pic), ('app on the emulator, orthographic wall view (landscape)', app)],
+                   'C06 on R13 Tube gusset (20) at the gable nodes: R13 | Tekla drawing | app 3D | app (Gusset tab: Gusset plane at a node = Tekla)', ['Measured on the models the emulator built and saved (c06_case.ss, c06_gd30.ss):'] + ['! ' + m for m in lines])
 
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)

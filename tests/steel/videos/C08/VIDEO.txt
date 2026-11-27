@@ -1,0 +1,5 @@
+C08 Sag rod at purlin: no video read.
+The question is whether Tekla makes nut and washer parts on a sag rod. Tekla's own model answers it: in R13 (and R12) the
+140 tie rods ROD12 ("Tie Rod THREAD100MM") are plain members with no connection, bolt, nut or washer, Package_2's BOLT-LIST
+has no M12 nut on them, and the purlins are drilled where the rods pass. No component dialog value is involved, so no Tekla
+video was searched. No Gemini model was used.
