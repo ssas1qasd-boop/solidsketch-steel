@@ -14,6 +14,10 @@ ANCHOR = '  // ===================== v28 · BIM layers: Types and History Folder
 if os.path.getsize(SRC) != 20495043: sys.exit(f'{SRC}: not the expected v69 copy')
 lines = open(SRC, encoding='utf-8', newline='').read().split('\n')
 i = lines.index(ANCHOR)
-lines[i:i] = open(CH, encoding='utf-8').read().rstrip('\n').split('\n') + ['']
+import glob   # integration rule (PARITY.md): an agent's fix may be its own file web/v70/<code>.js, appended after the chapter in name order
+EXTRA = sorted(glob.glob(os.path.join(REPO, 'web', 'v70', '*.js')))
+chapter = open(CH, encoding='utf-8').read().rstrip('\n').split('\n')
+for f in EXTRA: chapter += [f'  // ===== {os.path.relpath(f, REPO)} ====='] + open(f, encoding='utf-8').read().rstrip('\n').split('\n')
+lines[i:i] = chapter + ['']
 open(OUT, 'w', encoding='utf-8', newline='').write('\n'.join(lines))
-print(f'{OUT}: {os.path.getsize(OUT)} bytes, v70 chapter at line {i + 1}')
+print(f'{OUT}: {os.path.getsize(OUT)} bytes, v70 chapter at line {i + 1}' + (f' (+ {len(EXTRA)} file(s) from web/v70/)' if EXTRA else ''))

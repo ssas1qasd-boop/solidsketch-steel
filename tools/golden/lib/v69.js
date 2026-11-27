@@ -31,7 +31,10 @@ const V70_ANCHOR = '  // ===================== v28 · BIM layers: Types and Hist
 const ORACLE = process.env.SS_ORACLE === 'v69' ? 'v69' : 'v70';
 function insertV70(lines) {
   const i = lines.indexOf(V70_ANCHOR); if (i < 0) throw new Error('v69: the v28 BIM chapter header (v70 anchor) is missing');
-  lines.splice(i, 0, ...fs.readFileSync(V70, 'utf8').replace(/\n$/, '').split('\n'), '');
+  const ch = fs.readFileSync(V70, 'utf8').replace(/\n$/, '').split('\n');
+  const dir = path.join(REPO, 'web', 'v70');   // integration rule (PARITY.md): web/v70/<code>.js files follow the chapter in name order, as build_v70.py
+  if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).filter(x => x.endsWith('.js')).sort()) ch.push(`  // ===== web/v70/${f} =====`, ...fs.readFileSync(path.join(dir, f), 'utf8').replace(/\n$/, '').split('\n'));
+  lines.splice(i, 0, ...ch, '');
   return lines;
 }
 

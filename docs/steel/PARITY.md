@@ -19,6 +19,17 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 - **Assembly weights per mark:** 1001, SGR9001 and SR9001–SR9004 differ from Package_2's assembly list (the same differences as R12 vs Package_1): the known C01 / C18 / C19 gaps.
 - **Rule B on R13 itself (Tekla's model), new since R12:** each new EB4007 web runs 3.94 mm into the column web of C2021 / C2024 (3 overlaps, 18,176 mm³ each), and the 3 new bolt groups' grip is 18 against 8 mm of material on the bolt line (+3 grip failures). Both are in Tekla's model as exported; shown in `docs/steel/parity/r13/` (emulator images).
 
+## Integration rule for parallel agents (owner, 2026-11-28)
+1. **Own worktree, own branch, own section.** Each agent works only in its own worktree and branch (`agent/<code>`). It writes its v70 fix in its own section of `web/v70_tekla_parity.js`, headed `// == <code> ==`, or in a separate file `web/v70/<code>.js`. `tools/web/build_v70.py` and the golden harness (`tools/golden/lib/v69.js`) append `web/v70/*.js` after the chapter, in name order. An agent never edits another agent's section. Shared code changes (core, catalog, rule checks) go to the main session first.
+2. **Report to the main session, not the owner.** When an agent finishes, it reports to the main session: branch, commit, what changed, and which goldens it added. All goldens must be green on its branch.
+3. **The main session merges one branch at a time.** After EACH merge it runs the FULL test suite: all component goldens, the two-video goldens, R13 (weights, assemblies, drawings), and rule B. Anything broken is fixed before the next merge. Merge conflicts are resolved by keeping both fixes, never by dropping one.
+4. **One combined delivery, from one commit on main,** all sent as files:
+   - ONE APK (apk-phone, unzipped);
+   - ONE `solidsketch_v70.html`;
+   - each connection's files (.ss × 2, recordings × 2, PNG × 2, VIDEO.txt × 2) in one zip, `parity_<date>.zip`, with one folder per connection;
+   - ONE report, `docs/steel/parity/DELIVERY_<date>.md`: a table with one row per connection (status, loops, rule B, goldens), plus the R13 totals before → after.
+5. **When to deliver:** when at least 2 connections are ready, or once a day, whichever comes first. No separate APKs from individual agents.
+
 ## Weights (owner, 2026-11-26)
 **Target:** Tekla's per-part weights (`st.tkW`, 63,705.8 kg; Part List 63,711.7).
 
