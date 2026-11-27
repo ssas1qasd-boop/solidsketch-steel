@@ -35,10 +35,13 @@ import org.junit.runner.RunWith
 import kotlin.math.sqrt
 
 /**
- * C20 Column with stiffeners (186) (docs/steel/PARITY.md "C20"), the owner's video check: R12's joint C2020 / EB4007 (BI320 mezzanine
- * column, BI324 beam on its web at +3838) placed one by one, the 186 through its dialog with R12's settings (Picture: beam gap 20, flange
+ * C20 Column with stiffeners (186) (docs/steel/PARITY.md "C20" and "C12 / C20 on R13"), the owner's video check on R13: the joint
+ * C2021 / EB4007 (BI320 mezzanine column, the fixed girder BI324 on its web at +3838, Tekla's web 22,409 - 27,931: one of the 12
+ * stiffeners R12 could not place) placed one by one, the 186 through its dialog with R13's settings (Picture: beam gap -10 (R13's web runs
+ * 10 mm past the column web face; the 186 cuts it at the face), flange
  * strip 2 = 20; Plates: tab t 10, b 150, near side; Stiffeners: created, line chamfered, Stiffener gap 2 = 2, Top / Bottom NS / FS t 10,
- * b 70, chamfer 5.6 x 5.6 line, K weld preparation; Bolts: M16, 4 rows, e 30, pitch 50, 2 columns 60 apart, horizontal edge 35, Middle 0),
+ * b 70, chamfer 5.6 x 5.6 line, K weld preparation; Bolts: M16, 4 rows, e 30, pitch 50, 2 columns 60 apart, horizontal edge 35 from the
+ * beam end, Middle 0),
  * Pick parts (column, then beam); orbit; orthographic stills in landscape (side and top); the model saved (c20/c20_case.ss). Then the
  * dialog again: Top NS b 50, Modify, orbit, stills, saved (c20_b50.ss). /sdcard/c20_rec.mp4.
  */
@@ -117,21 +120,21 @@ class C20RecordingTest {
     private fun stiffeners() = act.testDoc.bodyIds().count { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "STIFFENER" }
     private fun closeDialog() { compose.onAllNodes(hasText("Cancel") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Cancel") and hasClickAction())[0].performClick() }
         act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; pause(800) }
-    private fun stills(c: Vec3, tag: String) {   // plan from above, centred between the far side stiffener's edge (y 16711) and the beam flange strip (16879): stiffeners, chamfers, gap 2, tab, strip 90
-        landscape(true); orthoShot(Vec3(52838.0, 16795.0, 4300.0), Vec3(0.0, -0.02, 1.0), 800.0, "ortho_top$tag"); landscape(false)
+    private fun stills(c: Vec3, tag: String) {   // plan from above, centred between the far side stiffener's edge (y 27999) and the beam flange strip (27831): stiffeners, chamfers, gap 2, tab, strip 90
+        landscape(true); orthoShot(Vec3(52838.0, 27915.0, 4300.0), Vec3(0.0, 0.02, 1.0), 800.0, "ortho_top$tag"); landscape(false)
     }
 
     @Test fun c20Recording() {
         dir = "c20"; start()
-        val j = Vec3(52838.0, 16900.0, 3838.0); look(j, Vec3(0.9, -1.2, 0.7), 3500.0); pause(800)
+        val j = Vec3(52838.0, 27810.0, 3838.0); look(j, Vec3(0.9, -1.2, 0.7), 3500.0); pause(800)
         val rec = ua.executeShellCommand("screenrecord --bit-rate 6000000 --time-limit 170 /sdcard/c20_rec.mp4")
         try {
             pause(1500)
-            member("COLUMN", """{"prof":"BI320-8-150-10","p1":[52838,16785,230],"p2":[52838,16785,7547.745],"rot":"Below","plane":"Middle","depth":"Middle"}"""); pause(900)
-            member("BEAM", """{"prof":"BI324-8-250-12","p1":[52838,16809,3838],"p2":[52838,22331,3838],"rot":"Top","plane":"Middle","depth":"Middle"}"""); pause(1200)
+            member("COLUMN", """{"prof":"BI320-8-150-10","p1":[52838,27925,230],"p2":[52838,27925,7547.745],"rot":"Below","plane":"Middle","depth":"Middle"}"""); pause(900)
+            member("BEAM", """{"prof":"BI324-8-250-12","p1":[52838,22409,3838],"p2":[52838,27931,3838],"rot":"Top","plane":"Middle","depth":"Middle"}"""); pause(1200)
             shot("members")
             openCatalog("186")
-            tab("Picture"); field("gap", "20"); field("strip", "20"); shot("dialog186_picture")
+            tab("Picture"); field("gap", "-10"); field("strip", "20"); shot("dialog186_picture")
             tab("Plates"); field("t", "10"); field("tb", "150"); pick("side", "Near side"); shot("dialog186_plates")
             tab("Stiffeners"); pick("scr", "Stiffeners are created"); pick("ssh", "Line chamfered stiffener plates"); field("sgap2", "2")
             for (k in 1..4) { field("stt$k", "10"); field("stb$k", "70") }
@@ -139,14 +142,18 @@ class C20RecordingTest {
             tab("Bolts"); pick("bolt", "M16"); field("rows", "4"); field("e", "30"); field("pitch", "50"); field("cols", "2"); field("pitchH", "60"); field("eh", "35")
             pick("refV", "Middle"); field("posV", "0"); shot("dialog186_bolts")
             // picks square to the camera from +x: the column's flange outer face above the joint, then the beam's web away from it
-            val cam = { look(Vec3(52900.0, 17400.0, 4300.0), Vec3(1.0, -0.12, 0.06), 6000.0) }   // portrait: about 2.3 m across, the column 0.6 m left of the target
-            val pairs = listOf(4800.0 to 17900.0, 5200.0 to 18200.0, 4500.0 to 17700.0, 5500.0 to 18400.0).map { (cz, by) -> Vec3(52998.0, 16785.0, cz) to Vec3(52842.0, by, 3838.0) }
+            val cam = { look(Vec3(52900.0, 27310.0, 4300.0), Vec3(1.0, 0.12, 0.06), 6000.0) }   // portrait: about 2.3 m across, the column 0.6 m right of the target
+            val pairs = listOf(4800.0 to 26810.0, 5200.0 to 26510.0, 4500.0 to 27010.0, 5500.0 to 26310.0).map { (cz, by) -> Vec3(52998.0, 27925.0, cz) to Vec3(52842.0, by, 3838.0) }
             pickParts("T186", cam, pairs)
             waitFor("the four stiffeners") { stiffeners() == 4 }
             assertTrue("186 stiffeners ${q("T186", "scr")}", q("T186", "scr") == "both")
             val c = centre(bodyNamed("SHEAR TAB"))
-            orbit(Vec3(52838.0, 16860.0, 3838.0), 1500.0, "r12")
-            stills(Vec3(52838.0, 16860.0, 3838.0), "")
+            // R13: the 186 cut Tekla's web at the column web face (Picture 1 = -10: no clash), the bolts 35 from Tekla's web end
+            val bv = act.testDoc.bodyMesh(act.testDoc.bodyIds().last { (mode().stOf(it)?.get("prof") as? JsonPrimitive)?.contentOrNull == "BI324-8-250-12" })!!
+            val yMax = (0 until bv.vertexCount).maxOf { bv.positions[it * 3 + 1].toDouble() }
+            assertTrue("beam end at $yMax (the column web face 27921)", kotlin.math.abs(yMax - 27921.0) < 0.1)
+            orbit(Vec3(52838.0, 27850.0, 3838.0), 1500.0, "r13")
+            stills(Vec3(52838.0, 27850.0, 3838.0), "")
             save("c20_case.ss")
             // the dialog again: one stiffener value, Modify
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(bodyNamed("SHEAR TAB"))) }; pause(800)
@@ -156,10 +163,10 @@ class C20RecordingTest {
             press("Modify"); pause(800)
             waitFor("Top NS b 50") { q("T186", "stb1")?.toDoubleOrNull() == 50.0 }
             closeDialog()
-            orbit(Vec3(52838.0, 16860.0, 3838.0), 1500.0, "topNS50")
-            stills(Vec3(52838.0, 16860.0, 3838.0), "_b50")
+            orbit(Vec3(52838.0, 27850.0, 3838.0), 1500.0, "topNS50")
+            stills(Vec3(52838.0, 27850.0, 3838.0), "_b50")
             save("c20_b50.ss")
-            assertTrue("tab at ${c}", c.y > 16789.0)
+            assertTrue("tab at ${c}", c.y < 27921.0)
             pause(800)
         } finally { runCatching { ua.setRotation(android.app.UiAutomation.ROTATION_UNFREEZE) }; sh("pkill -INT screenrecord"); Thread.sleep(3000); rec.close() }
     }

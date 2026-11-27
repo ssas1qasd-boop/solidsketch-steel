@@ -1853,14 +1853,15 @@
     375,
     374
    ],
-   "boxDiff": 30.0,
+   "teklaClash": 18176.0,
+   "boxDiff": 0.0,
    "volR10": 45494678.351,
-   "volV69": 45496933.904,
+   "volV69": 45489696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 357.4,
+   "kgV69": 357.34,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 98,
@@ -1872,14 +1873,15 @@
     229,
     228
    ],
-   "boxDiff": 30.0,
+   "teklaClash": 18176.0,
+   "boxDiff": 0.0,
    "volR10": 45494678.351,
-   "volV69": 45496933.904,
+   "volV69": 45489696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 357.4,
+   "kgV69": 357.34,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 99,
@@ -1891,14 +1893,15 @@
     227,
     226
    ],
-   "boxDiff": 30.0,
+   "teklaClash": 18176.0,
+   "boxDiff": 0.0,
    "volR10": 45494678.351,
-   "volV69": 45496933.904,
+   "volV69": 45489696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 357.4,
+   "kgV69": 357.34,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 100,
@@ -78030,8 +78033,8 @@
   },
   "weightKg": {
    "r10": 64021.96,
-   "v69": 64005.59,
-   "diff": -16.37,
+   "v69": 64005.41,
+   "diff": -16.55,
    "r10Weights": {
     "weight_t": 64.022,
     "net_t": 64.01,
@@ -78040,7 +78043,7 @@
     "boltBodiesExcluded": 1294
    },
    "v69Weights": {
-    "weight_t": 64.006,
+    "weight_t": 64.005,
     "net_t": 63.982,
     "gross_t": 64.059,
     "parts": 4946,
@@ -78050,7 +78053,7 @@
   "weightByCategory": {
    "builtup members": [
     37892.73,
-    37889.62
+    37889.44
    ],
    "given members": [
     16361.46,
@@ -79579,15 +79582,14 @@
   {
    "group": "builtup | EB BI324-8-250-12",
    "counts": {
-    "INPUT EQUAL, SOLID DIFFERS": 3,
-    "MATCHED": 7,
+    "MATCHED": 10,
     "total": 10
    },
    "kgR10": 3573.9,
-   "kgV69": 3574.91,
+   "kgV69": 3574.73,
    "sameSize": null,
-   "reason": "Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent",
-   "option": "built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "builtup | EGC BI220-6-200-10",

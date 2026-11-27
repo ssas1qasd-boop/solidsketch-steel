@@ -28,6 +28,9 @@ import kotlin.math.sqrt
  * and row 12, the 4 joints that stay Shear plate (146). Checks against R12 itself (Tekla's IFC), within 0.1 mm: every tab and stiffener
  * (box, 6 numbers), every bolt (point, axis, length, grade), and the column's and the beam's solids inside a box 300 mm round the tab
  * (symmetric difference <= 0.1 mm x surface area, or no larger than the same member with no connection, as R12C09Test).
+ * R13 (PARITY.md "C12 / C20 on R13"): the 6 joints at the fixed girders EB4007 now have their secondary; Tekla's webs there run 10 mm into
+ * the C2021 / C2024 webs (R13's own rule B), so where Tekla's secondary runs into the main part the reference is Tekla's part cut at the
+ * main part's face, and those clashes must be exactly the three known ones.
  * Needs Manifold: -PhostJni. Writes build/r13-c20-report.txt.
  */
 class R13C20Test {
@@ -60,7 +63,7 @@ class R13C20Test {
             st["conn"]?.jsonPrimitive?.content?.let { kids.getOrPut(it) { ArrayList() } += id to st } }
         val tkb = Json.parseToJsonElement(r12.field("stConns")!!).jsonArray.map { it.jsonObject }.filter { it["type"]!!.jsonPrimitive.content == "TKBOLT" }
         val cnt = HashMap<String, IntArray>()   // row -> [plates ok, plates, bolts ok, bolts, members ok, members]
-        val bad = ArrayList<String>(); val diag = ArrayList<String>()
+        val bad = ArrayList<String>(); val diag = ArrayList<String>(); val clash = ArrayList<String>()
         for ((e, c) in list.zip(conns)) {
             val row = e[3].jsonPrimitive.content + (if (e[0].jsonPrimitive.content == "Teh") "h" else ""); val n = cnt.getOrPut(row) { IntArray(6) }; val refs = e[4].jsonArray.map { it.jsonPrimitive.int }
             val k = kids[c.id].orEmpty().filter { it.second["kind"]?.jsonPrimitive?.content != "bolts" }.map { pts(m.doc.bodyMesh(it.first)!!) }.map(::box)
@@ -89,7 +92,16 @@ class R13C20Test {
             val cube = Joints.box3(lo, D3(1.0, 0.0, 0.0), D3(0.0, 1.0, 0.0), 0.0, hi.x - lo.x, 0.0, hi.y - lo.y, 0.0, hi.z - lo.z)
             for (mi in e[1].jsonArray.map { it.jsonPrimitive.int }) { n[5]++
                 val plates = members[mi].getValue("r10").jsonArray.map { r12.bodyMesh(BodyId(it.jsonPrimitive.int.toString()))!! }
-                val rr = engine.intersect(engine.union(plates), cube); val oo = engine.intersect(m.doc.bodyMesh(ids.getValue(mi))!!, cube)
+                var rr = engine.intersect(engine.union(plates), cube); val oo = engine.intersect(m.doc.bodyMesh(ids.getValue(mi))!!, cube)
+                // R13's own rule B (PARITY.md "C12 / C20 on R13"): Tekla's EB4007 webs run 10 mm past the C2021 / C2024 web face, through the
+                // column web (3 overlaps of 18,176 mm³). The 186 cuts its secondary at the main part's web face (rule B: no overlap), so the
+                // reference there is Tekla's part cut at that face. Every such clash is counted and must be exactly those three.
+                val mainId = e[1].jsonArray[0].jsonPrimitive.int
+                if (mi != mainId) { val col = engine.union(members[mainId].getValue("r10").jsonArray.map { r12.bodyMesh(BodyId(it.jsonPrimitive.int.toString()))!! })
+                    val cl = engine.intersect(rr, col); val cv = if (cl.vertexCount == 0) 0.0 else engine.volume(cl)
+                    if (cv > 0 && 2 * cv / area(cl) >= 0.01) { clash += "R12 $epId member $mi: %.0f mm³".format(java.util.Locale.ROOT, cv)
+                        val jj = Joints.joint(members[mainId].getValue("st").jsonObject, members[mi].getValue("st").jsonObject, t.data.profiles)
+                        rr = engine.intersect(rr, jj.box(jj.xFace, 1e5, -1e5, 1e5, -1e5, 1e5)) } }
                 val x = engine.volume(engine.subtract(rr, listOf(oo))) + engine.volume(engine.subtract(oo, listOf(rr)))
                 // the same member with no connection: what differs there is the member's own section (built-up web 1.04 mm off its
                 // flanges, flange plates not parallel to the axis: R12-REPORT "INPUT EQUAL, SOLID DIFFERS"), not the connection
@@ -106,5 +118,9 @@ class R13C20Test {
         // row 12's four 146 joints (R12 9-12: stair posts STR9001-9004 to the stair beam STB9002 at +2009): since the C20 follow-up (owner 2026-11-27)
         // with Tekla's Bolts tab (Middle 0, edge 35, tab b 150) and Tekla's bolt length (grip 16 + nut + washer + 5 -> L40)
         for ((_, n) in cnt) { assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
+        // Tekla's clash (R13 rule B): only the three EB4007 webs at C2021 / C2024 (tabs 3623, 3696, 3769), 18,176 mm³ each
+        File(root, "build/r13-c20-report.txt").appendText("\nTekla's clashes (secondary into the main part):\n" + clash.joinToString("\n") + "\n")
+        assertEquals(clash.toString(), listOf(3623, 3696, 3769), clash.map { it.substringAfter("R12 ").substringBefore(" ").toInt() }.sorted())
+        for (c in clash) assertEquals(c, 18176.0, c.substringAfter(": ").substringBefore(" mm").toDouble(), 5.0)
     }
 }

@@ -38,6 +38,13 @@ def tekla_page(name, sub='Assembly Drawings'):
         tmp = os.path.join(REPO, 'build', f'_{name}.pdf'); open(tmp, 'wb').write(z.read(n))
     out = tmp[:-4]; subprocess.run(['pdftoppm', '-png', '-r', '120', '-singlefile', tmp, out], check=True); os.remove(tmp); return Image.open(out + '.png').convert('RGB')
 
+PKG2 = os.path.join(REPO, 'tests', 'steel', 'tekla', 'Frame_28mx53m_Package_2.zip')
+def tekla_page2(name):   # Package_2 (R13): Assembley.PDF/<mark> - Assembly Drawings.pdf
+    with zipfile.ZipFile(PKG2) as z:
+        n = next(x for x in z.namelist() if x.endswith(f'/Assembley.PDF/{name} - Assembly Drawings.pdf'))
+        tmp = os.path.join(REPO, 'build', f'_{name}_p2.pdf'); open(tmp, 'wb').write(z.read(n))
+    out = tmp[:-4]; subprocess.run(['pdftoppm', '-png', '-r', '120', '-singlefile', tmp, out], check=True); os.remove(tmp); return Image.open(out + '.png').convert('RGB')
+
 def shot(shots, name):
     p = next(os.path.join(shots, x) for x in sorted(os.listdir(shots)) if x.endswith(f'_{name}.png'))
     txt = p[:-4] + '.txt'; meta = open(txt).read().split() if os.path.exists(txt) else None
@@ -176,32 +183,33 @@ def c13(shots, video=None):
                    'C13 End plate (144) at the mezzanine girder -> column flange: R12 | Tekla drawing | video | app (144 Picture + Haunch + Bolts; Stiffeners tab)', ['Measured on the models the emulator built and saved (c13_case.ss, c13_stiff.ss):'] + ['! ' + m for m in meas])
 
 def c20(shots, video=None):
-    """C20: c20_case.ss (R12's joint C2020 / EB4007 through the 186 dialog) and c20_b50.ss (Top NS b 50, Modify)"""
+    """C20 on R13: c20_case.ss (R13's joint C2021 / EB4007, the fixed girder, through the 186 dialog) and c20_b50.ss (Top NS b 50, Modify)"""
     st = lambda b: b.get('st') or {}
     def meas(f):
         D = json.load(gzip.open(os.path.join(shots, f)))['doc']; c = next(c for c in D['stConns'] if c['type'] == 'T186'); kids = [b for b in D['bodies'] if st(b).get('conn') == c['id']]
         sf = sorted([b for b in kids if st(b).get('name') == 'STIFFENER'], key=lambda b: (-VT(b)[0][:, 2].mean(), VT(b)[0][:, 1].mean()))
         tab = next(b for b in kids if st(b).get('name') == 'SHEAR TAB'); bo = next(b for b in kids if st(b).get('kind') == 'bolts')
         beam = next(b for b in D['bodies'] if st(b).get('kind') == 'member' and st(b).get('prof', '').startswith('BI324'))
-        bv = VT(beam)[0]; fl = bv[np.abs(bv[:, 2] - 3838) > 151]; strip = fl[:, 1].min() - 16789.0
+        bv = VT(beam)[0]; fl = bv[np.abs(bv[:, 2] - 3838) > 151]; strip = 27921.0 - fl[:, 1].max(); wend = bv[:, 1].max()
         sz = lambda b: np.ptp(VT(b)[0], axis=0)
-        return dict(stiff=[f'{sz(b)[2]:.1f} x {sz(b)[1]:.1f} x {sz(b)[0]:.1f}' for b in sf], tab=sz(tab), bolt=st(bo), strip=strip)
+        return dict(stiff=[f'{sz(b)[2]:.1f} x {sz(b)[1]:.1f} x {sz(b)[0]:.1f}' for b in sf], tab=sz(tab), bolt=st(bo), strip=strip, wend=wend, by=sorted({round(p[1], 1) for p in st(bo)['pts']}))
     a = meas('c20_case.ss'); b = meas('c20_b50.ss')
-    lines = [f'stiffeners (t x b x length along the column depth): {", ".join(a["stiff"])} (R12 296 x 70 x 10, i.e. 10 x 70 x 296; chamfer 5.6, K prep)',
-             f'shear tab {a["tab"][0]:.1f} x {a["tab"][1]:.1f} x {a["tab"][2]:.1f} (R12 10 x 150 x 210), bolts M{a["bolt"]["d"]:g} {a["bolt"]["grade"]} L{a["bolt"]["L"]:g} x {a["bolt"].get("n", len(a["bolt"]["pts"]))} (R12 M16 8.8 L45 x 8)',
-             f'beam flanges stripped to {a["strip"]:.1f} from the column web face (R12 90.0 = stiffener 70 + Picture 2 = 20)',
+    lines = [f'stiffeners (t x b x length along the column depth): {", ".join(a["stiff"])} (R13 Top / Bot NS / FS of C2021: 10 x 70 x 296; chamfer 5.6, K prep)',
+             f'shear tab {a["tab"][0]:.1f} x {a["tab"][1]:.1f} x {a["tab"][2]:.1f} (R13 4514: 10 x 150 x 210), bolts M{a["bolt"]["d"]:g} {a["bolt"]["grade"]} L{a["bolt"]["L"]:g} x {a["bolt"].get("n", len(a["bolt"]["pts"]))} at y {" / ".join(f"{y:.0f}" for y in a["by"])} (R13 M16 8.8 L45 x 8 at y 27836 / 27896 = 25 / 85 from the welded edge, NC 4514)',
+             f'beam end at y {a["wend"]:.1f}: the column web face (R13\'s web runs to 27,931, 10 mm past it through the C2021 web: Tekla\'s clash, 18,176 mm³; Picture 1 = -10 cut at the face)',
+             f'beam flanges stripped to {a["strip"]:.1f} from the column web face (R13 90.0 = stiffener 70 + Picture 2 = 20)',
              f'after Top NS b 50 + Modify: {", ".join(b["stiff"])}; flange strip {b["strip"]:.1f} (50 + 20 = 70)',
              'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c20_case.ss')).split(';')[0] + ' | after b 50: ' + rule_b(os.path.join(shots, 'c20_b50.ss')).split(';')[0],
-             'R12 rebuild (web v70 and app): row 20 stiffeners 0 / 68 -> 56 / 68 (12 at beams with no web in R12), tabs 18 / 18, bolts 128 / 128, member bodies 36 / 36 (app vs R12, 0.1 mm)']
+             'R13 rebuild (web v70 and app vs R13, 0.1 mm): row 20 plates 92 / 92 (the 12 stiffeners R12 could not place included), bolts 176 / 176, member bodies 45 / 48 -> 48 / 48 (the EB4007 webs against Tekla\'s part less its clash)']
     app, meta = shot(shots, 'ortho_top'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
     label(app, (40, 140), 'stiffeners 10 x 70, gap 2, tab 150, strip 90')
-    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R13.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
     near_ = [b for b in RB if (VT(b)[0].min(0) < t + 1300).all() and (VT(b)[0].max(0) > t - 1300).all()]
     colr = lambda b: (230, 230, 230) if st(b).get('name') in ('Top FS', 'Top NS', 'Bot FS', 'Bot Ns') else (220, 160, 40) if st(b).get('name') == 'Shear Plate' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if st(b).get('amark', '').startswith('C') else (60, 150, 80)
     r12 = render(near_, t, dv, dist, colr, W=1400, H=900)
     vid = Image.open(video or os.path.join(REPO, 'tests', 'steel', 'videos', 'C20', 'frames_lYG_CPzBR40', 'f_134.jpg')).convert('RGB'); vid = vid.resize((vid.width * 2, vid.height * 2))
-    return compose('C20', [('R12 (Tekla IFC), C2020 / EB4007, plan, cut at +4300', r12), ('Tekla drawing C2020 (package)', tekla_page('C2020')), ('video lYG_CPzBR40 02:14: the 186 Stiffeners tab', vid), ('app on the emulator, orthographic plan (landscape)', app)],
-                   'C20 Column with stiffeners (186) at the mezzanine column web: R12 | Tekla drawing | video | app (Picture + Plates + Stiffeners + Bolts tabs)', ['Measured on the models the emulator built and saved (c20_case.ss, c20_b50.ss):'] + ['! ' + m for m in lines])
+    return compose('C20', [('R13 (Tekla IFC v3), C2021 / EB4007, plan, cut at +4300', r12), ('Tekla drawing EB4007 (Package_2)', tekla_page2('EB4007')), ('video lYG_CPzBR40 02:14: the 186 Stiffeners tab', vid), ('app on the emulator, orthographic plan (landscape)', app)],
+                   'C20 / C12 on R13: Column with stiffeners (186) at the fixed girder EB4007: R13 | Tekla drawing | video | app (Picture + Plates + Stiffeners + Bolts tabs)', ['Measured on the models the emulator built and saved (c20_case.ss, c20_b50.ss):'] + ['! ' + m for m in lines])
 
 def c05(shots, video=None):
     """C05: c05_case.ss (R12's node R3019 through the 20 dialog: HZ6014 + strut ST5008) and c05_e40.ss (HZ brace e 30 -> 40, Modify)"""

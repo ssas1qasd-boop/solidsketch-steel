@@ -514,6 +514,13 @@ def main():
         q = OrderedDict(sp_qh(p, pts, members[beam]['st']))
         V, Hd = (p.X, p.Y) if abs(dot(p.X, v69_eh(members[beam]['st'])[1])) >= abs(dot(p.Y, v69_eh(members[beam]['st'])[1])) else (p.Y, p.X)
         Pv = [add(add(mul(p.X, x), mul(p.Y, y)), mul(p.N, p.n0)) for x, y in p.poly]; q['tb'] = r3(max(dot(v, Hd) for v in Pv) - min(dot(v, Hd) for v in Pv))
+        # R13 (PARITY.md "C12 / C20 on R13"): Picture 1 is the secondary's own end from the main part's web face, and the Bolts tab's
+        # horizontal edge distance is from that end. R12 cannot tell this from 'the tab end less the edge' (gap 20, eh 35 both ways); R13's
+        # EB4007 webs can: Tekla placed them 30 mm along (Picture 1 = 50 and -10), the bolts stay 35 from the web's ends, the tab stays 150.
+        bst_ = members[beam]['st']; c0_ = p.centre(); nr_ = min((bst_['p1'], bst_['p2']), key=lambda P: norm(sub(P, c0_))); fr_ = bst_['p2'] if nr_ is bst_['p1'] else bst_['p1']
+        sg_ = 1 if dot(sub(fr_, nr_), Hd) > 0 else -1; h0_ = min(dot(v, Hd) * sg_ for v in Pv)
+        c1_ = min(dot(q3, Hd) * sg_ for q3 in pts); e_ = dot(nr_, Hd) * sg_
+        q['gap'] = r3(e_ - h0_); q['eh'] = r3(c1_ - e_)
         q['refV'] = 'Middle'; q['posV'] = 0
         # Bolts tab 'Bolting direction': v70 puts the heads on the beam's Y x X side (C14); R12 joint 4893 (C2016 / EB4009) has them on the other side
         bst = members[beam]['st']; cp = members[col]['st']['p1']; a1, a2 = bst['p1'], bst['p2']

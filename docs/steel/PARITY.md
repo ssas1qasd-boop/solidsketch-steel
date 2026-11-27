@@ -463,6 +463,44 @@ Checker fix on the way (`geom_checks.py`, rule 4): a part wholly past the shank'
 ### Status
 Delivered for the owner's phone check; ✓ only after the owner's OK.
 
+## C12 / C20 / C14 on R13 · the fixed girders EB4007 at C/D/E 5-6 (owner 2026-11-28; agent R13, branch r13-conn)
+
+**Scope:** R13's change (see "Reference model: R13"): the 3 mezzanine girders EB4007 at x 26,498 / 39,693 / 52,838 between the columns at y 22,355 (C2022 / C2022 / C2017) and y 27,925 (C2024 / C2024 / C2021) now have their web FLT8*300 (4518), bolted to the column shear plates (C12's 6 tabs, now drilled: 4515 at y 22,355, 4514 at y 27,925) with 8 × M16 8.8 L45 each. So the 186 (C20) at those 6 joints has its secondary again, and the 12 stiffeners R12 could not place (C2021, C2024 × 2: Top / Bot NS / FS FLT10*70) are made. C12 here = row 20 (the 186 tab is Tekla's 146-style shear plate); row 12 keeps the 4 stair-post 146 joints.
+
+### Step 0 / 1: Tekla's site and videos
+As "C20" and "C14" (186 / 146 help pages: Picture 1 = gap between the main part and the secondary, Bolts tab horizontal edge distance, Plates tab b). No new video: nothing here depends on a dialog value that R13 does not show itself.
+
+### Step 2: R13 and the package (what Tekla did)
+- **Tekla's web is 30 mm along y.** EB4007's web runs y 22,409 – 27,931; EB4006's (the same girder on the other side, and every R12 186 beam) runs 22,379 – 27,901: 20 from each column web face (Picture 1 = 20). Same length 5,522 (the assembly drawing EB4007: web 5,522, flanges 5,382). The flanges are unchanged (22,449 – 27,831, the 186 strip 70 + 20 from each web face). So the web, with its bolt group, was placed 30 mm too far in +y: Picture 1 = **50** at C2017 / C2022 and **-10** at C2021 / C2024.
+- **The bolts follow the web, not the tab:** 35 from each web end (22,444 / 22,504 and 27,896 / 27,836), 60 apart. The tab (150 from the column web face, unchanged) gets them at **85 / 145** (NC 4515, a 150 plate: the 145 hole, d18, breaks out of the tab's end by 4 mm) and **25 / 85** (NC 4514) from its welded edge, against 55 / 115 on every other tab (4506). This is why R13 reads these tabs as two new marks.
+- **R13's own rule B** (`geom_checks.py` on R13's mezzanine, 107 connections): 6 failures, all here.
+  - 3 × OVERLAP: the web runs 10 mm past the C2021 / C2024 column web face, through the whole 8 mm web (18,176 mm³ = 8 × 8 × 284, mean depth 3.94 mm; 2 mm stick out on the far side between the FS stiffeners).
+  - 3 × BOLTS grip 18 vs 8: the groups at C2017 / C2022; the checker reads the tab beside the hole on the bolt line, and at the 145 hole the tab is not there (the hole is open at the tab's end), so only the 8 mm web counts.
+  - Both are in Tekla's model as exported (a web copied 30 mm off). In Tekla: move the 3 webs 30 mm in -y (Picture 1 = 20 both ends); the tabs then get 55 / 115 holes (4506) and the clash goes. Owner's decision; nothing in R13 is changed.
+
+### Change, in web v70 (sections "C20" input / FAM.ST) and the app (`Fam.st`)
+- **Inputs** (`r10_inputs.py c20_q`): Picture 1 = the secondary's own end from the main part's web face, and the Bolts tab's horizontal edge distance from that end (Tekla's 146 / 186 dimension). R12 could not tell this from "the tab end less the edge" (gap 20 + eh 35 = tab 150 - eh 35 at every R12 joint), so v69's tab-based reading gave the EB4007 joints gap 80 / eh 5 and gap -40 / eh 65: our 186 then cut 30 mm off Tekla's web at C2017 / C2022 (`R13C20Test`: 72,431 mm³). Now gap 50 / -10, eh 35 at the six; every other joint keeps gap 20, eh 35 (EGC2002's 10 / 45 becomes 20 / 35: the same bolts, the beam end where it is).
+- **186 with Picture 1 < 0** (web `FAM.ST`, app `Fam.st`, only T186 with Stiffener creation set): the secondary is cut at the main part's web face, never into it (rule B); the bolts stay at Picture 1 + the edge distance. So our rebuild is Tekla's EB4007 less its clash.
+- Not reproduced on purpose: the clash itself. Reproduced as Tekla: the open 145 hole (it is Tekla's NC; our rule B does not flag it for a component bolt, whose axis is 5 mm inside the tab).
+
+### Checks
+| Check | before → after |
+|---|---|
+| `R13C20Test` (app vs R13, 0.1 mm) row 20 | plates 92 / 92, bolts 176 / 176, member bodies **45 / 48 → 48 / 48**; the reference at a joint where Tekla's secondary runs into the main part is Tekla's part cut at the main part's face, and the test asserts those clashes are exactly the 3 EB4007 / C2021-C2024 joints at 18,176 mm³ each |
+| `R13C20Test` row 12 (stair posts, 146) | 4 / 4, 16 / 16, 8 / 8 (unchanged) |
+| `R13C14Test` (row 14, 68 joist tabs) | tabs 68 / 68, bolts 272 / 272, joists 68 / 68, girders 66 / 68 as on R12 (the 2 EB4005 ends stripped by EGC2002's 186, not built in the C14-only run): **nothing changed on R13** |
+| Web rebuild (`R13-REPORT.md`) | EB BI324 members 7 + 3 INPUT EQUAL, SOLID DIFFERS (box 30.0) → **10 / 10 MATCHED** (all 839 members now MATCHED) (the 3 EB4007 against R13 less its clash, box 0.0; `r10_compare.py` `tekla_clash`); rows 12 / 14 / 20 reproduced as before |
+| App = web (`R13RebuildTest`) | 6,864 bodies, 1,369 connections, 0 differences |
+| Rule B, our rebuild (`build/R13_app.ss`, the mezzanine y ≥ 16,000: 504 bodies, 169 connections) | **0 failures** at C12 / C20 / C14 (4 others: stair railings / stanchions, row 18, also in R13 itself); R13 itself, same region: the 6 above + those 4 |
+| Rule B, golden cases (`build/c09/case_t186_*`) | 6 cases 0 failures, new **`t186_r13_c2021_eb4007`** (Picture 1 = -10: the beam ends on the column web face, bolts 25 / 85); `S7T144Test` app = web on it |
+| Weight (web rebuild, on main with C08 / C10) | 64,005.59 → **64,005.41 kg** (-0.18: Tekla's 10 mm clash taken off the 3 webs); Tekla 64,023.4 kg (list) / 64,017.49 kg (`st.tkW`) |
+
+### Emulator
+`C20RecordingTest` now places R13's C2021 / EB4007 (Tekla's web 22,409 – 27,931), the 186 through its dialog with R13's values (Picture 1 = -10, strip 20; tab 10 × 150; stiffeners created, 10 × 70, gap 2, chamfer 5.6, K; Bolts M16 4 × 2, e 30, pitch 50 / 60, edge 35, Middle 0), checks the beam ends on the column web face (27,921), orbits, orthographic plan, saves; then Top NS b 50 + Modify. `parity_png.py C20`: R13 | Tekla's EB4007 drawing (Package_2) | video | app.
+
+### Status
+Waiting for the owner's phone OK; not marked.
+
 ## C13 · End plate (144) at the mezzanine, girder → column flange (owner 2026-11-26)
 
 **Owner's decision (2026-11-26):** C13 is the 144 only. The column stiffeners FLT10*70 / FLT10*90 are Column with stiffeners (186)'s and come next, as their own connection (replacing row 12's 146 there).
