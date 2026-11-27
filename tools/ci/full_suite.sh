@@ -19,7 +19,7 @@ step ruleB_cases bash -c 'node tools/golden/c09_cases.js > /dev/null && n=0; for
 step host ./gradlew --no-daemon --no-parallel -q -PlocalM2=/home/user/m2local -PhostJni :core-io:testDebugUnitTest :core-view:testDebugUnitTest :steel:testDebugUnitTest :app:testDebugUnitTest --rerun --continue
 # rule B on the app's whole R13 rebuild: the failure count may not rise above the baseline (tools/ci/ruleB_r13_baseline.txt); groups left
 # are owned by open connections (PARITY.md "Open") and listed in the summary
-step ruleB_r13_app bash -c 'python3 tools/golden/geom_checks.py build/R13_app.ss --out build/suite/ruleB_r13_app.json --md build/suite/ruleB_r13_app.md | head -1; n=$(python3 -c "import json; print(len(json.load(open(\"build/suite/ruleB_r13_app.json\"))))"); b=$(cat tools/ci/ruleB_r13_baseline.txt 2>/dev/null || echo 0); echo "rule B on R13_app: $n failures (baseline $b)"; [ "$n" -le "$b" ]'
+step ruleB_r13_app bash -c 'python3 tools/golden/geom_checks.py build/R13_app.ss --out build/suite/ruleB_r13_app.json --md build/suite/ruleB_r13_app.md | head -1; python3 tools/ci/ruleB_baseline_check.py build/suite/ruleB_r13_app.json'
 git status --short tests docs > "$OUT/golden_changes.txt"
 python3 - "$OUT" <<'PY' >> "$OUT/summary.txt"
 import json, sys

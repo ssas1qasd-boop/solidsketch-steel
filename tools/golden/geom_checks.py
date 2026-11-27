@@ -174,14 +174,15 @@ def check(path):
             groups.append((st.get('pts') or [], st.get('ax'), d, 2.0, None, Lb, everything))
         for pts, ax, d, tol, grip, L, parts in groups:
             if not pts or ax is None: continue
-            for mat, res, span in stack_and_holes(pts, ax, d, tol, parts, L):
+            for bi, (mat, res, span) in enumerate(stack_and_holes(pts, ax, d, tol, parts, L)):
+                at = [round(float(c), 1) for c in pts[bi]]   # the bolt's head point: the finding's place (tools/ci/ruleB_r13_baseline.txt)
                 STATS['bolts'] += 1
                 for p, r in res:
                     if t != 'TKBOLT' and r == 'MISSES': continue       # a component bolt group's parts: only the ones it passes
-                    if r != 'HOLE': fails.append(dict(check='BOLTS', conn=cid, type=t, part=name(p), value=r))
+                    if r != 'HOLE': fails.append(dict(check='BOLTS', conn=cid, type=t, part=name(p), value=r, at=at))
                 if grip == 'rod': continue
-                if grip is not None and abs(grip - mat) > GRIP: fails.append(dict(check='BOLTS', conn=cid, type=t, part='grip', value=f'grip {grip:.1f} vs stack {mat:.1f}'))
-                elif grip is None and t != 'TKBOLT' and span - mat > GRIP: fails.append(dict(check='BOLTS', conn=cid, type=t, part='grip', value=f'air {span - mat:.1f} along the shank (stack {mat:.1f})'))
+                if grip is not None and abs(grip - mat) > GRIP: fails.append(dict(check='BOLTS', conn=cid, type=t, part='grip', value=f'grip {grip:.1f} vs stack {mat:.1f}', at=at))
+                elif grip is None and t != 'TKBOLT' and span - mat > GRIP: fails.append(dict(check='BOLTS', conn=cid, type=t, part='grip', value=f'air {span - mat:.1f} along the shank (stack {mat:.1f})', at=at))
     # 3 overlap across connections at one joint: plates of two connections that share a member (e.g. two cleats on one purlin end)
     by_member = defaultdict(list)
     for c in conns:
@@ -222,7 +223,8 @@ def check(path):
                 x, y = bodies[ids[i]], bodies[ids[j]]; v = overlap(x, y); STATS['model overlap pairs'] += 1
                 if v is not None and v > OVER:
                     same = x['st'].get('amark') == y['st'].get('amark') and (x['st'].get('asm') or x['id']) == (y['st'].get('asm') or y['id'])
-                    fails.append(dict(check='OVERLAP', conn=None, type='model', part=name(x), other=name(y), value=round(v, 1), depth=depth(x, y), ids=[x['id'], y['id']], sameAsm=same))
+                    lo_ = np.maximum(x['V'].min(0), y['V'].min(0)); hi_ = np.minimum(x['V'].max(0), y['V'].max(0))   # the two boxes' common box: the overlap's place
+                    fails.append(dict(check='OVERLAP', conn=None, type='model', part=name(x), other=name(y), value=round(v, 1), depth=depth(x, y), ids=[x['id'], y['id']], sameAsm=same, at=[round(float(c), 1) for c in (lo_ + hi_) / 2]))
         STATS['parts without a valid solid'] = sum(1 for k in ids if man(bodies[k]) is None)
     return fails, len(conns)
 

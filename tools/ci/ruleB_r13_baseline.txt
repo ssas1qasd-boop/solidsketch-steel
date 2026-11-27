@@ -1,1 +1,4 @@
-68
+# Rule B on the app's whole R13 rebuild: the itemised baseline (owner 2026-11-28; PARITY.md integration rule 7).
+# One line per finding: category | check | parts | place (x y z, mm; matched within 2 mm) | value | evidence.
+# Any finding not on this list fails the suite, even if the total goes down; a line whose finding disappears is removed (the list
+# only shrinks); new lines only with the owner's OK. EMPTY until the owner approves tools/ci/ruleB_r13_baseline.proposed.txt.

@@ -17,7 +17,7 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 - **Data quirk (R12 and R13):** one monitor rafter end plate (R12 body 1985, PLATE FLT12*120, assembly mark '14', class 99) is not in a PR assembly, so its 144 is not rebuilt and PR7001 / one PC7001 keep a square end (box 36.8 mm, +0.4 kg).
 - **GA drawings (S12):** Package_2 has 16 GA sheets, the web build's fixed list makes 13. Accepted for now (owner 2026-11-28); the 3 extra sheets are open for S12.
 - **Assembly weights per mark:** 1001, SGR9001 and SR9001–SR9004 differ from Package_2's assembly list (the same differences as R12 vs Package_1): the known C01 / C18 / C19 gaps.
-- **Rule B on the app's R13 rebuild (baseline `tools/ci/ruleB_r13_baseline.txt`, 68 after merging agent/tubes):** railing / stanchion overlaps 26 and stanchion / stringer 22 (rows 18 / 19: the members placed as Tekla has them; R13 itself has the same railing overlaps); 20 bolts at the 18 gable / end-frame tube nodes with 2.3–3.3 mm air between the turned plates on the bolt line (C06: the plates match R13 within 0.1 mm, so the gap is Tekla's; R13's own check flags 16 bolts there, grip 26.7 vs stack 24.0). The golden case `t20g_r13_gable_vl_lead` (R13 node 3419) has 2 bolts with 2.3 mm air (rule B fails); R13's own bolts there have 1.8 mm (grip 25.8 vs stack 24, within its own +-2 mm), so the case is 0.5 mm more open than Tekla. Not on `ruleB_known.txt` (no owner OK; the proof did not hold): open.
+- **Rule B on the app's R13 rebuild (68 findings after merging agent/tubes; itemised baseline above):** railing / stanchion overlaps 26 and stanchion / stringer 22 (rows 18 / 19: the members placed as Tekla has them; R13 itself has the same railing overlaps); 20 bolts at the 18 gable / end-frame tube nodes with 2.3–3.3 mm air between the turned plates on the bolt line (C06: the plates match R13 within 0.1 mm, so the gap is Tekla's; R13's own check flags 16 bolts there, grip 26.7 vs stack 24.0). The golden case `t20g_r13_gable_vl_lead` (R13 node 3419) has 2 bolts with 2.3 mm air (rule B fails); R13's own bolts there have 1.8 mm (grip 25.8 vs stack 24, within its own +-2 mm), so the case is 0.5 mm more open than Tekla. Not on `ruleB_known.txt` (no owner OK; the proof did not hold): open.
 - **Rule B on R13 itself (Tekla's model), new since R12:** each new EB4007 web runs 3.94 mm into the column web of C2021 / C2024 (3 overlaps, 18,176 mm³ each), and the 3 new bolt groups' grip is 18 against 8 mm of material on the bolt line (+3 grip failures). Both are in Tekla's model as exported; shown in `docs/steel/parity/r13/` (emulator images).
 
 ## Integration rule for parallel agents (owner, 2026-11-28)
@@ -34,7 +34,20 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 6. **main is merge-only (owner, 2026-11-28).** No rebase, reset --hard or force push on main, by the main session or any agent. Agents rebase only their own branches. If a git command stops halfway, it is aborted and the owner is told.
 7. **`tools/ci/ruleB_known.txt` needs the owner's OK (owner, 2026-11-28).** No new entry without it. Each proposed entry is shown to the owner with the case, the count and the proof that R13 has the same finding, and waits.
 
-**Parked for later (owner, 2026-11-28; not worked on now):** the 6 C06 gussets at 0.126 mm (the 0.1 mm tolerance is NOT widened); EB4007 (a known Tekla error, fixed later in Tekla with an R14); the phone checks.
+**Parked for later (owner, 2026-11-28; not worked on now):**
+- **"Gable nodes"**, one task after Group 1, for one root cause or two:
+  - the 6 C06 gussets at 0.126 mm (the 0.1 mm tolerance is NOT widened);
+  - the gable-node bolts with 0.5 mm more air than Tekla (case `t20g_r13_gable_vl_lead`: 2.3 vs R13's 1.8 mm; the R13 rebuild: 20 bolts at 2.3–3.3 vs R13's 1.8 / 2.7 mm).
+- EB4007 (a known Tekla error, fixed later in Tekla with an R14).
+- The phone checks.
+
+**The R13 rebuild's rule-B baseline (owner, 2026-11-28)** is an itemised list, not a count: `tools/ci/ruleB_r13_baseline.txt`.
+- **Format:** one line per finding, with category, check, parts, place (x y z, matched within 2 mm), value and evidence.
+- **Checked by** `tools/ci/ruleB_baseline_check.py`, in `full_suite.sh`.
+- **Failures:** any finding not on the list fails, even if the total goes down. A line whose finding has disappeared also fails, so it gets removed (the list only shrinks).
+- **New lines** only with the owner's OK. An overlap goes on it only when R13 has the same overlap at the same place.
+- **Proposal sent 2026-11-28** (`tools/ci/ruleB_r13_baseline.proposed.txt`): 26 railing / stanchion (R13 has all 26 at the same place) and 20 gable-node bolts (parked).
+- **Not proposed:** the 22 stanchion / stringer overlaps. R13 has none, so they are ours and stay failures. The list stays empty until the owner's OK.
 
 ## Group 1 Tekla parity: the two-video method (owner standing rule, 2026-11-28)
 **Scope:** Group 1 is End plates (23), Shear tabs (32) and Clip angles (10): 65 components (`tk_catalog.json`).
