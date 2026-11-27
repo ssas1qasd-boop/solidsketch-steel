@@ -74,7 +74,7 @@ class S7CatalogTest {
     }
 
     @Test fun everySpecAndPictureLoads() {
-        assertEquals(setOf("acc0", "acc1", "acc2"), ui.acc.keys)
+        assertEquals(setOf("acc0", "acc1", "acc2", "acc3"), ui.acc.keys)   // v70 T144: Bolts 5 (blank allowed) and 6 (Tekla's reference) are their own accessors
         for ((_, src) in ui.acc) assertTrue(src, Acc.KNOWN.containsKey(src))
         val comps = Components(ui, FakeDoc(), null, MemoryStore(), null)
         var nIn = 0

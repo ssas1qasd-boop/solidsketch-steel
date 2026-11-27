@@ -33,8 +33,8 @@ class T144V2RecordingTest : T144RecordingBase() {
             for (k in 1..4) field("hc$k", "55"); pick("hct", "Line chamfer"); pick("hpc", "Top and bottom haunch plates are created"); shot("dialog144_haunch")
             tab("Bolts"); pick("bolt", "M20"); field("rows", "4"); field("pitches", "120"); field("e", "30"); field("side", "30"); field("gauge", "120")
             pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); shot("dialog144_bolts")
-            val cam = { look(Vec3(2200.0, 0.0, 5600.0), Vec3(-0.12, -1.0, 0.22), 6500.0) }
-            val pairs = listOf(6300.0 to 3500.0, 6600.0 to 3000.0, 6000.0 to 4000.0, 6800.0 to 2500.0).map { (cz, bx) -> Vec3(0.0, -12.0, cz) to Vec3(bx, -12.0, 4805.0) }
+            val cam = { look(Vec3(1200.0, 0.0, 5600.0), Vec3(-0.12, -1.0, 0.22), 9000.0) }
+            val pairs = listOf(6300.0 to 2200.0, 6600.0 to 2600.0, 6000.0 to 1900.0, 6800.0 to 2400.0).map { (cz, bx) -> Vec3(0.0, -12.0, cz) to Vec3(bx, -12.0, 4805.0) }
             pickParts("T144", cam, pairs)
             assertTrue("144 e ${q("T144", "e")}", q("T144", "e")?.toDoubleOrNull() == 30.0)
             assertTrue("144 gauge ${q("T144", "gauge")}", q("T144", "gauge")?.toDoubleOrNull() == 120.0)

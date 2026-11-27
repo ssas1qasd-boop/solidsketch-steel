@@ -499,6 +499,28 @@ def c06(shots, video=None):
     return compose('C06', [('R13 (Tekla IFC v3), gable node 3425 (gusset 6509), wall view', r13), ('Tekla assembly drawing 11 (Package_2): gusset 6509', tekla_page2('11')), ('app on the emulator, 3D', pic), ('app on the emulator, orthographic wall view (landscape)', app)],
                    'C06 on R13 Tube gusset (20) at the gable nodes: R13 | Tekla drawing | app 3D | app (Gusset tab: Gusset plane at a node = Tekla)', ['Measured on the models the emulator built and saved (c06_case.ss, c06_gd30.ss):'] + ['! ' + m for m in lines])
 
+def t144(which, shots, video=None):
+    """T144 two-video test (PARITY.md "T144 · End plate (144): the two-video test"): the video's frame | the app on the emulator (3D and
+    orthographic), with the parts measured on the model the emulator built and saved (t144_v1.ss / t144_v2.ss)."""
+    st = lambda b: b.get('st') or {}
+    f = os.path.join(shots, f't144_{which}.ss'); D = json.load(gzip.open(f))['doc']
+    def sz(b):   # the plate's own extents (principal axes)
+        v = VT(b)[0]; c0 = v.mean(0); _, vv = np.linalg.eigh((v - c0).T @ (v - c0)); return sorted(np.round([np.ptp((v - c0) @ vv[:, i]) for i in range(3)], 1))
+    parts = {}
+    for b in D['bodies']:
+        if st(b).get('kind') == 'conn': parts.setdefault(st(b).get('name'), []).append(' x '.join(f'{x:g}' for x in sz(b)))
+    bo = [b for b in D['bodies'] if st(b).get('kind') == 'bolts']
+    zs = sorted({round(p[2], 1) for b in bo for p in st(b)['pts']}, reverse=True); ys = sorted({round(p[1], 1) for b in bo for p in st(b)['pts']})
+    lines = [f'{k}: ' + ', '.join(f'{v} ({n})' for v, n in sorted(((v, vs.count(v)) for v in set(vs)))) for k, vs in sorted(parts.items())]
+    lines += [f"bolts: {', '.join(f'M{st(b)["d"]:g} L{st(b)["L"]:g} x {st(b).get("n")}' for b in bo)}; rows z {zs}; across y {ys}",
+              'rule B on the emulator model: ' + rule_b(f).split(';')[0]]
+    app3, _ = shot(shots, f'{which}_3d'); end, meta = shot(shots, 'ortho_end'); front, _ = shot(shots, 'ortho_front')
+    label(end, (40, 140), 'end plate from the beam side')
+    vid = Image.open(video).convert('RGB'); vid = vid.resize((vid.width * 2, vid.height * 2))
+    src = {'v1': 'VLQiysAuEr4 (Mohamed Magdi) 24:50: the Bolts tab and the joint', 'v2': 'IBVnHuj1F-s (Civilianoo): the Stiffeners tab, chamfered stiffener'}[which]
+    return compose(f't144_{which}', [(f'video {src}', vid), ('app on the emulator, 3D', app3), ('app, orthographic front', front), ('app, orthographic end', end)],
+                   f'T144 End plate (144), video {which[1]}: video | app (built through the dialog with the video\'s values)', [f'Measured on t144_{which}.ss (the model the emulator built and saved):'] + ['! ' + m for m in lines])
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17, 'X01': x01, 'X02': x02, 'C08': c08}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17, 'X01': x01, 'X02': x02, 'C08': c08, 'T144_V1': lambda *a: t144('v1', *a), 'T144_V2': lambda *a: t144('v2', *a)}[sys.argv[1]](*sys.argv[2:])

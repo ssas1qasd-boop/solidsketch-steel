@@ -33,9 +33,9 @@ class T144V1RecordingTest : T144RecordingBase() {
             for (k in 1..4) field("hc$k", "80"); pick("hct", "Line chamfer"); pick("hpc", "Top and bottom haunch plates are created"); shot("dialog144_haunch")
             tab("Bolts"); pick("bolt", "M20"); field("rows", "5"); field("pitches", "120"); field("e", "-40"); field("side", "40"); field("gauge", "")
             pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); shot("dialog144_bolts")
-            // picks on the web faces, square to the camera: the column's web (y -5) above the joint, the beam's web away from it
-            val cam = { look(Vec3(2200.0, 0.0, 6600.0), Vec3(-0.12, -1.0, 0.22), 6500.0) }
-            val pairs = listOf(7800.0 to 3500.0, 8200.0 to 3000.0, 7400.0 to 4000.0, 8500.0 to 2500.0).map { (cz, bx) -> Vec3(0.0, -12.0, cz) to Vec3(bx, -12.0, 5800.0) }
+            // picks on the web faces, square to the camera: the column's web above the joint, the beam's web near it (both within the portrait view at 9 m)
+            val cam = { look(Vec3(1200.0, 0.0, 6600.0), Vec3(-0.12, -1.0, 0.22), 9000.0) }
+            val pairs = listOf(7800.0 to 2200.0, 8200.0 to 2600.0, 7400.0 to 1900.0, 8500.0 to 2400.0).map { (cz, bx) -> Vec3(0.0, -12.0, cz) to Vec3(bx, -12.0, 5800.0) }
             pickParts("T144", cam, pairs)
             assertTrue("144 b ${q("T144", "epb")}", q("T144", "epb")?.toDoubleOrNull() == 180.0)
             assertTrue("144 e ${q("T144", "e")}", q("T144", "e")?.toDoubleOrNull() == 40.0)
