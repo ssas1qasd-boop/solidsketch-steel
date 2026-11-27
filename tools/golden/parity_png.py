@@ -398,6 +398,47 @@ def c17(shots, video=None):
     return compose('C17', [('R12 (Tekla IFC), gable column top EGC2001 under R3002, front', r12), ('Tekla assembly drawing R3002 (package)', tekla_page('R3002')), ('Tekla assembly drawing EG3501 (package)', pic), ('app on the emulator, orthographic front (landscape)', app)],
                    'C17 Shear plate (146) as a hanger: R12 | Tekla drawing | Tekla drawing | app (Plates: Main part face = uphill web face)', ['Measured on the models the emulator built and saved (c17_case.ss, c17_v69face.ss):'] + ['! ' + m for m in lines])
 
+def x02(shots, video=None):
+    """X02: x02_case.ss (R12's eave column C2017 under R3023: 144 with Main part end fitted to the rafter's top face + Column cap plate, e 5.64) and x02_centred.ss"""
+    st = lambda b: b.get('st') or {}
+    def meas(f):
+        D = json.load(gzip.open(os.path.join(shots, f)))['doc']; cap = [b for b in D['bodies'] if str(st(b).get('name', '')).lower() == 'cap plate'][0]; cv = VT(cap)[0]
+        col = [b for b in D['bodies'] if st(b).get('name') == 'COLUMN'][0]; V = VT(col)[0]; top = V[V[:, 2] > 7300]
+        return f"column top z {top[:, 2].max():.2f} (x {top[top[:, 2].argmax(), 0]:.1f}) .. {top[:, 2].min():.2f} (x {top[top[:, 2].argmin(), 0]:.1f}); cap {st(cap).get('prof')} x {cv[:, 0].min():.1f}..{cv[:, 0].max():.1f}, z {cv[:, 2].min():.1f}..{cv[:, 2].max():.1f}"
+    a, b = meas('x02_case.ss'), meas('x02_centred.ss')
+    lines = ['app (x02_case.ss, 144 Main part end = fitted to the secondary\'s top face; cap e 5.64): ' + a, 'after the cap\'s far end emptied (centred) + Modify (x02_centred.ss): ' + b,
+             'R12: column C2017 top z 7547.7 (x 52678.0) .. 7475.0 (x 52998.0); Cap Plate FLT8*150 (1990) x 52680.4..52994.3, z 7476.2..7555.0',
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'x02_case.ss')).split(';')[0] + ' | centred: ' + rule_b(os.path.join(shots, 'x02_centred.ss')).split(';')[0],
+             'R12 rebuild (web v70 and app): cap plates 0 -> 30 / 30 at 0.1 mm; 12 eave columns + 24 monitor posts fitted to the rafter top; columns -0.21 kg, posts +0.19 kg vs Tekla']
+    app, meta = shot(shots, 'ortho_front'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'column top along the rafter top, cap FLT8*150 on it')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
+    near_ = [b for b in RB if (VT(b)[0].min(0) < t + 700).all() and (VT(b)[0].max(0) > t - 700).all()]
+    colr = lambda b: (230, 170, 40) if st(b).get('name') == 'Cap Plate' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if str(st(b).get('amark', '')).startswith('R') else (60, 150, 80)
+    r12 = render(near_, t, dv, dist, colr, W=1100, H=1100)
+    pic = Image.open(video).convert('RGB') if video else tekla_page('A2')
+    return compose('X02', [('R12 (Tekla IFC), eave column C2017 under R3023, front', r12), ('Tekla assembly drawing C2017 (package)', tekla_page('C2017')), ('Tekla assembly drawing A2: the cap plate (package)', pic), ('app on the emulator, orthographic front (landscape)', app)],
+                   'X02 Column tops: R12 | Tekla drawing | Tekla drawing | app (144: Main part end fitted; Column cap plate)', ['Measured on the models the emulator built and saved (x02_case.ss, x02_centred.ss):'] + ['! ' + m for m in lines])
+
+def x01(app_ss):
+    """X01: R12 rafter R3011 (frame y 11215) apex end vs the app's rebuild (R12_app.ss): the three plates and their ends; R3011 assembly drawing"""
+    st = lambda b: b.get('st') or {}
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; A = json.load(gzip.open(app_ss))['doc']
+    t = np.array([33150.0, 11015.0, 8880.0]); dv = [0.0, -1.0, 0.0]; dist = 420.0   # target in front of the frame: nothing is cut
+    pick = lambda D: [b for b in D['bodies'] if b.get('shape') and (VT(b)[0].min(0) < t + [600, 900, 600]).all() and (VT(b)[0].max(0) > t - [600, -100, 600]).all()]
+    colr = lambda b: (230, 170, 40) if st(b).get('name') in ('Top flange', 'Bottom flange') else (60, 110, 200) if st(b).get('name') in ('Web', 'RAFTER') else (90, 90, 90) if st(b).get('kind') == 'bolts' else (150, 150, 150)
+    r12 = render(pick(R), t, dv, dist, colr, W=1100, H=1100); app = render(pick(A), t, dv, dist, colr, W=1100, H=1100)
+    label(r12, (30, 30), 'R12: web + flanges, plumb end at the plate face'); label(app, (30, 30), 'app: the rafter fitted to the plate face')
+    c = json.load(open(os.path.join(REPO, 'tests', 'steel', 'golden', 'r12', 'compare_v69.json'))); bu = [m for m in c['members'] if m['kind'] == 'builtup']
+    import collections; g = collections.defaultdict(lambda: [0, 0.0, 0.0])
+    for m in bu: x = g[m['group']]; x[0] += 1; x[1] += m['kgR10']; x[2] += m['kgV69']
+    lines = ['R12 rebuild (web v70 = app): built-up members ' + str(sum(1 for m in bu if m['status'] == 'MATCHED')) + ' / ' + str(len(bu)) + ' match at 0.1 mm (before X01: 102 / 198)',
+             'weights by group, Tekla -> app: ' + '; '.join(f"{k} {v[0]}: {v[1]:.1f} -> {v[2]:.1f}" for k, v in sorted(g.items())),
+             f"built-ups vs Tekla: +257.0 kg (v69: catalog kg/m x length) -> {sum(v[2] - v[1] for v in g.values()):+.1f} kg (three plates, each its solid without bolt holes)",
+             'R3011 plates, Tekla / app: Web FLT8*200 83.05 / 83.05, Top flange FLT10*150 77.86 / 77.86, Bottom flange FLT10*150 77.86 / 77.86 kg']
+    return compose('X01', [('R12 (Tekla IFC), rafter R3011 at the apex, front', r12), ('Tekla assembly drawing R3011 (package)', tekla_page('R3011')), ('app rebuild of R12 (R12_app.ss), same view', app)],
+                   'X01 Built-ups as three plates with end cuts: R12 | Tekla drawing | app', ['Measured on R12 and the rebuilds:'] + ['! ' + m for m in lines])
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17, 'X01': x01, 'X02': x02}[sys.argv[1]](*sys.argv[2:])

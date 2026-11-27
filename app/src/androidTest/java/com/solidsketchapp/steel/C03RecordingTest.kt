@@ -143,7 +143,7 @@ class C03RecordingTest {
             shot("members")
             openCatalog("Apex haunch (106)")
             tab("Picture"); field("tp", "20"); field("ph", "400"); field("top", "69.999"); shot("dialog106_picture")
-            tab("Plates"); field("pw", "160"); shot("dialog106_plates")
+            tab("Plates"); field("ph", "400"); field("pw", "160"); shot("dialog106_plates")   // ph on the Plates row too: the Picture box alone was not kept
             tab("Haunch"); pick("hrule", "Tekla: length horizontal from the apex, depth plumb at the end plate"); field("len", "2000"); field("depth", "83.373"); field("hw", "8"); field("hf", "10"); field("hb", "150"); shot("dialog106_haunch")
             tab("Stiffeners"); pick("ast", "Created"); field("asl", "60"); field("ach", "30"); field("att", "10"); field("ash", "87.988"); shot("dialog106_stiffeners")
             tab("Bolts"); field("rowsAt", "50 120 260 330"); field("gauge", "80"); pick("bolt", "M20"); shot("dialog106_bolts")

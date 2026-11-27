@@ -140,7 +140,7 @@ class C17RecordingTest {
             member("RAFTER", """{"prof":"BI220-8-150-10","p1":[39798.613,75,7411.204],"p2":[46290.5,75,8887.194],"rot":"Top","rAng":0,"plane":"Middle","depth":"Middle"}"""); pause(900)
             member("COLUMN", """{"prof":"BI220-6-200-10","p1":[43290.5,110,230],"p2":[43290.5,110,8043.935],"rot":"Back","rAng":0,"plane":"Middle","depth":"Middle"}"""); pause(1200)
             shot("members")
-            openCatalog("Shear plate (146)")
+            openCatalog("Shear plate simple (146)")
             tab("Picture"); field("gap", "49.056"); field("t", "10"); shot("dialog146_picture")
             tab("Plates"); field("tb", "190"); pick("hang", "At the secondary web's uphill face; the tab ends on the face (hanger under a sloped part)"); shot("dialog146_plates")
             tab("Bolts"); field("rows", "2"); field("e", "30"); field("pitch", "60"); field("cols", "2"); field("pitchH", "60"); field("posV", "34.994"); field("eh", "40.949"); pick("refV", "Middle"); pick("bolt", "M16"); shot("dialog146_bolts")
