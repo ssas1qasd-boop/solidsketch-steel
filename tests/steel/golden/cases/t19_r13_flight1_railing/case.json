@@ -1,0 +1,326 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  },
+  {
+   "id": 2,
+   "ok": true
+  },
+  {
+   "id": 3,
+   "ok": true
+  },
+  {
+   "id": 4,
+   "ok": true
+  },
+  {
+   "id": 5,
+   "ok": true
+  },
+  {
+   "id": 6,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "weldonly",
+   [
+    0,
+    1
+   ],
+   {
+    "a": 2,
+    "fit": "face"
+   }
+  ],
+  [
+   "weldonly",
+   [
+    0,
+    2
+   ],
+   {
+    "a": 2,
+    "fit": "face"
+   }
+  ],
+  [
+   "weldonly",
+   [
+    0,
+    3
+   ],
+   {
+    "a": 2,
+    "fit": "face"
+   }
+  ],
+  [
+   "weldonly",
+   [
+    0,
+    4
+   ],
+   {
+    "a": 2,
+    "fit": "face"
+   }
+  ],
+  [
+   "weldonly",
+   [
+    0,
+    5
+   ],
+   {
+    "a": 2,
+    "fit": "face"
+   }
+  ],
+  [
+   "weldonly",
+   [
+    0,
+    6
+   ],
+   {
+    "a": 2,
+    "fit": "face"
+   }
+  ]
+ ],
+ "description": "R13 lower flight, left railing (SR9002 / HR9002): the sloped stringer UPN240 (844), its 6 stanchions CHS48*3 (833, 832, 809, 808, 807, 806), the hand rail CHS48*3 (804) and the railing PD50*5 (805) as given; Weld (no parts) a = 2, fit = face, from the stringer to each stanchion, as Tekla: the foot cut on the stringer's sloped top flange, the top square at the hand rail's centre line (C19).",
+ "members": [
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "STRINGER",
+    "p1": [
+     565.5,
+     12035.972,
+     1972.906
+    ],
+    "p2": [
+     565.5,
+     8289.137,
+     78.835
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "UPN240",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "Stanchion",
+    "p1": [
+     565.5,
+     8335,
+     224.348
+    ],
+    "p2": [
+     565.5,
+     8335,
+     1236.481
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "CHS48*3",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "Stanchion",
+    "p1": [
+     565.5,
+     9035,
+     578.207
+    ],
+    "p2": [
+     565.5,
+     9035,
+     1590.339
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "CHS48*3",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "Stanchion",
+    "p1": [
+     565.5,
+     9735,
+     932.066
+    ],
+    "p2": [
+     565.5,
+     9735,
+     1944.198
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "CHS48*3",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "Stanchion",
+    "p1": [
+     565.5,
+     10435,
+     1285.924
+    ],
+    "p2": [
+     565.5,
+     10435,
+     2298.056
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "CHS48*3",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "Stanchion",
+    "p1": [
+     565.5,
+     11135,
+     1639.783
+    ],
+    "p2": [
+     565.5,
+     11135,
+     2651.915
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "CHS48*3",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "Stanchion",
+    "p1": [
+     565.5,
+     11810.441,
+     1981.226
+    ],
+    "p2": [
+     565.5,
+     11810.441,
+     2993.359
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "CHS48*3",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "Hand Rail",
+    "p1": [
+     565.5,
+     8335,
+     1236.481
+    ],
+    "p2": [
+     565.5,
+     11810.441,
+     2993.359
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "CHS48*3",
+    "rAng": 180,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "RAILING",
+    "p1": [
+     565.5,
+     8335,
+     736.481
+    ],
+    "p2": [
+     565.5,
+     11810.441,
+     2493.359
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "PD50*5",
+    "rAng": 90,
+    "rot": "Top"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t19_r13_flight1_railing",
+ "pageErrors": []
+}
