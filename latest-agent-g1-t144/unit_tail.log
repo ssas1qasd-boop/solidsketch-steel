@@ -1,26 +1,26 @@
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
-> Task :core-view:preBuild UP-TO-DATE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-io:preBuild UP-TO-DATE
-> Task :core-io:preDebugBuild UP-TO-DATE
-> Task :core-view:preDebugBuild UP-TO-DATE
-> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-view:preBuild UP-TO-DATE
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
+> Task :core-view:preDebugBuild UP-TO-DATE
+> Task :core-io:preDebugBuild UP-TO-DATE
 > Task :app:generateDebugBuildConfig
 > Task :steel:preBuild UP-TO-DATE
 > Task :steel:preDebugBuild UP-TO-DATE
-> Task :core-view:writeDebugAarMetadata
-> Task :core-io:writeDebugAarMetadata
-> Task :core-io:generateDebugResValues
-> Task :app:generateDebugResValues
 > Task :steel:writeDebugAarMetadata
+> Task :core-io:writeDebugAarMetadata
+> Task :core-view:writeDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :core-io:generateDebugResValues
 > Task :core-view:generateDebugResValues
 > Task :core-io:generateDebugResources
 > Task :core-view:generateDebugResources
-> Task :core-io:packageDebugResources
 > Task :core-view:packageDebugResources
+> Task :core-io:packageDebugResources
 > Task :steel:generateDebugResValues
 > Task :core-io:extractDeepLinksDebug
 > Task :steel:generateDebugResources
@@ -30,16 +30,16 @@ Daemon will be stopped at the end of the build
 > Task :steel:extractDeepLinksDebug
 > Task :core-view:processDebugManifest
 > Task :steel:processDebugManifest
-> Task :core-api:processResources NO-SOURCE
 > Task :app:checkDebugAarMetadata
 > Task :core-io:compileDebugLibraryResources
 > Task :core-view:compileDebugLibraryResources
 > Task :app:mapDebugSourceSetPaths
+> Task :core-api:processResources NO-SOURCE
 > Task :app:generateDebugResources
-> Task :core-view:parseDebugLocalResources
 > Task :core-io:parseDebugLocalResources
-> Task :core-view:generateDebugRFile
+> Task :core-view:parseDebugLocalResources
 > Task :core-io:generateDebugRFile
+> Task :core-view:generateDebugRFile
 > Task :core-io:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :steel:compileDebugLibraryResources
 > Task :core-io:javaPreCompileDebug
@@ -50,9 +50,9 @@ Daemon will be stopped at the end of the build
 > Task :steel:parseDebugLocalResources
 > Task :steel:generateDebugRFile
 > Task :core-io:mergeDebugShaders
-> Task :core-view:mergeDebugShaders
 > Task :core-io:compileDebugShaders NO-SOURCE
 > Task :core-io:generateDebugAssets UP-TO-DATE
+> Task :core-view:mergeDebugShaders
 > Task :core-view:compileDebugShaders NO-SOURCE
 > Task :core-view:generateDebugAssets UP-TO-DATE
 > Task :core-io:packageDebugAssets
@@ -78,13 +78,13 @@ Daemon will be stopped at the end of the build
 > Task :app:processDebugMainManifest
 > Task :app:processDebugManifest
 > Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:processDebugManifestForPackage
 > Task :app:javaPreCompileDebug
 > Task :app:javaPreCompileDebugUnitTest
 > Task :app:mergeDebugShaders
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
 > Task :app:mergeDebugAssets
-> Task :app:processDebugManifestForPackage
 > Task :app:processDebugResources
 > Task :app:packageDebugUnitTestForUnitTest
 > Task :app:generateDebugUnitTestConfig
@@ -92,68 +92,3 @@ Daemon will be stopped at the end of the build
 > Task :core-api:compileJava NO-SOURCE
 > Task :core-api:classes UP-TO-DATE
 > Task :core-api:jar
-
-> Task :core-io:compileDebugKotlin
-w: file:///home/runner/work/solidsketch-steel/solidsketch-steel/core-io/src/main/java/com/solidsketchapp/core/io/MemoryDocument.kt:16:25 Non-public primary constructor is exposed via the generated 'copy()' method of the 'data' class.
-
-The generated 'copy()' will change its visibility in future releases.
-
-To suppress the warning do one of the following:
-- Annotate the data class with the '@ConsistentCopyVisibility' annotation.
-- Use the '-Xconsistent-data-class-copy-visibility' compiler flag.
-- Annotate the data class with the '@ExposedCopyVisibility' annotation 
-  (Discouraged, but can be used to keep binary compatibility).
-
-To learn more, see the documentation of the '@ConsistentCopyVisibility' and '@ExposedCopyVisibility' annotations.
-
-This will become an error in Kotlin 2.1.
-
-> Task :core-io:compileDebugJavaWithJavac NO-SOURCE
-> Task :core-io:bundleLibCompileToJarDebug
-> Task :core-io:bundleLibRuntimeToJarDebug
-> Task :core-io:processDebugJavaRes
-> Task :core-io:compileDebugUnitTestKotlin
-> Task :core-io:compileDebugUnitTestJavaWithJavac NO-SOURCE
-> Task :core-io:processDebugUnitTestJavaRes
-> Task :core-view:compileDebugKotlin
-> Task :core-view:compileDebugJavaWithJavac NO-SOURCE
-> Task :core-view:bundleLibCompileToJarDebug
-> Task :core-view:bundleLibRuntimeToJarDebug
-> Task :core-view:processDebugJavaRes
-> Task :core-view:compileDebugUnitTestKotlin
-> Task :core-view:compileDebugUnitTestJavaWithJavac NO-SOURCE
-> Task :core-view:processDebugUnitTestJavaRes
-> Task :core-view:testDebugUnitTest
-> Task :steel:compileDebugKotlin
-> Task :core-io:testDebugUnitTest
-> Task :steel:compileDebugJavaWithJavac NO-SOURCE
-> Task :steel:processDebugJavaRes
-> Task :steel:bundleLibCompileToJarDebug
-> Task :steel:bundleLibRuntimeToJarDebug
-> Task :steel:compileDebugUnitTestKotlin
-> Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
-> Task :steel:processDebugUnitTestJavaRes
-> Task :app:compileDebugKotlin
-
-> Task :steel:testDebugUnitTest
-
-S7CatalogTest > everySpecAndPictureLoads FAILED
-    java.lang.AssertionError at S7CatalogTest.kt:77
-
-25 tests completed, 1 failed
-
-> Task :steel:testDebugUnitTest FAILED
-> Task :app:compileDebugJavaWithJavac
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795816484501.json
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':steel:testDebugUnitTest'.
-> There were failing tests. See the report at: file:///home/runner/work/solidsketch-steel/solidsketch-steel/steel/build/reports/tests/testDebugUnitTest/index.html
-
-* Try:
-> Run with --scan to get full insights.
-
-BUILD FAILED in 1m 8s
-87 actionable tasks: 87 executed
