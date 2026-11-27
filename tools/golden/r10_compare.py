@@ -49,6 +49,28 @@ ANG_TOL = 0.01     # degrees (the dump rounds to 0.001)
 def load(p): return json.load(open(p))
 def dist(a, b): return math.sqrt(sum((x - y) ** 2 for x, y in zip(a, b)))
 def boxdiff(a, b): return max(abs(x - y) for x, y in zip(a, b))
+
+
+def tekla_clash(doc, rb, ids):
+    """The parts `ids` (a built-up's three plates) with the deep overlaps (rule B: mean depth >= 0.01 mm) of other R13 parts taken
+    away, each kept as its largest piece: (box, overlap volume), or None when they overlap nothing."""
+    import numpy as np
+    import manifold3d as mf
+    def man(b):
+        s = b['shape']; return mf.Manifold(mf.Mesh64(np.asarray(s['vp'], np.float64).reshape(-1, 3), np.asarray(s['tv'], np.uint64).reshape(-1, 3)))
+    def bx(b): v = np.asarray(b['shape']['vp'], float).reshape(-1, 3); return v.min(0), v.max(0)
+    box = None; vol = 0.0
+    for i in ids:
+        lo, hi = bx(rb[i]); mp = man(rb[i])
+        for o in doc['bodies']:
+            if o['id'] in ids or o['st'].get('kind') == 'bolts' or not (o.get('shape') or {}).get('tv'): continue
+            ol, oh = bx(o)
+            if (ol > hi).any() or (oh < lo).any(): continue
+            x = mp ^ man(o); v = x.volume()
+            if v > 0 and 2 * v / x.surface_area() >= 0.01: vol += v; mp = max((mp - man(o)).decompose(), key=lambda k: k.volume())
+        mm = mp.to_mesh(); v = np.asarray(mm.vert_properties, float)[:, :3]; a, c = v.min(0), v.max(0)
+        box = list(a) + list(c) if box is None else [min(box[k], a[k]) for k in range(3)] + [max(box[k + 3], c[k]) for k in range(3)]
+    return (box, vol) if vol > 0 else None
 def r2(v): return round(v + 0.0, 2)
 def r3(v): return round(v + 0.0, 3)
 def pre(m): return re.match(r'^[A-Z]*', m or '').group(0) or (m or '')
@@ -183,6 +205,10 @@ def main():
             v = rv[rid]; bx = v['box']; rvol += v['volume']; rkg += (v['w'] or {}).get('weight', 0) or 0
             rbox = bx if rbox is None else [min(rbox[k], bx[k]) for k in range(3)] + [max(rbox[k + 3], bx[k + 3]) for k in range(3)]
         bd = boxdiff(rbox, b['box'])
+        if m['kind'] == 'builtup' and not diffs and bd > TOL:   # R13's own rule B (PARITY.md "C12 / C20 on R13"): a Tekla part that runs into
+            cb = tekla_clash(doc, rb, m['r10'])                    # another part (EB4007's webs through C2021 / C2024's web); the 186 cuts it
+            if cb is not None and boxdiff(cb[0], b['box']) <= TOL:  # at the main part's face, so the reference is Tekla's part less the clash
+                row['teklaClash'] = r3(cb[1]); bd = boxdiff(cb[0], b['box'])
         row.update(boxDiff=r3(bd), volR10=r3(rvol), volV69=b['volume'], volRatio=r3(b['volume'] / rvol) if rvol else None,
                    kgR10=r2(rkg), kgV69=r2((b['w'] or {}).get('weight', 0)), diffs=diffs)
         row['status'] = 'MATCHED' if not diffs and bd <= TOL else ('INPUT EQUAL, SOLID DIFFERS' if not diffs else 'DIFFERENT')
@@ -419,6 +445,8 @@ def write_report(o, inp):
     for kind, lab in (('builtup', 'built-up equivalents'), ('given', 'R10 members as given')):
         xs = [x for x in m if x['kind'] == kind]
         L.append(f"- {lab}: {sum(1 for x in xs if x['status'] == 'MATCHED')} matched of {len(xs)} (inputs equal R10 for all {sum(1 for x in xs if not x.get('diffs'))})")
+        tc = [x for x in xs if x.get('teklaClash')]
+        if tc: L.append(f"  - {len(tc)} of them matched against R10's part less the part's own clash with another R10 part (R10's rule B: {', '.join(x['amark'] + ' ' + format(x['teklaClash'], ',.0f') + ' mm³' for x in tc)}): the component cuts the member at the main part's face (docs/steel/PARITY.md \"C12 / C20 on R13\")")
     L.append('')
     L.append(f"R10 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): {len(d)}: "
              + ', '.join(f'{v} {k}' for k, v in sorted(ds.items())) + '.')

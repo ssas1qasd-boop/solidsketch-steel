@@ -297,7 +297,8 @@ object Fam {
             if (tk && ((j.y cross j.x) dot bax) < 0) { for (k in bl.indices) bl[k] = bl[k].add(bax, grip); bax = -bax }
             val bb = x.group(bl, bax, x.n("bolt"), grip)
             for (hc in bb.holes) x.cut(bmId, hc)
-            for (m in j.cutEnd(xF2 + x.n("gap"))) x.cut(bmId, m)
+            // v70 C20 on R13 (web FAM.ST): a 186 secondary never runs into the main part (Picture 1 < 0: cut at the web face; the bolts stay at Picture 1 + the edge distance)
+            for (m in j.cutEnd(xF2 + (if (v186 && x.n("gap") < 0) 0.0 else x.n("gap")))) x.cut(bmId, m)
             // v70 C20: a skewed secondary's tab ends on the main part's web face (Tekla welds it there), not square to the beam
             val webClip = if (v186 && !j.flange && abs(j.x dot j.m.es) <= 0.9999) listOf(Joints.Frame3(j.m.c1, j.m.es, j.m.a).box(-j.m.tw / 2, j.m.tw / 2, -BIG, BIG, -BIG, BIG)) else emptyList()
             tabs.forEach { x.plate("SHEAR TAB", it, x.n("t"), minus = faceCut + bb.holes + webClip) }

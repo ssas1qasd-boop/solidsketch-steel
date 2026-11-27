@@ -16,6 +16,13 @@ module.exports = [
     conns: [['T186', [0, 1], R12C20]],
   },
   {
+    name: 't186_r13_c2021_eb4007',
+    description: 'R13 C2021 / EB4007 (the fixed girder, PARITY.md "C12 / C20 on R13"): Tekla placed the new web 30 mm along, 10 mm past the column web face (Picture 1 = -10); the 186 cuts it at the face (no clash), the bolts stay 35 from the web end (25 / 85 from the web face, NC 4514), stiffeners created.',
+    members: [member('COLUMN', { prof: 'BI320-8-150-10', p1: [52838, 27925, 230], p2: [52838, 27925, 7547.745], rot: 'Below', plane: 'Middle', depth: 'Middle' }),
+              member('BEAM', { prof: 'BI324-8-250-12', p1: [52838, 22409, 3838], p2: [52838, 27931, 3838], rot: 'Top', plane: 'Middle', depth: 'Middle' })],
+    conns: [['T186', [0, 1], Object.assign({}, R12C20, { gap: -10 })]],
+  },
+  {
     name: 't186_r12_egc2002',
     description: 'R12 EGC2002: BI220-6-200-10 gable column, BI320-8-120-10 beam on its web at +3840: tab 10 x 100, 1 x 4 M16, stiffeners 10 x 90, chamfer 4.2, K prep.',
     members: [member('COLUMN', { prof: 'BI220-6-200-10', p1: [3705.5, 27890, 230], p2: [3705.5, 27890, 8043.935], rot: 'Front', plane: 'Middle', depth: 'Middle' }),
