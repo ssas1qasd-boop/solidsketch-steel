@@ -1,0 +1,83 @@
+{
+ "url": "https://www.youtube.com/watch?v=Bds3oxGdc2k",
+ "models": [
+  "gemini-flash-latest"
+ ],
+ "overview": {
+  "language": "es",
+  "units": "mm",
+  "tekla_version": "21.0",
+  "members": [
+   {
+    "role": "main",
+    "profile": "I-profile",
+    "orientation": "column",
+    "slope_or_skew": "perpendicular",
+    "note": "steel column"
+   },
+   {
+    "role": "secondary",
+    "profile": "I-profile",
+    "orientation": "beam",
+    "slope_or_skew": "perpendicular",
+    "note": "horizontal steel beam"
+   }
+  ],
+  "connection_type": "beam to column flange",
+  "dialog_spans": [
+   {
+    "tab": "Tornillos",
+    "start": "02:24",
+    "end": "02:32",
+    "values_changed": "Bolt standard A325, bolt size 16"
+   },
+   {
+    "tab": "Dibujo",
+    "start": "02:37",
+    "end": "03:12",
+    "values_changed": "Plate extension distances top and bottom changed to -10 mm"
+   },
+   {
+    "tab": "Placas",
+    "start": "03:55",
+    "end": "05:07",
+    "values_changed": "Plate width changed to 180 mm, material A36, name Placa de uni\u00f3n"
+   },
+   {
+    "tab": "Rigidizadores",
+    "start": "05:26",
+    "end": "08:14",
+    "values_changed": "Stiffener plate thickness 10 mm, stiffener profile options activated, width 116.25 mm, height 218 mm"
+   },
+   {
+    "tab": "Cantonera",
+    "start": "10:11",
+    "end": "11:58",
+    "values_changed": "Haunch plate settings entered"
+   },
+   {
+    "tab": "Dibujo",
+    "start": "13:03",
+    "end": "13:13",
+    "values_changed": "Plate top extension changed to -50 mm to allow haunch creation"
+   },
+   {
+    "tab": "Cantonera",
+    "start": "13:16",
+    "end": "14:24",
+    "values_changed": "Haunch thickness 10 mm, chamfers 10x10 mm"
+   },
+   {
+    "tab": "Tornillos",
+    "start": "14:35",
+    "end": "15:26",
+    "values_changed": "Bolt size 16, 4 bolts vertically at 120 mm pitch, gauge spacing 100 mm"
+   }
+  ],
+  "result": "Flush/extended end plate welded to beam with haunch stiffener plates on top and bottom, 2x4 bolt pattern (A325 dia 16 mm), stiffener plates welded to column web and flanges aligned with beam flanges",
+  "applied_times": [
+   "02:11",
+   "17:09"
+  ]
+ }
+}

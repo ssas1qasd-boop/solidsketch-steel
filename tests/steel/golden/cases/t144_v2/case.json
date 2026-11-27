@@ -1,0 +1,92 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T144",
+   [
+    0,
+    1
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 20,
+    "cols": 2,
+    "e": 30,
+    "ext": 0,
+    "extb": 0,
+    "gap": 0,
+    "gauge": 120,
+    "hc1": 55,
+    "hc2": 55,
+    "hc3": 55,
+    "hc4": 55,
+    "hct": "line",
+    "hpb1": 75,
+    "hpb2": 75,
+    "hpc": "both",
+    "hph1": 75,
+    "hph2": 75,
+    "hpt1": 10,
+    "hpt2": 10,
+    "pitch": 120,
+    "pitches": "",
+    "refV": "Top",
+    "rows": 4,
+    "sc1": 30,
+    "sc2": 30,
+    "scr": "both",
+    "sct": "line",
+    "shim": 20,
+    "side": 30,
+    "stt1": 10,
+    "stt2": 10,
+    "stt3": 10,
+    "stt4": 10,
+    "tp": 20
+   }
+  ]
+ ],
+ "description": "Video 2 (IBVnHuj1F-s, final state 24:24): HEA400 column, HEA400 beam on its flange. Picture 1 = 0, 2 = 0, gap 0; Plates: End plate t 20, Fitting plate 1 t 20; Stiffeners created t 10, chamfers 30 x 30 line; Haunch top / bottom 10 x 75 x 75, chamfers 1-4 = 55 line, both; Bolts M20, 4 rows, s 120, 6 = 30 (Top), 2 across, 5 = 120, 3 = 30, Tekla length.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     7000
+    ],
+    "prof": "HEA400",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     5000
+    ],
+    "p2": [
+     6000,
+     0,
+     5000
+    ],
+    "prof": "HEA400"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t144_v2",
+ "pageErrors": []
+}

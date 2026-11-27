@@ -1,0 +1,2252 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "model": "gemini-3-flash-preview",
+ "tabs": {
+  "Picture": {
+   "span": "02:20-04:32",
+   "read": {
+    "final": [
+     {
+      "label": "Top right vertical offset (plate top)",
+      "value": "-80",
+      "sure": true
+     },
+     {
+      "label": "Middle right vertical offset (plate bottom)",
+      "value": "-80",
+      "sure": true
+     },
+     {
+      "label": "Bottom right vertical offset",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom left horizontal gap (column to plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom middle horizontal gap (beam to plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top middle horizontal gap (beam to plate)",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "02:58",
+      "label": "Bottom left horizontal gap (column to plate)",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "03:12",
+      "label": "Bottom left horizontal gap (column to plate)",
+      "from": "10",
+      "to": ""
+     },
+     {
+      "t": "03:30",
+      "label": "Middle right vertical offset (plate bottom)",
+      "from": "",
+      "to": "40"
+     },
+     {
+      "t": "03:41",
+      "label": "Middle right vertical offset (plate bottom)",
+      "from": "40",
+      "to": "-40"
+     },
+     {
+      "t": "03:55",
+      "label": "Middle right vertical offset (plate bottom)",
+      "from": "-40",
+      "to": "-80"
+     },
+     {
+      "t": "04:01",
+      "label": "Top right vertical offset (plate top)",
+      "from": "",
+      "to": "80"
+     },
+     {
+      "t": "04:05",
+      "label": "Top right vertical offset (plate top)",
+      "from": "80",
+      "to": "-80"
+     }
+    ],
+    "model": [
+     {
+      "t": "02:23",
+      "what": "Component: End plate (144)"
+     },
+     {
+      "t": "04:03",
+      "what": "Status bar warning: Bolt edge distance of the bolt with id 1a1a6590-4a1d-4e86-bf7e-1512ae680... is too small"
+     }
+    ]
+   }
+  },
+  "Plates": {
+   "span": "04:30-08:30",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "End Plate t",
+       "value": "20.00",
+       "sure": true
+      },
+      {
+       "label": "End Plate b",
+       "value": "180.00",
+       "sure": true
+      },
+      {
+       "label": "End Plate h",
+       "value": "560.00",
+       "sure": true
+      },
+      {
+       "label": "End Plate Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "End Plate Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "End Plate Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "End Plate Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Number of fitting pl. 1 (DEF=1)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Number of fitting pl. 2 (DEF=1)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Number of fitting pl. 3 (DEF=1)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Tolerance",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "1",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "2",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "3",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "4",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "5",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "6",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "7",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "8",
+       "value": "",
+       "sure": true
+      }
+     ],
+     "changes": [
+      {
+       "t": "04:38",
+       "label": "End Plate t",
+       "from": "",
+       "to": "20"
+      },
+      {
+       "t": "04:44",
+       "label": "End Plate t",
+       "from": "20",
+       "to": "8"
+      },
+      {
+       "t": "04:49",
+       "label": "End Plate t",
+       "from": "8",
+       "to": "20"
+      },
+      {
+       "t": "05:22",
+       "label": "End Plate b",
+       "from": "",
+       "to": "180"
+      },
+      {
+       "t": "05:46",
+       "label": "End Plate h",
+       "from": "",
+       "to": "560"
+      },
+      {
+       "t": "05:59",
+       "label": "Folded Plate t",
+       "from": "",
+       "to": "20"
+      },
+      {
+       "t": "06:22",
+       "label": "1",
+       "from": "",
+       "to": "300"
+      },
+      {
+       "t": "06:34",
+       "label": "Folded Plate t",
+       "from": "20",
+       "to": "12"
+      },
+      {
+       "t": "06:44",
+       "label": "1",
+       "from": "300",
+       "to": "400"
+      },
+      {
+       "t": "06:57",
+       "label": "Seat t",
+       "from": "",
+       "to": "12"
+      },
+      {
+       "t": "07:20",
+       "label": "2",
+       "from": "",
+       "to": "200"
+      },
+      {
+       "t": "07:58",
+       "label": "Seat b",
+       "from": "",
+       "to": "200"
+      },
+      {
+       "t": "08:00",
+       "label": "Seat h",
+       "from": "",
+       "to": "600"
+      },
+      {
+       "t": "08:07",
+       "label": "Seat b",
+       "from": "200",
+       "to": "200.00"
+      },
+      {
+       "t": "08:09",
+       "label": "Seat h",
+       "from": "600",
+       "to": "600.00"
+      },
+      {
+       "t": "08:17",
+       "label": "Seat b",
+       "from": "200.00",
+       "to": ""
+      },
+      {
+       "t": "08:18",
+       "label": "Seat h",
+       "from": "600.00",
+       "to": ""
+      },
+      {
+       "t": "08:24",
+       "label": "Folded Plate t",
+       "from": "12",
+       "to": ""
+      }
+     ],
+     "model": [
+      {
+       "t": "05:17",
+       "what": "Beam profile: IPE400"
+      }
+     ]
+    }
+   ]
+  },
+  "Plates2": {
+   "span": "08:30-12:18",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "End Plate - t",
+       "value": "20.00",
+       "sure": true
+      },
+      {
+       "label": "End Plate - b",
+       "value": "180.00",
+       "sure": true
+      },
+      {
+       "label": "End Plate - h",
+       "value": "560.00",
+       "sure": true
+      },
+      {
+       "label": "End Plate - Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "End Plate - Material",
+       "value": "St 52",
+       "sure": true
+      },
+      {
+       "label": "End Plate - Name",
+       "value": "Plate",
+       "sure": true
+      },
+      {
+       "label": "End Plate - Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate - t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate - b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate - h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate - Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate - Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate - Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Folded Plate - Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat - t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat - b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat - h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat - Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat - Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat - Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Seat - Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 - t",
+       "value": "12.00",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 - b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 - h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 - Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 - Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 - Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 1 - Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Number of fitting pl. 1 (DEF=1)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 - t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 - b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 - h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 - Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 - Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 - Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 2 - Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Number of fitting pl. 2 (DEF=1)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 - t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 - b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 - h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 - Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 - Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 - Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting Plate 3 - Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Number of fitting pl. 3 (DEF=1)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "400.00",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "200.00",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Fitting plate type",
+       "value": "1st option",
+       "sure": true
+      },
+      {
+       "label": "Fitting plate arrangement",
+       "value": "1st option",
+       "sure": true
+      },
+      {
+       "label": "Tolerance",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Max",
+       "value": "",
+       "sure": true
+      }
+     ],
+     "changes": [
+      {
+       "t": "08:39",
+       "label": "Fitting Plate 1 - t",
+       "from": "",
+       "to": "20.00"
+      },
+      {
+       "t": "08:46",
+       "label": "Fitting Plate 2 - t",
+       "from": "",
+       "to": "20.00"
+      },
+      {
+       "t": "08:50",
+       "label": "Fitting Plate 3 - t",
+       "from": "",
+       "to": "20.00"
+      },
+      {
+       "t": "09:05",
+       "label": "Fitting Plate 2 - t",
+       "from": "20.00",
+       "to": ""
+      },
+      {
+       "t": "09:07",
+       "label": "Fitting Plate 3 - t",
+       "from": "20.00",
+       "to": ""
+      },
+      {
+       "t": "09:08",
+       "label": "400.00",
+       "from": "400.00",
+       "to": ""
+      },
+      {
+       "t": "09:08",
+       "label": "200.00",
+       "from": "200.00",
+       "to": ""
+      },
+      {
+       "t": "09:12",
+       "label": "Fitting Plate 1 - t",
+       "from": "20.00",
+       "to": ""
+      },
+      {
+       "t": "09:27",
+       "label": "End Plate - Material",
+       "from": "",
+       "to": "St 52"
+      },
+      {
+       "t": "09:35",
+       "label": "End Plate - Name",
+       "from": "",
+       "to": "Plate"
+      },
+      {
+       "t": "10:00",
+       "label": "Fitting Plate 1 - t",
+       "from": "",
+       "to": "20.00"
+      },
+      {
+       "t": "10:05",
+       "label": "Fitting plate type",
+       "from": "1st option",
+       "to": "2nd option"
+      },
+      {
+       "t": "10:30",
+       "label": "Fitting Plate 1 - t",
+       "from": "20.00",
+       "to": "12.00"
+      },
+      {
+       "t": "11:35",
+       "label": "Fitting plate type",
+       "from": "2nd option",
+       "to": "1st option"
+      }
+     ],
+     "model": [
+      {
+       "t": "08:30",
+       "what": "Component End plate (144) selected"
+      },
+      {
+       "t": "11:09",
+       "what": "Clash Check Manager shows clash between COLUMN and SPACER PLATE"
+      }
+     ]
+    }
+   ]
+  },
+  "Stiffeners": {
+   "span": "12:15-15:10",
+   "read": {
+    "final": [
+     {
+      "label": "Top NS - t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top NS - b",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top NS - h",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top NS - Pos_No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top NS - Material",
+      "value": "St-52",
+      "sure": true
+     },
+     {
+      "label": "Top NS - Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top NS - Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top FS - t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top FS - b",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top FS - h",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top FS - Pos_No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top FS - Material",
+      "value": "St-52",
+      "sure": true
+     },
+     {
+      "label": "Top FS - Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top FS - Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS - t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS - b",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS - h",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS - Pos_No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS - Material",
+      "value": "St-52",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS - Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS - Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS - t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS - b",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS - h",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS - Pos_No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS - Material",
+      "value": "St-52",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS - Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS - Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Stiffener type (top left)",
+      "value": "second option (horizontal)",
+      "sure": true
+     },
+     {
+      "label": "Stiffener type (top middle)",
+      "value": "first option (full width)",
+      "sure": true
+     },
+     {
+      "label": "Stiffener type (top right)",
+      "value": "first option (full width)",
+      "sure": true
+     },
+     {
+      "label": "Stiffener type (bottom left)",
+      "value": "first option (standard)",
+      "sure": true
+     },
+     {
+      "label": "Distance from top flange (top left box)",
+      "value": "40.00",
+      "sure": true
+     },
+     {
+      "label": "Distance from top flange (top right box)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Distance from bottom flange (bottom left box)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Distance from bottom flange (bottom right box)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Gap at web (middle left box)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Gap at web (middle right box)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Stiffener width/height (right side box)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Chamfer checkbox",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Chamfer dimension",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "12:36",
+      "label": "Top NS - t",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "12:43",
+      "label": "Top NS - t",
+      "from": "10",
+      "to": ""
+     },
+     {
+      "t": "12:47",
+      "label": "Top NS - t",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "12:52",
+      "label": "Top FS - t",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "12:59",
+      "label": "Bottom NS - t",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "13:06",
+      "label": "Bottom FS - t",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "13:20",
+      "label": "Top NS - Material",
+      "from": "",
+      "to": "St-52"
+     },
+     {
+      "t": "13:23",
+      "label": "Top FS - Material",
+      "from": "",
+      "to": "St-52"
+     },
+     {
+      "t": "13:25",
+      "label": "Bottom NS - Material",
+      "from": "",
+      "to": "St-52"
+     },
+     {
+      "t": "13:27",
+      "label": "Bottom FS - Material",
+      "from": "",
+      "to": "St-52"
+     },
+     {
+      "t": "13:46",
+      "label": "Stiffener type (top left)",
+      "from": "first option (standard)",
+      "to": "second option (horizontal)"
+     },
+     {
+      "t": "14:05",
+      "label": "Stiffener type (top middle)",
+      "from": "first option (full width)",
+      "to": "second option (no stiffener)"
+     },
+     {
+      "t": "14:14",
+      "label": "Stiffener type (top middle)",
+      "from": "second option (no stiffener)",
+      "to": "first option (full width)"
+     },
+     {
+      "t": "14:52",
+      "label": "Distance from top flange (top left box)",
+      "from": "",
+      "to": "-40"
+     },
+     {
+      "t": "15:05",
+      "label": "Distance from top flange (top left box)",
+      "from": "-40",
+      "to": "40"
+     }
+    ],
+    "model": [
+     {
+      "t": "12:15",
+      "what": "End plate dimensions: t=20.00, b=180.00, h=560.00"
+     },
+     {
+      "t": "13:19",
+      "what": "Material grade St-52 selected from the material list"
+     }
+    ]
+   }
+  },
+  "Stiffeners2": {
+   "span": "15:10-18:10",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "Top NS t",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "Top NS a",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Top NS b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Top NS Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Top NS Material",
+       "value": "S1-52",
+       "sure": true
+      },
+      {
+       "label": "Top NS Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Top NS Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Top FS t",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "Top FS a",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Top FS b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Top FS Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Top FS Material",
+       "value": "S1-52",
+       "sure": true
+      },
+      {
+       "label": "Top FS Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Top FS Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom NS t",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "Bottom NS a",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom NS b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom NS Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom NS Material",
+       "value": "S1-52",
+       "sure": true
+      },
+      {
+       "label": "Bottom NS Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom NS Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom FS t",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "Bottom FS a",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom FS b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom FS Pos. No",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom FS Material",
+       "value": "S1-52",
+       "sure": true
+      },
+      {
+       "label": "Bottom FS Name",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom FS Finish",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Stiffener offset top left",
+       "value": "40.00",
+       "sure": true
+      },
+      {
+       "label": "Stiffener offset top right",
+       "value": "40.00",
+       "sure": true
+      },
+      {
+       "label": "Stiffener offset middle left",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Stiffener offset middle right",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Stiffener offset bottom left",
+       "value": "-40.00",
+       "sure": true
+      },
+      {
+       "label": "Stiffener offset bottom right",
+       "value": "-40.00",
+       "sure": true
+      },
+      {
+       "label": "Gap from web top",
+       "value": "20",
+       "sure": true
+      },
+      {
+       "label": "Gap from web bottom",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Chamfer dimension 1",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Chamfer dimension 2",
+       "value": "",
+       "sure": true
+      }
+     ],
+     "changes": [
+      {
+       "t": "15:11",
+       "label": "Stiffener offset top right",
+       "from": "",
+       "to": "40.00"
+      },
+      {
+       "t": "15:15",
+       "label": "Stiffener offset bottom right",
+       "from": "",
+       "to": "40.00"
+      },
+      {
+       "t": "15:21",
+       "label": "Stiffener offset bottom right",
+       "from": "40.00",
+       "to": "-40.00"
+      },
+      {
+       "t": "15:25",
+       "label": "Stiffener offset bottom left",
+       "from": "",
+       "to": "-40.00"
+      },
+      {
+       "t": "15:53",
+       "label": "Gap from web top",
+       "from": "",
+       "to": "20"
+      },
+      {
+       "t": "16:16",
+       "label": "Chamfer dimension 1",
+       "from": "",
+       "to": "20"
+      },
+      {
+       "t": "16:21",
+       "label": "Chamfer dimension 2",
+       "from": "",
+       "to": "20"
+      },
+      {
+       "t": "16:35",
+       "label": "Chamfer dimension 1",
+       "from": "20",
+       "to": ""
+      },
+      {
+       "t": "16:36",
+       "label": "Chamfer dimension 2",
+       "from": "20",
+       "to": ""
+      },
+      {
+       "t": "17:14",
+       "label": "Chamfer dimension 1",
+       "from": "",
+       "to": "0"
+      },
+      {
+       "t": "17:15",
+       "label": "Chamfer dimension 2",
+       "from": "",
+       "to": "0"
+      },
+      {
+       "t": "17:19",
+       "label": "Chamfer dimension 1",
+       "from": "0",
+       "to": "30"
+      },
+      {
+       "t": "17:22",
+       "label": "Chamfer dimension 2",
+       "from": "0",
+       "to": "30"
+      },
+      {
+       "t": "17:26",
+       "label": "Chamfer dimension 1",
+       "from": "30",
+       "to": ""
+      },
+      {
+       "t": "17:27",
+       "label": "Chamfer dimension 2",
+       "from": "30",
+       "to": ""
+      },
+      {
+       "t": "17:39",
+       "label": "Top NS a",
+       "from": "",
+       "to": "300"
+      },
+      {
+       "t": "17:53",
+       "label": "Top NS a",
+       "from": "300",
+       "to": ""
+      }
+     ],
+     "model": [
+      {
+       "t": "15:10",
+       "what": "Editing End plate (144) component, Stiffeners tab"
+      },
+      {
+       "t": "15:33",
+       "what": "Stiffeners are offset from beam flanges in 3D model"
+      },
+      {
+       "t": "15:58",
+       "what": "Gap between stiffener and web is visible in model"
+      },
+      {
+       "t": "16:18",
+       "what": "Chamfer on stiffener is visible in model"
+      }
+     ]
+    }
+   ]
+  },
+  "Haunch": {
+   "span": "18:05-21:20",
+   "read": {
+    "final": [
+     {
+      "label": "Top plate t",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "label": "Top plate b",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "label": "Top plate h",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "label": "Top plate Pos_No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top plate Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top plate Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top plate Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate t",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate b",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate h",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate Pos_No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top plate outer chamfer (top-left)",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "label": "Top plate outer chamfer (bottom-right)",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "label": "Top plate inner chamfer (top-left)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top plate inner chamfer (top-right)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top plate inner chamfer (bottom-left)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top plate inner chamfer (bottom-right)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate outer chamfer (top-left)",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate outer chamfer (bottom-right)",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate inner chamfer (top-left)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate inner chamfer (top-right)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate inner chamfer (bottom-left)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate inner chamfer (bottom-right)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Haunch type",
+      "value": "haunches on both sides",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "18:41",
+      "label": "Top plate t",
+      "from": "",
+      "to": "12.00"
+     },
+     {
+      "t": "18:41",
+      "label": "Top plate b",
+      "from": "",
+      "to": "80.00"
+     },
+     {
+      "t": "18:41",
+      "label": "Top plate h",
+      "from": "",
+      "to": "80.00"
+     },
+     {
+      "t": "18:53",
+      "label": "Bottom plate t",
+      "from": "",
+      "to": "12.00"
+     },
+     {
+      "t": "18:53",
+      "label": "Bottom plate b",
+      "from": "",
+      "to": "80.00"
+     },
+     {
+      "t": "18:53",
+      "label": "Bottom plate h",
+      "from": "",
+      "to": "80.00"
+     },
+     {
+      "t": "19:24",
+      "label": "Top plate outer chamfer (top-left)",
+      "from": "",
+      "to": "80.00"
+     },
+     {
+      "t": "19:24",
+      "label": "Top plate outer chamfer (bottom-right)",
+      "from": "",
+      "to": "80.00"
+     },
+     {
+      "t": "19:59",
+      "label": "Bottom plate outer chamfer (top-left)",
+      "from": "",
+      "to": "80.00"
+     },
+     {
+      "t": "19:59",
+      "label": "Bottom plate outer chamfer (bottom-right)",
+      "from": "",
+      "to": "80.00"
+     },
+     {
+      "t": "20:10",
+      "label": "Top plate b",
+      "from": "80.00",
+      "to": "120.00"
+     },
+     {
+      "t": "20:18",
+      "label": "Top plate outer chamfer (top-left)",
+      "from": "80.00",
+      "to": "120.00"
+     },
+     {
+      "t": "20:30",
+      "label": "Top plate b",
+      "from": "120.00",
+      "to": "80.00"
+     },
+     {
+      "t": "20:30",
+      "label": "Top plate outer chamfer (top-left)",
+      "from": "120.00",
+      "to": "80.00"
+     },
+     {
+      "t": "20:43",
+      "label": "Top plate inner chamfer (top-left)",
+      "from": "",
+      "to": "0.00"
+     },
+     {
+      "t": "20:43",
+      "label": "Top plate inner chamfer (bottom-right)",
+      "from": "",
+      "to": "0.00"
+     },
+     {
+      "t": "20:49",
+      "label": "Top plate inner chamfer (top-left)",
+      "from": "0.00",
+      "to": "10.00"
+     },
+     {
+      "t": "20:49",
+      "label": "Top plate inner chamfer (bottom-right)",
+      "from": "0.00",
+      "to": "10.00"
+     },
+     {
+      "t": "20:54",
+      "label": "Top plate inner chamfer (top-left)",
+      "from": "10.00",
+      "to": ""
+     },
+     {
+      "t": "20:54",
+      "label": "Top plate inner chamfer (bottom-right)",
+      "from": "10.00",
+      "to": ""
+     },
+     {
+      "t": "21:05",
+      "label": "Haunch type",
+      "from": "haunches on both sides",
+      "to": "no haunches"
+     },
+     {
+      "t": "21:09",
+      "label": "Haunch type",
+      "from": "no haunches",
+      "to": "haunches on both sides"
+     }
+    ],
+    "model": [
+     {
+      "t": "18:27",
+      "what": "Pictures tab: End Plate t=20.00, b=180.00, h=560.00"
+     },
+     {
+      "t": "18:27",
+      "what": "Pictures tab: Fitting plate 1 = 12.00"
+     }
+    ]
+   }
+  },
+  "Notch": {
+   "span": "21:18-22:22",
+   "read": {
+    "final": [
+     {
+      "label": "Top flange notch type 1 (dropdown)",
+      "value": "straight cut icon",
+      "sure": true
+     },
+     {
+      "label": "Top flange notch type 1 (checkbox)",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Top flange notch type 2 (dropdown)",
+      "value": "straight cut icon",
+      "sure": true
+     },
+     {
+      "label": "Top flange notch type 2 (checkbox)",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Top flange notch type 3 (dropdown)",
+      "value": "straight cut icon",
+      "sure": true
+     },
+     {
+      "label": "Top flange notch type 3 (checkbox)",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Bottom flange notch type 1 (dropdown)",
+      "value": "straight cut icon",
+      "sure": true
+     },
+     {
+      "label": "Bottom flange notch type 1 (checkbox)",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Bottom flange notch type 2 (dropdown)",
+      "value": "straight cut icon",
+      "sure": true
+     },
+     {
+      "label": "Bottom flange notch type 2 (checkbox)",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Bottom flange notch type 3 (dropdown)",
+      "value": "straight cut icon",
+      "sure": true
+     },
+     {
+      "label": "Bottom flange notch type 3 (checkbox)",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Top notch type (dropdown)",
+      "value": "straight cut icon",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Top notch type (checkbox)",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Top notch horizontal length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Top notch vertical depth",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Top notch radius",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Top notch vertical offset",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Bottom notch type (dropdown)",
+      "value": "straight cut icon",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Bottom notch type (checkbox)",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Bottom notch horizontal length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Bottom notch vertical depth",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Bottom notch radius",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Bottom notch vertical offset",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Web notch type (dropdown)",
+      "value": "straight cut icon",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Web notch type (checkbox)",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Web notch horizontal length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Manual notch control - Web notch vertical depth",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "BCSA notch def (dropdown)",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "label": "BCSA notch def (checkbox)",
+      "value": "checked",
+      "sure": true
+     }
+    ],
+    "changes": [],
+    "model": [
+     {
+      "t": "21:18",
+      "what": "End plate (144) dialog, Plates tab: Top plate t=12.00, b=80.00, h=80.00; Bottom plate t=12.00, b=80.00, h=80.00."
+     },
+     {
+      "t": "21:45",
+      "what": "Model view shows a secondary beam with a curved cope (notch) at the connection to the main beam."
+     }
+    ]
+   }
+  },
+  "Bolts": {
+   "span": "22:18-25:32",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "Bolt size",
+       "value": "20",
+       "sure": true
+      },
+      {
+       "label": "Bolt standard",
+       "value": "6914",
+       "sure": true
+      },
+      {
+       "label": "Tolerance",
+       "value": "2.00",
+       "sure": true
+      },
+      {
+       "label": "Thread in mat",
+       "value": "Yes",
+       "sure": true
+      },
+      {
+       "label": "Site/Workshop",
+       "value": "Site",
+       "sure": true
+      },
+      {
+       "label": "Cut length",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Comment",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Hole type (Slotted)",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "Rotate slots",
+       "value": "Parallel",
+       "sure": true
+      },
+      {
+       "label": "Slots in",
+       "value": "Default",
+       "sure": true
+      },
+      {
+       "label": "Slot length (box 1)",
+       "value": "0.00",
+       "sure": true
+      },
+      {
+       "label": "Slot width (box 2)",
+       "value": "0.00",
+       "sure": true
+      },
+      {
+       "label": "Bolt assembly (checkbox 1)",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "Bolt assembly (checkbox 2)",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "Bolt assembly (checkbox 3)",
+       "value": "unchecked",
+       "sure": true
+      },
+      {
+       "label": "Bolt assembly (checkbox 4)",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "Bolt assembly (checkbox 5)",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "Bolt group position",
+       "value": "Middle",
+       "sure": true
+      },
+      {
+       "label": "Bolt group rotation",
+       "value": "Top",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 1",
+       "value": "-40.00",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 2",
+       "value": "5",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 3",
+       "value": "120.00",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 4",
+       "value": "-40.00",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 5",
+       "value": "40.00",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 6",
+       "value": "2",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 7",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 8",
+       "value": "40.00",
+       "sure": true
+      },
+      {
+       "label": "Delete bolts",
+       "value": "",
+       "sure": true
+      }
+     ],
+     "changes": [
+      {
+       "t": "22:24",
+       "label": "Bolt size",
+       "from": "Default",
+       "to": "20"
+      },
+      {
+       "t": "22:28",
+       "label": "Bolt standard",
+       "from": "Default",
+       "to": "6914"
+      },
+      {
+       "t": "22:41",
+       "label": "Site/Workshop",
+       "from": "Site",
+       "to": "Workshop"
+      },
+      {
+       "t": "22:57",
+       "label": "Site/Workshop",
+       "from": "Workshop",
+       "to": "Site"
+      },
+      {
+       "t": "23:13",
+       "label": "Picture dimension 1",
+       "from": "",
+       "to": "-40.00"
+      },
+      {
+       "t": "23:16",
+       "label": "Picture dimension 4",
+       "from": "",
+       "to": "-40.00"
+      },
+      {
+       "t": "23:22",
+       "label": "Picture dimension 2",
+       "from": "",
+       "to": "5"
+      },
+      {
+       "t": "23:23",
+       "label": "Picture dimension 3",
+       "from": "",
+       "to": "100.00"
+      },
+      {
+       "t": "23:27",
+       "label": "Picture dimension 3",
+       "from": "100.00",
+       "to": "120.00"
+      },
+      {
+       "t": "24:11",
+       "label": "Picture dimension 5",
+       "from": "",
+       "to": "40.00"
+      },
+      {
+       "t": "24:13",
+       "label": "Picture dimension 8",
+       "from": "",
+       "to": "40.00"
+      },
+      {
+       "t": "24:17",
+       "label": "Picture dimension 6",
+       "from": "",
+       "to": "4"
+      },
+      {
+       "t": "24:27",
+       "label": "Picture dimension 6",
+       "from": "4",
+       "to": "2"
+      }
+     ],
+     "model": [
+      {
+       "t": "22:18",
+       "what": "Component End plate (144) is active"
+      },
+      {
+       "t": "22:46",
+       "what": "Bolts in model change color from yellow (Site) to red (Workshop)"
+      },
+      {
+       "t": "23:40",
+       "what": "Measurement in model confirms 120mm bolt spacing"
+      },
+      {
+       "t": "23:50",
+       "what": "Measurement in model confirms 40mm edge distance"
+      }
+     ]
+    }
+   ]
+  },
+  "General": {
+   "span": "25:30-28:57",
+   "read": {
+    "final": [
+     {
+      "label": "Connection type",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Up direction",
+      "value": "Auto",
+      "sure": true
+     },
+     {
+      "label": "AutoDefaults",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "AutoConnection",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Class",
+      "value": "100",
+      "sure": true
+     },
+     {
+      "label": "Connection code",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "changes": [],
+    "model": [
+     {
+      "t": "25:30",
+      "what": "The 'End plate (144)' component dialog is open, initially showing the 'Analysis' tab."
+     },
+     {
+      "t": "26:41",
+      "what": "The user enters 'End Plate 144 Content' into the 'Save as' attribute field."
+     },
+     {
+      "t": "26:56",
+      "what": "The attribute name is updated to '4M End Plate 144 Content' in the 'Save as' field."
+     },
+     {
+      "t": "27:24",
+      "what": "The model folder '00-Tekla GP 2026' is opened in Windows File Explorer at path D:\\STEEL-4M\\GP2026 - UNIT2\\04-Tekla\\00-Tekla GP 2026."
+     },
+     {
+      "t": "27:28",
+      "what": "The attribute file '4M End Plate 144 Content.j144' is confirmed to exist within the 'attributes' subfolder."
+     },
+     {
+      "t": "27:51",
+      "what": "A 3D model view displays a large, multi-story industrial steel structure."
+     }
+    ]
+   }
+  }
+ }
+}

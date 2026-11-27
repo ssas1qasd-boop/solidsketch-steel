@@ -105,10 +105,24 @@ object Acc {
         override fun get(q: Map<String, JsonElement>, k: String): JsonElement { val s = (if (Js.truthy(q["pitches"])) Js.str(q["pitches"]) else "").trim(); return JsonPrimitive(s.ifEmpty { if (Js.truthy(q["pitch"])) Js.str(q["pitch"]) else "" }) }
         override fun set(q: MutableMap<String, JsonElement>, k: String, v: JsonElement) { val s = Js.str(v).trim(); if (' ' in s) q["pitches"] = JsonPrimitive(s) else { q["pitches"] = Js.EMPTY; val n = StGrid.jsNumber(s.ifEmpty { "0" }); q["pitch"] = if (n != 0.0 && !n.isNaN()) Js.n(n) else (q["pitch"] ?: JsonNull) } }
     }
+    /** v70 T144 (web/v70/t144.js): Bolts tab 5, blank allowed (= the plate width less 2 x the edge distance). */
+    private val gaugeList70 = object : A {
+        override fun get(q: Map<String, JsonElement>, k: String): JsonElement { val e = q["gauge"]; if (e == null || (e as? JsonPrimitive)?.let { it.isString && it.content == "" } == true) return Js.EMPTY; return gaugeList.get(q, k) }
+        override fun set(q: MutableMap<String, JsonElement>, k: String, v: JsonElement) { if (Js.str(v).trim().isEmpty()) { q["cols"] = Js.n(2.0); q["gauge"] = Js.EMPTY } else gaugeList.set(q, k, v) }
+    }
+    /** v70 T144: Bolts tab 6 as Tekla's (from the secondary's top to the uppermost bolt) = e - ext. */
+    private val tkTop70 = object : A {
+        private fun extOf(q: Map<String, JsonElement>) = Js.num(q["ext"]).let { if (it.isNaN() || it == 0.0) 0.0 else it }
+        override fun get(q: Map<String, JsonElement>, k: String): JsonElement { val e = q["e"]; if (e == null || (e as? JsonPrimitive)?.let { it.isString && it.content == "" } == true) return Js.EMPTY
+            return Js.n(Math.floor((Js.num(e) - extOf(q)) * 1000 + 0.5) / 1000) }
+        override fun set(q: MutableMap<String, JsonElement>, k: String, v: JsonElement) { if ((v as? JsonPrimitive)?.let { it.isString && it.content == "" } == true) return; val n = Js.num(v); if (n.isFinite()) q["e"] = Js.n(n + extOf(q)) }
+    }
     /** v69 get source → accessor. */
     val KNOWN: Map<String, A> = mapOf(
         "(q, k) => q[k] === '' || q[k] === undefined ? '' : -q[k]" to neg,
         "q => (q.cols | 0) === 4 ? `\${q.gauge2 || q.gauge} \${q.gauge} \${q.gauge2 || q.gauge}` : `\${q.gauge}`" to gaugeList,
         "q => String(q.pitches || '').trim() || (q.pitch ? String(q.pitch) : '')" to pitchList,
+        "q => q.gauge === '' || q.gauge === undefined ? '' : (q.cols | 0) === 4 ? `\${q.gauge2 || q.gauge} \${q.gauge} \${q.gauge2 || q.gauge}` : `\${q.gauge}`" to gaugeList70,
+        "q => q.e === '' || q.e === undefined ? '' : Math.round((+q.e - (+q.ext || 0)) * 1000) / 1000" to tkTop70,
     )
 }

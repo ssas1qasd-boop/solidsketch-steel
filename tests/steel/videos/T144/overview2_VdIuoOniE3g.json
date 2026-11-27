@@ -1,0 +1,56 @@
+{
+ "url": "https://www.youtube.com/watch?v=VdIuoOniE3g",
+ "models": [
+  "gemini-3.5-flash"
+ ],
+ "overview": {
+  "language": "Hindi",
+  "units": "mm",
+  "tekla_version": "2023",
+  "members": [
+   {
+    "role": "main",
+    "profile": "I-section column",
+    "orientation": "column",
+    "slope_or_skew": "straight vertical",
+    "note": "Main column member selected first for End plate (144) connection"
+   },
+   {
+    "role": "secondary",
+    "profile": "I-section beam",
+    "orientation": "beam",
+    "slope_or_skew": "horizontal",
+    "note": "Secondary beam member connected to column flange/web"
+   }
+  ],
+  "connection_type": "beam to column flange / beam to column web",
+  "dialog_spans": [
+   {
+    "tab": "Picture / Plates / Bolts",
+    "start": "07:26",
+    "end": "07:44",
+    "values_changed": "Opened End plate (144) properties dialog to demonstrate potential customization of plate thickness, stiffeners, and bolt parameters."
+   }
+  ],
+  "result": "Standard End plate (144) connection applied connecting secondary beams to main column flanges and webs across Plan 3000 and Plan 6000 levels.",
+  "applied_times": [
+   "02:08",
+   "02:12",
+   "02:14",
+   "02:21",
+   "02:30",
+   "02:41",
+   "03:12",
+   "03:14",
+   "05:00",
+   "05:08",
+   "05:16",
+   "05:28",
+   "05:54",
+   "06:08",
+   "06:15",
+   "06:38",
+   "06:40"
+  ]
+ }
+}

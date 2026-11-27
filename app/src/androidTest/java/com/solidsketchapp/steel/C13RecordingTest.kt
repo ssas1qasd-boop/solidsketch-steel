@@ -38,7 +38,7 @@ import kotlin.math.sqrt
  * C13 End plate (144) at the mezzanine, girder -> column flange (docs/steel/PARITY.md "C13"), the owner's video check: R12's joint C2015 /
  * EB4002 (BI320 column, BI320 girder on its flange) placed one by one, the 144 through its dialog with R12's settings (Picture t 16,
  * 1 = -55, 2 = -55, gap 0; Haunch tab: Top / Bottom plate 10 x 55 x 50, chamfers 12.5 line, created = the girder-side 'Stiff.' plates;
- * Bolts M16, 4 rows, 6 = 30, s = 70 230 70, 5 = 60, 3 = 30, Tekla length, direction 2), Pick parts; orbit; the model saved
+ * Bolts M16, 4 rows, 6 = -25 (Tekla: from the girder top; e 30 from the plate top), s = 70 230 70, 5 = 60, 3 = 30, Tekla length, direction 2), Pick parts; orbit; the model saved
  * (c13/c13_case.ss: R12's joint). Then 144's Stiffeners tab (R12's own column stiffeners there are Column with stiffeners (186)'s; the
  * tab makes Tekla's Top / Bottom NS / FS): created, square, t 10, b 70, Modify, orbit, saved (c13_stiff.ss); then Top NS b 50, Modify,
  * orbit. Orthographic stills in landscape for the long girder. /sdcard/c13_rec.mp4.
@@ -131,7 +131,7 @@ class C13RecordingTest {
             tab("Haunch"); field("hpt1", "10"); field("hpb1", "55"); field("hph1", "50"); field("hpt2", "10"); field("hpb2", "55"); field("hph2", "50")
             field("hc1", "12.5"); field("hc2", "12.5"); field("hc3", "12.5"); field("hc4", "12.5"); pick("hct", "Line chamfer"); pick("hpc", "Top and bottom haunch plates are created"); shot("dialog144_haunch")
             tab("Stiffeners"); pick("scr", "No stiffeners are created"); shot("dialog144_stiffeners_none")
-            tab("Bolts"); pick("bolt", "M16"); field("rows", "4"); field("e", "30"); field("pitches", "70 230 70"); field("gauge", "60"); field("side", "30")
+            tab("Bolts"); pick("bolt", "M16"); field("rows", "4"); field("e", "-25"); field("pitches", "70 230 70"); field("gauge", "60"); field("side", "30")
             pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); pick("bdir", "Bolting direction 2"); shot("dialog144_bolts")
             // picks on the web faces, square to the camera: the column's web (y 16785 - 4) above the joint, the girder's web away from it
             val cam = { look(Vec3(12300.0, 16785.0, 3900.0), Vec3(-0.12, -1.0, 0.22), 6500.0) }

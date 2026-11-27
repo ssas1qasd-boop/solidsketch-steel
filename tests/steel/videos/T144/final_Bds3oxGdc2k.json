@@ -1,0 +1,2123 @@
+{
+ "url": "https://www.youtube.com/watch?v=Bds3oxGdc2k",
+ "model": "gemini-3-flash-preview",
+ "tabs": {
+  "Model": {
+   "span": "00:00-02:15",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "omitir otros tipos (omit other types)",
+       "value": false,
+       "sure": true
+      },
+      {
+       "label": "Attribute file 1",
+       "value": "standard",
+       "sure": true
+      },
+      {
+       "label": "soldaduras (welds)",
+       "value": true,
+       "sure": true
+      },
+      {
+       "label": "Attribute file 2",
+       "value": "standard",
+       "sure": true
+      },
+      {
+       "label": "1",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "2",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Gap (bottom center)",
+       "value": "1.00",
+       "sure": true
+      },
+      {
+       "label": "Top extension (top right)",
+       "value": "5.00",
+       "sure": true
+      },
+      {
+       "label": "Bottom extension (bottom right)",
+       "value": "5.00",
+       "sure": true
+      }
+     ],
+     "changes": [],
+     "model": [
+      {
+       "t": "01:15",
+       "what": "Column height changed to 4500.00"
+      },
+      {
+       "t": "01:24",
+       "what": "Column height changed to 4500.00"
+      }
+     ]
+    }
+   ]
+  },
+  "Bolts": {
+   "span": "02:10-02:40",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "Tama\u00f1o tornillo (Bolt size)",
+       "value": "15.88",
+       "sure": true
+      },
+      {
+       "label": "Est\u00e1ndar tornillo (Bolt standard)",
+       "value": "A325N",
+       "sure": true
+      },
+      {
+       "label": "Tolerancia (Tolerance)",
+       "value": "2.00",
+       "sure": true
+      },
+      {
+       "label": "Rosca mat. (Thread in mat.)",
+       "value": "S\u00ed",
+       "sure": true
+      },
+      {
+       "label": "Longitud corte (Cut length)",
+       "value": "50",
+       "sure": true
+      },
+      {
+       "label": "Nota tornillo (Bolt extra note)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Tipo de agujero (Hole type)",
+       "value": "Redondo",
+       "sure": true
+      },
+      {
+       "label": "Aguj. oval. (Slotted hole)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "1",
+       "value": "2",
+       "sure": true
+      },
+      {
+       "label": "2",
+       "value": "80.00",
+       "sure": true
+      },
+      {
+       "label": "3",
+       "value": "100.00",
+       "sure": true
+      }
+     ],
+     "changes": [
+      {
+       "t": "02:27",
+       "label": "Est\u00e1ndar tornillo (Bolt standard)",
+       "from": "Por defecto",
+       "to": "A325N"
+      },
+      {
+       "t": "02:29",
+       "label": "Tama\u00f1o tornillo (Bolt size)",
+       "from": "Por defecto",
+       "to": "15.88"
+      }
+     ],
+     "model": [
+      {
+       "t": "02:10",
+       "what": "Component End plate (144) dialog opened"
+      },
+      {
+       "t": "02:10",
+       "what": "Component Placa de uni\u00f3n (144) selected in Applications and components side panel"
+      }
+     ]
+    }
+   ]
+  },
+  "Picture": {
+   "span": "02:35-03:50",
+   "read": {
+    "final": [
+     {
+      "label": "centrar otros tipos (center other types)",
+      "value": "centrar otros tipos",
+      "sure": true
+     },
+     {
+      "label": "soldaduras (welds)",
+      "value": "true",
+      "sure": true
+     },
+     {
+      "label": "juntar con (join with)",
+      "value": "standard",
+      "sure": true
+     },
+     {
+      "label": "Dist...",
+      "value": "---",
+      "sure": true
+     },
+     {
+      "label": "1 (top offset)",
+      "value": "-10.00",
+      "sure": true
+     },
+     {
+      "label": "2 (bottom offset)",
+      "value": "-10.00",
+      "sure": true
+     },
+     {
+      "label": "3 (gap)",
+      "value": "1.00",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "02:58",
+      "label": "1 (top offset)",
+      "from": "5.00",
+      "to": "-10.00"
+     },
+     {
+      "t": "03:06",
+      "label": "2 (bottom offset)",
+      "from": "5.00",
+      "to": "-10.00"
+     }
+    ],
+    "model": [
+     {
+      "t": "02:50",
+      "what": "Distance measurement between beam edge and plate: 5.00 mm"
+     }
+    ]
+   }
+  },
+  "Plates": {
+   "span": "03:50-05:20",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "Placa de uni\u00f3n (End plate) t",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "Placa de uni\u00f3n (End plate) b",
+       "value": "180.00",
+       "sure": true
+      },
+      {
+       "label": "Placa de uni\u00f3n (End plate) h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Placa de uni\u00f3n (End plate) checkbox",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "Chapa plegada (Folded plate) t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Chapa plegada (Folded plate) b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Chapa plegada (Folded plate) h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Chapa plegada (Folded plate) checkbox",
+       "value": "unchecked",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) Pos Num prefix",
+       "value": "P",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) Pos Num start",
+       "value": "1",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) Material",
+       "value": "A36",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) Nombre (Name)",
+       "value": "PL UNION",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) Acabado (Finish)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) checkbox",
+       "value": "unchecked",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 2 (Shim plate 2) t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 2 (Shim plate 2) b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 2 (Shim plate 2) h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 2 (Shim plate 2) Pos Num prefix",
+       "value": "P",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 2 (Shim plate 2) Pos Num start",
+       "value": "1",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 2 (Shim plate 2) Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 2 (Shim plate 2) Nombre (Name)",
+       "value": "PLACARELLENO",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 2 (Shim plate 2) Acabado (Finish)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 2 (Shim plate 2) checkbox",
+       "value": "unchecked",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 3 (Shim plate 3) t",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 3 (Shim plate 3) b",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 3 (Shim plate 3) h",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 3 (Shim plate 3) Pos Num prefix",
+       "value": "P",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 3 (Shim plate 3) Pos Num start",
+       "value": "1",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 3 (Shim plate 3) Material",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 3 (Shim plate 3) Nombre (Name)",
+       "value": "PLACARELLENO",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 3 (Shim plate 3) Acabado (Finish)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Pl. adaptaci\u00f3n 3 (Shim plate 3) checkbox",
+       "value": "unchecked",
+       "sure": true
+      },
+      {
+       "label": "N\u00famero de pl. adaptaci\u00f3n 1 (Shim plate 1 type)",
+       "value": "1",
+       "sure": true
+      },
+      {
+       "label": "N\u00famero de pl. adaptaci\u00f3n 2 (Shim plate 2 type)",
+       "value": "2",
+       "sure": true
+      },
+      {
+       "label": "N\u00famero de pl. adaptaci\u00f3n 3 (Shim plate 3 type)",
+       "value": "2",
+       "sure": true
+      },
+      {
+       "label": "Tolerancia (Tolerance)",
+       "value": "5.00",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 1",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 2",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Picture dimension 3",
+       "value": "",
+       "sure": true
+      }
+     ],
+     "changes": [
+      {
+       "t": "04:13",
+       "label": "Placa de uni\u00f3n (End plate) b",
+       "from": "",
+       "to": "200.00"
+      },
+      {
+       "t": "04:15",
+       "label": "Placa de uni\u00f3n (End plate) h",
+       "from": "",
+       "to": "200.00"
+      },
+      {
+       "t": "04:22",
+       "label": "Placa de uni\u00f3n (End plate) h",
+       "from": "200.00",
+       "to": "400.00"
+      },
+      {
+       "t": "04:36",
+       "label": "Placa de uni\u00f3n (End plate) h",
+       "from": "400.00",
+       "to": ""
+      },
+      {
+       "t": "04:42",
+       "label": "Placa de uni\u00f3n (End plate) b",
+       "from": "200.00",
+       "to": "180.00"
+      },
+      {
+       "t": "04:56",
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) Material",
+       "from": "",
+       "to": "A36"
+      },
+      {
+       "t": "05:01",
+       "label": "Pl. adaptaci\u00f3n 1 (Shim plate 1) Nombre (Name)",
+       "from": "",
+       "to": "PL UNION"
+      }
+     ],
+     "model": [
+      {
+       "t": "04:17",
+       "what": "The end plate in the model updates to a square 200x200 shape."
+      },
+      {
+       "t": "04:25",
+       "what": "The end plate in the model updates to a 200x400 rectangular shape."
+      },
+      {
+       "t": "04:39",
+       "what": "The end plate height reverts to its default calculated value."
+      },
+      {
+       "t": "04:46",
+       "what": "The end plate width updates to 180mm."
+      }
+     ]
+    }
+   ]
+  },
+  "Stiffeners": {
+   "span": "05:20-08:20",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "LC superior checkbox",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "LC superior t",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "LC superior b",
+       "value": "116.25",
+       "sure": true
+      },
+      {
+       "label": "LC superior h",
+       "value": "218.00",
+       "sure": true
+      },
+      {
+       "label": "LC superior Pos N\u00fam (Pos No)",
+       "value": "1",
+       "sure": true
+      },
+      {
+       "label": "LC superior Material",
+       "value": "A36",
+       "sure": true
+      },
+      {
+       "label": "LC superior Nombre (Name)",
+       "value": "PLUNION",
+       "sure": true
+      },
+      {
+       "label": "LC superior Acabado (Finish)",
+       "value": "PLACARELLENO",
+       "sure": true
+      },
+      {
+       "label": "LL superior checkbox",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "LL superior t",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "LL superior b",
+       "value": "116.25",
+       "sure": true
+      },
+      {
+       "label": "LL superior h",
+       "value": "218.00",
+       "sure": true
+      },
+      {
+       "label": "LL superior Pos N\u00fam (Pos No)",
+       "value": "1",
+       "sure": true
+      },
+      {
+       "label": "LL superior Material",
+       "value": "A36",
+       "sure": true
+      },
+      {
+       "label": "LL superior Nombre (Name)",
+       "value": "PLUNION",
+       "sure": true
+      },
+      {
+       "label": "LL superior Acabado (Finish)",
+       "value": "PLACARELLENO",
+       "sure": true
+      },
+      {
+       "label": "LC inferior checkbox",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "LC inferior t",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "LC inferior b",
+       "value": "116.25",
+       "sure": true
+      },
+      {
+       "label": "LC inferior h",
+       "value": "218.00",
+       "sure": true
+      },
+      {
+       "label": "LC inferior Pos N\u00fam (Pos No)",
+       "value": "1",
+       "sure": true
+      },
+      {
+       "label": "LC inferior Material",
+       "value": "A36",
+       "sure": true
+      },
+      {
+       "label": "LC inferior Nombre (Name)",
+       "value": "PLUNION",
+       "sure": true
+      },
+      {
+       "label": "LC inferior Acabado (Finish)",
+       "value": "PLACARELLENO",
+       "sure": true
+      },
+      {
+       "label": "LL inferior checkbox",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "LL inferior t",
+       "value": "10.00",
+       "sure": true
+      },
+      {
+       "label": "LL inferior b",
+       "value": "116.25",
+       "sure": true
+      },
+      {
+       "label": "LL inferior h",
+       "value": "218.00",
+       "sure": true
+      },
+      {
+       "label": "LL inferior Pos N\u00fam (Pos No)",
+       "value": "1",
+       "sure": true
+      },
+      {
+       "label": "LL inferior Material",
+       "value": "A36",
+       "sure": true
+      },
+      {
+       "label": "LL inferior Nombre (Name)",
+       "value": "PLUNION",
+       "sure": true
+      },
+      {
+       "label": "LL inferior Acabado (Finish)",
+       "value": "PLACARELLENO",
+       "sure": true
+      },
+      {
+       "label": "soldaduras (welds) checkbox",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "Stiffener shape (top left picture)",
+       "value": "1st option",
+       "sure": true
+      },
+      {
+       "label": "Stiffener side top (middle top picture)",
+       "value": "1st option",
+       "sure": true
+      },
+      {
+       "label": "Stiffener side middle (middle middle picture)",
+       "value": "2nd option",
+       "sure": true
+      },
+      {
+       "label": "Stiffener side bottom (middle bottom picture)",
+       "value": "1st option",
+       "sure": true
+      },
+      {
+       "label": "Stiffener side right (right picture)",
+       "value": "1st option",
+       "sure": true
+      },
+      {
+       "label": "Bottom picture dimension top",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom picture dimension middle",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom picture dimension bottom",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Bottom picture dimension right",
+       "value": "",
+       "sure": true
+      }
+     ],
+     "changes": [
+      {
+       "t": "06:14",
+       "label": "Stiffener side middle (middle middle picture)",
+       "from": "1st option",
+       "to": "2nd option"
+      },
+      {
+       "t": "06:36",
+       "label": "LC superior b",
+       "from": "10.00",
+       "to": "50.00"
+      },
+      {
+       "t": "06:36",
+       "label": "LL superior b",
+       "from": "10.00",
+       "to": "50.00"
+      },
+      {
+       "t": "06:36",
+       "label": "LC inferior b",
+       "from": "10.00",
+       "to": "100.00"
+      },
+      {
+       "t": "06:52",
+       "label": "LC superior b",
+       "from": "50.00",
+       "to": "150.00"
+      },
+      {
+       "t": "06:52",
+       "label": "LC superior h",
+       "from": "10.00",
+       "to": "200.00"
+      },
+      {
+       "t": "07:12",
+       "label": "LC superior h",
+       "from": "200.00",
+       "to": "218.00"
+      },
+      {
+       "t": "07:25",
+       "label": "LC superior b",
+       "from": "150.00",
+       "to": "116.25"
+      },
+      {
+       "t": "08:03",
+       "label": "LL superior b",
+       "from": "50.00",
+       "to": "116.25"
+      },
+      {
+       "t": "08:03",
+       "label": "LC inferior b",
+       "from": "100.00",
+       "to": "116.25"
+      },
+      {
+       "t": "08:03",
+       "label": "LL inferior b",
+       "from": "10.00",
+       "to": "116.25"
+      },
+      {
+       "t": "08:03",
+       "label": "LL superior h",
+       "from": "10.00",
+       "to": "218.00"
+      },
+      {
+       "t": "08:03",
+       "label": "LC inferior h",
+       "from": "10.00",
+       "to": "218.00"
+      },
+      {
+       "t": "08:03",
+       "label": "LL inferior h",
+       "from": "10.00",
+       "to": "218.00"
+      }
+     ],
+     "model": [
+      {
+       "t": "07:04",
+       "what": "Column internal flange distance: 218.00"
+      },
+      {
+       "t": "07:34",
+       "what": "Column flange width (half): 116.25"
+      }
+     ]
+    }
+   ]
+  },
+  "Picture2": {
+   "span": "09:00-10:20",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "1 (Gap)",
+       "value": "1.00",
+       "sure": true
+      },
+      {
+       "label": "Top offset",
+       "value": "-10.00",
+       "sure": true
+      },
+      {
+       "label": "Bottom offset",
+       "value": "-10.00",
+       "sure": true
+      },
+      {
+       "label": "omitir otros tipos (Ignore other types)",
+       "value": "omitir otros tipos",
+       "sure": true
+      },
+      {
+       "label": "soldaduras (Welds)",
+       "value": "on",
+       "sure": true
+      }
+     ],
+     "changes": [],
+     "model": [
+      {
+       "t": "09:00",
+       "what": "Component End plate (144) is used to connect a green beam to a purple column."
+      },
+      {
+       "t": "09:36",
+       "what": "Measurement of the gap between the beam end and the column flange in the model shows 1.99 mm."
+      },
+      {
+       "t": "09:45",
+       "what": "Measurement of the gap between the beam end and the column flange in the model shows 1.00 mm."
+      }
+     ]
+    }
+   ]
+  },
+  "Haunch": {
+   "span": "10:00-12:50",
+   "read": {
+    "error": "Gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Q"
+   }
+  },
+  "Picture3": {
+   "span": "12:45-13:20",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "top right dimension",
+       "value": "-50.00",
+       "sure": true
+      },
+      {
+       "label": "middle right dimension",
+       "value": "-50.00",
+       "sure": true
+      },
+      {
+       "label": "bottom right dimension",
+       "value": "1.00",
+       "sure": true
+      },
+      {
+       "label": "top right checkbox",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "middle right checkbox",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "bottom right checkbox",
+       "value": "checked",
+       "sure": true
+      },
+      {
+       "label": "other picture dimensions",
+       "value": "",
+       "sure": true
+      }
+     ],
+     "changes": [
+      {
+       "t": "13:05",
+       "label": "top right dimension",
+       "from": "-10.00",
+       "to": "-50.00"
+      },
+      {
+       "t": "13:10",
+       "label": "middle right dimension",
+       "from": "-10.00",
+       "to": "-50.00"
+      }
+     ],
+     "model": [
+      {
+       "t": "12:45",
+       "what": "Component 'Placa de uni\u00f3n (144)' (End plate) dialog is open"
+      },
+      {
+       "t": "13:13",
+       "what": "Haunch plates (cantonera) are generated in the model after clicking 'Modificar' (Modify)"
+      }
+     ]
+    }
+   ]
+  },
+  "Haunch2": {
+   "span": "13:10-14:35",
+   "read": {
+    "final": [
+     {
+      "label": "Placa superior (Top plate) - checkbox",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Placa superior (Top plate) - t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Placa superior (Top plate) - b",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa superior (Top plate) - h",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa superior (Top plate) - Pos Num",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa superior (Top plate) - Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa superior (Top plate) - Nombre (Name)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa superior (Top plate) - Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa inferior (Bottom plate) - checkbox",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Placa inferior (Bottom plate) - t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Placa inferior (Bottom plate) - b",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa inferior (Bottom plate) - h",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa inferior (Bottom plate) - Pos Num",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa inferior (Bottom plate) - Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa inferior (Bottom plate) - Nombre (Name)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Placa inferior (Bottom plate) - Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top haunch - outer chamfer type",
+      "value": "diagonal",
+      "sure": true
+     },
+     {
+      "label": "Top haunch - outer chamfer (horizontal)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top haunch - outer chamfer (vertical)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top haunch - inner chamfer type",
+      "value": "diagonal",
+      "sure": true
+     },
+     {
+      "label": "Top haunch - inner chamfer (horizontal)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top haunch - inner chamfer (vertical)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom haunch - inner chamfer type",
+      "value": "diagonal",
+      "sure": true
+     },
+     {
+      "label": "Bottom haunch - inner chamfer (horizontal)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom haunch - inner chamfer (vertical)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom haunch - outer chamfer type",
+      "value": "diagonal",
+      "sure": true
+     },
+     {
+      "label": "Bottom haunch - outer chamfer (horizontal)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom haunch - outer chamfer (vertical)",
+      "value": "10.00",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "13:21",
+      "label": "Placa superior (Top plate) - t",
+      "from": "10.00",
+      "to": "5.00"
+     },
+     {
+      "t": "13:21",
+      "label": "Placa inferior (Bottom plate) - t",
+      "from": "10.00",
+      "to": "5.00"
+     },
+     {
+      "t": "13:28",
+      "label": "Placa superior (Top plate) - t",
+      "from": "5.00",
+      "to": "10.00"
+     },
+     {
+      "t": "13:29",
+      "label": "Placa inferior (Bottom plate) - t",
+      "from": "5.00",
+      "to": "10.00"
+     },
+     {
+      "t": "13:48",
+      "label": "Top haunch - outer chamfer (horizontal)",
+      "from": "",
+      "to": "10.00"
+     },
+     {
+      "t": "13:51",
+      "label": "Top haunch - outer chamfer (vertical)",
+      "from": "",
+      "to": "10.00"
+     },
+     {
+      "t": "13:58",
+      "label": "Bottom haunch - outer chamfer (horizontal)",
+      "from": "",
+      "to": "10.00"
+     },
+     {
+      "t": "14:00",
+      "label": "Bottom haunch - outer chamfer (vertical)",
+      "from": "",
+      "to": "10.00"
+     },
+     {
+      "t": "14:04",
+      "label": "Bottom haunch - inner chamfer type",
+      "from": "straight",
+      "to": "diagonal"
+     },
+     {
+      "t": "14:08",
+      "label": "Bottom haunch - outer chamfer type",
+      "from": "straight",
+      "to": "diagonal"
+     },
+     {
+      "t": "14:11",
+      "label": "Bottom haunch - inner chamfer (horizontal)",
+      "from": "",
+      "to": "10.00"
+     },
+     {
+      "t": "14:12",
+      "label": "Bottom haunch - inner chamfer (vertical)",
+      "from": "",
+      "to": "10.00"
+     },
+     {
+      "t": "14:14",
+      "label": "Top haunch - inner chamfer (horizontal)",
+      "from": "",
+      "to": "10.00"
+     },
+     {
+      "t": "14:15",
+      "label": "Top haunch - inner chamfer (vertical)",
+      "from": "",
+      "to": "10.00"
+     },
+     {
+      "t": "14:16",
+      "label": "Top haunch - outer chamfer (horizontal)",
+      "from": "10.00",
+      "to": "10.00"
+     },
+     {
+      "t": "14:17",
+      "label": "Top haunch - outer chamfer (vertical)",
+      "from": "10.00",
+      "to": "10.00"
+     }
+    ],
+    "model": [
+     {
+      "t": "13:10",
+      "what": "Component 144 'Placa de uni\u00f3n' (End plate) is being edited."
+     },
+     {
+      "t": "13:10",
+      "what": "The connection is between a purple column and a green beam."
+     }
+    ]
+   }
+  },
+  "Bolts2": {
+   "span": "14:30-15:40",
+   "read": [
+    {
+     "final": [
+      {
+       "label": "Tama\u00f1o tornillo (Bolt size)",
+       "value": "15.88",
+       "sure": true
+      },
+      {
+       "label": "Est\u00e1ndar tornillo (Bolt standard)",
+       "value": "A325N",
+       "sure": true
+      },
+      {
+       "label": "Tolerancia (Tolerance)",
+       "value": "2.00",
+       "sure": true
+      },
+      {
+       "label": "Rosca mat (Thread in material)",
+       "value": "S\u00ed",
+       "sure": true
+      },
+      {
+       "label": "Obra/Taller (Site/Workshop)",
+       "value": "Obra",
+       "sure": true
+      },
+      {
+       "label": "Tipo de tornillo (Bolt type)",
+       "value": "Atornillado",
+       "sure": true
+      },
+      {
+       "label": "Tipo de agujero (Hole type)",
+       "value": "Ovalado",
+       "sure": true
+      },
+      {
+       "label": "Aguj. Oval. (Slotted hole) - horizontal",
+       "value": "0.00",
+       "sure": true
+      },
+      {
+       "label": "Aguj. Oval. (Slotted hole) - vertical",
+       "value": "0.00",
+       "sure": true
+      },
+      {
+       "label": "Efecto al ovalado (Slotted hole direction)",
+       "value": "Paralelo",
+       "sure": true
+      },
+      {
+       "label": "Longitud corte (Long cut)",
+       "value": "100.00",
+       "sure": true
+      },
+      {
+       "label": "Nota Tornillo (Bolt note)",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "Forma (Shape)",
+       "value": "rectangular",
+       "sure": true
+      },
+      {
+       "label": "1",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "2",
+       "value": "2",
+       "sure": true
+      },
+      {
+       "label": "3",
+       "value": "100.00",
+       "sure": true
+      },
+      {
+       "label": "4",
+       "value": "",
+       "sure": true
+      },
+      {
+       "label": "5",
+       "value": "4",
+       "sure": true
+      },
+      {
+       "label": "6",
+       "value": "120.00",
+       "sure": true
+      },
+      {
+       "label": "Top left checkbox",
+       "value": "Mitad",
+       "sure": true
+      },
+      {
+       "label": "Top right checkbox",
+       "value": "Mitad",
+       "sure": true
+      },
+      {
+       "label": "Bottom left checkbox",
+       "value": "25",
+       "sure": true
+      },
+      {
+       "label": "Bottom right checkbox",
+       "value": "2",
+       "sure": true
+      },
+      {
+       "label": "Borrar (Delete)",
+       "value": "",
+       "sure": true
+      }
+     ],
+     "changes": [
+      {
+       "t": "14:46",
+       "label": "Tama\u00f1o tornillo (Bolt size)",
+       "from": "15.88",
+       "to": "12.7"
+      },
+      {
+       "t": "14:50",
+       "label": "Tama\u00f1o tornillo (Bolt size)",
+       "from": "12.7",
+       "to": "15.88"
+      },
+      {
+       "t": "15:03",
+       "label": "6 (Spacing in Y)",
+       "from": "100.00",
+       "to": "120.00"
+      },
+      {
+       "t": "15:04",
+       "label": "5 (Number of bolts in Y)",
+       "from": "3",
+       "to": "4"
+      },
+      {
+       "t": "15:21",
+       "label": "3 (Spacing in X)",
+       "from": "80.00",
+       "to": "100.00"
+      },
+      {
+       "t": "15:36",
+       "label": "Bottom left checkbox value",
+       "from": "",
+       "to": "25"
+      }
+     ],
+     "model": [
+      {
+       "t": "14:30",
+       "what": "Component: Placa de uni\u00f3n (144)"
+      }
+     ]
+    }
+   ]
+  },
+  "Welds": {
+   "span": "15:35-16:40",
+   "read": {
+    "final": [
+     {
+      "label": "soldaduras (welds)",
+      "value": true,
+      "sure": true
+     },
+     {
+      "label": "Row 1: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 1: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 2: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 3: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 4: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 5: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 6: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 7: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 8: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 9: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Tama\u00f1o (Size)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Tipo (Type)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: \u00c1ngulo (Angle)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Forma (Shape)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Acabado (Finish)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Contorno (Contour)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Garganta efectiva (Effective throat)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Abertura de ra\u00edz (Root opening)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Longitud (Length)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Paso (Pitch)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Electrodo (Electrode)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Referencia (Reference)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Taller/Obra (Workshop/Site)",
+      "value": "Taller",
+      "sure": true
+     },
+     {
+      "label": "Row 10: Puntada (Stitch)",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "1 (picture dimension)",
+      "value": "1.00",
+      "sure": true
+     },
+     {
+      "label": "2 (picture dimension)",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "changes": [],
+    "model": [
+     {
+      "t": "15:35",
+      "what": "Component Placa de uni\u00f3n (144) is being edited"
+     },
+     {
+      "t": "15:56",
+      "what": "Propiedades Vista dialog opened"
+     },
+     {
+      "t": "15:58",
+      "what": "Visualizar dialog opened"
+     },
+     {
+      "t": "16:06",
+      "what": "Soldaduras display set to Exacto in Visualizar dialog"
+     },
+     {
+      "t": "16:12",
+      "what": "Soldaduras display set to Exacto - sin marca de soldadura in Visualizar dialog"
+     },
+     {
+      "t": "16:31",
+      "what": "Component settings saved as CONEXION 144"
+     }
+    ]
+   }
+  },
+  "General": {
+   "span": "16:30-18:10",
+   "read": {
+    "error": "Gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Q"
+   }
+  }
+ }
+}

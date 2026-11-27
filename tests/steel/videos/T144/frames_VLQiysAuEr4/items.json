@@ -1,0 +1,475 @@
+[
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 0,
+  "ts": "0:00:00",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "In the name of God, and prayers and peace be upon the Messenger of God, may God bless him and grant him peace. In this video we will talk about the undeployment connection, which is number 144. Let 's say we have a project like this. Connection in this view. This is the endplate between the column and the rafter. The word \"Kolm\" in our case here was HHAI. HE 360. The router here was an API"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 29.76,
+  "ts": "0:00:29",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "400. Now we'll start with the connection. I'm going to erase the connection that was drawn here. We will start by getting the applications and components. In this view. Let's start from the very beginning. To get the connection, if I remember its number or name, I can search from here. Type 144. Our connection will appear. Or maybe even by name. We write \"endbleet\". It will appear to us like this. But what if I don't remember the names or the number? I'll come here from Steel. After that I will choose Endblets. And"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 69.44,
+  "ts": "0:01:09",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "here I will find the 144th ENDABLE. I will choose it like this. First, we choose the main part, which is our column. I'm going to click on it. Then Alexandria Port. We will choose our BIM in this way. He made the connection look like this. What is the default or standard setting that exists within the program? Let's start adjusting all our details. We're not just going to draw it. no. We will know everything related to the connection."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 99.2,
+  "ts": "0:01:39",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "I can just right-click on it. After that, create a view. 3D View. And I press Control Four. Because the connection alone appears to us in this way. You can also right-click on it. Crete View. The default component settings will open here like this. This is our 3D connection, and this is its end, and here's the front, and the rest of our angles. First, to open our connection, we'll"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 138.88,
+  "ts": "0:02:18",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "click on our green icon or on the connection itself like this. But we must have the component selection enabled here because here it's \" Select Object on Component.\" This means if I enable this and then choose this, it will only select the plate, or if I choose the screw, it will only select the screw. So, I'll enable the component here and select it like this. This will open our settings. First, we'll start talking about all the details."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 168.64,
+  "ts": "0:02:48",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "Let's begin one by one. First, the distance between the plate and the column is zero by default. There's no space between them. If I make it, say, 10, you 'll see a space appear here, which is the distance I set. But I don't need it, though. Enter it at zero, or leave its default value, which is no distance. So, what are these distances? These distances are the distance between the slab and our beam. So, how do I enter it?"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 208.32,
+  "ts": "0:03:28",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "If we enter it like this, if we make it 40, look what will appear. It will make us 40 upwards. Why? Because I'm entering in this direction, or our default value is in this direction. Now, I want it to go down to -40, and let's say it looks like this. It will appear like this, and a Stevener will start appearing with us because this is also in our default value. So, depending on the distance I have, let's say I have -80, we'll say \" modify,\" and from above we'll say,"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 238.08,
+  "ts": "0:03:58",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "if we make it 80, you'll find it still goes downwards. So, we'll make it -80 so that it goes upwards like this. So, I was able to control our distances: the distance between the slab and the column, and the distance between the beam or the flanges. Our end-blade, let 's say it looks good to me. I'll move on to the plate. Let's talk about the details here. The end-blade, which is our large plate, is the first thing I entered. Let's say I set its thickness to"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 277.76,
+  "ts": "0:04:37",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "20. If we make it 8 to make it appear, it will shrink like this. I'll enter it as 20. The width and length, I can just delete these and start controlling from here. We can control from here like this, or we can control from here with our width and length. I can open the end-blade, the end-view, and"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 307.52,
+  "ts": "0:05:07",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "start working from here. Let's enter the width and length. Our width, our camera is IP400, meaning the height is 400 and the flange width is 180. So, let's say I need the width to be 180, like the flange. Let's leave it like this. In order to see it and we made a modify, we will find it on the front of the camera exactly because the width of the IPE is 400 180. Our height is IPE 400. If we say the height is 400, add 80 above and 80 below, then it becomes 160, so it becomes 560."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 347.2,
+  "ts": "0:05:47",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "Let it be like this. So that we can add screws on top. Okay, what is this Fold Plate thing? Come here . If we go in here, we go in 20, pay attention. You'll find something here that has appeared like this. This is the Fold Plate. So why am I using it? Honestly, if we receive shop drawings or design drawings in this format, with something like this in them, and of course we can control them, we can modify them."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 376.96,
+  "ts": "0:06:16",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "So how do we modify it? Let's say this length is 300. I'll modify it, and you'll find that your length has increased. So, the remaining distance, there's a space here, what is this? This is the thickness of the fold plate. If you leave it as 12, the fold plate will be 12 and the spacing will be less than that. Okay, so I'll make this length 400, see what happens. It will increase with us in this way. Do I need this? No, I don't need it right now. So what is this distance? Let's continue. There is something called here the set or set plate, let's also go into its thickness 12."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 416.64,
+  "ts": "0:06:56",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "Look at what will appear below like this. You will find in the plate that appeared from the beginning on the face of our end plate . What is its use? Depending on the design, if the design here offers something like this, then go ahead and do it. Well, I also want to control its distance. We'll start from here. Come on, let's go in here, 200. We'll do a modify, you'll find it too. Our distance is 200. Let's"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 446.4,
+  "ts": "0:07:26",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "make sure. Bring me the End View. If we do F. In this view. Right- click on Perpendural. Here you'll find 200. The snap didn't work, but the length is 200. Let's go back to our 3D model like this. Now we know how to add this. Now these are our lengths. Let's say our width is 200 and the length is 600. We haven't selected the connection yet. If we say the"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 486.08,
+  "ts": "0:08:06",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "length is 200 and here it's 600, if we modify it, you'll find it changed like this. Well, I don't need it now. I'll delete all of this. And this plate above, I don't need it either, the fold plate. I'll remove its thickness, so it's gone. Now what's this Fitting Plate 1? If the shop draw rules are showing us a double"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 515.84,
+  "ts": "0:08:35",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "plate here, then I've done it like this: 20. If we look closely, you'll see another plate starting to appear. Okay, I want to add three. Come here, boss, add 20. You'll find they've become three. Okay, I want to add the fourth, boss. 20 Modify. Okay, that's it. Now I start. I control the connection as I want. It's not just that the program gives me a certain shape. No, I start doing what I want. So, I'll remove this. I don't need to do Modify. We'll remove the fitting plate 1. We'll put it back as it was. Position number. Of course, if we"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 555.52,
+  "ts": "0:09:15",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "need to number the project and we must number it, we'll add it here according to each material company. Let's say I make Steel 52. This is what I have. Okay, and the name, we can call it a plate like this, and we don't have a finish. So what are these boxes? This is also the position number for the fitting plate, and so on for the material, the name, and the finish. The same applies here."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 585.28,
+  "ts": "0:09:45",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "We learned how to enter the spaces for the fold plate and the space for the set. What is this shape? Come here . I'll add something new here, let me know. I'll also make a fitting plate. In this way. If I changed this shape to the other shape I have. This shape makes the end plate look just like it does normally. Then he makes another plate located inside the flange and makes a plate after it on the other side. So if I selected it and modified it, we would notice that the palette I had disappeared. No, she didn't disappear, she went inside the flanges."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 624.96,
+  "ts": "0:10:24",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "If we look closely. We'll just make its thickness 12. We'll modify it. You'll find it's no longer a phenomenon. So how do we show it? Come here, boss, press Ctrl+4, Ctrl+3, or Ctrl+ 2 until it appears. Let's take a look at this. You will actually find a plate inside the fitting plate that I added, which is 12 cm thick and is located inside the flange. If you perform one more control, more will appear. It looks like this. Is this a problem? naturally. If we do control four again. If we choose the component like this. We chose the column with him. We came here to work from Mange Clash Check. See what will happen?"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 664.64,
+  "ts": "0:11:04",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "If we do a Clash Check, it will tell you in Clash. Let's take a look at the Clash that appeared. Exactly. What does the Clash say to you? Between the plate inside, this is its length. This plate and the space between the column. So if I close this again like this. And I came from here. We press Ctrl+1 to make it appear. We select the component again, then we modify it"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 694.4,
+  "ts": "0:11:34",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "like this, and we perform a mod. And then we went to choose again, we made control four. If we choose the component again and choose the column and perform a crash check, you will find zero, there is no crash, so a crash occurred at the first point, so we should pay attention to this point, a crash may occur just because we change the connection settings and you are not paying attention from here. So I'll leave it as our normal default. And here, if there is tolerance for our openings. So, for me, we have covered most of the"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 734.08,
+  "ts": "0:12:14",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "things here in the pallet, now let's move on to the stencil. Our stencil has two tops and two bottoms, what is a stencil? This stefanner, which is located here, is located on the web in this form here and here, and on the other side here and here. First thing, come here. If we enter their thickness, let's say 10, the first one is Modify, you will find it appeared here in the top on the other side. If we remove it like this, Modify,"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 763.84,
+  "ts": "0:12:43",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "if we add the first one, 10, like this, you'll find it appears here. What about the other side? We also add 10, you will find it here, come to the bottom. Let's add the bottom one here, let's say 10 modify, you'll find it also appears here, and on the other side we'll add a thickness of 10, it will appear like this. So, I've made my stabilizer. Now I also need to make the material, let's say Steel 52, put a control C on it"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 803.52,
+  "ts": "0:13:23",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "and add it here, and the name too. See the name I have or any name I want. Next, we go to these boxes. What are these boxes? If I have the beam coming in slanted and I need to make these inquiries slanted, then I will choose this option, which is the standard I have. Well, if I choose horizontal like this and make a modification, it won't change because I already have my beam horizontal, so the stabilizer is horizontal in both cases, whether I make it slanted here or"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 833.28,
+  "ts": "0:13:53",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "horizontal, our beam is horizontal anyway. Okay . Here we come, here if I don’t need a stabilizer at all, even if I made a stabilizer, if I canceled it, you will find that the stabilizer settings that I will adjust in a little while will be closed. If I made a modification, all four stabilizers disappeared because I removed them. Okay, I'll leave them again and you'll find everything activated for the Stiffener settings. [Snoring sounds] And here is what the stencil looks like, do you want it to have a rim like this or not, or do you want it all solid like this? Now we'll find out what this is. But first, let's talk about these settings. What are these settings?"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 872.96,
+  "ts": "0:14:32",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "These are the distances of the stencil in relation to our beam. So if I come from here, the indicator is visible to us from here, here it is: 1, 2, 3, 4. Let's adjust them. First thing here, let's make a change. Let's say the distance is negative 40 and you modify it, you'll find it looks like this. The negative 40 thing we're talking about here, this is the first negative"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 902.72,
+  "ts": "0:15:02",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "40 that went down like this, so if I need to raise it above 40 like this. Okay, if we need to modify this, we can make it 40. Modify it, and you'll find it goes up to 40 like this. Let's modify what's below. If we make it 40 here, it will go up. No, we want it down, so it will be negative 40. And here, negative 40 will go down like this. If we were to see it in 3D. We can see that this one is higher than the flange and this one is lower than the flange. What is the distance to the other side? Come here, let's stay"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 942.4,
+  "ts": "0:15:42",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "in 3D so we can see it. We're here, Stevens is always stuck here on the web. Okay, so if I enter a space, let's say 20 here, and modify it. If you look closely, you'll find an opening here. There is a space here that I created, which is our value, which is 20. So now I can control the Stefaner as I please. Take it up, take it down. Keep him away from"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 972.16,
+  "ts": "0:16:12",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "the web for a while. What if I want to keep it away from the flange? Come now to this choice. If we do 20 like this, what will it do for us? It will be 20 meters away from this flange and 20 meters away from this flange. I make Modify in this way and of course it plays in all the Stevens. So now it's like this, of course it's wrong, we 'll put it back again, but I'm teaching you how to control the stevaner settings. So I will bring this back again and I will bring this back again in this way. So why do we do this rinsing part in the first place? Why do we do it? The first thing we do is, if the shop drawings look like this, then I'll do the same. What else? For"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1011.84,
+  "ts": "0:16:51",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "galvanizing. When we galvanize this part as an assembly, of course this stefanner will come welded to the column. When galvanizing enters this area, it will form here if this opening is not present. And the people who know what \"galvanization\" means will understand what I'm saying. So how do I control this rinsing? From here. If I don't want it, I'll make it zero and zero. I told Modivai I would do it like this. Well, if I really want it, let's say 30. And"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1041.6,
+  "ts": "0:17:21",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "here's 30, Modivay, you'll find it like this. Okay, I want the default setting that's there. I'll delete this one. It will set the program's default settings. So now I have control over everything related to the Estefanr. Its dimensions here are, of course, length and width. If I need 300 here, Modify. On the other side, let's leave this side so that it appears. 300. Like this. Of course, I want to change the length, but we'll leave the length as it is. If I want to bring it back again, I just have to leave the default setting I have. So, I was also able to control the length and width, the distance between the Stifner and the Web, and"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1081.28,
+  "ts": "0:18:01",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "the distance between the Stifner and the Toflands. Next, we move on to the mortar. The little stick, called a \"honch\" in the settings, is located here. Let's modify it. First thing, let's say my weight. 12. And we said that the height we had set was 80. Let's just turn off the plate behind this one . Let's leave it in one plate."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1111.04,
+  "ts": "0:18:31",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "okay. Let's go back to the honch. This distance was 80 for me. So we'll make it 80. And. The other side, which is this one. This height is 80, and we make this 80 like this. Modifi looks like this [clears throat]. We do the same thing with the bottom edge or the bottom handle. The same dimensions. 80. 80. Modivai. And here too, we will not talk about the material and position number again. Now come after this rinse. This is always the case when you make a design; most paintings come in the shape of a triangle. So how am I going to do it? This rinse is part of our dimension."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1150.72,
+  "ts": "0:19:10",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "I mean, I have a dimension here that is 80 by 80, and let's say here, for example, 20 of the 80 is made. Well, I need it to be all chamfered, so I will make the whole dimension 80, the whole chamfer will be in the dimensions of the plate, so I will make it 80 by 80, and you will find it appeared in this form, the form that we see in most of the drawings. In this way. I can just remove the weld."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1180.48,
+  "ts": "0:19:40",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "modify Okay. So we made the stiffener below, now let's make the stiffener above, let's make the stiffener below and let it be like this, 80 and 80. modify it for you in the same way. Well, if I have this horizontal board, it's bigger, I mean, it's not just 80, it's bigger, let's make it 120. And we made a modify, of course the shape will change because I had made this chamfer only 80. So here I will do 120. You will find it has been fixed in the way we see it now"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1220.16,
+  "ts": "0:20:20",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": ". I'll put it back to 80. And we'll put this part back to 80. Modify. So what are these boxes? These boxes are also for the small rinse. Which we were just seeing here in this stiffener. If we try to fix it again, if we make it zero and zero, you will find that it is locked. Okay, I'll do it, let's say 10 and 10, you'll find it was done like this. Okay, I 'll leave our default settings like this. And here is for the stiffener below, if I want to control the chamfer for the stiffener below. So what is"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1259.84,
+  "ts": "0:20:59",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "this option? If I wanted to remove this option completely, you would find that all the settings were locked. If you modify it, you'll find that it has already removed them if you don't need them. Well, no, I need it again. I work like this. So now we know how to adjust the connection in this way. There's still one thing left, and what is it? Nails. Come on then . Here, the notch is needed. The notch is not in the link we have here. If we have an Alexandrian-Alexandrian-Beam connection and I need to do a bevel like this. This rinse is usually found in"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1289.6,
+  "ts": "0:21:29",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "Alexandrian Beam. Okay, what if I come back and we go back to our 3D? I was here, I was working here, Alexandrian Beam. I'll show you the way it's done . So that we can understand what these \"breaks\" mean. Dee, let's say Men Bem and Dee, Iskandari Bem. And I'm the one connecting them . If we pay attention to this. Here, there is a need called a rinse. We are cut off in Alexandria, here. So we can assemble it. So that this flange doesn't clash with that flange. So we come here and we cut it off. If we pay attention to this. Here it is made in a curved shape. We could have done it in any of these ways"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1329.28,
+  "ts": "0:22:09",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": ". But of course, it's in the connection settings . Let's go back to our connection. Come on, let's go to the boy. Let's bring in a bold size, let's say a diameter of 20. The standard. Let it be 69 14. Tolerance 2. We modify it. So what is this site? The site says we will install these screws on the site. What if I"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1359.04,
+  "ts": "0:22:39",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "changed it? If you changed it, it would be a workshop at the factory. You'll find its color has changed. If we did Modify. You'll find its color has turned red. If we came here like this. There is a color here. Yellow, and here the color is red. What's the difference between them? This one will be installed on-site, and this one will be installed in the workshop or factory. Okay, I'll return it again. I'll do it on the website. Modivai. Here, if we have a slot machine. And here I will show the rose, the nut, and all that stuff if we want to modify it. Come on, let's adjust our screws. Let the first nail I make be at negative 40 above. And the screw below, I will also make it at -40. Like this."
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1398.72,
+  "ts": "0:23:18",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "Then, if we have, for example, five nails with the distances between them being 100, let's make it 120, like this. Honestly, I think the distances are good. If we were to do an F like this, for example. From this screw to this screw, we make sure that this is the 120 we have inserted. And if we measure the rest of the screws, of course, 120. In this way. The"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1428.48,
+  "ts": "0:23:48",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "edge above it. You will find our 40. And under her [snoring sounds] . We do rotoview. We press on a second connection. So I was able to control the screws. In the second direction, I controlled the longitudinal direction. Medicine requires me to control the transverse direction. Let's say I'll make the first distance here, let's make it 40, which is the first nail from the edge. Hence, Modivai Modivai. Okay, if I made them four nails, what would happen? Two new rows will appear here. Modivai. Exactly like this. Two extra rows appeared. But I only have two worries, and that's it, I'll get rid of these"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1468.16,
+  "ts": "0:24:28",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "four. And I'm working on both of our projects. So what is this? Come here in 3D. This is the direction of the nail. The screw is oriented this way. If I edit it like this, it's Modify. The nail will appear like this . And here. This is how the nails are arranged. If you need a screw layout, I can provide one according to the design drawings that are coming. We'll fix it from here. [Clears throat] and these parts. This is if I want to add it. Angel D is considered a"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1497.92,
+  "ts": "0:24:57",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "second connection. If I do that, look, two angles appear. I do n't know if they're clear or not, the ones above and below. But I obviously don't need this. I'll modify it like this. She didn't hear me. I can make Control Z like this [snoring sounds]. So, we've now modified everything in the connection. Now, I want to save these settings"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1537.6,
+  "ts": "0:25:37",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "so I can use this connection in any other project without having to modify all these details again. But wait, there's something here, let's say a clash like this. I want this palette to be at the L level, or this stavenger to be at the flanges level. So, here in the stavenger, I remove this. We were learning how to do it; we want it at the flanges level like this. There's no clash. So,"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1567.36,
+  "ts": "0:26:07",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "I've learned everything about the connection. I want to save it so I can use it in another project. Besides that, I save it using something called Attributes. I just do Modify. Okay, let's open the connection again. If we go to the bar at the top, if we want to save something specific to us—for example, in this project I had several connections for 144, so I created several Attributes—let's say I save it here as EndPlate Content. Let's"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1607.04,
+  "ts": "0:26:47",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "call it EndPlate 144. First, here, 4M EndPlate 144 Condent, I'll do Save as Save like this. It's saved here. If you open it like this, you'll find it here, which is 4M EndPlate 144 Condent. I'll do Modify Apply like this. Okay, now"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1636.8,
+  "ts": "0:27:16",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "we want to save it as we said so we can use it in any other project. Well, I'll come from here and create an Open Model Folder like this. There's something called Attributes here. I'll open it and find the last thing I was using, which is 4M EndPlate 144 Condent. I'll copy this, for example. I'll go to my computer. I have a folder called \"Attribute\" and I'll paste it like this, so it's saved here. Now, I'm opening a new project, let's say this is a new project, and I want to add our Attribute. I copied it from my computer and created an \"Open"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1676.48,
+  "ts": "0:27:56",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "Model\" folder called \" Attributes\" and pasted it here. Then, in our connection settings, open the connection where you added the Attribute and click this arrow. It will appear here. You have to load it first, then modify it. It will appear with the same settings you created, like this. If you need to add something simple, like adjusting the plate thickness or the"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1706.24,
+  "ts": "0:28:26",
+  "width": 320,
+  "height": 180,
+  "source": "storyboard",
+  "text": "dimensions of the screws, you can do it directly instead of using... instead of setting these settings up from the beginning, you can do it once, save it as an Attribute, and use it in any other project. I hope this has been helpful. Thank you, and peace, mercy, and blessings of God be upon you."
+ },
+ {
+  "type": "summary",
+  "mode": "segment",
+  "videoId": "VLQiysAuEr4",
+  "title": "01I End Plate 144 in Tekla Structures",
+  "frames": 50,
+  "every": 35,
+  "source": "storyboard",
+  "resolution": "320x180",
+  "lowResolutionFallback": true,
+  "downloadedBytes": 1043002,
+  "proxy": "datacenter",
+  "variableCostUsd": 0.009069,
+  "stoppedByBudget": false,
+  "quality": "hd",
+  "hdAttempted": false,
+  "hdSkippedReason": "file_over_hd_budget",
+  "videoEvent": "video-processed",
+  "alignmentToleranceSeconds": 9.92,
+  "transcriptAvailable": true,
+  "lang": "en",
+  "markdown": "# 01I End Plate 144 in Tekla Structures\n\n- [0:00:00](https://youtu.be/VLQiysAuEr4?t=0) In the name of God, and prayers and peace be upon the Messenger of God, may God bless him and grant him peace. In this video we will talk about the undeployment connection, which is number 144. Let 's say we have a project like this. Connection in this view. This is the endplate between the column and the rafter. The word \"Kolm\" in our case here was HHAI. HE 360. The router here was an API ![frame](<apify record url removed>)\n- [0:00:29](https://youtu.be/VLQiysAuEr4?t=29) 400. Now we'll start with the connection. I'm going to erase the connection that was drawn here. We will start by getting the applications and components. In this view. Let's start from the very beginning. To get the connection, if I remember its number or name, I can search from here. Type 144. Our connection will appear. Or maybe even by name. We write \"endbleet\". It will appear to us like this. But what if I don't remember the names or the number? I'll come here from Steel. After that I will choose Endblets. And ![frame](<apify record url removed>)\n- [0:01:09](https://youtu.be/VLQiysAuEr4?t=69) here I will find the 144th ENDABLE. I will choose it like this. First, we choose the main part, which is our column. I'm going to click on it. Then Alexandria Port. We will choose our BIM in this way. He made the connection look like this. What is the default or standard setting that exists within the program? Let's start adjusting all our details. We're not just going to draw it. no. We will know everything related to the connection. ![frame](<apify record url removed>)\n- [0:01:39](https://youtu.be/VLQiysAuEr4?t=99) I can just right-click on it. After that, create a view. 3D View. And I press Control Four. Because the connection alone appears to us in this way. You can also right-click on it. Crete View. The default component settings will open here like this. This is our 3D connection, and this is its end, and here's the front, and the rest of our angles. First, to open our connection, we'll ![frame](<apify record url removed>)\n- [0:02:18](https://youtu.be/VLQiysAuEr4?t=138) click on our green icon or on the connection itself like this. But we must have the component selection enabled here because here it's \" Select Object on Component.\" This means if I enable this and then choose this, it will only select the plate, or if I choose the screw, it will only select the screw. So, I'll enable the component here and select it like this. This will open our settings. First, we'll start talking about all the details. ![frame](<apify record url removed>)\n- [0:02:48](https://youtu.be/VLQiysAuEr4?t=168) Let's begin one by one. First, the distance between the plate and the column is zero by default. There's no space between them. If I make it, say, 10, you 'll see a space appear here, which is the distance I set. But I don't need it, though. Enter it at zero, or leave its default value, which is no distance. So, what are these distances? These distances are the distance between the slab and our beam. So, how do I enter it? ![frame](<apify record url removed>)\n- [0:03:28](https://youtu.be/VLQiysAuEr4?t=208) If we enter it like this, if we make it 40, look what will appear. It will make us 40 upwards. Why? Because I'm entering in this direction, or our default value is in this direction. Now, I want it to go down to -40, and let's say it looks like this. It will appear like this, and a Stevener will start appearing with us because this is also in our default value. So, depending on the distance I have, let's say I have -80, we'll say \" modify,\" and from above we'll say, ![frame](<apify record url removed>)\n- [0:03:58](https://youtu.be/VLQiysAuEr4?t=238) if we make it 80, you'll find it still goes downwards. So, we'll make it -80 so that it goes upwards like this. So, I was able to control our distances: the distance between the slab and the column, and the distance between the beam or the flanges. Our end-blade, let 's say it looks good to me. I'll move on to the plate. Let's talk about the details here. The end-blade, which is our large plate, is the first thing I entered. Let's say I set its thickness to ![frame](<apify record url removed>)\n- [0:04:37](https://youtu.be/VLQiysAuEr4?t=277) 20. If we make it 8 to make it appear, it will shrink like this. I'll enter it as 20. The width and length, I can just delete these and start controlling from here. We can control from here like this, or we can control from here with our width and length. I can open the end-blade, the end-view, and ![frame](<apify record url removed>)\n- [0:05:07](https://youtu.be/VLQiysAuEr4?t=307) start working from here. Let's enter the width and length. Our width, our camera is IP400, meaning the height is 400 and the flange width is 180. So, let's say I need the width to be 180, like the flange. Let's leave it like this. In order to see it and we made a modify, we will find it on the front of the camera exactly because the width of the IPE is 400 180. Our height is IPE 400. If we say the height is 400, add 80 above and 80 below, then it becomes 160, so it becomes 560. ![frame](<apify record url removed>)\n- [0:05:47](https://youtu.be/VLQiysAuEr4?t=347) Let it be like this. So that we can add screws on top. Okay, what is this Fold Plate thing? Come here . If we go in here, we go in 20, pay attention. You'll find something here that has appeared like this. This is the Fold Plate. So why am I using it? Honestly, if we receive shop drawings or design drawings in this format, with something like this in them, and of course we can control them, we can modify them. ![frame](<apify record url removed>)\n- [0:06:16](https://youtu.be/VLQiysAuEr4?t=376) So how do we modify it? Let's say this length is 300. I'll modify it, and you'll find that your length has increased. So, the remaining distance, there's a space here, what is this? This is the thickness of the fold plate. If you leave it as 12, the fold plate will be 12 and the spacing will be less than that. Okay, so I'll make this length 400, see what happens. It will increase with us in this way. Do I need this? No, I don't need it right now. So what is this distance? Let's continue. There is something called here the set or set plate, let's also go into its thickness 12. ![frame](<apify record url removed>)\n- [0:06:56](https://youtu.be/VLQiysAuEr4?t=416) Look at what will appear below like this. You will find in the plate that appeared from the beginning on the face of our end plate . What is its use? Depending on the design, if the design here offers something like this, then go ahead and do it. Well, I also want to control its distance. We'll start from here. Come on, let's go in here, 200. We'll do a modify, you'll find it too. Our distance is 200. Let's ![frame](<apify record url removed>)\n- [0:07:26](https://youtu.be/VLQiysAuEr4?t=446) make sure. Bring me the End View. If we do F. In this view. Right- click on Perpendural. Here you'll find 200. The snap didn't work, but the length is 200. Let's go back to our 3D model like this. Now we know how to add this. Now these are our lengths. Let's say our width is 200 and the length is 600. We haven't selected the connection yet. If we say the ![frame](<apify record url removed>)\n- [0:08:06](https://youtu.be/VLQiysAuEr4?t=486) length is 200 and here it's 600, if we modify it, you'll find it changed like this. Well, I don't need it now. I'll delete all of this. And this plate above, I don't need it either, the fold plate. I'll remove its thickness, so it's gone. Now what's this Fitting Plate 1? If the shop draw rules are showing us a double ![frame](<apify record url removed>)\n- [0:08:35](https://youtu.be/VLQiysAuEr4?t=515) plate here, then I've done it like this: 20. If we look closely, you'll see another plate starting to appear. Okay, I want to add three. Come here, boss, add 20. You'll find they've become three. Okay, I want to add the fourth, boss. 20 Modify. Okay, that's it. Now I start. I control the connection as I want. It's not just that the program gives me a certain shape. No, I start doing what I want. So, I'll remove this. I don't need to do Modify. We'll remove the fitting plate 1. We'll put it back as it was. Position number. Of course, if we ![frame](<apify record url removed>)\n- [0:09:15](https://youtu.be/VLQiysAuEr4?t=555) need to number the project and we must number it, we'll add it here according to each material company. Let's say I make Steel 52. This is what I have. Okay, and the name, we can call it a plate like this, and we don't have a finish. So what are these boxes? This is also the position number for the fitting plate, and so on for the material, the name, and the finish. The same applies here. ![frame](<apify record url removed>)\n- [0:09:45](https://youtu.be/VLQiysAuEr4?t=585) We learned how to enter the spaces for the fold plate and the space for the set. What is this shape? Come here . I'll add something new here, let me know. I'll also make a fitting plate. In this way. If I changed this shape to the other shape I have. This shape makes the end plate look just like it does normally. Then he makes another plate located inside the flange and makes a plate after it on the other side. So if I selected it and modified it, we would notice that the palette I had disappeared. No, she didn't disappear, she went inside the flanges. ![frame](<apify record url removed>)\n- [0:10:24](https://youtu.be/VLQiysAuEr4?t=624) If we look closely. We'll just make its thickness 12. We'll modify it. You'll find it's no longer a phenomenon. So how do we show it? Come here, boss, press Ctrl+4, Ctrl+3, or Ctrl+ 2 until it appears. Let's take a look at this. You will actually find a plate inside the fitting plate that I added, which is 12 cm thick and is located inside the flange. If you perform one more control, more will appear. It looks like this. Is this a problem? naturally. If we do control four again. If we choose the component like this. We chose the column with him. We came here to work from Mange Clash Check. See what will happen? ![frame](<apify record url removed>)\n- [0:11:04](https://youtu.be/VLQiysAuEr4?t=664) If we do a Clash Check, it will tell you in Clash. Let's take a look at the Clash that appeared. Exactly. What does the Clash say to you? Between the plate inside, this is its length. This plate and the space between the column. So if I close this again like this. And I came from here. We press Ctrl+1 to make it appear. We select the component again, then we modify it ![frame](<apify record url removed>)\n- [0:11:34](https://youtu.be/VLQiysAuEr4?t=694) like this, and we perform a mod. And then we went to choose again, we made control four. If we choose the component again and choose the column and perform a crash check, you will find zero, there is no crash, so a crash occurred at the first point, so we should pay attention to this point, a crash may occur just because we change the connection settings and you are not paying attention from here. So I'll leave it as our normal default. And here, if there is tolerance for our openings. So, for me, we have covered most of the ![frame](<apify record url removed>)\n- [0:12:14](https://youtu.be/VLQiysAuEr4?t=734) things here in the pallet, now let's move on to the stencil. Our stencil has two tops and two bottoms, what is a stencil? This stefanner, which is located here, is located on the web in this form here and here, and on the other side here and here. First thing, come here. If we enter their thickness, let's say 10, the first one is Modify, you will find it appeared here in the top on the other side. If we remove it like this, Modify, ![frame](<apify record url removed>)\n- [0:12:43](https://youtu.be/VLQiysAuEr4?t=763) if we add the first one, 10, like this, you'll find it appears here. What about the other side? We also add 10, you will find it here, come to the bottom. Let's add the bottom one here, let's say 10 modify, you'll find it also appears here, and on the other side we'll add a thickness of 10, it will appear like this. So, I've made my stabilizer. Now I also need to make the material, let's say Steel 52, put a control C on it ![frame](<apify record url removed>)\n- [0:13:23](https://youtu.be/VLQiysAuEr4?t=803) and add it here, and the name too. See the name I have or any name I want. Next, we go to these boxes. What are these boxes? If I have the beam coming in slanted and I need to make these inquiries slanted, then I will choose this option, which is the standard I have. Well, if I choose horizontal like this and make a modification, it won't change because I already have my beam horizontal, so the stabilizer is horizontal in both cases, whether I make it slanted here or ![frame](<apify record url removed>)\n- [0:13:53](https://youtu.be/VLQiysAuEr4?t=833) horizontal, our beam is horizontal anyway. Okay . Here we come, here if I don’t need a stabilizer at all, even if I made a stabilizer, if I canceled it, you will find that the stabilizer settings that I will adjust in a little while will be closed. If I made a modification, all four stabilizers disappeared because I removed them. Okay, I'll leave them again and you'll find everything activated for the Stiffener settings. [Snoring sounds] And here is what the stencil looks like, do you want it to have a rim like this or not, or do you want it all solid like this? Now we'll find out what this is. But first, let's talk about these settings. What are these settings? ![frame](<apify record url removed>)\n- [0:14:32](https://youtu.be/VLQiysAuEr4?t=872) These are the distances of the stencil in relation to our beam. So if I come from here, the indicator is visible to us from here, here it is: 1, 2, 3, 4. Let's adjust them. First thing here, let's make a change. Let's say the distance is negative 40 and you modify it, you'll find it looks like this. The negative 40 thing we're talking about here, this is the first negative ![frame](<apify record url removed>)\n- [0:15:02](https://youtu.be/VLQiysAuEr4?t=902) 40 that went down like this, so if I need to raise it above 40 like this. Okay, if we need to modify this, we can make it 40. Modify it, and you'll find it goes up to 40 like this. Let's modify what's below. If we make it 40 here, it will go up. No, we want it down, so it will be negative 40. And here, negative 40 will go down like this. If we were to see it in 3D. We can see that this one is higher than the flange and this one is lower than the flange. What is the distance to the other side? Come here, let's stay ![frame](<apify record url removed>)\n- [0:15:42](https://youtu.be/VLQiysAuEr4?t=942) in 3D so we can see it. We're here, Stevens is always stuck here on the web. Okay, so if I enter a space, let's say 20 here, and modify it. If you look closely, you'll find an opening here. There is a space here that I created, which is our value, which is 20. So now I can control the Stefaner as I please. Take it up, take it down. Keep him away from ![frame](<apify record url removed>)\n- [0:16:12](https://youtu.be/VLQiysAuEr4?t=972) the web for a while. What if I want to keep it away from the flange? Come now to this choice. If we do 20 like this, what will it do for us? It will be 20 meters away from this flange and 20 meters away from this flange. I make Modify in this way and of course it plays in all the Stevens. So now it's like this, of course it's wrong, we 'll put it back again, but I'm teaching you how to control the stevaner settings. So I will bring this back again and I will bring this back again in this way. So why do we do this rinsing part in the first place? Why do we do it? The first thing we do is, if the shop drawings look like this, then I'll do the same. What else? For ![frame](<apify record url removed>)\n- [0:16:51](https://youtu.be/VLQiysAuEr4?t=1011) galvanizing. When we galvanize this part as an assembly, of course this stefanner will come welded to the column. When galvanizing enters this area, it will form here if this opening is not present. And the people who know what \"galvanization\" means will understand what I'm saying. So how do I control this rinsing? From here. If I don't want it, I'll make it zero and zero. I told Modivai I would do it like this. Well, if I really want it, let's say 30. And ![frame](<apify record url removed>)\n- [0:17:21](https://youtu.be/VLQiysAuEr4?t=1041) here's 30, Modivay, you'll find it like this. Okay, I want the default setting that's there. I'll delete this one. It will set the program's default settings. So now I have control over everything related to the Estefanr. Its dimensions here are, of course, length and width. If I need 300 here, Modify. On the other side, let's leave this side so that it appears. 300. Like this. Of course, I want to change the length, but we'll leave the length as it is. If I want to bring it back again, I just have to leave the default setting I have. So, I was also able to control the length and width, the distance between the Stifner and the Web, and ![frame](<apify record url removed>)\n- [0:18:01](https://youtu.be/VLQiysAuEr4?t=1081) the distance between the Stifner and the Toflands. Next, we move on to the mortar. The little stick, called a \"honch\" in the settings, is located here. Let's modify it. First thing, let's say my weight. 12. And we said that the height we had set was 80. Let's just turn off the plate behind this one . Let's leave it in one plate. ![frame](<apify record url removed>)\n- [0:18:31](https://youtu.be/VLQiysAuEr4?t=1111) okay. Let's go back to the honch. This distance was 80 for me. So we'll make it 80. And. The other side, which is this one. This height is 80, and we make this 80 like this. Modifi looks like this [clears throat]. We do the same thing with the bottom edge or the bottom handle. The same dimensions. 80. 80. Modivai. And here too, we will not talk about the material and position number again. Now come after this rinse. This is always the case when you make a design; most paintings come in the shape of a triangle. So how am I going to do it? This rinse is part of our dimension. ![frame](<apify record url removed>)\n- [0:19:10](https://youtu.be/VLQiysAuEr4?t=1150) I mean, I have a dimension here that is 80 by 80, and let's say here, for example, 20 of the 80 is made. Well, I need it to be all chamfered, so I will make the whole dimension 80, the whole chamfer will be in the dimensions of the plate, so I will make it 80 by 80, and you will find it appeared in this form, the form that we see in most of the drawings. In this way. I can just remove the weld. ![frame](<apify record url removed>)\n- [0:19:40](https://youtu.be/VLQiysAuEr4?t=1180) modify Okay. So we made the stiffener below, now let's make the stiffener above, let's make the stiffener below and let it be like this, 80 and 80. modify it for you in the same way. Well, if I have this horizontal board, it's bigger, I mean, it's not just 80, it's bigger, let's make it 120. And we made a modify, of course the shape will change because I had made this chamfer only 80. So here I will do 120. You will find it has been fixed in the way we see it now ![frame](<apify record url removed>)\n- [0:20:20](https://youtu.be/VLQiysAuEr4?t=1220) . I'll put it back to 80. And we'll put this part back to 80. Modify. So what are these boxes? These boxes are also for the small rinse. Which we were just seeing here in this stiffener. If we try to fix it again, if we make it zero and zero, you will find that it is locked. Okay, I'll do it, let's say 10 and 10, you'll find it was done like this. Okay, I 'll leave our default settings like this. And here is for the stiffener below, if I want to control the chamfer for the stiffener below. So what is ![frame](<apify record url removed>)\n- [0:20:59](https://youtu.be/VLQiysAuEr4?t=1259) this option? If I wanted to remove this option completely, you would find that all the settings were locked. If you modify it, you'll find that it has already removed them if you don't need them. Well, no, I need it again. I work like this. So now we know how to adjust the connection in this way. There's still one thing left, and what is it? Nails. Come on then . Here, the notch is needed. The notch is not in the link we have here. If we have an Alexandrian-Alexandrian-Beam connection and I need to do a bevel like this. This rinse is usually found in ![frame](<apify record url removed>)\n- [0:21:29](https://youtu.be/VLQiysAuEr4?t=1289) Alexandrian Beam. Okay, what if I come back and we go back to our 3D? I was here, I was working here, Alexandrian Beam. I'll show you the way it's done . So that we can understand what these \"breaks\" mean. Dee, let's say Men Bem and Dee, Iskandari Bem. And I'm the one connecting them . If we pay attention to this. Here, there is a need called a rinse. We are cut off in Alexandria, here. So we can assemble it. So that this flange doesn't clash with that flange. So we come here and we cut it off. If we pay attention to this. Here it is made in a curved shape. We could have done it in any of these ways ![frame](<apify record url removed>)\n- [0:22:09](https://youtu.be/VLQiysAuEr4?t=1329) . But of course, it's in the connection settings . Let's go back to our connection. Come on, let's go to the boy. Let's bring in a bold size, let's say a diameter of 20. The standard. Let it be 69 14. Tolerance 2. We modify it. So what is this site? The site says we will install these screws on the site. What if I ![frame](<apify record url removed>)\n- [0:22:39](https://youtu.be/VLQiysAuEr4?t=1359) changed it? If you changed it, it would be a workshop at the factory. You'll find its color has changed. If we did Modify. You'll find its color has turned red. If we came here like this. There is a color here. Yellow, and here the color is red. What's the difference between them? This one will be installed on-site, and this one will be installed in the workshop or factory. Okay, I'll return it again. I'll do it on the website. Modivai. Here, if we have a slot machine. And here I will show the rose, the nut, and all that stuff if we want to modify it. Come on, let's adjust our screws. Let the first nail I make be at negative 40 above. And the screw below, I will also make it at -40. Like this. ![frame](<apify record url removed>)\n- [0:23:18](https://youtu.be/VLQiysAuEr4?t=1398) Then, if we have, for example, five nails with the distances between them being 100, let's make it 120, like this. Honestly, I think the distances are good. If we were to do an F like this, for example. From this screw to this screw, we make sure that this is the 120 we have inserted. And if we measure the rest of the screws, of course, 120. In this way. The ![frame](<apify record url removed>)\n- [0:23:48](https://youtu.be/VLQiysAuEr4?t=1428) edge above it. You will find our 40. And under her [snoring sounds] . We do rotoview. We press on a second connection. So I was able to control the screws. In the second direction, I controlled the longitudinal direction. Medicine requires me to control the transverse direction. Let's say I'll make the first distance here, let's make it 40, which is the first nail from the edge. Hence, Modivai Modivai. Okay, if I made them four nails, what would happen? Two new rows will appear here. Modivai. Exactly like this. Two extra rows appeared. But I only have two worries, and that's it, I'll get rid of these ![frame](<apify record url removed>)\n- [0:24:28](https://youtu.be/VLQiysAuEr4?t=1468) four. And I'm working on both of our projects. So what is this? Come here in 3D. This is the direction of the nail. The screw is oriented this way. If I edit it like this, it's Modify. The nail will appear like this . And here. This is how the nails are arranged. If you need a screw layout, I can provide one according to the design drawings that are coming. We'll fix it from here. [Clears throat] and these parts. This is if I want to add it. Angel D is considered a ![frame](<apify record url removed>)\n- [0:24:57](https://youtu.be/VLQiysAuEr4?t=1497) second connection. If I do that, look, two angles appear. I do n't know if they're clear or not, the ones above and below. But I obviously don't need this. I'll modify it like this. She didn't hear me. I can make Control Z like this [snoring sounds]. So, we've now modified everything in the connection. Now, I want to save these settings ![frame](<apify record url removed>)\n- [0:25:37](https://youtu.be/VLQiysAuEr4?t=1537) so I can use this connection in any other project without having to modify all these details again. But wait, there's something here, let's say a clash like this. I want this palette to be at the L level, or this stavenger to be at the flanges level. So, here in the stavenger, I remove this. We were learning how to do it; we want it at the flanges level like this. There's no clash. So, ![frame](<apify record url removed>)\n- [0:26:07](https://youtu.be/VLQiysAuEr4?t=1567) I've learned everything about the connection. I want to save it so I can use it in another project. Besides that, I save it using something called Attributes. I just do Modify. Okay, let's open the connection again. If we go to the bar at the top, if we want to save something specific to us—for example, in this project I had several connections for 144, so I created several Attributes—let's say I save it here as EndPlate Content. Let's ![frame](<apify record url removed>)\n- [0:26:47](https://youtu.be/VLQiysAuEr4?t=1607) call it EndPlate 144. First, here, 4M EndPlate 144 Condent, I'll do Save as Save like this. It's saved here. If you open it like this, you'll find it here, which is 4M EndPlate 144 Condent. I'll do Modify Apply like this. Okay, now ![frame](<apify record url removed>)\n- [0:27:16](https://youtu.be/VLQiysAuEr4?t=1636) we want to save it as we said so we can use it in any other project. Well, I'll come from here and create an Open Model Folder like this. There's something called Attributes here. I'll open it and find the last thing I was using, which is 4M EndPlate 144 Condent. I'll copy this, for example. I'll go to my computer. I have a folder called \"Attribute\" and I'll paste it like this, so it's saved here. Now, I'm opening a new project, let's say this is a new project, and I want to add our Attribute. I copied it from my computer and created an \"Open ![frame](<apify record url removed>)\n- [0:27:56](https://youtu.be/VLQiysAuEr4?t=1676) Model\" folder called \" Attributes\" and pasted it here. Then, in our connection settings, open the connection where you added the Attribute and click this arrow. It will appear here. You have to load it first, then modify it. It will appear with the same settings you created, like this. If you need to add something simple, like adjusting the plate thickness or the ![frame](<apify record url removed>)\n- [0:28:26](https://youtu.be/VLQiysAuEr4?t=1706) dimensions of the screws, you can do it directly instead of using... instead of setting these settings up from the beginning, you can do it once, save it as an Attribute, and use it in any other project. I hope this has been helpful. Thank you, and peace, mercy, and blessings of God be upon you. ![frame](<apify record url removed>)\n"
+ }
+]

@@ -1,0 +1,125 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "span": [
+  "22:10",
+  "24:10"
+ ],
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "This part of a Tekla Structures video shows the End plate (144) dialog, Haunch tab: Top plate and Bottom plate rows (t, b, h) and a picture with chamfer boxes, and a chamfer type list.\nRead at full resolution. For the end of this part: each chamfer box on the picture, where it sits (which plate, which corner: the outer free corner or the inner corner at the end plate / beam flange), its value; the chamfer type; the haunch plate creation list.\nAlso every change (time, box, old -> new), and what the haunch plates look like in the model (size, corner cuts).\nJSON: {\"final\": [{\"box\": \"...\", \"corner\": \"...\", \"value\": \"...\", \"sure\": true}], \"changes\": [{\"t\": \"mm:ss\", \"box\": \"...\", \"from\": \"...\", \"to\": \"...\"}], \"model\": [{\"t\": \"mm:ss\", \"what\": \"...\"}]}\n",
+ "answer": {
+  "final": [
+   {
+    "box": "Top plate",
+    "corner": "outer",
+    "value": "75.00",
+    "sure": true
+   },
+   {
+    "box": "Top plate",
+    "corner": "inner",
+    "value": "75.00",
+    "sure": true
+   },
+   {
+    "box": "Bottom plate",
+    "corner": "outer",
+    "value": "75.00",
+    "sure": true
+   },
+   {
+    "box": "Bottom plate",
+    "corner": "inner",
+    "value": "75.00",
+    "sure": true
+   }
+  ],
+  "changes": [
+   {
+    "t": "22:22",
+    "box": "Bottom plate t",
+    "from": "",
+    "to": "75.00"
+   },
+   {
+    "t": "22:26",
+    "box": "Bottom plate h",
+    "from": "",
+    "to": "75.00"
+   },
+   {
+    "t": "22:31",
+    "box": "Top plate t",
+    "from": "",
+    "to": "10.00"
+   },
+   {
+    "t": "22:32",
+    "box": "Top plate b",
+    "from": "",
+    "to": "75.00"
+   },
+   {
+    "t": "22:34",
+    "box": "Top plate h",
+    "from": "",
+    "to": "75.00"
+   },
+   {
+    "t": "22:49",
+    "box": "top-right chamfer on picture",
+    "from": "",
+    "to": "55.00"
+   },
+   {
+    "t": "22:50",
+    "box": "top-left chamfer on picture",
+    "from": "",
+    "to": "55.00"
+   },
+   {
+    "t": "22:52",
+    "box": "bottom-right chamfer on picture",
+    "from": "",
+    "to": "55.00"
+   },
+   {
+    "t": "22:53",
+    "box": "bottom-left chamfer on picture",
+    "from": "",
+    "to": "55.00"
+   },
+   {
+    "t": "22:58",
+    "box": "notch top-left",
+    "from": "",
+    "to": "10.00"
+   },
+   {
+    "t": "23:00",
+    "box": "notch middle-left",
+    "from": "",
+    "to": "10.00"
+   },
+   {
+    "t": "23:05",
+    "box": "notch bottom-left",
+    "from": "",
+    "to": "10.00"
+   }
+  ],
+  "model": [
+   {
+    "t": "23:11",
+    "what": "Top haunch plate created with chamfers and flange notches."
+   },
+   {
+    "t": "23:45",
+    "what": "Haunch plates toggled off."
+   },
+   {
+    "t": "23:59",
+    "what": "Haunch plates toggled back on with stiffener plates."
+   }
+  ]
+ }
+}

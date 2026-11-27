@@ -1,0 +1,95 @@
+{
+ "url": "https://www.youtube.com/watch?v=MFMw0XynYV4",
+ "models": [
+  "gemini-3.5-flash"
+ ],
+ "overview": {
+  "language": "Tamil",
+  "units": "mm",
+  "tekla_version": "2021",
+  "members": [
+   {
+    "role": "main",
+    "profile": "UB406x178x74",
+    "orientation": "column",
+    "slope_or_skew": "0.0",
+    "note": "Column profile read from Profile Catalog at 05:42"
+   },
+   {
+    "role": "secondary",
+    "profile": "UB section",
+    "orientation": "beam",
+    "slope_or_skew": "0.0",
+    "note": "Horizontal beam connecting to column flange"
+   }
+  ],
+  "connection_type": "beam to column flange",
+  "dialog_spans": [
+   {
+    "tab": "Picture",
+    "start": "00:54",
+    "end": "02:01",
+    "values_changed": "Erection gap set to 1 mm, plate top and bottom extension values modified"
+   },
+   {
+    "tab": "Plates",
+    "start": "02:02",
+    "end": "03:33",
+    "values_changed": "End plate thickness set to 10 mm, Prefix P, Start number 1, Material grade S275, Name PLATE"
+   },
+   {
+    "tab": "Stiffeners",
+    "start": "03:34",
+    "end": "06:21",
+    "values_changed": "Column web stiffener thickness, prefix, material grade, and chamfer set to 15 mm based on column root radius"
+   },
+   {
+    "tab": "Stiffeners",
+    "start": "06:44",
+    "end": "07:52",
+    "values_changed": "Stiffener gap and width/length dimensions set to 65 mm"
+   },
+   {
+    "tab": "Bolts",
+    "start": "08:33",
+    "end": "14:35",
+    "values_changed": "Bolt size 20 mm, Bolt standard 8.8X, Tolerance 2 mm, 2 columns of 3 bolts, Pitch 70 mm, Gauge 80 mm, Edge distances 45 mm, Top distance 70 mm"
+   },
+   {
+    "tab": "Haunch",
+    "start": "14:36",
+    "end": "18:12",
+    "values_changed": "Top and bottom haunch added, thickness 10 mm, haunch dimensions 70x70 mm, web chamfer 10 mm, outer chamfer 50 mm"
+   },
+   {
+    "tab": "Bolts",
+    "start": "18:27",
+    "end": "21:22",
+    "values_changed": "Number of vertical bolts increased to 5, vertical bolt distances updated to 35, 105, 80, 80, 105 mm"
+   }
+  ],
+  "result": "End plate connection (144) created between column flange and beam with top/bottom haunches, column web stiffeners, and 5 rows of M20 8.8X bolts.",
+  "applied_times": [
+   "00:39",
+   "01:14",
+   "01:45",
+   "03:30",
+   "05:14",
+   "06:06",
+   "06:15",
+   "06:54",
+   "07:49",
+   "08:56",
+   "09:35",
+   "09:58",
+   "11:34",
+   "14:10",
+   "15:06",
+   "16:12",
+   "17:04",
+   "17:40",
+   "18:06",
+   "21:20"
+  ]
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "models": [
+  "gemini-flash-lite-latest"
+ ],
+ "overview": {
+  "language": "Arabic",
+  "units": "mm",
+  "tekla_version": "Tekla Structures",
+  "members": [
+   {
+    "role": "main",
+    "profile": "I-section",
+    "orientation": "column",
+    "slope_or_skew": "orthogonal",
+    "note": "column profile"
+   },
+   {
+    "role": "secondary",
+    "profile": "I-section",
+    "orientation": "beam",
+    "slope_or_skew": "orthogonal",
+    "note": "beam profile"
+   }
+  ],
+  "connection_type": "beam to column flange",
+  "dialog_spans": [
+   {
+    "tab": "Picture",
+    "start": "05:13",
+    "end": "07:42",
+    "values_changed": "end plate extension and gaps"
+   },
+   {
+    "tab": "Plates",
+    "start": "07:42",
+    "end": "09:49",
+    "values_changed": "plate thickness, fitting plate options"
+   },
+   {
+    "tab": "Stiffeners",
+    "start": "09:49",
+    "end": "13:13",
+    "values_changed": "stiffener configuration, dimensions, chamfers"
+   },
+   {
+    "tab": "General",
+    "start": "13:13",
+    "end": "16:43",
+    "values_changed": "connection code/numbering, color/class"
+   },
+   {
+    "tab": "Bolts",
+    "start": "16:43",
+    "end": "21:58",
+    "values_changed": "bolt standard, size, spacing, edge distances"
+   },
+   {
+    "tab": "Notch",
+    "start": "21:58",
+    "end": "26:37",
+    "values_changed": "stiffener notch/cut details"
+   }
+  ],
+  "result": "end plate connection with stiffeners and bolts between column and beam",
+  "applied_times": [
+   "04:53",
+   "05:49",
+   "07:53",
+   "10:10",
+   "14:52",
+   "19:45"
+  ]
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "span": [
+  "24:00",
+  "25:40"
+ ],
+ "model": "gemini-3.6-flash",
+ "prompt": "This part of a Tekla Structures video shows a column and a beam joined by End plate (144). Read at full resolution, frame by frame:\n1) the profile names of the column and the beam (from any property dialog, inquiry window, tooltip, model view label or spoken words shown on screen) and their orientation / position (column vertical, beam horizontal, beam on the column flange or web, any slope or skew);\n2) the End plate (144) dialog's Bolts tab horizontal boxes (number of bolts across, the horizontal bolt spacing list, the edge distance, the horizontal position and its reference) whenever visible, exactly as shown;\n3) every dimension the presenter measures in the model (what it measures and the value);\n4) the parts you can see in the finished connection (end plate, shim / fitting plate, stiffeners in the column, haunch plates under/over the beam flanges, bolts: how many across and down).\nNever guess; sure=false when unclear. JSON: {\"profiles\": [{\"member\": \"column/beam\", \"profile\": \"...\", \"t\": \"mm:ss\", \"source\": \"...\", \"sure\": true}],\n\"bolts_horizontal\": [{\"t\": \"mm:ss\", \"box\": \"...\", \"value\": \"...\", \"sure\": true}], \"measurements\": [{\"t\": \"mm:ss\", \"what\": \"...\", \"value\": \"...\"}], \"parts\": [{\"t\": \"mm:ss\", \"what\": \"...\"}]}\n",
+ "answer": {
+  "profiles": [
+   {
+    "member": "column",
+    "profile": "Unknown",
+    "t": "24:35",
+    "source": "3D view (vertical column)",
+    "sure": false
+   },
+   {
+    "member": "beam",
+    "profile": "Unknown",
+    "t": "24:35",
+    "source": "3D view (horizontal beam attached to column flange)",
+    "sure": false
+   }
+  ],
+  "bolts_horizontal": [
+   {
+    "t": "24:05",
+    "box": "Left edge distance",
+    "value": "-40.00",
+    "sure": true
+   },
+   {
+    "t": "24:05",
+    "box": "Gauge / Horizontal bolt spacing",
+    "value": "125.00",
+    "sure": true
+   },
+   {
+    "t": "24:05",
+    "box": "Right edge distance",
+    "value": "-40.00",
+    "sure": true
+   },
+   {
+    "t": "24:20",
+    "box": "Horizontal bolt group spacing/count",
+    "value": "4",
+    "sure": true
+   }
+  ],
+  "measurements": [],
+  "parts": [
+   {
+    "t": "24:35",
+    "what": "End plate"
+   },
+   {
+    "t": "24:35",
+    "what": "Column web stiffeners"
+   },
+   {
+    "t": "24:35",
+    "what": "Beam flange stiffeners"
+   },
+   {
+    "t": "24:35",
+    "what": "Bolts"
+   }
+  ]
+ }
+}

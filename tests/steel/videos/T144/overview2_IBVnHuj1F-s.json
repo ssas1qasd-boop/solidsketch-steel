@@ -1,0 +1,109 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "models": [
+  "gemini-3.5-flash"
+ ],
+ "overview": {
+  "language": "Arabic",
+  "units": "mm",
+  "tekla_version": "2022",
+  "members": [
+   {
+    "role": "main",
+    "profile": "HE400A",
+    "orientation": "column",
+    "slope_or_skew": "vertical (0 degrees)",
+    "note": "Read from Column Property Panel at 04:20"
+   },
+   {
+    "role": "secondary",
+    "profile": "HE400A",
+    "orientation": "beam",
+    "slope_or_skew": "horizontal / sloped during demonstration",
+    "note": "Read from Beam Property Panel at 04:16"
+   }
+  ],
+  "connection_type": "beam to column flange",
+  "dialog_spans": [
+   {
+    "tab": "Picture",
+    "start": "05:15",
+    "end": "07:42",
+    "values_changed": "End plate top and bottom projections set to -50 mm, distance from main member set to 20 mm / -20 mm"
+   },
+   {
+    "tab": "Plates",
+    "start": "07:43",
+    "end": "09:48",
+    "values_changed": "End plate thickness set to 20 mm, Fitting plate parameters defined"
+   },
+   {
+    "tab": "Stiffeners",
+    "start": "09:49",
+    "end": "13:13",
+    "values_changed": "Column web stiffener thickness set to 10 mm, chamfers/coops configured to 30x30 mm"
+   },
+   {
+    "tab": "General",
+    "start": "13:14",
+    "end": "16:42",
+    "values_changed": "Class set to 400, Connection code set to M1_400"
+   },
+   {
+    "tab": "Bolts",
+    "start": "16:48",
+    "end": "19:57",
+    "values_changed": "Bolt standard set to A325M, size M20, tolerance 2 mm, pitch spacing and edge distances configured"
+   },
+   {
+    "tab": "Haunch",
+    "start": "19:58",
+    "end": "24:08",
+    "values_changed": "Top and bottom beam flange stiffener plates added with thickness 10 mm and chamfered notch cuts"
+   },
+   {
+    "tab": "Bolts",
+    "start": "24:16",
+    "end": "24:20",
+    "values_changed": "Reviewed bolt layout and washer/nut settings"
+   },
+   {
+    "tab": "Design type / Holes / Angle box / Analysis",
+    "start": "24:21",
+    "end": "24:32",
+    "values_changed": "Browsed through unused default tabs"
+   }
+  ],
+  "result": "End plate connection (144) created with 20 mm end plate, M20 A325M bolts, 10 mm column web stiffeners with corner chamfers, and optional beam flange stiffeners (haunch plates).",
+  "applied_times": [
+   "05:47",
+   "07:52",
+   "09:18",
+   "10:09",
+   "10:39",
+   "11:21",
+   "11:34",
+   "11:40",
+   "12:22",
+   "13:02",
+   "14:34",
+   "14:51",
+   "15:21",
+   "17:50",
+   "18:01",
+   "18:07",
+   "18:13",
+   "18:31",
+   "18:55",
+   "19:07",
+   "19:12",
+   "19:18",
+   "19:22",
+   "19:44",
+   "23:08",
+   "23:47",
+   "25:02",
+   "25:16"
+  ]
+ }
+}

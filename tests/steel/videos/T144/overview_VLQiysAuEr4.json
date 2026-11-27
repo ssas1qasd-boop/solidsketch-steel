@@ -1,0 +1,76 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "models": [
+  "gemini-flash-lite-latest"
+ ],
+ "overview": {
+  "language": "Arabic",
+  "units": "mm",
+  "tekla_version": "2020",
+  "members": [
+   {
+    "role": "main",
+    "profile": "HEAA360",
+    "orientation": "column",
+    "slope_or_skew": "",
+    "note": "column"
+   },
+   {
+    "role": "secondary",
+    "profile": "IPE400",
+    "orientation": "beam",
+    "slope_or_skew": "",
+    "note": "beam"
+   }
+  ],
+  "connection_type": "beam to column flange",
+  "dialog_spans": [
+   {
+    "tab": "Picture",
+    "start": "02:24",
+    "end": "04:29",
+    "values_changed": "distances beam to plate"
+   },
+   {
+    "tab": "Plates",
+    "start": "04:30",
+    "end": "12:16",
+    "values_changed": "end plate thickness, width, height, folded plate, seat plate, fitting plates 1"
+   },
+   {
+    "tab": "Stiffeners",
+    "start": "12:17",
+    "end": "18:07",
+    "values_changed": "top and bottom stiffeners, thickness, position, type"
+   },
+   {
+    "tab": "Haunch",
+    "start": "18:08",
+    "end": "19:50",
+    "values_changed": "haunch thickness, heights, chamfer"
+   },
+   {
+    "tab": "Notch",
+    "start": "21:20",
+    "end": "22:19",
+    "values_changed": "notch options"
+   },
+   {
+    "tab": "Bolts",
+    "start": "22:20",
+    "end": "25:30",
+    "values_changed": "bolt size, standard, tolerance, site/workshop, vertical/horizontal distances"
+   },
+   {
+    "tab": "General",
+    "start": "26:24",
+    "end": "27:16",
+    "values_changed": "save attribute name"
+   }
+  ],
+  "result": "End plate connection (144) configured between column HEAA360 and beam IPE400 with custom end plate dimensions, stiffeners, haunch, notch, and bolt distribution.",
+  "applied_times": [
+   "27:18"
+  ]
+ }
+}
