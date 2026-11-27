@@ -762,7 +762,21 @@ def main():
                     conn('T146', [own, other], q, row, [b['id']])
             elif s['name'] in ('PLATE', 'D') and s['tprof'] == 'FLT10*120':   # hanger under the rafter for the gable column top
                 rf, gc = (own, other) if members[own]['st']['name'] == 'RAFTER' else (other, own)
+                if members[rf]['st']['name'] != 'RAFTER':   # R12 EG3501 / EG3502: the hanger is its own assembly; its rafter is the one right above it
+                    tv0 = mesh_v(b); tc = [sum(v[k] for v in tv0) / len(tv0) for k in range(2)] + [max(v[2] for v in tv0)]
+                    cand = sorted((point_seg(tc, m['st']['p1'], m['st']['p2'])[0], m['i']) for m in members if m['st']['name'] == 'RAFTER')
+                    if cand and cand[0][0] < 250: rf = cand[0][1]
+                    if members[gc]['st']['name'] == 'RAFTER' or gc == rf: gc = other if other != rf else own
                 q = sp_q(p, pts, d, members[gc]['st'])
+                if MODEL == 'R12':   # C17 (PARITY.md): Tekla 146 as a hanger: measured from the rafter's face at the tab's own plane
+                    cst = members[gc]['st']; a_, eh_, es_ = v69_eh(cst); tv = mesh_v(b); cax = cst['p1']
+                    sz = [dot(sub(v, cax), es_) for v in tv]; tops = {}   # the tab's top line (the rafter's underside) over its thickness ...
+                    for v, d_ in zip(tv, sz): tops[round(d_, 2)] = max(tops.get(round(d_, 2), -1e9), v[2])
+                    (d1, z1_), (d2, z2_) = min(tops.items()), max(tops.items()); kz = (z2_ - z1_) / (d2 - d1)
+                    mw_ = re.match(r'^BI[\d.]+-([\d.]+)-', cst['prof']); tw_ = float(mw_.group(1)) if mw_ else 6.0   # ... taken at the column web's uphill face (R12: 190 / 49.056 at all 14)
+                    face = max(z1_ + kz * (sgn * tw_ / 2 - d1) for sgn in (1, -1)); bot = min(v[2] for v in tv); ctop = max(cst['p1'][2], cst['p2'][2])
+                    rows_ = sorted({round(pp[2], 3) for pp in pts}, reverse=True); gcen = [sum(pp[k] for pp in pts) / len(pts) for k in range(3)]
+                    q.update(hang='face', refV='Middle', posV=r3(-dot(sub(gcen, cax), eh_)), tb=r3(face - bot), gap=r3(face - ctop), eh=r3(face - rows_[0] - (face - ctop)), blrule='tekla')
                 conn('T146', [rf, gc], q, '17', [b['id']])
             else:
                 unhandled[f'{s["name"]} {s["tprof"]} ({g})'].append(b['id'])

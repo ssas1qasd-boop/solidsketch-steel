@@ -123,6 +123,41 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C17 · Shear plate (146) as a hanger under a sloped rafter: R12's gable column tops (owner 2026-11-27)
+
+### Step 0: Tekla's own site
+- Shear plate (146) (conn_146_help, as C14): the tab is welded to the main part and bolted to the secondary's web; Bolts tab vertical measurement (Top / Middle / Below), horizontal edge distance; Plates tab tab size. R12's gable column tops are 146 with the rafter as the main part and the gable column as the secondary: the tab hangs from the rafter's underside, bolted to the column web.
+- Tekla's own videos: none for 146 as a hanger (C14's video MrhM4X9opLo shows the Bolts tab only).
+
+### Step 1: videos — C14's (tests/steel/videos/C14), the Bolts tab ("Middle" / "Top"); no hanger values from it (VIDEO.txt).
+
+### Step 2: the Tekla package
+- Assembly drawings EG3501 / EG3502: part 3001 FLT10*120 x 192 (Tekla's part length is the tab's longest edge: 190 from the uphill face + the slope over the tab and web); the rafter drawings list the same plate in the rafter's assembly. The bolts (4 M16 8.8 L40 to the gable column web) are R12's.
+
+### R12 (16 gable column tops: 14 tabs in the rafters' assemblies, 2 as their own assemblies EG3501 / EG3502)
+- Tab FLT10*120 against the gable column's web, **centred on the rafter** (Vertical measurement Middle, 35 from the column's middle), **190 long**, its top **cut along the rafter's sloped underside**.
+- Everything along the column is measured from the rafter's underside **at the column web's uphill face** (both sides of the web: 7 tabs uphill, 7 downhill): tab length 190, column top 49.056 below (the gap), first bolt row 49.056 + 40.949 below.
+- 4 M16 8.8 L40 (Tekla's length: grip 16), heads on the tab, 2 x 2 at 60 / 60.
+- v69's 146 measured from the face at the column's axis with a flat tab top, centred the tab on the column (35 off) and used L50.
+
+### Change, in web v70 (section "C17") and the app (`Fam.st`)
+- 146 Plates tab: **Main part face** = the secondary web's uphill face (a hanger under a sloped part): the tab and bolts measured from there, the tab ends on the main part's face plane. 'Tab plate b' sets the tab length. Old models (v69) unchanged.
+
+### Search result: the R12 inputs (`r10_inputs.py`)
+- hang face, refV Middle, posV 34.994, tb 190, gap 49.056, eh 40.949, blrule tekla at all 16 (the two EG hangers find their rafter right above them).
+
+### Checks
+| Check | Before (C03, 907edf2) | After |
+|---|---|---|
+| Row 17 R12 parts (web rebuild, 0.1 mm) | 0 / 16 (14 at 35 mm, 2 missing) | 16 / 16 |
+| R12 bolts matched by position (web rebuild) | 4,390 / 4,548 | 4,454 / 4,548 (+64) |
+| App vs R12 (`R12C17Test`, 0.1 mm) | — | 16 / 16 hangers; 28.56 kg = Tekla 28.56 |
+| Rule B | — | 0 failures: R12 uphill (R3002), downhill (R3008), EG3502, IPE300 on HEA200 at 15 deg |
+| Weight (rebuild, web) | 63,102.54 kg | 63,105.97 kg (Tekla 63,705.8): +3.4 (the two EG hangers) |
+
+### Status
+Delivered for the owner's phone check; ✓ only after the owner's OK.
+
 ## C03 · Apex haunch as Tekla 106: haunch dimensions, plumb flange ends, end plate stiffeners above the rafter (owner 2026-11-27)
 
 ### Step 0: Tekla's own site

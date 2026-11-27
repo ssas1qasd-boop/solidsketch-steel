@@ -1,0 +1,81 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T146",
+   [
+    0,
+    1
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "cols": 2,
+    "e": 30,
+    "eh": 40.949,
+    "gap": 49.062,
+    "hang": "face",
+    "pitch": 60,
+    "pitchH": 60,
+    "posV": 34.994,
+    "refV": "Middle",
+    "rows": 2,
+    "side": 1,
+    "t": 10,
+    "tb": 190.005
+   }
+  ]
+ ],
+ "description": "R12 EG3502: the hanger that is its own assembly in Tekla, under R3024 on EGC2002.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "RAFTER",
+    "p1": [
+     313.613,
+     27925,
+     7433.94
+    ],
+    "p2": [
+     6705.5,
+     27925,
+     8887.194
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "COLUMN",
+    "p1": [
+     3705.5,
+     27890,
+     230
+    ],
+    "p2": [
+     3705.5,
+     27890,
+     8043.935
+    ],
+    "plane": "Middle",
+    "prof": "BI220-6-200-10",
+    "rAng": 0,
+    "rot": "Front"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t146h_r12_eg3502",
+ "pageErrors": []
+}

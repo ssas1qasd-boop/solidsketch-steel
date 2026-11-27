@@ -33826,8 +33826,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 72.274,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.994,
+      "tb": 190.0,
+      "eh": 40.948,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -33848,8 +33854,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 72.274,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.993,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -33870,12 +33882,46 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 72.274,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.993,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
       1096
+     ]
+    ],
+    [
+     "T146",
+     [
+      91,
+      12
+     ],
+     {
+      "t": 10.0,
+      "bolt": 16,
+      "rows": 2,
+      "e": 30.0,
+      "pitch": 60.0,
+      "cols": 2,
+      "pitchH": 60.0,
+      "gap": 49.062,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.994,
+      "tb": 190.005,
+      "eh": 40.949,
+      "blrule": "tekla"
+     },
+     "17",
+     [
+      1845
      ]
     ],
     [
@@ -33892,8 +33938,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 68.636,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.994,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -33914,8 +33966,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 68.636,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.994,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -33936,8 +33994,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 68.636,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.994,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -33958,12 +34022,46 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 72.274,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.994,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
       1863
+     ]
+    ],
+    [
+     "T146",
+     [
+      77,
+      4
+     ],
+     {
+      "t": 10.0,
+      "bolt": 16,
+      "rows": 2,
+      "e": 30.0,
+      "pitch": 60.0,
+      "cols": 2,
+      "pitchH": 60.0,
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.994,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
+     },
+     "17",
+     [
+      1864
      ]
     ],
     [
@@ -33980,8 +34078,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 72.274,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.994,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -34002,8 +34106,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 68.636,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.993,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -34024,8 +34134,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 68.636,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.993,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -34046,8 +34162,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 68.636,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.993,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -41441,8 +41563,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 72.274,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.994,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -41463,8 +41591,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 68.636,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.993,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -41485,8 +41619,14 @@
       "pitch": 60.0,
       "cols": 2,
       "pitchH": 60.0,
-      "gap": 72.274,
-      "side": 1
+      "gap": 49.056,
+      "side": 1,
+      "hang": "face",
+      "refV": "Middle",
+      "posV": 34.993,
+      "tb": 190.0,
+      "eh": 40.949,
+      "blrule": "tekla"
      },
      "17",
      [
@@ -59607,12 +59747,12 @@
   "members": 836,
   "builtup": 198,
   "given": 638,
-  "connections": 1331,
+  "connections": 1333,
   "byKey": {
    "T1004": 4,
    "T1042": 48,
    "T144": 105,
-   "T146": 86,
+   "T146": 88,
    "T186": 18,
    "T39": 2,
    "Tcl": 264,
@@ -59641,7 +59781,7 @@
    "14": 68,
    "15": 2,
    "16": 4,
-   "17": 14,
+   "17": 16,
    "18": 10,
    "19": 26,
    "20": 18,

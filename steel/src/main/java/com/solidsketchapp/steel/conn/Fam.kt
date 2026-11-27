@@ -272,15 +272,21 @@ object Fam {
             val mainBeam = abs(j.m.a.z) < 0.9; val mr = j.m.r + 1
             if (x.t("full") || x.t("top")) { val yT = if (mainBeam && j.yTop.isFinite()) j.yTop - mr else bp.h / 2 - bp.tf - 5; val yB = if (mainBeam && j.yBot.isFinite()) j.yBot + mr else -(bp.h / 2 - bp.tf - 5)
                 y1 = max(y1, yT); if (x.t("full")) y0 = min(y0, yB) }
-            val xs0 = if (x.t("through")) j.xFace - j.m.h else j.xFace
+            // v70 C17: a hanger under a sloped main part: measured from the main part's face at the secondary web's uphill face; the tab ends on the face plane
+            val hang = x.s("hang") == "face"; val ku = (j.zb dot j.uDir) / ((j.x dot j.uDir).let { if (it == 0.0) 1.0 else it })
+            val xFT = if (hang) minOf(j.xFace - bp.tw / 2 * ku, j.xFace + bp.tw / 2 * ku) else j.xFace
+            val xs0 = if (x.t("through")) j.xFace - j.m.h else xFT
             val colstiff = x.t("colstiff") && !v186; val stiffQ = x.t("stiff") && !v186   // v70 C20: 186 with Stiffener creation set makes Tekla's stiffeners (colStiff186)
-            val xe = if (colstiff && !j.flange && !mainBeam && j.m.kind == "I") j.m.b / 2 - j.m.tw / 2 else 0.0; val xF2 = j.xFace + xe
+            val xe = if (colstiff && !j.flange && !mainBeam && j.m.kind == "I") j.m.b / 2 - j.m.tw / 2 else 0.0; val xF2 = xFT + xe
             val eH = optNum(x, "eh").let { if (it.isFinite()) it else e }   // v70: horizontal edge distance
             val tb = optNum(x, "tb")   // v70 C20: Plates tab 'Tab plate b' sets the tab's length from the main part
             val x1 = if (tb > 0) xs0 + tb else xF2 + x.n("gap") + 2 * eH + (nC - 1) * x.n("pitchH"); val z0 = bp.tw / 2
             val side = x.n("side"); val sides = if (side == 2.0 || x.t("two")) listOf(1, -1) else if (side == -1.0) listOf(-1) else listOf(1)
             val f = Joints.Frame3(j.e, j.x, j.y)
-            val tabs = sides.map { sg -> if (x.t("shaped")) f.poly(listOf(doubleArrayOf(xs0, y0), doubleArrayOf(x1 - 15, y0), doubleArrayOf(x1, y0 + 15), doubleArrayOf(x1, y1 - 15), doubleArrayOf(x1 - 15, y1), doubleArrayOf(xs0, y1)), sg * z0, sg * (z0 + t)) else f.box(xs0, x1, y0, y1, sg * z0, sg * (z0 + t)) }
+            val xsT = if (hang) xs0 - (abs(j.zb dot j.uDir) / (abs(j.x dot j.uDir).let { if (it == 0.0) 1.0 else it }) * t + 5) else xs0
+            val tabs = sides.map { sg -> if (x.t("shaped")) f.poly(listOf(doubleArrayOf(xsT, y0), doubleArrayOf(x1 - 15, y0), doubleArrayOf(x1, y0 + 15), doubleArrayOf(x1, y1 - 15), doubleArrayOf(x1 - 15, y1), doubleArrayOf(xsT, y1)), sg * z0, sg * (z0 + t)) else f.box(xsT, x1, y0, y1, sg * z0, sg * (z0 + t)) }
+            val faceCut = if (hang) { val pf = j.pc.add(j.uDir, if (j.flange) j.m.h / 2 else j.m.tw / 2); val nn = -j.uDir; val ax = ((if (abs(nn.z) < 0.9) D3.Z else D3(1.0, 0.0, 0.0)) cross nn).normalize(); val ay = nn cross ax
+                listOf(Joints.box3(pf, ax, ay, -20000.0, 20000.0, -20000.0, 20000.0, 0.0, 20000.0)) } else emptyList()
             val bl = ArrayList<D3>(); val yb0 = y1 - (if (x.t("full") || x.t("top")) max(x.n("e"), (y1 - y0) / 2 - (n - 1) * x.n("pitch") / 2) else x.n("e"))
             for (jj in 0 until nC) for (i in 0 until n) bl += j.p(xF2 + x.n("gap") + eH + jj * x.n("pitchH"), yb0 - i * x.n("pitch"), sides[0] * (z0 + t + (if (tk) 0.0 else 0.1)))
             val grip = sides.size * t + bp.tw + (if (tk) 0.0 else 2.0); var bax = j.zb * (-sides[0].toDouble())
@@ -291,7 +297,7 @@ object Fam {
             for (m in j.cutEnd(xF2 + x.n("gap"))) x.cut(bmId, m)
             // v70 C20: a skewed secondary's tab ends on the main part's web face (Tekla welds it there), not square to the beam
             val webClip = if (v186 && !j.flange && abs(j.x dot j.m.es) <= 0.9999) listOf(Joints.Frame3(j.m.c1, j.m.es, j.m.a).box(-j.m.tw / 2, j.m.tw / 2, -BIG, BIG, -BIG, BIG)) else emptyList()
-            tabs.forEach { x.plate("SHEAR TAB", it, x.n("t"), minus = bb.holes + webClip) }
+            tabs.forEach { x.plate("SHEAR TAB", it, x.n("t"), minus = faceCut + bb.holes + webClip) }
             for (sgn in listOf(1, -1)) { val fy0 = sgn * (bp.h / 2 - bp.tf - bp.r); val fy1 = sgn * bp.h / 2
                 if (if (sgn > 0) y1 > fy0 else y0 < fy0) for (sg in sides) x.cut(bmId, j.box(j.xFace - 1, x1 + 20, min(fy0, fy1) - 1, max(fy0, fy1) + 1, sg * (z0 - 0.5), sg * (bp.b / 2 + 5))) }
             x.bolts(bb, bl.size, if (tk) tkBoltLen(x.n("bolt"), sides.size * x.n("t") + bp.tw) else grip + 2 * x.n("bolt"))   // v70: Tekla's bolt length (grip + nut + washer + 5, up to 5)

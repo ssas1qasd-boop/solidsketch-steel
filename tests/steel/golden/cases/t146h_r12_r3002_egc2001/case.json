@@ -1,0 +1,81 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T146",
+   [
+    0,
+    1
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "cols": 2,
+    "e": 30,
+    "eh": 40.948,
+    "gap": 49.056,
+    "hang": "face",
+    "pitch": 60,
+    "pitchH": 60,
+    "posV": 34.994,
+    "refV": "Middle",
+    "rows": 2,
+    "side": 1,
+    "t": 10,
+    "tb": 190
+   }
+  ]
+ ],
+ "description": "R12 gable hanger, tab on the uphill side of the column web (R3002 / EGC2001): FLT10*120 x 190 from the rafter face at the web's uphill face, 4 M16 L40, posV 35.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "RAFTER",
+    "p1": [
+     39798.613,
+     75,
+     7411.204
+    ],
+    "p2": [
+     46290.5,
+     75,
+     8887.194
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "COLUMN",
+    "p1": [
+     43290.5,
+     110,
+     230
+    ],
+    "p2": [
+     43290.5,
+     110,
+     8043.935
+    ],
+    "plane": "Middle",
+    "prof": "BI220-6-200-10",
+    "rAng": 0,
+    "rot": "Back"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t146h_r12_r3002_egc2001",
+ "pageErrors": []
+}

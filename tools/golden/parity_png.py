@@ -376,6 +376,28 @@ def c03(shots, video=None):
     return compose('C03', [('R12 (Tekla IFC), apex at R3008, section', r12), ('Tekla single-part drawing 2504: Stiff. FLT10*60 (package)', tekla_sp('2504')), ('Tekla assembly drawing R3008 (package)', pic), ('app on the emulator, orthographic apex (landscape)', app)],
                    'C03 Apex haunch as Tekla 106: R12 | Tekla drawing | Tekla drawing | app (Apex haunch (106): Haunch = Tekla, Stiffeners)', ['Measured on the models the emulator built and saved (c03_case.ss, c03_len1500.ss):'] + ['! ' + m for m in lines])
 
+def c17(shots, video=None):
+    """C17: c17_case.ss (R12's gable column top EGC2001 under R3002 through Shear plate (146) as a hanger) and c17_v69face.ss (Main part face = v69)"""
+    st = lambda b: b.get('st') or {}
+    def meas(f):
+        D = json.load(gzip.open(os.path.join(shots, f)))['doc']; tab = [b for b in D['bodies'] if st(b).get('name') == 'SHEAR TAB'][0]; tv = VT(tab)[0]
+        bo = [b for b in D['bodies'] if st(b).get('kind') == 'bolts'][0]; zs = sorted({round(p[2], 2) for p in st(bo)['pts']}); ys = sorted({round(p[1], 2) for p in st(bo)['pts']})
+        return f"tab y {tv[:, 1].min():.1f}..{tv[:, 1].max():.1f}, z {tv[:, 2].min():.2f}..{tv[:, 2].max():.2f}; bolts M{st(bo)['d']:g} L{st(bo)['L']:g} at y {ys}, z {zs}"
+    a, b = meas('c17_case.ss'), meas('c17_v69face.ss')
+    lines = ['app (c17_case.ss, Main part face = uphill web face): ' + a, 'after Main part face = v69 + Modify (c17_v69face.ss): ' + b,
+             'R12 (PLATE 1094): tab y 15.0..135.0, z 7902.99..8095.26 (top on the sloped underside); bolts M16 L40 at y [45, 105], z [7942.99, 8002.99]',
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c17_case.ss')).split(';')[0] + ' | after v69: ' + rule_b(os.path.join(shots, 'c17_v69face.ss')).split(';')[0],
+             'R12 rebuild (web v70 and app): row 17 0 -> 16 / 16 at 0.1 mm (+64 bolts); app vs R12 16 / 16, 28.56 kg = Tekla 28.56']
+    app, meta = shot(shots, 'ortho_front'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'hanger FLT10*120 under the rafter, 4 M16 L40')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
+    near_ = [b for b in RB if (VT(b)[0].min(0) < t + 500).all() and (VT(b)[0].max(0) > t - 500).all()]
+    colr = lambda b: (230, 170, 40) if st(b).get('tprof') == 'FLT10*120' else (90, 90, 90) if st(b).get('kind') == 'bolts' else (60, 110, 200) if st(b).get('amark', '').startswith('R') else (60, 150, 80)
+    r12 = render(near_, t, dv, dist, colr, W=1100, H=1100)
+    pic = Image.open(video).convert('RGB') if video else tekla_page('EG3501')
+    return compose('C17', [('R12 (Tekla IFC), gable column top EGC2001 under R3002, front', r12), ('Tekla assembly drawing R3002 (package)', tekla_page('R3002')), ('Tekla assembly drawing EG3501 (package)', pic), ('app on the emulator, orthographic front (landscape)', app)],
+                   'C17 Shear plate (146) as a hanger: R12 | Tekla drawing | Tekla drawing | app (Plates: Main part face = uphill web face)', ['Measured on the models the emulator built and saved (c17_case.ss, c17_v69face.ss):'] + ['! ' + m for m in lines])
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17}[sys.argv[1]](*sys.argv[2:])

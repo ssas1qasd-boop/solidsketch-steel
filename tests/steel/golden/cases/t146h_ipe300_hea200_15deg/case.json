@@ -1,0 +1,77 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T146",
+   [
+    0,
+    1
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "cols": 3,
+    "e": 30,
+    "eh": 35,
+    "gap": 40,
+    "hang": "face",
+    "pitch": 60,
+    "pitchH": 55,
+    "posV": 0,
+    "refV": "Middle",
+    "rows": 2,
+    "side": 1,
+    "t": 10,
+    "tb": 220
+   }
+  ]
+ ],
+ "description": "IPE300 rafter at 15 deg over a HEA200 column top: hanger 220 long, 2 x 3 M16, from the uphill web face.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     0,
+     0,
+     5000
+    ],
+    "p2": [
+     6000,
+     0,
+     6607.7
+    ],
+    "plane": "Middle",
+    "prof": "IPE300",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     3000,
+     0,
+     0
+    ],
+    "p2": [
+     3000,
+     0,
+     5600
+    ],
+    "plane": "Middle",
+    "prof": "HEA200",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t146h_ipe300_hea200_15deg",
+ "pageErrors": []
+}

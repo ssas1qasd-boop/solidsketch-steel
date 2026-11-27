@@ -8,24 +8,24 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 
 | | R12 | v69 rebuild |
 |---|---|---|
-| Bodies | 6,233 | 6,803 |
-| … kind `bolts` | 1,288 | 1,197 |
-| … kind `conn` | 0 | 4,770 |
+| Bodies | 6,233 | 6,807 |
+| … kind `bolts` | 1,288 | 1,199 |
+| … kind `conn` | 0 | 4,772 |
 | … kind `member` | 1,540 | 836 |
 | … kind `plate` | 3,405 | 0 |
-| Connections | 1,694 (TKBOLT / TKCUT) | 1,331 (components) |
-| Bolts | 4,548 in 1,288 groups | 4,542 in 1,197 groups |
-| Weight (v66 Tekla weights, bolts excluded) | 63,710.29 kg | 63,102.54 kg (-607.75) |
+| Connections | 1,694 (TKBOLT / TKCUT) | 1,333 (components) |
+| Bolts | 4,548 in 1,288 groups | 4,550 in 1,199 groups |
+| Weight (v66 Tekla weights, bolts excluded) | 63,710.29 kg | 63,105.97 kg (-604.32) |
 | … builtup members | 36,820.56 kg | 37,077.56 kg |
 | … given members | 16,361.46 kg | 16,361.66 kg |
-| … detail parts (R12) / component parts (v69) | 10,528.27 kg | 9,663.32 kg |
+| … detail parts (R12) / component parts (v69) | 10,528.27 kg | 9,666.75 kg |
 
-Members: 836 placed (198 built-up equivalents, 638 R12 members as given): 110 INPUT EQUAL, SOLID DIFFERS, 726 MATCHED.
-- built-up equivalents: 88 matched of 198 (inputs equal R12 for all 198)
+Members: 836 placed (198 built-up equivalents, 638 R12 members as given): 96 INPUT EQUAL, SOLID DIFFERS, 740 MATCHED.
+- built-up equivalents: 102 matched of 198 (inputs equal R12 for all 198)
 - R12 members as given: 638 matched of 638 (inputs equal R12 for all 638)
 
-R12 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3713: 3546 MATCHED, 63 MISSING, 90 NEAR, 14 ROUGH.
-Bolts on the same line (same diameter, R12 bolt within 0.1 mm of a v69 bolt axis): 4,390 of 4,548 R12 bolts (4,036 of them also with the same length and grade); whole groups: 1203 of 1288. Per diameter: M12 1,148, M16 2,666, M20 576.
+R12 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3713: 3562 MATCHED, 61 MISSING, 90 NEAR.
+Bolts on the same line (same diameter, R12 bolt within 0.1 mm of a v69 bolt axis): 4,454 of 4,548 R12 bolts (4,100 of them also with the same length and grade); whole groups: 1267 of 1288. Per diameter: M12 1,148, M16 2,730, M20 576.
 
 Status words: MATCHED = equal within the tolerances (0.1 mm points and boxes, volume within 2 % for plates); INPUT EQUAL, SOLID DIFFERS = the member's inputs equal R12 but its solid does not (built-ups: one BI solid against three Tekla plates with their end cuts; given members: v69's component cuts against R12's TKCUT cuts); NEAR = box within 5 mm; ROUGH = box within 50 mm; MISSING = no v69 part within 50 mm; AS BOLT = an R12 anchor rod member that v69 makes as a bolt of a bolt group.
 
@@ -34,7 +34,7 @@ Status words: MATCHED = equal within the tolerances (0.1 mm points and boxes, vo
 - Grid: `x 0 13195 13195 13195 13195`, `y 0 5570 5570 5570 5570 5570`, `z 0 7500 1500` (R12's own, Tekla syntax).
 - **Portal frame application: not used.** v69's portal frame (v33, with v42 girts / gables and v43 crane) makes one span at x = 0 (two columns, two rafters per frame) and replaces the parts of an earlier run, so it cannot make R12's four spans on five column lines, its built-up BI220 / BI320 columns, the ridge monitor or the mezzanine. Option needed: number of spans (or a list of spans), an x origin, and built-up / different column sections per line. Everything is placed member by member, as in the owner's video (Column / Beam tools on the grid).
 - Members: 198 built-up equivalents (each R12 web with its two flanges → one `BI<H>-<tw>-<b>-<tf>` member on the section centre line, ends from the three plates) and 638 R12 members as given (purlins, bracing, struts, sag rods, stair stringers, stanchions, hand rails, railings). Not placed because v69 components make them: Anchor Bolt ROD16 (16), Anchor Bolt ROD20 (192), BRACKET L60*6 (46), Cleat Angle L140*60*6 (264), NUT PD40*10 (192), WASHER PD40*10 (192).
-- Components: 1331 in one `connectMany` step: T1004 4, T1042 48, T144 105, T146 86, T186 18, T39 2, Tcl 264, Teh 48, Tsag 280, Tsep 8, Ttg 352, Ttgx 52, apex 36, stairtreads 2, weldonly 26. v69 built 1331 connections, 0 with a red symbol, 0 replay errors.
+- Components: 1333 in one `connectMany` step: T1004 4, T1042 48, T144 105, T146 88, T186 18, T39 2, Tcl 264, Teh 48, Tsag 280, Tsep 8, Ttg 352, Ttgx 52, apex 36, stairtreads 2, weldonly 26. v69 built 1333 connections, 0 with a red symbol, 0 replay errors.
 - Which parts each component joins comes from R12: the detail plate it would make (base plate, end plate, shear plate, tongue, cleat …) and the TKBOLT bolt groups that join that plate to the other assembly; settings (plate thickness and size, bolt diameter, rows / gauge / pitches / edge distance, anchors, grout, cast plate) come from that plate and its bolts where v69 has the option.
 - R12 detail plates for which no component was added (not bolted to another assembly, or no rule): PLATE FLT12*120 (): 1; Shear Plate FLT10*150 (C) not bolted to another assembly: 6.
 - Webs left as plates (no two flanges found): 96 (96 are the eave and apex haunch webs, which have one flange; the apex haunch is made by the v54 apex).
@@ -61,7 +61,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | 14 | 146: joist to girder | 68 | 68 / 272 | 68 | 68 | 0 / 0 | 0 | reproduced |
 | 15 | Cap 39: mezzanine column -> girder | 2 | 2 / 16 | 8 | 8 | 0 / 0 | 0 | reproduced |
 | 16 | Base plate 1004: stair landing post | 4 | 24 / 0 | 24 | 24 | 0 / 0 | 0 | reproduced |
-| 17 | 146 hanger: gable column top | 14 | 14 / 56 | 16 | 0 | 0 / 14 | 2 | not |
+| 17 | 146 hanger: gable column top | 16 | 16 / 64 | 16 | 16 | 0 / 0 | 0 | reproduced |
 | 18 | Stairs: grating treads | 10 | 77 / 148 | 83 (+12 members as given, 12 matched) | 81 | 0 / 0 | 2 | partly |
 | 19 | Railing welds | 26 | 0 / 0 | 0 (+38 members as given, 38 matched) | 0 | 0 / 0 | 0 | placed as given |
 | 20 | Column with stiffeners 186: mezzanine column web -> beam | 18 | 74 / 128 | 86 | 74 | 0 / 0 | 12 | partly |
@@ -74,7 +74,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | builtup C COLUMN BI320-8-150-10 | 15 | 15 MATCHED | 0.0 | 1.001–1.006 | 4,625.8 → 4,647.8 |
 | builtup EB BEAM BI320-8-120-10 | 5 | 5 MATCHED | 0.0 | 1.000–1.001 | 1,435.7 → 1,442.7 |
 | builtup EB BEAM BI324-8-250-12 | 7 | 7 MATCHED | 0.0 | 1.000–1.000 | 2,501.7 → 2,548.8 |
-| builtup EGC COLUMN BI220-6-200-10 | 16 | 14 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | 23.9 | 0.997–1.000 | 5,090.2 → 5,103.4 |
+| builtup EGC COLUMN BI220-6-200-10 | 16 | 16 MATCHED | 0.0 | 1.000–1.000 | 5,090.2 → 5,103.4 |
 | builtup MB BEAM BI220-8-140-10 | 34 | 34 MATCHED | 0.0 | 0.999–0.999 | 6,448.8 → 6,484.8 |
 | builtup MBC COLUMN BI320-8-150-10 | 2 | 2 MATCHED | 0.0 | 1.000–1.000 | 289.4 → 291.1 |
 | builtup PC COLUMN BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | 1.8 | 1.026–1.032 | 391.2 → 409.2 |
@@ -126,16 +126,12 @@ Field differences on members (count of members): none (every placed member has R
 | 12 | shear plate / C Shear Plate FLT10*150 | 6 | 6 MISSING | 3 at 159.0 mm | 14.8 → 0.0 | six column shear plates (at EB4006 / EB4008, beams with flanges only in R12) are not bolted to any beam (no secondary part to pick): no component added; the other 4 (146) match, and the 18 at 186 joints are row 20 | none (R12 data) |
 | 13 | Bot Stiff. / MBC Bot Stiff. FLT10*50 | 2 | 2 MISSING | — | 0.4 → 0.0 | girder-side Stiff. plates FLT10*50: End plate 144 Haunch tab (C13: 12 / 12 at the 6 girder joints); the 4 at the MBC2001 column end plates are row 15 | done (v70 C13) / row 15 |
 | 13 | Top Stiff. / MBC Top Stiff. FLT10*50 | 2 | 2 MISSING | — | 0.4 → 0.0 | as above | as above |
-| 17 | gable hanger / EG PLATE FLT10*120 | 2 | 2 MISSING | — | 3.6 → 0.0 | v69 146 makes the hanger in the gable column's web plane turned 90 degrees and about 33 mm off; R12's FLT10*120 hanger hangs under the rafter | hanger orientation (Tekla 146 used as a hanger) |
-| 17 | gable hanger / R D FLT10*120 | 1 | 1 ROUGH | 1 at 35.1 mm | 1.8 → 1.8 | as above | as above |
-| 17 | gable hanger / R PLATE FLT10*120 | 13 | 13 ROUGH | 13 at 35.0 mm | 23.3 → 23.3 | as above | as above |
 | 18 | Stair Plate / EB Stair Plate FLT12*150 | 2 | 2 MISSING | 2 at 12.0 mm | 9.0 → 0.0 | the counter plates FLT12*150 on mezzanine girder EB4002 (the top stair plates bolt to them): a mezzanine girder part, left until R13 (owner 2026-11-27); Stair end plate option Counter plate on the main part makes them | R13 |
 | 20 | Bot FS / C Bot FS FLT10*70 | 15 | 12 MATCHED, 3 MISSING | — | 23.9 → 19.1 | Column with stiffeners (186) at the beam on the column web (v70 C20): 12 of 15 columns match; at C2019 and the two C2023 joints the beam on the web is EB4006 / EB4008, which has flanges only and no web in R12 (no member placed, so no secondary to pick) | none (R12 data) |
 | 20 | Bot Ns / C Bot Ns FLT10*70 | 15 | 12 MATCHED, 3 MISSING | — | 23.9 → 19.1 | as above | as above |
 | 20 | Top FS / C Top FS FLT10*70 | 15 | 12 MATCHED, 3 MISSING | — | 23.9 → 19.1 | as above | as above |
 | 20 | Top NS / C Top NS FLT10*70 | 15 | 12 MATCHED, 3 MISSING | — | 23.9 → 19.1 | as above | as above |
-| builtup | EGC BI220-6-200-10 | 16 | 14 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | — | 5,090.2 → 5,103.4 | Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent | built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part |
-| builtup | PC BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | — | 391.2 → 409.2 | as above | as above |
+| builtup | PC BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | — | 391.2 → 409.2 | Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent | built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part |
 | builtup | PR BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | — | 448.8 → 464.4 | as above | as above |
 | builtup | R BI220-8-150-10 | 48 | 48 INPUT EQUAL, SOLID DIFFERS | — | 11,405.0 → 11,483.7 | as above | as above |
 
@@ -150,9 +146,9 @@ NUT NUT M12: 560, WASHER WASHER M12: 560.
 | M12 4.6 L30 | 1056 | 1056 |
 | M12 8.8 L35 | 92 | 92 |
 | M16 8.8 L12 | 0 | 8 |
-| M16 8.8 L40 | 104 | 16 |
+| M16 8.8 L40 | 104 | 80 |
 | M16 8.8 L45 | 768 | 624 |
-| M16 8.8 L50 | 1952 | 1968 |
+| M16 8.8 L50 | 1952 | 1912 |
 | M16 8.8 L54 | 0 | 138 |
 | M16 8.8 L56 | 0 | 48 |
 | M16 8.8 L60 | 0 | 16 |
@@ -160,7 +156,7 @@ NUT NUT M12: 560, WASHER WASHER M12: 560.
 | M20 8.8 L70 | 192 | 0 |
 | M20 8.8 L80 | 0 | 192 |
 | **M12 total** | 1148 | 1148 |
-| **M16 total** | 2824 | 2818 |
+| **M16 total** | 2824 | 2826 |
 | **M20 total** | 576 | 576 |
 
 R12's anchor rods (ROD20 192, ROD16 16) are members, not bolts; v69 makes them as anchor bolt groups (M20 L677 4.6, M16 L284 4.6).
@@ -214,7 +210,7 @@ Names differ between Tekla and v69 (e.g. `Base Plate × FLT20*200` against `BASE
 | Gusset Plate × PL12*213 | 24 | RAFTER × BI150-6-120-8 | 24 |
 | Gusset Plate × PL12*213.4 | 32 | RAFTER × BI220-8-150-10 | 48 |
 | Gusset Plate × PL12*214.1 | 20 | RAILING × PD50*5 | 6 |
-| Gusset Plate × PL12*219.6 | 1 | SHEAR TAB × PL10 | 104 |
+| Gusset Plate × PL12*219.6 | 1 | SHEAR TAB × PL10 | 106 |
 | Gusset Plate × PL12*222.6 | 8 | STAIR PLATE × FLT12*150 | 8 |
 | Gusset Plate × PL12*222.9 | 10 | STIFFENER × PL10 | 56 |
 | Gusset Plate × PL12*223.1 | 2 | STRINGER × UPN240 | 12 |
