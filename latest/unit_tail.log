@@ -135,15 +135,15 @@ This will become an error in Kotlin 2.1.
 > Task :app:bundleDebugClassesToRuntimeJar
 > Task :app:bundleDebugClassesToCompileJar
 > Task :steel:compileDebugUnitTestKotlin
-> Task :app:processDebugJavaRes
 > Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :steel:processDebugUnitTestJavaRes
 > Task :steel:testDebugUnitTest
+> Task :app:processDebugJavaRes
 > Task :app:compileDebugUnitTestKotlin
 > Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :app:processDebugUnitTestJavaRes
 > Task :app:testDebugUnitTest
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795724856861.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795760342163.json
 
-BUILD SUCCESSFUL in 2m 55s
+BUILD SUCCESSFUL in 3m 1s
 93 actionable tasks: 93 executed
