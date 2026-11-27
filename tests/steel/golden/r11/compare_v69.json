@@ -66893,8 +66893,8 @@
   },
   "weightKg": {
    "r10": 63707.66,
-   "v69": 60888.5,
-   "diff": -2819.16,
+   "v69": 60882.9,
+   "diff": -2824.76,
    "r10Weights": {
     "weight_t": 63.708,
     "net_t": 63.687,
@@ -66903,9 +66903,9 @@
     "boltBodiesExcluded": 1693
    },
    "v69Weights": {
-    "weight_t": 60.888,
-    "net_t": 60.875,
-    "gross_t": 61.062,
+    "weight_t": 60.883,
+    "net_t": 60.87,
+    "gross_t": 61.056,
     "parts": 5521,
     "boltBodiesExcluded": 1200
    }
@@ -66921,7 +66921,7 @@
    ],
    "detail parts (R10) / component parts (v69)": [
     10545.3,
-    7784.88
+    7779.28
    ]
   }
  },

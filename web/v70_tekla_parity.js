@@ -1001,3 +1001,12 @@
     plate(q.cname || 'Cap Plate', stBox3(Pc, dd, ww, s0, s1, -b / 2, b / 2, 0, t), +q.t || 8, 'FLT' + (+q.t || 8) + '*' + Math.round(b / U * 10) / 10);
     weld('Cap to column', q.a, 2 * (M.b * 2 + M.h) / 1000 * 1000);
   };
+
+  // == C08 ==
+  // C08 (docs/steel/PARITY.md "C08"): Tekla's sag rods have no nut or washer parts (the R13 inputs switch them off). When a model
+  // keeps v69's nuts / washers (Parts tab on), they are bored for the rod (radius d / 2 + 0.05): v69 made them solid cylinders that
+  // sat 1.8 / 3.7 mm deep in the rod (rule B). Same in the app (FamSR).
+  { const sr69 = FAM.SR; FAM.SR = X => { const r = sr69(X); if (r === null || !X.B) return r; const U = stU(), MR = stMF(X.B.st), d = MR.h || 12, L = MR.c1.distanceTo(MR.c2);
+      const bore = stCyl(MR.c1.clone().addScaledVector(MR.a, -10000 * U), MR.a.toArray(), (d / 2 + 0.05) * U, L + 20000 * U, 32);
+      for (const p of X.out.parts) if ((p.name === 'NUT' || p.name === 'WASHER') && p.man) p.man = p.man.subtract(bore);
+      return r; }; }

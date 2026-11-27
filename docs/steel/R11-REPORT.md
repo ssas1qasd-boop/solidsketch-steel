@@ -15,10 +15,10 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 | … kind `plate` | 3,399 | 0 |
 | Connections | 3,680 (TKBOLT / TKCUT) | 1,272 (components) |
 | Bolts | 5,376 in 1,693 groups | 4,606 in 1,200 groups |
-| Weight (v66 Tekla weights, bolts excluded) | 63,707.66 kg | 60,888.50 kg (-2,819.16) |
+| Weight (v66 Tekla weights, bolts excluded) | 63,707.66 kg | 60,882.90 kg (-2,824.76) |
 | … builtup members | 36,801.80 kg | 36,862.37 kg |
 | … given members | 16,360.56 kg | 16,241.25 kg |
-| … detail parts (R11) / component parts (v69) | 10,545.30 kg | 7,784.88 kg |
+| … detail parts (R11) / component parts (v69) | 10,545.30 kg | 7,779.28 kg |
 
 Members: 835 placed (197 built-up equivalents, 638 R11 members as given): 422 INPUT EQUAL, SOLID DIFFERS, 413 MATCHED.
 - built-up equivalents: 5 matched of 197 (inputs equal R11 for all 197)
