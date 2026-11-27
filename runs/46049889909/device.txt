@@ -1,0 +1,8 @@
+Physical size: 1080x2400
+Override size: 1080x2340
+Physical density: 420
+Night mode: yes
+[x] com.android.internal.systemui.navbar.threebutton
+[ ] com.android.internal.systemui.navbar.twobutton
+[ ] com.android.internal.systemui.navbar.transparent
+[ ] com.android.internal.systemui.navbar.gestural
