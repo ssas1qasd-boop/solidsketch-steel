@@ -626,6 +626,12 @@ The owner can see the component symbols in Tekla. Rows marked "to confirm" wait 
 - **vs Tekla:** against `st.tkW` 64,017.49 kg: +7.92 → −14.48 kg (the parts still missing: C18 counter plates −9.04, C10 / C13 −3.44, tubes −2.33). Against the Part List 64,023.4: −20.39 kg.
 - **Recording:** C08RecordingTest (Sag rod at purlin through its dialog: Nuts / Washers off, then on + Modify).
 
+## C10 / C13 on R13: the last plates of rows 10 and 13 (owner 2026-11-28)
+
+- **C10, the data quirk:** R13's monitor rafter end plate F7501 (PLATE FLT12*120) has the assembly mark '14' with no letters, so the inputs found no group (PR) and no member for it. Its 144 was never made, and PR7001 kept a square end. For a model built from Tekla's IFC, a plate whose mark has no letters now takes the nearest member within 200 mm as its own (`r10_inputs.py`). Result: the plate is matched, and PR7001 is matched, so 836 / 839 members match; the 3 left are agent R13's EB4007.
+- **C13, MBC2001's column-top plates:** the two 'End Plate ' PL16*120 on top of MBC2001, under girders EB4001 / EB4002, were rebuilt as Seating (39). Their 4 'Top / Bot Stiff.' FLT10*50 were missing. The names prove they are Tekla's 144: the same 'End Plate ' (with Tekla's trailing space) and 'Top / Bot Stiff.' haunch tab plates as the 6 girder end plates of C13. They are now 144 (main part = the girder, secondary = the column) with the Haunch tab read from R13: 10 x 55 x 50, chamfer 12.5. Result: both plates and all 4 stiffeners match within 0.0 mm. No code change; the 144 Haunch tab is C09's.
+- **R13 rebuild after C08, C10 and C13:** 3,615 detail parts matched, 90 near, 2 missing (agent C18's counter plates); web 64,005.59 kg, app 64,005.70 kg.
+
 ## X01 · Built-ups as three plates with end cuts, and Tekla's fittings (owner 2026-11-27)
 
 ### Target: R12

@@ -685,11 +685,17 @@ def main():
     EP = {('R', 'PLATE', 'FLT20*150'): '2', ('PC', 'End plate Post', 'PL12*160'): '9', ('PR', 'PLATE', 'FLT12*120'): '10',
           ('EB', 'End Plate ', 'PL16*120'): '13',   # C13 (PARITY.md): Tekla's name has a trailing space; before C13 this was read as Cap 39
           ('EB', 'PLATE', 'PL16*120'): '13', ('STB', 'ENDPLATE', 'FLT10*150'): 'stair'}
+    if TEKLA: EP[('MBC', 'End Plate ', 'PL16*120')] = '13'   # C13 (PARITY.md): the column-top plates of MBC2001 are Tekla's 144 too (its 'End Plate ' + 'Top / Bot Stiff.' haunch tab plates)
     for b in plates:
-        s = b['st']; g = pre(b['id']); key3 = (g, s['name'], s['tprof'])
+        s = b['st']; g = pre(b['id']); own_q = None
         if b['id'] in member_of: continue
+        if not g and TEKLA:   # C10 (PARITY.md): a plate whose assembly mark has no letters (R12 / R13: the monitor rafter end plate F7501, assembly '14', class 99): the member it sits on decides
+            own_q = nearest_member(centre_of(b['id']), maxd=200)
+            if own_q is not None: g = members[own_q]['group']
+        key3 = (g, s['name'], s['tprof'])
         if s['name'] in ('PLATE', 'End plate Post', 'ENDPLATE', 'End Plate', 'End Plate ', 'Shear Plate', 'D'):
             p, L, W = pl_dims(b); bt = bolted_to(b['id']); own = member_for(b['id'])
+            if own is None and own_q is not None: own = own_q
             if not bt:
                 unhandled[f'{s["name"]} {s["tprof"]} ({g}) not bolted to another assembly'].append(b['id']); continue
             other = sorted(bt, key=lambda m: -len(bt[m]))[0]; cs = bt[other]; d = bolt_d(cs)
