@@ -56,8 +56,21 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 
 ## Group 1 Tekla parity: the two-video method (owner standing rule, 2026-11-28)
 **Scope:** Group 1 is End plates (23), Shear tabs (32) and Clip angles (10): 65 components (`tk_catalog.json`).
-- **Order:** End plates first, then Shear tabs, then Clip angles. Within a group the most used components go first. T144, T146 and T14 already match R13, but still go through the two-video test.
-- **One component at a time.** Groups 2–4 come later, the same way.
+- **Order (owner, 2026-11-28), family by family; a family is finished before the next starts:**
+  1. **End plates:** T144 (done 2026-11-28), then EP: T142, T101, T29, T32, T24, T34, T115, T27s, T65, T97, T111, T112, T119, T48, T50; then CP: T14, T2, T27; then SD: T1002, T1020, T1026, Tcap.
+  2. **Shear tabs:** T146 first, then T35, T34s, T103, T118; T36, T147, T149, T38t; T81, T184, T185, T185s, T39f; T17, T32t, T38, T40s, T43w, T64, T80; then column / tube: T182, T186, T187, T188, T41s, T129, T131, T47, T189; then T43 (MF), T46 (TU).
+  3. **Clip angles:** T141 first, then T143, T3, T31, T82, T116, T25, T33, T117, T44.
+  - A **BLOCKED** component (cause written in TIMES.md "blocked by") moves to the end of its family's list.
+  - T144, T146 and T14 already match R13, but still go through the two-video test.
+- **One component at a time, by one agent** going down the list. Groups 2–4 come later, the same way.
+- **Combined delivery:** at least 2 accepted components, or once a day (integration rule 5).
+
+**Video-faithful cases (owner, 2026-11-28).** A video example is built with the video's own values, even where they break a rule (T144 video 1: bolt rows through the moved stiffeners; video 2: the lowest bolt row on the plate's lower edge).
+- Such a case is a golden only. It carries `videoFaithful: true` in its `tools/golden/cases/*.js` entry. The rule-B gate (`tools/golden/c09_cases.js`) skips it. It is NEVER put on `tools/ci/ruleB_known.txt` (that list is for R13 only).
+- Instead it carries `videoStatus`: what Tekla shows in the video (status bar text and time, the symbol's colour if readable) and `expect`: the warnings our rule checks must give (check, plate, bolt row) and `level` (2 = yellow, 3 = red, 1 = green) when the video shows the colour. If Tekla shows no warning for a clash in the video, that is written in `noWarning`.
+- `tools/golden/video_status.js` (suite step `video_status`) checks web v70 against `expect` / `level` and writes `tests/steel/golden/s7/video_status.json`; `S7StatusTest.videoStatusEqualsWeb` checks the app gives the same status and messages word for word.
+- T144: video 2 gives "Bolt edge distance ... too small" on the lowest bolt row (bolts 7, 8, END PLATE), yellow, as Tekla at 19:38. Video 1: Tekla's status bar shows "Bolt edge distance ... too small" at 24:50 (frame f_1490); ours flags bolts 1, 2, 9, 10 in the STIFFENER (0 mm, the bolt centre lies on the stiffener face). Tekla's symbol colour in video 1 is not confirmed (the selected cone is drawn green). Tekla shows no separate warning for the stiffener / bolt clash.
+- **Rule check fixed on the way (main session):** the bolt edge distance check skipped a plate face as the bolt's own hole when the face's cut segment had its midpoint near the bolt, which depended on the triangulation (web 25 mm vs app 2 mm on video 1). Now a segment is the bolt's own hole only when both its ends lie on the hole (`web/v70/rulecheck.js`, `TkCheck.kt`). The 8 status goldens are unchanged.
 
 For EACH component:
 1. **Two reference videos.**
@@ -87,7 +100,7 @@ For EACH component:
 3. **Every combined delivery report** carries the TIMES.md rows of the components it delivers.
 4. **Forecast, after the first 5 accepted components:** the delivery report adds average hours per component (first-of-family vs. rest-of-family), components left, agents running, and the estimated finish date for Group 1. It is updated in every delivery after that.
 
-**How this runs with the integration rule:** one agent per component, in its own worktree and branch `agent/g1-<code>`. It reports to the main session (integration rule step 2). The main session merges it, runs `tools/ci/full_suite.sh`, runs CI on main, and sends that component's delivery (step 6) from the merge commit. Then the next component's agent starts.
+**How this runs with the integration rule:** one agent goes down the order above, one component at a time, each in its own branch `agent/g1-<code>`. It reports to the main session (integration rule step 2). The main session merges it, runs `tools/ci/full_suite.sh`, runs CI on main, and sends that component's delivery (step 6) from the merge commit. Then the next component's agent starts.
 
 ## Weights (owner, 2026-11-26)
 **Target:** Tekla's per-part weights (`st.tkW`, 63,705.8 kg; Part List 63,711.7).

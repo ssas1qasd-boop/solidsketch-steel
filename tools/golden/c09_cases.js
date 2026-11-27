@@ -5,10 +5,12 @@
 const fs = require('fs'), path = require('path');
 const { REPO, openV69 } = require('./lib/v69');
 const CASES = require('./cases/t144.js').filter(c => /^t144_c(0[29]|13)_/.test(c.name)).concat(require('./cases/teh.js'), require('./cases/t186.js'), require('./cases/t20.js'), require('./cases/t20g.js'), require('./cases/t20x.js'), require('./cases/t1042.js'), require('./cases/t18.js'), require('./cases/t19.js'), require('./cases/t106.js'), require('./cases/t146h.js'));
+// Video-faithful cases (the video's own values) are not gated by rule B; tools/golden/video_status.js checks their warnings instead.
+const GATED = CASES.filter(c => !c.videoFaithful);
 (async () => {
   const { browser, page } = await openV69({ log: false });
   try {
-    for (const c of CASES) {
+    for (const c of GATED) {
       const out = await page.evaluate(c => {
         const S = __ss.S, st = __st; st.noAutoCheck = true; S.bodies = []; S.stConns = []; S.stNextConn = 1;
         const ids = c.members.map(m => st.add(Object.assign({ kind: 'member' }, st.ST_SETS[m.set], m.extra), 'c09').id);

@@ -1,0 +1,212 @@
+{
+ "source": "web v70: tkStatus on the video-faithful cases (tools/golden/video_status.js)",
+ "cases": {
+  "t144_v1": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA360",
+      "rot": "Top",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       9000
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE400",
+      "p1": [
+       0,
+       0,
+       6000
+      ],
+      "p2": [
+       6000,
+       0,
+       6000
+      ]
+     }
+    ]
+   ],
+   "q": {
+    "tp": 20,
+    "ext": 80,
+    "extb": 80,
+    "gap": 0,
+    "epb": 180,
+    "eph": 560,
+    "shim": 12,
+    "scr": "both",
+    "stt1": 10,
+    "stt2": 10,
+    "stt3": 10,
+    "stt4": 10,
+    "sg1": 20,
+    "sg2": -40,
+    "sg5": -40,
+    "sg3": -40,
+    "sg4": -40,
+    "hpc": "both",
+    "hct": "line",
+    "hpt1": 12,
+    "hpb1": 80,
+    "hph1": 80,
+    "hpt2": 12,
+    "hpb2": 80,
+    "hph2": 80,
+    "hc1": 80,
+    "hc2": 80,
+    "hc3": 80,
+    "hc4": 80,
+    "bolt": 20,
+    "rows": 5,
+    "pitch": 120,
+    "pitches": "",
+    "e": 40,
+    "refV": "Top",
+    "side": 40,
+    "cols": 2,
+    "gauge": "",
+    "blrule": "tekla"
+   },
+   "ok": true,
+   "status": 2,
+   "msgs": [
+    "End plate (144) #1: Bolt edge distance of the bolts 1, 2, 9, 10 (M20) in STIFFENER is too small: 0 mm < 30 mm (1.5·d)"
+   ],
+   "symPos": [
+    0,
+    0,
+    5800
+   ],
+   "video": {
+    "tekla": [
+     {
+      "t": "24:50",
+      "where": "status bar (frame tests/steel/videos/T144/frames_VLQiysAuEr4_hd/f_1490.jpg; also 04:03 / 23:5x)",
+      "text": "Bolt edge distance of the bolt with id 82ac12cc-... is too small"
+     }
+    ],
+    "expect": [
+     {
+      "check": "edge"
+     }
+    ],
+    "symbol": "not confirmed: at 24:50 the component is selected and its cone is drawn green; whether that is its status colour cannot be read from the frame",
+    "noWarning": "Tekla shows no separate warning for the stiffener / bolt clash (the top and bottom rows pass through the stiffeners moved 40 up / down). The only clash check in the video (11:09, an earlier state) lists COLUMN - SPACER PLATE."
+   }
+  },
+  "t144_v2": {
+   "k": "T144",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEA400",
+      "rot": "Top",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7000
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "HEA400",
+      "p1": [
+       0,
+       0,
+       5000
+      ],
+      "p2": [
+       6000,
+       0,
+       5000
+      ]
+     }
+    ]
+   ],
+   "q": {
+    "tp": 20,
+    "ext": 0,
+    "extb": 0,
+    "gap": 0,
+    "shim": 20,
+    "scr": "both",
+    "stt1": 10,
+    "stt2": 10,
+    "stt3": 10,
+    "stt4": 10,
+    "sc1": 30,
+    "sc2": 30,
+    "sct": "line",
+    "hpc": "both",
+    "hct": "line",
+    "hpt1": 10,
+    "hpb1": 75,
+    "hph1": 75,
+    "hpt2": 10,
+    "hpb2": 75,
+    "hph2": 75,
+    "hc1": 55,
+    "hc2": 55,
+    "hc3": 55,
+    "hc4": 55,
+    "bolt": 20,
+    "rows": 4,
+    "pitch": 120,
+    "pitches": "",
+    "e": 30,
+    "refV": "Top",
+    "side": 30,
+    "cols": 2,
+    "gauge": 120,
+    "blrule": "tekla"
+   },
+   "ok": true,
+   "status": 2,
+   "msgs": [
+    "End plate (144) #1: Bolt edge distance of the bolts 7, 8 (M20) in END PLATE is too small: 11 mm < 30 mm (1.5·d)"
+   ],
+   "symPos": [
+    0,
+    0,
+    4805
+   ],
+   "video": {
+    "tekla": [
+     {
+      "t": "19:38",
+      "where": "status bar (Gemini reads final2_IBVnHuj1F-s.json; no frame saved)",
+      "text": "Bolt edge distance of the bolt with id 02dbe36a-... is too small"
+     }
+    ],
+    "expect": [
+     {
+      "check": "edge",
+      "plate": "END PLATE",
+      "row": "lowest"
+     }
+    ],
+    "level": 2
+   }
+  }
+ }
+}

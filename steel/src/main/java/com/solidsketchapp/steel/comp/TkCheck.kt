@@ -90,8 +90,9 @@ class TkCheck(private val comps: Components, private val doc: DocumentApi, priva
             P.forEachIndexed { i, p0 -> var pierced = 0; var minE = Double.POSITIVE_INFINITY; var minPl: Part? = null
                 for (pl in plates) { val sr = pierce(pl.mesh, p0, ax, hr + slot) ?: continue; pierced++
                     val o = p0.add(ax, (sr[0] + sr[1]) / 2)
-                    for ((a, bb) in slice(pl.mesh, o, ax)) { val m = a.lerp(bb, 0.5)
-                        val own = P.any { q -> q.add(ax, (o - q) dot ax).distanceTo(m) < hr + slot + 1.5 }; if (own) continue
+                    // the bolt's own hole outline: both ends on the hole (web v70/rulecheck.js; a midpoint test depended on the triangulation)
+                    for ((a, bb) in slice(pl.mesh, o, ax)) {
+                        val own = P.any { q -> val qo = q.add(ax, (o - q) dot ax); qo.distanceTo(a) < hr + slot + 1.5 && qo.distanceTo(bb) < hr + slot + 1.5 }; if (own) continue
                         val dd = segDist(o, a, bb); if (dd < minE) { minE = dd; minPl = pl } } }
                 if (pierced == 0) nOut++ else if (minE < Rule.EDGE * d - 0.5) { val k = s(minPl!!.st, "name"); val e = edge.getOrPut(k) { mutableListOf<Int>() to doubleArrayOf(Double.POSITIVE_INFINITY) }; e.first += i + 1; e.second[0] = min(e.second[0], minE) } }
             for ((nm, o) in edge) msgs += "Bolt edge distance of the bolt${if (o.first.size > 1) "s" else ""} ${o.first.joinToString(", ")} (M${Js.str(Js.n(d))}) in $nm is too small: ${jsRound(o.second[0])} mm < ${jsRound(Rule.EDGE * d)} mm (${Rule.EDGE}·d)"

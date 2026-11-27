@@ -30,6 +30,7 @@ import kotlin.math.abs
  * S7 acceptance (rule checks and symbols): v69's tkStatus on End plate 144 in 8 cases (OK; bolt edge distance; bolt
  * spacing; weld too big; bolts outside the plates; plate overlapping the column; sloped OK; sloped with two warnings):
  * the same status (OK / warning / error), the same messages word for word, and the symbol at the same place (stSymPos).
+ * Also the Group 1 video-faithful cases (tests/steel/golden/s7/video_status.json).
  */
 class S7StatusTest {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
@@ -38,8 +39,14 @@ class S7StatusTest {
     private val engine by lazy { ManifoldBooleanEngine() }
     @Before fun needsHostLib() = assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
 
-    @Test fun statusEqualsV69() {
-        val gold = Json.parseToJsonElement(File(root, "tests/steel/golden/s7/status.json").readText()).jsonObject.getValue("cases").jsonObject
+    @Test fun statusEqualsV69() = check("status.json")
+
+    /** Group 1 video-faithful cases (owner 2026-11-28): the app's rule checks give the warnings web v70 gives, which
+     *  tools/golden/video_status.js has checked against what Tekla shows in the video. */
+    @Test fun videoStatusEqualsWeb() = check("video_status.json")
+
+    private fun check(file: String) {
+        val gold = Json.parseToJsonElement(File(root, "tests/steel/golden/s7/$file").readText()).jsonObject.getValue("cases").jsonObject
         val bad = mutableListOf<String>()
         for ((name, g0) in gold) { val g = g0.jsonObject
             val doc = MemoryDocument(); val build = StBuild(data.profiles, union = { engine.union(it) })

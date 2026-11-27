@@ -44,7 +44,7 @@ Some exports were captured before the last reassign, so they call an early link 
 | field accessors `neg`, `gaugeList`, `pitchList` | v58 (L16176–16181) | `comp/TkUi.kt` `Acc` (matched by source text) |
 | `tkBoltPic` | L16274 (v58) | `comp/BoltPic.kt` |
 | `stConnOK` | L14413 (v38) | `Components.ok` |
-| `tkStatus` (+ tkPierce, tkSlice, tkSegDist, tkThick, tkSkipPlate, TK_RULE) | L16034 (v58) | `comp/TkCheck.kt` |
+| `tkStatus` (+ tkPierce, tkSlice, tkSegDist, tkThick, tkSkipPlate, TK_RULE) | L16034 (v58) → v70 `web/v70/rulecheck.js` (own-hole test: both segment ends on the hole) | `comp/TkCheck.kt` |
 | `stSymPos` / `stSymDraw` / `stSymHit` / `tkSelect` / `tkFanDraw` / `tkCheckStep` | L16071 / L16082 / L16099 / L16106 / L16088 / L16111 (v58) | `TkCheck.symPos`, `TkCheck.fan`, `SteelMode.symbolsOnScreen` / `symAt` / `checkStep`, `SteelPanel` |
 | `stOwner` | L15885 (v58) → L15638 (v49) → L15531 → … → L15168 (v40) → L14113 | `StRegen.owner` |
 | `CONN` family / def | built L14881 (v40); T102t / T103t → GU L15458, Ttc → WF L15461; v58 EP def additions | live CONN exported to `tk_ui.json` (`conn`), used by regen |

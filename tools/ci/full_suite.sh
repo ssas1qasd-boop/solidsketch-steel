@@ -16,6 +16,7 @@ step video_workflow node tools/golden/c04_workflow.js
 step r13 bash -c 'python3 tools/golden/r10_inputs.py && python3 tools/golden/r10_c04.py && node tools/golden/r10_rebuild.js && python3 tools/golden/r10_compare.py && node tools/golden/r12_weights.js && node tools/golden/r13_totals.js'
 step r11 bash -c 'SS_MODEL=R11 node tools/golden/r10_rebuild.js && SS_MODEL=R11 python3 tools/golden/r10_compare.py'
 step ruleB_cases bash -c 'node tools/golden/c09_cases.js > /dev/null && n=0; for f in build/c09/*.json; do r=$(python3 tools/golden/geom_checks.py "$f" 2>&1 | grep -o "[0-9]* failures" | head -1); k=$(grep "^$(basename "$f")|" tools/ci/ruleB_known.txt | cut -d"|" -f2); [ "$r" = "0 failures" ] || [ -n "$k" -a "$r" = "$k failures" ] || { echo "$f $r"; n=$((n+1)); }; [ -n "$k" ] && echo "known Tekla geometry: $(basename "$f") $r (expected $k)"; done; echo "rule B case failures: $n"; [ $n = 0 ]'
+step video_status node tools/golden/video_status.js
 step host ./gradlew --no-daemon --no-parallel -q -PlocalM2=/home/user/m2local -PhostJni :core-io:testDebugUnitTest :core-view:testDebugUnitTest :steel:testDebugUnitTest :app:testDebugUnitTest --rerun --continue
 # rule B on the app's whole R13 rebuild: the failure count may not rise above the baseline (tools/ci/ruleB_r13_baseline.txt); groups left
 # are owned by open connections (PARITY.md "Open") and listed in the summary

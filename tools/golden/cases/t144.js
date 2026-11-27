@@ -94,6 +94,15 @@ module.exports = [
   // Group 1 two-video test (docs/steel/PARITY.md "T144 · End plate (144): the two-video test"; tests/steel/videos/T144/VIDEO_1.txt, VIDEO_2.txt).
   {
     name: 't144_v1',
+    // Video-faithful (owner 2026-11-28): the video's own values, so rule B is not gated here (c09_cases.js skips it); instead our rule
+    // checks must give the warnings Tekla shows in the video (tools/golden/video_status.js).
+    videoFaithful: true,
+    videoStatus: {
+      tekla: [{ t: '24:50', where: 'status bar (frame tests/steel/videos/T144/frames_VLQiysAuEr4_hd/f_1490.jpg; also 04:03 / 23:5x)', text: 'Bolt edge distance of the bolt with id 82ac12cc-... is too small' }],
+      expect: [{ check: 'edge' }],   // Tekla names the bolt only by id, so which bolt is not checked
+      symbol: 'not confirmed: at 24:50 the component is selected and its cone is drawn green; whether that is its status colour cannot be read from the frame',
+      noWarning: 'Tekla shows no separate warning for the stiffener / bolt clash (the top and bottom rows pass through the stiffeners moved 40 up / down). The only clash check in the video (11:09, an earlier state) lists COLUMN - SPACER PLATE.',
+    },
     description: 'Video 1 (VLQiysAuEr4, final state 27:18): HEA360 column, IPE400 beam on its flange. Picture 1 = -80, 2 = -80, gap 0; Plates: End plate t 20, b 180, h 560, Fitting plate 1 t 12; Stiffeners created t 10 (Top / Bottom NS / FS), positions 1 = 20, 2 / 5 = 40 (Tekla: up; saved sg2 / sg5 = -40), 3 / 4 = -40; Haunch top / bottom 12 x 80 x 80, chamfers 80 line, both; Bolts M20, 5 rows, s 120, 6 = -40 (Top), 3 = 40, 4 / 5 blank (spacing = b - 2 x 40 = 100); Tekla bolt length.',
     members: [member('COLUMN', { prof: 'HEA360', rot: 'Top', p1: [0, 0, 0], p2: [0, 0, 9000] }),
               member('BEAM', { prof: 'IPE400', p1: [0, 0, 6000], p2: [6000, 0, 6000] })],
@@ -102,6 +111,12 @@ module.exports = [
   },
   {
     name: 't144_v2',
+    videoFaithful: true,
+    videoStatus: {
+      tekla: [{ t: '19:38', where: 'status bar (Gemini reads final2_IBVnHuj1F-s.json; no frame saved)', text: 'Bolt edge distance of the bolt with id 02dbe36a-... is too small' }],
+      expect: [{ check: 'edge', plate: 'END PLATE', row: 'lowest' }],
+      level: 2,   // yellow symbol (the owner, from the video)
+    },
     description: 'Video 2 (IBVnHuj1F-s, final state 24:24): HEA400 column, HEA400 beam on its flange. Picture 1 = 0, 2 = 0, gap 0; Plates: End plate t 20, Fitting plate 1 t 20; Stiffeners created t 10, chamfers 30 x 30 line; Haunch top / bottom 10 x 75 x 75, chamfers 1-4 = 55 line, both; Bolts M20, 4 rows, s 120, 6 = 30 (Top), 2 across, 5 = 120, 3 = 30, Tekla length.',
     members: [member('COLUMN', { prof: 'HEA400', rot: 'Top', p1: [0, 0, 0], p2: [0, 0, 7000] }),
               member('BEAM', { prof: 'HEA400', p1: [0, 0, 5000], p2: [6000, 0, 5000] })],
