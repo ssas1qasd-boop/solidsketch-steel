@@ -15,13 +15,14 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 | … kind `plate` | 3,408 | 0 |
 | Connections | 1,700 (TKBOLT / TKCUT) | 1,370 (components) |
 | Bolts | 4,596 in 1,294 groups | 4,604 in 1,206 groups |
-| Weight (v66 Tekla weights, bolts excluded) | 64,021.96 kg | 64,005.59 kg (-16.37) |
-| … builtup members | 37,892.73 kg | 37,889.62 kg |
+| Weight (v66 Tekla weights, bolts excluded) | 64,021.96 kg | 64,005.41 kg (-16.55) |
+| … builtup members | 37,892.73 kg | 37,889.44 kg |
 | … given members | 16,361.46 kg | 16,361.66 kg |
 | … detail parts (R13) / component parts (v69) | 9,767.77 kg | 9,754.31 kg |
 
-Members: 839 placed (201 built-up equivalents, 638 R13 members as given): 3 INPUT EQUAL, SOLID DIFFERS, 836 MATCHED.
-- built-up equivalents: 198 matched of 201 (inputs equal R13 for all 201)
+Members: 839 placed (201 built-up equivalents, 638 R13 members as given): 839 MATCHED.
+- built-up equivalents: 201 matched of 201 (inputs equal R13 for all 201)
+  - 3 of them matched against R13's part less the part's own clash with another R13 part (R13's rule B: EB4007 18,176 mm³, EB4007 18,176 mm³, EB4007 18,176 mm³): the component cuts the member at the main part's face (docs/steel/PARITY.md "C12 / C20 on R13")
 - R13 members as given: 638 matched of 638 (inputs equal R13 for all 638)
 
 R13 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3707: 3615 MATCHED, 2 MISSING, 90 NEAR.
@@ -72,7 +73,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | builtup C COLUMN BI220-8-150-10 | 15 | 15 MATCHED | 0.0 | 1.000–1.000 | 3,934.5 → 3,934.4 |
 | builtup C COLUMN BI320-8-150-10 | 15 | 15 MATCHED | 0.0 | 1.000–1.001 | 4,625.8 → 4,625.8 |
 | builtup EB BEAM BI320-8-120-10 | 5 | 5 MATCHED | 0.0 | 1.000–1.001 | 1,435.7 → 1,435.9 |
-| builtup EB BEAM BI324-8-250-12 | 10 | 3 INPUT EQUAL, SOLID DIFFERS, 7 MATCHED | 30.0 | 1.000–1.000 | 3,573.9 → 3,574.9 |
+| builtup EB BEAM BI324-8-250-12 | 10 | 10 MATCHED | 0.0 | 1.000–1.000 | 3,573.9 → 3,574.7 |
 | builtup EGC COLUMN BI220-6-200-10 | 16 | 16 MATCHED | 0.0 | 1.000–1.000 | 5,090.2 → 5,090.4 |
 | builtup MB BEAM BI220-8-140-10 | 34 | 34 MATCHED | 0.0 | 0.999–0.999 | 6,448.8 → 6,444.4 |
 | builtup MBC COLUMN BI320-8-150-10 | 2 | 2 MATCHED | 0.0 | 1.000–1.000 | 289.4 → 289.4 |
@@ -118,7 +119,6 @@ Field differences on members (count of members): none (every placed member has R
 | 7 | crossing cap / VL Gusset Plate PL5*91.1 | 4 | 4 NEAR | 4 at 1.7 mm | 1.4 → 1.5 | as above | as above |
 | 7 | crossing cap / VL Gusset Plate PL5*92.5 | 2 | 2 NEAR | 2 at 0.9 mm | 0.7 → 0.7 | as above | as above |
 | 18 | Stair Plate / EB Stair Plate FLT12*150 | 2 | 2 MISSING | 2 at 12.0 mm | 9.0 → 0.0 | the counter plates FLT12*150 on mezzanine girder EB4002 (the top stair plates bolt to them): a mezzanine girder part, left until R13 (owner 2026-11-27); Stair end plate option Counter plate on the main part makes them | R13 |
-| builtup | EB BI324-8-250-12 | 10 | 3 INPUT EQUAL, SOLID DIFFERS, 7 MATCHED | — | 3,573.9 → 3,574.9 | Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent | built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part |
 
 ## v69 parts with no R13 counterpart
 
