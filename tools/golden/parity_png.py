@@ -251,7 +251,7 @@ def c06(shots, video=None):
             if best is None or e_[0] * e_[1] < best[0] * best[1]: best = e_
         return sorted(np.round(best, 1), reverse=True), st(g).get('conn')
     a, _ = outline('c06_case.ss'); b, _ = outline('c06_gd30.ss')
-    lines = [f'gusset {a[0]} x {a[1]} x 12 (R12 / NC 6532: PL12 549.34 x 280.39; outline (0,0) (549.34,0) (549.34,190.21) (426.53,257.42) (339.32,280.39) (199.32,280.39) ...)',
+    lines = [f'recording case = 2 of the node\'s 4 braces (HZ6014, ST5008): gusset {a[0]} x {a[1]} x 12; the full node (+ HZ6004, ST5004) in R12_app.ss: 549.4 x 280.5 (R12 IFC 549.4 x 280.4 / NC 6532: PL12 549.34 x 280.39; outline (0,0) (549.34,0) (549.34,190.21) (426.53,257.42) (339.32,280.39) (199.32,280.39) ...)',
              f'after the HZ brace Picture 5 = 30 + Modify: gusset {b[0]} x {b[1]} x 12 (its edge 10 mm nearer the gusset\'s centre)',
              'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c06_case.ss')).split(';')[0] + ' | after 5 = 30: ' + rule_b(os.path.join(shots, 'c06_gd30.ss')).split(';')[0],
              'R12 rebuild (web v70 and app): row 6 gussets 82 -> 233 / 250 at 0.1 mm (17 near: the gable / end-frame nodes, braces skewed out of the gusset plane); app vs R12 230 / 230']
