@@ -559,6 +559,11 @@ def write_report(o, inp):
     if MODEL != 'R10':   # the report speaks of the model it compares with (R11 = R10 + Tekla-proven fixes, docs/steel/PARITY.md)
         text = text.replace('R10', MODEL).replace(f'{MODEL}RebuildTest', 'R11RebuildTest')
         text = text.replace('# ' + MODEL + ' rebuilt', '# ' + MODEL + ' rebuilt', 1)
+    # the owner's status section (✓ given from the phone) survives every regeneration: kept as it is, at the top
+    A, B = '<!-- owner-status -->', '<!-- /owner-status -->'
+    if os.path.exists(REPORT):
+        old = open(REPORT).read()
+        if A in old and B in old: keep = old[old.index(A):old.index(B) + len(B)]; t1, rest = text.split('\n', 1); text = t1 + '\n\n' + keep + '\n' + rest
     with open(REPORT, 'w') as f: f.write(text)
 
 

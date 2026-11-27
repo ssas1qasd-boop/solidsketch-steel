@@ -1,4 +1,47 @@
 # Rule B on the app's whole R13 rebuild: the itemised baseline (owner 2026-11-28; PARITY.md integration rule 7).
 # One line per finding: category | check | parts | place (x y z, mm; matched within 2 mm) | value | evidence.
 # Any finding not on this list fails the suite, even if the total goes down; a line whose finding disappears is removed (the list
-# only shrinks); new lines only with the owner's OK. EMPTY until the owner approves tools/ci/ruleB_r13_baseline.proposed.txt.
+# only shrinks); new lines only with the owner's OK. Approved by the owner 2026-11-28: only findings R13 itself has (26 railing / stanchion, 16 gable-node bolts). Not on it (failures):
+# the 22 Stanchion / STRINGER overlaps (ours: row 19, being fixed), and 4 gable-node bolts with 2.3 mm air where R13 has 1.8 mm, within its own tolerance (parked: gable nodes).
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 175.5 27596.9 7007.4 | air 3.3 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.0 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 175.5 27649.7 7035.9 | air 2.8 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.0 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 175.8 27625.3 6954.6 | air 3.3 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.1 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 175.8 27678.1 6983.0 | air 2.8 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.1 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 26515.5 27596.9 7007.4 | air 3.3 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.0 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 26515.5 27649.7 7035.9 | air 2.8 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.0 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 26515.8 27625.3 6954.6 | air 3.3 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.1 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 26515.8 27678.1 6983.0 | air 2.8 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.1 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 39710.5 27596.9 7007.4 | air 3.3 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.0 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 39710.5 27649.7 7035.9 | air 2.8 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.0 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 39710.8 27625.3 6954.6 | air 3.3 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.1 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 39710.8 27678.1 6983.0 | air 2.8 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.1 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 52905.5 27596.9 7007.4 | air 3.3 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.0 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 52905.5 27649.7 7035.9 | air 2.8 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.0 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 52905.8 27625.3 6954.6 | air 3.3 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.1 mm away): grip 26.7 vs stack 24.0
+gable-node bolt (parked: gable nodes) | BOLTS | Ttg grip | 52905.8 27678.1 6983.0 | air 2.8 along the shank (stack 24.0) | R13's own rule B flags the same bolt (0.1 mm away): grip 26.7 vs stack 24.0
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 8341.4 975.3 | 3903.7 mm3, 1.95 deep | R13 has it: same parts at 0.0 mm, 3733.9 mm3, 1.9083 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 9035.0 1152.3 | 7807.3 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7467.8 mm3, 1.9861 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 9735.0 1438.1 | 7807.3 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7467.8 mm3, 1.9861 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 10435.0 1792.0 | 7807.3 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7467.8 mm3, 1.9861 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 11135.0 2077.7 | 7807.3 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7467.8 mm3, 1.9861 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 11804.1 2248.4 | 3903.6 mm3, 1.95 deep | R13 has it: same parts at 0.0 mm, 3734.2 mm3, 1.9084 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 13364.2 2877.7 | 4036.2 mm3, 1.9498 deep | R13 has it: same parts at 0.0 mm, 3861.0 mm3, 1.9089 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 14158.5 3111.7 | 8072.5 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7721.8 mm3, 1.9862 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 14958.5 3567.6 | 8072.5 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7721.9 mm3, 1.9862 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 15758.5 3976.1 | 8072.6 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7722.0 mm3, 1.9862 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 565.5 16367.0 4155.8 | 4036.2 mm3, 1.9498 deep | R13 has it: same parts at 0.0 mm, 3860.9 mm3, 1.9089 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 598.0 12388.0 2580.0 | 3483.8 mm3, 1.9518 deep | R13 has it: same parts at 0.0 mm, 3332.3 mm3, 1.9177 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 598.0 12929.8 2580.0 | 3483.8 mm3, 1.9518 deep | R13 has it: same parts at 0.0 mm, 3332.3 mm3, 1.9177 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1619.0 12388.0 2580.0 | 3483.9 mm3, 1.9518 deep | R13 has it: same parts at 0.0 mm, 3332.4 mm3, 1.9177 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1619.0 12929.8 2580.0 | 3483.9 mm3, 1.9518 deep | R13 has it: same parts at 0.0 mm, 3332.4 mm3, 1.9177 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 8341.4 975.3 | 3903.7 mm3, 1.95 deep | R13 has it: same parts at 0.0 mm, 3734.0 mm3, 1.9084 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 9035.0 1152.3 | 7807.5 mm3, 2.0232 deep | R13 has it: same parts at 0.0 mm, 7467.9 mm3, 1.9861 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 9735.0 1438.1 | 7807.5 mm3, 2.0232 deep | R13 has it: same parts at 0.0 mm, 7467.9 mm3, 1.9861 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 10435.0 1792.0 | 7807.5 mm3, 2.0232 deep | R13 has it: same parts at 0.0 mm, 7467.9 mm3, 1.9861 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 11135.0 2077.7 | 7807.5 mm3, 2.0232 deep | R13 has it: same parts at 0.0 mm, 7467.9 mm3, 1.9861 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 11804.1 2248.4 | 3903.7 mm3, 1.95 deep | R13 has it: same parts at 0.0 mm, 3734.2 mm3, 1.9084 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 13364.2 2877.7 | 4036.2 mm3, 1.9498 deep | R13 has it: same parts at 0.0 mm, 3861.0 mm3, 1.9089 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 14158.5 3111.7 | 8072.7 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7721.9 mm3, 1.9862 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 14958.5 3567.6 | 8072.7 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7722.0 mm3, 1.9862 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 15758.5 3976.1 | 8072.7 mm3, 2.0231 deep | R13 has it: same parts at 0.0 mm, 7722.1 mm3, 1.9862 deep
+railing/stanchion | OVERLAP | RAILING PD50*5 / Stanchion CHS48*3 | 1650.5 16367.0 4155.8 | 4036.3 mm3, 1.9498 deep | R13 has it: same parts at 0.0 mm, 3860.9 mm3, 1.9089 deep
