@@ -4,39 +4,42 @@ Written 2026-11-27. This is a read-only investigation: no code and no other file
 
 ## History
 - **v1** (C20 snapshot, before ce01af4): app 63,495.66 kg, Tekla 63,705.82, **Δ −210.16**. Bolt holes were taken off component parts, and the grout was weighed as S275.
-- **v2** (ce01af4: gross rule `holeFill70` / `TeklaWeight.holeFill`, grout weighs 0, stair-post 146 bolts L40): app 62,516.10 kg (web; the app reports 62,517.22), Tekla 63,705.82, **Δ −1,189.72**. This is the current state. All the tables below are for v2 unless they say v1.
+- **v2** (ce01af4: gross rule `holeFill70` / `TeklaWeight.holeFill`, grout weighs 0, stair-post 146 bolts L40): app 62,516.10 kg (web; the app reports 62,517.22), Tekla 63,705.82, **Δ −1,189.72**. - **v3** (bccb1e7, C05: Ttg tube ends as Tekla, parametric SHS / RHS with square corners, hole fill by rays on the part mesh including other connections' bolts): app 62,591.88 kg (web; the app reports 62,592.04), Tekla 63,705.82, **Δ −1,113.94**. This is the current state. All the tables below are for v3 unless they say v1 or v2.
 
 **Compared:**
 - **Tekla:** each R12 part's own Tekla weight (`st.tkW` in `tests/steel/models/Frame_28x53m_R12.ss`). There are 4,945 parts and they sum to **63,705.82 kg**. Tekla's Part List total is 63,711.7 kg.
-- **App:** the web rebuild in the v2 snapshot (`rebuild_v69.json`, `compare_v69.json`, `rebuild_inputs.json`, `R12_app.ss` after ce01af4). The app and the web build give the same rebuild body by body (`R11RebuildTest`). The total is **62,516.10 kg**, bolts excluded. The app's own total is 62,517.22, 1.12 kg above the web; I did not look into that gap.
-- **Difference:** app − Tekla = **−1,189.72 kg**. The groups below add up to exactly this figure (residual 0.00 kg).
+- **App:** the web rebuild in the v3 snapshot (`rebuild_v69.json`, `compare_v69.json`, `rebuild_inputs.json`, `R12_app.ss` after bccb1e7). The app and the web build give the same rebuild body by body (`R11RebuildTest`). The total is **62,591.88 kg**, bolts excluded. The app's own total is 62,592.04, 0.16 kg above the web.
+- **Difference:** app − Tekla = **−1,113.94 kg**. The groups below add up to exactly this figure (residual 0.00 kg).
 
-## Summary (v2)
+## Summary (v3)
 
-The gross rule and the grout fix did what was expected. **D1 (grout) is now 0.00, and D2 (the same component part) is +0.98 kg on 1,219 parts**, which is Tekla's rounding and two outline differences, not a weight-rule problem. What is left is the real gap: missing parts and parts made differently.
+C05 did what was expected:
+- **D5 (members placed as given) is down to −1.00 kg**, from −72.00. All 228 SHS100*3 braces now match: −0.72 kg in total, which is Tekla's rounding.
+- **The tongue plates equal Tekla exactly:** 456 parts, 1,876.02 = 1,876.02 kg.
+- **The v2 hole-fill gap on the node gussets is fixed.** I ray-cast the bolt holes on the v3 meshes and compared them with the weight the rule puts back. On all 62 `GUSSET PLATE` parts, the filled weight is 15.16 kg against 15.20 kg of estimated holes, and no part is short. Every other component family is also within the estimate's error. D1 stays 0.00 and D2 stays +0.98.
 
-The predicted Δ was −1,181.72 and the actual is −1,189.72. The 8.00 kg between them is mostly **one gap in the hole fill**: Ttg node gussets (`GUSSET PLATE` PL12) get back only the holes of one tongue. Of 62 gussets, 56 still have their other tongues' holes taken off, about **8.1 kg** in total. For example, gusset 2851 (connection 612) has 12 holes and gains only 0.09 kg, while its estimated holes weigh 0.275 kg. The rest (+1.1 kg) is the error of my v1 hole estimate.
+What is left in B1 is the outline of the C06 node gussets / fins and the C07 crossing gussets.
 
-| # | Group | R12 parts | App parts | kg R12 (Tekla) | kg app | Δ kg (v2) | Δ v1 | Fix / code |
-|---|---|---|---|---|---|---|---|---|
-| A1 | (a) Anchor rods ROD20 made as a bolt group (bolts are not weighed) | 192 | 0 | 293.76 | 0.00 | −293.76 | −293.76 | C01: 1042 "anchor rods as parts" |
-| A2 | (a) Anchor nuts and washers PD40*10 not made | 384 | 0 | 40.32 | 0.00 | −40.32 | −40.32 | C01: nut and washer parts per anchor |
-| A3 | (a) Anchor rods ROD16 made as a bolt group | 16 | 0 | 6.72 | 0.00 | −6.72 | −6.72 | C16: 1004 anchor rods as parts |
-| A4 | (a) Apex stiffener FLT10*60 not made | 48 | 0 | 16.80 | 0.00 | −16.80 | −16.80 | C03: apex stiffener option |
-| A5 | (a) Girder flanges EB4006 / EB4008 (R12 has flanges but no web, so no member was placed) | 6 | 0 | 760.50 | 0.00 | −760.50 | −760.50 | X01 / R12 data: place them as built-ups without a web |
-| A6 | (a) Column top cap plates FLT8*150 (no component makes them) | 30 | 0 | 72.63 | 0.00 | −72.63 | −72.63 | Not in C01–C20: needs a cap-plate option |
-| A7 | (a) Parts with no secondary part to pick (R12 data) | 25 | 0 | 40.91 | 0.00 | −40.91 | −40.91 | C10, C12, C13, C17, C20 (follows A5) |
-| B1 | (a)+(b) Tube gusset and crossing: other parts and outlines | 1,662 | 1,668 | 4,044.25 | 3,649.59 | −394.66 | −459.74 | C05, C06, C07 (+ the node-gusset hole fill) |
-| B2 | (a)+(b) Stairs: gratings, brackets and stringer plates vs the app's treads | 79 | 64 | 184.72 | 412.56 | +227.84 | +227.68 | C18 |
-| C1 | (b) Sag-rod nuts and washers M12 (Tekla has none) | 0 | 1,120 | 0.00 | 22.40 | +22.40 | +22.40 | C08: nut / washer off by default |
-| D1 | (c) Grout | 52 | 52 | 0.00 | 0.00 | **0.00** | +1,131.76 | Done (ce01af4) |
-| D2 | (c) The same component part: rounding and outline | 1,219 | 1,219 | 5,065.22 | 5,066.20 | **+0.98** | −85.98 | Done (ce01af4); the rest is Tekla's rounding |
-| D4 | (c) Built-up members: one BI catalog member vs three Tekla plates | 594 | 198 | 36,820.20 | 37,077.56 | +257.36 | +257.36 | X01 |
-| D5 | (c) Members placed as given, cut differently | 638 | 638 | 16,359.79 | 16,287.79 | −72.00 | −72.00 | C05 / C07 (SHS slots and cut-backs) |
-| | **Total** | **4,945** | **4,959** | **63,705.82** | **62,516.10** | **−1,189.72** | **−210.16** | |
-| | Snapshot difference (app 62,516.10 − Tekla 63,705.82) | | | | | −1,189.72 | | residual **0.00** |
+| # | Group | R12 parts | App parts | kg R12 (Tekla) | kg app | Δ kg (v3) | Δ v2 | Δ v1 | Fix / code |
+|---|---|---|---|---|---|---|---|---|---|
+| A1 | (a) Anchor rods ROD20 made as a bolt group (bolts are not weighed) | 192 | 0 | 293.76 | 0.00 | −293.76 | −293.76 | −293.76 | C01: 1042 "anchor rods as parts" |
+| A2 | (a) Anchor nuts and washers PD40*10 not made | 384 | 0 | 40.32 | 0.00 | −40.32 | −40.32 | −40.32 | C01: nut and washer parts per anchor |
+| A3 | (a) Anchor rods ROD16 made as a bolt group | 16 | 0 | 6.72 | 0.00 | −6.72 | −6.72 | −6.72 | C16: 1004 anchor rods as parts |
+| A4 | (a) Apex stiffener FLT10*60 not made | 48 | 0 | 16.80 | 0.00 | −16.80 | −16.80 | −16.80 | C03: apex stiffener option |
+| A5 | (a) Girder flanges EB4006 / EB4008 (R12 has flanges but no web, so no member was placed) | 6 | 0 | 760.50 | 0.00 | −760.50 | −760.50 | −760.50 | X01 / R12 data: place them as built-ups without a web |
+| A6 | (a) Column top cap plates FLT8*150 (no component makes them) | 30 | 0 | 72.63 | 0.00 | −72.63 | −72.63 | −72.63 | Not in C01–C20: needs a cap-plate option |
+| A7 | (a) Parts with no secondary part to pick (R12 data) | 25 | 0 | 40.91 | 0.00 | −40.91 | −40.91 | −40.91 | C10, C12, C13, C17, C20 (follows A5) |
+| B1 | (a)+(b) Tube gusset and crossing: other parts and outlines | 1,662 | 1,662 | 4,044.25 | 3,654.37 | **−389.88** | −394.66 | −459.74 | C06 node gussets / fins −153.2, C07 crossing gussets −237.7 |
+| B2 | (a)+(b) Stairs: gratings, brackets and stringer plates vs the app's treads | 79 | 64 | 184.72 | 412.56 | +227.84 | +227.84 | +227.68 | C18 |
+| C1 | (b) Sag-rod nuts and washers M12 (Tekla has none) | 0 | 1,120 | 0.00 | 22.40 | +22.40 | +22.40 | +22.40 | C08: nut / washer off by default |
+| D1 | (c) Grout | 52 | 52 | 0.00 | 0.00 | 0.00 | 0.00 | +1,131.76 | Done (ce01af4) |
+| D2 | (c) The same component part: rounding and outline | 1,219 | 1,219 | 5,065.22 | 5,066.20 | +0.98 | +0.98 | −85.98 | Done; the rest is Tekla's rounding |
+| D4 | (c) Built-up members: one BI catalog member vs three Tekla plates | 594 | 198 | 36,820.20 | 37,077.56 | +257.36 | +257.36 | +257.36 | X01 |
+| D5 | (c) Members placed as given | 638 | 638 | 16,359.79 | 16,358.79 | **−1.00** | −72.00 | −72.00 | Done (C05): SHS −0.72, CHS −0.30, UPN +0.02 |
+| | **Total** | **4,945** | **4,953** | **63,705.82** | **62,591.88** | **−1,113.94** | **−1,189.72** | **−210.16** | |
+| | Snapshot difference (app 62,591.88 − Tekla 63,705.82) | | | | | −1,113.94 | | | residual **0.00** |
 
-**The parts that matter, in order:** A5 girder flanges −760.5, B1 tube gusset / crossing −394.7, A1–A3 anchor rods, nuts and washers −340.8, D4 built-ups +257.4, B2 stairs +227.8, A6 cap plates −72.6, D5 SHS cuts −72.0. Everything else adds up to less than 80 kg.
+**The parts that matter, in order:** A5 girder flanges −760.5, A1–A3 anchor rods, nuts and washers −340.8, D4 built-ups +257.4, C07 crossing gussets −237.7, B2 stairs +227.8, C06 node gussets / fins −153.2, A6 cap plates −72.6. Everything else adds up to less than 80 kg.
 
 ## Method
 
@@ -53,7 +56,7 @@ The predicted Δ was −1,181.72 and the actual is −1,189.72. The 8.00 kg betw
    Check: on the 1,061 MATCHED component parts, app weight + estimated holes − Tekla weight leaves −0.11 kg in total. For example, the 48 eave end plates differ by −22.08 kg and the holes come to 21.88 kg. So the estimate is accurate to about 1 %.
 4. **Gross check on R12.** Plates: NC header (DSTV_Plates in `tests/steel/tekla/Frame_28mx53m_Package_1.zip`) L × W × t × density, and the NC outline (AK contour) area × t. Members: Tekla's section area × NC length. Tekla's areas are the polygons proven in `WEIGHTS-R12.md`: rods are 8-gons, tubes 12/16-gons, SHS has square corners, CC is 704 mm², UPN240 is 33.2 kg/m and L60*6 is 5.42 kg/m. Also used: the R12 solid (mesh volume × density). Equal means equal after rounding to 0.01 kg.
 
-Scratch scripts and outputs are outside the repo: `decomp.py`, `holes.py`, `grosscheck.py`, `gross2.py`, `groups.py`, and `v2_*.py` for the v2 snapshot. Step 3 (the hole estimate) was used for v1. For v2 it is used only to find holes that are still taken off: it compares each part's v2 − v1 weight with its estimated holes.
+Scratch scripts and outputs are outside the repo: `decomp.py`, `holes.py`, `grosscheck.py`, `gross2.py`, `groups.py`, and `v2_*.py` / `v3_*.py` for the later snapshots. Step 3 (the hole estimate) was used for v1. For v2 it is used only to find holes that are still taken off: it compares each part's v2 − v1 weight with its estimated holes.
 
 ## (a) Parts missing in the app
 
@@ -75,16 +78,15 @@ Scratch scripts and outputs are outside the repo: `decomp.py`, `holes.py`, `gros
 
 Here the app makes about as many parts as Tekla, but at other places and with other outlines. Many of them do not match within 50 mm, so they count as MISSING on one side and EXTRA on the other. Splitting them into missing and extra would only make two large numbers that cancel, so each family is compared as a whole.
 
-**B1, by family (v2).** "Δ v1" is the same family before the hole fill.
+**B1, by family (v3).** The end caps are now one family: since C05, all of the app's caps are `END CAP` FLT5*100, at the tongues and at the crossings.
 
-| Family | Code | R12 parts | Tekla kg | App parts | App kg | Δ kg | Δ v1 | Examples (mark, assembly: Tekla → app) | Fix |
-|---|---|---|---|---|---|---|---|---|---|
-| Crossing gussets PL12 | C07 | 52 | 749.32 | 52 | 511.60 | −237.72 | −239.33 | 6534 / HZ6004 PL12*330.1 14.42 → 9.84; 6536 / HZ6013 PL12*330.5 14.53 → 9.87 | Ttgx crossing gusset is about ⅔ of Tekla's area: Tekla tube crossing size and position |
-| Node gussets and fins PL12 / FLT12 | C06 | 248 | 1,263.38 | 248 (186 fin + 62 gusset) | 1,081.83 | −181.55 | −203.98 | 6533 / R3019 PL12*213.4 3.40 → FIN 2.55; 6532 / R3019 PL12*280.4 12.74 → none within 50 mm; app gusset 2851 7.58 (still about 0.18 of holes taken off) | Ttg node = 1 hull vs Tekla's outlines (margins, corner trim, fin length); also fill every tongue's holes in the shared node gusset (about 8.1 kg) |
-| Tongue plates FLT12*140 | C05 | 456 | 1,876.02 | 456 | 1,892.40 | +16.38 | −24.66 | 6508 / HZ6002 4.15 → 4.15 | Same size; the rest is tongue length / insertion and position along the brace |
-| Tongue end caps FLT5 | C05 | 840 | 143.17 | 816 | 139.76 | −3.41 | −3.41 | 1 / HZ6014 0.17 → 0.17; 17 / ST5008 0.14 → none | Tekla: two plates per tongue, one each side. App: one cap around the tongue. Tekla 20 cap plates |
-| Crossing caps PL5 / FLT5*120 | C07 | 66 | 12.36 | 96 | 24.00 | +11.64 | +11.64 | 1 / HZ6016 PL5*44.1 0.17 → END CAP 0.17; app END CAP FLT5*120 0.25 each | Tekla cap plates at the crossing halves |
-| **B1 total** | | **1,662** | **4,044.25** | **1,668** | **3,649.59** | **−394.66** | **−459.74** | | |
+| Family | Code | R12 parts | Tekla kg | App parts | App kg | Δ v3 | Δ v2 | Match (R12 side) | Examples (mark, assembly: Tekla → app) | Fix |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Crossing gussets PL12 | C07 | 52 | 749.32 | 52 | 511.60 | −237.72 | −237.72 | 52 ROUGH | 6514 / VL6001 PL12*333.9 15.41 → 10.14; 6507 / VL6009 PL12*318.2 12.61 → 9.30 | Ttgx crossing gusset is about ⅔ of Tekla's area: Tekla tube crossing size and position (C07) |
+| Node gussets and fins PL12 / FLT12 | C06 | 248 | 1,263.38 | 248 (186 fin + 62 gusset) | 1,110.17 | −153.21 | −181.55 | 82 MATCHED, 13 NEAR, 153 ROUGH | 6556 / R3015 PL12*280.4 12.74 → 10.95; 5502 / C2021 FLT12*140 2.90 → 2.87 | Ttg node = 1 hull vs Tekla's outlines (margins, corner trim, fin length) (C06) |
+| Tongue plates FLT12*140 | C05 | 456 | 1,876.02 | 456 | 1,876.02 | **0.00** | +16.38 | 325 MATCHED, 15 NEAR, 116 ROUGH | 6512 / HZ6014 3.76 → 3.76; 6508 / ST5008 4.15 → 4.15 | Done (C05) |
+| End caps FLT5 / PL5 (tongue and crossing) | C05 / C07 | 906 | 155.53 | 906 | 156.58 | +1.05 | +8.23 | 650 MATCHED, 24 NEAR, 232 ROUGH | 13 / ST5007 FLT5*100 0.22 → 0.17; 19 / VL6012 PL5*56.3 0.22 → 0.17; 1 / VL6003 0.17 → 0.22 | Cap size per position: the crossing caps PL5*32–92 are not FLT5*100 (C07) |
+| **B1 total** | | **1,662** | **4,044.25** | **1,662** | **3,654.37** | **−389.88** | **−394.66** | | | |
 
 **B2 stairs (C18):**
 - Tekla: 23 gratings THREAD PL10*335.7 at 1,333 kg/m³ (106.26 kg, e.g. 9503 / SGR9001 4.62), 46 brackets L60*6 (34.96, e.g. 9502 0.76) and 10 stringer end plates FLT12*150 (43.50, e.g. 9505 / SR9002 3.67).
@@ -153,15 +155,12 @@ Examples: EB4009: 357.39 → 364.12; C2017: 307.81 → 310.20; R3019: 236.90 →
 
 **Fix (X01):** model built-ups as Tekla does, as three plates (Web, Top flange, Bottom flange) in one assembly with end fitting / copes to the connected part. A cheaper alternative is to weigh a BI member by its solid (not catalog kg/m × L) and to give it fittings and copes. The gross rule does not change this group: Tekla does take copes and end cuts off (see below).
 
-### D5 Members placed as given: −72.00 kg
-- **SHS100*3 (HZ / VL bracing, struts): 228 members, 8,533.25 → 8,461.53 (−71.72).** These are almost all the INPUT EQUAL, SOLID DIFFERS members. The app's Ttg / Ttgx cut the tube (tongue slots, cut-backs at crossings) and take more off than Tekla's own cuts.
-  - Examples: 6501 / VL6009 54.84 → 53.59 (−1.25); 24 members are −1.08 each, 20 are about −0.63.
-  - A few go the other way: 5504 / ST5006 42.88 → 43.05.
-  - The weight rule itself is right for these (the R12 SHS parts are weighed within 0.03 kg, `WEIGHTS-R12.md`).
-  - **Fix (C05 / C07):** tongue slot length and width and the crossing cut-back as Tekla 20 / tube crossing.
-- **CHS48*3 stanchions: −0.30.** For example, 25 / SR9002 3.18 → 3.16, from the stanchion end cut (C19).
-- **UPN240 stringers: +0.02.**
+### D5 Members placed as given: −1.00 kg in v3 (−72.00 in v1 and v2)
+- **SHS100*3:** 228 members, 8,533.25 → 8,532.53 (−0.72). All of them are now MATCHED, with volume ratio 1.000 (C05: Tekla's tube end and slot; parametric SHS in Tekla's `*` notation with square corners). The −0.72 kg is rounding.
+- **CHS48*3 stanchions:** −0.30. For example, 25 / SR9002 3.18 → 3.16, from the stanchion end cut (C19).
+- **UPN240 stringers:** +0.02. 4 are still INPUT EQUAL, SOLID DIFFERS (C18).
 - Purlins (220), sag rods (140), railings and hand rails: equal.
+- v1 / v2 for history: SHS was −71.72 kg, because Ttg slots and cut-backs took more off than Tekla's own cuts. For example, 6501 / VL6009 54.84 → 53.59.
 
 ## Is Tekla's weight the gross weight? Checked on all 4,945 R12 parts
 
@@ -202,4 +201,4 @@ Hypothesis: "Tekla weight = gross, with no holes and no chamfers taken off" (pla
 ## Not verified
 - In v1, app hole weights were an estimate from ray casting. The v2 hole fill confirms them to about 1 % on every component family except the node gussets (above).
 - B1 and B2 compare part families as a whole, because many of their parts are more than 50 mm from Tekla's and cannot be paired one to one.
-- The app's own total (62,517.22) is 1.12 kg above the web's (62,516.10). This report uses the web per-part weights; that 1.12 kg was not split into parts.
+- The app's own total (62,592.04) is 0.16 kg above the web's (62,591.88). This report uses the web per-part weights.
