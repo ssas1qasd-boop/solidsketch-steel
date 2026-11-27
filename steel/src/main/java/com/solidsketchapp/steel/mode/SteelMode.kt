@@ -135,12 +135,18 @@ class SteelMode(
     fun catDone() { catK = null; pick.clear(); pickPts.clear(); say = ""; changed() }
 
     private fun catTap(x: Float, y: Float): Boolean {
-        val c = comps ?: return true; val k = catK!!; val d = c.ui.conn.getValue(k)
+        if (comps == null) return true
         val hit = selection?.pick(x, y)
-        val st = hit?.let { stOf(it.body) }
-        if (hit == null || st == null || (st["kind"] as? JsonPrimitive)?.contentOrNull != "member") { say = "Pick a steel part · " + c.prompt(k, pick.size); changed(); return true }
-        if (hit.body in pick) { say = "Already picked · " + c.prompt(k, pick.size); changed(); return true }
-        pick += hit.body; pickPts += doubleArrayOf(hit.point.x, hit.point.y, hit.point.z)
+        return catHit(hit?.body, hit?.let { doubleArrayOf(it.point.x, it.point.y, it.point.z) })
+    }
+    /** One picked part of the component being placed (v69 stTap's component branch): [body] at [point]; also the way a test or an
+     *  accessibility action picks a part it knows, the same steps as a tap on it. */
+    fun catHit(body: BodyId?, point: DoubleArray?): Boolean {
+        val c = comps ?: return true; val k = catK ?: return true; val d = c.ui.conn.getValue(k)
+        val st = body?.let { stOf(it) }
+        if (body == null || st == null || (st["kind"] as? JsonPrimitive)?.contentOrNull != "member") { say = "Pick a steel part · " + c.prompt(k, pick.size); changed(); return true }
+        if (body in pick) { say = "Already picked · " + c.prompt(k, pick.size); changed(); return true }
+        pick += body; pickPts += (point ?: doubleArrayOf(0.0, 0.0, 0.0))
         if (pick.size < d.parts.size) { say = c.prompt(k, pick.size); changed(); return true }
         val parts = pick.toList(); val pps = pickPts.toList(); val p0 = pps.firstOrNull(); pick.clear(); pickPts.clear()
         if (d.gen) { val g = com.solidsketchapp.steel.comp.GenRun(data, doc, undo, this.parts, c, regen)

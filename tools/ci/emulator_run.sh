@@ -35,7 +35,7 @@ for f in $(adb shell ls /sdcard/ | tr -d '\r' | grep '^ci_rec_.*\.mp4$'); do adb
 A=app/build/outputs/connected_android_test_additional_output; R1="$OUT/pass1"; mkdir -p "$R1"
 cp -r "$A" "$R1/additional" 2>/dev/null || true; cp -r app/build/reports/androidTests "$R1/reports" 2>/dev/null || true; cp -r app/build/outputs/androidTest-results "$R1/results" 2>/dev/null || true
 # The connection being delivered now (C04 and C14 recordings were delivered with their own runs; set REC_CLASSES to run them again)
-REC_CLASSES="${REC_CLASSES:-C18RecordingTest C03RecordingTest}"
+REC_CLASSES="${REC_CLASSES:-C18RecordingTest C03RecordingTest C17RecordingTest}"
 for CLS in $REC_CLASSES; do
   adb shell rm -f /sdcard/c02_rec.mp4 /sdcard/c09_rec.mp4 /sdcard/c04_rec.mp4 /sdcard/c14_rec.mp4 /sdcard/c13_rec.mp4 /sdcard/c20_rec.mp4 /sdcard/c05_rec.mp4 /sdcard/c06_rec.mp4 /sdcard/c07_rec.mp4 /sdcard/c01_rec.mp4 /sdcard/c18_rec.mp4 /sdcard/c03_rec.mp4 /sdcard/c17_rec.mp4 || true
   ./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.$CLS --stacktrace > "$OUT/${CLS}.log" 2>&1
