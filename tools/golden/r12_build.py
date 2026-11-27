@@ -3,6 +3,13 @@
 2025 SP6, IFC2X3 CV2.0, surface geometry, assemblies, bolts and welds on). R10 and R11 stay unchanged.
 
     python3 tools/golden/r12_build.py          -> tests/steel/models/Frame_28x53m_R12.ss + build/r12/parts.json (for r12_compare.py)
+    python3 tools/golden/r12_build.py R13      -> tests/steel/models/Frame_28x53m_R13.ss + build/r13/parts.json (docs/steel/R13.md)
+    python3 tools/golden/r12_build.py R12 OUT.ss   (any model to another path, e.g. to prove R12 is rebuilt byte-identical)
+
+The same code builds R13 from Tekla's IFC of the fixed model (tests/steel/tekla/Frame_28x53m_tekla_v3.ifc = Package_2's out.ifc).
+Only the inputs differ (MODELS below): the IFC, the model the part marks start from (R11 for R12, R12 for R13) and Tekla's lists
+the marks are checked against (Package_1 Reports/ for R12; Package_2 SingleList.xsr + the material list of each assembly drawing
+for R13, whose part marks Tekla renumbered: the R12 mark is translated through the two part lists first, see tekla_pos).
 
 What comes from where (every value below is Tekla's, nothing is taken from R10/R11 except where stated):
   parts (IfcBeam / IfcColumn / IfcMember / IfcPlate / IfcFooting)
@@ -38,10 +45,19 @@ sys.path.insert(0, os.path.dirname(__file__))
 from ifc_read import Ifc, brep_loops
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-IFC = os.path.join(REPO, 'tests', 'steel', 'tekla', 'Frame_28x53m_tekla_v2.ifc')
-R11 = os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R11.ss')
-R12 = os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')
-OUT = os.path.join(REPO, 'build', 'r12')
+_T, _M = os.path.join(REPO, 'tests', 'steel', 'tekla'), os.path.join(REPO, 'tests', 'steel', 'models')
+# per model: the IFC, the document template (grid, folders, units), the model the part marks start from, the output, Tekla's lists
+MODELS = {
+    'R12': dict(ifc=os.path.join(_T, 'Frame_28x53m_tekla_v2.ifc'), ifcName='tests/steel/tekla/Frame_28x53m_tekla_v2.ifc', template=os.path.join(_M, 'Frame_28x53m_R11.ss'),
+                prior=os.path.join(_M, 'Frame_28x53m_R11.ss'), out=os.path.join(_M, 'Frame_28x53m_R12.ss'), work=os.path.join(REPO, 'build', 'r12'),
+                pkg=os.path.join(_T, 'Frame_28mx53m_Package_1.zip'), lists='package1'),
+    'R13': dict(ifc=os.path.join(_T, 'Frame_28x53m_tekla_v3.ifc'), ifcName='tests/steel/tekla/Frame_28x53m_tekla_v3.ifc', template=os.path.join(_M, 'Frame_28x53m_R11.ss'),
+                prior=os.path.join(_M, 'Frame_28x53m_R12.ss'), out=os.path.join(_M, 'Frame_28x53m_R13.ss'), work=os.path.join(REPO, 'build', 'r13'),
+                pkg=os.path.join(_T, 'Frame_28mx53m_Package_2.zip'), lists='package2', oldPkg=os.path.join(_T, 'Frame_28mx53m_Package_1.zip')),
+}
+MODEL = 'R12'
+IFC, R11, R12, OUT = MODELS['R12']['ifc'], MODELS['R12']['prior'], MODELS['R12']['out'], MODELS['R12']['work']
+TEMPLATE = MODELS['R12']['template']
 PART_TYPES = ['IFCBEAM', 'IFCCOLUMN', 'IFCMEMBER', 'IFCPLATE', 'IFCFOOTING']
 
 def r3(v): return round(float(v) + 0.0, 3)
@@ -179,9 +195,9 @@ def plate_fields(f, items, W, t):
 # ---------------------------------------------------------------- part marks from Tekla's Assembly Part List
 PKG = os.path.join(REPO, 'tests', 'steel', 'tekla', 'Frame_28mx53m_Package_1.zip')
 
-def report_rows(name):
+def report_rows(name, pkg=None):
     import zipfile, re, html
-    with zipfile.ZipFile(PKG) as z:
+    with zipfile.ZipFile(pkg or PKG) as z:
         n = next(x for x in z.namelist() if x.endswith('Reports/' + name)); t = z.read(n).decode('latin-1')
     R = []
     for r in re.findall(r'<tr[^>]*>(.*?)</tr>', t, re.S | re.I):
@@ -204,28 +220,44 @@ def tekla_pos(steel):
     List row that fits (profile, grade, weight 0.06 kg, length 1 mm) and still has parts to place, preferring the rows that the
     'Assembly Part List' lists under the part's assembly mark. (The Assembly Part List alone cannot give marks: it lists marks with
     identical geometry, e.g. 3504 / 3508, under one row.) Each part's reason is kept (r['posWhy'])."""
-    pl = report_rows('Part List Excel.xls'); h = next(i for i, r in enumerate(pl) if r[:2] == ['PartPos', 'Profile'])
-    plist = {r[0]: dict(prof=r[1], n=int(r[2]), mat=r[3], len=float(r[4]), w=float(r[6])) for r in pl[h + 1:] if r and r[0] != 'Total for' and len(r) >= 7}
+    if MODELS[MODEL]['lists'] == 'package2': return tekla_pos2(steel)
+    plist = part_list1()
     R = report_rows('Assembly Part List Excel.xls'); h = next(i for i, r in enumerate(R) if r[:3] == ['Assembly Mark', 'Sub-Assembly Mark', 'Part Mark'])
     in_asm = collections.defaultdict(set); cur = None
     for r in R[h + 1:]:
         if r[0] and not r[0].startswith('NOTE'): cur = r[0]; continue
         if cur and len(r) >= 12 and r[2]: in_asm[cur].add(r[2])
+    place_pos(steel, plist, in_asm, 'R11')
+
+def part_list1(pkg=None):
+    """Package_1 Reports/Part List Excel.xls: mark -> profile, count, grade, length, weight of one part"""
+    pl = report_rows('Part List Excel.xls', pkg); h = next(i for i, r in enumerate(pl) if r[:2] == ['PartPos', 'Profile'])
+    return {r[0]: dict(prof=r[1], n=int(r[2]), mat=r[3], len=float(r[4]), w=float(r[6])) for r in pl[h + 1:] if r and r[0] != 'Total for' and len(r) >= 7}
+
+def prof_eq(lp, tprof):
+    """a report's profile vs Tekla's: rounded as Tekla rounds a contour plate's width; a long name cut to 'CC200-2-2***' (SingleList.xsr)"""
+    if lp.endswith('***'): return tprof.startswith(lp[:-3])
+    return lp == norm_prof(tprof)
+
+def place_pos(steel, plist, in_asm, src, prior=None, tol=0.06):
+    """the marks: the prior model's mark (prior(r): R11's for R12, R12's translated through the renumbering for R13) where it fits
+    the part list, else the fitting row that still has parts, preferring rows listed under the part's assembly"""
+    if prior is None: prior = lambda r: r.get('pos11')
     def fits(x, r, tol=0.06):
         # a contour plate may be listed as a flat of the other orientation (PL5*44.1, length 100 = FLT5*100, length 44): for plates
         # the thickness, grade and weight decide; for profiles the profile, grade, weight and length
         if x['mat'] != r['mat'] or abs(x['w'] - r['w']) > tol: return False
         if is_plate(r['tprof']) and is_plate(x['prof']): return abs(thick_of(x['prof']) - thick_of(r['tprof'])) < 0.01
-        return x['prof'] == norm_prof(r['tprof']) and (r['len'] is None or abs(x['len'] - float(r['len'])) <= 1.0)
+        return prof_eq(x['prof'], r['tprof']) and (r['len'] is None or abs(x['len'] - float(r['len'])) <= 1.0)
     left = collections.Counter({k: v['n'] for k, v in plist.items()}); todo = []
     for r in sorted(steel, key=lambda r: r['bid']):
-        x = plist.get(r.get('pos11'))
-        if x is not None and fits(x, r, 0.1) and left[r['pos11']] > 0: r['pos'] = r['pos11']; r['posWhy'] = 'R11 mark, fits the Part List'; left[r['pos']] -= 1
+        pk = prior(r); x = plist.get(pk)
+        if x is not None and fits(x, r, 0.1) and left[pk] > 0: r['pos'] = pk; r['posWhy'] = src + ' mark, fits the Part List'; left[r['pos']] -= 1
         else: todo.append(r)
     for r in todo:
-        c = [k for k, x in plist.items() if fits(x, r)]
-        c.sort(key=lambda k: (left[k] <= 0, k not in in_asm.get(r['amark'], ()), k != r.get('pos11'), k))
-        if not c: r['pos'] = r.get('pos11', ''); r['posWhy'] = 'no Part List row fits: R11 mark'; continue
+        c = [k for k, x in plist.items() if fits(x, r, tol)]
+        c.sort(key=lambda k: (left[k] <= 0, k not in in_asm.get(r['amark'], ()), k != prior(r), k))
+        if not c: r['pos'] = r.get('pos11', ''); r['posWhy'] = 'no Part List row fits: ' + src + ' mark'; continue
         r['pos'] = c[0]; left[c[0]] -= 1
         r['posWhy'] = 'Part List row' + (' (in the assembly)' if c[0] in in_asm.get(r['amark'], ()) else '') + ('' if len(c) == 1 else ' (of %s)' % '/'.join(c[:6]))
 
@@ -248,7 +280,8 @@ def main():
         # assembly after its main part), then the lower IFC id
         if pk: main_of[A] = max(pk, key=lambda k: (round(weight(k), 2), f.a(k)[2].strip() == (f.a(A)[2] or '').strip(), -k))
     # R11, only for the part marks (st.pos) and the folder list
-    r11 = json.load(gzip.open(R11)); rb = [b for b in r11['doc']['bodies'] if b['st']['kind'] != 'bolts']
+    r11 = json.load(gzip.open(TEMPLATE)); prior = r11 if R11 == TEMPLATE else json.load(gzip.open(R11))
+    rb = [b for b in prior['doc']['bodies'] if b.get('st') and b['st']['kind'] != 'bolts']   # (R12's concrete bodies have no st)
 
     # ---- bolts first: the hole solids, the bolt solids
     bolts = []
@@ -404,6 +437,8 @@ def main():
             m2 = m - h; r['V'], r['T'] = mesh_of(m2); r['holes'] = len(cuts[r['bid']])
         elif m is not None: r['V'], r['T'] = mesh_of(m)
 
+    if MODELS[MODEL]['lists'] == 'package2': nc_refine(steel, bolts)
+
     # ---- welds
     welds = []
     rel = {}
@@ -465,8 +500,8 @@ def main():
         if b.get('st') and b['id'] in wsec: b['st']['tkWelds'] = wsec[b['id']]
     if not any(fd.get('name') == 'Concrete (Tekla)' for fd in doc.get('folders', [])): doc.setdefault('folders', []).append({'id': 1795630776001, 'name': 'Concrete (Tekla)', 'type': 'concrete', 'open': False})
     out = {k: v for k, v in r11.items() if k not in ('doc', 'r11')}
-    out['name'] = 'Frame_28x53m_R12'
-    out['r12'] = {'from': 'tests/steel/tekla/Frame_28x53m_tekla_v2.ifc (Tekla Structures 2025 SP6, IFC2X3 CV2.0)', 'tool': 'tools/golden/r12_build.py',
+    out['name'] = 'Frame_28x53m_' + MODEL
+    out[MODEL.lower()] = {'from': MODELS[MODEL]['ifcName'] + ' (Tekla Structures 2025 SP6, IFC2X3 CV2.0)', 'tool': 'tools/golden/r12_build.py',
                   'parts': len(steel), 'concrete': len(recs) - len(steel), 'boltGroups': len(conns), 'welds': len(welds)}
     out['doc'] = doc
     data = json.dumps(jsnum(out), separators=(',', ':'), ensure_ascii=False).encode()
@@ -475,10 +510,141 @@ def main():
     log('wrote', R12, os.path.getsize(R12))
     # per-part data for r12_compare.py
     os.makedirs(OUT, exist_ok=True)
-    json.dump({'parts': [{k: (v if not isinstance(v, np.ndarray) else v.tolist()) for k, v in r.items() if k in ('bid', 'ifc', 'guid', 'name', 'tprof', 'mat', 'kind', 'cls', 'w', 'len', 'amark', 'aname', 'r11', 'pos', 'fit', 'v69', 'holes', 't', 'thick_meas', 'pos11', 'posWhy')} for r in recs],
+    json.dump({'parts': [{k: (v if not isinstance(v, np.ndarray) else v.tolist()) for k, v in r.items() if k in ('bid', 'ifc', 'guid', 'name', 'tprof', 'mat', 'kind', 'cls', 'w', 'len', 'amark', 'aname', 'r11', 'pos', 'fit', 'v69', 'holes', 't', 'thick_meas', 'pos11', 'posWhy', 'pos12', 'pos12to13')} for r in recs],
                'main': {f.a(A)[7] + '#' + str(A): bid_of[m] for A, m in main_of.items()},
                'bolts': [{'guid': g['guid'], 'd': g['d'], 'L': g['L'], 'std': g['std'], 'n': len(g['bolts']), 'parts': g['parts'], 'grip': [bt['grip'] for bt in g['bolts']],
                           'hits': [bt['hit'] for bt in g['bolts']], 'holesOnly': all(bt['solid'] is None for bt in g['bolts'])} for g in bolts]},
               open(os.path.join(OUT, 'parts.json'), 'w'))
 
-if __name__ == '__main__': main()
+def tekla_pos2(steel):
+    """R13 (Package_2): Tekla renumbered every part after the fix, so the R12 mark is first translated to the new numbering: the old
+    Part List (Package_1) and the new one (SingleList.xsr), each in mark order, are aligned on (grade, length, weight of one part);
+    an R12 mark in an aligned pair becomes the new mark of that pair, any other R12 mark is tried as it is. The assembly -> part marks come from the material list of each
+    assembly drawing (Assembley.PDF, read with pdftotext), as Package_2 has no Assembly Part List report."""
+    import difflib
+    plist = single_list()
+    old = part_list1(MODELS[MODEL]['oldPkg'])
+    ko = sorted(old, key=mark_key); kn = sorted(plist, key=mark_key)
+    key = lambda x: (x['mat'], int(round(x['len'])), round(x['w'], 1))
+    sm = difflib.SequenceMatcher(None, [key(old[k]) for k in ko], [key(plist[k]) for k in kn], autojunk=False)
+    tr = {}
+    for a, b, n in sm.get_matching_blocks():
+        for i in range(n): tr[ko[a + i]] = kn[b + i]
+    for r in steel: r['pos12'] = r.get('pos11', ''); r['pos12to13'] = tr.get(r['pos12'], r['pos12'])
+    in_asm = asm_drawing_lists()
+    # SingleList.xsr gives one part's weight to 0.1 kg (6524: 12.4 for Tekla's 12.46 kg): 0.1 kg here
+    place_pos(steel, plist, in_asm, 'R12', prior=lambda r: r['pos12to13'], tol=0.1)
+
+def nc_holes(pkg=None):
+    """Package_2 NC/<mark>.nc1 (DSTV) of plates ('B'): mark -> (length, width, holes [(x, y, d)])"""
+    import zipfile, re
+    out = {}
+    with zipfile.ZipFile(pkg or MODELS['R13']['pkg']) as z:
+        for n in z.namelist():
+            if '/NC/' not in n or not n.lower().endswith('.nc1'): continue
+            L = [x.strip() for x in z.read(n).decode('latin-1').splitlines()]
+            if len(L) < 12 or L[9] != 'B': continue
+            hs, sec = [], None
+            for x in L[12:]:
+                if x in ('AK', 'BO', 'IK', 'SI', 'KO', 'PU', 'KA', 'EN'): sec = x; continue
+                if sec == 'BO' and x.startswith('v'):
+                    t = re.findall(r'-?\d+(?:\.\d*)?', x[1:]); hs.append((float(t[0]), float(t[1]), float(t[2])))   # x (+ a reference letter), y, d
+            out[os.path.basename(n)[:-4]] = (float(L[10]), float(L[11]), hs)
+    return out
+
+def hole_sig(L, W, hs):
+    """a plate's holes, independent of which face is up and which end is first: per hole its distance to the nearer end and the nearer
+    long edge (0.5 mm)"""
+    if W > L: L, W, hs = W, L, [(y, x, d) for x, y, d in hs]
+    return tuple(sorted((round(min(x, L - x) * 2) / 2, round(min(y, W - y) * 2) / 2) for x, y, d in hs))
+
+def nc_refine(steel, bolts):
+    """R13: where the part list leaves a choice (identical rows of several marks, e.g. the column shear plates FLT10*150 L210 =
+    4506 / 4514 / 4515), the mark is the one whose NC file (Package_2 NC/) has the part's holes. The part's holes = the axes of the bolts
+    that go through it, met with its mid-plane, in its plate frame (ncF). Each mark keeps its count; parts with no NC file or no unique
+    hole pattern keep their mark."""
+    nc = nc_holes()
+    holes = collections.defaultdict(list)
+    for g in bolts:
+        for bt in g['bolts']:
+            for b in bt.get('hit', []): holes[b].append((bt['O'], bt['y']))
+    def sig(r):
+        X, Y, N = (np.array(r['ncF'][k]) for k in 'XYN'); P = np.array(r['pts3']); P0 = P[0]
+        u, v = (P - P0) @ X, (P - P0) @ Y; hs = []
+        for O, y in holes.get(r['bid'], []):
+            den = float(y @ N)
+            if abs(den) < 1e-6: continue
+            H = O + y * float((P0 - O) @ N) / den; hs.append((float((H - P0) @ X - u.min()), float((H - P0) @ Y - v.min()), 0))
+        return hole_sig(float(u.max() - u.min()), float(v.max() - v.min()), hs)
+    # the choice: the marks of the rows an ambiguous part fits (posWhy '(of a/b/c)'); the group = every plate holding one of those marks
+    groups = {}
+    for r in steel:
+        if r.get('kind') == 'plate' and ' (of ' in r.get('posWhy', ''): groups[tuple(sorted(r['posWhy'].split(' (of ')[1].split(')')[0].split('/')))] = None
+    groups = {K: [r for r in steel if r.get('kind') == 'plate' and r.get('pos') in K] for K in groups}
+    for K, rs in groups.items():
+        ks = [k for k in K if k in nc]
+        if len(ks) < 2: continue
+        ksig = {k: hole_sig(*nc[k]) for k in ks}
+        if len(set(ksig.values())) < len(ks): continue
+        pool = collections.Counter(r['pos'] for r in rs)
+        want = {id(r): [k for k in ks if ksig[k] == sig(r)] for r in rs}
+        if any(len(w) != 1 for w in want.values()): log('  nc_refine %s: a part matches no NC hole pattern, marks kept' % '/'.join(K)); continue
+        need = collections.Counter(want[id(r)][0] for r in rs)
+        if need != pool: log('  nc_refine %s: NC hole patterns give %s, the part list %s; marks kept' % ('/'.join(K), dict(need), dict(pool))); continue
+        for r in rs:
+            k = want[id(r)][0]
+            if k != r['pos']: r['posWhy'] += '; NC holes: %s -> %s' % (r['pos'], k); r['pos'] = k
+            else: r['posWhy'] += '; NC holes agree'
+
+def mark_key(m):
+    """Tekla's report order: numbers first by value, then marks with a prefix (F1, F3501)"""
+    return (0, int(m), '') if m.isdigit() else (1, 0, m)
+
+def pkg2_read(z, name):
+    n = next(x for x in z.namelist() if x.endswith('/' + name)); return z.read(n)
+
+def single_list(pkg=None):
+    """Package_2 SingleList.xsr (Tekla's part list): mark -> profile, count, grade, length, weight of one part (grout not listed)"""
+    import zipfile, re
+    with zipfile.ZipFile(pkg or MODELS['R13']['pkg']) as z: t = pkg2_read(z, 'SingleList.xsr').decode('latin-1')
+    out = {}
+    for line in t.splitlines():
+        m = re.match(r'\s{4}(\S+)\s+(\S+)\s+(\d+)\s+(\S+)\s+(\d+)\s+([\d.]+)\s+([\d.]+)\s*$', line)
+        if m and m.group(1) != 'PartPos': out[m.group(1)] = dict(prof=m.group(2), n=int(m.group(3)), mat=m.group(4), len=float(m.group(5)), w=float(m.group(7)))
+    return out
+
+def asm_drawing_lists(pkg=None):
+    """assembly mark (the drawing's file name) -> {part mark: No. in one assembly} of its 'MATERIAL LIST FOR ASSEMBLY' table, from each Package_2 assembly
+    drawing (Assembley.PDF). Words are read with their boxes (pdftotext -bbox): the table is the words right of and below the header
+    word 'Mark' (with 'Profile' beside it); one row = the words of one top line and the header's text height: mark, profile, material, No., length, area, weight."""
+    import zipfile, re, tempfile, html
+    res = collections.defaultdict(dict)
+    wre = re.compile(r'<word xMin="([-\d.]+)" yMin="([-\d.]+)" xMax="([-\d.]+)" yMax="([-\d.]+)">(.*?)</word>')
+    with zipfile.ZipFile(pkg or MODELS['R13']['pkg']) as z, tempfile.TemporaryDirectory() as td:
+        for n in sorted(x for x in z.namelist() if '/Assembley.PDF/' in x and x.lower().endswith('.pdf')):
+            mark = os.path.basename(n).split(' - ')[0]
+            fp = os.path.join(td, 'a.pdf'); open(fp, 'wb').write(z.read(n))
+            t = subprocess.run(['pdftotext', '-bbox', fp, '-'], check=True, capture_output=True).stdout.decode('utf-8', 'replace')
+            for page in t.split('<page ')[1:]:
+                W = [(float(x0), float(y0), float(x1), float(y1), html.unescape(w)) for x0, y0, x1, y1, w in wre.findall(page)]
+                hd = [w for w in W if w[4] == 'Mark' and any(v[4] == 'Profile' and abs(v[1] - w[1]) < 2 and 0 < v[0] - w[2] < 120 for v in W)]
+                for h in hd:
+                    hh = h[3] - h[1]
+                    rows = collections.defaultdict(list)
+                    for w in W:
+                        # table text: the header's text height, every cell of a row on the same top line (drawing labels are bigger)
+                        if w[0] >= h[0] - hh and w[1] > h[3] - 1 and abs((w[3] - w[1]) - hh) < 0.5: rows[round(w[1], 0)].append(w)
+                    for k in sorted(rows):
+                        ws = [w[4] for w in sorted(rows[k])]
+                        if ws and ws[0] == 'Total': break
+                        if len(ws) == 7 and re.fullmatch(r'\d+', ws[3]) and re.fullmatch(r'[\d.]+', ws[6]): res[mark][ws[0]] = res[mark].get(ws[0], 0) + int(ws[3])
+    return res
+
+def setup(name):
+    global MODEL, IFC, R11, R12, OUT, TEMPLATE, PKG
+    c = MODELS[name]; MODEL = name; IFC, R11, R12, OUT, TEMPLATE, PKG = c['ifc'], c['prior'], c['out'], c['work'], c['template'], c['pkg']
+
+if __name__ == '__main__':
+    a = sys.argv[1:]; setup(a[0] if a else 'R12')
+    if len(a) > 1: R12 = os.path.abspath(a[1])
+    main()
