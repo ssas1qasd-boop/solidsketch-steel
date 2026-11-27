@@ -403,8 +403,9 @@ def x02(shots, video=None):
     st = lambda b: b.get('st') or {}
     def meas(f):
         D = json.load(gzip.open(os.path.join(shots, f)))['doc']; cap = [b for b in D['bodies'] if str(st(b).get('name', '')).lower() == 'cap plate'][0]; cv = VT(cap)[0]
-        col = [b for b in D['bodies'] if st(b).get('name') == 'COLUMN'][0]; V = VT(col)[0]; top = V[V[:, 2] > 7300]
-        return f"column top z {top[:, 2].max():.2f} (x {top[top[:, 2].argmax(), 0]:.1f}) .. {top[:, 2].min():.2f} (x {top[top[:, 2].argmin(), 0]:.1f}); cap {st(cap).get('prof')} x {cv[:, 0].min():.1f}..{cv[:, 0].max():.1f}, z {cv[:, 2].min():.1f}..{cv[:, 2].max():.1f}"
+        col = [b for b in D['bodies'] if st(b).get('name') == 'COLUMN'][0]; V = VT(col)[0]; x0, x1 = V[:, 0].min(), V[:, 0].max()
+        zn, zf = V[V[:, 0] < x0 + 0.5][:, 2].max(), V[V[:, 0] > x1 - 0.5][:, 2].max()
+        return f"column top z {zn:.2f} (x {x0:.1f}) .. {zf:.2f} (x {x1:.1f}); cap {st(cap).get('prof')} x {cv[:, 0].min():.1f}..{cv[:, 0].max():.1f}, z {cv[:, 2].min():.1f}..{cv[:, 2].max():.1f}"
     a, b = meas('x02_case.ss'), meas('x02_centred.ss')
     lines = ['app (x02_case.ss, 144 Main part end = fitted to the secondary\'s top face; cap e 5.64): ' + a, 'after the cap\'s far end emptied (centred) + Modify (x02_centred.ss): ' + b,
              'R12: column C2017 top z 7547.7 (x 52678.0) .. 7475.0 (x 52998.0); Cap Plate FLT8*150 (1990) x 52680.4..52994.3, z 7476.2..7555.0',

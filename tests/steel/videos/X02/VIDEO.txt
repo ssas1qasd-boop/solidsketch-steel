@@ -1,0 +1,8 @@
+X01 / X02: no video read.
+X01 (built-ups as three plates, Tekla's fittings) and X02 (column tops, cap plates) are not a Tekla component with its own
+dialog: the built-ups' plates and the cap plates in R12 were modelled as parts, and their shapes come from Tekla's fittings and
+cuts. Tekla's End plate (144) help (support.tekla.com, conn_144_help: "Column end plate connection", the Stiffeners tab) was
+read; it makes no plate on top of the column. Tekla has separate cap plate components (e.g. Cap plate detail, Bolted cap
+plate (27)), but R12's IFC lists none of them on these 30 plates, so the Column cap plate is a SolidSketch component. Every number comes from
+R12 (each web / flange plate, each column top and each of the 30 cap plates measured part by part) and the Tekla package
+(assembly drawings R3011, C2017, A2). No Gemini model was used.
