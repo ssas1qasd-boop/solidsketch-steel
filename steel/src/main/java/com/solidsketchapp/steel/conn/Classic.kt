@@ -18,7 +18,8 @@ object Classic {
     val DEFS: Map<String, JsonObject> = mapOf(
         "base" to Fam.obj("t" to 20, "ext" to 75, "side" to 25, "bolt" to 20, "grade" to "8.8", "anch" to 450, "a" to 6),
         "knee" to Fam.obj("tp" to 20, "len" to 0, "depth" to 0, "rows" to 4, "bolt" to 20, "grade" to "8.8", "gauge" to 100, "cap" to 15, "stiff" to 12, "a" to 6),
-        "apex" to Fam.obj("ph" to 0, "pw" to 0, "top" to "", "bot" to "", "rowsAt" to "", "hf" to 10, "hb" to 0, "hw" to 8, "tp" to 20, "len" to 900, "depth" to 250, "rows" to 3, "bolt" to 20, "grade" to "8.8", "gauge" to 100, "a" to 5),
+        "apex" to Fam.obj("ph" to 0, "pw" to 0, "top" to "", "bot" to "", "rowsAt" to "", "hf" to 10, "hb" to 0, "hw" to 8, "tp" to 20, "len" to 900, "depth" to 250, "rows" to 3, "bolt" to 20, "grade" to "8.8", "gauge" to 100, "a" to 5,
+            "hrule" to "", "ast" to 0, "asl" to 60, "ach" to 30, "att" to 10, "ash" to ""),   // v70 C03
         "cleat" to Fam.obj("t" to 8, "h" to 0, "w" to 90, "bolt" to 12, "grade" to "8.8", "a" to 4),
         "wgusset" to Fam.obj("t" to 10, "len" to 260, "w" to 160, "bolt" to 16, "grade" to "8.8", "a" to 5),
         "tgusset" to Fam.obj("t" to 10, "gap" to 100, "lap" to 120, "w" to 160, "a" to 5),

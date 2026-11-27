@@ -1,0 +1,79 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "apex",
+   [
+    0,
+    1
+   ],
+   {
+    "ach": 25,
+    "asl": 70,
+    "ast": 1,
+    "att": 12,
+    "bolt": 24,
+    "depth": 200,
+    "gauge": 100,
+    "hb": 180,
+    "hf": 12,
+    "hrule": "tekla",
+    "hw": 10,
+    "len": 1500,
+    "ph": 600,
+    "pw": 200,
+    "rowsAt": "60 140 450 530",
+    "top": 80,
+    "tp": 25
+   }
+  ]
+ ],
+ "description": "IPE400 rafters at 10 deg, plate 25 x 600, Tekla haunch 1500 horizontal / 200 plumb, stiffeners with their default height (to the rafter top).",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     0,
+     0,
+     6000
+    ],
+    "p2": [
+     6000,
+     0,
+     7057.98
+    ],
+    "plane": "Middle",
+    "prof": "IPE400",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     12000,
+     0,
+     6000
+    ],
+    "p2": [
+     6000,
+     0,
+     7057.98
+    ],
+    "plane": "Middle",
+    "prof": "IPE400",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  }
+ ],
+ "name": "t106_ipe400_10deg_defaults",
+ "pageErrors": []
+}

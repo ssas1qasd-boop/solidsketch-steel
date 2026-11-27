@@ -62,7 +62,13 @@
     "bolt": 20,
     "grade": "8.8",
     "gauge": 100,
-    "a": 5
+    "a": 5,
+    "hrule": "",
+    "ast": 0,
+    "asl": 60,
+    "ach": 30,
+    "att": 10,
+    "ash": ""
    },
    "fam": null
   },

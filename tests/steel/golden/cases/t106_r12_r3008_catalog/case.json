@@ -1,0 +1,86 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T106",
+   [
+    0,
+    1
+   ],
+   {
+    "ach": 30,
+    "ash": 87.988,
+    "asl": 60,
+    "ast": 1,
+    "att": 10,
+    "bolt": 20,
+    "depth": 83.373,
+    "gauge": 80,
+    "grade": "8.8",
+    "hb": 150,
+    "hf": 10,
+    "hrule": "tekla",
+    "hw": 8,
+    "kind": "apex",
+    "len": 2000,
+    "ph": 400,
+    "pw": 160,
+    "rowsAt": "50 120 260 330",
+    "top": 69.999,
+    "tp": 20
+   }
+  ]
+ ],
+ "description": "The same R12 apex through Apex haunch (106) from the catalog (Tekla dialog: plate height set = the Tekla apex).",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "RAFTER",
+    "p1": [
+     52682.387,
+     27925,
+     7433.94
+    ],
+    "p2": [
+     46290.5,
+     27925,
+     8887.194
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "RAFTER",
+    "p1": [
+     39848.613,
+     27925,
+     7422.572
+    ],
+    "p2": [
+     46290.5,
+     27925,
+     8887.194
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  }
+ ],
+ "name": "t106_r12_r3008_catalog",
+ "pageErrors": []
+}

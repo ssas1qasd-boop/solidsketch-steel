@@ -123,6 +123,42 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C03 · Apex haunch as Tekla 106: haunch dimensions, plumb flange ends, end plate stiffeners above the rafter (owner 2026-11-27)
+
+### Step 0: Tekla's own site
+- Apex haunch (106) (conn_106_help): an apex end plate connection with haunches under both rafters and stiffeners. As in C02h's eaves haunch (102), Tekla's haunch length is horizontal and its depth plumb.
+- Tekla's own videos: none found.
+
+### Step 1: videos — none read (no 106 video found that shows the Haunch / Stiffeners tabs; noted in VIDEO.txt).
+
+### Step 2: the Tekla package
+- Assembly drawing R3008: 3501 FLT20*400 (end plate), 3515 FLT8*130 L2029 (the haunch web, its length along the rafter = 2000 horizontal + the plate), 3516 FLT10*150 L2016 (the haunch flange), 2504 Stiff. x 4.
+- Single-part drawing 2504: **FLT10*60, length 88.0**, 48 pieces, 0.3 kg: the stiffener's 88 is Tekla's own dimension (the height at its far end).
+
+### R12 (24 apexes, 192 parts)
+- **Haunch web:** the triangle under the rafter from the end plate's back face to **2000 horizontal from the apex joint**, **83.373 deep plumb** at the plate.
+- **Haunch flange** 10 x 150 under the web's lower edge, **both ends plumb** (v54's ends were square to the flange).
+- **End plate stiffeners FLT10*60** (2 per apex): in the rafter's web plane, behind each end plate where it stands 70 above the rafter top: 60 long (horizontal), from the rafter top to the plate top, the far top corner chamfered 30 x 30; at the far end 88 high (0.24 above the rafter's line: Tekla's stiffener height).
+- v54's apex (len along the rafter, depth square to it, from R10's rounded 2029 / 82) put the haunch 1.5 mm off and made no stiffeners.
+
+### Change, in web v70 (section "C03") and the app (`ClassicV34.apex54`, `FamHA`)
+- apex options: **Haunch dimensions** = Tekla (length horizontal from the apex, depth plumb at the plate; flange ends plumb); **end plate stiffeners** (length, chamfer, thickness, height at the far end). Old models (v69 rule, no stiffeners) unchanged.
+- **Apex haunch (106)** from the catalog now has a Tekla dialog (Picture, Plates, Haunch, Stiffeners, Bolts, General, Welds); with a plate height it builds the same apex (`t106_r12_r3008_catalog` = `t106_r12_r3008`).
+
+### Search result: the R12 inputs (`r10_inputs.py`)
+- hrule tekla, len 2000, depth 83.373 (measured on each haunch web at the plate face), ast 1, asl 60, ach 30, att 10, ash 87.988 (measured on each stiffener): the same at all 24 apexes.
+
+### Checks
+| Check | Before (C18, c5d9df5) | After |
+|---|---|---|
+| Row 3 R12 parts (web rebuild, 0.1 mm) | 48 / 192 (end plates; 96 haunch parts 1.5 mm off, 48 stiffeners missing) | 192 / 192 |
+| App vs R12 (`R12C03Test`, 0.1 mm) | — | end plates 48 / 48, webs 48 / 48, flanges 48 / 48, stiffeners 48 / 48; 1,885.92 kg = Tekla 1,885.92 |
+| Rule B | — | 0 failures: R12 R3008, IPE400 10 deg defaults, HEA300 5 deg without stiffeners, and the catalog route |
+| Weight (rebuild, web) | 63,086.22 kg | 63,102.54 kg (Tekla 63,705.8): +16.3 (the stiffeners) |
+
+### Status
+Delivered for the owner's phone check; ✓ only after the owner's OK.
+
 ## C18 · Stairs as Tekla: U-pan grating treads on bolted brackets, stringer mitre fits, stair end plates (owner 2026-11-27)
 
 ### Step 0: Tekla's own site

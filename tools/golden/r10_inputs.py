@@ -713,6 +713,20 @@ def main():
                     hp = Pl(byid[hw[0]]); q.update(len=round(hp.x1 - hp.x0), depth=round(hp.y1 - hp.y0), hw=hp.t)
                     fl = sorted(hf, key=lambda x: norm(sub(Pl(byid[x]).centre(), hp.centre())))
                     if fl: fp = Pl(byid[fl[0]]); q.update(hf=fp.t, hb=fp.w)
+                    if MODEL == 'R12':   # C03 (PARITY.md): Tekla 106's haunch: length horizontal from the apex joint, depth plumb at the end plate
+                        hwn = sorted(hw, key=lambda x: norm(sub(Pl(byid[x]).centre(), p.centre())))[0]; wv = mesh_v(byid[hwn]); c0 = p.centre()
+                        hdir = [-p.N[0], -p.N[1], 0]; hl = math.hypot(hdir[0], hdir[1]); hdir = [hdir[0] / hl, hdir[1] / hl, 0]
+                        if dot(sub(Pl(byid[hwn]).centre(), c0), hdir) < 0: hdir = [-hdir[0], -hdir[1], 0]   # from the plate toward the haunch
+                        joint = sub(c0, mul(hdir, p.t / 2)); far = max(dot(sub(v, joint), hdir) for v in wv)
+                        atp = [v[2] for v in wv if abs(dot(sub(v, joint), hdir) - p.t) < 0.5]
+                        if atp: q.update(hrule='tekla', len=r3(far), depth=r3(max(atp) - min(atp)))
+                if MODEL == 'R12':   # C03: the end plate stiffener above the rafter (Stiff. FLT10*60 behind this plate)
+                    stf = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'Stiff.' and byid[x]['st'].get('tprof', '').startswith('FLT') and norm(sub(Pl(byid[x]).centre(), p.centre())) < 200]
+                    if stf:
+                        sv = mesh_v(byid[stf[0]]); c0 = p.centre(); hdir = [-p.N[0], -p.N[1], 0]; hl = math.hypot(hdir[0], hdir[1]); hdir = [hdir[0] / hl, hdir[1] / hl, 0]
+                        if dot(sub(Pl(byid[stf[0]]).centre(), c0), hdir) < 0: hdir = [-hdir[0], -hdir[1], 0]
+                        ds = [dot(sub(v, c0), hdir) for v in sv]; L = max(ds) - min(ds); zt_ = max(v[2] for v in sv); back = [v[2] for v, dd in zip(sv, ds) if abs(dd - max(ds)) < 0.5]
+                        q.update(ast=1, asl=r3(L), ach=r3(zt_ - max(back)), att=Pl(byid[stf[0]]).t, ash=r3(zt_ - min(back)))
                 conn('apex', [own, other], q, '3', [b['id']] + hw)
             elif s['name'] == 'PLATE' and s['tprof'] == 'PL12*155':   # monitor apex joining plates (14) = v54 apex, no haunch
                 zt = max(q3[2] for q3 in s['pts3']); rows = sorted({round(pp[2], 0) for pp in pts}, reverse=True)

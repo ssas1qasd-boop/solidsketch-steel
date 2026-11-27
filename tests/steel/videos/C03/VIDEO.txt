@@ -1,0 +1,3 @@
+C03 Apex haunch 106: no video read.
+No Tekla or YouTube video of Apex haunch (106) showing its Haunch / Stiffeners tabs was found; every number in C03 comes from R12
+(the haunch webs, flanges and stiffeners measured at all 24 apexes) and the Tekla package (the rafters' assembly drawings).

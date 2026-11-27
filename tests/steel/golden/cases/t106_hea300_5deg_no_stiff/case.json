@@ -1,0 +1,72 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "apex",
+   [
+    0,
+    1
+   ],
+   {
+    "bolt": 20,
+    "depth": 150,
+    "gauge": 160,
+    "hrule": "tekla",
+    "len": 1200,
+    "ph": 500,
+    "pw": 320,
+    "rowsAt": "70 150 360 440",
+    "top": 40,
+    "tp": 20
+   }
+  ]
+ ],
+ "description": "HEA300 rafters at 5 deg, Tekla haunch 1200 / 150, no stiffeners (plate top 40 above).",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     0,
+     0,
+     5000
+    ],
+    "p2": [
+     5000,
+     0,
+     5437.44
+    ],
+    "plane": "Middle",
+    "prof": "HEA300",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     10000,
+     0,
+     5000
+    ],
+    "p2": [
+     5000,
+     0,
+     5437.44
+    ],
+    "plane": "Middle",
+    "prof": "HEA300",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  }
+ ],
+ "name": "t106_hea300_5deg_no_stiff",
+ "pageErrors": []
+}

@@ -171,7 +171,8 @@ object ClassicV34 {
         val rp = prof(x, ast); val rh = orD(rp?.h, 400.0); val rb = orD(rp?.b, 180.0); val rhv = rh / cs; val dOff = depthOff(ast, rhv)
         fun zTop(s: Double) = ap.apx.z - abs(s) * tanp + dOff
         fun zBot(s: Double) = zTop(s) - rhv
-        val tp = x.n("tp"); val lw = jsPlus(q["len"]).let { if (it.isNaN()) 0.0 else it }; val dp = if (lw > 0) x.n("depth") else 0.0; val dv = dp / cs
+        val tp = x.n("tp"); val tek = x.s("hrule") == "tekla" && jsPlus(q["len"]).let { !it.isNaN() && it > 0 }   // v70 C03: Tekla 106's haunch (horizontal from the apex, plumb at the plate)
+        val lw = if (tek) (jsPlus(q["len"]) - tp) / cs else jsPlus(q["len"]).let { if (it.isNaN()) 0.0 else it }; val dp = if (lw > 0) (if (tek) x.n("depth") * cs else x.n("depth")) else 0.0; val dv = dp / cs
         x.cut(x.aId, f.box(-tp, 50000.0, -50000.0, 50000.0, -2000.0, 2000.0)); x.cut(bId, f.box(-50000.0, tp, -50000.0, 50000.0, -2000.0, 2000.0))
         val ph = x.n("ph"); val zHB = zBot(tp) - dv; val z0: Double; val z1: Double
         val topE = q["top"]; val topS = if (topE == null || topE is JsonNull) "" else jsStr(topE)
@@ -196,7 +197,15 @@ object ClassicV34 {
             val hf = or(q["hf"], rp?.tf, 10.0); val tf = num(hf)
             val q1 = doubleArrayOf(p1[0] + m[0] * tf, p1[1] + m[1] * tf); val k = (s0 - q1[0]) / ((pd[0] - p1[0]).let { if (it == 0.0 || it.isNaN()) 1e-9 else it }); val q0 = doubleArrayOf(s0, q1[1] + k * (pd[1] - p1[1]))
             val hb2 = num(or(q["hb"], rp?.b, 150.0)) / 2
-            x.plate("APEX HAUNCH FLANGE", f.prism(ccw(listOf(pd, p1, q1, q0)), -hb2, hb2), 0.0, "PL" + str(hf))
+            if (tek) { val mm = (p1[1] - pd[1]) / (p1[0] - pd[0]); val tv = tf * kotlin.math.sqrt(1 + mm * mm)   // v70 C03: both flange ends plumb
+                x.plate("APEX HAUNCH FLANGE", f.prism(ccw(listOf(pd, p1, doubleArrayOf(p1[0], p1[1] - tv), doubleArrayOf(pd[0], pd[1] - tv))), -hb2, hb2), 0.0, "PL" + str(hf)) }
+            else x.plate("APEX HAUNCH FLANGE", f.prism(ccw(listOf(pd, p1, q1, q0)), -hb2, hb2), 0.0, "PL" + str(hf))
+        }
+        if (jsInt(StBolts.tkNum(q["ast"], 0.0)) != 0 && topS.trim() != "") for (sg in listOf(-1, 1)) {   // v70 C03: end plate stiffeners above the rafter (web section "C03")
+            val l = StBolts.tkNum(q["asl"], 60.0); val ch = StBolts.tkNum(q["ach"], 30.0); val att = StBolts.tkNum(q["att"], 10.0); val a0 = sg * tp; val b0 = sg * (tp + l)
+            if (!(z1 - zTop(tp) > ch + 1)) continue
+            val ashS = q["ash"]?.let { if (it is JsonNull) "" else jsStr(it) } ?: ""; val zb = if (ashS.trim() != "") z1 - jsPlus(q["ash"]) else zTop(tp + l)
+            x.plate("APEX STIFFENER", f.prism(ccw(listOf(doubleArrayOf(a0, zTop(tp)), doubleArrayOf(b0, zb), doubleArrayOf(b0, z1 - ch), doubleArrayOf(b0 - sg * ch, z1), doubleArrayOf(a0, z1))), -att / 2, att / 2), att, "FLT" + jsStr(q["att"] ?: JsonPrimitive(10)) + "*" + jsStr(q["asl"] ?: JsonPrimitive(60)))
         }
         for (sg in listOf(-1, 1)) x.welds += Weld("Rafter + haunch to end plate", x.n("a"), orD(rp?.P, 1.4) * 1000 + 2 * dp + rb,
             listOf(doubleArrayOf(sg * tp, zTop(tp), -rb / 2), doubleArrayOf(sg * tp, zTop(tp), rb / 2), doubleArrayOf(sg * tp, zHB, rb / 2), doubleArrayOf(sg * tp, zHB, -rb / 2)).map { f.lp(it[0], it[1], it[2]) })

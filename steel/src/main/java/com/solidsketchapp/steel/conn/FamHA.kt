@@ -49,6 +49,7 @@ object FamHA {
 
     fun gen(x: FamCtx) {
         val b = x.b ?: throw IllegalStateException("not built"); val bId = x.bId!!
+        if (x.s("kind") == "apex" && x.n("ph") > 0) return ClassicV34.GEN.getValue("apex")(x)   // v70 C03: T106 with a plate height = v54's Tekla apex (web FAM.HA wrapper)
         if (x.s("kind") == "apex") apex(x, b, bId) else knee(x, b, bId)
     }
 

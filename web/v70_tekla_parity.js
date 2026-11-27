@@ -834,3 +834,47 @@
     { name: 'Bolts', groups: [['Bracket bolts (Tekla)', [TKF('bbolt', 'Bolt size', { type: 'sel', opts: [10, 12, 16].map(v => tkOpt(v, 'M' + v)) }), TKF('bp', 'Bolt spacing'), TKF('bo', 'Bolts off the bracket centre (up the run)'), TKF('bz', 'Bolts below the bracket top'),
       TKF('bgrade', 'Bolt standard', { type: 'sel', opts: [tkOpt('8.8', '8.8XOX'), tkOpt('10.9', '10.9XOX'), tkOpt('4.6', '4.6XOX')] }), TKF('blrule', 'Bolt length', { type: 'sel', dv: 'tekla', opts: [tkOpt('', 'grip + 2 d'), tkOpt('tekla', 'Tekla (grip + nut + washer + 5, up to 5 mm)')] })]]] },
     tkGeneralTab()] };
+  // ---------- C03 · Apex haunch as Tekla 106 (R12): length horizontal from the apex, depth plumb at the end plate, flange ends plumb; end plate stiffeners ----------
+  // R12 (24 apexes, docs/steel/PARITY.md "C03"): the haunch web is the triangle under the rafter from the end plate's back face to 2000
+  // (horizontal) from the apex joint, 83.38 deep (plumb) at the end plate; the flange (10 x 150) under its lower edge, both ends plumb
+  // (as C02h's eave haunch). Behind each end plate, where it stands 70 above the rafter, a stiffener FLT10*60 in the web plane: 60 along
+  // the rafter (horizontal), from the rafter top to the plate top, the far top corner chamfered 30 x 30. v54's apex measured the haunch
+  // along the rafter and perpendicular to it, flange ends square; old models (hrule '') are unchanged.
+  Object.assign(CONN.apex.def, { hrule: '', ast: 0, asl: 60, ach: 30, att: 10, ash: '' });
+  Object.assign(ST_LBL, { hrule: 'Haunch dimensions', ast: 'End plate stiffeners above the rafter', asl: 'Stiffener length (horizontal)', ach: 'Stiffener chamfer', att: 'Stiffener thickness', ash: 'Stiffener height at its far end (empty: to the rafter top)' });
+  ST_TAB.Plates.push('hrule', 'ast', 'asl', 'ach', 'att', 'ash');
+  { const geomA = stConnGeom;
+    stConnGeom = function (c) {
+      if (!c || c.type !== 'apex') return geomA(c); const q = Object.assign({}, CONN.apex.def, c.q); if (!(q.ph > 0) || (q.hrule !== 'tekla' && !+q.ast)) return geomA(c);
+      const U = stU(); const A = stBody(c.parts[0]), Bb = stBody(c.parts[1]); if (!A || !Bb) return geomA(c); const as = A.st, bs0 = Bb.st;
+      let best = null; for (const a of [as.p1, as.p2]) for (const b of [bs0.p1, bs0.p2]) { const d = V3(a).distanceTo(V3(b)); if (!best || d < best.d) best = { d, a, b }; }
+      const apex = best.a, aFar = apex === as.p1 ? as.p2 : as.p1; const F = stLF([apex[0], apex[1], 0], [apex[0] - aFar[0], apex[1] - aFar[1]]);
+      const run = Math.hypot(apex[0] - aFar[0], apex[1] - aFar[1]) || 1, tanp = (apex[2] - aFar[2]) / run, th = Math.atan(tanp), cs = Math.cos(th), sn = Math.sin(th);
+      const rp = stProf(as.prof) || {}; const rh = (rp.h || 400) * U, rhv = rh / cs;
+      const zTop = s => apex[2] - Math.abs(s) * tanp + (as.depth === 'Front' ? rhv : as.depth === 'Middle' ? rhv / 2 : 0), zBot = s => zTop(s) - rhv;
+      const tek = q.hrule === 'tekla' && +q.len > 0, q2 = Object.assign({}, c.q || {});
+      if (tek) { q2.len = (+q.len - +q.tp) / cs; q2.depth = +q.depth * cs; }   // Tekla: horizontal from the apex joint, plumb at the end plate -> v54's along / square
+      const out = geomA(Object.assign({}, c, { q: q2 })); if (!out) return out; const tp = q.tp * U;
+      if (tek) { const Lw = q2.len * U, Dv = +q.depth * U; let k = 0;
+        for (const sg of [-1, 1]) { const s0 = sg * tp, P0 = [s0, zBot(s0)], P1 = [P0[0] + sg * cs * Lw, P0[1] - sn * Lw], Pd = [s0, P0[1] - Dv];
+          const m = (P1[1] - Pd[1]) / (P1[0] - Pd[0]), tv = (q.hf || rp.tf || 10) * U * Math.sqrt(1 + m * m), hb2 = (q.hb || rp.b || 150) / 2 * U;
+          const ix = out.parts.findIndex((p, i) => p.name === 'APEX HAUNCH FLANGE' && i >= k); if (ix < 0) break; k = ix + 1;
+          out.parts[ix] = Object.assign({}, out.parts[ix], { man: stPrism(F, v54ccw([Pd, P1, [P1[0], P1[1] - tv], [Pd[0], Pd[1] - tv]]), -hb2, hb2) }); } }
+      if (+q.ast) { const z1 = String(q.top ?? '').trim() !== '' ? zTop(0) + (+q.top || 0) * U : null;
+        if (z1 != null) for (const sg of [-1, 1]) { const L = +q.asl * U, ch = +q.ach * U, a = sg * tp, b = sg * (tp + L);
+          if (!(z1 - zTop(tp) > ch + 1 * U)) continue;
+          const zb = String(q.ash ?? '').trim() !== '' ? z1 - +q.ash * U : zTop(tp + L);   // R12: 88 at the far end (Tekla's height), 0.24 above the rafter's line
+          out.parts.push({ name: 'APEX STIFFENER', man: stPrism(F, v54ccw([[a, zTop(tp)], [b, zb], [b, z1 - ch], [b - sg * ch, z1], [a, z1]]), -q.att / 2 * U, q.att / 2 * U), prof: 'FLT' + q.att + '*' + q.asl }); } }
+      return out; }; }
+  // C03: Apex haunch (106) from the catalog with a Tekla dialog; with a plate height (ph > 0) it is v54's Tekla apex (+ the C03 rules)
+  Object.assign(CONN.T106.def, { ph: 0, pw: 0, tp: 20, top: '', bot: '', rowsAt: '', gauge: 100, bolt: 20, grade: '8.8', len: 0, depth: 250, hw: 8, hf: 10, hb: 0, hrule: '', ast: 0, asl: 60, ach: 30, att: 10, ash: '', a: 5 });
+  TKD.T106 = { help: 'conn_106_help', tabs: [
+    { name: 'Picture', pic: 'apex', dims: [TKF('tp', 't', { at: [50, 10], tip: 'End plate thickness' }), TKF('ph', 'h', { at: [80, 40], tip: 'End plate height (0 = v69 apex)' }), TKF('top', 'a', { at: [20, 10], tip: 'End plate above the rafter top' })] },
+    { name: 'Plates', parts: [['End plate', 'END PLATE', { t: 'tp', b: 'pw', h: 'ph' }]], groups: [['End plate', [TKF('bot', 'Plate below the haunch (empty = centred)')]]] },
+    { name: 'Haunch', parts: [['Haunch web', 'APEX HAUNCH WEB', { t: 'hw' }], ['Haunch flange', 'APEX HAUNCH FLANGE', { t: 'hf', b: 'hb' }]], groups: [['Haunch', [TKF('hrule', 'Haunch dimensions', { type: 'sel', dv: '', opts: [tkOpt('', 'v69: length along the rafter, depth square to it'), tkOpt('tekla', 'Tekla: length horizontal from the apex, depth plumb at the end plate')] }),
+      TKF('len', 'Haunch length'), TKF('depth', 'Haunch depth')]]] },
+    { name: 'Stiffeners', parts: [['End plate stiffener', 'APEX STIFFENER', { t: 'att', b: 'asl' }]], groups: [['End plate stiffeners above the rafter', [TKF('ast', 'Stiffeners', { type: 'sel', dv: 0, opts: [tkOpt(0, 'Not created'), tkOpt(1, 'Created')] }), TKF('asl', 'Length (horizontal)'), TKF('ach', 'Chamfer'), TKF('ash', 'Height at the far end', { ph: 'to the rafter top' })]]] },
+    tkBoltsTab({ dims: [TKF('rowsAt', 'rows', { at: [8, 50], tip: 'Bolt rows from the plate top (e.g. 50 120 260 330)' }), TKF('gauge', 'g', { at: [64, 95], tip: 'Bolt gauge' })] }),
+    tkGeneralTab(), tkWeldsTab()] };
+  { const ha69 = FAM.HA; FAM.HA = X => { if (X.q.kind === 'apex' && +X.q.ph > 0) { const c = Object.assign({}, X.c, { type: 'apex', q: Object.assign({}, X.q) }); const g = stConnGeom(c); if (!g) return null;
+      X.out.parts.push(...g.parts); for (const [k, v] of g.cuts) for (const m of v) X.cut(k, m); X.out.welds.push(...g.welds); return; } return ha69(X); }; }
