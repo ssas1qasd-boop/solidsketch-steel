@@ -35,11 +35,11 @@ import org.junit.runner.RunWith
 import kotlin.math.sqrt
 
 /**
- * C06 Tube gusset (20), the gusset (docs/steel/PARITY.md "C06"), the owner's video check: R12's node on rafter R3019 (BI220): HZ6014 and
- * strut ST5008, each with Tube gusset (20) through its dialog with R12's settings (as C05) and the Gusset tab's Gusset shape = Tekla
- * (edges square to the braces 20 before the end plates, brought back onto the rafter web), Pick parts; orbit; orthographic plan in
- * landscape; saved (c06/c06_case.ss). Then the HZ brace's dialog again: Picture 5 (gusset to the end plate) 20 -> 30, Modify, orbit,
- * plan, saved (c06_gd30.ss). /sdcard/c06_rec.mp4.
+ * C06 Tube gusset (20), the gusset (docs/steel/PARITY.md "C06"), the owner's video check: R13's gable node 3425 (column C 39693 / 75,
+ * strut ST5007 0.51 deg out of the wall, VL6014 in the wall), each with Tube gusset (20) through its dialog with R13's settings and the
+ * Gusset tab's Gusset shape = Tekla and Gusset plane at a node = Tekla (square to the strut, the VL's plate turned to it, crossing the
+ * plates' plane at its gusset edge), Pick parts; orbit; orthographic wall view and plan in landscape; saved (c06/c06_case.ss). Then the
+ * strut's dialog again: Picture 5 (gusset to the end plate) 20 -> 30, Modify, orbit, stills, saved (c06_gd30.ss). /sdcard/c06_rec.mp4.
  */
 @RunWith(AndroidJUnit4::class)
 class C06RecordingTest {
@@ -115,40 +115,42 @@ class C06RecordingTest {
     private fun landscape(on: Boolean) { ua.setRotation(if (on) android.app.UiAutomation.ROTATION_FREEZE_90 else android.app.UiAutomation.ROTATION_FREEZE_0); pause(2500) }
     private fun closeDialog() { compose.onAllNodes(hasText("Cancel") and hasClickAction()).fetchSemanticsNodes().takeIf { it.isNotEmpty() }?.let { compose.onAllNodes(hasText("Cancel") and hasClickAction())[0].performClick() }
         act.runOnUiThread { act.testViewport.selection.setSelected(emptyList()) }; pause(800) }
-    private val node = Vec3(42760.0, 22620.0, 8110.0)
-    private fun stills(tag: String) {   // plan from above the rafter (the gusset, the plates, the end plates, the bolts) and along the strut
-        val c = Vec3(node.x, node.y - 130.0, node.z)   // landscape: the panel covers the lower third, so the gusset edge on the rafter sits mid-screen
-        landscape(true); orthoShot(c, Vec3(0.0, -0.02, 1.0), 1200.0, "ortho_top$tag"); orthoShot(c, Vec3(0.02, -1.0, 0.05), 1200.0, "ortho_strut$tag"); landscape(false)
+    private val node = Vec3(39665.0, 230.0, 7050.0)   // R13 gable node 3425 (column C 39693 / 75)
+    private fun stills(tag: String) {   // along the wall (the gusset in its plane, the plates turned to it) and from above (the strut's 0.5 deg skew)
+        landscape(true); orthoShot(node, Vec3(1.0, 0.0, 0.02), 1200.0, "ortho_wall$tag"); orthoShot(node, Vec3(0.02, 0.05, 1.0), 1200.0, "ortho_top$tag"); landscape(false)
     }
-    private fun tg(L: String, e: String, p: String, g: String, plane: String?) {
+    private fun tg() {
         openCatalog("Tongue plate")
-        tab("Picture"); field("L", L); field("ins", "150"); shot("dialog20_picture")
-        tab("Gusset"); pick("node", "Yes"); if (plane != null) pick("plane", plane); pick("tend", "At the brace end (as Tekla)"); pick("tpos", "Against the gusset (as Tekla)"); pick("side", "Side 1"); pick("gshape", "Tekla: edges square to the braces, to the main part"); shot("dialog20_gusset")
-        tab("Bolts"); pick("bolt", "M16"); field("e", e); field("p", p); field("g", g); pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); shot("dialog20_bolts")
+        tab("Picture"); field("L", "315"); field("ins", "150"); shot("dialog20_picture")
+        tab("Gusset"); pick("node", "Yes"); pick("tend", "At the brace end (as Tekla)"); pick("tpos", "Against the gusset (as Tekla)"); pick("side", "Side 2"); pick("gshape", "Tekla: edges square to the braces, to the main part")
+        pick("gplane", "Tekla: square to the brace most square to the main part, plates turned to it, through the first brace's middle"); shot("dialog20_gusset")
+        tab("Bolts"); pick("bolt", "M16"); field("e", "40"); field("p", "60"); field("g", "60"); pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); shot("dialog20_bolts")
     }
 
     @Test fun c06Recording() {
         dir = "c06"; start()
-        look(node, Vec3(0.6, -1.0, 0.9), 3000.0); pause(800)
+        look(node, Vec3(1.0, 0.6, 0.5), 3000.0); pause(800)
         val rec = ua.executeShellCommand("screenrecord --bit-rate 6000000 --time-limit 175 /sdcard/c06_rec.mp4")
         try {
             pause(1500)
-            member("RAFTER", """{"prof":"BI220-8-150-10","p1":[39848.613,22355,7422.572],"p2":[46290.5,22355,8887.194],"rot":"Top","plane":"Middle","depth":"Middle"}"""); pause(900)
-            member("BRACING", """{"name":"HZ Bracing","prof":"SHS100*3","p1":[41609.01,24871.307,7833.07],"p2":[42819.298,22586.496,8108.24],"rot":"Top","rAng":191.298,"plane":"Middle","depth":"Middle"}"""); pause(900)
-            member("BRACING", """{"name":"Strut","prof":"SHS100*3","p1":[43035.665,22664.389,8147.745],"p2":[43035.665,27616.278,8147.745],"rot":"Top","rAng":167.191,"plane":"Middle","depth":"Middle"}"""); pause(1200)
+            // R13's gable node 3425 (gusset PL12*223.1, mark 11): column, strut ST5007 (0.51 deg out of the wall), VL6014 (in the wall)
+            member("COLUMN", """{"prof":"BI220-8-150-10","p1":[39693,75,230],"p2":[39693,75,7522.736],"rot":"Below","plane":"Middle","depth":"Middle"}"""); pause(900)
+            member("BRACING", """{"name":"Strut","prof":"SHS100*3","p1":[39690.738,5393.024,7180],"p2":[39645.264,327.197,7180],"rot":"Top","plane":"Middle","depth":"Middle"}"""); pause(900)
+            member("BRACING", """{"name":"VL Bracing","prof":"SHS100*3","p1":[39693,286.755,6910.776],"p2":[39693,5433.806,3738.95],"rot":"Top","plane":"Middle","depth":"Middle"}"""); pause(1200)
             shot("members")
-            // picks from above: the rafter's top flange, then the brace's top face 0.6 m from its end
-            val cam = { look(Vec3(42670.0, 22850.0, 8100.0), Vec3(0.0, -0.02, 1.0), 3000.0) }
-            tg("285", "30", "50", "50", null)
-            pickParts("Ttg", cam, listOf(42300.0, 42150.0, 42450.0, 42000.0).map { rx -> Vec3(rx, 22355.0, 7422.572 + (rx - 39848.613) * 0.227362 + 112.0) to Vec3(42516.0, 23157.0, 8040.0 + 50.0) })
-            tg("315", "40", "60", "60", "Main part plane")
-            pickParts("Ttg", cam, listOf(42300.0, 42150.0, 42450.0, 42000.0).map { rx -> Vec3(rx, 22355.0, 7422.572 + (rx - 39848.613) * 0.227362 + 112.0) to Vec3(43035.0, 23300.0 + (rx - 42300.0), 8147.745 + 52.0) })
+            // picks from the +x side: the column's outer flange, then the brace's +x face 0.5-0.9 m from its end
+            val cam = { look(Vec3(39700.0, 600.0, 6900.0), Vec3(1.0, 0.05, 0.1), 3000.0) }
+            val col = listOf(6700.0, 6500.0, 6900.0, 6300.0).map { z -> Vec3(39803.0, 75.0, z) }
+            tg()
+            pickParts("Ttg", cam, col.mapIndexed { i, c -> c to Vec3(39645.264 + 0.008976 * (600.0 + 100 * i - 327.197) + 50.0, 600.0 + 100 * i, 7180.0) })
+            tg()
+            pickParts("Ttg", cam, col.mapIndexed { i, c -> val t = 600.0 + 100 * i; c to Vec3(39743.0, 286.755 + 0.851333 * t, 6910.776 - 0.524626 * t) })
             waitFor("two Ttg") { mode().comps!!.conns().count { it.type == "Ttg" } == 2 }
-            assertTrue("tube end ${q("Ttg", "tend")}", q("Ttg", "tend") == "end")
-            orbit(node, 1600.0, "r12")
+            assertTrue("gusset plane ${q("Ttg", "gplane")}", q("Ttg", "gplane") == "perp")
+            orbit(node, 1600.0, "r13")
             stills("")
             save("c06_case.ss")
-            // the HZ brace's dialog again: Bolts tab e 30 -> 40, Modify
+            // the strut's dialog again: Picture 5 (gusset to the end plate) 20 -> 30, Modify (the gusset's strut and VL edges move back)
             act.runOnUiThread { act.testViewport.selection.setSelected(listOf(act.testDoc.bodyIds().first { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "TONGUE PLATE" })) }; pause(800)
             press("Components")
             waitFor("the Ttg's dialog") { compose.onAllNodes(hasText("Gusset") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }; pause(800)

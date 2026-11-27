@@ -112,20 +112,31 @@ object FamTG {
         return TgSet(d, w, g, pIn, nF, f0, sTip, fin, bl, sg, abs(d dot ma.a) >= 0.3)
     }
     private class Mem(val id: String, val q: QR, val brId: String, val br: JsonObject) { var s: TgSet? = null }
+    /** web num70: '' / missing / not a number -> null. */
+    private fun num70(q: QR, k: String): Double? { val e = q.o[k] as? JsonPrimitive ?: return null; if (e.isString && e.content.isBlank()) return null; val v = StBuild.jsNum(e); return if (v.isFinite()) v else null }
+    /** web nodeToff (C06 gable nodes): pofs off the axis (side x pofs), else the plate crossing the plates' plane (point [p], normal [gN]) at its gusset edge. */
+    private fun nodeToff(q: QR, s0: D3, d: D3, g: D3, sTip: Double, p: D3, gN: D3): Double {
+        num70(q, "pofs")?.let { return (if (q.t("side")) q.n("side") else 1.0) * it }
+        val pe = s0.add(d, sTip + ((num70(q, "L") ?: 315.0) - (num70(q, "ins") ?: 150.0) - (num70(q, "cap") ?: 5.0) - (num70(q, "gd") ?: 20.0)))
+        return -((pe - p) dot gN) / (g dot gN).let { if (it == 0.0) 1.0 else it }
+    }
 
     /**
      * v70 C06 · Tekla 20's gusset outline (web gusset70): per brace an edge square to it, Picture 5 (gd, default 20) before its end plate,
      * half-lengths gwa / gwb on the sides toward + / - the main part's axis (default half the plate width); the points are those corners
      * and each corner brought back onto the main part's face, square to the face and along its brace; the gusset is their convex hull.
      */
-    private fun teklaOutline(x: FamCtx, set: List<Pair<QR, TgSet>>, nF: D3, f0: D3, gN: D3, o: D3, a1: D3, a2: D3): List<DoubleArray> {
+    private fun teklaOutline(x: FamCtx, set: List<Pair<QR, TgSet>>, nF: D3, f0: D3, gN: D3, o: D3, a1: D3, a2: D3, toffs: List<Double>? = null, oMid: D3? = null): List<DoubleArray> {
         val ma = Joints.mf(x.a, x.profiles); val k = nF.add(gN, -(nF dot gN)).normalize(); val pts = ArrayList<DoubleArray>()
         fun num(q: QR, key: String, d: Double): Double { val e = q.o[key] as? JsonPrimitive ?: return d; if (e.isString && e.content.isBlank()) return d; val v = StBuild.jsNum(e); return if (v.isFinite()) v else d }
-        for ((q, st) in set) {
+        for ((i, qs) in set.withIndex()) { val (q, st) = qs
             val sE = st.sTip + (num(q, "L", 315.0) - num(q, "ins", 150.0) - num(q, "cap", 5.0) - num(q, "gd", 20.0)); val w2 = num(q, "w", 140.0) / 2
             val pa = if ((st.pIn dot ma.a) >= 0) 1 else -1; val hp = num(q, if (pa > 0) "gwa" else "gwb", w2); val hn = num(q, if (pa > 0) "gwb" else "gwa", w2)
-            for (y in listOf(hp, -hn)) { val c = st.w.add(st.d, sE).add(st.pIn, y); val kn = (k dot nF).let { if (it == 0.0) 1.0 else it }
-                val cp = c.add(k, -((c - f0) dot nF) / kn); val dn = st.d dot nF; val ca = if (abs(dn) > 1e-6) c.add(st.d, -((c - f0) dot nF) / dn) else cp
+            for (y in listOf(hp, -hn)) { var c = st.w.add(st.d, sE).add(st.pIn, y); var c0 = c; val kn = (k dot nF).let { if (it == 0.0) 1.0 else it }
+                if (toffs != null && oMid != null) {   // web C06 gable nodes: the edge tf/2 x the plate's tilt nearer the tip, the corner moved along the plate normal onto the mid-plane
+                    c = c.add(st.d, -num(QR(x.q), "tf", 12.0) / 2 * abs(st.d dot gN)).add(st.g, toffs[i]); c0 = c
+                    c = c.add(st.g, ((oMid - c) dot gN) / (st.g dot gN).let { if (it == 0.0) 1.0 else it }) }
+                val cp = c0.add(k, -((c0 - f0) dot nF) / kn); val dn = st.d dot nF; val ca = if (abs(dn) > 1e-6) c0.add(st.d, -((c0 - f0) dot nF) / dn) else cp
                 for (p in listOf(c, cp, ca)) { val v = p - o; pts += doubleArrayOf(v dot a1, v dot a2) } }
         }
         return pts
@@ -150,14 +161,31 @@ object FamTG {
         // v70 C06 'Gusset plate position on the brace' = middle: the gusset centred on the braces, every plate beside it
         val w0 = if (ag && x.s("gpos") == "middle") l0.w.add(l0.g, -(if (x.t("side")) x.n("side") else 1.0) * (x.n("t") + x.n("tf")) / 2) else l0.w
         fun shift(st: TgSet) = if (ag && abs(st.g dot l0.g) > 0.99) -((st.w - w0) dot st.g) else 0.0
-        if (ag) for (o in s2) { val st = o.s!!; val sh = shift(st); if (sh != 0.0) o.s = TgSet(st.d, st.w, st.g, st.pIn, st.nF, st.f0, st.sTip, st.fin, st.bl.map { it.add(st.g, sh) }, st.sg, st.steep) }
+        // v70 C06 gable nodes (gplane 'perp', web NODE.perp): the gusset normal from the brace most square to the main part; the plates' plane
+        // through the first brace's middle (its start gmid before its tube end); every plate turned square to the gusset normal, crossing the
+        // plates' plane at its own gusset edge, or pofs off its axis (toward the gusset)
+        val perp = ag && x.s("gplane") == "perp"; var pN = gN; var pP = w0; val toffs = HashMap<Mem, Double>()
+        if (perp) {
+            val ma = Joints.mf(x.a, x.profiles); var pb = s2[0]; for (o in s2) if (abs(o.s!!.d dot ma.a) < abs(pb.s!!.d dot ma.a) - 1e-9) pb = o
+            pN = tgSet(x, pb.q, pb.br, plane, null).g; if ((pN dot l0.g) < 0) pN = -pN
+            val mb = Joints.mf(lead.br, x.profiles); fun dl(p: D3): Double { val v = p - ma.c1; return v.add(ma.a, -(v dot ma.a)).length() }
+            val near = dl(mb.c1) <= dl(mb.c2); val e = if (near) mb.c1 else mb.c2; val far = if (near) mb.c2 else mb.c1
+            val gm = num70(lead.q, "gmid"); pP = if (gm == null) l0.w else e.add(l0.d, (far.distanceTo(e) - gm) / 2)
+            for (o in s2) { val st = o.s!!; var g = pN.add(st.d, -(pN dot st.d)).normalize(); if ((g dot st.g) < 0) g = -g; val pIn = (g cross st.d).normalize()
+                val tO = nodeToff(o.q, st.w, st.d, g, st.sTip, pP, pN); toffs[o] = tO; val tq = o.q.n("t"); val bl = ArrayList<D3>()
+                for (sv in listOf(st.sTip + o.q.n("e"), st.sTip + o.q.n("e") + o.q.n("p"))) for (z in listOf(-o.q.n("g") / 2, o.q.n("g") / 2))
+                    bl += st.w.add(st.d, sv).add(pIn, z).add(g, tO - st.sg * (tq / 2 + (if (o.q.s("blrule") == "tekla") 0.0 else 0.1)))
+                o.s = TgSet(st.d, st.w, g, pIn, st.nF, st.f0, st.sTip, st.fin, bl, st.sg, st.steep) }
+        }
+        if (ag && !perp) for (o in s2) { val st = o.s!!; val sh = shift(st); if (sh != 0.0) o.s = TgSet(st.d, st.w, st.g, st.pIn, st.nF, st.f0, st.sTip, st.fin, st.bl.map { it.add(st.g, sh) }, st.sg, st.steep) }
         val mine = s2.find { it.id == mineId } ?: s2.first { it.brId == x.bId }; val sm = mine.s!!; val t = x.n("t"); val tf = x.n("tf"); val sg = sm.sg
-        val r = tgEnd(x, b, x.bId!!, sm.w, sm.d, sm.g, sm.sTip, shift(sm), sg); val bb = x.group(r.bl, sm.g * sg, x.n("bolt"), t + tf + 2)
+        val r = tgEnd(x, b, x.bId!!, sm.w, sm.d, sm.g, sm.sTip, if (perp) toffs[mine]!! else shift(sm), sg); val bb = x.group(r.bl, sm.g * sg, x.n("bolt"), t + tf + 2)
         x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes); x.bolts(bb, r.bl.size, blen(x, x.n("t") + x.n("tf") + 2 * x.n("bolt")))
         if (mine !== s2[0]) return   // the first connection of the node builds the shared gusset
-        val a1 = l0.d.add(gN, -(l0.d dot gN)).normalize(); val a2 = (gN cross a1).normalize(); val o = w0; val gf = Joints.Frame3(o, a1, a2)
+        val a1 = l0.d.add(pN, -(l0.d dot pN)).normalize(); val a2 = (pN cross a1).normalize(); val o = pP; val gf = Joints.Frame3(o, a1, a2)
         val pts = ArrayList<DoubleArray>()
-        if (x.s("gshape") == "tekla") pts += teklaOutline(x, s2.map { it.q to it.s!! }, l0.nF, l0.f0, gN, o, a1, a2)
+        if (x.s("gshape") == "tekla") pts += if (perp) teklaOutline(x, s2.map { it.q to it.s!! }, l0.nF, l0.f0, pN, o, a1, a2, s2.map { toffs[it]!! }, o.add(pN, sg * (x.n("t") + x.n("tf")) / 2))
+            else teklaOutline(x, s2.map { it.q to it.s!! }, l0.nF, l0.f0, gN, o, a1, a2)
         else for (m in s2) for (p in m.s!!.fin) { val v = p - o; pts += doubleArrayOf(v dot a1, v dot a2) }
         val z0 = sg * t / 2; val z1 = sg * (t / 2 + tf); val gus = gf.poly(hull(pts), min(z0, z1), max(z0, z1))
         // gus.intersect(the half space in front of the face) = gus minus the half space behind it; then minus the main part's envelope and every brace's holes

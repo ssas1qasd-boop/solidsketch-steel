@@ -38,4 +38,31 @@ module.exports = [
               member('BRACING', { name: 'VL Bracing', prof: 'SHS100*3', p1: [3350, 0, 5300], p2: [6000, 0, 1000], plane: 'Middle', depth: 'Middle' })],
     conns: [['Ttg', [0, 1], Object.assign({ side: 1, gwb: 55 }, T)], ['Ttg', [0, 2], Object.assign({ side: 1 }, T)]],
   },
+  // C06 gable nodes (gplane 'perp'): braces not in one plane; the gusset square to the strut, every plate turned to it
+  {
+    name: 't20g_r13_gable_vl_lead',
+    description: 'R13 gable node 3419 (gusset PL12*222.9, mark 12): column C 39693 / 5645, VL6012 first (plates through its middle, gmid; its plate pofs off its axis), strut ST5007 skewed 0.51 deg.',
+    members: [member('COLUMN', { prof: 'BI220-8-150-10', p1: [39693, 5645, 230], p2: [39693, 5645, 7522.736], rot: 'Below', plane: 'Middle', depth: 'Middle' }),
+              member('BRACING', { name: 'VL Bracing', prof: 'SHS100*3', p1: [39693, 5433.822, 6909.337], p2: [39693, 3122.387, 5467.473], rot: 'Top', plane: 'Middle', depth: 'Middle' }),
+              member('BRACING', { name: 'Strut', prof: 'SHS100*3', p1: [39690.738, 5393.024, 7180], p2: [39645.264, 327.197, 7180], rot: 'Top', plane: 'Middle', depth: 'Middle' })],
+    conns: [['Ttg', [0, 1], Object.assign({ L: 315, ins: 150, e: 40, p: 60, g: 60, side: 1, gplane: 'perp', gmid: 279.28, pofs: -12.019 }, T)],
+            ['Ttg', [0, 2], Object.assign({ L: 315, ins: 150, e: 40, p: 60, g: 60, side: 1, gplane: 'perp' }, T)]],
+  },
+  {
+    name: 't20g_r13_gable_strut_lead',
+    description: 'R13 gable node 3425 (gusset PL12*223.1, mark 11): column C 39693 / 75, strut ST5007 first (plate on its axis), VL6014 48 mm off the plates\' plane, its plate crossing it at its gusset edge.',
+    members: [member('COLUMN', { prof: 'BI220-8-150-10', p1: [39693, 75, 230], p2: [39693, 75, 7522.736], rot: 'Below', plane: 'Middle', depth: 'Middle' }),
+              member('BRACING', { name: 'Strut', prof: 'SHS100*3', p1: [39690.738, 5393.024, 7180], p2: [39645.264, 327.197, 7180], rot: 'Top', plane: 'Middle', depth: 'Middle' }),
+              member('BRACING', { name: 'VL Bracing', prof: 'SHS100*3', p1: [39693, 286.755, 6910.776], p2: [39693, 5433.806, 3738.95], rot: 'Top', plane: 'Middle', depth: 'Middle' })],
+    conns: [['Ttg', [0, 1], Object.assign({ L: 315, ins: 150, e: 40, p: 60, g: 60, side: -1, gplane: 'perp' }, T)],
+            ['Ttg', [0, 2], Object.assign({ L: 315, ins: 150, e: 40, p: 60, g: 60, side: -1, gplane: 'perp' }, T)]],
+  },
+  {
+    name: 't20g_hea200_skew2deg_perp',
+    description: 'HEA200 column, an SHS80*4 strut skewed 2 deg out of the wall and an SHS80*4 diagonal in the wall, Tekla gable-node gusset (gplane perp), plates at their gusset edges.',
+    members: [member('COLUMN', { prof: 'HEA200', p1: [0, 0, 0], p2: [0, 0, 6000] }),
+              member('BRACING', { name: 'Strut', prof: 'SHS80*4', p1: [0, 300, 5000], p2: [174.5, 5300, 5000], plane: 'Middle', depth: 'Middle' }),
+              member('BRACING', { name: 'VL Bracing', prof: 'SHS80*4', p1: [0, 250, 4600], p2: [0, 2500, 1600], plane: 'Middle', depth: 'Middle' })],
+    conns: [['Ttg', [0, 1], Object.assign({ side: -1, gplane: 'perp' }, T)], ['Ttg', [0, 2], Object.assign({ side: -1, gplane: 'perp' }, T)]],
+  },
 ];

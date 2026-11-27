@@ -15,18 +15,18 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 | … kind `plate` | 3,408 | 0 |
 | Connections | 1,700 (TKBOLT / TKCUT) | 1,370 (components) |
 | Bolts | 4,596 in 1,294 groups | 4,604 in 1,206 groups |
-| Weight (v66 Tekla weights, bolts excluded) | 64,021.96 kg | 64,014.45 kg (-7.51) |
+| Weight (v66 Tekla weights, bolts excluded) | 64,021.96 kg | 64,014.22 kg (-7.74) |
 | … builtup members | 37,892.73 kg | 37,889.44 kg |
-| … given members | 16,361.46 kg | 16,361.66 kg |
-| … detail parts (R13) / component parts (v69) | 9,767.77 kg | 9,763.35 kg |
+| … given members | 16,361.46 kg | 16,361.52 kg |
+| … detail parts (R13) / component parts (v69) | 9,767.77 kg | 9,763.26 kg |
 
 Members: 839 placed (201 built-up equivalents, 638 R13 members as given): 839 MATCHED.
 - built-up equivalents: 201 matched of 201 (inputs equal R13 for all 201)
   - 3 of them matched against R13's part less the part's own clash with another R13 part (R13's rule B: EB4007 18,176 mm³, EB4007 18,176 mm³, EB4007 18,176 mm³): the component cuts the member at the main part's face (docs/steel/PARITY.md "C12 / C20 on R13")
 - R13 members as given: 638 matched of 638 (inputs equal R13 for all 638)
 
-R13 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3707: 3617 MATCHED, 90 NEAR.
-Bolts on the same line (same diameter, R13 bolt within 0.1 mm of a v69 bolt axis): 4,524 of 4,596 R13 bolts (4,164 of them also with the same length and grade); whole groups: 1276 of 1294. Per diameter: M12 1,148, M16 2,800, M20 576.
+R13 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3707: 3701 MATCHED, 6 NEAR.
+Bolts on the same line (same diameter, R13 bolt within 0.1 mm of a v69 bolt axis): 4,548 of 4,596 R13 bolts (4,188 of them also with the same length and grade); whole groups: 1282 of 1294. Per diameter: M12 1,148, M16 2,824, M20 576.
 
 Status words: MATCHED = equal within the tolerances (0.1 mm points and boxes, volume within 2 % for plates); INPUT EQUAL, SOLID DIFFERS = the member's inputs equal R13 but its solid does not (built-ups: one BI solid against three Tekla plates with their end cuts; given members: v69's component cuts against R13's TKCUT cuts); NEAR = box within 5 mm; ROUGH = box within 50 mm; MISSING = no v69 part within 50 mm; AS BOLT = an R13 anchor rod member that v69 makes as a bolt of a bolt group.
 
@@ -49,9 +49,9 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | 2 | End plate 144: eave (column -> rafter) | 96 | 144 / 384 | 144 | 144 | 0 / 0 | 0 | reproduced |
 | 3 | Apex haunch 106 (left rafter -> right rafter) | 24 | 192 / 192 | 192 | 192 | 0 / 0 | 0 | reproduced |
 | 4 | Purlin cleat (rafter -> purlin 1 -> purlin 2) | 264 | 528 / 1056 | 528 | 528 | 0 / 0 | 0 | reproduced |
-| 5 | Tube gusset 20: tongue (main -> brace) | 352 | 1298 / 1408 | 1294 | 1239 | 55 / 0 | 0 | partly |
-| 6 | Node gusset (several braces on one gusset) | (row 5) | 0 / 0 | 250 | 233 | 17 / 0 | 0 | partly |
-| 7 | Tube crossing (continuous -> half 1 -> half 2) | 52 | 364 / 416 | 118 | 100 | 18 / 0 | 0 | partly |
+| 5 | Tube gusset 20: tongue (main -> brace) | 352 | 1298 / 1408 | 1294 | 1294 | 0 / 0 | 0 | reproduced |
+| 6 | Node gusset (several braces on one gusset) | (row 5) | 0 / 0 | 250 | 244 | 6 / 0 | 0 | partly |
+| 7 | Tube crossing (continuous -> half 1 -> half 2) | 52 | 364 / 416 | 118 | 118 | 0 / 0 | 0 | reproduced |
 | 8 | Sag rod (purlin -> rod) | 280 | 0 / 0 | 0 (+140 members as given, 140 matched) | 0 | 0 / 0 | 0 | placed as given |
 | 9 | 144: monitor post on rafter | 24 | 72 / 192 | 72 | 72 | 0 / 0 | 0 | reproduced |
 | 10 | 144: monitor rafter to post | 24 | 24 / 144 | 24 | 24 | 0 / 0 | 0 | reproduced |
@@ -93,7 +93,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | given ST Strut SHS100*3 | 72 | 72 MATCHED | 0.0 | 1.000–1.000 | 3,317.5 → 3,317.5 |
 | given STB Stanchion CHS48*3 | 4 | 4 MATCHED | 0.0 | 1.032–1.032 | 12.7 → 12.6 |
 | given TR Tie Rod THREAD100MM ROD12 | 140 | 140 MATCHED | 0.0 | 1.104–1.104 | 191.8 → 191.8 |
-| given VL VL Bracing SHS100*3 | 60 | 60 MATCHED | 0.0 | 1.000–1.001 | 2,013.3 → 2,014.2 |
+| given VL VL Bracing SHS100*3 | 60 | 60 MATCHED | 0.0 | 1.000–1.001 | 2,013.3 → 2,014.1 |
 
 Field differences on members (count of members): none (every placed member has R13's inputs: profile, points, rotation, plane / depth, offsets, class, name).
 
@@ -103,21 +103,8 @@ Field differences on members (count of members): none (every placed member has R
 
 | Row | Group (R13 name, profile) | R13 count | status | same-size part at | kg R13 → v69 | Why | Option needed |
 |---|---|---|---|---|---|---|---|
-| 5 | tongue end cap / ST Gusset Plate FLT5*100 | 286 | 270 MATCHED, 16 NEAR | 16 at 0.4 mm | 49.0 → 49.0 | C05 (v70: tube end at the brace end, plate on the axis / against the node gusset, Tekla slot, end plates, bolts): every Ttg end matches; the rest are the crossing halves (their plates and end plates are row 7, C07) and the plates at the 6 nodes whose gusset is its own assembly (C06) | C07 / C06 |
-| 5 | tongue end cap / VL Gusset Plate FLT5*100 | 216 | 204 MATCHED, 12 NEAR | 12 at 0.5 mm | 36.8 → 36.7 | as above | as above |
-| 5 | tongue plate / ST Connection Plate FLT12*140 | 144 | 135 MATCHED, 9 NEAR | 9 at 0.8 mm | 592.1 → 592.1 | as above | as above |
-| 5 | tongue plate / VL Connection Plate FLT12*140 | 120 | 102 MATCHED, 18 NEAR | 18 at 1.1 mm | 496.1 → 496.1 | as above | as above |
-| 6 | node gusset / 11 Gusset Plate PL12*223.1 | 2 | 2 NEAR | 2 at 0.2 mm | 15.4 → 15.4 | C06: the gable / end-frame nodes (gussets that are their own assembly, marks 11 / 12 / 13): the braces are not in the gusset's plane (the vertical brace is skewed 4 to 60 mm out of it); Tekla 20's outline and the gusset centred on the braces put them within 0.2 to 4.3 mm, not 0.1 | open (C06): the plate position of a brace skewed out of the gusset plane |
-| 6 | node gusset / 12 Gusset Plate PL12*222.9 | 5 | 5 NEAR | 5 at 1.1 mm | 38.5 → 38.5 | as above | as above |
-| 6 | node gusset / 13 Gusset Plate FLT12*400 | 4 | 4 NEAR | — | 49.8 → 49.8 | as above | as above |
-| 6 | node gusset / 13 Gusset Plate PL12*349.6 | 4 | 4 NEAR | 4 at 0.1 mm | 49.8 → 49.9 | as above | as above |
-| 6 | node gusset / ST Gusset Plate FLT5*45 | 2 | 2 NEAR | 2 at 0.5 mm | 0.4 → 0.3 | as above | as above |
-| 7 | crossing cap / VL Gusset Plate PL5*32.2 | 2 | 2 NEAR | 2 at 0.2 mm | 0.3 → 0.3 | PL5 plates that are the 100 x 44 end plates at the halves' upper ends (wall crossings VL6011 to VL6014 on the frame lines, at the column / rafter), trimmed by Tekla to 32 to 93 mm; ours have the same trimmed size (within 0.2 mm) but Tekla turned each about 0.3 degrees about the brace axis (X axis (-1, 0.003, -0.004) in R12), 0.1 to 1.7 mm at the far corner | open (C07): a 0.3 degree turn of Tekla's end plate (IFC data) |
-| 7 | crossing cap / VL Gusset Plate PL5*32.6 | 4 | 4 NEAR | 4 at 0.2 mm | 0.5 → 0.5 | as above | as above |
-| 7 | crossing cap / VL Gusset Plate PL5*55.8 | 4 | 4 NEAR | 4 at 0.3 mm | 0.9 → 0.9 | as above | as above |
-| 7 | crossing cap / VL Gusset Plate PL5*56.3 | 2 | 2 NEAR | 2 at 0.1 mm | 0.4 → 0.4 | as above | as above |
-| 7 | crossing cap / VL Gusset Plate PL5*91.1 | 4 | 4 NEAR | 4 at 1.7 mm | 1.4 → 1.5 | as above | as above |
-| 7 | crossing cap / VL Gusset Plate PL5*92.5 | 2 | 2 NEAR | 2 at 0.9 mm | 0.7 → 0.7 | as above | as above |
+| 6 | node gusset / 11 Gusset Plate PL12*223.1 | 2 | 2 NEAR | 2 at 0.1 mm | 15.4 → 15.4 | C06: the gable / end-frame nodes (gussets that are their own assembly, marks 11 / 12 / 13): the braces are not in the gusset's plane (the vertical brace is skewed 4 to 60 mm out of it); Tekla 20's outline and the gusset centred on the braces put them within 0.2 to 4.3 mm, not 0.1 | open (C06): the plate position of a brace skewed out of the gusset plane |
+| 6 | node gusset / 13 Gusset Plate PL12*349.6 | 4 | 4 NEAR | 4 at 0.1 mm | 49.8 → 49.8 | as above | as above |
 
 ## v69 parts with no R13 counterpart
 

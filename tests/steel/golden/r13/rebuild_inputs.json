@@ -50400,6 +50400,33 @@
     [
      "Ttg",
      [
+      34,
+      734
+     ],
+     {
+      "bolt": 16,
+      "tend": "end",
+      "blrule": "tekla",
+      "tpos": "gusset",
+      "L": 315.0,
+      "ins": 150.0,
+      "e": 40.0,
+      "p": 60.0,
+      "g": 60.0,
+      "side": 1,
+      "gshape": "tekla",
+      "gplane": "perp",
+      "gmid": 273.26,
+      "pofs": -1.301
+     },
+     "5",
+     [
+      3354
+     ]
+    ],
+    [
+     "Ttg",
+     [
       35,
       737
      ],
@@ -50414,7 +50441,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
@@ -50617,6 +50645,33 @@
     [
      "Ttg",
      [
+      37,
+      742
+     ],
+     {
+      "bolt": 16,
+      "tend": "end",
+      "blrule": "tekla",
+      "tpos": "gusset",
+      "L": 315.0,
+      "ins": 150.0,
+      "e": 40.0,
+      "p": 60.0,
+      "g": 60.0,
+      "side": 1,
+      "gshape": "tekla",
+      "gplane": "perp",
+      "gmid": 279.28,
+      "pofs": -12.019
+     },
+     "5",
+     [
+      3416
+     ]
+    ],
+    [
+     "Ttg",
+     [
       38,
       745
      ],
@@ -50631,7 +50686,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
@@ -50834,6 +50890,33 @@
     [
      "Ttg",
      [
+      40,
+      750
+     ],
+     {
+      "bolt": 16,
+      "tend": "end",
+      "blrule": "tekla",
+      "tpos": "gusset",
+      "L": 315.0,
+      "ins": 150.0,
+      "e": 40.0,
+      "p": 60.0,
+      "g": 60.0,
+      "side": 1,
+      "gshape": "tekla",
+      "gplane": "perp",
+      "gmid": 279.25,
+      "pofs": -12.019
+     },
+     "5",
+     [
+      3478
+     ]
+    ],
+    [
+     "Ttg",
+     [
       41,
       753
      ],
@@ -50848,7 +50931,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
@@ -51051,6 +51135,33 @@
     [
      "Ttg",
      [
+      45,
+      758
+     ],
+     {
+      "bolt": 16,
+      "tend": "end",
+      "blrule": "tekla",
+      "tpos": "gusset",
+      "L": 315.0,
+      "ins": 150.0,
+      "e": 40.0,
+      "p": 60.0,
+      "g": 60.0,
+      "side": 1,
+      "gshape": "tekla",
+      "gplane": "perp",
+      "gmid": 283.67,
+      "pofs": -1.151
+     },
+     "5",
+     [
+      3540
+     ]
+    ],
+    [
+     "Ttg",
+     [
       46,
       761
      ],
@@ -51065,7 +51176,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
@@ -51233,11 +51345,39 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       3600
+     ]
+    ],
+    [
+     "Ttg",
+     [
+      19,
+      766
+     ],
+     {
+      "bolt": 16,
+      "tend": "end",
+      "blrule": "tekla",
+      "tpos": "gusset",
+      "L": 315.0,
+      "ins": 150.0,
+      "e": 40.0,
+      "p": 60.0,
+      "g": 60.0,
+      "side": 1,
+      "gshape": "tekla",
+      "gplane": "perp",
+      "gmid": 421.85,
+      "pofs": -11.633
+     },
+     "5",
+     [
+      3604
      ]
     ],
     [
@@ -51401,11 +51541,39 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       3673
+     ]
+    ],
+    [
+     "Ttg",
+     [
+      25,
+      773
+     ],
+     {
+      "bolt": 16,
+      "tend": "end",
+      "blrule": "tekla",
+      "tpos": "gusset",
+      "L": 315.0,
+      "ins": 150.0,
+      "e": 40.0,
+      "p": 60.0,
+      "g": 60.0,
+      "side": 1,
+      "gshape": "tekla",
+      "gplane": "perp",
+      "gmid": 421.85,
+      "pofs": -11.633
+     },
+     "5",
+     [
+      3677
      ]
     ],
     [
@@ -51569,11 +51737,39 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       3746
+     ]
+    ],
+    [
+     "Ttg",
+     [
+      28,
+      780
+     ],
+     {
+      "bolt": 16,
+      "tend": "end",
+      "blrule": "tekla",
+      "tpos": "gusset",
+      "L": 315.0,
+      "ins": 150.0,
+      "e": 40.0,
+      "p": 60.0,
+      "g": 60.0,
+      "side": 1,
+      "gshape": "tekla",
+      "gplane": "perp",
+      "gmid": 421.86,
+      "pofs": -11.633
+     },
+     "5",
+     [
+      3750
      ]
     ],
     [
@@ -52651,11 +52847,39 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       4056
+     ]
+    ],
+    [
+     "Ttg",
+     [
+      22,
+      824
+     ],
+     {
+      "bolt": 16,
+      "tend": "end",
+      "blrule": "tekla",
+      "tpos": "gusset",
+      "L": 315.0,
+      "ins": 150.0,
+      "e": 40.0,
+      "p": 60.0,
+      "g": 60.0,
+      "side": 1,
+      "gshape": "tekla",
+      "gplane": "perp",
+      "gmid": 421.86,
+      "pofs": -11.633
+     },
+     "5",
+     [
+      4060
      ]
     ],
     [
@@ -52950,6 +53174,33 @@
     [
      "Ttg",
      [
+      42,
+      830
+     ],
+     {
+      "bolt": 16,
+      "tend": "end",
+      "blrule": "tekla",
+      "tpos": "gusset",
+      "L": 315.0,
+      "ins": 150.0,
+      "e": 40.0,
+      "p": 60.0,
+      "g": 60.0,
+      "side": 1,
+      "gshape": "tekla",
+      "gplane": "perp",
+      "gmid": 275.32,
+      "pofs": -1.101
+     },
+     "5",
+     [
+      4137
+     ]
+    ],
+    [
+     "Ttg",
+     [
       43,
       834
      ],
@@ -52964,7 +53215,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
@@ -53837,30 +54089,6 @@
      "Ttg",
      [
       34,
-      734
-     ],
-     {
-      "bolt": 16,
-      "tend": "end",
-      "blrule": "tekla",
-      "tpos": "gusset",
-      "L": 315.0,
-      "ins": 150.0,
-      "e": 40.0,
-      "p": 60.0,
-      "g": 60.0,
-      "side": 1,
-      "gshape": "tekla"
-     },
-     "5",
-     [
-      3354
-     ]
-    ],
-    [
-     "Ttg",
-     [
-      34,
       737
      ],
      {
@@ -53874,7 +54102,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": 1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
@@ -53898,36 +54127,12 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       3359
-     ]
-    ],
-    [
-     "Ttg",
-     [
-      37,
-      742
-     ],
-     {
-      "bolt": 16,
-      "tend": "end",
-      "blrule": "tekla",
-      "tpos": "gusset",
-      "L": 315.0,
-      "ins": 150.0,
-      "e": 40.0,
-      "p": 60.0,
-      "g": 60.0,
-      "side": 1,
-      "gshape": "tekla",
-      "gpos": "middle"
-     },
-     "5",
-     [
-      3416
      ]
     ],
     [
@@ -53948,7 +54153,7 @@
       "g": 60.0,
       "side": 1,
       "gshape": "tekla",
-      "gpos": "middle"
+      "gplane": "perp"
      },
      "5",
      [
@@ -53972,36 +54177,12 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       3421
-     ]
-    ],
-    [
-     "Ttg",
-     [
-      40,
-      750
-     ],
-     {
-      "bolt": 16,
-      "tend": "end",
-      "blrule": "tekla",
-      "tpos": "gusset",
-      "L": 315.0,
-      "ins": 150.0,
-      "e": 40.0,
-      "p": 60.0,
-      "g": 60.0,
-      "side": 1,
-      "gshape": "tekla",
-      "gpos": "middle"
-     },
-     "5",
-     [
-      3478
      ]
     ],
     [
@@ -54022,7 +54203,7 @@
       "g": 60.0,
       "side": 1,
       "gshape": "tekla",
-      "gpos": "middle"
+      "gplane": "perp"
      },
      "5",
      [
@@ -54046,35 +54227,12 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       3483
-     ]
-    ],
-    [
-     "Ttg",
-     [
-      45,
-      758
-     ],
-     {
-      "bolt": 16,
-      "tend": "end",
-      "blrule": "tekla",
-      "tpos": "gusset",
-      "L": 315.0,
-      "ins": 150.0,
-      "e": 40.0,
-      "p": 60.0,
-      "g": 60.0,
-      "side": 1,
-      "gshape": "tekla"
-     },
-     "5",
-     [
-      3540
      ]
     ],
     [
@@ -54094,7 +54252,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": 1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
@@ -54118,7 +54277,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
@@ -54142,36 +54302,12 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       3597
-     ]
-    ],
-    [
-     "Ttg",
-     [
-      19,
-      766
-     ],
-     {
-      "bolt": 16,
-      "tend": "end",
-      "blrule": "tekla",
-      "tpos": "gusset",
-      "L": 315.0,
-      "ins": 150.0,
-      "e": 40.0,
-      "p": 60.0,
-      "g": 60.0,
-      "side": 1,
-      "gshape": "tekla",
-      "gpos": "middle"
-     },
-     "5",
-     [
-      3604
      ]
     ],
     [
@@ -54192,7 +54328,7 @@
       "g": 60.0,
       "side": 1,
       "gshape": "tekla",
-      "gpos": "middle"
+      "gplane": "perp"
      },
      "5",
      [
@@ -54216,36 +54352,12 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       3670
-     ]
-    ],
-    [
-     "Ttg",
-     [
-      25,
-      773
-     ],
-     {
-      "bolt": 16,
-      "tend": "end",
-      "blrule": "tekla",
-      "tpos": "gusset",
-      "L": 315.0,
-      "ins": 150.0,
-      "e": 40.0,
-      "p": 60.0,
-      "g": 60.0,
-      "side": 1,
-      "gshape": "tekla",
-      "gpos": "middle"
-     },
-     "5",
-     [
-      3677
      ]
     ],
     [
@@ -54266,7 +54378,7 @@
       "g": 60.0,
       "side": 1,
       "gshape": "tekla",
-      "gpos": "middle"
+      "gplane": "perp"
      },
      "5",
      [
@@ -54290,36 +54402,12 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       3743
-     ]
-    ],
-    [
-     "Ttg",
-     [
-      28,
-      780
-     ],
-     {
-      "bolt": 16,
-      "tend": "end",
-      "blrule": "tekla",
-      "tpos": "gusset",
-      "L": 315.0,
-      "ins": 150.0,
-      "e": 40.0,
-      "p": 60.0,
-      "g": 60.0,
-      "side": 1,
-      "gshape": "tekla",
-      "gpos": "middle"
-     },
-     "5",
-     [
-      3750
      ]
     ],
     [
@@ -54340,7 +54428,7 @@
       "g": 60.0,
       "side": 1,
       "gshape": "tekla",
-      "gpos": "middle"
+      "gplane": "perp"
      },
      "5",
      [
@@ -54464,36 +54552,12 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
       4053
-     ]
-    ],
-    [
-     "Ttg",
-     [
-      22,
-      824
-     ],
-     {
-      "bolt": 16,
-      "tend": "end",
-      "blrule": "tekla",
-      "tpos": "gusset",
-      "L": 315.0,
-      "ins": 150.0,
-      "e": 40.0,
-      "p": 60.0,
-      "g": 60.0,
-      "side": 1,
-      "gshape": "tekla",
-      "gpos": "middle"
-     },
-     "5",
-     [
-      4060
      ]
     ],
     [
@@ -54514,35 +54578,11 @@
       "g": 60.0,
       "side": 1,
       "gshape": "tekla",
-      "gpos": "middle"
+      "gplane": "perp"
      },
      "5",
      [
       4062
-     ]
-    ],
-    [
-     "Ttg",
-     [
-      42,
-      830
-     ],
-     {
-      "bolt": 16,
-      "tend": "end",
-      "blrule": "tekla",
-      "tpos": "gusset",
-      "L": 315.0,
-      "ins": 150.0,
-      "e": 40.0,
-      "p": 60.0,
-      "g": 60.0,
-      "side": 1,
-      "gshape": "tekla"
-     },
-     "5",
-     [
-      4137
      ]
     ],
     [
@@ -54562,7 +54602,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": 1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [
@@ -54586,7 +54627,8 @@
       "p": 60.0,
       "g": 60.0,
       "side": -1,
-      "gshape": "tekla"
+      "gshape": "tekla",
+      "gplane": "perp"
      },
      "5",
      [

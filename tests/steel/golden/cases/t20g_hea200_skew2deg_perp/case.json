@@ -1,0 +1,105 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  },
+  {
+   "id": 2,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttg",
+   [
+    0,
+    1
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "gplane": "perp",
+    "gshape": "tekla",
+    "side": -1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ],
+  [
+   "Ttg",
+   [
+    0,
+    2
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "gplane": "perp",
+    "gshape": "tekla",
+    "side": -1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ]
+ ],
+ "description": "HEA200 column, an SHS80*4 strut skewed 2 deg out of the wall and an SHS80*4 diagonal in the wall, Tekla gable-node gusset (gplane perp), plates at their gusset edges.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     6000
+    ],
+    "prof": "HEA200"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "Strut",
+    "p1": [
+     0,
+     300,
+     5000
+    ],
+    "p2": [
+     174.5,
+     5300,
+     5000
+    ],
+    "plane": "Middle",
+    "prof": "SHS80*4"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     0,
+     250,
+     4600
+    ],
+    "p2": [
+     0,
+     2500,
+     1600
+    ],
+    "plane": "Middle",
+    "prof": "SHS80*4"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20g_hea200_skew2deg_perp",
+ "pageErrors": []
+}
