@@ -39,6 +39,7 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 - **"Gable nodes"**, one task after Group 1, for one root cause or two:
   - the 6 C06 gussets at 0.126 mm (the 0.1 mm tolerance is NOT widened);
   - the gable-node bolts with 0.5 mm more air than Tekla (case `t20g_r13_gable_vl_lead`: 2.3 vs R13's 1.8 mm; the R13 rebuild: 20 bolts at 2.3–3.3 vs R13's 1.8 / 2.7 mm).
+- **Hand rail depth (follow-up, with the gable-nodes task, after Group 1; owner 2026-11-28):** our 26 Hand Rail CHS48*3 / Stanchion CHS48*3 overlaps are always 0.007–0.099 mm deeper than R13's own; the last stanchion on each stringer (565.5/1650.5, y 11803.9 and 16366.8) is closest to the limit (+0.096–0.099). Check our CHS hand rail mesh (facet count / orientation) against Tekla's mesh, and the last-stanchion end. **Report the cause before changing anything.**
 - EB4007 (a known Tekla error, fixed later in Tekla with an R14).
 - The phone checks.
 
@@ -49,6 +50,9 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 - **New lines** only with the owner's OK. An overlap goes on it only when R13 has the same overlap at the same place.
 - **Proposal sent 2026-11-28** (`tools/ci/ruleB_r13_baseline.proposed.txt`): 26 railing / stanchion (R13 has all 26 at the same place) and 20 gable-node bolts (parked).
 - **Not proposed:** the 22 stanchion / stringer overlaps. R13 has none, so they are ours and stay failures. The list stays empty until the owner's OK.
+- **Approved 2026-11-28:** 26 railing / stanchion and 16 gable-node bolts (R13 has each). The 22 stanchion / stringer overlaps are gone with row 19 (agent/c19).
+- **Approved 2026-11-28 after row 19:** 26 Hand Rail CHS48*3 / Stanchion CHS48*3. R13's own rule B has each one (same parts, 0.00 mm away, depth within 0.1 mm). Each line ends in `| r13_depth D` (R13's own depth); the check fails if our depth drifts more than 0.1 mm from D.
+- **Still failures (not on the list):** 4 gable-node bolts with 2.3 mm air (parked: gable nodes).
 
 ## Group 1 Tekla parity: the two-video method (owner standing rule, 2026-11-28)
 **Scope:** Group 1 is End plates (23), Shear tabs (32) and Clip angles (10): 65 components (`tk_catalog.json`).
