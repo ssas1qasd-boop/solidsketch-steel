@@ -4434,8 +4434,8 @@
    "volR10": 16101790.894,
    "volV69": 16035092.673,
    "volRatio": 0.996,
-   "kgR10": 128.39,
-   "kgV69": 128.39,
+   "kgR10": 128.41,
+   "kgV69": 128.41,
    "diffs": {},
    "status": "INPUT EQUAL, SOLID DIFFERS"
   },
@@ -4451,8 +4451,8 @@
    "volR10": 16101601.392,
    "volV69": 16035092.673,
    "volRatio": 0.996,
-   "kgR10": 128.39,
-   "kgV69": 128.39,
+   "kgR10": 128.41,
+   "kgV69": 128.41,
    "diffs": {},
    "status": "INPUT EQUAL, SOLID DIFFERS"
   },
@@ -4502,7 +4502,7 @@
    "volR10": 424979.02,
    "volV69": 737980.747,
    "volRatio": 1.737,
-   "kgR10": 5.77,
+   "kgR10": 5.78,
    "kgV69": 5.79,
    "diffs": {},
    "status": "MATCHED"
@@ -4519,8 +4519,8 @@
    "volR10": 17345667.49,
    "volV69": 17385720.634,
    "volRatio": 1.002,
-   "kgR10": 139.39,
-   "kgV69": 139.39,
+   "kgR10": 139.41,
+   "kgV69": 139.41,
    "diffs": {},
    "status": "INPUT EQUAL, SOLID DIFFERS"
   },
@@ -4536,7 +4536,7 @@
    "volR10": 424979.099,
    "volV69": 737980.747,
    "volRatio": 1.737,
-   "kgR10": 5.77,
+   "kgR10": 5.78,
    "kgV69": 5.79,
    "diffs": {},
    "status": "MATCHED"
@@ -4553,8 +4553,8 @@
    "volR10": 17345476.942,
    "volV69": 17385720.641,
    "volRatio": 1.002,
-   "kgR10": 139.39,
-   "kgV69": 139.39,
+   "kgR10": 139.41,
+   "kgV69": 139.41,
    "diffs": {},
    "status": "INPUT EQUAL, SOLID DIFFERS"
   },
@@ -66925,9 +66925,9 @@
    }
   },
   "weightKg": {
-   "r10": 63707.66,
-   "v69": 60882.9,
-   "diff": -2824.76,
+   "r10": 63707.76,
+   "v69": 60882.98,
+   "diff": -2824.78,
    "r10Weights": {
     "weight_t": 63.708,
     "net_t": 63.687,
@@ -66949,8 +66949,8 @@
     36862.37
    ],
    "given members": [
-    16360.56,
-    16241.25
+    16360.66,
+    16241.33
    ],
    "detail parts (R10) / component parts (v69)": [
     10545.3,
@@ -68223,8 +68223,8 @@
     "MATCHED": 6,
     "total": 12
    },
-   "kgR10": 578.24,
-   "kgV69": 578.36,
+   "kgR10": 578.34,
+   "kgV69": 578.44,
    "sameSize": null,
    "reason": "placed with R10's inputs; v69 stair treads cut / fit the stringer ends differently from R10's TKCUT cuts",
    "option": ""

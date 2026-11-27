@@ -104,7 +104,7 @@ class SteelDataTest {
         assertEquals(7850.0, m.density("S275"), 0.0); assertEquals(7850.0, m.density("St-52"), 0.0); assertEquals(7850.0, m.density(null), 0.0)
         assertEquals(0.0, m.density("GROUT"), 0.0); assertEquals(0.0, m.density("C30/37"), 0.0); assertEquals(0.0, m.density("concrete"), 0.0)
         assertEquals(1333.0, m.density("grating"), 0.0)   // v70: Tekla's grating density (R12)
-        assertEquals(33.2, m.teklaKgPerM["UPN240"]!!, 0.0); assertEquals(287.0, m.teklaRoundAreaMm2["ROD20"]!!, 0.0)
+        assertEquals(33.2055, m.teklaKgPerM["UPN240"]!!, 0.0); assertEquals(287.0, m.teklaRoundAreaMm2["ROD20"]!!, 0.0)
         val col = data.propertySet("COLUMN")!!
         assertEquals("HEA300", col.prof); assertEquals("S275", col.mat); assertEquals(2, col.cls)
         assertEquals(listOf("COLUMN", "BEAM", "RAFTER", "PURLIN", "GIRT", "BRACING", "PLATE"), data.propertySets.map { it.name })

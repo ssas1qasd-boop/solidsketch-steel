@@ -91,6 +91,7 @@
   {
     const R66 = window.__st.weightRules, P66 = window.__st.partWeight;
     R66.TK_DENS.GRATING = 1333;
+    R66.TK_KGM['UPN240'] = 33.2055;                                // Tekla's UPN240 section 4,230 mm2 x 7850 (agent C18 on R13: all 12 stringer pieces = st.tkW; 33.2 was the rounded catalog value)
     R66.TK_KGM['CC200-2-20-60'] = 5.5264;                           // Tekla weighs the C by its section (704 mm² x 7850), not the rounded 5.53
     const r2 = x => Math.round(x * 100) / 100, ngon = (n, r) => n / 2 * Math.sin(2 * Math.PI / n) * r * r;
     const profOf = st => String(st.tprof || st.prof || '').trim().toUpperCase();
@@ -171,6 +172,8 @@
       const r = partWeight70net(b); if (!b || !b.st || r == null) return r;
       if (/^GROUT$/i.test(String(b.st.name || '').trim())) return Object.assign({}, r, { weight: 0, net: 0, gross: 0 });   // Tekla's grout weighs 0 (material GROUT); components name it GROUT on S275 (docs/steel/WEIGHT-ANALYSIS.md D1)
       if (b.st.kind === 'member' && b.man && BI70(b.st.prof)) return buWeight70(b, r);   // X01: a built-up = its three plates
+      if (r.catalog && r.kgm > 0 && r.len > 0 && r.holesKg > 0) { const rho = (R66.TK_DENS[String(b.st.mat || '').toUpperCase()] ?? 7850), kgm = R66.TK_KGM[profOf(b.st)] ?? r.kgm, w = r2(kgm * r.len / 1000 * rho / 7850);   // the table's kg/m, not v66's rounded r.kgm (33.21 / 5.53)   // an imported catalog member drilled by TKBOLT: Tekla's kg/m x length (agent C18 on R13: v66 rebuilt it without its holes AND its cuts, and max(gross, net) took that uncut solid)
+        return Object.assign({}, r, { weight: w, gross: w }); }
       if (r.catalog && r.kgm > 0 && r.len > 0) return r;
       if (b.st.kind === 'conn' && +b.st.len70 > 0) { const kgm = R66.TK_KGM[String(b.st.prof || '').toUpperCase()] ?? R66.TK_KGM[b.st.prof] ?? (stProf(b.st.prof) || {}).m;   // C18: a component's catalog angle (the stair brackets): Tekla's kg/m x its length
         if (kgm > 0) { const w = r2(kgm * +b.st.len70 / 1000); return Object.assign({}, r, { weight: w, net: w, gross: w, catalog: true, kgm, len: +b.st.len70 }); } }   // catalog kg/m x length: holes never counted; a catalog part with no length (a cleat angle) is weighed by its solid

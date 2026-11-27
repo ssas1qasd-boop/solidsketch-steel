@@ -15,9 +15,9 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 | … kind `plate` | 3,399 | 0 |
 | Connections | 3,680 (TKBOLT / TKCUT) | 1,272 (components) |
 | Bolts | 5,376 in 1,693 groups | 4,606 in 1,200 groups |
-| Weight (v66 Tekla weights, bolts excluded) | 63,707.66 kg | 60,882.90 kg (-2,824.76) |
+| Weight (v66 Tekla weights, bolts excluded) | 63,707.76 kg | 60,882.98 kg (-2,824.78) |
 | … builtup members | 36,801.80 kg | 36,862.37 kg |
-| … given members | 16,360.56 kg | 16,241.25 kg |
+| … given members | 16,360.66 kg | 16,241.33 kg |
 | … detail parts (R11) / component parts (v69) | 10,545.30 kg | 7,779.28 kg |
 
 Members: 835 placed (197 built-up equivalents, 638 R11 members as given): 389 INPUT EQUAL, SOLID DIFFERS, 446 MATCHED.
@@ -90,7 +90,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | given HZ HZ Bracing SHS100*3 | 96 | 96 INPUT EQUAL, SOLID DIFFERS | 342.2 | 0.869–1.023 | 3,202.4 → 3,171.2 |
 | given PU Purlin CC200-2-20-60 | 220 | 220 MATCHED | 0.0 | 1.000–1.000 | 6,837.2 → 6,837.2 |
 | given SR Stanchion CHS48*3 | 22 | 22 MATCHED | 0.0 | 0.980–0.995 | 70.0 → 68.9 |
-| given SR STRINGER UPN240 | 12 | 6 INPUT EQUAL, SOLID DIFFERS, 6 MATCHED | 115.6 | 0.996–1.737 | 578.2 → 578.4 |
+| given SR STRINGER UPN240 | 12 | 6 INPUT EQUAL, SOLID DIFFERS, 6 MATCHED | 115.6 | 0.996–1.737 | 578.3 → 578.4 |
 | given ST Strut SHS100*3 | 72 | 68 INPUT EQUAL, SOLID DIFFERS, 4 MATCHED | 80.6 | 0.999–1.026 | 3,317.2 → 3,290.2 |
 | given STB Stanchion CHS48*3 | 4 | 4 MATCHED | 0.0 | 0.992–0.992 | 12.7 → 12.6 |
 | given TR Tie Rod THREAD100MM ROD12 | 140 | 140 MATCHED | 0.0 | 1.000–1.000 | 191.8 → 191.8 |
@@ -182,7 +182,7 @@ Field differences on members (count of members): none (every placed member has R
 | 18 | Stair Plate / PLSTR Stair Plate FLT12*150 | 2 | 2 MISSING | — | 9.0 → 0.0 | as above | as above |
 | 18 | Stair Plate / SR Stair Plate FLT12*150 | 6 | 6 MISSING | — | 25.4 → 0.0 | as above | as above |
 | 18 | THREAD / SGR THREAD PL10*336 | 23 | 23 MISSING | — | 101.9 → 0.0 | as above | as above |
-| 18 | given member / SR STRINGER UPN240 | 12 | 6 INPUT EQUAL, SOLID DIFFERS, 6 MATCHED | — | 578.2 → 578.4 | placed with R11's inputs; v69 stair treads cut / fit the stringer ends differently from R11's TKCUT cuts |  |
+| 18 | given member / SR STRINGER UPN240 | 12 | 6 INPUT EQUAL, SOLID DIFFERS, 6 MATCHED | — | 578.3 → 578.4 | placed with R11's inputs; v69 stair treads cut / fit the stringer ends differently from R11's TKCUT cuts |  |
 | 20 | Bot FS / C Bot FS FLT10*70 | 15 | 15 MISSING | — | 24.3 → 0.0 | Column with stiffeners (186) at the beam on the column web (v70 C20): 12 of 15 columns match; at C2019 and the two C2023 joints the beam on the web is EB4006 / EB4008, which has flanges only and no web in R12 (no member placed, so no secondary to pick) | none (R12 data) |
 | 20 | Bot FS / EGC Bot FS FLT10*90 | 2 | 2 MISSING | — | 2.8 → 0.0 |  |  |
 | 20 | Bot Ns / C Bot Ns FLT10*70 | 15 | 15 MISSING | — | 24.3 → 0.0 | Column with stiffeners (186) at the beam on the column web (v70 C20): 12 of 15 columns match; at C2019 and the two C2023 joints the beam on the web is EB4006 / EB4008, which has flanges only and no web in R12 (no member placed, so no secondary to pick) | none (R12 data) |

@@ -87017,11 +87017,11 @@
    "volume": 16101627.29,
    "weight": {
     "catalog": true,
-    "gross": 128.39,
-    "kgm": 33.2,
+    "gross": 128.41,
+    "kgm": 33.21,
     "len": 3867.2,
     "net": 126.4,
-    "weight": 128.39
+    "weight": 128.41
    }
   },
   {
@@ -87471,11 +87471,11 @@
    "volume": 16101627.29,
    "weight": {
     "catalog": true,
-    "gross": 128.39,
-    "kgm": 33.2,
+    "gross": 128.41,
+    "kgm": 33.21,
     "len": 3867.2,
     "net": 126.4,
-    "weight": 128.39
+    "weight": 128.41
    }
   },
   {
@@ -87529,7 +87529,7 @@
    "weight": {
     "catalog": true,
     "gross": 4.91,
-    "kgm": 33.2,
+    "kgm": 33.21,
     "len": 147.8,
     "net": 3.84,
     "weight": 4.91
@@ -87586,7 +87586,7 @@
    "weight": {
     "catalog": true,
     "gross": 5.34,
-    "kgm": 33.2,
+    "kgm": 33.21,
     "len": 160.8,
     "net": 4.27,
     "weight": 5.34
@@ -87643,7 +87643,7 @@
    "weight": {
     "catalog": true,
     "gross": 4.91,
-    "kgm": 33.2,
+    "kgm": 33.21,
     "len": 147.8,
     "net": 3.84,
     "weight": 4.91
@@ -87700,7 +87700,7 @@
    "weight": {
     "catalog": true,
     "gross": 5.34,
-    "kgm": 33.2,
+    "kgm": 33.21,
     "len": 160.8,
     "net": 4.27,
     "weight": 5.34
@@ -91320,10 +91320,10 @@
     "weight": 59.86
    },
    "B1": {
-    "gross": 256.78,
+    "gross": 256.82,
     "net": 252.8,
     "parts": 2,
-    "weight": 256.78
+    "weight": 256.82
    },
    "B2": {
     "gross": 9.43,
@@ -91358,12 +91358,12 @@
   },
   "perPartMark": {
    "b1": {
-    "gross": 256.78,
+    "gross": 256.82,
     "mat": "S275",
     "n": 2,
     "net": 252.8,
     "prof": "UPN240",
-    "weight": 256.78
+    "weight": 256.82
    },
    "b2": {
     "gross": 9.82,

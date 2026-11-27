@@ -57,7 +57,7 @@ class R13C18Test {
             val hit = app.firstOrNull { p -> (0..5).all { abs(p.box[it] - rb[it]) <= 0.1 } }
             if (hit != null) { n[0]++; val tk = st["tkW"]?.jsonPrimitive?.double ?: 0.0; val wa = tw.part(hit.st, hit.mesh, false, { null }, brk).weight
                 wR12 += tk; wApp += wa; asm.getOrPut(am) { DoubleArray(2) }.let { it[0] += tk; it[1] += wa }
-                if (abs(Math.round(wa * 100) / 100.0 - tk) > (if (nm == "STRINGER") 0.025 else 0.005))   // stringers: the shared kg/m 33.2 against Tekla's 33.2055 (PARITY.md C18 R13, proposed)
+                if (abs(Math.round(wa * 100) / 100.0 - tk) > 0.005)   // UPN240 at Tekla's 33.2055 kg/m (shared change, 2026-11-28)
                     bad += "R13 ${id.value} $what ($am): app %.4f kg, Tekla %.2f".format(java.util.Locale.ROOT, wa, tk).also { wBad++ } }
             else bad += "R12 ${id.value} $what: no app part within 0.1 mm of ${rb.map { Math.round(it * 10) / 10.0 }}" }
         val tkb = Json.parseToJsonElement(r12.field("stConns")!!).jsonArray.map { it.jsonObject }.filter { it["type"]!!.jsonPrimitive.content == "TKBOLT" && it.getValue("parts").jsonArray.any { p -> p.jsonPrimitive.int in r12Ids } }

@@ -50,7 +50,7 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
     companion object {
         val DENS = mapOf("GROUT" to 0.0, "CONCRETE" to 0.0, "ANTIMATERIAL" to 0.0, "MISC_UNDEFINED" to 0.0, "GRATING" to 1333.0)
         /** Tekla's kg/m for this project's catalog profiles (v66 TK_KGM; v70: CC by its section 704 mm²). */
-        val KGM = mapOf("UPN240" to 33.2, "CC200-2-20-60" to 5.5264, "L60*6" to 5.42, "L140*60*6" to 9.14)
+        val KGM = mapOf("UPN240" to 33.2055, "CC200-2-20-60" to 5.5264, "L60*6" to 5.42, "L140*60*6" to 9.14)
         private val BI = Regex("^BI\\s*(\\d+(?:\\.\\d+)?)-(\\d+(?:\\.\\d+)?)-(\\d+(?:\\.\\d+)?)-(\\d+(?:\\.\\d+)?)(?:-(\\d+(?:\\.\\d+)?)-(\\d+(?:\\.\\d+)?))?$", RegexOption.IGNORE_CASE)
         private val PARAM = Regex("^(PL|FLT|BL|ROD|RD|D\\d|PD|HI|BH|WI|HK|HQ|SPD|EPD|(?:CHS|SHS|RHS|P|EHS)\\d+(?:\\.\\d+)?\\*)", RegexOption.IGNORE_CASE)
         fun density(mat: String?): Double {
@@ -108,6 +108,7 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
             if (t != null && p1 != null && p2 != null) { val own = ownArea(mesh, p1, p2); if (own > 0) { at = t; am = own; net *= t / own; gross = net } }
             if (cat) { kgm = KGM[prof(st)] ?: profiles.lookup(prof(st))?.m ?: profiles.lookup(str(st, "prof") ?: "")?.m ?: 0.0; gross = if (kgm > 0 && len > 0) kgm * len / 1000 * rho / 7850 else net }
         }
+        if (cat && kgm > 0 && len > 0 && holed) return W(r2(gross), r2(net), cat, r2(kgm), round(len * 10) / 10)   // an imported catalog member drilled by TKBOLT: Tekla's kg/m x length (web v70 partWeight70; its rebuilt solid has neither holes nor cuts)
         if (gross < net - 1e-6) gross = max(gross, net)
         var fillKg = 0.0
         if (!(cat && kgm > 0 && len > 0) && bolts.isNotEmpty() && (kind == "plate" || kind == "member" || kind == "conn") && !prof(st).uppercase().startsWith("PD")) {   // C01: a PD ring's bore is its profile's   // gross (owner 2026-11-27): a component's bolt holes filled back
