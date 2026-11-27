@@ -463,6 +463,7 @@
   // off the first brace's plane gets its plate off its own axis (R12: 9.4 / 11.3 / 46.9 mm at 52 strut and vertical-brace ends); v69
   // centred each tongue on its own tube. 'Connection plate position' = 'against the gusset' (tpos 'gusset').
   ST_LBL.tpos = 'Connection plate position'; CONN.Ttg.def.tpos = '';
+  Object.assign(ST_LBL, { gshape: 'Gusset shape', gwa: 'Gusset edge, side toward +main axis', gwb: 'Gusset edge, side toward -main axis', gd: 'Gusset to end plate (Picture 5)' }); Object.assign(CONN.Ttg.def, { gshape: '', gwa: '', gwb: '', gd: 20, gpos: '' }); ST_LBL.gpos = 'Gusset plate position on the brace';
   { let NODE = null; const tgEnd69 = tgEnd, set70 = v54tgSet;
     // v70 'Tube end' = 'brace end': Tekla's slot is the plate itself (R12: t wide, the length inside the tube), v69 cut t + 2 x ins + 11
     const tgEnd70 = (X, Br, S0, d, g, sTip, toff, out) => {
@@ -477,22 +478,60 @@
     tgEnd = function (X, Br, S0, d, g, sTip, toff, out) { if (NODE && toff === 0 && Math.abs(g.dot(NODE.g)) > 0.99) toff = -S0.clone().sub(NODE.W).dot(g); return (X.q.tend === 'end' ? tgEnd70 : tgEnd69)(X, Br, S0, d, g, sTip, toff, out); };
     v54tgSet = function (q, A, Br, plane, gRef) { const r = set70(q, A, Br, plane, gRef); if (!NODE || !(Math.abs(r.g.dot(NODE.g)) > 0.99)) return r;
       const sh = -r.W.clone().sub(NODE.W).dot(r.g); return Object.assign({}, r, { bl: r.bl.map(P => P.clone().addScaledVector(r.g, sh)) }); };
-    const tgN = FAM.TG;
+    const tgN0 = FAM.TG;
+    const tgN = X => {   // C06 single brace: Tekla 20 makes its gusset (not a fin) by the same outline rule
+      const r = tgN0(X); if (X.q.gshape !== 'tekla' || X.q.kind === 'cross' || !X.B) return r;
+      const ix = X.out.parts.map(p => p.name).lastIndexOf('FIN PLATE'); if (ix < 0) return r;
+      const s = v54tgSet(X.q, X.A, X.B); const fake = { c: X.c, q: X.q, Br: X.B, s };
+      gusset70(Object.assign({}, X, { __single: [fake] }), { W: s.W, g: s.g, d: s.d, nF: s.nF, F0: s.F0, pIn: s.pIn }, ix);
+      return r;
+    };
     FAM.TG = X => {
       const q = X.q; if (q.tpos !== 'gusset' || q.kind === 'cross' || !q.node || !X.B || !X.c) return tgN(X);
       let L0 = null; try { const A = X.A, me = v54tgSet(q, A, X.B), R = (q.nodeR || 450) * stU();
         const all = v54group(X.c, A).filter(o => o.c === X.c || o.c.parts[1] !== X.B.id).map(o => { try { return Object.assign({}, o, { s: v54tgSet(o.q, A, o.Br) }); } catch (e) { return null; } }).filter(o => o && o.s.W.distanceTo(me.W) < R && o.s.nF.dot(me.nF) > 0.9);
         if (all.length >= 2) { const plane = all.some(o => o.s.steep) ? 'main' : null; all.sort((a, b) => (a.c.id ?? -1) - (b.c.id ?? -1)); L0 = v54tgSet(all[0].q, A, all[0].Br, plane); } } catch (e) { L0 = null; }
       if (!L0) return tgN(X);
-      NODE = { W: L0.W, g: L0.g }; try { return tgN(X); } finally { NODE = null; }
+      // Gusset tab 'Gusset plate position on the brace' = middle (Tekla's default): the gusset centred on the braces, every plate beside it
+      const sh = q.gpos === 'middle' ? -(+q.side || 1) * (q.t + q.tf) / 2 * stU() : 0; const W0 = L0.W.clone().addScaledVector(L0.g, sh);
+      NODE = { W: W0, g: L0.g }; try { const r = tgN(X); if (q.gshape === 'tekla') gusset70(X, Object.assign({}, L0, { W: W0 })); return r; } finally { NODE = null; }
     };
+    // C06 · Tekla 20's gusset outline (docs/steel/PARITY.md "C06", R12: 62 node gussets + 104 single-brace gussets): per brace an edge
+    // square to it, Picture 5 (gd, default 20) before its end plate, its half-lengths gwa / gwb on the sides toward + / - the main part's
+    // axis (Picture 3 / 6 / 7; default half the plate width); the outline is the convex hull of those edges' corners and of each corner
+    // brought back onto the main part's face, square to the face and along its brace.
+    function gusset70(X, L0, ixSingle) {
+      const { U, q, A } = X; let S2, ix;
+      if (X.__single) { S2 = X.__single; ix = ixSingle; }
+      else { const R = (q.nodeR || 450) * U; const me = v54tgSet(q, A, X.B);
+        const all = v54group(X.c, A).filter(o => o.c === X.c || o.c.parts[1] !== X.B.id).map(o => { try { return Object.assign({}, o, { s: v54tgSet(o.q, A, o.Br) }); } catch (e) { return null; } }).filter(o => o && o.s.W.distanceTo(me.W) < R && o.s.nF.dot(me.nF) > 0.9);
+        if (all.length < 2) return; const plane = all.some(o => o.s.steep) ? 'main' : null; all.sort((a, b) => (a.c.id ?? -1) - (b.c.id ?? -1)); if (all[0].c !== X.c) return;
+        S2 = all.map(o => Object.assign(o, { s: v54tgSet(o.q, A, o.Br, plane, L0.g) })); ix = X.out.parts.map(p => p.name).lastIndexOf('GUSSET PLATE'); if (ix < 0) return; }
+      const gN = L0.g;
+      const a1 = L0.d.clone().addScaledVector(gN, -L0.d.dot(gN)).normalize(), a2 = new THREE.Vector3().crossVectors(gN, a1).normalize(), O = L0.W, G = stFrame3(O, a1, a2);
+      const MA = stMF(A.st), nF = L0.nF, F0 = L0.F0; const k = nF.clone().addScaledVector(gN, -nF.dot(gN)).normalize(); const pts = [];
+      const num = (v, dflt) => v === '' || v === undefined || v === null || !isFinite(+v) ? dflt : +v;
+      for (const o of S2) { const s = o.s, oq = o.q, sE = s.sTip + (num(oq.L, 315) - num(oq.ins, 150) - num(oq.cap, 5) - num(oq.gd, 20)) * U, w2 = num(oq.w, 140) / 2;
+        const pa = s.pIn.dot(MA.a) >= 0 ? 1 : -1; const hp = num(pa > 0 ? oq.gwa : oq.gwb, w2) * U, hn = num(pa > 0 ? oq.gwb : oq.gwa, w2) * U;
+        for (const y of [hp, -hn]) { const c = s.W.clone().addScaledVector(s.d, sE).addScaledVector(s.pIn, y); const cp = c.clone().addScaledVector(k, -c.clone().sub(F0).dot(nF) / (k.dot(nF) || 1));
+          const ca = Math.abs(s.d.dot(nF)) > 1e-6 ? c.clone().addScaledVector(s.d, -c.clone().sub(F0).dot(nF) / s.d.dot(nF)) : cp;   // along the brace, back to the face
+          for (const P of [c, cp, ca]) { const v = P.clone().sub(O); pts.push([v.dot(a1), v.dot(a2)]); } } }
+      const t = q.t * U, tf = q.tf * U, sg = S2[0].s.sg, z0 = sg * t / 2, z1 = sg * (t / 2 + tf), BIG = v49Big();
+      let gus = G.poly(v54ccw(stHull2(pts)), Math.min(z0, z1), Math.max(z0, z1));
+      gus = gus.intersect(stBox3(F0, nF, L0.pIn.clone().addScaledVector(nF, -L0.pIn.dot(nF)).normalize(), -0.01 * U, BIG, -BIG, BIG, -BIG, BIG)); try { gus = gus.subtract(stEnvelope(A.st)); } catch (er) { /* keep */ }
+      for (const o of S2) { const H = stBolts(o.s.bl, o.s.g.clone().multiplyScalar(o.s.sg).toArray(), o.q.bolt, t + tf + 2 * U, U); for (const hc of H.holes) gus = gus.subtract(hc); }
+      X.out.parts[ix] = Object.assign({}, X.out.parts[ix], { man: gus, name: 'GUSSET PLATE' });
+    }
   }
   // C05 · Ttg dialog (Tekla 20's Brace conn tab): Tube end, Connection plate position, gusset side; Bolts tab: Tekla's bolt length
   { const tabs = TKD.Ttg.tabs; const gt = tabs.find(t => t.name === 'Gusset');
     if (gt) { gt.groups = (gt.groups || []).map(g => g[0] === 'Gusset' ? [g[0], g[1].map(f => f.k === 'plane' ? TKF('plane', 'Gusset plane', { type: 'sel', opts: [tkOpt('auto', 'Automatic'), tkOpt('main', 'Main part plane'), tkOpt('vert', 'Vertical')] }) : f)] : g);
       gt.groups.push(['Brace connection', [TKF('tend', 'Tube end', { type: 'sel', dv: '', opts: [tkOpt('', 'Cut back to the clearance (v69)'), tkOpt('end', 'At the brace end (as Tekla)')] }),
         TKF('tpos', 'Connection plate position', { type: 'sel', dv: '', opts: [tkOpt('', 'Centred on the brace (v69)'), tkOpt('gusset', 'Against the gusset (as Tekla)')] }),
-        TKF('side', 'Gusset side', { type: 'sel', dv: 1, opts: [tkOpt(1, 'Side 1'), tkOpt(-1, 'Side 2')] })]]); }
+        TKF('side', 'Gusset side', { type: 'sel', dv: 1, opts: [tkOpt(1, 'Side 1'), tkOpt(-1, 'Side 2')] })]]);
+      gt.groups.push(['Gusset plate shape', [TKF('gshape', 'Gusset shape', { type: 'sel', dv: '', opts: [tkOpt('', 'Hull of the tongues (v69)'), tkOpt('tekla', 'Tekla: edges square to the braces, to the main part')] }),
+        TKF('gd', '5 · Gusset to the end plate', { ph: '20' }), TKF('gwa', 'Edge on the brace, side toward the main part end (3 / 6 / 7)', { ph: 'half the plate width' }), TKF('gwb', 'Edge on the brace, other side', { ph: 'half the plate width' }),
+        TKF('gpos', 'Gusset plate position on the brace', { type: 'sel', dv: '', opts: [tkOpt('', 'Beside the first brace\'s plate'), tkOpt('middle', 'Middle of the brace (plates beside it)')] })]]); }
     const bt = tabs.find(t => t.name === 'Bolts'); if (bt) { const g = (bt.groups || []).find(x => x[0] === 'Bolt assembly'); const f = TKF('blrule', 'Bolt length', { type: 'sel', dv: '', opts: [tkOpt('', 'v69 (grip + 2 d)'), tkOpt('tekla', 'Tekla (grip + nut + washer + 5, up to 5 mm)')] });
       if (g) { if (!g[1].some(x => x.k === 'blrule')) g[1] = g[1].concat([f]); } else bt.fields = (bt.fields || []).concat([f]); } }
   // C05 · Tekla's parametric hollow sections have square corners (R12's SHS100*3: 1,164 mm², the IFC solid; docs/steel/PARITY.md

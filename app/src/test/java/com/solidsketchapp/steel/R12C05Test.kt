@@ -110,8 +110,19 @@ class R12C05Test {
                 if (ok) n[4]++ else bad += "row $row R12 $epId: member $mi differs by %.0f mm³ (%.3f mm over its faces); with no connection %.0f; the connection removes %.0f mm³, %.0f of it inside Tekla's part".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla)
                 diag += "row $row member $mi: diff %.0f (%.3f mm), no-conn %.0f, removed %.0f, removed inside Tekla %.1f".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla) }
         }
-        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${if (r == "5") "C05 Tube gusset 20, tube ends" else "C05 ends at C06 nodes (own-assembly gussets), not asserted"}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
+        // C06: every R12 gusset these plates bolt to (node gussets, single-brace gussets, fins): an app gusset / fin with the same box (0.1 mm);
+        // the gable / end-frame nodes whose braces are not in the gusset's plane (marks 11 / 12 / 13 and their plates) are counted apart
+        val gus = list.flatMap { e -> val cp = e[4].jsonArray.first().jsonPrimitive.int
+            tkb.filter { cp in it.getValue("parts").jsonArray.map { p -> p.jsonPrimitive.int } }.flatMap { it.getValue("parts").jsonArray.map { p -> p.jsonPrimitive.int } }.filter { it != cp } }.toSortedSet()
+        val appG = m.doc.bodyIds().mapNotNull { id -> val st = Json.parseToJsonElement(m.doc.bodyJson(id)!!).jsonObject["st"]?.jsonObject ?: return@mapNotNull null
+            if (st["name"]?.jsonPrimitive?.content in setOf("GUSSET PLATE", "FIN PLATE")) box(pts(m.doc.bodyMesh(id)!!)) else null }
+        for (gid in gus) { val gst = Json.parseToJsonElement(r12.bodyJson(BodyId(gid.toString()))!!).jsonObject["st"]!!.jsonObject; if (gst["name"]?.jsonPrimitive?.content?.trim() != "Gusset Plate") continue
+            val am = gst["amark"]?.jsonPrimitive?.content ?: ""; val row = if (Regex("^1\\d").containsMatchIn(am)) "6 (C06 gable node)" else "6"; val n = cnt.getOrPut(row) { IntArray(6) }
+            val rb = box(pts(r12.bodyMesh(BodyId(gid.toString()))!!)); n[1]++
+            if (appG.any { b -> (0..5).all { abs(b[it] - rb[it]) <= 0.1 } }) n[0]++ else bad += "row $row R12 gusset $gid ($am ${gst["tprof"]?.jsonPrimitive?.content}): no gusset within 0.1 mm of ${rb.map { Math.round(it * 10) / 10.0 }}" }
+        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "5" -> "C05 Tube gusset 20, tube ends"; "6" -> "C06 gussets (node, single-brace, fin)"; "6 (C06 gable node)" -> "C06 gable / end-frame node gussets, not asserted"; else -> "C05 ends at C06 nodes (own-assembly gussets), not asserted" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
         File(root, "build").mkdirs(); File(root, "build/r12-c05-report.txt").writeText(rep + "\n\n" + diag.joinToString("\n") + "\n"); println(rep.lines().take(14).joinToString("\n"))
         cnt["5"]!!.let { n -> assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
+        cnt["6"]?.let { n -> assertEquals(rep, n[1], n[0]) }
     }
 }

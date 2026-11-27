@@ -531,10 +531,17 @@ def main():
         if taken: q['scr'] = 'none'; return q, []   # the stiffeners are the first 186's; the sizes still set the flange strip (Picture 2)
         return q, stf
 
-    c05_off = {}
+    c05_off = {}; c05_gus = {}
     def c05_order(lst):
         """C05: Tekla centres a node's gusset on the first picked brace (its plate on its own axis); the others lie against the gusset.
         v69 takes the node's first connection as that brace, so the Ttg entries whose R12 plate is on its axis go first (stable)."""
+        # Gusset tab 'Gusset plate position on the brace' = middle: at a node where no plate is on its own axis the gusset is centred on the braces
+        nodes = defaultdict(list)
+        for e in lst:
+            if e[0] == 'Ttg' and e[4][0] in c05_gus: nodes[c05_gus[e[4][0]]].append(e)
+        for es in nodes.values():
+            if min(c05_off.get(e[4][0], 0.0) for e in es) > 5:
+                for e in es: e[2]['gpos'] = 'middle'
         ix = [i for i, e in enumerate(lst) if e[0] == 'Ttg']
         tg = sorted((lst[i] for i in ix), key=lambda e: 0 if c05_off.get(e[4][0], 0.0) < 0.5 else 1)
         out = list(lst)
@@ -568,6 +575,27 @@ def main():
         if oth and g_ is not None:
             go = _np.asarray(byid[oth[0]]['shape']['vp'], float).reshape(-1, 3).mean(0)
             out['side'] = 1 if (go - cc) @ g_ > 0 else -1
+        # C06: the node gusset's outline as Tekla 20 (gshape 'tekla'): this brace's edge on the gusset, square to the brace, 20 before the end
+        # plate (Picture 5); its half-lengths toward +/- the main part's axis when R12's are shorter than half the plate width (Picture 3 / 6 / 7)
+        if oth:
+            gb = byid[oth[0]]; gp = _np.asarray(gb['st'].get('pts3') or [], float)
+            nplates = sum(1 for c in partners[oth[0]].values() for _ in [0]) if False else len({o for o, cs_ in partners[oth[0]].items() if byid.get(o, {}).get('st', {}).get('name', '').strip() == 'Connection Plate'})
+            if len(gp) >= 3 and (nplates >= 2 or str(gb['st'].get('tprof', '')).startswith('PL')):   # a node gusset, or one brace's PL gusset (not the FLT12*140 fin)
+                out['gshape'] = 'tekla'
+                if nplates >= 2: c05_gus[cp['id']] = oth[0]
+                X_ = gp - gp.mean(0); wv, vv = _np.linalg.eigh(X_.T @ X_); ng = vv[:, 0]
+                tip = P + a * float(s.min()); ov = (L - ins) - 5 - 20; cr3 = _np.cross(ng, a); cr3 /= _np.linalg.norm(cr3)
+                sgn = 1 if cr3 @ ma >= 0 else -1
+                ext = []
+                for i in range(len(gp)):
+                    p0, p1 = gp[i], gp[(i + 1) % len(gp)]; e = p1 - p0; Le = _np.linalg.norm(e)
+                    if Le < 1 or abs((e / Le) @ a) > 0.01 or abs((p0 - tip) @ a - ov) > 0.5: continue
+                    ext += [float((p0 - tip) @ cr3), float((p1 - tip) @ cr3)]
+                if ext:
+                    hp, hn = min(70.0, max(ext)), min(70.0, -min(ext))
+                    ga, gb_ = (hp, hn) if sgn > 0 else (hn, hp)
+                    if ga < 69.5: out['gwa'] = round(ga, 1)
+                    if gb_ < 69.5: out['gwb'] = round(gb_, 1)
         return out
 
     def section_hb(bst):

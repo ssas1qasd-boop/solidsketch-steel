@@ -1,0 +1,105 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  },
+  {
+   "id": 2,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttg",
+   [
+    0,
+    1
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "gpos": "middle",
+    "gshape": "tekla",
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ],
+  [
+   "Ttg",
+   [
+    0,
+    2
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "gpos": "middle",
+    "gshape": "tekla",
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ]
+ ],
+ "description": "HEA240 column, two SHS80*4 braces from one node at +3000 (45 deg up and down), gusset centred on the braces (middle), Tekla outline.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     6000
+    ],
+    "prof": "HEA240"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     450,
+     0,
+     3330
+    ],
+    "p2": [
+     3000,
+     0,
+     6000
+    ],
+    "plane": "Middle",
+    "prof": "SHS80*4"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     450,
+     0,
+     2670
+    ],
+    "p2": [
+     3000,
+     0,
+     0
+    ],
+    "plane": "Middle",
+    "prof": "SHS80*4"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20g_hea240_two_braces_middle",
+ "pageErrors": []
+}

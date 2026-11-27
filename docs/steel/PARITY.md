@@ -117,6 +117,42 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C06 · Tube gusset (20), the gusset: node gussets, single-brace gussets, fins (owner 2026-11-27)
+
+### Step 0: Tekla's own site
+- [Tube gusset (20), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_20_help): the gusset is 20's own part (part key 1). **Picture tab:** 1 / 10 the gusset's upper / lower edge from the connection plates; 2 corner angle; 3 / 7 "length of the edge of the gusset plate that is perpendicular to the uppermost / lowest brace"; 6 "length of the edges of the gusset plate perpendicular to the braces"; 5 "distance between the gusset plate and the brace; if the braces are sealed with end plates, between the gusset plate and the end plate", default 20; 8 / 9 main part to the first brace, between braces. **Gusset tab:** welded directly to the main part (default) / clip angles / connection plate; "Gusset plate shape: optimize the weight"; "Gusset plate position on the brace: in the middle of the brace (default) / on the top flange".
+- So the node gusset is Tube gusset (20)'s own gusset (one component for 1–10 braces); no separate "node gusset" component is needed. Tekla's own videos: none for 20.
+
+### Step 1: videos — the same as C05 (`tests/steel/videos/C05/VIDEO.txt`): the Gusset tab is not read in either video (lighter model); nothing from the videos is used.
+
+### Step 2: the Tekla package
+- NC 6532 (R3019's node gusset, 5 pieces): PL12 549.34 × 280.39, contour (0, 0) (549.34, 0) (549.34, 190.21) (426.53, 257.42) (339.32, 280.39) (199.32, 280.39) …, 12 holes d18 — the same outline as R12's IFC solid and as the rule below.
+
+### R12 (250 gussets of row 6: 168 node gussets, 82 fins)
+- Every brace has an edge square to it at **Picture 5 = 20 before its end plate** (plate tip + 140 for the 315 plates, + 110 for the 285 ones: 166 / 166 brace edges), its half-lengths 70 (half the plate width; 22 brace edges at 55 on one side: Picture 3 / 7).
+- **The outline is the convex hull of those edges' corners and of each corner brought back onto the main part's web face, square to the face and along its brace.** It fits all 62 multi-brace node gussets (51 within 0.1 mm, 11 within 0.4) and all 104 single-brace PL12 gussets (within 0.1 mm); the 82 FLT12*140 fins already matched after C05.
+- At the 6 gable / end-frame nodes (gussets that are their own assembly, marks 11 / 12 / 13) no plate is on its own axis: the gusset is centred on the braces (Gusset tab "middle of the brace", Tekla's default) and the plates lie beside it. Their vertical braces are skewed 4–60 mm out of the gusset's plane, and those 17 gussets stay within 0.2–4.3 mm (open).
+
+### Change, in web v70 (section "C06") and the app (`FamTG.teklaOutline`)
+- Ttg Gusset tab, group "Gusset plate shape": **Gusset shape** = Tekla (the rule above; v69's hull of the tongues for old models), **5 · Gusset to the end plate** (20), the brace edge's half-lengths **toward / away from the main part end** (default half the plate width), **Gusset plate position on the brace** = middle.
+- One brace with Gusset shape Tekla: Tekla's gusset instead of v69's fin.
+
+### Search result: the R12 inputs (`c05_q`, `c05_order`)
+- gshape 'tekla' at every node and every PL12 single-brace gusset; gwa / gwb where R12's edge is shorter than half the plate width (22 ends: 55); gpos 'middle' where no plate of the node is on its axis (12 ends).
+
+### Checks
+| Check | Before (C05, bccb1e7) | After |
+|---|---|---|
+| Row 6 R12 parts (web rebuild, 0.1 mm boxes) | 82 / 250 (fins only; node gussets 15 NEAR, 153 ROUGH) | 233 / 250 (17 NEAR: the gable nodes) |
+| App vs R12 (`R12C05Test`, gussets) | — | 230 / 230 (gable nodes apart: 3 / 18) |
+| Row 5 plates at the C06 nodes | 27 / 82 | the same 27 / 82 (the gable nodes' skewed braces) |
+| Rule B | — | 0 failures: R12 node R3019, R12 single gusset, HEA240 two braces 'middle', IPE360 V node with a shortened edge |
+| App = web | — | `R12RebuildTest` 0 differences; `S7T144Test` + 4 t20g cases |
+| Weight (rebuild, web) | 62,591.88 kg | 62,742.75 kg (Tekla 63,705.8); the 233 matched gussets 1,107.25 kg vs Tekla's 1,109.77 (e.g. the 32 PL12*213.4: 108.8 = 108.8) |
+
+### Status
+Delivered for the owner's phone check; ✓ only after the owner's OK.
+
 ## C05 · Tube gusset (20), the tube end: connection plate, end plates, slot, bolts (owner 2026-11-27)
 
 ### Step 0: Tekla's own site

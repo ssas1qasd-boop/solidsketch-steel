@@ -1,0 +1,104 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  },
+  {
+   "id": 2,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttg",
+   [
+    0,
+    1
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "gshape": "tekla",
+    "gwb": 55,
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ],
+  [
+   "Ttg",
+   [
+    0,
+    2
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "gshape": "tekla",
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ]
+ ],
+ "description": "IPE360 beam, two SHS100*3 braces meeting below it (V node), Tekla outline with the outer edge of the first brace shortened (gwb 55).",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     6000
+    ],
+    "p2": [
+     6000,
+     0,
+     6000
+    ],
+    "prof": "IPE360"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     2650,
+     0,
+     5300
+    ],
+    "p2": [
+     0,
+     0,
+     1000
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     3350,
+     0,
+     5300
+    ],
+    "p2": [
+     6000,
+     0,
+     1000
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20g_ipe360_v_node_gwb55",
+ "pageErrors": []
+}

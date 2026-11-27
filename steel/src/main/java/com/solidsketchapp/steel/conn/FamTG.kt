@@ -113,6 +113,24 @@ object FamTG {
     }
     private class Mem(val id: String, val q: QR, val brId: String, val br: JsonObject) { var s: TgSet? = null }
 
+    /**
+     * v70 C06 · Tekla 20's gusset outline (web gusset70): per brace an edge square to it, Picture 5 (gd, default 20) before its end plate,
+     * half-lengths gwa / gwb on the sides toward + / - the main part's axis (default half the plate width); the points are those corners
+     * and each corner brought back onto the main part's face, square to the face and along its brace; the gusset is their convex hull.
+     */
+    private fun teklaOutline(x: FamCtx, set: List<Pair<QR, TgSet>>, nF: D3, f0: D3, gN: D3, o: D3, a1: D3, a2: D3): List<DoubleArray> {
+        val ma = Joints.mf(x.a, x.profiles); val k = nF.add(gN, -(nF dot gN)).normalize(); val pts = ArrayList<DoubleArray>()
+        fun num(q: QR, key: String, d: Double): Double { val e = q.o[key] as? JsonPrimitive ?: return d; if (e.isString && e.content.isBlank()) return d; val v = StBuild.jsNum(e); return if (v.isFinite()) v else d }
+        for ((q, st) in set) {
+            val sE = st.sTip + (num(q, "L", 315.0) - num(q, "ins", 150.0) - num(q, "cap", 5.0) - num(q, "gd", 20.0)); val w2 = num(q, "w", 140.0) / 2
+            val pa = if ((st.pIn dot ma.a) >= 0) 1 else -1; val hp = num(q, if (pa > 0) "gwa" else "gwb", w2); val hn = num(q, if (pa > 0) "gwb" else "gwa", w2)
+            for (y in listOf(hp, -hn)) { val c = st.w.add(st.d, sE).add(st.pIn, y); val kn = (k dot nF).let { if (it == 0.0) 1.0 else it }
+                val cp = c.add(k, -((c - f0) dot nF) / kn); val dn = st.d dot nF; val ca = if (abs(dn) > 1e-6) c.add(st.d, -((c - f0) dot nF) / dn) else cp
+                for (p in listOf(c, cp, ca)) { val v = p - o; pts += doubleArrayOf(v dot a1, v dot a2) } }
+        }
+        return pts
+    }
+
     /** v69 FAM.TG (L15867): several Ttg on one node of the main part (within nodeR, same face) share one GUSSET PLATE, built by the first. */
     fun gen(x: FamCtx) {
         val b = x.b; if (x.s("kind") == "cross" || !x.t("node") || b == null) return tg22(x)
@@ -129,14 +147,18 @@ object FamTG {
         val l0 = tgSet(x, lead.q, lead.br, plane, null); val gN = l0.g; for (o in s2) o.s = tgSet(x, o.q, o.br, plane, gN)
         // v70 C05 'Connection plate position' = 'against the gusset': every plate lies on the first brace's plane (web: NODE)
         val ag = x.s("tpos") == "gusset"
-        fun shift(st: TgSet) = if (ag && abs(st.g dot l0.g) > 0.99) -((st.w - l0.w) dot st.g) else 0.0
+        // v70 C06 'Gusset plate position on the brace' = middle: the gusset centred on the braces, every plate beside it
+        val w0 = if (ag && x.s("gpos") == "middle") l0.w.add(l0.g, -(if (x.t("side")) x.n("side") else 1.0) * (x.n("t") + x.n("tf")) / 2) else l0.w
+        fun shift(st: TgSet) = if (ag && abs(st.g dot l0.g) > 0.99) -((st.w - w0) dot st.g) else 0.0
         if (ag) for (o in s2) { val st = o.s!!; val sh = shift(st); if (sh != 0.0) o.s = TgSet(st.d, st.w, st.g, st.pIn, st.nF, st.f0, st.sTip, st.fin, st.bl.map { it.add(st.g, sh) }, st.sg, st.steep) }
         val mine = s2.find { it.id == mineId } ?: s2.first { it.brId == x.bId }; val sm = mine.s!!; val t = x.n("t"); val tf = x.n("tf"); val sg = sm.sg
         val r = tgEnd(x, b, x.bId!!, sm.w, sm.d, sm.g, sm.sTip, shift(sm), sg); val bb = x.group(r.bl, sm.g * sg, x.n("bolt"), t + tf + 2)
         x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes); x.bolts(bb, r.bl.size, blen(x, x.n("t") + x.n("tf") + 2 * x.n("bolt")))
         if (mine !== s2[0]) return   // the first connection of the node builds the shared gusset
-        val a1 = l0.d.add(gN, -(l0.d dot gN)).normalize(); val a2 = (gN cross a1).normalize(); val o = l0.w; val gf = Joints.Frame3(o, a1, a2)
-        val pts = ArrayList<DoubleArray>(); for (m in s2) for (p in m.s!!.fin) { val v = p - o; pts += doubleArrayOf(v dot a1, v dot a2) }
+        val a1 = l0.d.add(gN, -(l0.d dot gN)).normalize(); val a2 = (gN cross a1).normalize(); val o = w0; val gf = Joints.Frame3(o, a1, a2)
+        val pts = ArrayList<DoubleArray>()
+        if (x.s("gshape") == "tekla") pts += teklaOutline(x, s2.map { it.q to it.s!! }, l0.nF, l0.f0, gN, o, a1, a2)
+        else for (m in s2) for (p in m.s!!.fin) { val v = p - o; pts += doubleArrayOf(v dot a1, v dot a2) }
         val z0 = sg * t / 2; val z1 = sg * (t / 2 + tf); val gus = gf.poly(hull(pts), min(z0, z1), max(z0, z1))
         // gus.intersect(the half space in front of the face) = gus minus the half space behind it; then minus the main part's envelope and every brace's holes
         val behind = Joints.box3(l0.f0, l0.nF, l0.pIn.add(l0.nF, -(l0.pIn dot l0.nF)).normalize(), -BIG, -0.01, -BIG, BIG, -BIG, BIG)
@@ -184,12 +206,15 @@ object FamTG {
         val r = tgEnd(x, br, x.bId!!, w, d, g, sTip, toff, sg)
         val tf = x.n("tf"); val fw2 = (if (x.t("fw")) x.n("fw") else x.n("w")) / 2; val z0 = toff + sg * t / 2; val z1 = toff + sg * (t / 2 + tf); val sEnd = sTip + (2 * x.n("e") + x.n("p"))
         val s0 = -80 - outst / sinT
-        val fin = r.f.poly(listOf(doubleArrayOf(s0, -fw2), doubleArrayOf(sEnd, -fw2), doubleArrayOf(sEnd, fw2 - 25), doubleArrayOf(sEnd - 25, fw2), doubleArrayOf(s0, fw2)), min(z0, z1), max(z0, z1))
+        val teklaG = x.s("gshape") == "tekla"   // v70 C06: one brace's gusset by Tekla 20's outline rule (not a fin)
+        val fin = if (teklaG) { val st = tgSet(x, QR(x.q), br, null, null); val a1 = d; val a2 = (g cross d).normalize()
+                r.f.poly(hull(teklaOutline(x, listOf(QR(x.q) to st), nF, f0, g, w, a1, a2)), min(z0, z1), max(z0, z1)) }
+            else r.f.poly(listOf(doubleArrayOf(s0, -fw2), doubleArrayOf(sEnd, -fw2), doubleArrayOf(sEnd, fw2 - 25), doubleArrayOf(sEnd - 25, fw2), doubleArrayOf(s0, fw2)), min(z0, z1), max(z0, z1))
         // fin.intersect(the half space in front of the face) = fin minus the half space behind it; then minus the main part's envelope
         val behind = Joints.box3(f0, nF, pIn.add(nF, -(pIn dot nF)).normalize(), -BIG, -0.01, -BIG, BIG, -BIG, BIG)
         val bb = x.group(r.bl, g * sg, x.n("bolt"), t + tf + 2)
         x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes)
-        x.plate("FIN PLATE", fin, tf, minus = listOfNotNull(behind, runCatching { envelope(x, x.a) }.getOrNull()) + bb.holes)
+        x.plate(if (teklaG) "GUSSET PLATE" else "FIN PLATE", fin, tf, minus = listOfNotNull(behind, runCatching { envelope(x, x.a) }.getOrNull()) + bb.holes)
         x.bolts(bb, r.bl.size, blen(x, x.n("t") + x.n("tf") + 2 * x.n("bolt"))); x.weld("Fin plate to main part", x.n("a"), 2 * (sEnd + outst / sinT + 80))
     }
 }

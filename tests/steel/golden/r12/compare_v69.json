@@ -28659,10 +28659,10 @@
    "v69": 2851,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.705,
-   "volRatio": 0.861,
-   "kgV69": 11.0,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.74,
+   "status": "MATCHED"
   },
   {
    "id": 1856,
@@ -31948,11 +31948,10 @@
    "v69": 2860,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.852,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.592
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2077,
@@ -32119,11 +32118,10 @@
    "v69": 2869,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.949,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.641
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2087,
@@ -32290,11 +32288,10 @@
    "v69": 2878,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.949,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.641
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2098,
@@ -32461,11 +32458,10 @@
    "v69": 2887,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.949,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.641
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2108,
@@ -32528,12 +32524,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 2895,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2112,
@@ -32717,12 +32713,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 2900,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2123,
@@ -32785,12 +32781,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 2905,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2127,
@@ -32974,12 +32970,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 2910,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2138,
@@ -33042,12 +33038,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 2915,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2142,
@@ -33231,12 +33227,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 2920,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2153,
@@ -33299,12 +33295,12 @@
    "label": "node gusset",
    "kg": 3.36,
    "v69": 2925,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.334,
-   "volRatio": 0.813,
-   "kgV69": 2.75,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.36,
+   "status": "MATCHED"
   },
   {
    "id": 2157,
@@ -33488,12 +33484,12 @@
    "label": "node gusset",
    "kg": 3.36,
    "v69": 2930,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.334,
-   "volRatio": 0.813,
-   "kgV69": 2.75,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.36,
+   "status": "MATCHED"
   },
   {
    "id": 2168,
@@ -33660,10 +33656,10 @@
    "v69": 2936,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.702,
-   "volRatio": 0.862,
-   "kgV69": 9.38,
-   "status": "ROUGH"
+   "boxDiff": 0.061,
+   "volRatio": 1.001,
+   "kgV69": 10.84,
+   "status": "MATCHED"
   },
   {
    "id": 2178,
@@ -33830,11 +33826,10 @@
    "v69": 2945,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.949,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.642
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2201,
@@ -33848,10 +33843,11 @@
    "v69": 4384,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.781,
-   "volRatio": 1.359,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.477,
+   "volRatio": 0.989,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.208
   },
   {
    "id": 2202,
@@ -33865,10 +33861,11 @@
    "v69": 4396,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.779,
-   "volRatio": 1.359,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.475,
+   "volRatio": 0.989,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.206
   },
   {
    "id": 2203,
@@ -33900,10 +33897,11 @@
    "v69": 4476,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.419,
-   "volRatio": 1.345,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.581,
+   "volRatio": 0.978,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.164
   },
   {
    "id": 2205,
@@ -33934,10 +33932,11 @@
    "v69": 4436,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.418,
-   "volRatio": 1.345,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.582,
+   "volRatio": 0.978,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.164
   },
   {
    "id": 2207,
@@ -33951,10 +33950,11 @@
    "v69": 4448,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.418,
-   "volRatio": 1.345,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.582,
+   "volRatio": 0.978,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.164
   },
   {
    "id": 2208,
@@ -33968,10 +33968,11 @@
    "v69": 4424,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.418,
-   "volRatio": 1.345,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.582,
+   "volRatio": 0.978,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.164
   },
   {
    "id": 2209,
@@ -35523,12 +35524,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3008,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2300,
@@ -35591,12 +35592,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3013,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2304,
@@ -35763,10 +35764,10 @@
    "v69": 3019,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.702,
-   "volRatio": 0.863,
-   "kgV69": 9.28,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 10.72,
+   "status": "MATCHED"
   },
   {
    "id": 2314,
@@ -35948,12 +35949,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3032,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2325,
@@ -36120,11 +36121,10 @@
    "v69": 3038,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.852,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.592
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2335,
@@ -36187,12 +36187,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3046,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2339,
@@ -36323,12 +36323,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3051,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2347,
@@ -36391,12 +36391,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3056,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2351,
@@ -36563,11 +36563,10 @@
    "v69": 3062,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.852,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.592
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2361,
@@ -36647,12 +36646,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3070,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2366,
@@ -36715,12 +36714,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3075,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2370,
@@ -36887,10 +36886,10 @@
    "v69": 3081,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.705,
-   "volRatio": 0.861,
-   "kgV69": 11.0,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.74,
+   "status": "MATCHED"
   },
   {
    "id": 2380,
@@ -38076,10 +38075,10 @@
    "v69": 3090,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.704,
-   "volRatio": 0.857,
-   "kgV69": 10.95,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.75,
+   "status": "MATCHED"
   },
   {
    "id": 2469,
@@ -38142,12 +38141,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3098,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2473,
@@ -38295,12 +38294,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3108,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2482,
@@ -38467,10 +38466,10 @@
    "v69": 3114,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.703,
-   "volRatio": 0.859,
-   "kgV69": 11.12,
-   "status": "ROUGH"
+   "boxDiff": 0.062,
+   "volRatio": 1.001,
+   "kgV69": 12.9,
+   "status": "MATCHED"
   },
   {
    "id": 2492,
@@ -38533,12 +38532,12 @@
    "label": "node gusset",
    "kg": 3.36,
    "v69": 3122,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.335,
-   "volRatio": 0.813,
-   "kgV69": 2.75,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.36,
+   "status": "MATCHED"
   },
   {
    "id": 2496,
@@ -38601,12 +38600,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3127,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2500,
@@ -39553,12 +39552,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3182,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2556,
@@ -39621,12 +39620,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3187,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2560,
@@ -39793,10 +39792,10 @@
    "v69": 3193,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.702,
-   "volRatio": 0.863,
-   "kgV69": 9.28,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 10.72,
+   "status": "MATCHED"
   },
   {
    "id": 2570,
@@ -39978,12 +39977,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3206,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.637,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2581,
@@ -40150,11 +40149,10 @@
    "v69": 3212,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.854,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.592
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2591,
@@ -40217,12 +40215,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3220,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2595,
@@ -40389,11 +40387,10 @@
    "v69": 3226,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 1.128,
-   "volRatio": 0.872,
-   "kgV69": 10.95,
-   "status": "NEAR",
-   "sameSizeAt": 0.579
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.54,
+   "status": "MATCHED"
   },
   {
    "id": 2605,
@@ -40473,12 +40470,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3234,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2610,
@@ -40541,12 +40538,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3239,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2614,
@@ -40609,12 +40606,12 @@
    "label": "node gusset",
    "kg": 3.36,
    "v69": 3244,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.335,
-   "volRatio": 0.813,
-   "kgV69": 2.75,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.36,
+   "status": "MATCHED"
   },
   {
    "id": 2618,
@@ -40728,12 +40725,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3249,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2625,
@@ -40796,12 +40793,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3254,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2629,
@@ -40864,12 +40861,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3259,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.635,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2633,
@@ -41036,11 +41033,10 @@
    "v69": 3265,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.852,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.592
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2643,
@@ -41120,12 +41116,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3273,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.637,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2648,
@@ -41188,12 +41184,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3278,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2652,
@@ -41360,10 +41356,10 @@
    "v69": 3284,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.703,
-   "volRatio": 0.861,
-   "kgV69": 11.0,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.74,
+   "status": "MATCHED"
   },
   {
    "id": 2662,
@@ -42549,10 +42545,10 @@
    "v69": 3293,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.704,
-   "volRatio": 0.857,
-   "kgV69": 10.95,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.75,
+   "status": "MATCHED"
   },
   {
    "id": 2765,
@@ -42615,12 +42611,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3301,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2769,
@@ -42768,12 +42764,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3311,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.637,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2778,
@@ -42940,10 +42936,10 @@
    "v69": 3317,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.703,
-   "volRatio": 0.859,
-   "kgV69": 11.12,
-   "status": "ROUGH"
+   "boxDiff": 0.063,
+   "volRatio": 1.001,
+   "kgV69": 12.9,
+   "status": "MATCHED"
   },
   {
    "id": 2788,
@@ -43006,12 +43002,12 @@
    "label": "node gusset",
    "kg": 3.36,
    "v69": 3325,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.335,
-   "volRatio": 0.813,
-   "kgV69": 2.75,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.36,
+   "status": "MATCHED"
   },
   {
    "id": 2792,
@@ -43074,12 +43070,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3330,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2796,
@@ -44026,12 +44022,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3385,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2852,
@@ -44094,12 +44090,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3390,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.637,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2856,
@@ -44266,10 +44262,10 @@
    "v69": 3396,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.704,
-   "volRatio": 0.863,
-   "kgV69": 9.28,
-   "status": "ROUGH"
+   "boxDiff": 0.002,
+   "volRatio": 1.001,
+   "kgV69": 10.72,
+   "status": "MATCHED"
   },
   {
    "id": 2866,
@@ -44451,12 +44447,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3409,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.636,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2877,
@@ -44623,11 +44619,10 @@
    "v69": 3415,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.854,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.592
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2887,
@@ -44690,12 +44685,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3423,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2891,
@@ -44862,11 +44857,10 @@
    "v69": 3429,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 1.126,
-   "volRatio": 0.872,
-   "kgV69": 10.95,
-   "status": "NEAR",
-   "sameSizeAt": 0.577
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.54,
+   "status": "MATCHED"
   },
   {
    "id": 2901,
@@ -44946,12 +44940,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3437,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2906,
@@ -45014,12 +45008,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3442,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.637,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2910,
@@ -45082,12 +45076,12 @@
    "label": "node gusset",
    "kg": 3.36,
    "v69": 3447,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.335,
-   "volRatio": 0.813,
-   "kgV69": 2.75,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.36,
+   "status": "MATCHED"
   },
   {
    "id": 2914,
@@ -45201,12 +45195,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3452,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2921,
@@ -45269,12 +45263,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3457,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2925,
@@ -45337,12 +45331,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3462,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.637,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2929,
@@ -45509,11 +45503,10 @@
    "v69": 3468,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.854,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.592
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 2939,
@@ -45593,12 +45586,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3476,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.636,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2944,
@@ -45661,12 +45654,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3481,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 2948,
@@ -45833,10 +45826,10 @@
    "v69": 3487,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.703,
-   "volRatio": 0.861,
-   "kgV69": 11.0,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.74,
+   "status": "MATCHED"
   },
   {
    "id": 2958,
@@ -47635,10 +47628,10 @@
    "v69": 3496,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.704,
-   "volRatio": 0.859,
-   "kgV69": 11.12,
-   "status": "ROUGH"
+   "boxDiff": 0.063,
+   "volRatio": 1.001,
+   "kgV69": 12.9,
+   "status": "MATCHED"
   },
   {
    "id": 3098,
@@ -47805,10 +47798,10 @@
    "v69": 3505,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.704,
-   "volRatio": 0.857,
-   "kgV69": 10.95,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.75,
+   "status": "MATCHED"
   },
   {
    "id": 3108,
@@ -47975,11 +47968,10 @@
    "v69": 3514,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 1.127,
-   "volRatio": 0.872,
-   "kgV69": 10.95,
-   "status": "NEAR",
-   "sameSizeAt": 0.578
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.54,
+   "status": "MATCHED"
   },
   {
    "id": 3118,
@@ -48526,12 +48518,12 @@
    "label": "node gusset",
    "kg": 3.36,
    "v69": 3522,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.335,
-   "volRatio": 0.813,
-   "kgV69": 2.75,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.36,
+   "status": "MATCHED"
   },
   {
    "id": 3154,
@@ -48594,12 +48586,12 @@
    "label": "node gusset",
    "kg": 3.36,
    "v69": 3527,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.335,
-   "volRatio": 0.813,
-   "kgV69": 2.75,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.36,
+   "status": "MATCHED"
   },
   {
    "id": 3158,
@@ -48662,12 +48654,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3532,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3162,
@@ -48730,12 +48722,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 3537,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3166,
@@ -50974,12 +50966,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 3677,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.386,
-   "volRatio": 0.814,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 3311,
@@ -51042,12 +51034,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 3682,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.361,
-   "volRatio": 0.815,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 3315,
@@ -51456,10 +51448,10 @@
    "v69": 3688,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.231,
-   "volRatio": 0.888,
-   "kgV69": 10.58,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 11.89,
+   "status": "MATCHED"
   },
   {
    "id": 3339,
@@ -51626,10 +51618,10 @@
    "v69": 3701,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.115,
-   "volRatio": 0.907,
-   "kgV69": 10.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 11.87,
+   "status": "MATCHED"
   },
   {
    "id": 3349,
@@ -51734,8 +51726,8 @@
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
    "boxDiff": 1.207,
-   "volRatio": 0.9,
-   "kgV69": 6.95,
+   "volRatio": 1.001,
+   "kgV69": 7.71,
    "status": "NEAR",
    "sameSizeAt": 1.1
   },
@@ -51838,11 +51830,10 @@
    "v69": 3714,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 0.009,
-   "volRatio": 0.9,
-   "kgV69": 6.92,
-   "status": "NEAR",
-   "sameSizeAt": 0.005
+   "boxDiff": 0.017,
+   "volRatio": 1.001,
+   "kgV69": 7.67,
+   "status": "MATCHED"
   },
   {
    "id": 3369,
@@ -51905,12 +51896,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 3718,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.386,
-   "volRatio": 0.814,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 3373,
@@ -51973,12 +51964,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 3723,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.361,
-   "volRatio": 0.815,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 3377,
@@ -52387,10 +52378,10 @@
    "v69": 3729,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.231,
-   "volRatio": 0.888,
-   "kgV69": 10.58,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 11.89,
+   "status": "MATCHED"
   },
   {
    "id": 3401,
@@ -52557,10 +52548,10 @@
    "v69": 3742,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.115,
-   "volRatio": 0.907,
-   "kgV69": 10.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 11.87,
+   "status": "MATCHED"
   },
   {
    "id": 3411,
@@ -52574,10 +52565,11 @@
    "v69": 4383,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 12.258,
-   "volRatio": 0.778,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.477,
+   "volRatio": 0.991,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.151
   },
   {
    "id": 3412,
@@ -52591,10 +52583,11 @@
    "v69": 4389,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.167,
-   "volRatio": 1.341,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.832,
+   "volRatio": 0.975,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.416
   },
   {
    "id": 3413,
@@ -52608,11 +52601,11 @@
    "v69": 4385,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 12.352,
+   "boxDiff": 0.352,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 12.02
+   "status": "NEAR",
+   "sameSizeAt": 0.061
   },
   {
    "id": 3414,
@@ -52626,10 +52619,11 @@
    "v69": 4388,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.165,
-   "volRatio": 0.798,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.834,
+   "volRatio": 1.015,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.418
   },
   {
    "id": 3415,
@@ -52643,11 +52637,11 @@
    "v69": 4390,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.167,
+   "boxDiff": 0.833,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.167
+   "status": "NEAR",
+   "sameSizeAt": 0.833
   },
   {
    "id": 3416,
@@ -52661,11 +52655,11 @@
    "v69": 4387,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.164,
-   "volRatio": 0.9,
-   "kgV69": 6.95,
-   "status": "ROUGH",
-   "sameSizeAt": 10.164
+   "boxDiff": 2.836,
+   "volRatio": 1.002,
+   "kgV69": 7.71,
+   "status": "NEAR",
+   "sameSizeAt": 1.836
   },
   {
    "id": 3417,
@@ -52766,11 +52760,11 @@
    "v69": 3755,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 0.267,
-   "volRatio": 0.902,
-   "kgV69": 6.95,
+   "boxDiff": 0.429,
+   "volRatio": 1.003,
+   "kgV69": 7.7,
    "status": "NEAR",
-   "sameSizeAt": 0.161
+   "sameSizeAt": 0.202
   },
   {
    "id": 3431,
@@ -52833,12 +52827,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 3759,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.386,
-   "volRatio": 0.814,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 3435,
@@ -52901,12 +52895,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 3764,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.361,
-   "volRatio": 0.815,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 3439,
@@ -53315,10 +53309,10 @@
    "v69": 3770,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.231,
-   "volRatio": 0.888,
-   "kgV69": 10.58,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 11.89,
+   "status": "MATCHED"
   },
   {
    "id": 3463,
@@ -53485,10 +53479,10 @@
    "v69": 3783,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.115,
-   "volRatio": 0.907,
-   "kgV69": 10.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 11.87,
+   "status": "MATCHED"
   },
   {
    "id": 3473,
@@ -53502,10 +53496,11 @@
    "v69": 4395,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 12.258,
-   "volRatio": 0.778,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.475,
+   "volRatio": 0.991,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.151
   },
   {
    "id": 3474,
@@ -53519,10 +53514,11 @@
    "v69": 4401,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.167,
-   "volRatio": 1.341,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.832,
+   "volRatio": 0.975,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.416
   },
   {
    "id": 3475,
@@ -53536,11 +53532,11 @@
    "v69": 4397,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 12.352,
+   "boxDiff": 0.352,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 12.019
+   "status": "NEAR",
+   "sameSizeAt": 0.061
   },
   {
    "id": 3476,
@@ -53554,10 +53550,11 @@
    "v69": 4400,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.167,
-   "volRatio": 0.798,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.832,
+   "volRatio": 1.015,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.416
   },
   {
    "id": 3477,
@@ -53571,11 +53568,11 @@
    "v69": 4402,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.167,
+   "boxDiff": 0.833,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.167
+   "status": "NEAR",
+   "sameSizeAt": 0.833
   },
   {
    "id": 3478,
@@ -53589,11 +53586,11 @@
    "v69": 4399,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.166,
-   "volRatio": 0.9,
-   "kgV69": 6.95,
-   "status": "ROUGH",
-   "sameSizeAt": 10.166
+   "boxDiff": 2.834,
+   "volRatio": 1.001,
+   "kgV69": 7.71,
+   "status": "NEAR",
+   "sameSizeAt": 1.834
   },
   {
    "id": 3479,
@@ -53694,11 +53691,11 @@
    "v69": 3796,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 0.267,
-   "volRatio": 0.902,
-   "kgV69": 6.95,
+   "boxDiff": 0.429,
+   "volRatio": 1.003,
+   "kgV69": 7.7,
    "status": "NEAR",
-   "sameSizeAt": 0.161
+   "sameSizeAt": 0.202
   },
   {
    "id": 3493,
@@ -53761,12 +53758,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 3800,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.386,
-   "volRatio": 0.814,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 3497,
@@ -53829,12 +53826,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 3805,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.361,
-   "volRatio": 0.815,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 3501,
@@ -54243,10 +54240,10 @@
    "v69": 3811,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.231,
-   "volRatio": 0.888,
-   "kgV69": 10.58,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 11.89,
+   "status": "MATCHED"
   },
   {
    "id": 3525,
@@ -54413,10 +54410,10 @@
    "v69": 3824,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.115,
-   "volRatio": 0.907,
-   "kgV69": 10.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 11.87,
+   "status": "MATCHED"
   },
   {
    "id": 3535,
@@ -54521,8 +54518,8 @@
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
    "boxDiff": 1.07,
-   "volRatio": 0.9,
-   "kgV69": 6.95,
+   "volRatio": 1.001,
+   "kgV69": 7.71,
    "status": "NEAR",
    "sameSizeAt": 0.974
   },
@@ -54625,11 +54622,10 @@
    "v69": 3837,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 0.008,
-   "volRatio": 0.9,
-   "kgV69": 6.92,
-   "status": "NEAR",
-   "sameSizeAt": 0.004
+   "boxDiff": 0.015,
+   "volRatio": 1.001,
+   "kgV69": 7.67,
+   "status": "MATCHED"
   },
   {
    "id": 3555,
@@ -54692,12 +54688,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3841,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3559,
@@ -54760,12 +54756,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 3846,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 3563,
@@ -54828,12 +54824,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 3851,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 3567,
@@ -54896,12 +54892,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3856,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3571,
@@ -54964,12 +54960,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3861,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3575,
@@ -55274,12 +55270,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3866,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3593,
@@ -55380,10 +55376,11 @@
    "v69": 3872,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 27.712,
-   "volRatio": 0.868,
-   "kgV69": 10.83,
-   "status": "ROUGH"
+   "boxDiff": 0.243,
+   "volRatio": 1.002,
+   "kgV69": 12.48,
+   "status": "NEAR",
+   "sameSizeAt": 0.137
   },
   {
    "id": 3599,
@@ -55397,10 +55394,11 @@
    "v69": 4423,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.848,
-   "volRatio": 0.784,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.426,
+   "volRatio": 0.998,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.304
   },
   {
    "id": 3600,
@@ -55414,10 +55412,11 @@
    "v69": 4429,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.25,
-   "volRatio": 1.344,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.749,
+   "volRatio": 0.977,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.375
   },
   {
    "id": 3601,
@@ -55431,11 +55430,11 @@
    "v69": 4425,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.93,
+   "boxDiff": 0.664,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.633
+   "status": "NEAR",
+   "sameSizeAt": 0.37
   },
   {
    "id": 3602,
@@ -55449,10 +55448,11 @@
    "v69": 4428,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.251,
-   "volRatio": 0.796,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.748,
+   "volRatio": 1.013,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.375
   },
   {
    "id": 3603,
@@ -55466,11 +55466,11 @@
    "v69": 4430,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.252,
+   "boxDiff": 0.75,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.251
+   "status": "NEAR",
+   "sameSizeAt": 0.749
   },
   {
    "id": 3604,
@@ -55484,10 +55484,10 @@
    "v69": 4427,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 27.667,
-   "volRatio": 0.867,
-   "kgV69": 10.81,
-   "status": "ROUGH"
+   "boxDiff": 4.34,
+   "volRatio": 1.001,
+   "kgV69": 12.45,
+   "status": "NEAR"
   },
   {
    "id": 3605,
@@ -55787,12 +55787,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3876,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3632,
@@ -55855,12 +55855,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 3881,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 3636,
@@ -55923,12 +55923,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 3886,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 3640,
@@ -55991,12 +55991,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3891,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3644,
@@ -56059,12 +56059,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3896,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3648,
@@ -56369,12 +56369,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3901,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3666,
@@ -56475,10 +56475,11 @@
    "v69": 3907,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 27.712,
-   "volRatio": 0.868,
-   "kgV69": 10.83,
-   "status": "ROUGH"
+   "boxDiff": 0.243,
+   "volRatio": 1.002,
+   "kgV69": 12.48,
+   "status": "NEAR",
+   "sameSizeAt": 0.137
   },
   {
    "id": 3672,
@@ -56492,10 +56493,11 @@
    "v69": 4435,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.848,
-   "volRatio": 0.784,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.426,
+   "volRatio": 0.998,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.304
   },
   {
    "id": 3673,
@@ -56509,10 +56511,11 @@
    "v69": 4441,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.25,
-   "volRatio": 1.344,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.749,
+   "volRatio": 0.977,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.375
   },
   {
    "id": 3674,
@@ -56526,11 +56529,11 @@
    "v69": 4437,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.93,
+   "boxDiff": 0.664,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.633
+   "status": "NEAR",
+   "sameSizeAt": 0.37
   },
   {
    "id": 3675,
@@ -56544,10 +56547,11 @@
    "v69": 4440,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.251,
-   "volRatio": 0.796,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.748,
+   "volRatio": 1.013,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.375
   },
   {
    "id": 3676,
@@ -56561,11 +56565,11 @@
    "v69": 4442,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.252,
+   "boxDiff": 0.75,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.251
+   "status": "NEAR",
+   "sameSizeAt": 0.749
   },
   {
    "id": 3677,
@@ -56579,10 +56583,10 @@
    "v69": 4439,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 27.667,
-   "volRatio": 0.867,
-   "kgV69": 10.81,
-   "status": "ROUGH"
+   "boxDiff": 4.34,
+   "volRatio": 1.001,
+   "kgV69": 12.45,
+   "status": "NEAR"
   },
   {
    "id": 3678,
@@ -56882,12 +56886,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3911,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3705,
@@ -56950,12 +56954,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 3916,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 3709,
@@ -57018,12 +57022,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 3921,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 3713,
@@ -57086,12 +57090,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3926,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3717,
@@ -57154,12 +57158,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3931,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3721,
@@ -57464,12 +57468,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3936,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3739,
@@ -57570,10 +57574,11 @@
    "v69": 3942,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 27.712,
-   "volRatio": 0.868,
-   "kgV69": 10.83,
-   "status": "ROUGH"
+   "boxDiff": 0.243,
+   "volRatio": 1.002,
+   "kgV69": 12.48,
+   "status": "NEAR",
+   "sameSizeAt": 0.137
   },
   {
    "id": 3745,
@@ -57587,10 +57592,11 @@
    "v69": 4447,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.846,
-   "volRatio": 0.784,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.426,
+   "volRatio": 0.998,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.305
   },
   {
    "id": 3746,
@@ -57604,10 +57610,11 @@
    "v69": 4453,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.25,
-   "volRatio": 1.344,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.749,
+   "volRatio": 0.977,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.375
   },
   {
    "id": 3747,
@@ -57621,11 +57628,11 @@
    "v69": 4449,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.93,
+   "boxDiff": 0.666,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.632
+   "status": "NEAR",
+   "sameSizeAt": 0.371
   },
   {
    "id": 3748,
@@ -57639,10 +57646,11 @@
    "v69": 4452,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.25,
-   "volRatio": 0.796,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.749,
+   "volRatio": 1.014,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.375
   },
   {
    "id": 3749,
@@ -57656,11 +57664,11 @@
    "v69": 4454,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.251,
+   "boxDiff": 0.749,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.251
+   "status": "NEAR",
+   "sameSizeAt": 0.749
   },
   {
    "id": 3750,
@@ -57674,10 +57682,10 @@
    "v69": 4451,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 27.667,
-   "volRatio": 0.867,
-   "kgV69": 10.81,
-   "status": "ROUGH"
+   "boxDiff": 4.34,
+   "volRatio": 1.001,
+   "kgV69": 12.45,
+   "status": "NEAR"
   },
   {
    "id": 3751,
@@ -57977,12 +57985,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3946,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3778,
@@ -58045,12 +58053,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 3951,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 3782,
@@ -58113,12 +58121,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 3956,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 3786,
@@ -58181,12 +58189,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3961,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3790,
@@ -58249,12 +58257,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3966,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3794,
@@ -58559,12 +58567,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 3971,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 3812,
@@ -58664,10 +58672,9 @@
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
    "boxDiff": 0.0,
-   "volRatio": 0.903,
-   "kgV69": 6.47,
-   "status": "NEAR",
-   "sameSizeAt": 0.0
+   "volRatio": 1.001,
+   "kgV69": 7.15,
+   "status": "MATCHED"
   },
   {
    "id": 3818,
@@ -58767,10 +58774,9 @@
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
    "boxDiff": 0.0,
-   "volRatio": 0.903,
-   "kgV69": 6.48,
-   "status": "NEAR",
-   "sameSizeAt": 0.0
+   "volRatio": 1.001,
+   "kgV69": 7.16,
+   "status": "MATCHED"
   },
   {
    "id": 3824,
@@ -59921,12 +59927,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4054,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3905,
@@ -59989,12 +59995,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4059,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.636,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3909,
@@ -60057,12 +60063,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4064,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.636,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3913,
@@ -60125,12 +60131,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4069,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3927,
@@ -60193,12 +60199,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4074,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3931,
@@ -60261,12 +60267,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4079,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.636,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3935,
@@ -60450,12 +60456,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4084,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3946,
@@ -60518,12 +60524,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4089,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.636,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3950,
@@ -60811,11 +60817,10 @@
    "v69": 4095,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.853,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.592
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 3967,
@@ -60982,10 +60987,10 @@
    "v69": 4104,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.703,
-   "volRatio": 0.863,
-   "kgV69": 9.28,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 10.72,
+   "status": "MATCHED"
   },
   {
    "id": 3984,
@@ -61048,12 +61053,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4112,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.636,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3988,
@@ -61116,12 +61121,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4117,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.636,
-   "volRatio": 0.811,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 3992,
@@ -61409,11 +61414,10 @@
    "v69": 4123,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.853,
-   "volRatio": 0.876,
-   "kgV69": 10.97,
-   "status": "ROUGH",
-   "sameSizeAt": 12.592
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 12.5,
+   "status": "MATCHED"
   },
   {
    "id": 4009,
@@ -61597,12 +61601,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4131,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 4020,
@@ -61665,12 +61669,12 @@
    "label": "node gusset",
    "kg": 3.4,
    "v69": 4136,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.002,
-   "volRatio": 0.81,
-   "kgV69": 2.77,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.4,
+   "status": "MATCHED"
   },
   {
    "id": 4024,
@@ -61837,10 +61841,10 @@
    "v69": 4142,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.704,
-   "volRatio": 0.861,
-   "kgV69": 11.0,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 12.74,
+   "status": "MATCHED"
   },
   {
    "id": 4041,
@@ -61903,12 +61907,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 4150,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 4045,
@@ -61971,12 +61975,12 @@
    "label": "node gusset",
    "kg": 3.39,
    "v69": 4155,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.855,
-   "volRatio": 0.811,
-   "kgV69": 2.76,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.39,
+   "status": "MATCHED"
   },
   {
    "id": 4049,
@@ -62077,10 +62081,11 @@
    "v69": 4161,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 27.712,
-   "volRatio": 0.868,
-   "kgV69": 10.83,
-   "status": "ROUGH"
+   "boxDiff": 0.243,
+   "volRatio": 1.002,
+   "kgV69": 12.48,
+   "status": "NEAR",
+   "sameSizeAt": 0.137
   },
   {
    "id": 4055,
@@ -62094,10 +62099,11 @@
    "v69": 4475,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.846,
-   "volRatio": 0.784,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.426,
+   "volRatio": 0.998,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.305
   },
   {
    "id": 4056,
@@ -62111,10 +62117,11 @@
    "v69": 4481,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.25,
-   "volRatio": 1.344,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.749,
+   "volRatio": 0.977,
+   "kgV69": 0.13,
+   "status": "NEAR",
+   "sameSizeAt": 0.375
   },
   {
    "id": 4057,
@@ -62128,11 +62135,11 @@
    "v69": 4477,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.93,
+   "boxDiff": 0.665,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.633
+   "status": "NEAR",
+   "sameSizeAt": 0.371
   },
   {
    "id": 4058,
@@ -62146,10 +62153,11 @@
    "v69": 4480,
    "v69name": "END CAP",
    "v69prof": "FLT5*100",
-   "boxDiff": 11.25,
-   "volRatio": 0.796,
-   "kgV69": 0.17,
-   "status": "ROUGH"
+   "boxDiff": 0.749,
+   "volRatio": 1.014,
+   "kgV69": 0.22,
+   "status": "NEAR",
+   "sameSizeAt": 0.375
   },
   {
    "id": 4059,
@@ -62163,11 +62171,11 @@
    "v69": 4482,
    "v69name": "TONGUE PLATE",
    "v69prof": "FLT12*140",
-   "boxDiff": 11.25,
+   "boxDiff": 0.749,
    "volRatio": 1.001,
    "kgV69": 4.15,
-   "status": "ROUGH",
-   "sameSizeAt": 11.25
+   "status": "NEAR",
+   "sameSizeAt": 0.749
   },
   {
    "id": 4060,
@@ -62181,10 +62189,10 @@
    "v69": 4479,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 27.667,
-   "volRatio": 0.867,
-   "kgV69": 10.81,
-   "status": "ROUGH"
+   "boxDiff": 4.34,
+   "volRatio": 1.001,
+   "kgV69": 12.45,
+   "status": "NEAR"
   },
   {
    "id": 4061,
@@ -62489,12 +62497,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 4165,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 4079,
@@ -62557,12 +62565,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 4170,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.166,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 4083,
@@ -62625,12 +62633,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 4175,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 4087,
@@ -62693,12 +62701,12 @@
    "label": "node gusset",
    "kg": 3.42,
    "v69": 4180,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 12.165,
-   "volRatio": 0.809,
-   "kgV69": 2.78,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.42,
+   "status": "MATCHED"
   },
   {
    "id": 4097,
@@ -62761,12 +62769,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 4185,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.386,
-   "volRatio": 0.814,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 4101,
@@ -62829,12 +62837,12 @@
    "label": "node gusset",
    "kg": 3.34,
    "v69": 4190,
-   "v69name": "FIN PLATE",
+   "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 11.361,
-   "volRatio": 0.815,
-   "kgV69": 2.73,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 3.34,
+   "status": "MATCHED"
   },
   {
    "id": 4105,
@@ -63122,10 +63130,10 @@
    "v69": 4196,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.231,
-   "volRatio": 0.888,
-   "kgV69": 10.58,
-   "status": "ROUGH"
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 11.89,
+   "status": "MATCHED"
   },
   {
    "id": 4122,
@@ -63292,10 +63300,10 @@
    "v69": 4209,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 13.115,
-   "volRatio": 0.907,
-   "kgV69": 10.78,
-   "status": "ROUGH"
+   "boxDiff": 0.001,
+   "volRatio": 1.001,
+   "kgV69": 11.87,
+   "status": "MATCHED"
   },
   {
    "id": 4132,
@@ -63400,8 +63408,8 @@
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
    "boxDiff": 1.023,
-   "volRatio": 0.9,
-   "kgV69": 6.95,
+   "volRatio": 1.001,
+   "kgV69": 7.71,
    "status": "NEAR",
    "sameSizeAt": 0.932
   },
@@ -63504,11 +63512,10 @@
    "v69": 4222,
    "v69name": "GUSSET PLATE",
    "v69prof": "PL12",
-   "boxDiff": 0.008,
-   "volRatio": 0.9,
-   "kgV69": 6.92,
-   "status": "NEAR",
-   "sameSizeAt": 0.004
+   "boxDiff": 0.013,
+   "volRatio": 1.001,
+   "kgV69": 7.67,
+   "status": "MATCHED"
   },
   {
    "id": 4144,
@@ -74940,10 +74947,10 @@
     "END PLATE | PL12": 47,
     "END PLATE | PL16": 6,
     "END PLATE | PL20": 48,
-    "FIN PLATE | PL12": 186,
+    "FIN PLATE | PL12": 82,
     "FOOT PLATE | PL12": 4,
     "GROUT | PL30": 52,
-    "GUSSET PLATE | PL12": 62,
+    "GUSSET PLATE | PL12": 166,
     "HAUNCH_PLATE | PL10": 12,
     "HAUNCH_PLATE | PL8": 48,
     "HZ Bracing | SHS100*3": 96,
@@ -74969,8 +74976,8 @@
   },
   "weightKg": {
    "r10": 63710.29,
-   "v69": 62591.88,
-   "diff": -1118.41,
+   "v69": 62742.75,
+   "diff": -967.54,
    "r10Weights": {
     "weight_t": 63.71,
     "net_t": 63.698,
@@ -74979,9 +74986,9 @@
     "boltBodiesExcluded": 1288
    },
    "v69Weights": {
-    "weight_t": 62.592,
-    "net_t": 61.787,
-    "gross_t": 62.649,
+    "weight_t": 62.743,
+    "net_t": 61.938,
+    "gross_t": 62.8,
     "parts": 4953,
     "boltBodiesExcluded": 1203
    }
@@ -74997,7 +75004,7 @@
    ],
    "detail parts (R10) / component parts (v69)": [
     10528.27,
-    9155.53
+    9306.4
    ]
   }
  },
@@ -75439,15 +75446,14 @@
    "group": "5 | tongue end cap | ST Gusset Plate FLT5*100",
    "counts": {
     "MATCHED": 270,
-    "NEAR": 4,
-    "ROUGH": 12,
+    "NEAR": 16,
     "total": 286
    },
    "kgR10": 49.01,
-   "kgV69": 48.94,
+   "kgV69": 49.0,
    "sameSize": {
-    "n": 4,
-    "median": 0.6
+    "n": 16,
+    "median": 0.42
    },
    "reason": "C05 (v70: tube end at the brace end, plate on the axis / against the node gusset, Tekla slot, end plates, bolts): every Ttg end matches; the rest are the crossing halves (their plates and end plates are row 7, C07) and the plates at the 6 nodes whose gusset is its own assembly (C06)",
    "option": "C07 / C06"
@@ -75489,15 +75495,14 @@
    "group": "5 | tongue plate | ST Connection Plate FLT12*140",
    "counts": {
     "MATCHED": 135,
-    "NEAR": 3,
-    "ROUGH": 6,
+    "NEAR": 9,
     "total": 144
    },
    "kgR10": 592.14,
    "kgV69": 592.14,
    "sameSize": {
     "n": 9,
-    "median": 11.17
+    "median": 0.83
    },
    "reason": "C05 (v70: tube end at the brace end, plate on the axis / against the node gusset, Tekla slot, end plates, bolts): every Ttg end matches; the rest are the crossing halves (their plates and end plates are row 7, C07) and the plates at the 6 nodes whose gusset is its own assembly (C06)",
    "option": "C07 / C06"
@@ -75506,8 +75511,8 @@
    "group": "5 | tongue plate | VL Connection Plate FLT12*140",
    "counts": {
     "MATCHED": 62,
-    "NEAR": 12,
-    "ROUGH": 46,
+    "NEAR": 18,
+    "ROUGH": 40,
     "total": 120
    },
    "kgR10": 496.05,
@@ -75522,17 +75527,14 @@
   {
    "group": "6 | node gusset | 11 Gusset Plate PL12*222.6",
    "counts": {
-    "NEAR": 3,
+    "MATCHED": 3,
     "total": 3
    },
    "kgR10": 23.01,
-   "kgV69": 20.76,
-   "sameSize": {
-    "n": 3,
-    "median": 0.0
-   },
-   "reason": "R10 gussets that are their own assemblies (marks 11, 12, 13) at the gable / end-frame nodes; v69 makes the node gusset in the main part's assembly with its own outline",
-   "option": "gusset as a separate assembly; outline options"
+   "kgV69": 23.01,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | 11 Gusset Plate PL12*223.1",
@@ -75541,258 +75543,247 @@
     "total": 2
    },
    "kgR10": 15.38,
-   "kgV69": 13.9,
+   "kgV69": 15.4,
    "sameSize": {
     "n": 2,
-    "median": 0.16
+    "median": 0.2
    },
-   "reason": "R10 gussets that are their own assemblies (marks 11, 12, 13) at the gable / end-frame nodes; v69 makes the node gusset in the main part's assembly with its own outline",
-   "option": "gusset as a separate assembly; outline options"
+   "reason": "C06: the gable / end-frame nodes (gussets that are their own assembly, marks 11 / 12 / 13): the braces are not in the gusset's plane (the vertical brace is skewed 4 to 60 mm out of it); Tekla 20's outline and the gusset centred on the braces put them within 0.2 to 4.3 mm, not 0.1",
+   "option": "open (C06): the plate position of a brace skewed out of the gusset plane"
   },
   {
    "group": "6 | node gusset | 12 Gusset Plate PL12*222.9",
    "counts": {
-    "NEAR": 3,
-    "ROUGH": 2,
+    "NEAR": 5,
     "total": 5
    },
    "kgR10": 38.55,
-   "kgV69": 34.75,
+   "kgV69": 38.55,
    "sameSize": {
     "n": 5,
     "median": 1.1
    },
-   "reason": "R10 gussets that are their own assemblies (marks 11, 12, 13) at the gable / end-frame nodes; v69 makes the node gusset in the main part's assembly with its own outline",
-   "option": "gusset as a separate assembly; outline options"
+   "reason": "C06: the gable / end-frame nodes (gussets that are their own assembly, marks 11 / 12 / 13): the braces are not in the gusset's plane (the vertical brace is skewed 4 to 60 mm out of it); Tekla 20's outline and the gusset centred on the braces put them within 0.2 to 4.3 mm, not 0.1",
+   "option": "open (C06): the plate position of a brace skewed out of the gusset plane"
   },
   {
    "group": "6 | node gusset | 13 Gusset Plate FLT12*400",
    "counts": {
-    "ROUGH": 4,
+    "NEAR": 4,
     "total": 4
    },
    "kgR10": 49.8,
-   "kgV69": 43.24,
+   "kgV69": 49.8,
    "sameSize": null,
-   "reason": "R10 gussets that are their own assemblies (marks 11, 12, 13) at the gable / end-frame nodes; v69 makes the node gusset in the main part's assembly with its own outline",
-   "option": "gusset as a separate assembly; outline options"
+   "reason": "C06: the gable / end-frame nodes (gussets that are their own assembly, marks 11 / 12 / 13): the braces are not in the gusset's plane (the vertical brace is skewed 4 to 60 mm out of it); Tekla 20's outline and the gusset centred on the braces put them within 0.2 to 4.3 mm, not 0.1",
+   "option": "open (C06): the plate position of a brace skewed out of the gusset plane"
   },
   {
    "group": "6 | node gusset | 13 Gusset Plate PL12*349.6",
    "counts": {
-    "ROUGH": 4,
+    "NEAR": 4,
     "total": 4
    },
    "kgR10": 49.84,
-   "kgV69": 43.32,
-   "sameSize": null,
-   "reason": "R10 gussets that are their own assemblies (marks 11, 12, 13) at the gable / end-frame nodes; v69 makes the node gusset in the main part's assembly with its own outline",
-   "option": "gusset as a separate assembly; outline options"
+   "kgV69": 49.92,
+   "sameSize": {
+    "n": 4,
+    "median": 0.14
+   },
+   "reason": "C06: the gable / end-frame nodes (gussets that are their own assembly, marks 11 / 12 / 13): the braces are not in the gusset's plane (the vertical brace is skewed 4 to 60 mm out of it); Tekla 20's outline and the gusset centred on the braces put them within 0.2 to 4.3 mm, not 0.1",
+   "option": "open (C06): the plate position of a brace skewed out of the gusset plane"
   },
   {
    "group": "6 | node gusset | C Gusset Plate FLT12*220",
    "counts": {
-    "NEAR": 1,
+    "MATCHED": 1,
     "total": 1
    },
    "kgR10": 7.16,
-   "kgV69": 6.48,
-   "sameSize": {
-    "n": 1,
-    "median": 0.0
-   },
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "kgV69": 7.16,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | C Gusset Plate PL12*210.3",
    "counts": {
-    "ROUGH": 5,
+    "MATCHED": 5,
     "total": 5
    },
    "kgR10": 16.7,
-   "kgV69": 13.65,
+   "kgV69": 16.7,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | C Gusset Plate PL12*210.4",
    "counts": {
-    "ROUGH": 5,
+    "MATCHED": 5,
     "total": 5
    },
    "kgR10": 16.7,
-   "kgV69": 13.65,
+   "kgV69": 16.7,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | C Gusset Plate PL12*212.7",
    "counts": {
-    "ROUGH": 10,
+    "MATCHED": 10,
     "total": 10
    },
    "kgR10": 33.9,
-   "kgV69": 27.6,
+   "kgV69": 33.9,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | C Gusset Plate PL12*214.1",
    "counts": {
-    "ROUGH": 20,
+    "MATCHED": 20,
     "total": 20
    },
    "kgR10": 68.4,
-   "kgV69": 55.6,
+   "kgV69": 68.4,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | C Gusset Plate PL12*219.6",
    "counts": {
-    "NEAR": 1,
+    "MATCHED": 1,
     "total": 1
    },
    "kgR10": 7.15,
-   "kgV69": 6.47,
-   "sameSize": {
-    "n": 1,
-    "median": 0.0
-   },
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "kgV69": 7.15,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | C Gusset Plate PL12*222.6",
    "counts": {
-    "ROUGH": 5,
+    "MATCHED": 5,
     "total": 5
    },
    "kgR10": 59.35,
-   "kgV69": 53.9,
+   "kgV69": 59.35,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | C Gusset Plate PL12*222.9",
    "counts": {
-    "ROUGH": 5,
+    "MATCHED": 5,
     "total": 5
    },
    "kgR10": 59.45,
-   "kgV69": 52.9,
+   "kgV69": 59.45,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | R Gusset Plate PL12*211.6",
    "counts": {
-    "ROUGH": 8,
+    "MATCHED": 8,
     "total": 8
    },
    "kgR10": 26.88,
-   "kgV69": 22.0,
+   "kgV69": 26.88,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | R Gusset Plate PL12*213",
    "counts": {
-    "ROUGH": 24,
+    "MATCHED": 24,
     "total": 24
    },
    "kgR10": 81.6,
-   "kgV69": 66.48,
+   "kgV69": 81.6,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | R Gusset Plate PL12*213.4",
    "counts": {
-    "ROUGH": 32,
+    "MATCHED": 32,
     "total": 32
    },
    "kgR10": 108.8,
-   "kgV69": 88.64,
+   "kgV69": 108.8,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | R Gusset Plate PL12*230.7",
    "counts": {
-    "ROUGH": 4,
+    "MATCHED": 4,
     "total": 4
    },
    "kgR10": 42.88,
-   "kgV69": 37.12,
+   "kgV69": 42.88,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | R Gusset Plate PL12*234.3",
    "counts": {
-    "ROUGH": 1,
+    "MATCHED": 1,
     "total": 1
    },
    "kgR10": 10.84,
-   "kgV69": 9.38,
+   "kgV69": 10.84,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | R Gusset Plate PL12*279.7",
    "counts": {
-    "ROUGH": 13,
+    "MATCHED": 13,
     "total": 13
    },
    "kgR10": 162.5,
-   "kgV69": 142.61,
-   "sameSize": {
-    "n": 13,
-    "median": 12.59
-   },
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "kgV69": 162.5,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | R Gusset Plate PL12*280.4",
    "counts": {
-    "NEAR": 3,
-    "ROUGH": 8,
+    "MATCHED": 11,
     "total": 11
    },
    "kgR10": 139.57,
-   "kgV69": 120.7,
-   "sameSize": {
-    "n": 3,
-    "median": 0.58
-   },
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "kgV69": 139.57,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | R Gusset Plate PL12*283.8",
    "counts": {
-    "ROUGH": 3,
+    "MATCHED": 3,
     "total": 3
    },
    "kgR10": 38.7,
-   "kgV69": 33.36,
+   "kgV69": 38.7,
    "sameSize": null,
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "6 | node gusset | ST Gusset Plate FLT5*45",
@@ -75806,8 +75797,8 @@
     "n": 2,
     "median": 0.54
    },
-   "reason": "v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R10's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm)",
-   "option": "gusset outline options (corner trim, margins, fin length)"
+   "reason": "C06: the gable / end-frame nodes (gussets that are their own assembly, marks 11 / 12 / 13): the braces are not in the gusset's plane (the vertical brace is skewed 4 to 60 mm out of it); Tekla 20's outline and the gusset centred on the braces put them within 0.2 to 4.3 mm, not 0.1",
+   "option": "open (C06): the plate position of a brace skewed out of the gusset plane"
   },
   {
    "group": "6 | single-brace gusset (fin) | C Gusset Plate FLT12*140",
@@ -75849,48 +75840,60 @@
   {
    "group": "7 | crossing cap | VL Gusset Plate PL5*32.2",
    "counts": {
-    "ROUGH": 2,
+    "NEAR": 2,
     "total": 2
    },
    "kgR10": 0.26,
-   "kgV69": 0.34,
-   "sameSize": null,
+   "kgV69": 0.26,
+   "sameSize": {
+    "n": 2,
+    "median": 0.21
+   },
    "reason": "small PL5 caps at the crossing halves: v69 makes FLT5*120 end caps instead",
    "option": "Tekla cap plates at the crossing"
   },
   {
    "group": "7 | crossing cap | VL Gusset Plate PL5*32.6",
    "counts": {
-    "ROUGH": 4,
+    "NEAR": 4,
     "total": 4
    },
    "kgR10": 0.52,
-   "kgV69": 0.68,
-   "sameSize": null,
+   "kgV69": 0.52,
+   "sameSize": {
+    "n": 4,
+    "median": 0.16
+   },
    "reason": "small PL5 caps at the crossing halves: v69 makes FLT5*120 end caps instead",
    "option": "Tekla cap plates at the crossing"
   },
   {
    "group": "7 | crossing cap | VL Gusset Plate PL5*55.8",
    "counts": {
-    "ROUGH": 4,
+    "NEAR": 4,
     "total": 4
    },
    "kgR10": 0.88,
-   "kgV69": 0.68,
-   "sameSize": null,
+   "kgV69": 0.88,
+   "sameSize": {
+    "n": 4,
+    "median": 0.3
+   },
    "reason": "small PL5 caps at the crossing halves: v69 makes FLT5*120 end caps instead",
    "option": "Tekla cap plates at the crossing"
   },
   {
    "group": "7 | crossing cap | VL Gusset Plate PL5*56.3",
    "counts": {
-    "ROUGH": 2,
+    "NEAR": 2,
     "total": 2
    },
    "kgR10": 0.44,
-   "kgV69": 0.34,
-   "sameSize": null,
+   "kgV69": 0.44,
+   "sameSize": {
+    "n": 2,
+    "median": 0.15
+   },
    "reason": "small PL5 caps at the crossing halves: v69 makes FLT5*120 end caps instead",
    "option": "Tekla cap plates at the crossing"
   },
@@ -76876,8 +76879,8 @@
    "r10Parts": 1294,
    "status": {
     "MATCHED": 943,
-    "NEAR": 31,
-    "ROUGH": 320
+    "NEAR": 55,
+    "ROUGH": 296
    },
    "givenMembers": 0,
    "givenMatched": 0,
@@ -76890,9 +76893,8 @@
    "v69Bolts": 0,
    "r10Parts": 250,
    "status": {
-    "MATCHED": 82,
-    "NEAR": 15,
-    "ROUGH": 153
+    "MATCHED": 233,
+    "NEAR": 17
    },
    "givenMembers": 0,
    "givenMatched": 0,
@@ -76906,8 +76908,8 @@
    "r10Parts": 118,
    "status": {
     "MATCHED": 32,
-    "NEAR": 6,
-    "ROUGH": 80
+    "NEAR": 18,
+    "ROUGH": 68
    },
    "givenMembers": 0,
    "givenMatched": 0,

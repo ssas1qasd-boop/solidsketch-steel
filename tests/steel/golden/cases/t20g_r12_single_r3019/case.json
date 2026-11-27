@@ -1,0 +1,75 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttg",
+   [
+    0,
+    1
+   ],
+   {
+    "L": 315,
+    "blrule": "tekla",
+    "bolt": 16,
+    "e": 40,
+    "g": 60,
+    "gshape": "tekla",
+    "ins": 150,
+    "p": 60,
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ]
+ ],
+ "description": "R12 R3019 single brace HZ (gusset PL12*213.4): one edge square to the brace, one side square to the rafter, the other along the brace.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     39848.613,
+     22355,
+     7422.572
+    ],
+    "p2": [
+     46290.5,
+     22355,
+     8887.194
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "HZ Bracing",
+    "p1": [
+     45984.326,
+     22567.348,
+     8827.837
+    ],
+    "p2": [
+     44754.089,
+     24872.641,
+     8548.131
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 168.721,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20g_r12_single_r3019",
+ "pageErrors": []
+}

@@ -211,7 +211,12 @@ def c05(shots, video=None):
         for c in cs:
             kids = [b for b in D['bodies'] if st(b).get('conn') == c['id']]
             tg = next(b for b in kids if st(b).get('name') == 'TONGUE PLATE'); caps = [b for b in kids if st(b).get('name') == 'END CAP']; bo = next(b for b in kids if st(b).get('kind') == 'bolts')
-            sz = lambda b: sorted(np.round(np.ptp(VT(b)[0], axis=0), 1))
+            def sz(b):   # the plate's own extents (principal axes), not the world box of a rotated plate
+                v = VT(b)[0]; c0 = v.mean(0); w_, vv = np.linalg.eigh((v - c0).T @ (v - c0)); n_ = vv[:, 0]; u_, w2 = vv[:, 1], vv[:, 2]; best = None
+                for a_ in np.radians(np.arange(0, 180, 0.01)):   # the minimum-area box in the plate's plane (holes tilt the principal axes)
+                    x_ = np.cos(a_) * u_ + np.sin(a_) * w2; y_ = np.cross(n_, x_); e_ = (np.ptp((v - c0) @ x_), np.ptp((v - c0) @ y_))
+                    if best is None or e_[0] * e_[1] < best[0] * best[1]: best = e_
+                return sorted(np.round([np.ptp((v - c0) @ n_), best[0], best[1]], 1))
             out.append(f"tube end {c['id']}: plate {' x '.join(str(x) for x in sz(tg))}, {len(caps)} end plates, bolts M{st(bo)['d']:g} L{st(bo)['L']:g} x {st(bo).get('n', len(st(bo)['pts']))}")
         return out
     a = meas('c05_case.ss'); b = meas('c05_e40.ss')
