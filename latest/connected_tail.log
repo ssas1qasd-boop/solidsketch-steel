@@ -5,8 +5,8 @@ Daemon will be stopped at the end of the build
 Passing custom test runner argument android.testInstrumentationRunnerArguments.notClass from gradle.properties or command line is not compatible with configuration caching. Please specify this argument using android gradle dsl.
 
 > Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :app:preBuild UP-TO-DATE
 > Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:generateDebugBuildConfig UP-TO-DATE
 > Task :core-io:preBuild UP-TO-DATE
@@ -85,32 +85,32 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :steel:mergeDebugShaders UP-TO-DATE
 > Task :steel:compileDebugShaders NO-SOURCE
 > Task :steel:generateDebugAssets UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
 > Task :steel:packageDebugAssets UP-TO-DATE
 > Task :core-view:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :core-io:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :steel:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :core-io:processDebugJavaRes UP-TO-DATE
-> Task :app:processDebugResources UP-TO-DATE
 > Task :core-view:processDebugJavaRes UP-TO-DATE
 > Task :steel:processDebugJavaRes UP-TO-DATE
-> Task :core-view:bundleLibRuntimeToDirDebug UP-TO-DATE
-> Task :core-io:bundleLibRuntimeToDirDebug UP-TO-DATE
-> Task :steel:bundleLibRuntimeToDirDebug UP-TO-DATE
-> Task :core-io:mergeDebugJniLibFolders UP-TO-DATE
-> Task :core-io:mergeDebugNativeLibs NO-SOURCE
 > Task :app:compileDebugKotlin UP-TO-DATE
 > Task :app:javaPreCompileDebug UP-TO-DATE
-> Task :core-io:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :core-view:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :app:compileDebugJavaWithJavac UP-TO-DATE
 > Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
 > Task :app:preDebugAndroidTestBuild SKIPPED
-> Task :fetchManifold
+> Task :core-io:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :steel:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :app:processDebugAndroidTestManifest UP-TO-DATE
 > Task :app:generateDebugAndroidTestBuildConfig UP-TO-DATE
+> Task :core-io:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core-io:mergeDebugNativeLibs NO-SOURCE
+> Task :core-io:copyDebugJniLibsProjectOnly UP-TO-DATE
 > Task :app:checkDebugAndroidTestAarMetadata UP-TO-DATE
 > Task :app:generateDebugAndroidTestResValues UP-TO-DATE
 > Task :app:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
 > Task :app:generateDebugAndroidTestResources UP-TO-DATE
+> Task :fetchManifold
 > Task :app:mergeDebugAndroidTestResources UP-TO-DATE
 > Task :app:processDebugAndroidTestResources UP-TO-DATE
 > Task :app:compileDebugAndroidTestKotlin UP-TO-DATE
@@ -177,7 +177,7 @@ emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 2/2 completed. (0 skipped) (0 failed)
 Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795769379750.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795770973166.json
 
-BUILD SUCCESSFUL in 6m 7s
+BUILD SUCCESSFUL in 5m 43s
 133 actionable tasks: 6 executed, 127 up-to-date
