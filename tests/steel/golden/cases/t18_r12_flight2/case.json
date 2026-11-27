@@ -91,51 +91,57 @@
   [
    "Tsep",
    [
-    5
+    5,
+    8
    ],
    {
     "b": 150,
     "bd": 16,
     "bg": 70,
-    "bgrip": 12,
+    "bgrip": 0,
     "bp": 85,
     "bside": "out",
     "bx": -32.9,
     "by": 38.7,
+    "cplate": 1,
     "de": 40,
     "dw": -32.5,
     "end": "2",
     "h": 320,
     "nc": 2,
     "nr": 4,
+    "pweld": 0,
     "t": 12
    }
   ],
   [
    "Tsep",
    [
-    3
+    3,
+    8
    ],
    {
     "b": 150,
     "bd": 16,
     "bg": 70,
-    "bgrip": 12,
+    "bgrip": 0,
     "bp": 85,
     "bside": "out",
     "bx": -32.9,
     "by": 38.7,
+    "cplate": 1,
     "de": 40,
     "dw": -32.5,
     "end": "1",
     "h": 320,
     "nc": 2,
     "nr": 4,
+    "pweld": 0,
     "t": 12
    }
   ]
  ],
- "description": "R12 upper flight (SR9003 / SR9004): 11 treads at rise 170, mitre fits, landing plates through posts STR9003 / STR9004, top plates (PLSTR) bolted outward (grip 24, no counter plate).",
+ "description": "R12 / R13 upper flight (SR9003 / SR9004): 11 treads at rise 170, mitre fits, landing plates through posts STR9003 / STR9004, top plates (PLSTR9001, loose: no weld, their own assembly) bolted outward through the counter plates FLT12*150 on girder EB4002 (grip 24).",
  "members": [
   {
    "extra": {
@@ -334,6 +340,31 @@
     "prof": "BI162-6-150-6",
     "rAng": 0,
     "rot": "Back"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "dOff": 0,
+    "depth": "Middle",
+    "dx1": 0,
+    "dx2": 0,
+    "name": "BEAM",
+    "p1": [
+     334,
+     16785,
+     3840
+    ],
+    "p2": [
+     13127,
+     16785,
+     3840
+    ],
+    "pOff": 0,
+    "plane": "Middle",
+    "prof": "BI320-8-120-10",
+    "rAng": 0,
+    "rot": "Top"
    },
    "set": "BEAM"
   }

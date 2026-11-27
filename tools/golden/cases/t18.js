@@ -325,7 +325,7 @@ module.exports = [
  },
  {
   "name": "t18_r12_flight2",
-  "description": "R12 upper flight (SR9003 / SR9004): 11 treads at rise 170, mitre fits, landing plates through posts STR9003 / STR9004, top plates (PLSTR) bolted outward (grip 24, no counter plate).",
+  "description": "R12 / R13 upper flight (SR9003 / SR9004): 11 treads at rise 170, mitre fits, landing plates through posts STR9003 / STR9004, top plates (PLSTR9001, loose: no weld, their own assembly) bolted outward through the counter plates FLT12*150 on girder EB4002 (grip 24).",
   "members": [
    {
     "set": "BEAM",
@@ -526,6 +526,31 @@ module.exports = [
      "dx1": 0,
      "dx2": 0
     }
+   },
+   {
+    "set": "BEAM",
+    "extra": {
+     "name": "BEAM",
+     "prof": "BI320-8-120-10",
+     "p1": [
+      334.0,
+      16785.0,
+      3840.0
+     ],
+     "p2": [
+      13127.0,
+      16785.0,
+      3840.0
+     ],
+     "rot": "Top",
+     "rAng": 0,
+     "plane": "Middle",
+     "depth": "Middle",
+     "pOff": 0,
+     "dOff": 0,
+     "dx1": 0,
+     "dx2": 0
+    }
    }
   ],
   "conns": [
@@ -598,7 +623,8 @@ module.exports = [
    [
     "Tsep",
     [
-     5
+     5,
+     8
     ],
     {
      "t": 12.0,
@@ -615,13 +641,16 @@ module.exports = [
      "by": 38.7,
      "bx": -32.9,
      "bside": "out",
-     "bgrip": 12.0
+     "bgrip": 0,
+     "cplate": 1,
+     "pweld": 0
     }
    ],
    [
     "Tsep",
     [
-     3
+     3,
+     8
     ],
     {
      "t": 12.0,
@@ -638,7 +667,9 @@ module.exports = [
      "by": 38.7,
      "bx": -32.9,
      "bside": "out",
-     "bgrip": 12.0
+     "bgrip": 0,
+     "cplate": 1,
+     "pweld": 0
     }
    ]
   ]

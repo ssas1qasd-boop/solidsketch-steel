@@ -156,8 +156,7 @@ REASONS = [
     (r'^13 \| (Top|Bot) Stiff', 'girder-side Stiff. plates FLT10*50: End plate 144 Haunch tab (C13: 12 / 12 at the 6 girder joints); the 4 at the MBC2001 column end plates are row 15', 'done (v70 C13) / row 15'),
     (r'^14 \|', 'same plate size and plan position; v69 centres the tab on the joist web depth, R10\'s tab is 7.8 mm higher', 'vertical position of the tab (Tekla 146 plate position)'),
     (r'^17 \|', 'C17 (v70: Shear plate 146 as a hanger: Main part face = the secondary web\'s uphill face, the tab cut on the sloped underside, R12\'s 190 / 49.056 / Middle 35, Tekla bolt length): every gable hanger matches', 'done (v70 C17)'),
-    (r'^18 \| Stair Plate \| EB', 'the counter plates FLT12*150 on mezzanine girder EB4002 (the top stair plates bolt to them): a mezzanine girder part, left until R13 (owner 2026-11-27); Stair end plate option Counter plate on the main part makes them', 'R13'),
-    (r'^18 \|', 'C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates): every stair part matches', 'done (v70 C18)'),
+    (r'^18 \|', 'C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates, at the top with the counter plate on EB4002): every stair part matches', 'done (v70 C18)'),
     (r'^-', 'no v69 component in the checklist makes this part', ''),
 ]
 def reason_for(key):

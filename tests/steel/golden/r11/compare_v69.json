@@ -68141,7 +68141,7 @@
    "kgR10": 34.96,
    "kgV69": 0.0,
    "sameSize": null,
-   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates): every stair part matches",
+   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates, at the top with the counter plate on EB4002): every stair part matches",
    "option": "done (v70 C18)"
   },
   {
@@ -68165,7 +68165,7 @@
    "kgR10": 6.77,
    "kgV69": 0.0,
    "sameSize": null,
-   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates): every stair part matches",
+   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates, at the top with the counter plate on EB4002): every stair part matches",
    "option": "done (v70 C18)"
   },
   {
@@ -68177,8 +68177,8 @@
    "kgR10": 9.04,
    "kgV69": 0.0,
    "sameSize": null,
-   "reason": "the counter plates FLT12*150 on mezzanine girder EB4002 (the top stair plates bolt to them): a mezzanine girder part, left until R13 (owner 2026-11-27); Stair end plate option Counter plate on the main part makes them",
-   "option": "R13"
+   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates, at the top with the counter plate on EB4002): every stair part matches",
+   "option": "done (v70 C18)"
   },
   {
    "group": "18 | Stair Plate | PLSTR Stair Plate FLT12*150",
@@ -68189,7 +68189,7 @@
    "kgR10": 9.04,
    "kgV69": 0.0,
    "sameSize": null,
-   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates): every stair part matches",
+   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates, at the top with the counter plate on EB4002): every stair part matches",
    "option": "done (v70 C18)"
   },
   {
@@ -68201,7 +68201,7 @@
    "kgR10": 25.42,
    "kgV69": 0.0,
    "sameSize": null,
-   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates): every stair part matches",
+   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates, at the top with the counter plate on EB4002): every stair part matches",
    "option": "done (v70 C18)"
   },
   {
@@ -68213,7 +68213,7 @@
    "kgR10": 101.89,
    "kgV69": 0.0,
    "sameSize": null,
-   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates): every stair part matches",
+   "reason": "C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates, at the top with the counter plate on EB4002): every stair part matches",
    "option": "done (v70 C18)"
   },
   {

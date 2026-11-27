@@ -18606,8 +18606,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING",
-   "sameSizeAt": 12.0
+   "v69": 5718,
+   "v69name": "COUNTER PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 4.52,
+   "status": "MATCHED"
   },
   {
    "id": 886,
@@ -18618,7 +18623,7 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "v69": 5719,
+   "v69": 5720,
    "v69name": "STAIR PLATE",
    "v69prof": "FLT12*150",
    "boxDiff": 0.0,
@@ -18635,8 +18640,13 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "status": "MISSING",
-   "sameSizeAt": 12.0
+   "v69": 5721,
+   "v69name": "COUNTER PLATE",
+   "v69prof": "FLT12*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.001,
+   "kgV69": 4.52,
+   "status": "MATCHED"
   },
   {
    "id": 888,
@@ -31298,7 +31308,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 5721,
+   "v69": 5723,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31315,7 +31325,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 5722,
+   "v69": 5724,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31332,7 +31342,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 5723,
+   "v69": 5725,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31349,7 +31359,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 5724,
+   "v69": 5726,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31366,7 +31376,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 5725,
+   "v69": 5727,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31383,7 +31393,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 5726,
+   "v69": 5728,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31400,7 +31410,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 5727,
+   "v69": 5729,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31417,7 +31427,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 5728,
+   "v69": 5730,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31434,7 +31444,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 5729,
+   "v69": 5731,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31451,7 +31461,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 5730,
+   "v69": 5732,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31468,7 +31478,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 5731,
+   "v69": 5733,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31485,7 +31495,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 5732,
+   "v69": 5734,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31502,7 +31512,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 5733,
+   "v69": 5735,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31519,7 +31529,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 5734,
+   "v69": 5736,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31536,7 +31546,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 5735,
+   "v69": 5737,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31553,7 +31563,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 5736,
+   "v69": 5738,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31570,7 +31580,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 5737,
+   "v69": 5739,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31587,7 +31597,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 5738,
+   "v69": 5740,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31604,7 +31614,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 5739,
+   "v69": 5741,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31621,7 +31631,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 5740,
+   "v69": 5742,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31638,7 +31648,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 5741,
+   "v69": 5743,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31655,7 +31665,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 5742,
+   "v69": 5744,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31672,7 +31682,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 5743,
+   "v69": 5745,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31689,7 +31699,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 5744,
+   "v69": 5746,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31706,7 +31716,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 5745,
+   "v69": 5747,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31723,7 +31733,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 5746,
+   "v69": 5748,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31740,7 +31750,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 5747,
+   "v69": 5749,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31757,7 +31767,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 5748,
+   "v69": 5750,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31774,7 +31784,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 5749,
+   "v69": 5751,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31791,7 +31801,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 5750,
+   "v69": 5752,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -77823,7 +77833,7 @@
  "totals": {
   "bodies": {
    "r10": 6242,
-   "v69": 5750
+   "v69": 5752
   },
   "kinds": {
    "r10": {
@@ -77833,7 +77843,7 @@
    },
    "v69": {
     "bolts": 1206,
-    "conn": 3705,
+    "conn": 3707,
     "member": 839
    }
   },
@@ -77996,6 +78006,7 @@
     "COLUMN | BI220-6-200-10": 16,
     "COLUMN | BI220-8-150-10": 15,
     "COLUMN | BI320-8-150-10": 17,
+    "COUNTER PLATE | FLT12*150": 2,
     "CROSSING GUSSET | PL12": 52,
     "Cap Plate | FLT8*150": 30,
     "END CAP | FLT5*100": 906,
@@ -78033,8 +78044,8 @@
   },
   "weightKg": {
    "r10": 64021.96,
-   "v69": 64005.41,
-   "diff": -16.55,
+   "v69": 64014.45,
+   "diff": -7.51,
    "r10Weights": {
     "weight_t": 64.022,
     "net_t": 64.01,
@@ -78043,10 +78054,10 @@
     "boltBodiesExcluded": 1294
    },
    "v69Weights": {
-    "weight_t": 64.005,
-    "net_t": 63.982,
-    "gross_t": 64.059,
-    "parts": 4946,
+    "weight_t": 64.014,
+    "net_t": 63.991,
+    "gross_t": 64.068,
+    "parts": 4948,
     "boltBodiesExcluded": 1206
    }
   },
@@ -78061,7 +78072,7 @@
    ],
    "detail parts (R10) / component parts (v69)": [
     9767.77,
-    9754.31
+    9763.35
    ]
   }
  },
@@ -79291,17 +79302,14 @@
   {
    "group": "18 | Stair Plate | EB Stair Plate FLT12*150",
    "counts": {
-    "MISSING": 2,
+    "MATCHED": 2,
     "total": 2
    },
    "kgR10": 9.04,
-   "kgV69": 0.0,
-   "sameSize": {
-    "n": 2,
-    "median": 12.0
-   },
-   "reason": "the counter plates FLT12*150 on mezzanine girder EB4002 (the top stair plates bolt to them): a mezzanine girder part, left until R13 (owner 2026-11-27); Stair end plate option Counter plate on the main part makes them",
-   "option": "R13"
+   "kgV69": 9.04,
+   "sameSize": null,
+   "reason": "",
+   "option": ""
   },
   {
    "group": "18 | Stair Plate | PLSTR Stair Plate FLT12*150",
@@ -79728,7 +79736,7 @@
   "18": {
    "boltCount": 148,
    "bolts": 54,
-   "parts": 77
+   "parts": 79
   },
   "2": {
    "boltCount": 384,
@@ -80000,16 +80008,15 @@
   "18": {
    "title": "Stairs: grating treads",
    "components": 10,
-   "v69Parts": 77,
+   "v69Parts": 79,
    "v69Bolts": 148,
    "r10Parts": 83,
    "status": {
-    "MATCHED": 81,
-    "MISSING": 2
+    "MATCHED": 83
    },
    "givenMembers": 12,
    "givenMatched": 12,
-   "verdict": "partly"
+   "verdict": "reproduced"
   },
   "19": {
    "title": "Railing welds",

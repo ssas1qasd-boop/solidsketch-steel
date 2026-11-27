@@ -176,10 +176,10 @@ Field differences on members (count of members): none (every placed member has R
 | 17 | gable hanger / EG PLATE FLT10*120 | 2 | 2 MISSING | — | 3.6 → 0.0 | C17 (v70: Shear plate 146 as a hanger: Main part face = the secondary web's uphill face, the tab cut on the sloped underside, R12's 190 / 49.056 / Middle 35, Tekla bolt length): every gable hanger matches | done (v70 C17) |
 | 17 | gable hanger / R D FLT10*120 | 1 | 1 MISSING | — | 1.8 → 0.0 | as above | as above |
 | 17 | gable hanger / R PLATE FLT10*120 | 13 | 13 MISSING | — | 23.3 → 0.0 | as above | as above |
-| 18 | BRACKET / SGR BRACKET L60*6 | 46 | 46 MISSING | — | 35.0 → 0.0 | C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates): every stair part matches | done (v70 C18) |
+| 18 | BRACKET / SGR BRACKET L60*6 | 46 | 46 MISSING | — | 35.0 → 0.0 | C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates, at the top with the counter plate on EB4002): every stair part matches | done (v70 C18) |
 | 18 | PLATE / STB PLATE FLT6*150 | 1 | 1 MISSING | — | 6.8 → 0.0 | as above | as above |
-| 18 | Stair Plate / EB Stair Plate FLT12*150 | 2 | 2 MISSING | — | 9.0 → 0.0 | the counter plates FLT12*150 on mezzanine girder EB4002 (the top stair plates bolt to them): a mezzanine girder part, left until R13 (owner 2026-11-27); Stair end plate option Counter plate on the main part makes them | R13 |
-| 18 | Stair Plate / PLSTR Stair Plate FLT12*150 | 2 | 2 MISSING | — | 9.0 → 0.0 | C18 (v70: Stair treads = Tekla: U-pan grating treads on L60*6 brackets bolted to the webs, the stringers mitred to their pieces; Stair end plates): every stair part matches | done (v70 C18) |
+| 18 | Stair Plate / EB Stair Plate FLT12*150 | 2 | 2 MISSING | — | 9.0 → 0.0 | as above | as above |
+| 18 | Stair Plate / PLSTR Stair Plate FLT12*150 | 2 | 2 MISSING | — | 9.0 → 0.0 | as above | as above |
 | 18 | Stair Plate / SR Stair Plate FLT12*150 | 6 | 6 MISSING | — | 25.4 → 0.0 | as above | as above |
 | 18 | THREAD / SGR THREAD PL10*336 | 23 | 23 MISSING | — | 101.9 → 0.0 | as above | as above |
 | 18 | given member / SR STRINGER UPN240 | 12 | 6 INPUT EQUAL, SOLID DIFFERS, 6 MATCHED | — | 578.2 → 578.4 | placed with R11's inputs; v69 stair treads cut / fit the stringer ends differently from R11's TKCUT cuts |  |

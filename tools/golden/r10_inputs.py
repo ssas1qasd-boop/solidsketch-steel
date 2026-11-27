@@ -898,8 +898,8 @@ def main():
                             ext.append(cand[0][1] if cand and cand[0][0] < 300 else None)
                     if None in ext: ext = []
                 conn('stairtreads', [a['i'], b2['i']] + ext, q, '18', [])
-    # ---- row 18 (v70 C18): stair end plates FLT12*150 on the stringer pieces' ends (R12; the counter plates on EB4002 are a mezzanine
-    # girder's part: left for R13, owner 2026-11-27)
+    # ---- row 18 (v70 C18): stair end plates FLT12*150 on the stringer pieces' ends; at the top the counter plates FLT12*150 (assembly
+    # EB4002, welded to the girder's flange edges) are the Stair end plate's counter plate on the main part (R13, C18)
     def tk_bolt_len(d, grip):
         m = {10: 8.4, 12: 10.8, 14: 12.8, 16: 14.8, 20: 18, 22: 19.4, 24: 21.5, 27: 23.8, 30: 25.6, 36: 31}.get(int(d), 0.9 * d); w = {10: 2, 12: 2.5, 14: 2.5, 16: 3, 20: 3, 22: 3, 24: 4, 27: 4, 30: 4, 36: 5}.get(int(d), 0.16 * d)
         return math.ceil((grip + m + w + 5) / 5 - 1e-6) * 5
@@ -917,19 +917,23 @@ def main():
             _, m, k, E, out, eh, es = best
             pe = [dot(sub(v, E), eh) for v in pv]; pw = [dot(sub(v, E), es) for v in pv]; po = [dot(sub(v, E), out) for v in pv]
             q = OrderedDict(t=r3(max(po) - min(po)), b=r3(max(pw) - min(pw)), h=r3(max(pe) - min(pe)), de=r3((max(pe) + min(pe)) / 2), dw=r3((max(pw) + min(pw)) / 2), end=str(k))
-            bcs = [c for c in doc['stConns'] if c['type'] == 'TKBOLT' and pb['id'] in c['parts']]; parts_ = [m['i']]
+            bcs = [c for c in doc['stConns'] if c['type'] == 'TKBOLT' and pb['id'] in c['parts']]; parts_ = [m['i']]; refs_ = []
             if bcs:
                 P = [pt for c in bcs for pt in c['q']['pts']]; d = bcs[0]['q']['d']; grip = float(bcs[0]['q'].get('grip') or q['t']); L = bcs[0]['q'].get('L')
                 es_ = sorted({round(dot(sub(pt, E), eh), 1) for pt in P}); ws_ = sorted({round(dot(sub(pt, E), es), 1) for pt in P}); hz = dot(sub(P[0], E), out)
                 q.update(bd=d, nr=len(es_), nc=len(ws_), bp=r3((es_[-1] - es_[0]) / max(1, len(es_) - 1)) if len(es_) > 1 else 85, bg=r3((ws_[-1] - ws_[0]) / max(1, len(ws_) - 1)) if len(ws_) > 1 else 70,
                          by=r3((es_[-1] + es_[0]) / 2), bx=r3((ws_[-1] + ws_[0]) / 2))
                 others = [o for c in bcs for o in c['parts'] if o != pb['id']]
-                mo = member_for(others[0]) if others and not str(byid[others[0]]['st'].get('amark', '')).startswith('EB') else None
+                cp = [o for o in others if byid[o]['st']['name'] == 'Stair Plate' and str(byid[o]['st'].get('amark', '')).startswith('EB')]
+                mo = member_for(others[0]) if others and not cp else None
                 if mo is not None and hz > q['t'] + 0.5: q.update(bside='main', mgrip=r3(grip - q['t'])); parts_.append(mo)
+                elif cp and member_for(cp[0]) is not None:   # C18 (R13): the top plates bolt outward through a counter plate FLT12*150 on the girder EB4002 (its part)
+                    q.update(cplate=1, bside='out', bgrip=r3(max(0.0, grip - 2 * q['t'])) if grip - 2 * q['t'] > 0.5 else 0); parts_.append(member_for(cp[0])); refs_ = sorted(set(cp))
                 else: q.update(bside='out', bgrip=r3(max(0.0, grip - q['t'])) if grip - q['t'] > 0.5 else 0)
                 if L is not None and tk_bolt_len(d, grip) != int(L): q['bL'] = L
             else: q.update(nr=0, nc=0)
-            conn('Tsep', parts_, q, '18', [pb['id']])
+            if pb['st'].get('asm') is None and not pb['st'].get('tkWelds'): q['pweld'] = 0   # R13: a loose plate (no weld, its own assembly PLSTR9001)
+            conn('Tsep', parts_, q, '18', [pb['id']] + refs_)
     # ---- X02: column cap plates (R12: 30 FLT8*150 on the column tops, no Tekla component in the IFC; PARITY.md "X02")
     if TEKLA:
         for b in plates:

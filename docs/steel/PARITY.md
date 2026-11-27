@@ -243,7 +243,32 @@ Delivered for the owner's phone check; ✓ only after the owner's OK.
 | Weight (rebuild, web) | 63,323.22 kg | 63,086.22 kg (Tekla 63,705.8): -237.0 (v69's PL6 steel treads and L50 supports replaced by R12's grating and brackets) |
 
 ### Open
-- The 2 counter plates FLT12*150 on EB4002 (and the PLSTR-to-EB bolts then go through them): a mezzanine girder's part, left until R13 (owner 2026-11-27). The Stair end plate's "Counter plate on the main part" makes them when wanted.
+- (Closed on R13, below.) The 2 counter plates FLT12*150 on EB4002.
+
+### R13 (agent C18, 2026-11-28): counter plates, Tekla's stair assemblies (web `web/v70/c18.js`, app `FamSEP`, `StRegen` owner)
+- **Counter plates:** R13's 885 / 887 (FLT12*150, assembly EB4002, welded to the girder's flange edges, 4.52 kg each) sit right behind the top plates 884 / 886 (y 16713–16725 against 16701–16713, same x / z). The top Stair end plates now take EB4002 as main part with **Counter plate on the main part = Yes** (`r10_inputs.py`: the plate's TKBOLT partner is an EB Stair Plate; grip 24 = 2 x 12, extra grip 0). Row 18: 83 / 83 MATCHED (before 81 / 83); bolts unchanged (the 16 top bolts already matched).
+- **The top plates are loose:** 884 / 886 have no weld and no owner in R13 (Tekla's assembly PLSTR9001, qty 2, 9.0 kg in the Assembly list). New Stair end plate field **Plate welded to the member** (`pweld`, default Yes = old models unchanged): No = no weld, the plate its own assembly. `r10_inputs.py` sets it for a plate with no weld and no assembly.
+- **Treads are their own assemblies:** Tekla's SGR9001 x 23 = THREAD (main part) + its two L60*6 brackets. v69 put every tread and bracket in the first stringer's assembly (SR9002 / SR9004 were 251.40 / 226.59 kg). Treads = Tekla now: the tread has no owner, its brackets belong to it.
+- **Assembly weights, ours (rebuild, per assembly as the app numbers them) vs Tekla's assembly drawings (Package_2 `Assembley.PDF`, material list total) vs Tekla's Assembly list (`AssembleyList.xsr`):**
+
+| Mark | Parts | Ours | Tekla drawing | Tekla Assembly list | Sum of R13 st.tkW |
+|---|---|---|---|---|---|
+| SGR9001 (x 23) | THREAD 4.62 + 2 L60*6 0.76 | 141.22 (6.14 each) | 6.1 each | 140.8 | 141.22 |
+| SR9001 / SR9002 | UPN240 139.41 + 5.78 + 5.32, plates 4.52 + 3.67, 6 CHS48*3 3.18 | 177.69 | 177.8 | 169.5 | 177.78 |
+| SR9003 / SR9004 | UPN240 128.41 + 4.91 + 5.34, plate 4.52, 5 CHS48*3 3.18 | 159.03 | 159.1 | 153.3 | 159.08 |
+| PLSTR9001 (x 2) | FLT12*150 4.52 | 9.04 | — | 9.0 | 9.04 |
+| EB4002 | girder + 2 counter plates | 530.85 | — | 530.9 | 530.90 |
+
+- **Why Tekla's Assembly list is lower (Tekla's own, not ours):** it weighs each part by its solid without bolt holes, cuts subtracted, catalog sections as Tekla's own solid; the Part List and the assembly drawings weigh a catalog profile by kg/m x length. Proof from R13's solids (IFC mesh volume, holes filled back): SGR9001 4.6188 (tread, 3,500 mm² x 990 x 1,333) + 2 x 0.7517 (L60*6 at 684 mm², the IFC's sharp-cornered angle, x 140) = 6.1222 x 23 = **140.81** (list 140.8; by kg/m 0.7588: 141.14). SR9001: IFC solids 168.91 + the holes (24 x Ø14 through the 9.5 web, 12 x Ø18 through the plates) 0.56 = **169.47** (list 169.5): the mitred stringer weighs 134.58 as a solid against 139.41 by kg/m x length. SR9003: 152.91 + 0.44 = **153.35** (list 153.3). Over the whole model the Assembly list totals 63,995.0 against the Part List's 64,023.4.
+- **Left, not C18's:** the stanchions CHS48*3 weigh 3.16–3.21 against Tekla's 3.18 (SR9001 −0.06, SR9003 −0.03): row 19's weld-only connection cuts each stanchion's top by the hand rail; Tekla's top is square and its foot is cut on the stringer slope (R13's mesh: 13 z-levels 1285.9–1310.2 at the foot, one at the top; 404,985 mm³ = 999.96 x 405). The stringers' −0.03 (SR9001) / −0.02 (SR9003): the shared kg/m table (below).
+- **Shared changes proposed to the main session (not made, integration rule):** (1) `TK_KGM.UPN240` / `TeklaWeight.KGM` 33.2 → **33.2055** (Tekla's 4,230 mm² x 7,850: every one of R13's 12 stringer pieces then equals st.tkW, e.g. 4198.366 x 33.2055 = 139.41, 173.929 x 33.2055 = 5.78; 33.2 gives 139.39 / 5.77): rebuild +0.10 kg. (2) For an **imported catalog member drilled by TKBOLT**, v66 rebuilds the solid without holes *and without its cuts* and v69 takes max(gross, net): R13's four long UPN240 stringers weigh 139.84 / 128.81 instead of 139.41 / 128.41 (WEIGHTS-R13 UPN240 +1.64 kg). Fix: when `holesKg > 0`, a catalog member is kg/m x length (web `partWeight70`, app `TeklaWeight.part`: skip `max(gross, net)`); checked: only these 4 parts change on R13 (+0.00 then), no rebuild or golden case changes.
+
+| Check | Before (main 5f16e60) | After |
+|---|---|---|
+| Row 18 R13 parts (web rebuild, 0.1 mm) | 81 / 83 (2 counter plates MISSING) | 83 / 83 |
+| App vs R13 (`R13C18Test`, 0.1 mm) | treads, brackets, 8 stair plates, 12 stringers, 148 bolts | + the 2 counter plates (10 / 10 stair plates); every tread, bracket, stair and counter plate weighs st.tkW (0.01 kg); stringers within 0.03 (kg/m 33.2, see the proposal) |
+| Assemblies (ours vs Tekla's drawings) | SR9002 251.40, SR9004 226.59, no SGR / PLSTR | SGR9001 141.22, SR9001–4 177.69 / 159.03, PLSTR 9.04, EB4002 530.85 |
+| Weight (rebuild, web) | 64,005.59 kg | 64,014.63 kg (+9.04, the counter plates; Tekla's Part List 64,023.4) |
 
 ### Status
 Delivered for the owner's phone check; ✓ only after the owner's OK.

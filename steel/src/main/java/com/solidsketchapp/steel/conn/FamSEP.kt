@@ -14,7 +14,8 @@ import kotlinx.serialization.json.contentOrNull
  * SEP family · Stair end plate (SolidSketch, v70 C18; web v70 section "C18", FAM.SEP): R12's FLT12*150 plates on the stringer pieces'
  * ends: a plate square to the member at its end (t x b along the width x h along the depth, centre offset de / dw), a bolt grid
  * (nr x nc, pitch bp, gauge bg, offset bx / by) through the main part (head on its far side) or outward from the member end, an
- * optional counter plate on the main part.
+ * optional counter plate on the main part; R13: the plate welded to the member (its assembly) or loose (its own assembly, no weld: the top
+ * plates PLSTR9001, bolted through the counter plate on EB4002).
  */
 object FamSEP {
     const val PORTED = true
@@ -43,7 +44,7 @@ object FamSEP {
             val info = linkedMapOf<String, JsonElement>("pts" to JsonArray(bg.pts.map { jsArr(it.x, it.y, it.z) }), "ax" to jsArr(bg.ax.x, bg.ax.y, bg.ax.z), "d" to jsNum(d), "n" to jsNum(pts.size.toDouble()),
                 "grade" to JsonPrimitive(x.s("bgrade").ifEmpty { "8.8" }), "L" to jsNum(len))
             x.parts += ConnPart("BOLTS", bg.pieces, JsonObject(info), group = bg) }
-        x.weld("Plate to member", x.n("a"), (x.profiles.lookup((x.a["prof"] as? JsonPrimitive)?.contentOrNull ?: "")?.P?.takeIf { it != 0.0 && !it.isNaN() } ?: 1.0) * 1000)
+        if (x.s("pweld") != "0") x.weld("Plate to member", x.n("a"), (x.profiles.lookup((x.a["prof"] as? JsonPrimitive)?.contentOrNull ?: "")?.P?.takeIf { it != 0.0 && !it.isNaN() } ?: 1.0) * 1000)
     }
     private fun js(x: FamCtx, k: String): String { val p = x.q[k] as? JsonPrimitive ?: return "undefined"; return if (p.isString) p.content else JsNumber.format(com.solidsketchapp.steel.geom.StBuild.jsNum(p)) }
 }

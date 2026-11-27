@@ -350,3 +350,9 @@ Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, n
 ## R13 · 2026-11-28 · C12 / C20 / C14 on R13 (agent R13, branch `r13-conn`, 0.21.0-r13; waiting for the owner's phone OK)
 - The 3 fixed girders EB4007: Tekla's new webs sit 30 mm along (Picture 1 = 50 / -10), bolts 35 from the web ends. Inputs now read Picture 1 from the beam end and the horizontal edge from there; a 186 with Picture 1 < 0 cuts the secondary at the main part's face (web v70 + app). `R13C20Test` 45 / 48 → 48 / 48 member bodies (plates 92 / 92, bolts 176 / 176); R13C14Test unchanged (nothing on R13 changed for C14); rule B on our rebuild 0 at these joints; R13's own 6 rule-B failures explained (PARITY.md "C12 / C20 / C14 on R13").
 - New golden case `t186_r13_c2021_eb4007`; `C20RecordingTest` now records R13's C2021 / EB4007.
+
+## C18 on R13 · 2026-11-28 (branch `agent/c18`; for the main session's merge, then the owner's phone OK)
+- Row 18: 83 / 83 R13 parts MATCHED (the 2 counter plates FLT12*150 on EB4002 made by the Stair end plate's counter plate). Rebuild +9.04 kg.
+- Tekla's stair assemblies: each tread its own (SGR9001: tread + 2 brackets), the 2 top plates loose (PLSTR9001, new Stair end plate field "Plate welded to the member" = No), counter plates in EB4002. SR9001–4 now weigh as Tekla's assembly drawings (177.69 / 159.03 against 177.8 / 159.1; the rest is row 19's stanchion cut). Tekla's own Assembly list (169.5 / 153.3 / 140.8) weighs solids instead of kg/m x length: proven in PARITY.md "C18", R13 section.
+- Web: `web/v70/c18.js`; app: `FamSEP`, `StRegen` (owner of Tsep / tread parts); `r10_inputs.py` row 18; tests `R13C18Test`, `C18RecordingTest`, case `t18_r12_flight2` (now with EB4002 and the counter plates).
+- Proposed shared changes (not made): UPN240 kg/m 33.2 → 33.2055; an imported catalog member drilled by TKBOLT weighed kg/m x length (PARITY.md).
