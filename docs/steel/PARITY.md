@@ -1054,5 +1054,7 @@ T144 already matched R13 (C02 / C09 / C13 and the X02 / C10 fixes); this section
 ### Step 5: emulator
 `T144V1RecordingTest` / `T144V2RecordingTest` (base `T144RecordingBase`): the members placed, End plate (144) through its dialog with the video's values (video 1: Plates b 180 / h 560, Bolts 6 = -40 typed as Tekla's, 5 left blank, Stiffeners 2 / 5 = 40 typed as Tekla's), Pick parts, orbit front / end / top / 3D, orthographic stills, the model saved (`t144_v1.ss` / `t144_v2.ss`), then one option changed + Modify (v1: Plates b 200; v2: stiffener chamfers 15) and orbit again. `REC_CLASSES` on the branch: these two. Images: `python3 tools/golden/parity_png.py T144_V1 | T144_V2 <shots> <video frame>` -> `docs/steel/parity/t144_v1.png` / `t144_v2.png`. The C02 / C09 / C13 recordings now type Bolts 6 as Tekla's value (40.045 / -25.333 / -25; the same e).
 
+Emulator result (CI 46074849242, both recording tests rc 0): the models the emulator built through the dialog (`t144_v1.ss`, `t144_v2.ss`) equal the goldens at 0.0 mm (every plate's box; bolts M20 L80 x 10 / M20 L85 x 8) and show the same rule-B findings (4 / 4).
+
 ### Status
 Accepted (pending phone OK) only after the main session's merge and delivery. R13 rebuild unchanged (no T144 geometry changes for existing settings).
