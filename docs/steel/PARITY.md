@@ -31,6 +31,35 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
    - ONE report, `docs/steel/parity/DELIVERY_<date>.md`: a table with one row per connection (status, loops, rule B, goldens), plus the R13 totals before → after.
 5. **When to deliver:** when at least 2 connections are ready, or once a day, whichever comes first. No separate APKs from individual agents.
 
+## Group 1 Tekla parity: the two-video method (owner standing rule, 2026-11-28)
+**Scope:** Group 1 is End plates (23), Shear tabs (32) and Clip angles (10): 65 components (`tk_catalog.json`).
+- **Order:** End plates first, then Shear tabs, then Clip angles. Within a group the most used components go first. T144, T146 and T14 already match R13, but still go through the two-video test.
+- **One component at a time.** Groups 2–4 come later, the same way.
+
+For EACH component:
+1. **Two reference videos.**
+   - Find 2 different Tekla videos for the component number: different channels or different examples. Search the Tekla support site first, then the YouTube Data API.
+   - Analyse each video with Gemini in two passes, at high resolution on the dialog frames. Use Apify only as a fallback.
+   - Write `VIDEO_1.txt` and `VIDEO_2.txt`: URL, timestamps, the profiles and their positions, EVERY dialog value tab by tab, and the result (plates and their sizes, bolt size, count and positions, holes, cuts, welds, dimensions).
+   - If fewer than 2 usable videos exist, use the example on the Tekla help page as the second reference and say so in the report. Never invent values.
+2. **Settings check (video 1).** Compare the app's dialog with the video's dialog, tab by tab: options, defaults, labels, units. Fix every difference in BOTH `web/v70_tekla_parity.js` (`reference/solidsketch_v70.html`) and the app.
+3. **Rebuild video 1's example in the app.** Use the same profiles, angles, offsets and dialog values, and compare the result with the video part by part.
+   - Rule B: contact ≤ 1 mm; no floating part; an overlap 0.01 mm deep or more fails; every bolt goes through a hole; grip = plate stack ± 2 mm.
+   - If anything differs, fix it and rebuild; repeat until it matches.
+   - If it still differs after 5 loops, stop and report the cause to the owner.
+4. **Video 2.** Repeat steps 2–3 on the second video; fixing video 2 must not break video 1. Both examples become golden regression tests, alongside the existing std / odd / skew goldens and the R13 golden. All goldens stay green.
+5. **Final check on the emulator** (GitHub Actions CI): build each example through the real dialog, and orbit front / end / top / 3D.
+6. **Deliver in ONE message, everything as files in the chat.** The APK and the HTML come from the same commit; the HTML is never inside the APK.
+   - the APK (apk-phone artifact, unzipped) and `solidsketch_v70.html`;
+   - `<code>_v1.ss` and `<code>_v2.ss` (the SolidSketch models each example was built in);
+   - `<code>_v1_recording.mp4` and `<code>_v2_recording.mp4` (emulator, 30–60 s each);
+   - `<code>_v1.png` and `<code>_v2.png`: video frame | app, the same view, labelled, with dimensions;
+   - `VIDEO_1.txt` and `VIDEO_2.txt`;
+   - a short report: the settings differences found and fixed, the number of loops, rule-B results, golden status, before → after.
+7. **Acceptance.** A component is "accepted (pending phone OK)" when it matches both videos. After delivery, go straight to the next component without waiting for a reply. The owner gives the ✓ in R12-REPORT.md from the phone. If the owner reports a problem, that component is fixed first.
+
+**How this runs with the integration rule:** one agent per component, in its own worktree and branch `agent/g1-<code>`. It reports to the main session (integration rule step 2). The main session merges it, runs `tools/ci/full_suite.sh`, runs CI on main, and sends that component's delivery (step 6) from the merge commit. Then the next component's agent starts.
+
 ## Weights (owner, 2026-11-26)
 **Target:** Tekla's per-part weights (`st.tkW`, 63,705.8 kg; Part List 63,711.7).
 
