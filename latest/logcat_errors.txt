@@ -1,300 +1,300 @@
-11-27 13:26:51.885  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889477
-11-27 13:26:51.902  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889479
-11-27 13:26:51.910  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889480
-11-27 13:26:51.936  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889481
-11-27 13:26:51.947  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889482
-11-27 13:26:52.171  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889483
-11-27 13:26:52.173  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889484
-11-27 13:26:52.194  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889485
-11-27 13:26:52.206  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889486
-11-27 13:26:52.216  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889487
-11-27 13:26:52.230  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889488
-11-27 13:26:52.449  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889489
-11-27 13:26:52.450  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889490
-11-27 13:26:52.474  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889491
-11-27 13:26:52.479  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889492
-11-27 13:26:52.500  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889493
-11-27 13:26:52.508  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889494
-11-27 13:26:52.529  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889495
-11-27 13:26:52.542  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889496
-11-27 13:26:52.559  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889497
-11-27 13:26:52.571  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889498
-11-27 13:26:52.785  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889499
-11-27 13:26:52.787  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889500
-11-27 13:26:52.805  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889501
-11-27 13:26:52.808  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889502
-11-27 13:26:53.024  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889503
-11-27 13:26:53.032  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889504
-11-27 13:26:53.056  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889505
-11-27 13:26:53.063  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889506
-11-27 13:26:53.276  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889507
-11-27 13:26:53.276  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889508
-11-27 13:26:53.295  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889509
-11-27 13:26:53.300  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889510
-11-27 13:26:53.317  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889511
-11-27 13:26:53.328  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889512
-11-27 13:26:53.332  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889513
-11-27 13:26:53.348  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889515
-11-27 13:26:53.352  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889514
-11-27 13:26:53.369  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889516
-11-27 13:26:53.374  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889517
-11-27 13:26:53.389  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889518
-11-27 13:26:53.390  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889519
-11-27 13:26:53.408  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889520
-11-27 13:26:53.414  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889521
-11-27 13:26:53.431  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889522
-11-27 13:26:53.438  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889523
-11-27 13:26:53.463  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889524
-11-27 13:26:53.465  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889525
-11-27 13:26:53.486  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889526
-11-27 13:26:53.489  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889527
-11-27 13:26:53.510  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889528
-11-27 13:26:53.517  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889529
-11-27 13:26:53.533  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889530
-11-27 13:26:53.539  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889531
-11-27 13:26:53.552  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889532
-11-27 13:26:53.559  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889533
-11-27 13:26:53.580  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889534
-11-27 13:26:53.584  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889535
-11-27 13:26:53.600  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889536
-11-27 13:26:53.604  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889537
-11-27 13:26:53.620  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889539
-11-27 13:26:53.623  7219  7246 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889538
-11-27 13:26:53.642  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889540
-11-27 13:26:53.646  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889541
-11-27 13:26:53.660  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889542
-11-27 13:26:53.664  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889543
-11-27 13:26:53.881  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889544
-11-27 13:26:53.885  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889545
-11-27 13:26:53.905  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889546
-11-27 13:26:53.920  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889547
-11-27 13:26:53.931  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889548
-11-27 13:26:53.965  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889549
-11-27 13:26:53.967  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889116
-11-27 13:26:53.990  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889118
-11-27 13:26:53.997  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889117
-11-27 13:26:54.028  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889119
-11-27 13:26:54.251  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889120
-11-27 13:26:54.257  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889121
-11-27 13:26:54.286  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889122
-11-27 13:26:54.303  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889123
-11-27 13:26:54.307  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889124
-11-27 13:26:54.333  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889556
-11-27 13:26:54.347  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889557
-11-27 13:26:54.368  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889558
-11-27 13:26:54.374  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889562
-11-27 13:26:54.600  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889569
-11-27 13:26:54.602  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889567
-11-27 13:26:54.618  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889575
-11-27 13:26:54.627  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889577
-11-27 13:26:54.642  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889579
-11-27 13:26:54.666  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889115_db989a6348a79f88359bcaf1740203754be6f8d3
-11-27 13:26:54.698  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889133_8c4f9a5469b22fd2c9db484174d189afb553cac4
-11-27 13:26:54.715  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889134
-11-27 13:26:54.727  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889102
-11-27 13:26:54.742  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889103
-11-27 13:26:54.754  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889104
-11-27 13:26:54.768  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889105
-11-27 13:26:54.784  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889106
-11-27 13:26:54.789  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889621
-11-27 13:26:55.010  7219  7240 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889622
-11-27 13:26:55.013  7219  7245 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889623
-11-27 13:26:55.237  7219  7244 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795785889624
-11-27 13:26:55.258  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.265  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.265  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.265  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.265  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.265  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.265  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.265  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.265  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.265  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.266  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.266  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.266  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.266  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.266  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.269  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.269  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.270  7219  7240 E dqod    : RuntimeException while executing runnable dqra{dkqj@68cc54d} with executor MoreExecutors.directExecutor()
-11-27 13:26:55.270  7219  7240 E dqod    : java.lang.NullPointerException: Attempt to read from field 'java.lang.String cwru.b' on a null object reference in method 'void cyar.b(java.lang.Object)'
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cyar.b(PG:11)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dkqj.b(PG:13)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqra.run(PG:30)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqqd.execute(PG:1)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqod.o(PG:1)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqod.b(PG:41)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqrh.s(PG:9)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dksz.l(PG:5)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cyat.a(PG:138)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at bilp.a(PG:29)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cwzc.r(PG:24)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cwws.a(PG:5)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dkqe.a(PG:13)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqoh.d(PG:3)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqoj.run(PG:42)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqso.run(PG:76)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at crzm.run(PG:3)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cryq.run(PG:6)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at java.lang.Thread.run(Thread.java:1012)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at csaw.run(PG:64)
-11-27 13:26:55.270  7219  7240 E dqod    : RuntimeException while executing runnable dqra{dkqj@7035513} with executor MoreExecutors.directExecutor()
-11-27 13:26:55.270  7219  7240 E dqod    : java.lang.NullPointerException: Attempt to read from field 'java.lang.String cwru.b' on a null object reference in method 'void cyar.b(java.lang.Object)'
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cyar.b(PG:11)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dkqj.b(PG:13)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqra.run(PG:30)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqqd.execute(PG:1)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqod.o(PG:1)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqod.b(PG:41)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqrh.s(PG:9)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dksz.l(PG:5)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cyat.a(PG:138)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at bilp.a(PG:29)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cwzc.r(PG:24)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cwws.a(PG:5)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dkqe.a(PG:13)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqoh.d(PG:3)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqoj.run(PG:42)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqso.run(PG:76)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at crzm.run(PG:3)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cryq.run(PG:6)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at java.lang.Thread.run(Thread.java:1012)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at csaw.run(PG:64)
-11-27 13:26:55.270  7219  7240 E dqod    : RuntimeException while executing runnable dqra{dkqj@16d6949} with executor MoreExecutors.directExecutor()
-11-27 13:26:55.270  7219  7240 E dqod    : java.lang.NullPointerException: Attempt to read from field 'java.lang.String cwru.b' on a null object reference in method 'void cyar.b(java.lang.Object)'
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cyar.b(PG:11)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dkqj.b(PG:13)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqra.run(PG:30)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqqd.execute(PG:1)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqod.o(PG:1)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqod.b(PG:41)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqrh.s(PG:9)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dksz.l(PG:5)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cyat.a(PG:138)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at bilp.a(PG:29)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cwzc.r(PG:24)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cwws.a(PG:5)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dkqe.a(PG:13)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqoh.d(PG:3)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqoj.run(PG:42)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at dqso.run(PG:76)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at crzm.run(PG:3)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at cryq.run(PG:6)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at java.lang.Thread.run(Thread.java:1012)
-11-27 13:26:55.270  7219  7240 E dqod    : 	at csaw.run(PG:64)
-11-27 13:26:55.270  7219  7240 E PhFileGroupPop: Failed to add file group 
-11-27 13:26:55.278  7219  7240 E MDD     : FileGroupManager: Trying to add expired group webref-model-local-index.
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: Failed to add file group
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: cxev
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at cxns.a(PG:941)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at dkqe.a(PG:13)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at dqoh.d(PG:3)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at dqoj.run(PG:42)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at dqso.run(PG:76)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at crzm.run(PG:3)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at cryq.run(PG:6)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at java.lang.Thread.run(Thread.java:1012)
-11-27 13:26:55.280  7219  7240 E PhFileGroupPop: 	at csaw.run(PG:64)
-11-27 13:27:17.350  7485  7499 E TestRunner: failed: c03Recording(com.solidsketchapp.steel.C03RecordingTest)
-11-27 13:27:17.445  7485  7499 E TestRunner: ----- begin exception -----
-11-27 13:27:17.445  7485  7499 E TestRunner: java.lang.AssertionError: timed out waiting for the T106
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at com.solidsketchapp.steel.C03RecordingTest.waitFor(C03RecordingTest.kt:54)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at com.solidsketchapp.steel.C03RecordingTest.waitFor$default(C03RecordingTest.kt:53)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at com.solidsketchapp.steel.C03RecordingTest.c03Recording(C03RecordingTest.kt:144)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:272)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:271)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.withDisposableContent(ComposeUiTest.android.kt:505)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1$1.invoke(ComposeUiTest.android.kt:333)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withComposeIdlingResource(ComposeUiTest.android.kt:385)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withComposeIdlingResource(ComposeUiTest.android.kt:219)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:332)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withWindowRecomposer(ComposeUiTest.android.kt:359)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withWindowRecomposer(ComposeUiTest.android.kt:219)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1.invoke(ComposeUiTest.android.kt:331)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withTestCoroutines(ComposeUiTest.android.kt:372)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withTestCoroutines(ComposeUiTest.android.kt:219)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1.invoke(ComposeUiTest.android.kt:330)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.EspressoLink.withStrategy(EspressoLink.android.kt:66)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:329)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.IdlingResourceRegistry.withRegistry(IdlingResourceRegistry.jvm.kt:155)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1.invoke(ComposeUiTest.android.kt:328)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.ComposeRootRegistry.withRegistry(ComposeRootRegistry.android.kt:146)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:327)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:271)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-11-27 13:27:17.445  7485  7499 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:463)
-11-27 13:27:17.449  7485  7499 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2594)
-11-27 13:27:17.453  7485  7499 E TestRunner: ----- end exception -----
-11-27 13:27:17.824   564   942 E ActivityManager: Unable to freeze binder for 7485: -11
-11-27 13:27:17.856  7474  7474 I AndroidRuntime: VM exiting with result code 0.
-11-27 13:27:19.204   564  2903 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: Unable to get suggestions from AGA
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: io.grpc.StatusRuntimeException: UNKNOWN
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: 	at k3.e.a(go/retraceme 31f9979659277bb965985aff1272c33e3c3c9e755b77166d20a2465454178f2c:77)
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: 	at i3.l.b(go/retraceme 31f9979659277bb965985aff1272c33e3c3c9e755b77166d20a2465454178f2c:43)
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: 	at i3.l.a(go/retraceme 31f9979659277bb965985aff1272c33e3c3c9e755b77166d20a2465454178f2c:27)
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: 	at i3.z.run(go/retraceme 31f9979659277bb965985aff1272c33e3c3c9e755b77166d20a2465454178f2c:7)
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: 	at i3.m2.run(go/retraceme 31f9979659277bb965985aff1272c33e3c3c9e755b77166d20a2465454178f2c:19)
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
-11-27 13:27:20.676  1331  7897 E OneSearchSuggestProvider: 	at java.lang.Thread.run(Thread.java:1012)
-11-27 13:27:21.736   564  2903 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 13:27:21.927   564   741 E AppOps  : attributionTag VCN not declared in manifest of android
-11-27 13:27:22.062   564  2903 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 13:27:22.187   564  2903 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 13:27:22.198   564   898 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-27 13:27:22.203   939   939 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-27 13:27:22.218   939   939 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-27 13:27:22.317   564   741 E AppOps  : attributionTag VCN not declared in manifest of android
-11-27 13:27:22.415   564  2903 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 13:27:22.428   564  2903 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 13:27:22.519   564   741 E AppOps  : attributionTag VCN not declared in manifest of android
-11-27 13:27:22.536   939   939 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-27 13:27:22.872   939   939 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-27 13:27:23.112   564   898 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-27 13:27:23.371   564   898 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-27 13:27:23.425   939   939 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-27 13:27:23.437   939   939 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-27 13:27:23.452   564   898 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-27 13:27:24.455   564   898 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-27 13:27:24.484   564   898 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 14:00:36.693  8046  8046 E IPCThreadState: Binder transaction failure. id: 610769, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.693  8046  8046 E IPCThreadState: Binder transaction failure. id: 610773, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.693  8046  8046 E IPCThreadState: Binder transaction failure. id: 610777, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.694  8046  8046 E IPCThreadState: Binder transaction failure. id: 610781, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.694  8046  8046 E IPCThreadState: Binder transaction failure. id: 610785, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.892     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=android.hardware.security.keymint.IKeyMintDevice/default scontext=u:r:shell:s0 tcontext=u:object_r:hal_keymint_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.898     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=android.hardware.security.secureclock.ISecureClock/default scontext=u:r:shell:s0 tcontext=u:object_r:hal_secureclock_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.902     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=android.hardware.security.sharedsecret.ISharedSecret/default scontext=u:r:shell:s0 tcontext=u:object_r:hal_sharedsecret_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.710  8046  8046 E IPCThreadState: Binder transaction failure. id: 610801, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.710  8046  8046 E IPCThreadState: Binder transaction failure. id: 610805, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.710  8046  8046 E IPCThreadState: Binder transaction failure. id: 610809, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.710  8046  8046 E IPCThreadState: Binder transaction failure. id: 610813, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.710  8046  8046 E IPCThreadState: Binder transaction failure. id: 610817, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.710  8046  8046 E IPCThreadState: Binder transaction failure. id: 610821, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.721  8046  8046 E IPCThreadState: Binder transaction failure. id: 610868, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.721  8046  8046 E IPCThreadState: Binder transaction failure. id: 610872, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.721  8046  8046 E IPCThreadState: Binder transaction failure. id: 610876, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.721  8046  8046 E IPCThreadState: Binder transaction failure. id: 610880, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.721  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.914     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=android.service.gatekeeper.IGateKeeperService scontext=u:r:shell:s0 tcontext=u:object_r:gatekeeper_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.723  8046  8046 E IPCThreadState: Binder transaction failure. id: 610919, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:36.725  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.726  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.727  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.731  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.732  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.733  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.733  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.735  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.735  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.933     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=dnsresolver scontext=u:r:shell:s0 tcontext=u:object_r:dnsresolver_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.740  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.741  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.940     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=incident scontext=u:r:shell:s0 tcontext=u:object_r:incident_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.945     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=installd scontext=u:r:shell:s0 tcontext=u:object_r:installd_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.752  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.752  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.951     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=mdns scontext=u:r:shell:s0 tcontext=u:object_r:mdns_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.759  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.764  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.958     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=netd scontext=u:r:shell:s0 tcontext=u:object_r:netd_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.771  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.774  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.979     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=suspend_control scontext=u:r:shell:s0 tcontext=u:object_r:system_suspend_control_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.981     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=suspend_control_internal scontext=u:r:shell:s0 tcontext=u:object_r:system_suspend_control_internal_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.788  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.790  8046  8046 E Parcel  : Reading a NULL string not supported here.
+11-27 14:00:36.997     0     0 E SELinux : avc:  denied  { find } for pid=8046 uid=2000 name=vold scontext=u:r:shell:s0 tcontext=u:object_r:vold_service:s0 tclass=service_manager permissive=0
+11-27 14:00:36.805  8046  8046 E IPCThreadState: Binder transaction failure. id: 611985, BR_*: 29201, error: -1 (Operation not permitted)
+11-27 14:00:43.622     0     0 E audit   : rate limit exceeded
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: No service published for: persistent_data_block
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: persistent_data_block
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1071)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1068)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$StaticServiceFetcher.getService(SystemServiceRegistry.java:2293)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.markAsSealed(PackageInstallerSession.java:2394)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.commit(PackageInstallerSession.java:2143)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.content.pm.PackageInstaller$Session.commit(PackageInstaller.java:1977)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.doCommitSession(PackageManagerShellCommand.java:4298)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.runInstallCommit(PackageManagerShellCommand.java:1719)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:254)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.os.ShellCommand.exec(ShellCommand.java:38)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6561)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.os.Binder.shellCommand(Binder.java:1230)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.os.Binder.onTransact(Binder.java:1043)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4620)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6545)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.os.Binder.execTransactInternal(Binder.java:1505)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 14:00:43.464   585  1660 E SystemServiceRegistry: Manager wrapper not available: persistent_data_block
+11-27 14:00:43.850   585   657 E AtomicFile: Failed to rename /data/system/install_sessions.xml.new to /data/system/install_sessions.xml
+11-27 14:00:43.923   585   754 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 14:00:44.021   984   984 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 14:00:44.028   984   984 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: No service published for: persistent_data_block
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: persistent_data_block
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1071)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1068)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$StaticServiceFetcher.getService(SystemServiceRegistry.java:2293)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.markAsSealed(PackageInstallerSession.java:2394)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.commit(PackageInstallerSession.java:2143)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.content.pm.PackageInstaller$Session.commit(PackageInstaller.java:1977)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.doCommitSession(PackageManagerShellCommand.java:4298)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.runInstallCommit(PackageManagerShellCommand.java:1719)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:254)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.os.ShellCommand.exec(ShellCommand.java:38)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6561)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.os.Binder.shellCommand(Binder.java:1230)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.os.Binder.onTransact(Binder.java:1043)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4620)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6545)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.os.Binder.execTransactInternal(Binder.java:1505)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 14:00:44.123   585   897 E SystemServiceRegistry: Manager wrapper not available: persistent_data_block
+11-27 14:00:44.230   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 14:00:44.369   984   984 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 14:00:44.377   984   984 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 14:00:44.476   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 14:00:44.488   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 14:00:44.829   585   608 E AppOps  : Trying to set mode for unknown uid 10219.
+11-27 14:00:45.110   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 14:00:45.318   585   754 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 14:00:45.357   984   984 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 14:00:45.370   984   984 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 14:00:45.576     0     0 E audit   : rate limit exceeded
+11-27 14:00:45.460   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 14:00:45.593   984   984 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 14:00:45.594   984   984 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 14:00:45.636   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: No service published for: persistent_data_block
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: persistent_data_block
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1071)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$81.createService(SystemServiceRegistry.java:1068)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$StaticServiceFetcher.getService(SystemServiceRegistry.java:2293)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.content.Context.getSystemService(Context.java:4503)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.markAsSealed(PackageInstallerSession.java:2394)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageInstallerSession.commit(PackageInstallerSession.java:2143)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.content.pm.PackageInstaller$Session.commit(PackageInstaller.java:1977)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.doCommitSession(PackageManagerShellCommand.java:4298)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.runInstallCommit(PackageManagerShellCommand.java:1719)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:254)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.os.ShellCommand.exec(ShellCommand.java:38)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6561)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.os.Binder.shellCommand(Binder.java:1230)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.os.Binder.onTransact(Binder.java:1043)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4620)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6545)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.os.Binder.execTransactInternal(Binder.java:1505)
+11-27 14:00:46.333   585   897 E SystemServiceRegistry: 	at android.os.Binder.execTransact(Binder.java:1444)
+11-27 14:00:46.334   585   897 E SystemServiceRegistry: Manager wrapper not available: persistent_data_block
+11-27 14:00:46.783     0     0 E audit   : rate limit exceeded
+11-27 14:00:46.599   585   754 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 14:00:46.619   984   984 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 14:00:46.625   984   984 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 14:00:46.655   984   984 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 14:00:46.656   984   984 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 14:00:46.925   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 14:00:47.000   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 14:00:47.023   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 14:00:47.640  8180  8180 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-27 14:00:47.645  8180  8180 I AndroidRuntime: Using default boot image
+11-27 14:00:47.645  8180  8180 I AndroidRuntime: Leaving lock profiling enabled
+11-27 14:00:47.788  8180  8180 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-27 14:00:52.356  8190  8230 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[MainActivity]#1) as ready
+11-27 14:00:52.387  8190  8230 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[MainActivity]#2) as ready
+11-27 14:00:52.479   585  2774 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 14:01:02.046  1400  2734 E PickerDbFacade: Could not get first date taken millis for media id: 1000000048
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 500 milliseconds (plus 11 milliseconds, 685014 nanoseconds delay) for pxi@fc2811d[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], kas@295ff92]]]
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at kbd.u(PG:84)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at tui.q(PG:24)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at kbn.k(PG:8)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at kbn.j(PG:3)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at kbd.q(PG:8)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at kfm.aU(PG:3)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at dia.l(PG:1175)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.startViews(InputMethodService.java:3216)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.showWindow(InputMethodService.java:3115)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at kfm.showWindow(PG:12)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInput(InputMethodService.java:1032)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at kfl.showSoftInput(PG:89)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInputWithToken(InputMethodService.java:992)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:232)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-27 14:01:07.882  1262  1262 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-27 14:01:13.230  1560  1560 E A       : onError
+11-27 14:01:13.230  1560  1560 E A       : com.google.android.apps.gsa.shared.speech.b.l: errorCode: 65561, engine: 2
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.staticplugins.bp.a.f.a(PG:23)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.s3.o.hi(PG:13)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.ci.g.a.f.e(PG:9)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.speech.k.a.g.d(PG:162)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.speech.k.a.g.iO(PG:26)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.s3.p.c(PG:102)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.s3.q.run(PG:1)
+11-27 14:01:13.230  1560  1560 E A       : 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-27 14:01:13.230  1560  1560 E A       : 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.e.run(PG:12)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.bg.run(PG:3)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.bg.run(PG:3)
+11-27 14:01:13.230  1560  1560 E A       : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-27 14:01:13.230  1560  1560 E A       : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-27 14:01:13.230  1560  1560 E A       : 	at java.lang.Thread.run(Thread.java:1012)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.l.run(PG:42)
+11-27 14:01:13.230  1560  1560 E A       : Caused by: com.google.android.apps.gsa.shared.speech.b.n: errorCode: 65586, engine: 2
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.s3.o.hi(PG:6)
+11-27 14:01:13.230  1560  1560 E A       : 	... 14 more
+11-27 14:01:13.230  1560  1560 E A       : Caused by: com.google.android.apps.gsa.shared.speech.b.j: errorCode: 401, engine: 2
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.assistant.shared.n.i.b(PG:30)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.s3.producers.j.hs(PG:11)
+11-27 14:01:13.230  1560  1560 E A       : 	at com.google.android.apps.gsa.speech.k.a.g.d(PG:135)
+11-27 14:01:13.230  1560  1560 E A       : 	... 12 more
+11-27 14:01:16.355  8190  8204 E TestRunner: failed: c17Recording(com.solidsketchapp.steel.C17RecordingTest)
+11-27 14:01:16.360  8190  8204 E TestRunner: ----- begin exception -----
+11-27 14:01:16.360  8190  8204 E TestRunner: java.util.NoSuchElementException
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at com.solidsketchapp.steel.C17RecordingTest.openCatalog(C17RecordingTest.kt:209)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at com.solidsketchapp.steel.C17RecordingTest.c17Recording(C17RecordingTest.kt:142)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at java.lang.reflect.Method.invoke(Native Method)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:272)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:271)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.withDisposableContent(ComposeUiTest.android.kt:505)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1$1.invoke(ComposeUiTest.android.kt:333)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withComposeIdlingResource(ComposeUiTest.android.kt:385)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withComposeIdlingResource(ComposeUiTest.android.kt:219)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1$1.invoke(ComposeUiTest.android.kt:332)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withWindowRecomposer(ComposeUiTest.android.kt:359)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withWindowRecomposer(ComposeUiTest.android.kt:219)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1$1.invoke(ComposeUiTest.android.kt:331)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.withTestCoroutines(ComposeUiTest.android.kt:372)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.access$withTestCoroutines(ComposeUiTest.android.kt:219)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1$1.invoke(ComposeUiTest.android.kt:330)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.EspressoLink.withStrategy(EspressoLink.android.kt:66)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1$1.invoke(ComposeUiTest.android.kt:329)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.IdlingResourceRegistry.withRegistry(IdlingResourceRegistry.jvm.kt:155)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$runTest$1.invoke(ComposeUiTest.android.kt:328)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.ComposeRootRegistry.withRegistry(ComposeRootRegistry.android.kt:146)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment.runTest(ComposeUiTest.android.kt:327)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1.evaluate(AndroidComposeTestRule.android.kt:271)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:128)
+11-27 14:01:16.360  8190  8204 E TestRunner: 	at org.junit.runners.Suite.runChild(Suite.java:27)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:68)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:59)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:463)
+11-27 14:01:16.390  8190  8204 E TestRunner: 	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2594)
+11-27 14:01:16.390  8190  8204 E TestRunner: ----- end exception -----
+11-27 14:01:16.695   585  1212 E ActivityManager: Unable to freeze binder for 8190: -11
+11-27 14:01:16.763  8180  8180 I AndroidRuntime: VM exiting with result code 0.
+11-27 14:01:17.201  8308  8341 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[InstrumentationActivityInvoker$EmptyActivity]#0) as ready
+11-27 14:01:17.311  8308  8341 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[InstrumentationActivityInvoker$EmptyActivity]#1) as ready
+11-27 14:01:18.279   585  2774 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 14:01:19.154   585   623 E libprocessgroup: Unable to remove cgroup /sys/fs/cgroup/uid_10218/pid_8190: Device or resource busy
+11-27 14:01:20.982   585  2774 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 14:01:21.143   585   754 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 14:01:21.145   984   984 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 14:01:21.168   984   984 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 14:01:21.200   585  2774 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 14:01:21.546   585  2774 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 14:01:21.623   984   984 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 14:01:21.651   984   984 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 14:01:21.695   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 14:01:21.962   585  2774 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 14:01:22.069   585   754 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 14:01:22.190   585   754 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 14:01:22.215   585  2774 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 14:01:22.219   984   984 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 14:01:22.256   984   984 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 14:01:22.265   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 14:01:22.384   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 14:01:22.657   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 14:01:22.785   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 14:01:22.799   585   928 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
