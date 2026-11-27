@@ -1,0 +1,300 @@
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-27 18:46:35.465  1448  1448 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-27 18:46:36.637   577   592 E WindowManager: Unknown window type: 1002
+11-27 18:46:43.352  6996  6996 E FrameTracker: force finish cuj, time out: J<IME_INSETS_SHOW_ANIMATION::0@1@com.solidsketchapp.steel>
+11-27 18:46:46.250  6996  6996 E FrameTracker: force finish cuj, time out: J<IME_INSETS_HIDE_ANIMATION::1@1@com.solidsketchapp.steel>
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 6 milliseconds, 819120 nanoseconds delay) for pxi@c20a35f[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@626b1ac]]]
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at kef.i(PG:7)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at kef.h(PG:40)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at kef.d(PG:38)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at kfm.onStartInput(PG:473)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3390)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.restartInput(InputMethodService.java:875)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:890)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:201)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-27 18:46:52.859  1448  1448 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-27 18:46:56.529   577  1814 E WindowManager: Unknown window type: 1002
+11-27 18:46:58.560   577  1814 E WindowManager: Unknown window type: 1002
+11-27 18:47:00.643   577   592 E WindowManager: Unknown window type: 1002
+11-27 18:47:02.646   577  1814 E WindowManager: Unknown window type: 1002
+11-27 18:47:02.773  6996  6996 E FrameTracker: force finish cuj, time out: J<IME_INSETS_SHOW_ANIMATION::0@1@com.solidsketchapp.steel>
+11-27 18:47:04.628   577  1814 E WindowManager: Unknown window type: 1002
+11-27 18:47:04.680  6996  6996 E FrameTracker: force finish cuj, time out: J<IME_INSETS_HIDE_ANIMATION::1@1@com.solidsketchapp.steel>
+11-27 18:47:06.737   577   592 E WindowManager: Unknown window type: 1002
+11-27 18:47:10.625   577   665 E WindowManager: Unknown window type: 1002
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 10 milliseconds, 370259 nanoseconds delay) for pxi@c03ab86[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@b770c47]]]
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at pug.get(PG:52)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kbd.g(PG:9)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kbd.f(PG:20)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kbd.t(PG:27)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kef.i(PG:7)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kef.h(PG:40)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kef.d(PG:38)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kfm.en(PG:15)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at joy.en(PG:3)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at fto.j(PG:9)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at jow.a(PG:13)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at joy.af(PG:15)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at jos.w(PG:141)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at jos.y(PG:7)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at jos.c(PG:49)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at jos.m(PG:128)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at dia.l(PG:1268)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.startViews(InputMethodService.java:3216)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.showWindow(InputMethodService.java:3115)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kfm.showWindow(PG:12)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInput(InputMethodService.java:1032)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at kfl.showSoftInput(PG:89)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInputWithToken(InputMethodService.java:992)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:232)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-27 18:47:11.479  1448  1448 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
+11-27 18:47:15.807   577  1581 E WindowManager: Unknown window type: 1002
+11-27 18:47:22.292  6996  6996 E FrameTracker: force finish cuj, time out: J<IME_INSETS_SHOW_ANIMATION::0@1@com.solidsketchapp.steel>
+11-27 18:47:25.367  6996  6996 E FrameTracker: force finish cuj, time out: J<IME_INSETS_HIDE_ANIMATION::1@1@com.solidsketchapp.steel>
+11-27 18:47:28.243   577  8588 E GnssPsdsDownloader: No Long-Term PSDS servers were specified in the GnssConfiguration
+11-27 18:47:35.350  1681  1681 E A       : onError
+11-27 18:47:35.350  1681  1681 E A       : com.google.android.apps.gsa.shared.speech.b.l: errorCode: 65561, engine: 2
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.staticplugins.bp.a.f.a(PG:23)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.s3.o.hi(PG:13)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.ci.g.a.f.e(PG:9)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.speech.k.a.g.d(PG:162)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.speech.k.a.g.iO(PG:26)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.s3.p.c(PG:102)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.s3.q.run(PG:1)
+11-27 18:47:35.350  1681  1681 E A       : 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-27 18:47:35.350  1681  1681 E A       : 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.e.run(PG:12)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.bg.run(PG:3)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.bg.run(PG:3)
+11-27 18:47:35.350  1681  1681 E A       : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-27 18:47:35.350  1681  1681 E A       : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-27 18:47:35.350  1681  1681 E A       : 	at java.lang.Thread.run(Thread.java:1012)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.shared.util.c.a.l.run(PG:42)
+11-27 18:47:35.350  1681  1681 E A       : Caused by: com.google.android.apps.gsa.shared.speech.b.n: errorCode: 65586, engine: 2
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.s3.o.hi(PG:6)
+11-27 18:47:35.350  1681  1681 E A       : 	... 14 more
+11-27 18:47:35.350  1681  1681 E A       : Caused by: com.google.android.apps.gsa.shared.speech.b.j: errorCode: 401, engine: 2
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.assistant.shared.n.i.b(PG:30)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.s3.producers.j.hs(PG:11)
+11-27 18:47:35.350  1681  1681 E A       : 	at com.google.android.apps.gsa.speech.k.a.g.d(PG:135)
+11-27 18:47:35.350  1681  1681 E A       : 	... 12 more
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: Exception in upload method
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: com.google.android.apps.gsa.shared.n.d: Error code: 262182
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.shared.w.bg.d(PG:41)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.libraries.gsa.c.a.am.d(PG:10)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.libraries.gsa.c.a.bl.b(PG:39)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.libraries.gsa.c.a.e.a(PG:18)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.libraries.gsa.c.a.a.run(PG:13)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.be.execute(PG:1)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.i(PG:1)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:95)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.m(PG:17)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.j.fC(PG:3)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:30)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.m(PG:17)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.j.fC(PG:3)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:30)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.m(PG:17)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.j.fC(PG:3)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:30)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.m(PG:17)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.j.fC(PG:3)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:30)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.m(PG:17)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.c.fC(PG:3)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:30)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.bt.cancel(PG:5)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:84)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.staticplugins.an.b.a.run(PG:18)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.be.execute(PG:1)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.i(PG:1)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:95)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.m(PG:17)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.j.fC(PG:3)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:30)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.shared.util.c.ai.fC(PG:13)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:30)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.m(PG:17)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.c.fC(PG:3)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.l(PG:30)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.common.util.concurrent.d.cancel(PG:52)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.s3.p.a(PG:9)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.s3.s.a(PG:7)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.staticplugins.bp.a.d.e(PG:7)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.staticplugins.bp.a.d.c(PG:35)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.staticplugins.bp.a.f.a(PG:37)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.s3.o.hi(PG:13)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.ci.g.a.f.e(PG:9)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.speech.k.a.g.d(PG:162)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.speech.k.a.g.iO(PG:26)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.s3.p.c(PG:102)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.s3.q.run(PG:1)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.shared.util.c.a.e.run(PG:12)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.shared.util.c.a.bg.run(PG:3)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.shared.util.c.a.bg.run(PG:3)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at java.lang.Thread.run(Thread.java:1012)
+11-27 18:47:35.359  1681  1987 E cr_CronetUrlRequestContext: 	at com.google.android.apps.gsa.shared.util.c.a.l.run(PG:42)
+11-27 18:47:35.395   577  6794 E SettingsToPropertiesMapper: key=persist.device_config.storage_native_boot.transcode_compat_manifest value=com.yelp.android,0,com.yy.biu,0,com.groupme.android,0,air.tv.douyu.android,0,com.baidu.mbaby,0,com.vlocker.locker,0,com.znxh.hyhuo,0,com.yixia.xiaokaxiu,0 exceeds system property max length.
+11-27 18:47:35.395   577  6794 E SettingsToPropertiesMapper: key=persist.device_config.aconfig_flags.storage_native_boot.transcode_compat_manifest value=com.yelp.android,0,com.yy.biu,0,com.groupme.android,0,air.tv.douyu.android,0,com.baidu.mbaby,0,com.vlocker.locker,0,com.znxh.hyhuo,0,com.yixia.xiaokaxiu,0 exceeds system property max length.
+11-27 18:47:41.163   577   577 E DeviceConfig: Parsing int failed for location_mode
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: No service published for: ethernet
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+11-27 18:48:38.580  1119  1147 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-27 18:48:40.134  1448  7875 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: No service published for: ethernet
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+11-27 18:48:45.925  1119  1147 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-27 18:48:47.381  1448  7875 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-27 18:49:08.193  6996  6996 E FrameTracker: force finish cuj, time out: J<IME_INSETS_HIDE_ANIMATION::1@1@com.solidsketchapp.steel>
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: No service published for: ethernet
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+11-27 18:50:04.507  1119  1147 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-27 18:50:05.091  1448  9475 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: No service published for: ethernet
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
+11-27 18:50:12.055  1119  1147 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-27 18:50:13.030  1448  7875 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-27 18:50:19.450   577  1964 E ActivityManager: Unable to freeze binder for 6996: -11
+11-27 18:50:19.451  6983  6983 I AndroidRuntime: VM exiting with result code 0.
+11-27 18:50:21.784   577  2705 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 18:50:21.792   577  2705 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 18:50:21.803   577   912 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 18:50:21.826  1175  1175 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 18:50:21.828  1175  1175 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 18:50:21.831   577  1139 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 18:50:21.894   577  2705 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 18:50:21.943   577   912 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 18:50:21.949  2583  9898 E IPCThreadState: Binder transaction failure. id: 511693, BR_*: 29202, error: 0 (Success)
+11-27 18:50:21.949  2583  9898 E JavaBinder: !!! FAILED BINDER TRANSACTION !!!  (parcel size = 336)
+11-27 18:50:21.976   577  1787 E IPCThreadState: Binder transaction failure. id: 511839, BR_*: 29202, error: 0 (Success)
+11-27 18:50:22.002   577  1139 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 18:50:22.007  1175  1175 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 18:50:22.011   577  1139 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 18:50:22.018  1175  1175 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 18:50:22.126   577  2705 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 18:50:22.159   577  2705 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 18:50:22.180  1175  1175 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 18:50:22.195  1175  1175 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 18:50:22.210   577   912 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 18:50:22.813   577  1139 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 18:50:22.827   577  1139 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 18:50:22.837   577  1139 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
