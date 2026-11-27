@@ -1,300 +1,300 @@
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at pug.get(PG:52)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at kbd.g(PG:9)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at kbd.f(PG:20)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at kbd.t(PG:27)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at kef.e(PG:15)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at kfm.A(PG:21)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at joy.A(PG:3)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at fto.g(PG:9)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at jov.a(PG:3)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at joy.af(PG:15)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at joy.I(PG:49)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at jos.m(PG:59)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at dia.l(PG:1268)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.doStartInput(InputMethodService.java:3396)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.restartInput(InputMethodService.java:875)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.dispatchStartInput(InputMethodService.java:890)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:201)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
-11-27 08:21:28.910  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 20 milliseconds, 301813 nanoseconds delay) for pxi@a64aff9[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@e12fb3e]]]
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at pug.get(PG:52)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at kbd.g(PG:9)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at kbd.f(PG:20)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at kbd.t(PG:27)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at kef.e(PG:15)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at kfm.A(PG:21)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at joy.A(PG:3)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at fto.g(PG:9)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at jov.a(PG:3)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at joy.af(PG:15)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at joy.I(PG:49)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at jos.k(PG:30)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at dia.q(PG:11)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at kfm.onFinishInputView(PG:75)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.finishViews(InputMethodService.java:3245)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.hideWindow(InputMethodService.java:3284)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInput(InputMethodService.java:967)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
-11-27 08:21:32.688  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
-11-27 08:21:35.475   555  1787 E WindowManager: Unknown window type: 1002
-11-27 08:23:53.836   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-27 08:23:53.836   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-27 08:23:53.843   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-27 08:23:53.846   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-27 08:23:53.856   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-27 08:23:53.856   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-27 08:23:53.856   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-27 08:23:53.856   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-27 08:23:53.888   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-27 08:23:53.888   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-27 08:23:53.888   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-27 08:23:53.888   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: No service published for: ethernet
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
-11-27 08:23:53.997   857   927 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
-11-27 08:23:55.918  6049  6090 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[MainActivity]#62) as ready
-11-27 08:23:55.927  6049  6090 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[MainActivity]#63) as ready
-11-27 08:23:56.500  2785  3062 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[ScreenDecorOverlay]#34) as ready
-11-27 08:23:56.505  2785  3062 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[ScreenDecorOverlay]#35) as ready
-11-27 08:23:56.934  2785  3062 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[StatusBar]#36) as ready
-11-27 08:23:56.934  2785  3062 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[StatusBar]#37) as ready
-11-27 08:23:57.940  1254  6675 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
-11-27 08:24:01.901   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-27 08:24:01.901   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-27 08:24:01.901   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-27 08:24:01.901   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-27 08:24:01.901   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-27 08:24:01.901   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-27 08:24:01.901   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-27 08:24:01.901   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-27 08:24:01.904   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-27 08:24:01.904   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-27 08:24:01.904   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-27 08:24:01.904   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: No service published for: ethernet
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
-11-27 08:24:02.045   857   927 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
-11-27 08:24:05.014  1254  6680 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 2 milliseconds, 494570 nanoseconds delay) for pxi@fda41fb[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@32ac218]]]
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at pug.get(PG:52)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kbd.g(PG:9)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kbd.f(PG:20)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kbd.t(PG:27)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kef.i(PG:7)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kef.h(PG:40)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kef.d(PG:38)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kfm.en(PG:15)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at joy.en(PG:3)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at fto.j(PG:9)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at jow.a(PG:13)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at joy.af(PG:15)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at jos.w(PG:141)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at jos.y(PG:7)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at jos.c(PG:49)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at jos.m(PG:128)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at dia.l(PG:1268)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kfm.onStartInputView(PG:364)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.startViews(InputMethodService.java:3216)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.showWindow(InputMethodService.java:3115)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kfm.showWindow(PG:12)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInput(InputMethodService.java:1032)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at kfl.showSoftInput(PG:89)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.showSoftInputWithToken(InputMethodService.java:992)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:232)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
-11-27 08:24:09.860  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: InputConnectionWrapper.waitForInputConnectionFutureInternal():1773 Failed to get the input connection call's result.
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: java.util.concurrent.TimeoutException: Waited 100 milliseconds (plus 23 milliseconds, 184515 nanoseconds delay) for pxi@95bef8d[status=PENDING, info=[task=[running=[RUNNING ON ICWrapper-1], fch@3302542]]]
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at pug.get(PG:52)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at kbd.g(PG:9)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at kbd.f(PG:20)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at kbd.t(PG:27)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at kef.e(PG:15)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at kfm.A(PG:21)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at joy.A(PG:3)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at fto.g(PG:9)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at jov.a(PG:3)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at joy.af(PG:15)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at joy.I(PG:49)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at jos.k(PG:30)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at dia.q(PG:11)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at kfm.onFinishInputView(PG:75)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.finishViews(InputMethodService.java:3245)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService.hideWindow(InputMethodService.java:3284)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInput(InputMethodService.java:967)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at kfl.hideSoftInput(PG:67)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.InputMethodService$InputMethodImpl.hideSoftInputWithToken(InputMethodService.java:927)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at android.inputmethodservice.IInputMethodWrapper.executeMessage(IInputMethodWrapper.java:247)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.HandlerCaller$MyHandler.handleMessage(HandlerCaller.java:44)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at android.os.Handler.dispatchMessage(Handler.java:107)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at android.os.Looper.loop(Looper.java:317)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at android.app.ActivityThread.main(ActivityThread.java:8705)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at java.lang.reflect.Method.invoke(Native Method)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
-11-27 08:24:17.410  1254  1254 E InputConnectionWrapper: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:886)
-11-27 08:24:28.465  6049  6049 E FrameTracker: force finish cuj, time out: J<IME_INSETS_HIDE_ANIMATION::1@1@com.solidsketchapp.steel>
-11-27 08:26:23.836   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-27 08:26:23.836   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-27 08:26:23.836   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-27 08:26:23.836   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-27 08:26:23.836   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-27 08:26:23.836   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-27 08:26:23.836   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-27 08:26:23.836   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-27 08:26:23.837   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-27 08:26:23.837   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-27 08:26:23.837   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-27 08:26:23.837   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: No service published for: ethernet
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
-11-27 08:26:23.846   857   927 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
-11-27 08:26:26.965  2785  3062 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[ScreenDecorOverlay]#72) as ready
-11-27 08:26:26.965  2785  3062 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[ScreenDecorOverlay]#73) as ready
-11-27 08:26:27.527  1254  6713 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
-11-27 08:26:30.262   555  6714 E GnssPsdsDownloader: No Long-Term PSDS servers were specified in the GnssConfiguration
-11-27 08:26:31.584   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-27 08:26:31.584   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-27 08:26:31.585   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-27 08:26:31.585   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-27 08:26:31.587   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-27 08:26:31.589   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-27 08:26:31.589   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap': No such file or directory
-11-27 08:26:31.589   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-neutral-h6mL.frro@idmap
-11-27 08:26:31.613   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap': No such file or directory
-11-27 08:26:31.613   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-accent-JhY0.frro@idmap
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: No service published for: ethernet
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.os.ServiceManager.getServiceOrThrow(ServiceManager.java:203)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$145.createService(SystemServiceRegistry.java:2120)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry$CachedServiceFetcher.getService(SystemServiceRegistry.java:2231)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.app.SystemServiceRegistry.getSystemService(SystemServiceRegistry.java:1812)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.app.ContextImpl.getSystemService(ContextImpl.java:2241)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.content.ContextWrapper.getSystemService(ContextWrapper.java:936)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.isEthernetSupported(Tethering.java:1579)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.makeSupportedDownstreams(Tethering.java:2562)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateSupportedDownstreams(Tethering.java:2536)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.updateConfiguration(Tethering.java:549)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering.-$$Nest$mupdateConfiguration(Tethering.java:0)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at com.android.networkstack.tethering.Tethering$StateReceiver.onReceive(Tethering.java:1186)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.lambda$getRunnable$0(LoadedApk.java:1814)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args.$r8$lambda$mcNAAl1SQ4MyJPyDg8TJ2x2h0Rk(Unknown Source:0)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.app.LoadedApk$ReceiverDispatcher$Args$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.os.Handler.handleCallback(Handler.java:959)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.os.Handler.dispatchMessage(Handler.java:100)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.os.Looper.loopOnce(Looper.java:232)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.os.Looper.loop(Looper.java:317)
-11-27 08:26:31.617   857   927 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
-11-27 08:26:31.618   555   723 E system_server: Failed to open file '/data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap': No such file or directory
-11-27 08:26:31.618   555   723 E system_server: failed to read IDMAP /data/resource-cache/data@resource-cache@com.android.systemui-dynamic-K2Mc.frro@idmap
-11-27 08:26:33.581  2785  3062 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[ScreenDecorOverlayBottom]#88) as ready
-11-27 08:26:33.591  2785  3062 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[ScreenDecorOverlayBottom]#89) as ready
-11-27 08:26:34.505  1254  6712 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
-11-27 08:26:40.363  6039  6039 I AndroidRuntime: VM exiting with result code 0.
-11-27 08:26:40.376   555  2192 E ActivityManager: Unable to freeze binder for 6049: -11
-11-27 08:26:41.416  6722  6741 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[InstrumentationActivityInvoker$EmptyActivity]#0) as ready
-11-27 08:26:43.731   555  2214 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 08:26:47.037   555  2214 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 08:26:48.228   555  2214 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 08:26:48.342   555   729 E AppOps  : attributionTag VCN not declared in manifest of android
-11-27 08:26:48.385   555  2214 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 08:26:48.486   961   961 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-27 08:26:48.495   961   961 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-27 08:26:48.538   555   868 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-27 08:26:48.542   555  2214 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 08:26:49.009   555   729 E AppOps  : attributionTag VCN not declared in manifest of android
-11-27 08:26:49.387  6945  6945 E .apps.wellbeing: Not starting debugger since process cannot load the jdwp agent.
-11-27 08:26:49.850   961   961 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-27 08:26:49.867   961   961 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-27 08:26:49.901   555  2214 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 08:26:50.092   555  2214 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
-11-27 08:26:50.110   555   729 E AppOps  : attributionTag VCN not declared in manifest of android
-11-27 08:26:50.119   961   961 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
-11-27 08:26:50.135   961   961 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
-11-27 08:26:50.244   555   868 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-27 08:26:50.271   555   868 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
-11-27 08:26:50.278   555   868 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
-11-27 08:26:50.301   555   868 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
-11-27 08:26:50.304   555   868 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 09:04:04.421   844   911 E SystemServiceRegistry: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-27 09:04:07.457  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164713
+11-27 09:04:07.460  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164712
+11-27 09:04:07.509  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164714
+11-27 09:04:07.539  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164715
+11-27 09:04:07.570  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164716
+11-27 09:04:07.599  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164717
+11-27 09:04:07.630  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164718
+11-27 09:04:07.763  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164719
+11-27 09:04:07.780  1244  6994 E HandwritingSuperpacksUtil: HandwritingSuperpacksUtil.getPackMappingPackName():40 No pack mapping pack found in []
+11-27 09:04:07.844  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164720
+11-27 09:04:07.894  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164721
+11-27 09:04:07.905  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164722
+11-27 09:04:07.941  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164723
+11-27 09:04:07.973  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164724
+11-27 09:04:08.002  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164725
+11-27 09:04:08.033  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164726
+11-27 09:04:08.064  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164727
+11-27 09:04:08.096  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164728
+11-27 09:04:08.121  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164729
+11-27 09:04:08.149  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164730
+11-27 09:04:08.178  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164731
+11-27 09:04:08.208  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164732
+11-27 09:04:08.297  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164733
+11-27 09:04:08.349  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164734
+11-27 09:04:08.380  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164735
+11-27 09:04:08.395  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164736
+11-27 09:04:08.463  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164737
+11-27 09:04:08.530  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164738
+11-27 09:04:08.555  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164739
+11-27 09:04:08.802  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164741
+11-27 09:04:08.804  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164740
+11-27 09:04:09.045  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164742
+11-27 09:04:09.045  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164743
+11-27 09:04:09.093  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164744
+11-27 09:04:09.122  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164745
+11-27 09:04:09.153  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164746
+11-27 09:04:09.178  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164747
+11-27 09:04:09.208  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164748
+11-27 09:04:09.236  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164749
+11-27 09:04:09.264  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164750
+11-27 09:04:09.293  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164751
+11-27 09:04:09.328  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164752
+11-27 09:04:09.359  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164753
+11-27 09:04:09.386  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164754
+11-27 09:04:09.415  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164755
+11-27 09:04:09.446  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164756
+11-27 09:04:09.476  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164757
+11-27 09:04:09.504  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164758
+11-27 09:04:09.534  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164759
+11-27 09:04:09.565  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164760
+11-27 09:04:09.593  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164761
+11-27 09:04:09.625  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164762
+11-27 09:04:09.640  6879  6931 E MDD     : FileGroupManager downloadFileGroup smart_actions_emotive_models com.google.android.apps.messaging can't finish!
+11-27 09:04:09.640  6879  6931 E MDD     : FileGroupManager: Expecting DownloadException's in AggregateException
+11-27 09:04:09.640  6879  6931 E MDD     : FileGroupManager: Expecting DownloadException's in AggregateException
+11-27 09:04:09.640  6879  6931 E MDD     : FileGroupManager: Expecting DownloadException's in AggregateException
+11-27 09:04:10.275  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164763
+11-27 09:04:10.288  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164764
+11-27 09:04:10.324  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164765
+11-27 09:04:10.324  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164766
+11-27 09:04:10.552  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164768
+11-27 09:04:10.568  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164767
+11-27 09:04:10.607  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164770
+11-27 09:04:10.622  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164769
+11-27 09:04:10.852  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164772
+11-27 09:04:10.865  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164771
+11-27 09:04:10.894  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164773
+11-27 09:04:10.907  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164774
+11-27 09:04:11.133  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164775
+11-27 09:04:11.148  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164776
+11-27 09:04:11.174  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164778
+11-27 09:04:11.190  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164777
+11-27 09:04:11.221  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164779
+11-27 09:04:11.241  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164780
+11-27 09:04:11.268  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164781
+11-27 09:04:11.275  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164782
+11-27 09:04:11.307  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164784
+11-27 09:04:11.312  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164783
+11-27 09:04:11.345  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164785
+11-27 09:04:11.349  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164786
+11-27 09:04:11.383  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164787
+11-27 09:04:11.385  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164788
+11-27 09:04:11.613  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164789
+11-27 09:04:11.613  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164790
+11-27 09:04:11.638  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164792
+11-27 09:04:11.641  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164791
+11-27 09:04:11.677  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164794
+11-27 09:04:11.678  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164793
+11-27 09:04:12.034  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164796
+11-27 09:04:12.038  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164795
+11-27 09:04:12.229  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164798
+11-27 09:04:12.435  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164797
+11-27 09:04:12.481  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164799
+11-27 09:04:12.488  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164800
+11-27 09:04:12.576  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164801
+11-27 09:04:12.765  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164802
+11-27 09:04:12.862  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164804
+11-27 09:04:12.910  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164803
+11-27 09:04:12.968  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164805
+11-27 09:04:13.086  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164806
+11-27 09:04:13.231  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164807
+11-27 09:04:13.231  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164808
+11-27 09:04:13.260  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164809
+11-27 09:04:13.274  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164810
+11-27 09:04:13.556  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164811
+11-27 09:04:13.567  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164812
+11-27 09:04:13.796  6053  6053 I AndroidRuntime: VM exiting with result code 0.
+11-27 09:04:13.829   551  1494 E ActivityManager: Unable to freeze binder for 6063: -11
+11-27 09:04:13.900  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164813
+11-27 09:04:14.298  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164814
+11-27 09:04:14.330  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164815
+11-27 09:04:14.385  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164816
+11-27 09:04:14.406  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164818
+11-27 09:04:14.519  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164817
+11-27 09:04:14.779  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164819
+11-27 09:04:14.822  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164820
+11-27 09:04:15.238  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164822
+11-27 09:04:15.333  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164821
+11-27 09:04:15.500  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164824
+11-27 09:04:15.583  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164823
+11-27 09:04:16.088  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164825
+11-27 09:04:16.088  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164826
+11-27 09:04:16.712   551  2563 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 09:04:16.974   551  7076 E GnssPsdsDownloader: No Long-Term PSDS servers were specified in the GnssConfiguration
+11-27 09:04:17.077  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164828
+11-27 09:04:17.191  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164827
+11-27 09:04:17.521  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164829
+11-27 09:04:17.571  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164830
+11-27 09:04:17.625  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164832
+11-27 09:04:17.673  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164831
+11-27 09:04:17.679  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164833
+11-27 09:04:17.749  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164834
+11-27 09:04:17.753  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164835
+11-27 09:04:17.781  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164836
+11-27 09:04:17.796  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164837
+11-27 09:04:17.858  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164838
+11-27 09:04:17.908  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164839
+11-27 09:04:17.910  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164840
+11-27 09:04:17.983  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164841
+11-27 09:04:17.990  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164842
+11-27 09:04:18.717  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164843
+11-27 09:04:19.048  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164844
+11-27 09:04:19.072  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164845
+11-27 09:04:19.220  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164846
+11-27 09:04:19.306  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164847
+11-27 09:04:19.346  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164848
+11-27 09:04:19.349  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164849
+11-27 09:04:19.412  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164851
+11-27 09:04:19.413  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164850
+11-27 09:04:19.435  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164853
+11-27 09:04:19.441  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164852
+11-27 09:04:19.468  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164854
+11-27 09:04:19.480  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164855
+11-27 09:04:19.514  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164856
+11-27 09:04:19.539  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164857
+11-27 09:04:19.549  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164858
+11-27 09:04:19.581  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164859
+11-27 09:04:19.610  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164860
+11-27 09:04:19.619  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164861
+11-27 09:04:19.657  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164862
+11-27 09:04:19.694  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164863
+11-27 09:04:19.698  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164864
+11-27 09:04:19.741  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164865
+11-27 09:04:19.746  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164866
+11-27 09:04:19.781  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164867
+11-27 09:04:19.787  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164868
+11-27 09:04:19.828  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164869
+11-27 09:04:19.831  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164870
+11-27 09:04:19.862  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164871
+11-27 09:04:19.871  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164872
+11-27 09:04:19.904  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164873
+11-27 09:04:19.911  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164874
+11-27 09:04:19.945  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164876
+11-27 09:04:19.949  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164875
+11-27 09:04:20.132   551  2563 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 09:04:20.188  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164878
+11-27 09:04:20.197  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164877
+11-27 09:04:20.262  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164880
+11-27 09:04:20.319  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164879
+11-27 09:04:20.370  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164881
+11-27 09:04:20.403  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164882
+11-27 09:04:20.441  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164883
+11-27 09:04:20.488  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164884
+11-27 09:04:20.503  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164885
+11-27 09:04:20.579  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164886
+11-27 09:04:20.609  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164887
+11-27 09:04:20.625  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164888
+11-27 09:04:20.676  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164890
+11-27 09:04:20.681  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164889
+11-27 09:04:20.699  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164891
+11-27 09:04:20.785  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164892
+11-27 09:04:20.815  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164893
+11-27 09:04:20.830  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164894
+11-27 09:04:20.845  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164895
+11-27 09:04:20.854  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164896
+11-27 09:04:20.881  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164897
+11-27 09:04:20.886  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164898
+11-27 09:04:21.125  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164899
+11-27 09:04:21.145  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164900
+11-27 09:04:21.197  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164901
+11-27 09:04:21.221  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164902
+11-27 09:04:21.249  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164903
+11-27 09:04:21.303  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164904
+11-27 09:04:21.461  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164905
+11-27 09:04:21.515  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164906
+11-27 09:04:21.515  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164907
+11-27 09:04:21.584  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164908
+11-27 09:04:21.612  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164909
+11-27 09:04:21.635  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164910
+11-27 09:04:21.659  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164911
+11-27 09:04:21.675  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164912
+11-27 09:04:21.700  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164913
+11-27 09:04:21.711  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164914
+11-27 09:04:21.734  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164915
+11-27 09:04:21.742  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164916
+11-27 09:04:21.756  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164917
+11-27 09:04:21.765  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164918
+11-27 09:04:21.777  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164919
+11-27 09:04:21.792  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164920
+11-27 09:04:21.805  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164921
+11-27 09:04:21.823  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164922
+11-27 09:04:21.833  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164923
+11-27 09:04:21.860  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164924
+11-27 09:04:22.096  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164925
+11-27 09:04:22.099  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164926
+11-27 09:04:22.124   551  2563 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 09:04:22.202   551   723 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 09:04:22.231   947   947 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 09:04:22.246   947   947 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 09:04:22.254   551   882 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 09:04:22.283   551  2563 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 09:04:22.328  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164927
+11-27 09:04:22.662  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164928
+11-27 09:04:22.823  7231  7231 E .apps.wellbeing: Not starting debugger since process cannot load the jdwp agent.
+11-27 09:04:22.837   551  2563 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 09:04:23.674  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164929
+11-27 09:04:23.680   551  1847 E AtomicFile: Failed to rename /data/system/cachequota.xml.new to /data/system/cachequota.xml
+11-27 09:04:23.890  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164930
+11-27 09:04:23.910   551   723 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 09:04:23.970  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164932
+11-27 09:04:23.973   947   947 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 09:04:23.986   947   947 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 09:04:24.002   551   882 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 09:04:24.020   551   882 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 09:04:24.052  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164931
+11-27 09:04:24.116  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164933
+11-27 09:04:24.300   551   882 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 09:04:24.697  7286  7286 E d.process.media: Not starting debugger since process cannot load the jdwp agent.
+11-27 09:04:25.705   551  2563 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+11-27 09:04:26.090  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164934
+11-27 09:04:26.145  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164935
+11-27 09:04:26.218   551   723 E AppOps  : attributionTag VCN not declared in manifest of android
+11-27 09:04:26.259   551   882 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 09:04:26.363   947   947 E SmsApplication: com.google.android.apps.messaging lost android:read_cell_broadcasts:  (fixing)
+11-27 09:04:26.379   947   947 E CellBroadcastUtils: getDefaultCellBroadcastReceiverPackageName: no package found
+11-27 09:04:26.478   551   882 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 09:04:26.844   551   882 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms.supervision, role: android.app.role.SYSTEM_SUPERVISION
+11-27 09:04:26.871  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164937
+11-27 09:04:27.022  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164936
+11-27 09:04:28.512  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164939
+11-27 09:04:28.640   551   882 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.gms, role: android.app.role.WALLET
+11-27 09:04:28.683  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164938
+11-27 09:04:28.761  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164940
+11-27 09:04:28.762   551   882 E RoleControllerServiceImpl: Default/fallback role holder package doesn't qualify for the role, package: com.google.android.devicelockcontroller, role: android.app.role.SYSTEM_FINANCED_DEVICE_CONTROLLER
+11-27 09:04:28.854  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164941
+11-27 09:04:28.900  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164942
+11-27 09:04:28.928  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164943
+11-27 09:04:29.045  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164945
+11-27 09:04:29.253  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164944
+11-27 09:04:29.323  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164946
+11-27 09:04:29.423  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164947
+11-27 09:04:29.510  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164948
+11-27 09:04:29.709  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164949
+11-27 09:04:29.745  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164950
+11-27 09:04:29.791  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164951
+11-27 09:04:29.797  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164952
+11-27 09:04:29.827  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164953
+11-27 09:04:29.835  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164954
+11-27 09:04:29.884  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164956
+11-27 09:04:29.887  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164955
+11-27 09:04:29.916  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164958
+11-27 09:04:29.917  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164957
+11-27 09:04:29.943  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164959
+11-27 09:04:29.959  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164960
+11-27 09:04:29.997  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164961
+11-27 09:04:30.014  6879  7015 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164962
+11-27 09:04:30.044  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164963
+11-27 09:04:30.046  6879  6931 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164964
+11-27 09:04:30.082  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164966
+11-27 09:04:30.088  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164965
+11-27 09:04:30.123  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164967
+11-27 09:04:30.125  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164968
+11-27 09:04:30.162  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164969
+11-27 09:04:30.181  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164970
+11-27 09:04:30.249  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164972
+11-27 09:04:30.252  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164971
+11-27 09:04:30.283  6879  6913 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164973
+11-27 09:04:30.305  6879  6901 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164974
+11-27 09:04:30.344  6879  6912 E MDD     : DownloadProgressMonitor: Can't find file group for uri: android://com.google.android.apps.messaging/files/datadownload/shared/public/datadownloadfile_1795770164975
