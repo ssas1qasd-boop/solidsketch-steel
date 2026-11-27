@@ -155,6 +155,7 @@
       const gs = [...new Set([...(H.byPart.get(b.id) || []), ...((own || {}).gs || []), ...(oc ? oc.parts.flatMap(pid => H.byPart.get(pid) || []) : [])])]; if (!gs.length) { FILL.set(b.man, 0); return 0; }
       const bb = b.man.boundingBox(), lo = bb.min, hi = bb.max; let M = null, fill = 0;
       for (const q of gs) {
+        if (b.pn && Math.abs(V3(q.ax).normalize().dot(b.pn)) < 0.9) continue;   // X01: a built-up's plate is drilled only by bolts square to it
         const a = V3(q.ax).normalize(), X = new THREE.Vector3().crossVectors(a, Math.abs(a.z) < 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0)).normalize(), Y = new THREE.Vector3().crossVectors(a, X);
         const hr = (+q.d0 || +q.d + 2) / 2, L = +q.L || 3 * (+q.d || 20), rr = hr + 0.8;
         const area = (q.poly ? q.poly / 2 * Math.sin(2 * Math.PI / q.poly) * hr * hr : 3 * hr * hr) + (Math.max(+q.sl1 || 0, 0) + Math.max(+q.sl2 || 0, 0)) * 2 * hr * Math.cos(Math.PI / 12);   // C01: a rod's hole is a 24-gon   // stBolts' hole: a 12-gon of radius hr (area 3 hr^2), swept along a slot
@@ -169,6 +170,7 @@
     function partWeight70(b) {
       const r = partWeight70net(b); if (!b || !b.st || r == null) return r;
       if (/^GROUT$/i.test(String(b.st.name || '').trim())) return Object.assign({}, r, { weight: 0, net: 0, gross: 0 });   // Tekla's grout weighs 0 (material GROUT); components name it GROUT on S275 (docs/steel/WEIGHT-ANALYSIS.md D1)
+      if (b.st.kind === 'member' && b.man && BI70(b.st.prof)) return buWeight70(b, r);   // X01: a built-up = its three plates
       if (r.catalog && r.kgm > 0 && r.len > 0) return r;
       if (b.st.kind === 'conn' && +b.st.len70 > 0) { const kgm = R66.TK_KGM[String(b.st.prof || '').toUpperCase()] ?? R66.TK_KGM[b.st.prof] ?? (stProf(b.st.prof) || {}).m;   // C18: a component's catalog angle (the stair brackets): Tekla's kg/m x its length
         if (kgm > 0) { const w = r2(kgm * +b.st.len70 / 1000); return Object.assign({}, r, { weight: w, net: w, gross: w, catalog: true, kgm, len: +b.st.len70 }); } }   // catalog kg/m x length: holes never counted; a catalog part with no length (a cleat angle) is weighed by its solid
@@ -177,10 +179,41 @@
       const base = !r.tkArea && !(r.holesKg > 0) ? Math.abs(b.man.volume()) / (U * U * U) * 1e-9 * rho : r.net;   // unrounded, so the fill is added before rounding
       return Object.assign({}, r, { weight: r2(base + add), net: r2(base + add), gross: r2(Math.max(r.gross, base + add)), holesFilledKg: r2(add) });
     }
+    // X01 (owner 2026-11-27): a built-up section (BI) is three plates in Tekla: Web, Top flange and Bottom flange, each its own part (R12:
+    // FLT8*200 + 2 FLT10*150 per rafter, pos 3502 / 3503 / 3504) and each weighed as its solid without bolt holes. v69 weighed the member
+    // as its catalog kg/m x length (the plates' end cuts, copes and fits not counted) and split it for the drawings into three plain boxes
+    // (tkSubs), and only for a 6-number BI. Each plate is now the member's own solid (every cut, fit, cope and hole) inside the plate's
+    // slab of the section, in the member frame (stMF): the flanges are the bands beyond the web's edges, the web the band between.
+    const BI70 = prof => { const m = /^BI\s*(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)(?:-(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?))?$/i.exec(String(prof || '').trim());
+      return m ? { h: +m[1], tw: +m[2], b1: +m[3], t1: +m[4], b2: m[5] ? +m[5] : +m[3], t2: m[6] ? +m[6] : +m[4] } : null; };
+    const SUB70 = new WeakMap();
+    function buSubs70(m) {                                          // a BI member -> its three plates { id, st, man } (null: not a BI)
+      if (!m || !m.st || m.st.kind !== 'member' || !m.man) return null; const bi = BI70(m.st.prof); if (!bi) return null;
+      let c = SUB70.get(m.man); if (c) return c;
+      const F = stMF(m.st), U = stU(), big = (F.c1.distanceTo(F.c2) / U + bi.h + Math.max(bi.b1, bi.b2) + 2000) * U,   // the slabs sized to the member (as the app: a 1e6 box in float32 tilts its faces)
+        sub = Array.isArray(m.st.sub) && m.st.sub.length ? m.st.sub : null, pos = m.st.pos || '?';
+      const def = { tf: { prof: `FLT${bi.t1}*${bi.b1}`, name: 'Top flange' }, w: { prof: `FLT${bi.tw}*${Math.round((bi.h - bi.t1 - bi.t2) * 1000) / 1000}`, name: 'Web' }, bf: { prof: `FLT${bi.t2}*${bi.b2}`, name: 'Bottom flange' } };
+      const band = { tf: [bi.h / 2 - bi.t1, big / U], w: [-bi.h / 2 + bi.t2, bi.h / 2 - bi.t1], bf: [-big / U, -bi.h / 2 + bi.t2] };
+      c = ['tf', 'w', 'bf'].map(role => { const s = (sub && sub.find(x => x.role === role)) || {}, [v0, v1] = band[role];
+        const slab = stBox3(F.c1, F.eh, F.es, v0 * U, v1 * U, -big, big, -big, big);
+        const st = { kind: 'plate', sub: role, name: s.name || def[role].name, prof: s.prof || def[role].prof, mat: s.mat || m.st.mat, pos: s.pos || (pos + '.' + role), amark: m.st.amark, asm: m.id, of: m.id };
+        return { id: m.id + ':' + role, st, pseudo: true, man: m.man.intersect(slab) }; });
+      SUB70.set(m.man, c); return c;
+    }
+    function buWeight70(b, r) {                                     // the member's weight = its three plates', each without bolt holes
+      const U = stU(), rho = (R66.TK_DENS[String(b.st.mat || '').toUpperCase()] ?? 7850); let W = 0; const subs = [];
+      for (const s of buSubs70(b)) { const v = Math.abs(s.man.volume()) / (U * U * U); let f = 0;
+        try { const M = stMF(b.st); f = holeFill70({ id: b.id, st: Object.assign({}, b.st, { kind: 'plate', prof: s.st.prof }), man: s.man, pn: s.st.sub === 'w' ? M.es : M.eh }); } catch (e) { f = 0; }
+        const w = (v + f) * 1e-9 * rho; W += w; subs.push({ pos: s.st.pos, name: s.st.name, prof: s.st.prof, mat: s.st.mat, weight: r2(w), holesFilledKg: r2(f * 1e-9 * rho) }); }
+      return Object.assign({}, r, { weight: r2(W), net: r2(W), gross: r2(W), catalog: false, kgm: 0, subs });
+    }
+    if (typeof tkSubs === 'function') { const tkSubs69 = tkSubs; tkSubs = function (m) { return buSubs70(m) || tkSubs69(m); }; }   // drawings, part lists: the plates as cut
+
     function weights70() {                                          // v66 tkWeights with the v70 part weight
       const asm = new Map(), part = new Map(); let W = 0, N = 0, G = 0, bolts = 0, n = 0;
       for (const b of S.bodies) { if (!b.st) continue; if (b.st.kind === 'bolts' || b.st.kind === 'bolt') { bolts++; continue; } const w = partWeight70(b); n++; W += w.weight; N += w.net; G += w.gross;
         const ak = b.st.amark || b.st.asm || ''; let a = asm.get(ak); if (!a) asm.set(ak, a = { weight: 0, net: 0, gross: 0, parts: 0 }); a.weight += w.weight; a.net += w.net; a.gross += w.gross; a.parts++;
+        if (w.subs) { n += w.subs.length - 1; for (const x of w.subs) { let p = part.get(x.pos); if (!p) part.set(x.pos, p = { prof: x.prof, mat: x.mat || '', n: 0, weight: 0, net: 0, gross: 0 }); p.n++; p.weight += x.weight; p.net += x.weight; p.gross += x.weight; } continue; }   // X01: a built-up's rows are its plates
         const pk = b.st.pos || b.st.pmark || ''; let p = part.get(pk); if (!p) part.set(pk, p = { prof: String(b.st.tprof || b.st.prof || ''), mat: b.st.mat || '', n: 0, weight: 0, net: 0, gross: 0 }); p.n++; p.weight += w.weight; p.net += w.net; p.gross += w.gross; }
       const fx = o => Object.fromEntries([...o].map(([k, v]) => [k, Object.assign({}, v, { weight: r2(v.weight), net: r2(v.net), gross: r2(v.gross) })]));
       return { weight_t: Math.round(W) / 1000, net_t: Math.round(N) / 1000, gross_t: Math.round(G) / 1000, parts: n, boltBodiesExcluded: bolts, asm: fx(asm), part: fx(part),
@@ -840,6 +873,23 @@
     { name: 'Bolts', groups: [['Bracket bolts (Tekla)', [TKF('bbolt', 'Bolt size', { type: 'sel', opts: [10, 12, 16].map(v => tkOpt(v, 'M' + v)) }), TKF('bp', 'Bolt spacing'), TKF('bo', 'Bolts off the bracket centre (up the run)'), TKF('bz', 'Bolts below the bracket top'),
       TKF('bgrade', 'Bolt standard', { type: 'sel', opts: [tkOpt('8.8', '8.8XOX'), tkOpt('10.9', '10.9XOX'), tkOpt('4.6', '4.6XOX')] }), TKF('blrule', 'Bolt length', { type: 'sel', dv: 'tekla', opts: [tkOpt('', 'grip + 2 d'), tkOpt('tekla', 'Tekla (grip + nut + washer + 5, up to 5 mm)')] })]]] },
     tkGeneralTab()] };
+  // ---------- X01 · Fittings: a member end fitted to a component's plate face (Tekla's Fitting) ----------
+  // Tekla fits a beam to its end plate: the end is moved to the plate's face whatever the beam's own end, so a sloped rafter's plumb
+  // end reaches the face over its whole depth (R12: R3011's top flange ends 4.5 past the rafter's end point at the apex, its bottom
+  // flange 45.4 short of it). v69 cut the member by the plate but kept its square end, so the top corner stopped short. A component's
+  // geometry may now list fits (g.fits: part id -> [{ end: 1 | 2, P, n, ext }]): the member is built ext longer at that end and cut by
+  // the plane through P (n points to the side removed), before the component cuts.
+  const half70 = (P, n) => { const U = stU(), N = n.clone().normalize(), X = new THREE.Vector3().crossVectors(N, Math.abs(N.z) < 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0)).normalize(), Y = new THREE.Vector3().crossVectors(N, X).normalize(), big = 1e5 * U;
+    return stBox3(P, X, Y, -big, big, -big, big, 0, big); };   // X x Y = N: the box starts on the plane and runs to the removed side
+  if (typeof stApplyCuts === 'function') { const ac69 = stApplyCuts;
+    stApplyCuts = function (man, id, st, cache) {
+      const fits = []; for (const c of S.stConns || []) { if (!c.parts.includes(id)) continue; let g = cache && cache.get(c.id);
+        if (g === undefined) { try { g = stConnGeom(c); } catch (e) { console.warn(e); g = null; } if (cache) cache.set(c.id, g); } const f = g && g.fits && g.fits.get(id); if (f) fits.push(...f); }
+      if (fits.length && st && st.kind === 'member') { const st2 = Object.assign({}, st); for (const f of fits) { const k = f.end === 1 ? 'dx1' : 'dx2'; st2[k] = (+st2[k] || 0) + f.ext; }
+        try { let m2 = stBuild(st2); for (const f of fits) m2 = m2.subtract(half70(f.P, f.n)); man = m2; } catch (e) { console.warn(e); } }
+      return ac69(man, id, st, cache); }; }
+  const fitAdd70 = (g, id, f) => { if (!g.fits) g.fits = new Map(); if (!g.fits.has(id)) g.fits.set(id, []); g.fits.get(id).push(f); };
+
   // ---------- C03 · Apex haunch as Tekla 106 (R12): length horizontal from the apex, depth plumb at the end plate, flange ends plumb; end plate stiffeners ----------
   // R12 (24 apexes, docs/steel/PARITY.md "C03"): the haunch web is the triangle under the rafter from the end plate's back face to 2000
   // (horizontal) from the apex joint, 83.38 deep (plumb) at the end plate; the flange (10 x 150) under its lower edge, both ends plumb
@@ -851,13 +901,16 @@
   ST_TAB.Plates.push('hrule', 'ast', 'asl', 'ach', 'att', 'ash');
   { const geomA = stConnGeom;
     stConnGeom = function (c) {
-      if (!c || c.type !== 'apex') return geomA(c); const q = Object.assign({}, CONN.apex.def, c.q); if (!(q.ph > 0) || (q.hrule !== 'tekla' && !+q.ast)) return geomA(c);
+      if (!c || c.type !== 'apex') return geomA(c); const q = Object.assign({}, CONN.apex.def, c.q); if (!(q.ph > 0)) return geomA(c); const plain = q.hrule !== 'tekla' && !+q.ast;   // X01: every Tekla apex (ph > 0) fits its rafters
       const U = stU(); const A = stBody(c.parts[0]), Bb = stBody(c.parts[1]); if (!A || !Bb) return geomA(c); const as = A.st, bs0 = Bb.st;
       let best = null; for (const a of [as.p1, as.p2]) for (const b of [bs0.p1, bs0.p2]) { const d = V3(a).distanceTo(V3(b)); if (!best || d < best.d) best = { d, a, b }; }
       const apex = best.a, aFar = apex === as.p1 ? as.p2 : as.p1; const F = stLF([apex[0], apex[1], 0], [apex[0] - aFar[0], apex[1] - aFar[1]]);
       const run = Math.hypot(apex[0] - aFar[0], apex[1] - aFar[1]) || 1, tanp = (apex[2] - aFar[2]) / run, th = Math.atan(tanp), cs = Math.cos(th), sn = Math.sin(th);
       const rp = stProf(as.prof) || {}; const rh = (rp.h || 400) * U, rhv = rh / cs;
       const zTop = s => apex[2] - Math.abs(s) * tanp + (as.depth === 'Front' ? rhv : as.depth === 'Middle' ? rhv / 2 : 0), zBot = s => zTop(s) - rhv;
+      const fitR = out => { for (const [B0, sg] of [[A, -1], [Bb, 1]]) { const e = best[B0 === A ? 'a' : 'b'] === B0.st.p1 ? 1 : 2;   // X01: each rafter fitted to its end plate's face
+          fitAdd70(out, B0.id, { end: e, P: stLP(F, sg * q.tp * U, 0), n: F.h.clone().multiplyScalar(-sg), ext: (rhv * Math.abs(sn) + 2 * q.tp * U) / U + 20 }); } return out; };
+      if (plain) { const o0 = geomA(c); return o0 ? fitR(o0) : o0; }
       const tek = q.hrule === 'tekla' && +q.len > 0, q2 = Object.assign({}, c.q || {});
       if (tek) { q2.len = (+q.len - +q.tp) / cs; q2.depth = +q.depth * cs; }   // Tekla: horizontal from the apex joint, plumb at the end plate -> v54's along / square
       const out = geomA(Object.assign({}, c, { q: q2 })); if (!out) return out; const tp = q.tp * U;
@@ -871,7 +924,7 @@
           if (!(z1 - zTop(tp) > ch + 1 * U)) continue;
           const zb = String(q.ash ?? '').trim() !== '' ? z1 - +q.ash * U : zTop(tp + L);   // R12: 88 at the far end (Tekla's height), 0.24 above the rafter's line
           out.parts.push({ name: 'APEX STIFFENER', man: stPrism(F, v54ccw([[a, zTop(tp)], [b, zb], [b, z1 - ch], [b - sg * ch, z1], [a, z1]]), -q.att / 2 * U, q.att / 2 * U), prof: 'FLT' + q.att + '*' + q.asl }); } }
-      return out; }; }
+      return fitR(out); }; }
   // C03: Apex haunch (106) from the catalog with a Tekla dialog; with a plate height (ph > 0) it is v54's Tekla apex (+ the C03 rules)
   Object.assign(CONN.T106.def, { ph: 0, pw: 0, tp: 20, top: '', bot: '', rowsAt: '', gauge: 100, bolt: 20, grade: '8.8', len: 0, depth: 250, hw: 8, hf: 10, hb: 0, hrule: '', ast: 0, asl: 60, ach: 30, att: 10, ash: '', a: 5 });
   TKD.T106 = { help: 'conn_106_help', tabs: [
@@ -883,8 +936,68 @@
     tkBoltsTab({ dims: [TKF('rowsAt', 'rows', { at: [8, 50], tip: 'Bolt rows from the plate top (e.g. 50 120 260 330)' }), TKF('gauge', 'g', { at: [64, 95], tip: 'Bolt gauge' })] }),
     tkGeneralTab(), tkWeldsTab()] };
   { const ha69 = FAM.HA; FAM.HA = X => { if (X.q.kind === 'apex' && +X.q.ph > 0) { const c = Object.assign({}, X.c, { type: 'apex', q: Object.assign({}, X.q) }); const g = stConnGeom(c); if (!g) return null;
-      X.out.parts.push(...g.parts); for (const [k, v] of g.cuts) for (const m of v) X.cut(k, m); X.out.welds.push(...g.welds); return; } return ha69(X); }; }
+      X.out.parts.push(...g.parts); for (const [k, v] of g.cuts) for (const m of v) X.cut(k, m); X.out.welds.push(...g.welds); if (g.fits) for (const [k, v] of g.fits) for (const f of v) fitAdd70(X.out, k, f); return; } return ha69(X); }; }   // X01: the rafters' fits too
   // C17: 146's 'Main part face' option (a hanger under a sloped main part, R12's gable column tops) in the Plates tab
   { const pt = TKD.T146.tabs.find(t => t.name === 'Plates'); if (pt) { const g = (pt.groups || []).find(x => x[0] === 'Shear tab'); const f = TKF('hang', 'Main part face', { type: 'sel', dv: '', opts: [tkOpt('', 'At the secondary\'s axis (v69)'), tkOpt('face', 'At the secondary web\'s uphill face; the tab ends on the face (hanger under a sloped part)')] });
       if (g && !g[1].some(x => x.k === 'hang')) g[1] = g[1].concat([f]); } }
   { const pt = TKD.T146.tabs.find(t => t.name === 'Plates'); if (pt && pt.parts) pt.parts = pt.parts.map(p => p[1] === 'SHEAR TAB' && !p[2].b ? [p[0], p[1], Object.assign({}, p[2], { b: 'tb' })] : p); }   // C17: the tab's length from the main part ('Tab plate b')
+
+  // ---------- X02 · Column tops: 144's column end fitted to the beam's top face; Column cap plate ----------
+  // R12 (docs/steel/PARITY.md "X02"): where a rafter's end plate (144) is bolted to the flange of a column that ends there (the 12 eave
+  // columns, the 24 monitor posts), Tekla cuts the column's top along the rafter's top face, the plane of its top flange's upper side
+  // extended over the column (C2017: 7,547.7 at the face toward the rafter, 7,475.0 at the far face; the slope of the rafter). 144's
+  // Plates tab: 'Main part end' = 'Fitted to the secondary's top face'. On that top (or on a flat column top) R12 has 30 cap plates
+  // FLT8*150 that no Tekla component in the IFC made: the 18 on the interior columns flat, centred, h - 2 tf long (200 / 300); the 12 on
+  // the eave columns on the sloped top, 320 / 215 long, their far end 5.64 (along the slope) inside the column's far face. Column cap plate:
+  // t x b x L on the column's end face (the secondary's top face when one is picked), e = its far end from the far face (empty: centred).
+  CONN.T144.def.cfit = '';
+  Object.assign(ST_LBL, { cfit: 'Main part end' });
+  { const pt = TKD.T144.tabs.find(t => t.name === 'Plates'); if (pt) { const f = TKF('cfit', 'Main part end', { type: 'sel', dv: '', opts: [tkOpt('', 'As modelled'), tkOpt('top', 'Fitted to the secondary\'s top face')] });
+      if (pt.groups && pt.groups.length) { const g = pt.groups[pt.groups.length - 1]; if (!g[1].some(x => x.k === 'cfit')) g[1] = g[1].concat([f]); } else pt.groups = [['Main part', [f]]]; } }
+  const topFace70 = (st) => { const U = stU(), M = stMF(st), n = M.eh.z >= 0 ? M.eh.clone() : M.eh.clone().negate();   // a beam's top face: point and upward normal
+    return { P: M.c1.clone().addScaledVector(n, M.h / 2 * U), n }; };
+  function endFit70(col, beam) {                                     // the column end nearest the beam, fitted to the beam's top face
+    const U = stU(), M = stMF(col.st), T = topFace70(beam.st), Mb = stMF(beam.st);
+    const seg = p => { const d = Mb.c2.clone().sub(Mb.c1), t = Math.max(0, Math.min(1, p.clone().sub(Mb.c1).dot(d) / d.lengthSq())); return Mb.c1.clone().addScaledVector(d, t).distanceTo(p); };
+    const e2 = seg(M.c2) <= seg(M.c1), endP = e2 ? M.c2 : M.c1, out = e2 ? M.a.clone() : M.a.clone().negate(), an = out.dot(T.n); if (Math.abs(an) < 0.2) return null;
+    let ext = 0; for (const sv of [-1, 1]) for (const sw of [-1, 1]) { const p = endP.clone().addScaledVector(M.eh, sv * M.h / 2 * U).addScaledVector(M.es, sw * M.b / 2 * U); ext = Math.max(ext, T.P.clone().sub(p).dot(T.n) / an); }
+    return { end: e2 ? 2 : 1, P: T.P, n: an > 0 ? T.n.clone() : T.n.clone().negate(), ext: Math.max(0, ext / U) + 10 };
+  }
+  { const g144 = stConnGeom;
+    stConnGeom = function (c) { const out = g144(c); if (!out || !c || c.type !== 'T144') return out;
+      const A = stBody(c.parts[0]), B = stBody(c.parts[1]); if (!A || !B || !A.st || !B.st || A.st.kind !== 'member' || B.st.kind !== 'member') return out;
+      if (c.q && c.q.cfit === 'top') { const f = endFit70(A, B); if (f) fitAdd70(out, A.id, f); }
+      // X01: the secondary fitted to the end plate's face (Tekla's fitting: its end reaches the plate over its whole depth, R12's monitor
+      // rafters PR: the top flange 2.1 past the rafter's end point); the face's normal is the main part's face toward the secondary
+      const ep = out.parts.find(p => p.name === 'END PLATE' && p.man); if (ep) { const U = stU(), M = stMF(A.st), Mb = stMF(B.st);
+        const near = Mb.c1.distanceTo(M.c1.clone().add(M.c2).multiplyScalar(0.5)) <= Mb.c2.distanceTo(M.c1.clone().add(M.c2).multiplyScalar(0.5)) ? 1 : 2;
+        const w = Mb.c1.clone().add(Mb.c2).multiplyScalar(0.5).sub(M.c1);   /* toward the secondary's middle: its end may lie on the main part's axis (crane brackets) */ w.addScaledVector(M.a, -w.dot(M.a));
+        const n = [M.eh, M.es, M.eh.clone().negate(), M.es.clone().negate()].reduce((b, v) => v.dot(w) > b.dot(w) ? v : b);
+        const g = ep.man.getMesh(), vp = g.vertProperties, np = g.numProp; let best = -Infinity, P = null; for (let i = 0; i < vp.length; i += np) { const v = new THREE.Vector3(vp[i], vp[i + 1], vp[i + 2]), d = v.dot(n); if (d > best) { best = d; P = v; } }
+        const out2 = (near === 1 ? Mb.a.clone().negate() : Mb.a.clone()), an = Math.abs(out2.dot(n));
+        if (P && an > 0.2) fitAdd70(out, B.id, { end: near, P, n: n.clone().negate(), ext: (Mb.h / 2 * Math.sqrt(Math.max(0, 1 - an * an)) / an + 20) }); }
+      return out; }; }
+
+  CONN.Tcolcap = { label: 'Column cap plate', tekla: 'Column cap plate (SolidSketch, X02)', code: 'X02', parts: ['column', 'beam (optional: the cap lies on its top face)'], fam: 'CAP', grp: 'Other', gen: false, ro: [],
+    def: { t: 8, b: '', L: '', e: '', cname: 'Cap Plate', a: 6, cls: 1 } };
+  Object.assign(ST_LBL, { L: 'Length', e: 'Far end inside the column\'s far face (empty: centred)', cname: 'Name' });
+  { const g = ST_CATALOG.find(x => x.g === 'Other'); if (g && !g.items.includes('Tcolcap')) g.items.push('Tcolcap'); }
+  TKD.Tcolcap = { help: 'detail_1002_help', tabs: [
+    { name: 'Picture', pic: 'ep', dims: [TKF('L', 'L', { at: [80, 30], tip: 'Cap length (along the column depth; empty: h - 2 tf)' }), TKF('b', 'b', { at: [50, 92], tip: 'Cap width (empty: the flange width)' }), TKF('t', 't', { at: [30, 64], tip: 'Cap thickness' })] },
+    { name: 'Plates', parts: [['Cap plate', 'CAP PLATE', { t: 't', b: 'b', h: 'L' }]], groups: [['Position', [TKF('e', 'Far end inside the column\'s far face', { ph: 'centred' }), TKF('cname', 'Name')]]] },
+    tkGeneralTab(), tkWeldsTab()] };
+  FAM.CAP = X => {
+    const { U, q, A, B, plate, weld } = X; const M = stMF(A.st), t = (+q.t || 8) * U;
+    const e2 = B ? (() => { const Mb = stMF(B.st), seg = p => { const d = Mb.c2.clone().sub(Mb.c1), k = Math.max(0, Math.min(1, p.clone().sub(Mb.c1).dot(d) / d.lengthSq())); return Mb.c1.clone().addScaledVector(d, k).distanceTo(p); }; return seg(M.c2) <= seg(M.c1); })() : M.c2.z >= M.c1.z;
+    const endP = e2 ? M.c2 : M.c1, out = e2 ? M.a.clone() : M.a.clone().negate();
+    let P = endP, n = out.clone(); if (B) { const T = topFace70(B.st); P = T.P; n = T.n.dot(out) >= 0 ? T.n : T.n.clone().negate(); }
+    const an = out.dot(n); if (Math.abs(an) < 0.2) return null; const Pc = endP.clone().addScaledVector(out, P.clone().sub(endP).dot(n) / an);   // the column axis on the face
+    const dd = M.eh.clone().addScaledVector(n, -M.eh.dot(n)).normalize(), ww = new THREE.Vector3().crossVectors(n, dd).normalize();
+    const L = (String(q.L ?? '').trim() !== '' ? +q.L : M.h - 2 * M.tf) * U, b = (String(q.b ?? '').trim() !== '' ? +q.b : M.b) * U;
+    let s0 = -L / 2, s1 = L / 2;
+    if (String(q.e ?? '').trim() !== '') { const sf = M.h / 2 * U / Math.abs(dd.dot(M.eh));   // the far face along the cap's direction
+      const so = B ? ((stMF(B.st).c1.clone().add(stMF(B.st).c2).multiplyScalar(0.5).sub(Pc).dot(dd) > 0) ? -1 : 1) : 1;   // far = away from the beam
+      const a = sf - (+q.e) * U; s0 = so > 0 ? a - L : -a; s1 = so > 0 ? a : -a + L; }
+    plate(q.cname || 'Cap Plate', stBox3(Pc, dd, ww, s0, s1, -b / 2, b / 2, 0, t), +q.t || 8, 'FLT' + (+q.t || 8) + '*' + Math.round(b / U * 10) / 10);
+    weld('Cap to column', q.a, 2 * (M.b * 2 + M.h) / 1000 * 1000);
+  };

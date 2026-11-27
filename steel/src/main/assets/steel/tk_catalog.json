@@ -2793,7 +2793,8 @@
     "T1029",
     "T1058",
     "T1059",
-    "Trh"
+    "Trh",
+    "Tcolcap"
    ]
   },
   {
@@ -3134,6 +3135,29 @@
     "bz": 30,
     "bgrade": "8.8",
     "blrule": "tekla"
+   }
+  },
+  {
+   "id": "Tcolcap",
+   "label": "Column cap plate",
+   "tekla": "Column cap plate (SolidSketch, X02)",
+   "code": "X02",
+   "parts": [
+    "column",
+    "beam (optional: the cap lies on its top face)"
+   ],
+   "fam": "CAP",
+   "grp": "Other",
+   "gen": false,
+   "ro": [],
+   "def": {
+    "t": 8,
+    "b": "",
+    "L": "",
+    "e": "",
+    "cname": "Cap Plate",
+    "a": 6,
+    "cls": 1
    }
   }
  ]

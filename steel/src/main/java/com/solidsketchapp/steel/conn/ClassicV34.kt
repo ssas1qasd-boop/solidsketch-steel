@@ -207,6 +207,9 @@ object ClassicV34 {
             val ashS = q["ash"]?.let { if (it is JsonNull) "" else jsStr(it) } ?: ""; val zb = if (ashS.trim() != "") z1 - jsPlus(q["ash"]) else zTop(tp + l)
             x.plate("APEX STIFFENER", f.prism(ccw(listOf(doubleArrayOf(a0, zTop(tp)), doubleArrayOf(b0, zb), doubleArrayOf(b0, z1 - ch), doubleArrayOf(b0 - sg * ch, z1), doubleArrayOf(a0, z1))), -att / 2, att / 2), att, "FLT" + jsStr(q["att"] ?: JsonPrimitive(10)) + "*" + jsStr(q["asl"] ?: JsonPrimitive(60)))
         }
+        run {   // v70 X01: each rafter fitted to its end plate's face (web fitR: every Tekla apex, ph > 0)
+            val endA = if (ast.vec("p1").distanceTo(ap.apx) < 1e-9) 1 else 2; val endB = if (bst.vec("p1").distanceTo(ap.apx) <= bst.vec("p2").distanceTo(ap.apx)) 1 else 2
+            for ((id, e, sg) in listOf(Triple(x.aId, endA, -1.0), Triple(bId, endB, 1.0))) x.fit(id, Fit(e, f.lp(sg * tp, 0.0), f.h * (-sg), rhv * abs(sn) + 2 * tp + 20)) }
         for (sg in listOf(-1, 1)) x.welds += Weld("Rafter + haunch to end plate", x.n("a"), orD(rp?.P, 1.4) * 1000 + 2 * dp + rb,
             listOf(doubleArrayOf(sg * tp, zTop(tp), -rb / 2), doubleArrayOf(sg * tp, zTop(tp), rb / 2), doubleArrayOf(sg * tp, zHB, rb / 2), doubleArrayOf(sg * tp, zHB, -rb / 2)).map { f.lp(it[0], it[1], it[2]) })
         if (lw > 0) x.welds += Weld("Haunches to rafters", 5.0, 4 * lw)

@@ -99,7 +99,8 @@ class C03RecordingTest {
     private fun q(type: String, k: String): String? = mode().comps!!.conns().lastOrNull { it.type == type }?.q?.get(k)?.let { (it as? JsonPrimitive)?.contentOrNull }
     private fun openCatalog(search: String) {
         press("Components"); waitFor("the catalog") { compose.onAllNodes(hasText("Applications & components")).fetchSemanticsNodes().isNotEmpty() }
-        compose.onAllNodes(hasSetTextAction())[0].performTextReplacement(search); pause(1200)
+        for (k in 0 until 4) { compose.onAllNodes(hasSetTextAction())[0].performTextReplacement(search); pause(1200 + 800L * k)   // the search may be cleared by a late recomposition: type it again
+            if (compose.onAllNodes(hasText("Properties") and hasClickAction()).fetchSemanticsNodes().any { it.boundsInRoot.width > 0f }) break }
         val all = compose.onAllNodes(hasText("Properties") and hasClickAction()); val ns = all.fetchSemanticsNodes()
         all[ns.indices.filter { ns[it].boundsInRoot.width > 0f }.minBy { ns[it].boundsInRoot.top }].performClick()
         waitFor("the dialog") { compose.onAllNodes(hasText("Pick parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }; pause(1000)
@@ -155,7 +156,7 @@ class C03RecordingTest {
             waitFor("the T106") { mode().comps!!.conns().count { it.type == "T106" } == 1 }
             act.runOnUiThread { mode().catDone() }; pause(800)
             assertTrue("haunch rule ${q("T106", "hrule")}", q("T106", "hrule") == "tekla")
-            waitFor("the apex stiffeners") { act.testDoc.bodyIds().count { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "APEX STIFFENER" } == 2 }
+            waitFor("the apex stiffeners (T106 ph ${q("T106", "ph")} top ${q("T106", "top")} ast ${q("T106", "ast")} hrule ${q("T106", "hrule")})") { act.testDoc.bodyIds().count { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "APEX STIFFENER" } == 2 }
             orbit(apexP, 2600.0, "r12")
             stills("")
             save("c03_case.ss")

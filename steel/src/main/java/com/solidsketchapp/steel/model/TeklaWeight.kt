@@ -29,7 +29,10 @@ import kotlin.math.sin
  *  - other parametric members and plates: the solid
  */
 class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: BooleanEngine) {
-    class W(val weight: Double, val net: Double, val catalog: Boolean, val kgm: Double, val len: Double, val tkArea: Double? = null, val ownArea: Double? = null, val holesFilled: Double = 0.0)
+    class W(val weight: Double, val net: Double, val catalog: Boolean, val kgm: Double, val len: Double, val tkArea: Double? = null, val ownArea: Double? = null, val holesFilled: Double = 0.0,
+            /** v70 X01: a built-up (BI) member's three plates (Tekla's parts), each weighed as its solid without bolt holes */ val subs: List<Sub>? = null)
+    /** One plate of a built-up member: [role] tf / w / bf, its Tekla name and profile, its weight (kg). */
+    class Sub(val role: String, val name: String, val prof: String, val weight: Double, val holesFilled: Double, /** the plate's solid (diagnostics) */ val mesh: Mesh? = null)
     /** A component's bolt group as its body records it: head points, shank axis, hole diameter d0, bolt length L. */
     class Bolts(val pts: List<D3>, val ax: D3, val d0: Double, val len: Double, val slot: Double = 0.0, /** v70 C01: an anchor rod's hole, a [poly]-gon (0 = stBolts' 12-gon, area 3 r^2) */ val poly: Int = 0)
 
@@ -48,6 +51,7 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
         val DENS = mapOf("GROUT" to 0.0, "CONCRETE" to 0.0, "ANTIMATERIAL" to 0.0, "MISC_UNDEFINED" to 0.0, "GRATING" to 1333.0)
         /** Tekla's kg/m for this project's catalog profiles (v66 TK_KGM; v70: CC by its section 704 mm²). */
         val KGM = mapOf("UPN240" to 33.2, "CC200-2-20-60" to 5.5264, "L60*6" to 5.42, "L140*60*6" to 9.14)
+        private val BI = Regex("^BI\\s*(\\d+(?:\\.\\d+)?)-(\\d+(?:\\.\\d+)?)-(\\d+(?:\\.\\d+)?)-(\\d+(?:\\.\\d+)?)(?:-(\\d+(?:\\.\\d+)?)-(\\d+(?:\\.\\d+)?))?$", RegexOption.IGNORE_CASE)
         private val PARAM = Regex("^(PL|FLT|BL|ROD|RD|D\\d|PD|HI|BH|WI|HK|HQ|SPD|EPD|(?:CHS|SHS|RHS|P|EHS)\\d+(?:\\.\\d+)?\\*)", RegexOption.IGNORE_CASE)
         fun density(mat: String?): Double {
             val m = (mat ?: "").uppercase().trim(); DENS[m]?.let { return it }
@@ -93,6 +97,7 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
             val kg = KGM[prof(st)] ?: profiles.lookup(prof(st))?.m ?: 0.0
             if (kg > 0) { val w = r2(kg * num(st, "len70") / 1000); return W(w, w, true, r2(kg), round(num(st, "len70") * 10) / 10) } }
         val rho = density(str(st, "mat") ?: str(st, "material"))
+        if (kind == "member") bi(prof(st))?.let { return builtUp(st, mesh, it, rho, bolts) }   // X01: a built-up = its three plates
         var vol = abs(booleans.volume(mesh))
         if (holed) runCatching { noHoles() }.getOrNull()?.let { m0 -> val v0 = abs(booleans.volume(m0)); if (v0 >= vol - 1e-6 && v0 < vol * 1.25 + 1e5) vol = v0 }
         val cat = isCatalog(st); var net = vol * 1e-9 * rho; var gross = net; var len = 0.0; var kgm = 0.0; var at: Double? = null; var am: Double? = null
@@ -110,6 +115,33 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
         }
         val weight = if (cat) gross else net
         return W(r2(weight), r2(net), cat, r2(kgm), round(len * 10) / 10, at?.let(::r2), am?.let(::r2), r2(fillKg))
+    }
+
+    /** A BI profile's sizes: height, web, top flange width / thickness, bottom flange width / thickness (web v70 BI70); null: not a BI. */
+    class Bi(val h: Double, val tw: Double, val b1: Double, val t1: Double, val b2: Double, val t2: Double)
+    fun bi(p: String): Bi? = BI.matchEntire(p.trim())?.groupValues?.let { g -> val n = g.drop(1).map { it.toDoubleOrNull() }
+        Bi(n[0]!!, n[1]!!, n[2]!!, n[3]!!, n[4] ?: n[2]!!, n[5] ?: n[3]!!) }
+    /** fmt as JS: 10.0 -> "10", 8.5 -> "8.5" */
+    private fun js(x: Double): String = if (x == Math.rint(x) && abs(x) < 1e15) x.toLong().toString() else x.toString()
+
+    /**
+     * Web v70 X01 (buSubs70 / buWeight70): a built-up section is three plates in Tekla, Web, Top flange and Bottom flange, each its own
+     * part and weighed as its solid without bolt holes. Each plate = the member's solid (every cut, fit, cope and hole) inside its slab
+     * of the section in the member frame (stMF): the flanges are the bands beyond the web's edges, the web the band between.
+     */
+    fun builtUp(st: JsonObject, mesh: Mesh, b: Bi, rho: Double, bolts: List<Bolts>): W {
+        val f = Joints.mf(st, profiles); val big = f.c1.distanceTo(f.c2) + b.h + maxOf(b.b1, b.b2) + 2000.0   // the slabs sized to the member (a 1e6 box in float32 tilts its faces)
+        val band = linkedMapOf("tf" to (b.h / 2 - b.t1 to big), "w" to (-b.h / 2 + b.t2 to b.h / 2 - b.t1), "bf" to (-big to -b.h / 2 + b.t2))
+        val def = mapOf("tf" to ("Top flange" to "FLT${js(b.t1)}*${js(b.b1)}"), "w" to ("Web" to "FLT${js(b.tw)}*${js(Math.round((b.h - b.t1 - b.t2) * 1000) / 1000.0)}"), "bf" to ("Bottom flange" to "FLT${js(b.t2)}*${js(b.b2)}"))
+        var total = 0.0; var fill = 0.0; val subs = ArrayList<Sub>()
+        for ((role, v) in band) {
+            val m = booleans.intersect(mesh, Joints.box3(f.c1, f.eh, f.es, v.first, v.second, -big, big, -big, big))
+            val pn = if (role == "w") f.es else f.eh; val bs = bolts.filter { abs(it.ax.normalize() dot pn) >= 0.9 }   // a plate is drilled only by bolts square to it (web: es; flanges: eh)
+            val vol = abs(booleans.volume(m)); val hf = if (bs.isNotEmpty()) holeFill(m, bs) else 0.0
+            val w = (vol + hf) * 1e-9 * rho; total += w; fill += hf * 1e-9 * rho
+            subs += Sub(role, def.getValue(role).first, def.getValue(role).second, r2(w), r2(hf * 1e-9 * rho), m)
+        }
+        return W(r2(total), r2(total), false, 0.0, 0.0, holesFilled = r2(fill), subs = subs)
     }
 
     /**

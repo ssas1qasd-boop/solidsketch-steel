@@ -53,7 +53,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -72,7 +72,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -91,7 +91,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -110,7 +110,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -129,7 +129,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -148,7 +148,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -167,7 +167,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -186,7 +186,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -205,7 +205,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -224,7 +224,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -243,7 +243,7 @@
    "volV69": 40522600.756,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -262,7 +262,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -281,7 +281,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -300,7 +300,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -319,7 +319,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -338,7 +338,7 @@
    "volV69": 40522630,
    "volRatio": 1.0,
    "kgR10": 318.14,
-   "kgV69": 318.96,
+   "kgV69": 318.15,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -354,10 +354,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 39161197.717,
-   "volV69": 39378783,
-   "volRatio": 1.006,
+   "volV69": 39182342.931,
+   "volRatio": 1.001,
    "kgR10": 307.82,
-   "kgV69": 310.2,
+   "kgV69": 307.81,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -373,10 +373,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 39161197.717,
-   "volV69": 39378783,
-   "volRatio": 1.006,
+   "volV69": 39182342.931,
+   "volRatio": 1.001,
    "kgR10": 307.82,
-   "kgV69": 310.2,
+   "kgV69": 307.81,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -392,10 +392,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 39161197.717,
-   "volV69": 39378783,
-   "volRatio": 1.006,
+   "volV69": 39182342.931,
+   "volRatio": 1.001,
    "kgR10": 307.82,
-   "kgV69": 310.2,
+   "kgV69": 307.81,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -411,10 +411,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 39161197.717,
-   "volV69": 39359343,
-   "volRatio": 1.005,
+   "volV69": 39162902.931,
+   "volRatio": 1.0,
    "kgR10": 307.82,
-   "kgV69": 310.2,
+   "kgV69": 307.81,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -430,10 +430,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 39161197.717,
-   "volV69": 39359343,
-   "volRatio": 1.005,
+   "volV69": 39162902.931,
+   "volRatio": 1.0,
    "kgR10": 307.82,
-   "kgV69": 310.2,
+   "kgV69": 307.81,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -449,10 +449,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 39161197.717,
-   "volV69": 39359343,
-   "volRatio": 1.005,
+   "volV69": 39162902.931,
+   "volRatio": 1.0,
    "kgR10": 307.82,
-   "kgV69": 310.2,
+   "kgV69": 307.81,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -471,7 +471,7 @@
    "volV69": 39276081.6,
    "volRatio": 1.001,
    "kgR10": 308.77,
-   "kgV69": 309.62,
+   "kgV69": 308.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -490,7 +490,7 @@
    "volV69": 39276081.6,
    "volRatio": 1.001,
    "kgR10": 308.77,
-   "kgV69": 309.62,
+   "kgV69": 308.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -509,7 +509,7 @@
    "volV69": 39276081.6,
    "volRatio": 1.001,
    "kgR10": 308.77,
-   "kgV69": 309.62,
+   "kgV69": 308.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -528,7 +528,7 @@
    "volV69": 39276081.6,
    "volRatio": 1.001,
    "kgR10": 308.77,
-   "kgV69": 309.62,
+   "kgV69": 308.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -547,7 +547,7 @@
    "volV69": 39276081.6,
    "volRatio": 1.001,
    "kgR10": 308.77,
-   "kgV69": 309.62,
+   "kgV69": 308.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -566,7 +566,7 @@
    "volV69": 39256641.6,
    "volRatio": 1.001,
    "kgR10": 308.77,
-   "kgV69": 309.62,
+   "kgV69": 308.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -585,7 +585,7 @@
    "volV69": 39256641.6,
    "volRatio": 1.001,
    "kgR10": 308.77,
-   "kgV69": 309.62,
+   "kgV69": 308.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -604,7 +604,7 @@
    "volV69": 39276081.6,
    "volRatio": 1.001,
    "kgR10": 308.77,
-   "kgV69": 309.62,
+   "kgV69": 308.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -623,7 +623,7 @@
    "volV69": 39256641.6,
    "volRatio": 1.001,
    "kgR10": 308.77,
-   "kgV69": 309.62,
+   "kgV69": 308.77,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -639,10 +639,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 33319935.81,
-   "volV69": 33436001.4,
-   "volRatio": 1.003,
+   "volV69": 33320956.163,
+   "volRatio": 1.0,
    "kgR10": 261.81,
-   "kgV69": 263.42,
+   "kgV69": 261.8,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -658,10 +658,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 33319935.695,
-   "volV69": 33436001.4,
-   "volRatio": 1.003,
+   "volV69": 33320956.163,
+   "volRatio": 1.0,
    "kgR10": 261.81,
-   "kgV69": 263.42,
+   "kgV69": 261.8,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -677,10 +677,10 @@
    ],
    "boxDiff": 0.0,
    "volR10": 33319935.736,
-   "volV69": 33436001.4,
-   "volRatio": 1.003,
+   "volV69": 33320956.163,
+   "volRatio": 1.0,
    "kgR10": 261.81,
-   "kgV69": 263.42,
+   "kgV69": 261.8,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -699,7 +699,7 @@
    "volV69": 33396505.6,
    "volRatio": 1.0,
    "kgR10": 262.63,
-   "kgV69": 263.34,
+   "kgV69": 262.62,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -718,7 +718,7 @@
    "volV69": 33396505.6,
    "volRatio": 1.0,
    "kgR10": 262.63,
-   "kgV69": 263.34,
+   "kgV69": 262.62,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -737,7 +737,7 @@
    "volV69": 33396505.6,
    "volRatio": 1.0,
    "kgR10": 262.63,
-   "kgV69": 263.34,
+   "kgV69": 262.62,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -756,7 +756,7 @@
    "volV69": 33396505.6,
    "volRatio": 1.0,
    "kgR10": 262.63,
-   "kgV69": 263.34,
+   "kgV69": 262.62,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -775,7 +775,7 @@
    "volV69": 33396505.6,
    "volRatio": 1.0,
    "kgR10": 262.63,
-   "kgV69": 263.34,
+   "kgV69": 262.62,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -794,7 +794,7 @@
    "volV69": 33396505.6,
    "volRatio": 1.0,
    "kgR10": 262.63,
-   "kgV69": 263.34,
+   "kgV69": 262.62,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -808,12 +808,12 @@
     631,
     629
    ],
-   "boxDiff": 0.0,
+   "boxDiff": 0.001,
    "volR10": 33319936.062,
-   "volV69": 33436006,
-   "volRatio": 1.003,
+   "volV69": 33320956.163,
+   "volRatio": 1.0,
    "kgR10": 261.81,
-   "kgV69": 263.42,
+   "kgV69": 261.8,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -827,12 +827,12 @@
     634,
     632
    ],
-   "boxDiff": 0.0,
+   "boxDiff": 0.001,
    "volR10": 33319936.102,
-   "volV69": 33436006,
-   "volRatio": 1.003,
+   "volV69": 33320956.163,
+   "volRatio": 1.0,
    "kgR10": 261.81,
-   "kgV69": 263.42,
+   "kgV69": 261.8,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -851,7 +851,7 @@
    "volV69": 33396505.6,
    "volRatio": 1.0,
    "kgR10": 262.63,
-   "kgV69": 263.34,
+   "kgV69": 262.62,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -870,7 +870,7 @@
    "volV69": 33396505.6,
    "volRatio": 1.0,
    "kgR10": 262.63,
-   "kgV69": 263.34,
+   "kgV69": 262.62,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -889,7 +889,7 @@
    "volV69": 33396505.6,
    "volRatio": 1.0,
    "kgR10": 262.63,
-   "kgV69": 263.34,
+   "kgV69": 262.62,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -903,12 +903,12 @@
     697,
     695
    ],
-   "boxDiff": 0.0,
+   "boxDiff": 0.001,
    "volR10": 33319936.177,
-   "volV69": 33436006,
-   "volRatio": 1.003,
+   "volV69": 33320956.163,
+   "volRatio": 1.0,
    "kgR10": 261.81,
-   "kgV69": 263.42,
+   "kgV69": 261.8,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -922,14 +922,14 @@
     787,
     785
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395772.205,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 49,
@@ -941,14 +941,14 @@
     790,
     788
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395772.053,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 50,
@@ -960,14 +960,14 @@
     796,
     794
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395772.149,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 51,
@@ -979,14 +979,14 @@
     256,
     254
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.697,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 52,
@@ -998,14 +998,14 @@
     259,
     257
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.697,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 53,
@@ -1017,14 +1017,14 @@
     262,
     260
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.697,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 54,
@@ -1036,14 +1036,14 @@
     265,
     263
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.697,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 55,
@@ -1055,14 +1055,14 @@
     268,
     266
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.697,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 56,
@@ -1074,14 +1074,14 @@
     271,
     269
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.697,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 57,
@@ -1093,14 +1093,14 @@
     601,
     599
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395779.629,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 58,
@@ -1112,14 +1112,14 @@
     604,
     602
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395779.476,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 59,
@@ -1131,14 +1131,14 @@
     607,
     605
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395779.576,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 60,
@@ -1150,14 +1150,14 @@
     658,
     656
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.697,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 61,
@@ -1169,14 +1169,14 @@
     664,
     662
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.697,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 62,
@@ -1188,14 +1188,14 @@
     673,
     671
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.697,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 63,
@@ -1207,14 +1207,14 @@
     661,
     659
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.931,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 64,
@@ -1226,14 +1226,14 @@
     667,
     665
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.931,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 65,
@@ -1245,14 +1245,14 @@
     676,
     674
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30416175.931,
-   "volV69": 30410267.616,
+   "volV69": 30415398.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 66,
@@ -1264,14 +1264,14 @@
     709,
     707
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395714.723,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 67,
@@ -1283,14 +1283,14 @@
     712,
     710
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395715.356,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 68,
@@ -1302,14 +1302,14 @@
     718,
     716
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395714.666,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 69,
@@ -1321,14 +1321,14 @@
     589,
     587
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395714.723,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 70,
@@ -1340,14 +1340,14 @@
     592,
     590
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395715.356,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 71,
@@ -1359,14 +1359,14 @@
     595,
     593
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 30395715.452,
-   "volV69": 30390827.616,
+   "volV69": 30395958.209,
    "volRatio": 1.0,
    "kgR10": 238.77,
-   "kgV69": 240.4,
+   "kgV69": 238.76,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 72,
@@ -1378,14 +1378,14 @@
     216,
     214
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30179831.397,
-   "volV69": 30174397.872,
+   "volV69": 30179528.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 73,
@@ -1397,14 +1397,14 @@
     222,
     220
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30179831.397,
-   "volV69": 30174397.872,
+   "volV69": 30179528.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 74,
@@ -1416,14 +1416,14 @@
     253,
     251
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30179831.397,
-   "volV69": 30174397.872,
+   "volV69": 30179528.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 75,
@@ -1435,14 +1435,14 @@
     781,
     779
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159463.905,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 76,
@@ -1454,14 +1454,14 @@
     784,
     782
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159463.905,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 77,
@@ -1473,14 +1473,14 @@
     793,
     791
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159463.905,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 78,
@@ -1492,14 +1492,14 @@
     361,
     359
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159406.797,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 79,
@@ -1511,14 +1511,14 @@
     364,
     362
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159406.797,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 80,
@@ -1530,14 +1530,14 @@
     367,
     365
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159471.207,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 81,
@@ -1549,14 +1549,14 @@
     370,
     368
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159471.207,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 82,
@@ -1568,14 +1568,14 @@
     586,
     584
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159406.797,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 83,
@@ -1587,14 +1587,14 @@
     598,
     596
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159471.207,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 84,
@@ -1606,14 +1606,14 @@
     703,
     701
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159406.797,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 85,
@@ -1625,14 +1625,14 @@
     706,
     704
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159406.797,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 86,
@@ -1644,14 +1644,14 @@
     715,
     713
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30159406.797,
-   "volV69": 30154957.872,
+   "volV69": 30160088.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 87,
@@ -1663,14 +1663,14 @@
     454,
     452
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30179831.397,
-   "volV69": 30174397.872,
+   "volV69": 30179528.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 88,
@@ -1682,14 +1682,14 @@
     463,
     461
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30179831.397,
-   "volV69": 30174397.872,
+   "volV69": 30179528.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 89,
@@ -1701,14 +1701,14 @@
     652,
     650
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.002,
    "volR10": 30179831.397,
-   "volV69": 30174397.872,
+   "volV69": 30179528.463,
    "volRatio": 1.0,
    "kgR10": 236.9,
-   "kgV69": 238.55,
+   "kgV69": 236.91,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 90,
@@ -1720,14 +1720,14 @@
     457,
     455
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 29944424.513,
-   "volV69": 29938528.127,
+   "volV69": 29943658.718,
    "volRatio": 1.0,
    "kgR10": 235.06,
-   "kgV69": 236.7,
+   "kgV69": 235.06,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 91,
@@ -1739,14 +1739,14 @@
     466,
     464
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 29944424.513,
-   "volV69": 29938528.127,
+   "volV69": 29943658.718,
    "volRatio": 1.0,
    "kgR10": 235.06,
-   "kgV69": 236.7,
+   "kgV69": 235.06,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 92,
@@ -1758,14 +1758,14 @@
     655,
     653
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 29944424.513,
-   "volV69": 29938528.127,
+   "volV69": 29943658.718,
    "volRatio": 1.0,
    "kgR10": 235.06,
-   "kgV69": 236.7,
+   "kgV69": 235.06,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 93,
@@ -1777,14 +1777,14 @@
     213,
     211
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 29944424.231,
-   "volV69": 29938528.127,
+   "volV69": 29943658.718,
    "volRatio": 1.0,
    "kgR10": 235.06,
-   "kgV69": 236.7,
+   "kgV69": 235.06,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 94,
@@ -1796,14 +1796,14 @@
     219,
     217
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 29944424.231,
-   "volV69": 29938528.127,
+   "volV69": 29943658.718,
    "volRatio": 1.0,
    "kgR10": 235.06,
-   "kgV69": 236.7,
+   "kgV69": 235.06,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 95,
@@ -1815,14 +1815,14 @@
     250,
     248
    ],
-   "boxDiff": 0.996,
+   "boxDiff": 0.001,
    "volR10": 29944424.231,
-   "volV69": 29938528.127,
+   "volV69": 29943658.718,
    "volRatio": 1.0,
    "kgR10": 235.06,
-   "kgV69": 236.7,
+   "kgV69": 235.06,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 96,
@@ -1839,7 +1839,7 @@
    "volV69": 28131648,
    "volRatio": 1.0,
    "kgR10": 220.93,
-   "kgV69": 224.35,
+   "kgV69": 220.96,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -1858,7 +1858,7 @@
    "volV69": 45513696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 364.12,
+   "kgV69": 357.53,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -1877,7 +1877,7 @@
    "volV69": 45513696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 364.12,
+   "kgV69": 357.53,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -1896,7 +1896,7 @@
    "volV69": 45513696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 364.12,
+   "kgV69": 357.53,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -1915,7 +1915,7 @@
    "volV69": 45513696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 364.12,
+   "kgV69": 357.53,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -1934,7 +1934,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -1953,7 +1953,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -1972,7 +1972,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -1991,7 +1991,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2010,7 +2010,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2029,7 +2029,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2048,7 +2048,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2067,7 +2067,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2086,7 +2086,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2105,7 +2105,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2124,7 +2124,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2143,7 +2143,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2162,7 +2162,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2181,7 +2181,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2200,7 +2200,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2219,7 +2219,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2238,7 +2238,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2257,7 +2257,7 @@
    "volV69": 45513696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 364.12,
+   "kgV69": 357.53,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2276,7 +2276,7 @@
    "volV69": 45513696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 364.12,
+   "kgV69": 357.53,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2295,7 +2295,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2314,7 +2314,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2333,7 +2333,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2352,7 +2352,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2371,7 +2371,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2390,7 +2390,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2409,7 +2409,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2428,7 +2428,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2447,7 +2447,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2466,7 +2466,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2485,7 +2485,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2504,7 +2504,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2523,7 +2523,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2542,7 +2542,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2561,7 +2561,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2580,7 +2580,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2599,7 +2599,7 @@
    "volV69": 24130288,
    "volRatio": 0.999,
    "kgR10": 189.67,
-   "kgV69": 190.73,
+   "kgV69": 189.54,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2618,7 +2618,7 @@
    "volV69": 45513696,
    "volRatio": 1.0,
    "kgR10": 357.39,
-   "kgV69": 364.12,
+   "kgV69": 357.53,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2637,7 +2637,7 @@
    "volV69": 18435600,
    "volRatio": 1.0,
    "kgR10": 144.72,
-   "kgV69": 145.57,
+   "kgV69": 144.72,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2656,7 +2656,7 @@
    "volV69": 18435600,
    "volRatio": 1.0,
    "kgR10": 144.72,
-   "kgV69": 145.57,
+   "kgV69": 144.72,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2675,7 +2675,7 @@
    "volV69": 16089024,
    "volRatio": 1.001,
    "kgR10": 126.3,
-   "kgV69": 128.06,
+   "kgV69": 126.36,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2694,7 +2694,7 @@
    "volV69": 15849024,
    "volRatio": 1.001,
    "kgR10": 124.42,
-   "kgV69": 126.17,
+   "kgV69": 124.48,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2713,7 +2713,7 @@
    "volV69": 5471388,
    "volRatio": 1.0,
    "kgR10": 43.11,
-   "kgV69": 43.45,
+   "kgV69": 43.11,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2732,7 +2732,7 @@
    "volV69": 5471388,
    "volRatio": 1.0,
    "kgR10": 43.11,
-   "kgV69": 43.45,
+   "kgV69": 43.11,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2751,7 +2751,7 @@
    "volV69": 5471388,
    "volRatio": 1.0,
    "kgR10": 43.11,
-   "kgV69": 43.45,
+   "kgV69": 43.11,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2770,7 +2770,7 @@
    "volV69": 5471388,
    "volRatio": 1.0,
    "kgR10": 43.11,
-   "kgV69": 43.45,
+   "kgV69": 43.11,
    "diffs": {},
    "status": "MATCHED"
   },
@@ -2822,14 +2822,14 @@
     313,
     311
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382758.315,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382686.9,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 149,
@@ -2841,14 +2841,14 @@
     319,
     317
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 150,
@@ -2860,14 +2860,14 @@
     325,
     323
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382758.315,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382686.9,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 151,
@@ -2879,14 +2879,14 @@
     331,
     329
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 152,
@@ -2898,14 +2898,14 @@
     337,
     335
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 153,
@@ -2917,14 +2917,14 @@
     349,
     347
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 154,
@@ -2936,14 +2936,14 @@
     490,
     488
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382758.315,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382686.9,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 155,
@@ -2955,14 +2955,14 @@
     496,
     494
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 156,
@@ -2974,14 +2974,14 @@
     502,
     500
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382758.315,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382686.9,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 157,
@@ -2993,14 +2993,14 @@
     508,
     506
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 158,
@@ -3012,14 +3012,14 @@
     514,
     512
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382758.315,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382686.9,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 159,
@@ -3031,14 +3031,14 @@
     520,
     518
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 160,
@@ -3050,14 +3050,14 @@
     526,
     524
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382758.315,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382686.9,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 161,
@@ -3069,14 +3069,14 @@
     532,
     530
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 162,
@@ -3088,14 +3088,14 @@
     538,
     536
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 163,
@@ -3107,14 +3107,14 @@
     550,
     548
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 164,
@@ -3126,14 +3126,14 @@
     562,
     560
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 165,
@@ -3145,14 +3145,14 @@
     574,
     572
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 166,
@@ -3164,14 +3164,14 @@
     343,
     341
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 167,
@@ -3183,14 +3183,14 @@
     355,
     353
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 168,
@@ -3202,14 +3202,14 @@
     544,
     542
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 169,
@@ -3221,14 +3221,14 @@
     556,
     554
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 170,
@@ -3240,14 +3240,14 @@
     568,
     566
    ],
-   "boxDiff": 2.001,
+   "boxDiff": 0.001,
    "volR10": 2382752.805,
-   "volV69": 2374937.618,
-   "volRatio": 0.997,
+   "volV69": 2382684.917,
+   "volRatio": 1.0,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 18.7,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 171,
@@ -3261,10 +3261,10 @@
    ],
    "boxDiff": 36.825,
    "volR10": 2382752.805,
-   "volV69": 2424973.769,
-   "volRatio": 1.018,
+   "volV69": 2431692.777,
+   "volRatio": 1.021,
    "kgR10": 18.7,
-   "kgV69": 19.35,
+   "kgV69": 19.09,
    "diffs": {},
    "status": "INPUT EQUAL, SOLID DIFFERS"
   },
@@ -3278,14 +3278,14 @@
     316,
     314
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063847.246,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 173,
@@ -3297,14 +3297,14 @@
     322,
     320
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063846.877,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 174,
@@ -3316,14 +3316,14 @@
     328,
     326
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063847.246,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 175,
@@ -3335,14 +3335,14 @@
     334,
     332
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063846.877,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 176,
@@ -3354,14 +3354,14 @@
     340,
     338
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063847.107,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 177,
@@ -3373,14 +3373,14 @@
     346,
     344
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063847.493,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 178,
@@ -3392,14 +3392,14 @@
     352,
     350
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063847.107,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 179,
@@ -3411,14 +3411,14 @@
     358,
     356
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063847.493,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 180,
@@ -3430,14 +3430,14 @@
     493,
     491
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063847.246,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 181,
@@ -3449,14 +3449,14 @@
     499,
     497
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063846.877,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 182,
@@ -3468,14 +3468,14 @@
     505,
     503
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.24,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063847.245,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 183,
@@ -3487,14 +3487,14 @@
     511,
     509
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.24,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063846.879,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 184,
@@ -3506,14 +3506,14 @@
     517,
     515
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.149,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063847.245,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 185,
@@ -3525,14 +3525,14 @@
     523,
     521
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.149,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063846.879,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 186,
@@ -3544,14 +3544,14 @@
     529,
     527
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.206,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063847.245,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 187,
@@ -3563,14 +3563,14 @@
     535,
     533
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.206,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063846.879,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 188,
@@ -3582,14 +3582,14 @@
     541,
     539
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063847.107,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 189,
@@ -3601,14 +3601,14 @@
     547,
     545
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.058,
-   "volV69": 2117828.95,
-   "volRatio": 1.026,
+   "volV69": 2063847.493,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 190,
@@ -3620,14 +3620,14 @@
     553,
     551
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.24,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063847.108,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 191,
@@ -3639,14 +3639,14 @@
     559,
     557
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.24,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063847.491,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 192,
@@ -3658,14 +3658,14 @@
     565,
     563
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.149,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063847.108,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 193,
@@ -3677,14 +3677,14 @@
     571,
     569
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.149,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063847.491,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 194,
@@ -3696,14 +3696,14 @@
     577,
     575
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.206,
-   "volV69": 2117828.96,
-   "volRatio": 1.026,
+   "volV69": 2063847.108,
+   "volRatio": 1.0,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.29,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 195,
@@ -3715,14 +3715,14 @@
     583,
     581
    ],
-   "boxDiff": 1.818,
+   "boxDiff": 0.001,
    "volR10": 2063435.206,
-   "volV69": 2129492.96,
+   "volV69": 2130364.614,
    "volRatio": 1.032,
    "kgR10": 16.3,
-   "kgV69": 17.05,
+   "kgV69": 16.72,
    "diffs": {},
-   "status": "INPUT EQUAL, SOLID DIFFERS"
+   "status": "MATCHED"
   },
   {
    "i": 196,
@@ -31299,7 +31299,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "status": "MISSING"
+   "v69": 6808,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 3.01,
+   "status": "MATCHED"
   },
   {
    "id": 1990,
@@ -31310,7 +31316,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "status": "MISSING"
+   "v69": 6809,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 3.01,
+   "status": "MATCHED"
   },
   {
    "id": 1991,
@@ -31321,7 +31333,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "status": "MISSING"
+   "v69": 6810,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 3.01,
+   "status": "MATCHED"
   },
   {
    "id": 1992,
@@ -31332,7 +31350,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "status": "MISSING"
+   "v69": 6811,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 2.03,
+   "status": "MATCHED"
   },
   {
    "id": 1993,
@@ -31343,7 +31367,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "status": "MISSING"
+   "v69": 6812,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 2.03,
+   "status": "MATCHED"
   },
   {
    "id": 1994,
@@ -31354,7 +31384,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "status": "MISSING"
+   "v69": 6813,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 2.03,
+   "status": "MATCHED"
   },
   {
    "id": 1995,
@@ -31365,7 +31401,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "status": "MISSING"
+   "v69": 6814,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.88,
+   "status": "MATCHED"
   },
   {
    "id": 1996,
@@ -31376,7 +31418,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "status": "MISSING"
+   "v69": 6815,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.88,
+   "status": "MATCHED"
   },
   {
    "id": 1997,
@@ -31387,7 +31435,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "status": "MISSING"
+   "v69": 6816,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.88,
+   "status": "MATCHED"
   },
   {
    "id": 1998,
@@ -31398,7 +31452,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "status": "MISSING"
+   "v69": 6817,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.88,
+   "status": "MATCHED"
   },
   {
    "id": 1999,
@@ -31409,7 +31469,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "status": "MISSING"
+   "v69": 6818,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.88,
+   "status": "MATCHED"
   },
   {
    "id": 2000,
@@ -31420,7 +31486,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "status": "MISSING"
+   "v69": 6819,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.88,
+   "status": "MATCHED"
   },
   {
    "id": 2001,
@@ -31431,7 +31503,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "status": "MISSING"
+   "v69": 6820,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 2.83,
+   "status": "MATCHED"
   },
   {
    "id": 2002,
@@ -31442,7 +31520,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "status": "MISSING"
+   "v69": 6821,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 2.83,
+   "status": "MATCHED"
   },
   {
    "id": 2003,
@@ -31453,7 +31537,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "status": "MISSING"
+   "v69": 6822,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 2.83,
+   "status": "MATCHED"
   },
   {
    "id": 2004,
@@ -31464,7 +31554,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "status": "MISSING"
+   "v69": 6823,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 2.83,
+   "status": "MATCHED"
   },
   {
    "id": 2005,
@@ -31475,7 +31571,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "status": "MISSING"
+   "v69": 6824,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 2.83,
+   "status": "MATCHED"
   },
   {
    "id": 2006,
@@ -31486,7 +31588,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "status": "MISSING"
+   "v69": 6825,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 2.83,
+   "status": "MATCHED"
   },
   {
    "id": 2007,
@@ -31497,7 +31605,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "status": "MISSING"
+   "v69": 6826,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.88,
+   "status": "MATCHED"
   },
   {
    "id": 2008,
@@ -31508,7 +31622,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "status": "MISSING"
+   "v69": 6827,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.88,
+   "status": "MATCHED"
   },
   {
    "id": 2009,
@@ -31519,7 +31639,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "status": "MISSING"
+   "v69": 6828,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 1.88,
+   "status": "MATCHED"
   },
   {
    "id": 2010,
@@ -31530,7 +31656,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "status": "MISSING"
+   "v69": 6829,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 2.83,
+   "status": "MATCHED"
   },
   {
    "id": 2011,
@@ -31541,7 +31673,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "status": "MISSING"
+   "v69": 6830,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 2.83,
+   "status": "MATCHED"
   },
   {
    "id": 2012,
@@ -31552,7 +31690,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "status": "MISSING"
+   "v69": 6831,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.0,
+   "volRatio": 1.0,
+   "kgV69": 2.83,
+   "status": "MATCHED"
   },
   {
    "id": 2013,
@@ -31563,7 +31707,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "status": "MISSING"
+   "v69": 6832,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 3.01,
+   "status": "MATCHED"
   },
   {
    "id": 2014,
@@ -31574,7 +31724,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "status": "MISSING"
+   "v69": 6833,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 3.01,
+   "status": "MATCHED"
   },
   {
    "id": 2015,
@@ -31585,7 +31741,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "status": "MISSING"
+   "v69": 6834,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 3.01,
+   "status": "MATCHED"
   },
   {
    "id": 2016,
@@ -31596,7 +31758,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "status": "MISSING"
+   "v69": 6835,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 2.03,
+   "status": "MATCHED"
   },
   {
    "id": 2017,
@@ -31607,7 +31775,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "status": "MISSING"
+   "v69": 6836,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 2.03,
+   "status": "MATCHED"
   },
   {
    "id": 2018,
@@ -31618,7 +31792,13 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "status": "MISSING"
+   "v69": 6837,
+   "v69name": "Cap Plate",
+   "v69prof": "FLT8*150",
+   "boxDiff": 0.001,
+   "volRatio": 1.0,
+   "kgV69": 2.03,
+   "status": "MATCHED"
   },
   {
    "id": 2019,
@@ -77519,7 +77699,7 @@
  "totals": {
   "bodies": {
    "r10": 6233,
-   "v69": 6807
+   "v69": 6837
   },
   "kinds": {
    "r10": {
@@ -77529,13 +77709,13 @@
    },
    "v69": {
     "bolts": 1199,
-    "conn": 4772,
+    "conn": 4802,
     "member": 836
    }
   },
   "connections": {
    "r10": 1694,
-   "v69": 1333,
+   "v69": 1363,
    "r10Types": {
     "TKBOLT": 1694
    },
@@ -77547,6 +77727,7 @@
     "T186": 18,
     "T39": 2,
     "Tcl": 264,
+    "Tcolcap": 30,
     "Teh": 48,
     "Tsag": 280,
     "Tsep": 8,
@@ -77694,6 +77875,7 @@
     "COLUMN | BI220-8-150-10": 15,
     "COLUMN | BI320-8-150-10": 17,
     "CROSSING GUSSET | PL12": 52,
+    "Cap Plate | FLT8*150": 30,
     "END CAP | FLT5*100": 906,
     "END PLATE | FLT12*260": 24,
     "END PLATE | FLT20*400": 48,
@@ -77731,8 +77913,8 @@
   },
   "weightKg": {
    "r10": 63710.29,
-   "v69": 63105.97,
-   "diff": -604.32,
+   "v69": 62919.28,
+   "diff": -791.01,
    "r10Weights": {
     "weight_t": 63.71,
     "net_t": 63.698,
@@ -77741,17 +77923,17 @@
     "boltBodiesExcluded": 1288
    },
    "v69Weights": {
-    "weight_t": 63.106,
-    "net_t": 62.818,
-    "gross_t": 63.16,
-    "parts": 5608,
+    "weight_t": 62.919,
+    "net_t": 62.896,
+    "gross_t": 62.973,
+    "parts": 6034,
     "boltBodiesExcluded": 1199
    }
   },
   "weightByCategory": {
    "builtup members": [
     36820.56,
-    37077.56
+    36818.24
    ],
    "given members": [
     16361.46,
@@ -77759,7 +77941,7 @@
    ],
    "detail parts (R10) / component parts (v69)": [
     10528.27,
-    9666.75
+    9739.38
    ]
   }
  },
@@ -77791,26 +77973,26 @@
   {
    "group": "- | column top cap plate | A Cap Plate FLT8*150",
    "counts": {
-    "MISSING": 23,
+    "MATCHED": 23,
     "total": 23
    },
    "kgR10": 56.47,
-   "kgV69": 0.0,
+   "kgV69": 56.47,
    "sameSize": null,
-   "reason": "loose cap plates FLT8*150 on the column tops under the rafters (marks A1 to A4, and in C2 assemblies): no v69 component in the checklist makes them",
-   "option": "a column cap plate option in End plate 144 (or Tekla 1002-style cap)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "- | column top cap plate | C Cap Plate FLT8*150",
    "counts": {
-    "MISSING": 7,
+    "MATCHED": 7,
     "total": 7
    },
    "kgR10": 16.16,
-   "kgV69": 0.0,
+   "kgV69": 16.16,
    "sameSize": null,
-   "reason": "loose cap plates FLT8*150 on the column tops under the rafters (marks A1 to A4, and in C2 assemblies): no v69 component in the checklist makes them",
-   "option": "a column cap plate option in End plate 144 (or Tekla 1002-style cap)"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "- | given member | HZ HZ Bracing SHS100*3",
@@ -79294,7 +79476,7 @@
     "total": 15
    },
    "kgR10": 3934.53,
-   "kgV69": 3950.58,
+   "kgV69": 3934.38,
    "sameSize": null,
    "reason": "",
    "option": ""
@@ -79306,7 +79488,7 @@
     "total": 15
    },
    "kgR10": 4625.85,
-   "kgV69": 4647.78,
+   "kgV69": 4625.79,
    "sameSize": null,
    "reason": "",
    "option": ""
@@ -79318,7 +79500,7 @@
     "total": 5
    },
    "kgR10": 1435.73,
-   "kgV69": 1442.66,
+   "kgV69": 1435.88,
    "sameSize": null,
    "reason": "",
    "option": ""
@@ -79330,7 +79512,7 @@
     "total": 7
    },
    "kgR10": 2501.73,
-   "kgV69": 2548.84,
+   "kgV69": 2502.71,
    "sameSize": null,
    "reason": "",
    "option": ""
@@ -79342,7 +79524,7 @@
     "total": 16
    },
    "kgR10": 5090.24,
-   "kgV69": 5103.36,
+   "kgV69": 5090.4,
    "sameSize": null,
    "reason": "",
    "option": ""
@@ -79354,7 +79536,7 @@
     "total": 34
    },
    "kgR10": 6448.78,
-   "kgV69": 6484.82,
+   "kgV69": 6444.36,
    "sameSize": null,
    "reason": "",
    "option": ""
@@ -79366,7 +79548,7 @@
     "total": 2
    },
    "kgR10": 289.44,
-   "kgV69": 291.14,
+   "kgV69": 289.44,
    "sameSize": null,
    "reason": "",
    "option": ""
@@ -79374,23 +79556,24 @@
   {
    "group": "builtup | PC BI150-6-120-8",
    "counts": {
-    "INPUT EQUAL, SOLID DIFFERS": 24,
+    "MATCHED": 24,
     "total": 24
    },
    "kgR10": 391.2,
-   "kgV69": 409.2,
+   "kgV69": 391.39,
    "sameSize": null,
-   "reason": "Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent",
-   "option": "built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "builtup | PR BI150-6-120-8",
    "counts": {
-    "INPUT EQUAL, SOLID DIFFERS": 24,
+    "INPUT EQUAL, SOLID DIFFERS": 1,
+    "MATCHED": 23,
     "total": 24
    },
    "kgR10": 448.8,
-   "kgV69": 464.4,
+   "kgV69": 449.19,
    "sameSize": null,
    "reason": "Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent",
    "option": "built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part"
@@ -79398,14 +79581,14 @@
   {
    "group": "builtup | R BI220-8-150-10",
    "counts": {
-    "INPUT EQUAL, SOLID DIFFERS": 48,
+    "MATCHED": 48,
     "total": 48
    },
    "kgR10": 11405.04,
-   "kgV69": 11483.7,
+   "kgV69": 11404.98,
    "sameSize": null,
-   "reason": "Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent",
-   "option": "built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part"
+   "reason": "",
+   "option": ""
   },
   {
    "group": "builtup | STB BI212-6-150-6",
@@ -79426,7 +79609,7 @@
     "total": 4
    },
    "kgR10": 172.44,
-   "kgV69": 173.8,
+   "kgV69": 172.44,
    "sameSize": null,
    "reason": "",
    "option": ""
@@ -79516,6 +79699,9 @@
    "boltCount": 192,
    "bolts": 24,
    "parts": 72
+  },
+  "X02": {
+   "parts": 30
   },
   "stair": {
    "boltCount": 24,
@@ -81008,8 +81194,8 @@
  },
  "replay": {
   "errors": [],
-  "connectionsListed": 1333,
-  "connectionsInV69": 1333,
+  "connectionsListed": 1363,
+  "connectionsInV69": 1363,
   "notOk": 0
  }
 }

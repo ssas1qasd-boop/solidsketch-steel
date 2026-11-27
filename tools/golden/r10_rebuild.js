@@ -28,7 +28,7 @@ function pageDump(opts) {   // runs in the page
   const R = v => Math.round(v * 1000) / 1000;
   const RR = v => Array.isArray(v) ? v.map(RR) : typeof v === 'number' ? R(v) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, RR(x)])) : v;
   const info = m => { try { const bb = m.boundingBox(); return { volume: R(Math.abs(m.volume())), box: [...Array.from(bb.min), ...Array.from(bb.max)].map(R) }; } catch (e) { return { error: String(e) }; } };
-  const W = b => { if (!b.st || b.st.kind === 'bolts') return null; try { const w = st.partWeight(b.id); return w == null ? null : { weight: R(w.weight), net: R(w.net), gross: R(w.gross), catalog: !!w.catalog }; } catch (e) { return { error: String(e) }; } };
+  const W = b => { if (!b.st || b.st.kind === 'bolts') return null; try { const w = st.partWeight(b.id); return w == null ? null : Object.assign({ weight: R(w.weight), net: R(w.net), gross: R(w.gross), catalog: !!w.catalog }, w.subs ? { subs: w.subs } : {}); } catch (e) { return { error: String(e) }; } };
   const DROP = new Set(['pts3', 'shape', 'ncHdr', 'ncF', 'u', 'v']);
   const stOf = s => { if (!s) return null; const o = {}; for (const [k, v] of Object.entries(s)) if (!DROP.has(k) || (k === 'pts3' && opts.keepPts3)) o[k] = v; return RR(o); };
   const bodies = S.bodies.map(b => Object.assign({ id: b.id, type: b.type }, opts.full ? { st: stOf(b.st) } : { kind: b.st && b.st.kind }, info(b.man), { w: W(b) }));

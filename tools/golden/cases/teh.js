@@ -20,10 +20,10 @@ module.exports = [
   },
   {
     name: 'teh_hea240_ipe300_15deg_tp25',
-    description: 'HEA240 column, IPE300 rafter at 15 deg, End plate 144 tp 25 gap 0 (extb 160) + haunch length 1800, depth 120.',
+    description: 'HEA240 column, IPE300 rafter at 15 deg, End plate 144 tp 25 gap 0 (extb 160, top bolt row 60 below the plate top: X01 fits the rafter to the plate over its whole depth, so the default 35 put the top bolts through its top flange) + haunch length 1800, depth 120.',
     members: [member('COLUMN', { prof: 'HEA240', p1: [0, 0, 0], p2: [0, 0, 6000] }),
               member('RAFTER', { prof: 'IPE300', p1: [0, 0, 6000], p2: [8000, 0, 8143.6] })],
-    conns: [['T144', [0, 1], { tp: 25, gap: 0, ext: 20, extb: 160 }], ['Teh', [0, 1], { hlen: 1800, hdep: 120, tw: 8, tf: 10, bf: 150 }]],
+    conns: [['T144', [0, 1], { tp: 25, gap: 0, ext: 20, extb: 160, e: 60 }], ['Teh', [0, 1], { hlen: 1800, hdep: 120, tw: 8, tf: 10, bf: 150 }]],
   },
   {
     name: 'teh_ipe400_5deg_no144',

@@ -53,8 +53,10 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
 
     /** v69 stApplyCuts: the part's solid with the cuts of every connection that lists it. */
     fun cutPart(id: String, st: JsonObject, conns: List<StConn>): Mesh {
-        val m = build.build(st)
-        val all = conns.filter { id in it.parts }.flatMap { geom(it)?.cuts?.get(id) ?: emptyList() }
+        val gs = conns.filter { id in it.parts }.mapNotNull { geom(it) }
+        val fits = gs.flatMap { it.fits[id] ?: emptyList() }   // v70 X01: ends fitted to a plane before the cuts (web stApplyCuts wrapper)
+        val m = (if (fits.isNotEmpty()) runCatching { Fits.fitted(st, fits, build, booleans) }.getOrNull() else null) ?: build.build(st)
+        val all = gs.flatMap { it.cuts[id] ?: emptyList() }
         return if (all.isEmpty()) m else runCatching { booleans.subtract(m, all) }.getOrElse { m }
     }
 

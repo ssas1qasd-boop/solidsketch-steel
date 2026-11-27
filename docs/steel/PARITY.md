@@ -12,6 +12,7 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 - **C06:** 17 gable / end-frame node gussets within 0.2–4.3 mm (braces skewed out of the gusset plane): accepted for now, re-check on R13.
 - **C07:** 18 PL5 end plates at the upper ends of the wall crossings VL6011–VL6014, 0.1–1.7 mm (Tekla's 0.3° turn): accepted for now, re-check on R13.
 - Order of the next connections on R12: C01 + C16, C18, C03, C17, X01, X02.
+- **R12 data quirk:** one monitor rafter end plate (body 1985, PLATE FLT12*120, assembly mark '14', class 99) is not in a PR assembly, so its 144 is not rebuilt and PR7001 / one PC7001 keep a square end (box 36.8 mm, +0.4 kg). Re-check on R13.
 
 ## Weights (owner, 2026-11-26)
 **Target:** Tekla's per-part weights (`st.tkW`, 63,705.8 kg; Part List 63,711.7).
@@ -601,6 +602,44 @@ Tekla's IFC carries no component information. Which connections were components 
 | C09 monitor post haunch plates (HAUNCH_PLATE) | likely a component (144) | Tekla 144's default part name style (HAUNCH_PLATE) | 144 Haunch tab |
 
 The owner can see the component symbols in Tekla. Rows marked "to confirm" wait for that.
+
+## X01 · Built-ups as three plates with end cuts, and Tekla's fittings (owner 2026-11-27)
+
+### Target: R12
+Every built-up member is three Tekla parts: Web, Top flange, Bottom flange (for example R3011: FLT8*200 + 2 FLT10*150, pos 3503 / 3502 / 3504). Tekla weighs each part as its own solid, without bolt holes. Across the 198 built-ups:
+- **Weights.** Tekla's parts are lighter than the catalog kg/m × length that v69 used, because v69 counted none of the end cuts, copes or fits. That made the built-ups +257 kg too heavy.
+- **Rafter apex ends.** The 96 rafters and monitor rafters are fitted to their end plates. Their plumb end reaches the plate face over the whole depth: R3011's top flange ends 4.5 mm past the rafter's end point and its bottom flange 45.4 mm short of it. v69 cut the member at the plate but kept its square end, so the top corner stopped short.
+- **Monitor rafter eave ends.** The monitor rafters' other end is fitted to its 144 end plate the same way (the top flange reaches 2.1 mm past).
+
+### Change, in web v70 (sections "Weights" → X01, "X01 · Fittings", "X02") and the app (`TeklaWeight.builtUp`, `Fits`, `StRegen.cutPart`, `ClassicV34.apex54`)
+- **The three plates.** A BI member is weighed as its three plates. Each plate is the member's own solid (with every cut, fit, cope and hole) inside that plate's slab of the section, with its bolt holes filled. The slabs are sized to the member: a 1e6 mm box in float32 tilts its faces, which cost 0.05 kg per rafter.
+- **Where the plates show.** The plates are also what the drawings and part lists show: `tkSubs` gives the plates as cut, not plain boxes, and now covers 4-number BI profiles as well. The weight report lists them as part rows.
+- **Fittings.** A component can fit a member end to a plane. The member is built longer at that end, then cut by the plane, before the component's own cuts.
+- **Apex fits.** Every Tekla apex (106 with a plate height) fits both rafters to their end plate faces.
+- **End plate (144) fits.** 144 fits the secondary part to the end plate face. The face direction is taken toward the secondary's middle, because its end may lie on the main part's axis (crane brackets).
+- **Golden case change.** The golden case `teh_hea240_ipe300_15deg_tp25` now puts its top bolt row 60 mm below the plate top. Once the rafter reaches the plate over its full depth, the default 35 mm put two bolts through its top flange (rule B).
+
+### Result (R12 rebuild, web = app)
+- **Members:** 835 / 836 match (every R, PR, PC and C built-up).
+- **Built-up weight vs Tekla:** +257 kg → −2.3 kg.
+- **Open:** PR7001 (the R12 data quirk above).
+
+## X02 · Column tops and cap plates (owner 2026-11-27)
+
+### Target: R12
+- **Column tops.** At the 12 eave columns and the 24 monitor posts, the column top is cut along the rafter's top face: the plane of its top flange's upper side, extended over the column. For example, C2017 is at 7,547.7 at the face toward the rafter and 7,475.0 at the far face.
+- **Cap plates.** There are 30 cap plates FLT8*150, which no Tekla component in the IFC made:
+  - 18 sit on the interior columns: flat, centred, h − 2 tf long (200 / 300).
+  - 12 sit on the eave columns, on the sloped top: 320 / 215 long, with the far end 5.64 mm (along the slope) inside the column's far face.
+
+### Change
+- **144 Plates tab.** New field "Main part end" = "Fitted to the secondary's top face" (`cfit: 'top'`).
+- **New component: Column cap plate** (`Tcolcap`, group Other, family CAP). It places t × b × L on the column's end face, or on the beam's top face when a beam is picked. Defaults: L = h − 2 tf, b = flange width. e = the far end's distance inside the far face; empty means centred.
+- **R12 inputs.** `cfit` is set where R12's column top slopes. Each R12 cap gives one Column cap plate, with L, b, t and e measured from R12.
+
+### Result
+- **Cap plates:** 30 / 30 match.
+- **Column weights:** columns −0.21 kg, monitor posts +0.19 kg vs Tekla.
 
 ## C09 · End plate (144) Haunch tab at the monitor post, and C02 · 144 at the eave (owner 2026-11-26)
 

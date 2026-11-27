@@ -100,7 +100,10 @@ object StBolts {
 
 /** v69 `stConnGeom` result for one connection: its own parts (plates, bolts) and the cuts it makes in the parts it joins. */
 class ConnGeom(val parts: List<ConnPart>, val cuts: Map<String, List<Mesh>>, val welds: List<Weld> = emptyList(),
-               /** Fields the geometry writes back on the connection (v69 `c.nSteps = n`, v44 L15397); stRegen stores them in its JSON. */ val set: Map<String, JsonElement> = emptyMap())
+               /** Fields the geometry writes back on the connection (v69 `c.nSteps = n`, v44 L15397); stRegen stores them in its JSON. */ val set: Map<String, JsonElement> = emptyMap(),
+               /** v70 X01 (web g.fits): the member ends this component fits to a plane (Tekla's Fitting), by part id. */ val fits: Map<String, List<Fit>> = emptyMap())
+/** v70 X01: a member end fitted to a plane: the member is built [ext] longer at [end] (1 = p1, 2 = p2) and cut by the plane through [p], [n] pointing to the side removed. */
+class Fit(val end: Int, val p: D3, val n: D3, val ext: Double)
 /** A part a connection makes: its solid pieces (unioned), the holes still to subtract ([minus]), profile, bolt info. */
 class ConnPart(val name: String, val pieces: List<Mesh>, val bolts: JsonObject? = null, val prof: String? = null, val minus: List<Mesh> = emptyList(), val group: BoltGroup? = null,
                /** v70 C01: an anchor rod made as a part carries its hole (st.hole: pts, ax, d, d0, L, poly) for the gross weight. */ val hole: JsonObject? = null,

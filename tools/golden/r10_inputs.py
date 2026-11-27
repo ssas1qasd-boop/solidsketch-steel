@@ -672,6 +672,14 @@ def main():
         if key == 'T1042' and 'gt' not in q: notes.append(f'base plate {b["id"]}: no grout found under it')
 
     # ---- end plates (144), apex (106 / 14), cap (39), shear plates (146), hangers
+    cap_beam = {}   # X02: column member -> the beam whose top face its top is fitted to
+    def norm_v(v): l = math.sqrt(dot(v, v)); return [x / l for x in v]
+    def top_sloped(mi):   # X02: R12's column top is not square to its axis (the web's top edge slopes)
+        m = members[mi]; st_ = m['st']
+        if m['kind'] != 'builtup' or abs(st_['p1'][0] - st_['p2'][0]) > 1 or abs(st_['p1'][1] - st_['p2'][1]) > 1: return False
+        v = mesh_v(byid[m['r10'][0]]); zmax = max(x[2] for x in v); pm = max(v, key=lambda x: x[2]); near = [x for x in v if x[2] > zmax - 150]
+        hd = [(math.hypot(x[0] - pm[0], x[1] - pm[1]), x) for x in near]; hmax = max(h for h, _ in hd)
+        return hmax > 50 and zmax - max(x[2] for h, x in hd if h > hmax - 1) > 2
     EP = {('R', 'PLATE', 'FLT20*150'): '2', ('PC', 'End plate Post', 'PL12*160'): '9', ('PR', 'PLATE', 'FLT12*120'): '10',
           ('EB', 'End Plate ', 'PL16*120'): '13',   # C13 (PARITY.md): Tekla's name has a trailing space; before C13 this was read as Cap 39
           ('EB', 'PLATE', 'PL16*120'): '13', ('STB', 'ENDPLATE', 'FLT10*150'): 'stair'}
@@ -696,6 +704,8 @@ def main():
                     c0 = p.centre(); far = max((members[own]['st']['p1'], members[own]['st']['p2']), key=lambda P: norm(sub(P, c0)))
                     tosec = p.N if dot(sub(far, c0), p.N) > 0 else mul(p.N, -1)
                     q['blrule'] = 'tekla'; q['bdir'] = 2 if dot(cs[0]['q']['ax'], tosec) > 0 else 1
+                if MODEL == 'R12' and EP[key3] in ('2', '10') and top_sloped(other):   # X02 (PARITY.md): the column / post top fitted to the rafter's top face
+                    q['cfit'] = 'top'; cap_beam[other] = own
                 conn('T144', [other, own], q, EP[key3], refs)
                 if MODEL == 'R12' and EP[key3] == '2':   # C02h (PARITY.md): Eave haunch (Teh), read off R12's web + flange
                     hq = eave_haunch_q(b, other, own)
@@ -905,6 +915,23 @@ def main():
                 if L is not None and tk_bolt_len(d, grip) != int(L): q['bL'] = L
             else: q.update(nr=0, nc=0)
             conn('Tsep', parts_, q, '18', [pb['id']])
+    # ---- X02: column cap plates (R12: 30 FLT8*150 on the column tops, no Tekla component in the IFC; PARITY.md "X02")
+    if MODEL == 'R12':
+        for b in plates:
+            if b['st']['name'] != 'Cap Plate': continue
+            p, L, W = pl_dims(b); v = mesh_v(b); c = [sum(x[k] for x in v) / len(v) for k in range(3)]
+            cols = [m for m in members if m['kind'] == 'builtup' and abs(m['st']['p1'][0] - m['st']['p2'][0]) < 1 and abs(m['st']['p1'][1] - m['st']['p2'][1]) < 1
+                    and math.hypot(m['st']['p1'][0] - c[0], m['st']['p1'][1] - c[1]) < 300 and 0 <= min(x[2] for x in v) - max(m['st']['p1'][2], m['st']['p2'][2]) + 100 < 200]
+            if not cols: unhandled['Cap Plate: no column under it'].append(b['id']); continue
+            col = min(cols, key=lambda m: math.hypot(m['st']['p1'][0] - c[0], m['st']['p1'][1] - c[1])); q = {'t': p.t, 'b': r3(W), 'L': r3(L)}
+            parts_ = [col['i']]
+            if abs(abs(p.N[2]) - 1) > 1e-4 and col['i'] in cap_beam:   # on the sloped top: the beam's top face, its far end e (along the slope) inside the far face
+                rs = members[cap_beam[col['i']]]['st']; a = norm_v(sub(rs['p2'], rs['p1'])); n_ = norm_v(sub([0, 0, 1], mul(a, a[2]))); Hr = float(re.match(r'^BI(\d+(?:\.\d+)?)', rs['prof']).group(1))
+                P = add(rs['p1'], mul(n_, Hr / 2)); cx, cy = col['st']['p1'][0], col['st']['p1'][1]; Pc = [cx, cy, P[2] - ((cx - P[0]) * n_[0] + (cy - P[1]) * n_[1]) / n_[2]]
+                d0 = norm_v([a[0], a[1], 0]); dd = norm_v(sub(d0, mul(n_, dot(d0, n_)))); rc = mul(add(rs['p1'], rs['p2']), 0.5); far = mul(dd, -1 if dot(sub(rc, Pc), dd) > 0 else 1)
+                Hc = float(re.match(r'^BI(\d+(?:\.\d+)?)', col['st']['prof']).group(1)); sf = Hc / 2 / abs(dot(dd, d0))
+                s_out = max(dot(sub(x, Pc), far) for x in v if dot(sub(x, P), n_) < 0.5); q['e'] = r3(sf - s_out); parts_.append(cap_beam[col['i']])
+            conn('Tcolcap', parts_, q, 'X02', [b['id']])
     # ---- row 19: railing welds (stanchion top on a hand rail)
     rails = [m for m in members if m['st']['name'] == 'Hand Rail']
     for m in members:

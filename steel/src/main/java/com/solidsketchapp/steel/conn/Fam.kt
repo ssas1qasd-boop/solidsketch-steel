@@ -42,6 +42,9 @@ class FamCtx(val q: JsonObject, val a: JsonObject, val aId: String, val b: JsonO
                /** A body's st by id (v69 stBody(id).st). */ val stOf: (String) -> JsonObject? = { null },
                /** A document field (v69 S.stGen, S.stGrid …) as JSON text: the eaves haunch reads S.stGen.span. */ val docField: (String) -> String? = { null }) {
     val parts = ArrayList<ConnPart>(); val cuts = LinkedHashMap<String, MutableList<Mesh>>(); val welds = ArrayList<Weld>()
+    /** v70 X01: member ends fitted to a plane (web fitAdd70). */
+    val fits = LinkedHashMap<String, MutableList<Fit>>()
+    fun fit(id: String, f: Fit) { fits.getOrPut(id) { ArrayList() } += f }
     /** v69 `return null` from a connection's geometry (a part missing, a degenerate case): no parts, no cuts, no welds. */
     var nullResult = false
     /** Fields v69 writes on the connection itself (`c.nSteps = n`, v44 L15397); [StRegen] stores them in the connection's JSON. */
@@ -73,9 +76,9 @@ object Fam {
         "EP" to obj("cols" to 2, "gauge2" to 0, "pitches" to "", "tp" to 10, "ext" to -10, "extb" to -10, "side" to 30, "gauge" to 90, "rows" to 0, "pitch" to 70, "e" to 35, "bolt" to 20, "grade" to "8.8", "a" to 6, "gap" to 2, "shim" to 0, "front" to 0, "seat" to 0, "stiff" to 0, "comp" to 0, "two" to 0, "shared" to 0),
     )
     /** The family generators (EP and ST here; the others in Fam<XX>.kt, one file per family). */
-    val GEN: Map<String, (FamCtx) -> Unit> = linkedMapOf("EP" to ::ep, "ST" to ::st, "BP" to FamBP::gen, "SEP" to FamSEP::gen, "CP" to FamCP::gen, "CL" to FamCL::gen, "SR" to FamSR::gen, "TG" to FamTG::gen, "CA" to FamCA::gen, "BE" to FamBE::gen, "SE" to FamSE::gen, "GU" to FamGU::gen, "SD" to FamSD::gen, "WF" to FamWF::gen, "SP" to FamSP::gen, "PU" to FamPU::gen, "TU" to FamTU::gen, "JO" to FamJO::gen, "OP" to FamOP::gen, "MF" to FamMF::gen, "HA" to FamHA::gen, "EH" to FamEH::gen)
+    val GEN: Map<String, (FamCtx) -> Unit> = linkedMapOf("EP" to ::ep, "ST" to ::st, "BP" to FamBP::gen, "SEP" to FamSEP::gen, "CAP" to FamCAP::gen, "CP" to FamCP::gen, "CL" to FamCL::gen, "SR" to FamSR::gen, "TG" to FamTG::gen, "CA" to FamCA::gen, "BE" to FamBE::gen, "SE" to FamSE::gen, "GU" to FamGU::gen, "SD" to FamSD::gen, "WF" to FamWF::gen, "SP" to FamSP::gen, "PU" to FamPU::gen, "TU" to FamTU::gen, "JO" to FamJO::gen, "OP" to FamOP::gen, "MF" to FamMF::gen, "HA" to FamHA::gen, "EH" to FamEH::gen)
     /** Families whose generator is ported (regen rebuilds their components; others are left as the file has them). */
-    val PORTED: Set<String> = setOf("EP", "ST", "EH") + listOf("SEP" to FamSEP.PORTED, "BP" to FamBP.PORTED, "CP" to FamCP.PORTED, "CL" to FamCL.PORTED, "SR" to FamSR.PORTED, "TG" to FamTG.PORTED, "CA" to FamCA.PORTED, "BE" to FamBE.PORTED, "SE" to FamSE.PORTED, "GU" to FamGU.PORTED, "SD" to FamSD.PORTED, "WF" to FamWF.PORTED, "SP" to FamSP.PORTED, "PU" to FamPU.PORTED, "TU" to FamTU.PORTED, "JO" to FamJO.PORTED, "OP" to FamOP.PORTED, "MF" to FamMF.PORTED, "HA" to FamHA.PORTED).filter { it.second }.map { it.first }
+    val PORTED: Set<String> = setOf("EP", "ST", "EH") + listOf("SEP" to FamSEP.PORTED, "CAP" to FamCAP.PORTED, "BP" to FamBP.PORTED, "CP" to FamCP.PORTED, "CL" to FamCL.PORTED, "SR" to FamSR.PORTED, "TG" to FamTG.PORTED, "CA" to FamCA.PORTED, "BE" to FamBE.PORTED, "SE" to FamSE.PORTED, "GU" to FamGU.PORTED, "SD" to FamSD.PORTED, "WF" to FamWF.PORTED, "SP" to FamSP.PORTED, "PU" to FamPU.PORTED, "TU" to FamTU.PORTED, "JO" to FamJO.PORTED, "OP" to FamOP.PORTED, "MF" to FamMF.PORTED, "HA" to FamHA.PORTED).filter { it.second }.map { it.first }
 
     fun obj(vararg kv: Pair<String, Any>): JsonObject = JsonObject(LinkedHashMap<String, JsonElement>().apply { for ((k, v) in kv) put(k, when (v) { is String -> JsonPrimitive(v); is Number -> jsNum(v.toDouble()); else -> JsonPrimitive(v.toString()) }) })
 
@@ -390,6 +393,7 @@ object Fam {
         val x = FamCtx(q, a, parts[0], parts.getOrNull(1)?.let(stOf), parts.getOrNull(1), parts.getOrNull(2)?.let(stOf), parts.getOrNull(2), profiles, pt, conn, conns, stOf, docField)
         if ((fam == "EP" || fam == "ST") && x.b == null) return null
         if (classic) { Classic.GEN.getValue(fam.drop(2))(x); if (x.nullResult) return null } else GEN.getValue(fam)(x)
+        if (conn?.type == "T144") Fits.t144(x)   // v70 X01 / X02: the secondary fitted to the end plate, the main part's end to the secondary's top face (cfit)
         // v58: bolt groups carry d0 / std / thr / sw (L15997); Welds tab (q.W) sets a / type / ws / around per weld.
         val out = x.parts.map { p ->
             val g = p.group; val bo = p.bolts
@@ -417,6 +421,6 @@ object Fam {
         if (w != null) for (wd in x.welds) { val o = (w[wd.name] ?: w["*"]) as? JsonObject ?: continue
             o["a"]?.let { if ((it as? JsonPrimitive)?.content != "") wd.a = StBuild.jsNum(it) }; (o["type"] as? JsonPrimitive)?.contentOrNull?.takeIf { it.isNotEmpty() }?.let { wd.type = it }
             (o["ws"] as? JsonPrimitive)?.contentOrNull?.takeIf { it.isNotEmpty() }?.let { wd.ws = it }; o["around"]?.let { wd.around = StBuild.jsNum(it) } }
-        return ConnGeom(outP, x.cuts, x.welds, x.connSet)
+        return ConnGeom(outP, x.cuts, x.welds, x.connSet, x.fits)
     }
 }

@@ -25,8 +25,8 @@ class S7CatalogTest {
     @Test fun catalogHasEveryComponent() {
         assertEquals(18, ui.catalog.size)
         val items = ui.catalog.flatMap { it.second }.distinct()
-        assertEquals(255, items.size)   // v70 adds the Eave haunch (Teh, C02h), the Stair end plate (Tsep) and Stair treads (C18)
-        assertEquals(253, ui.conn.size)
+        assertEquals(256, items.size)   // v70 adds the Eave haunch (Teh, C02h), the Stair end plate (Tsep) and Stair treads (C18), the Column cap plate (Tcolcap, X02)
+        assertEquals(254, ui.conn.size)
         // the 246 TK components (S4 asset) are all on the sheet, in their Tekla groups, with v69's CONN label and pick prompts
         assertEquals(246, data.tk.components.size)
         for (c in data.tk.components) {
@@ -36,7 +36,7 @@ class S7CatalogTest {
             assertEquals(data.tk.pickOrders[c.pick] ?: data.tk.pickOrders.getValue("ms"), d.parts)
             assertTrue(c.id, ui.catalog.first { it.first == c.group }.second.contains(c.id))
         }
-        assertEquals(setOf("Tcl", "Ttg", "Ttgx", "Tsag", "Teh", "Tsep", "stairtreads"), ui.conn.keys - data.tk.components.map { it.id }.toSet())
+        assertEquals(setOf("Tcl", "Ttg", "Ttgx", "Tsag", "Teh", "Tsep", "stairtreads", "Tcolcap"), ui.conn.keys - data.tk.components.map { it.id }.toSet())
         assertEquals(listOf("@numbering", "@checks"), ui.catalog.last().second)
         assertEquals("End plate (144)", ui.conn.getValue("T144").tekla)
     }

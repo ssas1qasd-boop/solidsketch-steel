@@ -68,8 +68,9 @@ class R12RebuildTest {
         val gb = g.getValue("bodies").jsonArray; var wApp = 0.0; var wWeb = 0.0; val wBad = ArrayList<String>()
         for ((i, id) in idsAll.withIndex()) { val st = sts[id] ?: continue; if (st["kind"]?.jsonPrimitive?.content == "bolts") continue
             val bs = tw.candidates(id.value, st["conn"]?.jsonPrimitive?.content, connParts, boltsByConn)
-            val w = tw.part(st, m.doc.bodyMesh(id)!!, false, { null }, bs).weight; val web = (gb[i].jsonObject["w"] as? JsonObject)?.get("weight")?.jsonPrimitive?.double ?: 0.0
-            wApp += w; wWeb += web; if (abs(w - web) > 0.011 && wBad.size < 20) wBad += "body $i ${st["name"]?.jsonPrimitive?.content} ${st["prof"]?.jsonPrimitive?.content}: app $w web $web" }
+            val wr = tw.part(st, m.doc.bodyMesh(id)!!, false, { null }, bs); val w = wr.weight; val wj = gb[i].jsonObject["w"] as? JsonObject; val web = wj?.get("weight")?.jsonPrimitive?.double ?: 0.0
+            wApp += w; wWeb += web; if (abs(w - web) > 0.011 && wBad.size < 20) wBad += "body $i ${st["name"]?.jsonPrimitive?.content} ${st["prof"]?.jsonPrimitive?.content}: app $w web $web" +
+                (wr.subs?.let { ss -> " · app plates " + ss.joinToString { "${it.role} ${it.weight} (holes ${it.holesFilled})" } + " · web plates " + ((wj?.get("subs") as? JsonArray)?.joinToString { it.jsonObject["weight"].toString() + " (holes " + it.jsonObject["holesFilledKg"] + ")" } ?: "-") + " · bolts ${bs.size}" + (ss.firstOrNull { it.holesFilled > 0 && it.role == "w" }?.mesh?.let { wm -> " · web holes from " + bs.filter { b -> tw.holeFill(wm, listOf(b)) > 0 }.joinToString { b -> "pts0 ${b.pts[0]} ax ${b.ax} d0 ${b.d0} L ${b.len} n ${b.pts.size}" } } ?: "") } ?: "") }
         val wrep = "R12 rebuild weight (gross, grout 0): app %.2f kg, web %.2f kg, Tekla st.tkW 63,705.82 kg, Part List 63,711.7 kg".format(java.util.Locale.ROOT, wApp, wWeb)
         File(root, "build/r12-rebuild-weight.txt").writeText(wrep + "\n" + wBad.joinToString("\n") + "\n"); println(wrep)
         assertTrue(wrep + "\n" + wBad.joinToString("\n"), wBad.isEmpty())
