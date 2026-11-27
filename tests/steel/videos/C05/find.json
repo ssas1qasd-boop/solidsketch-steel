@@ -1,0 +1,226 @@
+{
+ "component": "Tube gusset (20)",
+ "tab": "Parts",
+ "tekla_pages": [
+  {
+   "url": "https://support.tekla.com/doc/tekla-structures/2025/conn_20_help",
+   "title": "Tube gusset (20) | Trimble Help",
+   "tab_text": [],
+   "media": []
+  },
+  {
+   "url": "https://support.tekla.com/doc/tekla-structures/2024/conn_20_help",
+   "title": "Tube gusset (20) | Trimble Help",
+   "tab_text": [],
+   "media": []
+  }
+ ],
+ "youtube_queries": [
+  "Tekla Tube gusset (20) Parts",
+  "Tekla Tube gusset 20 Parts tab",
+  "tekla tube gusset 20",
+  "tekla tube gusset component"
+ ],
+ "videos": [
+  {
+   "url": "https://www.youtube.com/watch?v=qvQZWnkhhas",
+   "title": "Stiffener and Gusset Plate Width Tolerance",
+   "channel": "Tekla Software",
+   "length": "3:27",
+   "tekla_own": true,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Z5SVpvwDdv8",
+   "title": "TUBE GUSSET 20",
+   "channel": "DW",
+   "length": "18:23",
+   "tekla_own": false,
+   "score": 4
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=igIjArVFNn0",
+   "title": "[Tekla Structures 2020] Tube Gusset",
+   "channel": "Tekla Vi\u1ec7t Nam",
+   "length": "10:01",
+   "tekla_own": false,
+   "score": 4
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=r9Gx0rVV23Q",
+   "title": "20240319 Tekla Angle Bracing - Corner Bolted Gusset connection (11) - Vlog 22",
+   "channel": "Gaming style",
+   "length": "0:59",
+   "tekla_own": false,
+   "score": 3
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=JTxKIJJd5oQ",
+   "title": "How to Create Stiffeners & Gussets in Curved Poly beam in Tekla Structures (Tricky Method) [2022]",
+   "channel": "Civil Engineering with ARAS",
+   "length": "3:57",
+   "tekla_own": false,
+   "score": 3
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=J24W_pCjiO0",
+   "title": "Overlapping part number series in TS 20 and TS 2017",
+   "channel": "\u0110\u00e0o t\u1ea1o Tekla",
+   "length": "1:19",
+   "tekla_own": false,
+   "score": 2
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=1eTAmEanAHY",
+   "title": "Tekla : Tube Angle Gusset Part 2",
+   "channel": "Sriram Santhanam",
+   "length": "3:48",
+   "tekla_own": false,
+   "score": 2
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Jmx34LC44mE",
+   "title": "Adding Wall Bracing in Tekla Structure v20.0",
+   "channel": "allinengineering",
+   "length": "5:02",
+   "tekla_own": false,
+   "score": 2
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=DoRTWffrLWc",
+   "title": "Tekla : Tube Angle Gusset",
+   "channel": "Sriram Santhanam",
+   "length": "7:23",
+   "tekla_own": false,
+   "score": 2
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=YCIyLguxW8c",
+   "title": "Tekla Structures 2026 | Tutorial 12 | Two sided beam connections & Haunch Connections #tekla #steel",
+   "channel": "Jitendra Choubisa | CIVIL 4 SURE ACADEMY |",
+   "length": "9:57",
+   "tekla_own": false,
+   "score": 2
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=UJjFw7ccs-U",
+   "title": "01 Windbrace (Tekla V.20)",
+   "channel": "Designer Ndeso",
+   "length": "6:59",
+   "tekla_own": false,
+   "score": 2
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=sUCXn6P_yFM",
+   "title": "Adding Roof Bracing in Tekla Structure v20.0",
+   "channel": "allinengineering",
+   "length": "9:23",
+   "tekla_own": false,
+   "score": 2
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=mLbeTrHMlyk",
+   "title": "Tekla for Beginner   Bolted Gusset Connection",
+   "channel": "Celfrey Salamanes",
+   "length": "8:54",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=t3Ek_3YPmoA",
+   "title": "TEKLA - VERTICAL BRACING CENTER GUSSET PLATE SINGLE PART DRAWING FROM SCRATCH",
+   "channel": "Revit with RJ",
+   "length": "11:15",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=q9IZa3h-eAE",
+   "title": "TEKLA GUSSET PLATE SINGLE PART DRAWING",
+   "channel": "Revit with RJ",
+   "length": "13:52",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=OsEKt7wlhNk",
+   "title": "Bracing Workpoint in Tekla Structures steel Detailing | Gusset beam Detailing Workpoint solution",
+   "channel": "Make Me Engineer",
+   "length": "1:16",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=0BAwJjbDmus",
+   "title": "Bolted Gusset Connections for Vertical Braces in Tekla Structures",
+   "channel": "Dimensions",
+   "length": "18:41",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=uQf-4EwaN5c",
+   "title": "Gusset Plate Connection in Tekla Structures | Complete Modeling Guide",
+   "channel": "Structural Arena",
+   "length": "18:02",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=Dtpt2FbxrfE",
+   "title": "KTS - Bolted Gusset (11) in Tekla Structures",
+   "channel": "Keyack Technology Solutions",
+   "length": "19:44",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=YtP277y8LV0",
+   "title": "How to Create Bracing in  Tekla | Gusset Plate Connections || TST",
+   "channel": "Tamil Software Technologies",
+   "length": "13:19",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=3nZUGhTDjp0",
+   "title": "TEKLA BRACING TUBE , PIPE, PD #1 |  shop drawing : tuananhlecnn@gmail.com",
+   "channel": "HANNA TV1",
+   "length": "10:58",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=BAL24wiTZRo",
+   "title": "TEKLA structure - HORIZONTAL BRACING CENTER GUSSET",
+   "channel": "Revit with RJ",
+   "length": "14:44",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=jch-bVzRPDI",
+   "title": "Tekla-Bolted Gusset [11] Component/ Connection Part-1",
+   "channel": "TCBIN",
+   "length": "16:48",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=5q4kwdBQnNY",
+   "title": "3 Create Bracing & Gusset Connection in Tekla Structure",
+   "channel": "Daily learn Rajesh",
+   "length": "18:22",
+   "tekla_own": false,
+   "score": 1
+  },
+  {
+   "url": "https://www.youtube.com/watch?v=5JqeR-Mzc28",
+   "title": "Tekla-Bolted Gusset [11] Component/Connection Part-2",
+   "channel": "TCBIN",
+   "length": "11:57",
+   "tekla_own": false,
+   "score": 1
+  }
+ ]
+}

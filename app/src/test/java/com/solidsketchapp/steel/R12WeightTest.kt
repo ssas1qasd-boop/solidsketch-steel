@@ -43,7 +43,7 @@ class R12WeightTest {
         for (id in doc.bodyIds()) {
             val st = Json.parseToJsonElement(doc.bodyJson(id)!!).jsonObject["st"] as? JsonObject ?: continue
             val kind = (st["kind"] as? JsonPrimitive)?.contentOrNull; if (kind != "plate" && kind != "member") continue
-            val w = tw.part(st, doc.bodyMesh(id)!!, id.value in holed) { regen.cutPart(id.value, st, notHoles) }
+            val w = tw.part(st, doc.bodyMesh(id)!!, id.value in holed, noHoles = { regen.cutPart(id.value, st, notHoles) })
             val p = (st["tprof"] as? JsonPrimitive)?.contentOrNull ?: ""; val mat = (st["mat"] as? JsonPrimitive)?.contentOrNull ?: ""
             val key = if (p.uppercase().startsWith("PL") || p.uppercase().startsWith("FLT")) "plates $mat" else p
             val web = gold[id.value]?.jsonPrimitive?.double ?: Double.NaN

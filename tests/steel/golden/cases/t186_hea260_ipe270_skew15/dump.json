@@ -17437,11 +17437,11 @@
    "volume": 214205.67,
    "weight": {
     "catalog": false,
-    "gross": 1.68,
+    "gross": 1.74,
     "kgm": 0,
     "len": 0,
-    "net": 1.68,
-    "weight": 1.68
+    "net": 1.74,
+    "weight": 1.74
    }
   },
   {
@@ -17600,10 +17600,10 @@
     "weight": 216.6
    },
    "C1": {
-    "gross": 421.37,
-    "net": 421.37,
+    "gross": 421.43,
+    "net": 421.43,
     "parts": 6,
-    "weight": 421.37
+    "weight": 421.43
    }
   },
   "perPartMark": {
@@ -17624,12 +17624,12 @@
     "weight": 411.09
    },
    "p1001": {
-    "gross": 1.68,
+    "gross": 1.74,
     "mat": "S275",
     "n": 1,
-    "net": 1.68,
+    "net": 1.74,
     "prof": "PL10",
-    "weight": 1.68
+    "weight": 1.74
    },
    "p1002": {
     "gross": 8.6,

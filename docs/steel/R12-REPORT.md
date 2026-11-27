@@ -15,17 +15,17 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 | … kind `plate` | 3,405 | 0 |
 | Connections | 1,694 (TKBOLT / TKCUT) | 1,323 (components) |
 | Bolts | 4,548 in 1,288 groups | 4,650 in 1,203 groups |
-| Weight (v66 Tekla weights, bolts excluded) | 63,710.29 kg | 63,495.66 kg (-214.63) |
+| Weight (v66 Tekla weights, bolts excluded) | 63,710.29 kg | 62,516.10 kg (-1,194.19) |
 | … builtup members | 36,820.56 kg | 37,077.56 kg |
 | … given members | 16,361.46 kg | 16,287.79 kg |
-| … detail parts (R12) / component parts (v69) | 10,528.27 kg | 10,130.31 kg |
+| … detail parts (R12) / component parts (v69) | 10,528.27 kg | 9,150.75 kg |
 
-Members: 836 placed (198 built-up equivalents, 638 R12 members as given): 336 INPUT EQUAL, SOLID DIFFERS, 500 MATCHED.
-- built-up equivalents: 86 matched of 198 (inputs equal R12 for all 198)
+Members: 836 placed (198 built-up equivalents, 638 R12 members as given): 334 INPUT EQUAL, SOLID DIFFERS, 502 MATCHED.
+- built-up equivalents: 88 matched of 198 (inputs equal R12 for all 198)
 - R12 members as given: 414 matched of 638 (inputs equal R12 for all 638)
 
 R12 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3713: 208 AS BOLT, 1061 MATCHED, 1299 MISSING, 197 NEAR, 948 ROUGH.
-Bolts on the same line (same diameter, R12 bolt within 0.1 mm of a v69 bolt axis): 2,434 of 4,548 R12 bolts (2,080 of them also with the same length and grade); whole groups: 655 of 1288. Per diameter: M12 1,056, M16 802, M20 576.
+Bolts on the same line (same diameter, R12 bolt within 0.1 mm of a v69 bolt axis): 2,450 of 4,548 R12 bolts (2,096 of them also with the same length and grade); whole groups: 659 of 1288. Per diameter: M12 1,056, M16 818, M20 576.
 
 Status words: MATCHED = equal within the tolerances (0.1 mm points and boxes, volume within 2 % for plates); INPUT EQUAL, SOLID DIFFERS = the member's inputs equal R12 but its solid does not (built-ups: one BI solid against three Tekla plates with their end cuts; given members: v69's component cuts against R12's TKCUT cuts); NEAR = box within 5 mm; ROUGH = box within 50 mm; MISSING = no v69 part within 50 mm; AS BOLT = an R12 anchor rod member that v69 makes as a bolt of a bolt group.
 
@@ -80,7 +80,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | builtup PC COLUMN BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | 1.8 | 1.026–1.032 | 391.2 → 409.2 |
 | builtup PR RAFTER BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | 36.8 | 0.997–1.018 | 448.8 → 464.4 |
 | builtup R RAFTER BI220-8-150-10 | 48 | 48 INPUT EQUAL, SOLID DIFFERS | 1.0 | 1.000–1.000 | 11,405.0 → 11,483.7 |
-| builtup STB BEAM BI212-6-150-6 | 4 | 2 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | 10.0 | 0.990–1.000 | 76.8 → 77.3 |
+| builtup STB BEAM BI212-6-150-6 | 4 | 4 MATCHED | 0.0 | 1.000–1.010 | 76.8 → 77.3 |
 | builtup STR COLUMN BI162-6-150-6 | 4 | 4 MATCHED | 0.0 | 1.002–1.002 | 172.4 → 173.8 |
 | given 10 RAILING PD50*5 | 2 | 2 MATCHED | 0.0 | 1.020–1.020 | 6.1 → 6.1 |
 | given 8 RAILING PD50*5 | 2 | 2 MATCHED | 0.0 | 1.020–1.020 | 37.8 → 37.8 |
@@ -111,12 +111,12 @@ Field differences on members (count of members): none (every placed member has R
 | - | given member / ST Strut SHS100*3 | 72 | 68 INPUT EQUAL, SOLID DIFFERS, 4 MATCHED | — | 3,317.5 → 3,290.1 | as above | as above |
 | - | given member / VL VL Bracing SHS100*3 | 60 | 56 INPUT EQUAL, SOLID DIFFERS, 4 MATCHED | — | 2,013.3 → 1,969.8 | as above | as above |
 | 1 | Anchor Bolt / 1001 Anchor Bolt ROD20 | 192 | 192 AS BOLT | — | 293.8 → 0.0 | v69 base plates make the anchors as one bolt group (kind bolts: M20 L677 / M16 L284, grade 4.6) on the same axes; R12 has ROD20 / ROD16 members | base plate option "anchor rods as parts" (ROD members + nut / washer parts in the assembly) |
-| 1 | CASTPLATE / 2 CASTPLATE PL4*200 | 15 | 15 ROUGH | 15 at 30.0 mm | 24.4 → 23.9 | v69 puts the cast plate directly under the base plate and the grout under the cast plate; R12 has the grout under the plate and the cast plate under the grout (same plate, 30 mm lower) | cast plate below the grout (Tekla 1042 order) |
-| 1 | CASTPLATE / 4 CASTPLATE PL4*200 | 17 | 17 ROUGH | 17 at 30.0 mm | 38.4 → 37.7 | as above | as above |
-| 1 | CASTPLATE / 6 CASTPLATE PL4*240 | 16 | 16 ROUGH | 16 at 30.0 mm | 31.4 → 30.6 | as above | as above |
-| 1 | GROUT / 1 GROUT PL30*260 | 15 | 15 NEAR | 15 at 4.0 mm | 0.0 → 288.8 | R12's grout is 130 to 150 mm off the base plate centre (one side flush with the plate) and its own assembly; v69 centres it with the margin gm on every side (same-size part 130 mm away) | grout position / margins per side |
-| 1 | GROUT / 3 GROUT PL30*260 | 17 | 17 NEAR | 17 at 4.0 mm | 0.0 → 431.3 | as above | as above |
-| 1 | GROUT / 5 GROUT FLT30*300 | 16 | 16 NEAR | 16 at 4.0 mm | 0.0 → 356.3 | as above | as above |
+| 1 | CASTPLATE / 2 CASTPLATE PL4*200 | 15 | 15 ROUGH | 15 at 30.0 mm | 24.4 → 24.4 | v69 puts the cast plate directly under the base plate and the grout under the cast plate; R12 has the grout under the plate and the cast plate under the grout (same plate, 30 mm lower) | cast plate below the grout (Tekla 1042 order) |
+| 1 | CASTPLATE / 4 CASTPLATE PL4*200 | 17 | 17 ROUGH | 17 at 30.0 mm | 38.4 → 38.4 | as above | as above |
+| 1 | CASTPLATE / 6 CASTPLATE PL4*240 | 16 | 16 ROUGH | 16 at 30.0 mm | 31.4 → 31.4 | as above | as above |
+| 1 | GROUT / 1 GROUT PL30*260 | 15 | 15 NEAR | 15 at 4.0 mm | 0.0 → 0.0 | R12's grout is 130 to 150 mm off the base plate centre (one side flush with the plate) and its own assembly; v69 centres it with the margin gm on every side (same-size part 130 mm away) | grout position / margins per side |
+| 1 | GROUT / 3 GROUT PL30*260 | 17 | 17 NEAR | 17 at 4.0 mm | 0.0 → 0.0 | as above | as above |
+| 1 | GROUT / 5 GROUT FLT30*300 | 16 | 16 NEAR | 16 at 4.0 mm | 0.0 → 0.0 | as above | as above |
 | 1 | NUT / 1001 NUT PD40*10 | 192 | 192 MISSING | — | 26.9 → 0.0 | R12 has a NUT member (PD40*10) on every anchor; v69 has no nut part (pw = 1 makes a plate washer and an anchor washer) | nut parts per anchor (Tekla 1042 Anchor rods tab) |
 | 1 | WASHER / 1001 WASHER PD40*10 | 192 | 192 MISSING | — | 15.4 → 0.0 | v69's PLATE WASHER is a PD40*10 ring at the same place (box within 5 mm); the solid is a ring with a hole, R12's washer is a plain disc | none needed for the position; washer solid with or without the hole |
 | 3 | apex stiffener / R Stiff. FLT10*60 | 48 | 48 MISSING | — | 16.8 → 0.0 | stiffener FLT10*60 (2504) under the apex plates: the v54 apex makes none | apex stiffener option (Tekla 106 Stiffeners tab) |
@@ -125,32 +125,32 @@ Field differences on members (count of members): none (every placed member has R
 | 5 | tongue end cap / HZ Gusset Plate FLT5*100 | 336 | 54 MISSING, 282 ROUGH | 224 at 28.5 mm | 57.1 → 48.5 | v69's END CAP closes the tube around the tongue (about 52 x 98 mm, and FLT5*120 at crossings); R12 has two FLT5*100 plates 44 x 100 mm, one each side of the tongue | Tekla 20 cap plates (two per tongue) |
 | 5 | tongue end cap / ST Gusset Plate FLT5*100 | 286 | 176 MISSING, 34 NEAR, 76 ROUGH | 146 at 6.0 mm | 49.0 → 18.7 | as above | as above |
 | 5 | tongue end cap / VL Gusset Plate FLT5*100 | 216 | 136 MISSING, 80 ROUGH | 130 at 64.1 mm | 36.8 → 14.0 | as above | as above |
-| 5 | tongue plate / HZ Connection Plate FLT12*140 | 192 | 50 MISSING, 142 ROUGH | 169 at 17.1 mm | 787.8 → 576.5 | Ttg builds the tongue from the brace axis; same-size tongues are 12 to 64 mm away (insertion depth / gusset side differ); some ends have no tongue near (other brace order at the node) | tongue position along the brace, gusset side |
-| 5 | tongue plate / ST Connection Plate FLT12*140 | 144 | 88 MISSING, 13 NEAR, 43 ROUGH | 98 at 11.8 mm | 592.1 → 227.4 | as above | as above |
-| 5 | tongue plate / VL Connection Plate FLT12*140 | 120 | 80 MISSING, 40 ROUGH | 115 at 63.6 mm | 496.1 → 162.4 | as above | as above |
-| 6 | node gusset / 11 Gusset Plate PL12*222.6 | 3 | 3 ROUGH | — | 23.0 → 24.4 | R12 gussets that are their own assemblies (marks 11, 12, 13) at the gable / end-frame nodes; v69 makes the node gusset in the main part's assembly with its own outline | gusset as a separate assembly; outline options |
+| 5 | tongue plate / HZ Connection Plate FLT12*140 | 192 | 50 MISSING, 142 ROUGH | 169 at 17.1 mm | 787.8 → 589.3 | Ttg builds the tongue from the brace axis; same-size tongues are 12 to 64 mm away (insertion depth / gusset side differ); some ends have no tongue near (other brace order at the node) | tongue position along the brace, gusset side |
+| 5 | tongue plate / ST Connection Plate FLT12*140 | 144 | 88 MISSING, 13 NEAR, 43 ROUGH | 98 at 11.8 mm | 592.1 → 232.4 | as above | as above |
+| 5 | tongue plate / VL Connection Plate FLT12*140 | 120 | 80 MISSING, 40 ROUGH | 115 at 63.6 mm | 496.1 → 166.0 | as above | as above |
+| 6 | node gusset / 11 Gusset Plate PL12*222.6 | 3 | 3 ROUGH | — | 23.0 → 24.7 | R12 gussets that are their own assemblies (marks 11, 12, 13) at the gable / end-frame nodes; v69 makes the node gusset in the main part's assembly with its own outline | gusset as a separate assembly; outline options |
 | 6 | node gusset / 11 Gusset Plate PL12*223.1 | 2 | 2 MISSING | — | 15.4 → 0.0 | as above | as above |
-| 6 | node gusset / 12 Gusset Plate PL12*222.9 | 5 | 5 ROUGH | — | 38.5 → 40.9 | as above | as above |
+| 6 | node gusset / 12 Gusset Plate PL12*222.9 | 5 | 5 ROUGH | — | 38.5 → 41.4 | as above | as above |
 | 6 | node gusset / 13 Gusset Plate FLT12*400 | 4 | 4 MISSING | — | 49.8 → 0.0 | as above | as above |
 | 6 | node gusset / 13 Gusset Plate PL12*349.6 | 4 | 4 MISSING | — | 49.8 → 0.0 | as above | as above |
 | 6 | node gusset / C Gusset Plate FLT12*220 | 1 | 1 ROUGH | — | 7.2 → 7.7 | v69 Ttg (node = 1) makes one GUSSET PLATE per node as the hull of the tongues (or a FIN PLATE for one brace); R12's outlines are Tekla's (trimmed hull corners, other margins), so the boxes differ by more than 5 mm (most by more than 50 mm) | gusset outline options (corner trim, margins, fin length) |
 | 6 | node gusset / C Gusset Plate PL12*210.3 | 5 | 5 MISSING | — | 16.7 → 0.0 | as above | as above |
 | 6 | node gusset / C Gusset Plate PL12*210.4 | 5 | 5 MISSING | — | 16.7 → 0.0 | as above | as above |
 | 6 | node gusset / C Gusset Plate PL12*212.7 | 10 | 10 MISSING | — | 33.9 → 0.0 | as above | as above |
-| 6 | node gusset / C Gusset Plate PL12*214.1 | 20 | 10 MISSING, 10 ROUGH | — | 68.4 → 35.4 | as above | as above |
+| 6 | node gusset / C Gusset Plate PL12*214.1 | 20 | 10 MISSING, 10 ROUGH | — | 68.4 → 36.3 | as above | as above |
 | 6 | node gusset / C Gusset Plate PL12*219.6 | 1 | 1 ROUGH | — | 7.2 → 7.7 | as above | as above |
 | 6 | node gusset / C Gusset Plate PL12*222.6 | 5 | 5 MISSING | — | 59.4 → 0.0 | as above | as above |
 | 6 | node gusset / C Gusset Plate PL12*222.9 | 5 | 5 MISSING | — | 59.5 → 0.0 | as above | as above |
-| 6 | node gusset / R Gusset Plate PL12*211.6 | 8 | 8 ROUGH | — | 26.9 → 19.4 | as above | as above |
-| 6 | node gusset / R Gusset Plate PL12*213 | 24 | 24 ROUGH | — | 81.6 → 58.8 | as above | as above |
-| 6 | node gusset / R Gusset Plate PL12*213.4 | 32 | 32 ROUGH | — | 108.8 → 78.7 | as above | as above |
-| 6 | node gusset / R Gusset Plate PL12*230.7 | 4 | 4 ROUGH | — | 42.9 → 30.3 | as above | as above |
-| 6 | node gusset / R Gusset Plate PL12*234.3 | 1 | 1 ROUGH | — | 10.8 → 7.5 | as above | as above |
+| 6 | node gusset / R Gusset Plate PL12*211.6 | 8 | 8 ROUGH | — | 26.9 → 20.2 | as above | as above |
+| 6 | node gusset / R Gusset Plate PL12*213 | 24 | 24 ROUGH | — | 81.6 → 61.0 | as above | as above |
+| 6 | node gusset / R Gusset Plate PL12*213.4 | 32 | 32 ROUGH | — | 108.8 → 81.6 | as above | as above |
+| 6 | node gusset / R Gusset Plate PL12*230.7 | 4 | 4 ROUGH | — | 42.9 → 30.7 | as above | as above |
+| 6 | node gusset / R Gusset Plate PL12*234.3 | 1 | 1 ROUGH | — | 10.8 → 7.6 | as above | as above |
 | 6 | node gusset / R Gusset Plate PL12*279.7 | 13 | 13 MISSING | — | 162.5 → 0.0 | as above | as above |
 | 6 | node gusset / R Gusset Plate PL12*280.4 | 11 | 11 MISSING | — | 139.6 → 0.0 | as above | as above |
 | 6 | node gusset / R Gusset Plate PL12*283.8 | 3 | 3 MISSING | — | 38.7 → 0.0 | as above | as above |
 | 6 | node gusset / ST Gusset Plate FLT5*45 | 2 | 2 NEAR | 2 at 3.2 mm | 0.4 → 0.3 | as above | as above |
-| 6 | single-brace gusset (fin) / C Gusset Plate FLT12*140 | 34 | 34 ROUGH | — | 98.6 → 97.2 | as above | as above |
+| 6 | single-brace gusset (fin) / C Gusset Plate FLT12*140 | 34 | 34 ROUGH | — | 98.6 → 100.3 | as above | as above |
 | 6 | single-brace gusset (fin) / R Gusset Plate FLT12*140 | 48 | 48 MISSING | — | 107.5 → 0.0 | as above | as above |
 | 7 | crossing cap / HZ Gusset Plate PL5*44.1 | 48 | 48 ROUGH | 32 at 34.1 mm | 8.2 → 8.2 | small PL5 caps at the crossing halves: v69 makes FLT5*120 end caps instead | Tekla cap plates at the crossing |
 | 7 | crossing cap / VL Gusset Plate PL5*32.2 | 2 | 2 MISSING | — | 0.3 → 0.0 | as above | as above |
@@ -159,22 +159,22 @@ Field differences on members (count of members): none (every placed member has R
 | 7 | crossing cap / VL Gusset Plate PL5*56.3 | 2 | 2 MISSING | — | 0.4 → 0.0 | as above | as above |
 | 7 | crossing cap / VL Gusset Plate PL5*91.1 | 4 | 4 MISSING | — | 1.4 → 0.0 | as above | as above |
 | 7 | crossing cap / VL Gusset Plate PL5*92.5 | 2 | 2 MISSING | — | 0.7 → 0.0 | as above | as above |
-| 7 | crossing gusset / HZ Gusset Plate PL12*330.1 | 16 | 16 ROUGH | — | 230.7 → 157.0 | Ttgx makes the crossing gusset with its own size and centre; R12's crossing gussets are larger and about 240 mm off along the brace | crossing gusset size / position options (Tekla tube crossing) |
-| 7 | crossing gusset / HZ Gusset Plate PL12*330.5 | 12 | 12 ROUGH | — | 174.4 → 118.1 | as above | as above |
-| 7 | crossing gusset / HZ Gusset Plate PL12*332.5 | 4 | 4 ROUGH | — | 60.0 → 40.0 | as above | as above |
-| 7 | crossing gusset / VL Gusset Plate PL12*318.2 | 5 | 5 ROUGH | — | 63.0 → 46.4 | as above | as above |
-| 7 | crossing gusset / VL Gusset Plate PL12*328.8 | 5 | 5 ROUGH | — | 70.8 → 48.6 | as above | as above |
-| 7 | crossing gusset / VL Gusset Plate PL12*331.1 | 5 | 5 ROUGH | — | 73.2 → 49.4 | as above | as above |
-| 7 | crossing gusset / VL Gusset Plate PL12*333.9 | 5 | 5 ROUGH | — | 77.0 → 50.5 | as above | as above |
+| 7 | crossing gusset / HZ Gusset Plate PL12*330.1 | 16 | 16 ROUGH | — | 230.7 → 157.4 | Ttgx makes the crossing gusset with its own size and centre; R12's crossing gussets are larger and about 240 mm off along the brace | crossing gusset size / position options (Tekla tube crossing) |
+| 7 | crossing gusset / HZ Gusset Plate PL12*330.5 | 12 | 12 ROUGH | — | 174.4 → 118.4 | as above | as above |
+| 7 | crossing gusset / HZ Gusset Plate PL12*332.5 | 4 | 4 ROUGH | — | 60.0 → 40.1 | as above | as above |
+| 7 | crossing gusset / VL Gusset Plate PL12*318.2 | 5 | 5 ROUGH | — | 63.0 → 46.5 | as above | as above |
+| 7 | crossing gusset / VL Gusset Plate PL12*328.8 | 5 | 5 ROUGH | — | 70.8 → 48.9 | as above | as above |
+| 7 | crossing gusset / VL Gusset Plate PL12*331.1 | 5 | 5 ROUGH | — | 73.2 → 49.5 | as above | as above |
+| 7 | crossing gusset / VL Gusset Plate PL12*333.9 | 5 | 5 ROUGH | — | 77.0 → 50.7 | as above | as above |
 | 10 | monitor rafter end plate / 14 PLATE FLT12*120 | 1 | 1 MISSING | 1 at 1,725.6 mm | 2.6 → 0.0 | a monitor rafter end plate that is its own assembly (mark 14) and not bolted to anything: no component added | none (R12 data) |
 | 12 | shear plate / C Shear Plate FLT10*150 | 6 | 6 MISSING | 3 at 159.0 mm | 14.8 → 0.0 | six column shear plates (at EB4006 / EB4008, beams with flanges only in R12) are not bolted to any beam (no secondary part to pick): no component added; the other 4 (146) match, and the 18 at 186 joints are row 20 | none (R12 data) |
 | 13 | Bot Stiff. / MBC Bot Stiff. FLT10*50 | 2 | 2 MISSING | — | 0.4 → 0.0 | girder-side Stiff. plates FLT10*50: End plate 144 Haunch tab (C13: 12 / 12 at the 6 girder joints); the 4 at the MBC2001 column end plates are row 15 | done (v70 C13) / row 15 |
 | 13 | Top Stiff. / MBC Top Stiff. FLT10*50 | 2 | 2 MISSING | — | 0.4 → 0.0 | as above | as above |
 | 16 | Anchor Bolt / 1002 Anchor Bolt ROD16 | 16 | 16 AS BOLT | — | 6.7 → 0.0 | v69 base plates make the anchors as one bolt group (kind bolts: M20 L677 / M16 L284, grade 4.6) on the same axes; R12 has ROD20 / ROD16 members | base plate option "anchor rods as parts" (ROD members + nut / washer parts in the assembly) |
-| 16 | GROUT / 7 GROUT PL30*230 | 4 | 4 NEAR | 4 at 0.0 mm | 0.0 → 55.4 | R12's grout is 130 to 150 mm off the base plate centre (one side flush with the plate) and its own assembly; v69 centres it with the margin gm on every side (same-size part 130 mm away) | grout position / margins per side |
+| 16 | GROUT / 7 GROUT PL30*230 | 4 | 4 NEAR | 4 at 0.0 mm | 0.0 → 0.0 | R12's grout is 130 to 150 mm off the base plate centre (one side flush with the plate) and its own assembly; v69 centres it with the margin gm on every side (same-size part 130 mm away) | grout position / margins per side |
 | 17 | gable hanger / EG PLATE FLT10*120 | 2 | 2 MISSING | — | 3.6 → 0.0 | v69 146 makes the hanger in the gable column's web plane turned 90 degrees and about 33 mm off; R12's FLT10*120 hanger hangs under the rafter | hanger orientation (Tekla 146 used as a hanger) |
-| 17 | gable hanger / R D FLT10*120 | 1 | 1 ROUGH | 1 at 35.1 mm | 1.8 → 1.7 | as above | as above |
-| 17 | gable hanger / R PLATE FLT10*120 | 13 | 13 ROUGH | 13 at 35.0 mm | 23.3 → 22.3 | as above | as above |
+| 17 | gable hanger / R D FLT10*120 | 1 | 1 ROUGH | 1 at 35.1 mm | 1.8 → 1.8 | as above | as above |
+| 17 | gable hanger / R PLATE FLT10*120 | 13 | 13 ROUGH | 13 at 35.0 mm | 23.3 → 23.3 | as above | as above |
 | 18 | BRACKET / SGR BRACKET L60*6 | 46 | 46 MISSING | — | 35.0 → 0.0 | v69 stair treads make PL6 treads on L50*5 supports by their own riser rule (20 treads); R12 has 23 gratings PL10*336 L990 (stored as vertical plates in the import) on L60*6 brackets | stairs: tread / bracket profiles, count and orientation |
 | 18 | Stair Plate / EB Stair Plate FLT12*150 | 2 | 2 MISSING | — | 9.0 → 0.0 | stringer end plates FLT12*150 (floor, landing, mezzanine) and a stair beam top plate: no v69 stair option makes them | stringer end plates in the stairs application |
 | 18 | Stair Plate / PLSTR Stair Plate FLT12*150 | 2 | 2 MISSING | — | 9.0 → 0.0 | as above | as above |
@@ -189,7 +189,6 @@ Field differences on members (count of members): none (every placed member has R
 | builtup | PC BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | — | 391.2 → 409.2 | as above | as above |
 | builtup | PR BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | — | 448.8 → 464.4 | as above | as above |
 | builtup | R BI220-8-150-10 | 48 | 48 INPUT EQUAL, SOLID DIFFERS | — | 11,405.0 → 11,483.7 | as above | as above |
-| builtup | STB BI212-6-150-6 | 4 | 2 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | — | 76.8 → 77.3 | as above | as above |
 
 ## v69 parts with no R12 counterpart
 
@@ -204,9 +203,9 @@ END CAP FLT5*100: 294, END CAP FLT5*120: 96, FIN PLATE PL12: 78, FOOT PLATE PL12
 | M12 8.8 L41 | 0 | 40 |
 | M16 4.6 L194 | 0 | 8 |
 | M16 4.6 L250 | 0 | 16 |
-| M16 8.8 L40 | 104 | 0 |
+| M16 8.8 L40 | 104 | 16 |
 | M16 8.8 L45 | 768 | 592 |
-| M16 8.8 L50 | 1952 | 144 |
+| M16 8.8 L50 | 1952 | 128 |
 | M16 8.8 L54 | 0 | 138 |
 | M16 8.8 L56 | 0 | 1872 |
 | M16 8.8 L60 | 0 | 16 |

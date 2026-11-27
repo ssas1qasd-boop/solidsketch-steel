@@ -294,7 +294,7 @@ object Fam {
             tabs.forEach { x.plate("SHEAR TAB", it, x.n("t"), minus = bb.holes + webClip) }
             for (sgn in listOf(1, -1)) { val fy0 = sgn * (bp.h / 2 - bp.tf - bp.r); val fy1 = sgn * bp.h / 2
                 if (if (sgn > 0) y1 > fy0 else y0 < fy0) for (sg in sides) x.cut(bmId, j.box(j.xFace - 1, x1 + 20, min(fy0, fy1) - 1, max(fy0, fy1) + 1, sg * (z0 - 0.5), sg * (bp.b / 2 + 5))) }
-            x.bolts(bb, bl.size, if (tk) Math.ceil((sides.size * x.n("t") + bp.tw + 1.5 * x.n("bolt") + 2) / 5) * 5 else grip + 2 * x.n("bolt"))   // v70: Tekla's bolt length
+            x.bolts(bb, bl.size, if (tk) tkBoltLen(x.n("bolt"), sides.size * x.n("t") + bp.tw) else grip + 2 * x.n("bolt"))   // v70: Tekla's bolt length (grip + nut + washer + 5, up to 5)
             if (x.t("through")) x.cut(x.aId, j.box(xs0 - 1, j.xFace + 1, y0 - 1, y1 + 1, if (sides.size > 1) -z0 - t - 1 else z0 - 1, z0 + t + 1))
             x.weld("Shear tab to main part", x.n("a"), 2 * (y1 - y0) * sides.size, listOf(doubleArrayOf(j.xFace, y0, z0), doubleArrayOf(j.xFace, y1, z0), doubleArrayOf(j.xFace, y1, z0 + t), doubleArrayOf(j.xFace, y0, z0 + t)).map { j.p(it[0], it[1], it[2]) })
             if (x.t("tee")) x.plate("TEE FLANGE", f.box(j.xFace, j.xFace + 12, y0, y1, z0 + t / 2 - 60, z0 + t / 2 + 60), 12.0)

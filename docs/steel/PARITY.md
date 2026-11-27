@@ -37,6 +37,13 @@ Tested on all 4,945 R12 parts with `st.tkW` (plate bounding size from each part'
 
 **Real gap found (the cause of C13's 6.24 vs 6.48):** the rule fills bolt holes back only for parts drilled by imported TKBOLT groups (v66 `solidNoHoles`). A part drilled by a component's own bolts (the end plate a 144 makes, a column flange a 144 drills) is weighed with its holes, so a model built in the app is weighed light by the holes' weight. **Proposed fix (owner's OK first):** a component records each part's solid before its bolt holes (web `plate()` / app `FamCtx.plate(minus = holes)` already keep them apart), and the weight uses that solid.
 
+### Gross rule (owner, 2026-11-27): no bolt holes taken off, everywhere
+- **Rule** (web v70 "Weights" `holeFill70`, app `TeklaWeight.holeFill`, the same steps): imported TKBOLT holes as before (the part rebuilt without them). A component's own bolt holes (its plates and the parts it drills) are filled back: per bolt, from the head point along the shank, if the core (r0 − 0.5) finds no material the part has the hole; its thickness t is measured in a ring r0 + 0.3 … r0 + 1.3 round it (32-gons), and the fill is t × the outer circle's area less the material inside that circle (the hole as drilled). Catalog members weighed as kg/m × length are unchanged (holes never counted); a catalog part with no length (the C04 cleat angle) is weighed by its solid and filled.
+- **Grout weighs 0** (Tekla's material GROUT): components name it GROUT on S275, which weighed 1,131.76 kg in the rebuild (`docs/steel/WEIGHT-ANALYSIS.md` D1, agent 2's analysis).
+- **Not the bounding size:** chamfers, clips and cuts stay subtracted, as Tekla does (the hypothesis test above; WEIGHT-ANALYSIS.md: a full gross would put R12 1,445 kg over Tekla).
+- **Result on R12's rebuild:** every one of the 1,061 R12 parts the rebuild matches now weighs what Tekla says (3,559.64 vs 3,559.28 kg, per-part rounding; before: 15 groups light by their holes, −83.4 kg). Total 62,516.10 kg (web) / 62,517.22 kg (app, every part within 0.01 kg of web, `R12RebuildTest`) against Tekla's parts 63,705.8 kg (Part List 63,711.7): −1,190 kg, all of it parts the rebuild does not make yet or makes differently (anchor rods, EB4006 / EB4008 flanges, tube gussets C05–C07, built-ups X01, stairs C18; WEIGHT-ANALYSIS.md). Before the change: 63,495.66 kg, which looked close only because the grout's +1,132 kg hid the missing parts.
+- R12 itself (imported, TKBOLT): unchanged, `R12WeightTest`.
+
 ## Reference order (owner, 2026-11-26)
 When sources disagree, the higher one wins:
 1. **Tekla itself:** R12 (Tekla's IFC) and Tekla's dialog settings.
@@ -167,6 +174,11 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 | Weights vs Tekla (`st.tkW`) | stiffeners 1.59 / 1.35 kg each = Tekla (56 plates, K preparation included); tabs 2.32 / 1.57 vs Tekla 2.47 / 1.65 kg: ours are weighed with their bolt holes (the open component-hole item in "Weights") | — |
 
 Checker fix on the way (`geom_checks.py`, rule 4): a part wholly past the shank's end (EGC2002's column flange, 45 mm beyond a 45 mm bolt) was counted as drilled ("air 61 along the shank"); now only parts the shank reaches count.
+
+### Follow-up (owner, 2026-11-27: flange cut-back as R12 and chamfer max(10, r) approved)
+- **The 12 stiffeners not reproduced** (C2019, C2023 × 2; `docs/steel/parity/C20_missing.png`): R12 and the drawings agree. Assembly EB4006 is one FLT12*250 top flange and EB4008 one bottom flange (3 Nos. each, drawings EB4006 / EB4008), with no web: the VL6005 / VL6006 bracing gussets PL12*214 sit where the web would be. C2019's drawing still lists tab 4506 and stiffeners 4507–4510, and the tabs have no bolts. So 186 was applied while the web existed and the web was deleted afterwards. 186 cannot be made again there (it needs the secondary beam); not fixed. A fix belongs in the Tekla model (put the webs back, or delete the 186s there).
+- **Stair posts (row 12, the 4 remaining 146 joints):** Tekla's Bolts tab as C14 (Middle 0, horizontal edge 35, beam gap 20, tab b 150) and Tekla's bolt length in 146 (grip + nut + washer + 5, up to 5; the earlier approximation ceil((stack + 1.5 d + 2) / 5) × 5 gave 45 for grip 16): plates 4 / 4, bolts 16 / 16 (L40), member bodies 8 / 8 (`R12C20Test`). R12's C14 and C20 joints are unchanged (45 by both rules); C14's other-size golden cases with an IPE240 secondary now get L40 (grip 16.2) instead of 45.
+- **Weights:** the tabs now weigh like Tekla (2.47 / 1.65 kg; gross rule above).
 
 ### Status
 Delivered for the owner's phone check; ✓ only after the owner's OK.

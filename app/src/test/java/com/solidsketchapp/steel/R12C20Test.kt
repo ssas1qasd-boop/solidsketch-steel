@@ -103,8 +103,8 @@ class R12C20Test {
         }
         val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "20" -> "C20 Column with stiffeners 186"; else -> "C12 Shear plate 146, column web" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
         File(root, "build").mkdirs(); File(root, "build/r12-c20-report.txt").writeText(rep + "\n\n" + diag.joinToString("\n") + "\n"); println(rep.lines().take(14).joinToString("\n"))
-        // row 12's four 146 joints (R12 9-12: stair posts STR9001-9004 to the stair beam STB9002 at +2009) keep their inputs and code path unchanged by C20: plates
-        // 4 / 4 as before; their bolts (5 mm off, L 50 against Tekla's 40) and two member bodies were not reproduced before C20 either
-        for ((r, n) in cnt) { assertEquals(rep, n[1], n[0]); if (r == "12") continue; assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
+        // row 12's four 146 joints (R12 9-12: stair posts STR9001-9004 to the stair beam STB9002 at +2009): since the C20 follow-up (owner 2026-11-27)
+        // with Tekla's Bolts tab (Middle 0, edge 35, tab b 150) and Tekla's bolt length (grip 16 + nut + washer + 5 -> L40)
+        for ((_, n) in cnt) { assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
     }
 }

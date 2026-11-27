@@ -49,7 +49,7 @@ import kotlin.math.max
  */
 class AppGoldenTest {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
-    private val data by lazy { SteelData.load { File(root, "steel/src/main/assets/steel/$it").readText() } }
+    val data by lazy { SteelData.load { File(root, "steel/src/main/assets/steel/$it").readText() } }
     private val ui by lazy { TkUi.parse(File(root, "steel/src/main/assets/steel/tk_ui.json").readText()) }
     private val engine by lazy { ManifoldBooleanEngine() }
     private fun hostJni() = System.getProperty("sscore.hostJni") == "1"

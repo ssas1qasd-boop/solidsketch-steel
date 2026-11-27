@@ -108,7 +108,7 @@
       for (const f of [0.2, 0.35, 0.5, 0.65, 0.8]) { const o = P1.clone().addScaledVector(a, L * f); const slab = stBox3(o, X, Y, -big, big, -big, big, -5 * U, 5 * U); A.push(Math.abs(b.man.intersect(slab).volume()) / (U * U * U) / 10); }
       A.sort((x, y) => x - y); return A[2];
     }
-    function partWeight70(b) {
+    function partWeight70net(b) {
       const r = P66(b); if (!b || !b.st || b.st.kind !== 'member' || !b.man || !b.st.p1 || !b.st.p2) return r;
       const At = tkArea70(profOf(b.st)); if (!At) return r;
       const U = stU(); let Am = 0; try { Am = ownArea70(b); } catch (e) { return r; } if (!(Am > 0)) return r;
@@ -119,6 +119,47 @@
           let m0 = stBuild(b.st); if (cuts.length) m0 = m0.subtract(stUnion(cuts)); const v0 = Math.abs(m0.volume()) / (U * U * U); if (v0 >= vol0 - 1e-6 && v0 < vol0 * 1.25 + 1e5) vol0 = v0; } catch (e) { } }
       const net = vol0 * 1e-9 * rho * At / Am;
       return Object.assign({}, r, { weight: r2(net), net: r2(net), gross: r2(Math.max(r.gross, net)), tkArea: r2(At), ownArea: r2(Am) });
+    }
+    // Gross (owner 2026-11-27): Tekla weighs a part without its bolt holes. Imported TKBOLT holes: the part rebuilt without them (v66,
+    // above). A component's own bolt holes (its plates, the parts it drills): each hole the part really has (the bolt's core, r0 - 0.5,
+    // finds no material) is filled back: the part's thickness t at the hole is measured in a ring r0 + 0.3 ... r0 + 1.3 round it, and the fill is
+    // t x the outer circle's area less the material inside that circle (the hole as drilled, whatever its polygon) (32-gons; the same steps as the app's TeklaWeight.holeFill). Segment: from the head point, the bolt's length (+ 2 each end).
+    const HN = 32, polyA = (n, r) => n / 2 * Math.sin(2 * Math.PI / n) * r * r;
+    let HIX = null;   // conn id -> its bolt bodies; parts drilled per conn (rebuilt when the model changes)
+    const holeIndex = () => { const key = S.bodies.length + ':' + (S.stConns || []).length; if (HIX && HIX.key === key && HIX.bodies === S.bodies) return HIX;
+      const conns = new Map((S.stConns || []).map(c => [c.id, c])), byConn = new Map();
+      for (const g of S.bodies) { const q = g.st; if (!q || q.kind !== 'bolts' || !q.pts || !q.ax) continue; const c = conns.get(q.conn); if (!c || c.type === 'TKBOLT') continue; if (!byConn.has(c.id)) byConn.set(c.id, { c, gs: [] }); byConn.get(c.id).gs.push(q); }
+      const byPart = new Map(); for (const [cid, e] of byConn) for (const pid of e.c.parts) { if (!byPart.has(pid)) byPart.set(pid, []); byPart.get(pid).push(...e.gs); }
+      return (HIX = { key, bodies: S.bodies, byConn, byPart }); };
+    const vol3 = (m, U) => { const v = Math.abs(m.volume()) / (U * U * U); m.delete && m.delete(); return v; };
+    const FILL = new WeakMap();   // solid -> its hole fill (a part is weighed more than once per report)
+    function holeFill70(b) {
+      if (!b || !b.st || !b.man || !['plate', 'member', 'conn'].includes(b.st.kind)) return 0;
+      if (FILL.has(b.man)) return FILL.get(b.man);
+      const U = stU(), H = holeIndex(); const gs = [...(H.byPart.get(b.id) || []), ...((H.byConn.get(b.st.conn) || {}).gs || [])]; if (!gs.length) { FILL.set(b.man, 0); return 0; } let fill = 0;
+      const bb = b.man.boundingBox(), lo = bb.min, hi = bb.max;   // a bolt whose line cannot reach the part's box is skipped
+      const circ = r => Array.from({ length: HN }, (_, i) => [r * U * Math.cos(2 * Math.PI * i / HN), r * U * Math.sin(2 * Math.PI * i / HN)]);
+      for (const q of gs) {
+        const a = V3(q.ax).normalize(), X = new THREE.Vector3().crossVectors(a, Math.abs(a.z) < 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0)).normalize(), Y = new THREE.Vector3().crossVectors(a, X);
+        const r0 = (+q.d0 || +q.d + 2) / 2, L = +q.L || 3 * (+q.d || 20), z0 = -2 * U, z1 = (L + 2) * U;
+        for (const P0 of q.pts) { const Pa = V3(P0).multiplyScalar(U), Pb = Pa.clone().addScaledVector(a, (L + 2) * U), m = (r0 + 2) * U;
+          if ([0, 1, 2].some(k => Math.max(Pa.getComponent(k), Pb.getComponent(k)) + m < lo[k] || Math.min(Pa.getComponent(k), Pb.getComponent(k)) - m > hi[k])) continue;
+          const F = stFrame3(V3(P0), X, Y);
+          const core = F.poly(circ(r0 - 0.5), z0, z1); const vc = vol3(b.man.intersect(core), U); core.delete && core.delete(); if (vc > 1) continue;   // no hole for this bolt in this part
+          const o = F.poly(circ(r0 + 1.3), z0, z1), i2 = F.poly(circ(r0 + 0.3), z0, z1), ring = o.subtract(i2); i2.delete && i2.delete();
+          const v = vol3(b.man.intersect(ring), U); ring.delete && ring.delete(); if (!(v > 0)) { o.delete && o.delete(); continue; }
+          const mo = vol3(b.man.intersect(o), U); o.delete && o.delete(); const t = v / (polyA(HN, r0 + 1.3) - polyA(HN, r0 + 0.3));
+          fill += Math.max(0, t * polyA(HN, r0 + 1.3) - mo); } }   // the material missing inside the outer circle at the ring's thickness = the hole as drilled
+      FILL.set(b.man, fill); return fill;
+    }
+    function partWeight70(b) {
+      const r = partWeight70net(b); if (!b || !b.st || r == null) return r;
+      if (/^GROUT$/i.test(String(b.st.name || '').trim())) return Object.assign({}, r, { weight: 0, net: 0, gross: 0 });   // Tekla's grout weighs 0 (material GROUT); components name it GROUT on S275 (docs/steel/WEIGHT-ANALYSIS.md D1)
+      if (r.catalog && r.kgm > 0 && r.len > 0) return r;   // catalog kg/m x length: holes never counted; a catalog part with no length (a cleat angle) is weighed by its solid
+      let f = 0; try { f = holeFill70(b); } catch (e) { f = 0; } if (!(f > 0)) return r;
+      const rho = (R66.TK_DENS[String(b.st.mat || '').toUpperCase()] ?? 7850), k = r.tkArea && r.ownArea ? r.tkArea / r.ownArea : 1, add = f * 1e-9 * rho * k, U = stU();
+      const base = !r.tkArea && !(r.holesKg > 0) ? Math.abs(b.man.volume()) / (U * U * U) * 1e-9 * rho : r.net;   // unrounded, so the fill is added before rounding
+      return Object.assign({}, r, { weight: r2(base + add), net: r2(base + add), gross: r2(Math.max(r.gross, base + add)), holesFilledKg: r2(add) });
     }
     function weights70() {                                          // v66 tkWeights with the v70 part weight
       const asm = new Map(), part = new Map(); let W = 0, N = 0, G = 0, bolts = 0, n = 0;
@@ -190,7 +231,7 @@
       const grip = sides.length * t + Bp.tw * U + (q.refV ? 0 : 2 * U); let bax = J.Zb.clone().multiplyScalar(-sides[0]);
       if (q.refV && new THREE.Vector3().crossVectors(J.Y, J.X).dot(bax) < 0) { for (let k = 0; k < bl.length; k++) bl[k] = bl[k].clone().addScaledVector(bax, grip); bax.negate(); }   /* v70: Tekla's heads on the Y x X side (R12: 68 / 68), grip = the plate stack */
       const BB = stBolts(bl, bax.toArray(), q.bolt, grip, U); let tb = tabs; for (const hc of BB.holes) { tb = tb.map(x => x.subtract(hc)); cut(Bm.id, hc); }
-      J.cutEnd(xF2 + q.gap * U, cut, Bm.id); tb.forEach(x => plate('SHEAR TAB', x, q.t)); for (const s of [1, -1]) { const fy0 = s * (Bp.h / 2 - Bp.tf - (Bp.r || 0)) * U, fy1 = s * Bp.h / 2 * U; if ((s > 0 ? y1 > fy0 : y0 < fy0)) for (const sg of sides) cut(Bm.id, J.box(J.xFace - 1 * U, x1 + 20 * U, Math.min(fy0, fy1) - 1 * U, Math.max(fy0, fy1) + 1 * U, sg * (z0 - 0.5 * U), sg * (Bp.b / 2 + 5) * U)); } bolts(BB, bl.length, q.refV ? Math.ceil((sides.length * q.t + Bp.tw + 1.5 * q.bolt + 2) / 5) * 5 : grip / U + 2 * q.bolt);   /* v70: Tekla's bolt length (stack + 1.5 d + 2, up to 5 mm; R12: M16 grip 18 -> L45, C04 M12 grip 8 -> L30) */
+      J.cutEnd(xF2 + q.gap * U, cut, Bm.id); tb.forEach(x => plate('SHEAR TAB', x, q.t)); for (const s of [1, -1]) { const fy0 = s * (Bp.h / 2 - Bp.tf - (Bp.r || 0)) * U, fy1 = s * Bp.h / 2 * U; if ((s > 0 ? y1 > fy0 : y0 < fy0)) for (const sg of sides) cut(Bm.id, J.box(J.xFace - 1 * U, x1 + 20 * U, Math.min(fy0, fy1) - 1 * U, Math.max(fy0, fy1) + 1 * U, sg * (z0 - 0.5 * U), sg * (Bp.b / 2 + 5) * U)); } bolts(BB, bl.length, q.refV ? tkBoltLen70(q.bolt, sides.length * q.t + Bp.tw) : grip / U + 2 * q.bolt);   /* v70: Tekla's bolt length (stack + 1.5 d + 2, up to 5 mm; R12: M16 grip 18 -> L45, C04 M12 grip 8 -> L30) */
       if (q.through) cut(A.id, J.box(xs0 - 1 * U, J.xFace + 1 * U, y0 - 1 * U, y1 + 1 * U, sides.length > 1 ? -z0 - t - 1 * U : z0 - 1 * U, z0 + t + 1 * U));
       weld('Shear tab to main part', q.a, 2 * (y1 - y0) / U * sides.length, [[J.xFace, y0, z0], [J.xFace, y1, z0], [J.xFace, y1, z0 + t], [J.xFace, y0, z0 + t]].map(v => J.P(v[0], v[1], v[2]).toArray()));
       if (q.tee) { const F = stFrame3(J.E, J.X, J.Y); plate('TEE FLANGE', F.box(J.xFace, J.xFace + 12 * U, y0, y1, z0 + t / 2 - 60 * U, z0 + t / 2 + 60 * U), 12); }

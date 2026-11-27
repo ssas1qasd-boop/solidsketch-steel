@@ -29,7 +29,9 @@ import kotlin.math.sin
  *  - other parametric members and plates: the solid
  */
 class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: BooleanEngine) {
-    class W(val weight: Double, val net: Double, val catalog: Boolean, val kgm: Double, val len: Double, val tkArea: Double? = null, val ownArea: Double? = null)
+    class W(val weight: Double, val net: Double, val catalog: Boolean, val kgm: Double, val len: Double, val tkArea: Double? = null, val ownArea: Double? = null, val holesFilled: Double = 0.0)
+    /** A component's bolt group as its body records it: head points, shank axis, hole diameter d0, bolt length L. */
+    class Bolts(val pts: List<D3>, val ax: D3, val d0: Double, val len: Double)
 
     companion object {
         val DENS = mapOf("GROUT" to 0.0, "CONCRETE" to 0.0, "ANTIMATERIAL" to 0.0, "MISC_UNDEFINED" to 0.0, "GRATING" to 1333.0)
@@ -73,8 +75,9 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
      * Weight of one part: [st] its record, [mesh] its solid, [holed] = a TKBOLT lists it, [noHoles] = the part rebuilt with its cuts
      * but no bolt holes (only called when [holed]).
      */
-    fun part(st: JsonObject, mesh: Mesh, holed: Boolean, noHoles: () -> Mesh?): W {
+    fun part(st: JsonObject, mesh: Mesh, holed: Boolean, noHoles: () -> Mesh?, bolts: List<Bolts> = emptyList()): W {
         val kind = str(st, "kind"); if (kind == "bolts" || kind == "bolt") return W(0.0, 0.0, false, 0.0, 0.0)
+        if ((str(st, "name") ?: "").trim().equals("GROUT", true)) return W(0.0, 0.0, false, 0.0, 0.0)   // Tekla's grout weighs 0 (components name it GROUT on S275)
         val rho = density(str(st, "mat") ?: str(st, "material"))
         var vol = abs(booleans.volume(mesh))
         if (holed) runCatching { noHoles() }.getOrNull()?.let { m0 -> val v0 = abs(booleans.volume(m0)); if (v0 >= vol - 1e-6 && v0 < vol * 1.25 + 1e5) vol = v0 }
@@ -87,7 +90,33 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
             if (cat) { kgm = KGM[prof(st)] ?: profiles.lookup(prof(st))?.m ?: profiles.lookup(str(st, "prof") ?: "")?.m ?: 0.0; gross = if (kgm > 0 && len > 0) kgm * len / 1000 * rho / 7850 else net }
         }
         if (gross < net - 1e-6) gross = max(gross, net)
+        var fillKg = 0.0
+        if (!(cat && kgm > 0 && len > 0) && bolts.isNotEmpty() && (kind == "plate" || kind == "member" || kind == "conn")) {   // gross (owner 2026-11-27): a component's bolt holes filled back
+            val f = holeFill(mesh, bolts); if (f > 0) { fillKg = f * 1e-9 * rho * (if (at != null && am != null) at / am else 1.0); net += fillKg; gross = max(gross, net) }   // a catalog part with no length (a cleat angle): its solid
+        }
         val weight = if (cat) gross else net
-        return W(r2(weight), r2(net), cat, r2(kgm), round(len * 10) / 10, at?.let(::r2), am?.let(::r2))
+        return W(r2(weight), r2(net), cat, r2(kgm), round(len * 10) / 10, at?.let(::r2), am?.let(::r2), r2(fillKg))
+    }
+
+    /**
+     * The volume of the bolt holes a part really has (web v70 holeFill70, the same steps): per bolt, from the head point along the
+     * shank (−2 … L + 2): if the core (r0 − 0.5) finds material the part has no hole for it; else the part's thickness t is measured in a
+     * ring r0 + 0.3 … r0 + 1.3 (32-gons) and the hole as drilled is t × the outer circle's area less the material inside that circle.
+     */
+    fun holeFill(mesh: Mesh, bolts: List<Bolts>): Double {
+        val n = 32; fun pa(r: Double) = n / 2.0 * sin(2 * PI / n) * r * r
+        fun circ(r: Double) = (0 until n).map { i -> doubleArrayOf(r * kotlin.math.cos(2 * PI * i / n), r * sin(2 * PI * i / n)) }
+        var fill = 0.0
+        for (g in bolts) {
+            val a = g.ax.normalize(); val x = (a cross (if (abs(a.z) < 0.9) D3(0.0, 0.0, 1.0) else D3(1.0, 0.0, 0.0))).normalize(); val y = a cross x
+            val r0 = g.d0 / 2; val z0 = -2.0; val z1 = g.len + 2
+            for (p in g.pts) { val f = com.solidsketchapp.steel.conn.Joints.Frame3(p, x, y)
+                if (abs(booleans.volume(booleans.intersect(mesh, f.poly(circ(r0 - 0.5), z0, z1)))) > 1) continue
+                val o = f.poly(circ(r0 + 1.3), z0, z1); val ring = booleans.subtract(o, listOf(f.poly(circ(r0 + 0.3), z0, z1)))
+                val v = abs(booleans.volume(booleans.intersect(mesh, ring))); if (!(v > 0)) continue
+                val mo = abs(booleans.volume(booleans.intersect(mesh, o))); val t = v / (pa(r0 + 1.3) - pa(r0 + 0.3))
+                fill += max(0.0, t * pa(r0 + 1.3) - mo) }
+        }
+        return fill
     }
 }

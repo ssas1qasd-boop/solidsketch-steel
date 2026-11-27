@@ -644,7 +644,18 @@ def main():
                     q.update(sp_qh(p, pts, members[other]['st']))
                 c20 = c20_q(b, own, other) if MODEL == 'R12' and row == '12' else None
                 if c20: q.update(c20[0]); conn('T186', [own, other], q, '20', [b['id']] + c20[1])   # C20 (PARITY.md): Column with stiffeners (186)
-                else: conn('T146', [own, other], q, row, [b['id']])
+                else:
+                    if MODEL == 'R12' and row == '12':   # C20 follow-up (owner 2026-11-27): the stair posts' 146 as Tekla's (C14's Bolts tab, Tekla bolt length)
+                        q.update(sp_qh(p, pts, members[other]['st'])); q['refV'] = 'Middle'
+                        a_, eh_, es_ = v69_eh(members[other]['st']); zc = dot(members[other]['st']['p1'], eh_)   # the beam's centre line, along its depth
+                        q['posV'] = r3(zc - sum(dot(pp, eh_) for pp in pts) / len(pts))
+                        V_, Hd_ = (p.X, p.Y) if abs(dot(p.X, eh_)) >= abs(dot(p.Y, eh_)) else (p.Y, p.X)
+                        Pv_ = [add(add(mul(p.X, x), mul(p.Y, y)), mul(p.N, p.n0)) for x, y in p.poly]; q['tb'] = r3(max(dot(v, Hd_) for v in Pv_) - min(dot(v, Hd_) for v in Pv_))
+                        cp_ = members[own]['st']['p1']; a1, a2 = members[other]['st']['p1'], members[other]['st']['p2']
+                        near_, far_ = (a1, a2) if math.hypot(a1[0] - cp_[0], a1[1] - cp_[1]) < math.hypot(a2[0] - cp_[0], a2[1] - cp_[1]) else (a2, a1)
+                        X_ = [far_[0] - near_[0], far_[1] - near_[1]]; gax = bolted_to(b['id']).get(other)[0]['q']['ax']
+                        if gax[0] * -X_[1] + gax[1] * X_[0] < 0: q['bdir'] = 2
+                    conn('T146', [own, other], q, row, [b['id']])
             elif s['name'] in ('PLATE', 'D') and s['tprof'] == 'FLT10*120':   # hanger under the rafter for the gable column top
                 rf, gc = (own, other) if members[own]['st']['name'] == 'RAFTER' else (other, own)
                 q = sp_q(p, pts, d, members[gc]['st'])

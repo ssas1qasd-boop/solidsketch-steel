@@ -5,6 +5,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.int
+import kotlinx.serialization.json.double
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
@@ -12,6 +13,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Assume.assumeTrue
 import org.junit.Test
 import java.io.File
+import kotlin.math.abs
 
 /**
  * R12 (the reference since 2026-11-26, docs/steel/PARITY.md): the R12 frame rebuilt from tests/steel/golden/r12/rebuild_inputs.json
@@ -50,5 +52,23 @@ class R12RebuildTest {
         File(root, "build").mkdirs(); File(root, "build/r12-rebuild-report.txt").writeText(rep + "\n"); println(rep.lines().take(30).joinToString("\n"))
         File(root, "build/R12_app.ss").outputStream().use { com.solidsketchapp.core.io.SsCodec.write(m.doc as com.solidsketchapp.core.io.MemoryDocument, it, name = "Frame_28x53m_R12_app") }
         assertTrue(bad.take(60).joinToString("\n"), bad.isEmpty())
+        // weights (owner 2026-11-27: gross, no bolt holes taken off; grout 0): the app's TeklaWeight against web v70's partWeight, part by part
+        val engine = com.solidsketchapp.core.view.ManifoldBooleanEngine(); val tw = com.solidsketchapp.steel.model.TeklaWeight(t.data.profiles, engine)
+        val sts = idsAll.associateWith { id -> m.doc.bodyJson(id)?.let { Json.parseToJsonElement(it).jsonObject["st"] as? JsonObject } }
+        fun d3(e: kotlinx.serialization.json.JsonElement?) = (e as JsonArray).map { it.jsonPrimitive.double }.let { com.solidsketchapp.steel.geom.D3(it[0], it[1], it[2]) }
+        val boltsByConn = HashMap<String, MutableList<com.solidsketchapp.steel.model.TeklaWeight.Bolts>>()
+        for ((_, st) in sts) { if (st == null || st["kind"]?.jsonPrimitive?.content != "bolts" || st["pts"] == null) continue
+            boltsByConn.getOrPut(st["conn"]!!.jsonPrimitive.content) { ArrayList() } += com.solidsketchapp.steel.model.TeklaWeight.Bolts((st["pts"] as JsonArray).map { d3(it) }, d3(st["ax"]),
+                st["d0"]?.jsonPrimitive?.double ?: (st["d"]!!.jsonPrimitive.double + 2), st["L"]?.jsonPrimitive?.double ?: 60.0) }
+        val byPart = HashMap<String, MutableList<com.solidsketchapp.steel.model.TeklaWeight.Bolts>>()
+        for (c in m.comps.conns()) { val gs = boltsByConn[c.id] ?: continue; for (pid in c.parts) byPart.getOrPut(pid) { ArrayList() } += gs }
+        val gb = g.getValue("bodies").jsonArray; var wApp = 0.0; var wWeb = 0.0; val wBad = ArrayList<String>()
+        for ((i, id) in idsAll.withIndex()) { val st = sts[id] ?: continue; if (st["kind"]?.jsonPrimitive?.content == "bolts") continue
+            val bs = (byPart[id.value] ?: emptyList<com.solidsketchapp.steel.model.TeklaWeight.Bolts>()) + (st["conn"]?.jsonPrimitive?.content?.let { boltsByConn[it] } ?: emptyList())
+            val w = tw.part(st, m.doc.bodyMesh(id)!!, false, { null }, bs).weight; val web = (gb[i].jsonObject["w"] as? JsonObject)?.get("weight")?.jsonPrimitive?.double ?: 0.0
+            wApp += w; wWeb += web; if (abs(w - web) > 0.011 && wBad.size < 20) wBad += "body $i ${st["name"]?.jsonPrimitive?.content} ${st["prof"]?.jsonPrimitive?.content}: app $w web $web" }
+        val wrep = "R12 rebuild weight (gross, grout 0): app %.2f kg, web %.2f kg, Tekla st.tkW 63,705.82 kg, Part List 63,711.7 kg".format(java.util.Locale.ROOT, wApp, wWeb)
+        File(root, "build/r12-rebuild-weight.txt").writeText(wrep + "\n" + wBad.joinToString("\n") + "\n"); println(wrep)
+        assertTrue(wrep + "\n" + wBad.joinToString("\n"), wBad.isEmpty())
     }
 }
