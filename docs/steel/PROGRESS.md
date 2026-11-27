@@ -356,3 +356,8 @@ Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, n
 - Tekla's stair assemblies: each tread its own (SGR9001: tread + 2 brackets), the 2 top plates loose (PLSTR9001, new Stair end plate field "Plate welded to the member" = No), counter plates in EB4002. SR9001–4 now weigh as Tekla's assembly drawings (177.69 / 159.03 against 177.8 / 159.1; the rest is row 19's stanchion cut). Tekla's own Assembly list (169.5 / 153.3 / 140.8) weighs solids instead of kg/m x length: proven in PARITY.md "C18", R13 section.
 - Web: `web/v70/c18.js`; app: `FamSEP`, `StRegen` (owner of Tsep / tread parts); `r10_inputs.py` row 18; tests `R13C18Test`, `C18RecordingTest`, case `t18_r12_flight2` (now with EB4002 and the counter plates).
 - Proposed shared changes (not made): UPN240 kg/m 33.2 → 33.2055; an imported catalog member drilled by TKBOLT weighed kg/m x length (PARITY.md).
+
+## C19 on R13 · 2026-11-28 (branch `agent/c19`, 0.23.0-parity-c19; for the main session's merge, then the owner's phone OK)
+- Stanchions as Tekla: welded (a 2, fit = face) to the part they stand on, foot cut on its top face, top square at the hand rail axis; 26 / 26 at 0.1 mm, 3.18 kg each (before 0 / 26). Rule B: the 22 stanchion / stringer overlaps gone; 26 hand rail / stanchion overlaps appear (R13's own; baseline proposal for the owner).
+- Web: `web/v70/c19.js`; app: `ClassicApps.weldonly` (fit), `StairsRailing.railing19`, `GenRun` (Railing S77 type Tekla); `r10_inputs.py` row 19; tests `R13C19Test`, `C19RecordingTest`, case `t19_r13_flight1_railing`, app goldens `rl_tekla_r13`, `rl_tekla_landing`.
+

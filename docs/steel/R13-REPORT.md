@@ -15,9 +15,9 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 | … kind `plate` | 3,408 | 0 |
 | Connections | 1,700 (TKBOLT / TKCUT) | 1,370 (components) |
 | Bolts | 4,596 in 1,294 groups | 4,604 in 1,206 groups |
-| Weight (v66 Tekla weights, bolts excluded) | 64,020.32 kg | 64,014.32 kg (-6.00) |
+| Weight (v66 Tekla weights, bolts excluded) | 64,020.32 kg | 64,014.62 kg (-5.70) |
 | … builtup members | 37,892.73 kg | 37,889.44 kg |
-| … given members | 16,359.82 kg | 16,361.62 kg |
+| … given members | 16,359.82 kg | 16,361.92 kg |
 | … detail parts (R13) / component parts (v69) | 9,767.77 kg | 9,763.26 kg |
 
 Members: 839 placed (201 built-up equivalents, 638 R13 members as given): 839 MATCHED.
@@ -88,10 +88,10 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | given HR Hand Rail CHS48*3 | 6 | 6 MATCHED | 0.0 | 1.040–1.040 | 50.6 → 50.6 |
 | given HZ HZ Bracing SHS100*3 | 96 | 96 MATCHED | 0.0 | 1.000–1.001 | 3,202.5 → 3,203.8 |
 | given PU Purlin CC200-2-20-60 | 220 | 220 MATCHED | 0.0 | 1.000–1.000 | 6,837.2 → 6,837.2 |
-| given SR Stanchion CHS48*3 | 22 | 22 MATCHED | 0.0 | 1.033–1.050 | 70.0 → 69.8 |
+| given SR Stanchion CHS48*3 | 22 | 22 MATCHED | 0.0 | 1.040–1.041 | 70.0 → 70.0 |
 | given SR STRINGER UPN240 | 12 | 12 MATCHED | 0.0 | 1.014–1.014 | 578.3 → 578.3 |
 | given ST Strut SHS100*3 | 72 | 72 MATCHED | 0.0 | 1.000–1.000 | 3,317.5 → 3,317.5 |
-| given STB Stanchion CHS48*3 | 4 | 4 MATCHED | 0.0 | 1.032–1.032 | 12.7 → 12.6 |
+| given STB Stanchion CHS48*3 | 4 | 4 MATCHED | 0.0 | 1.041–1.041 | 12.7 → 12.7 |
 | given TR Tie Rod THREAD100MM ROD12 | 140 | 140 MATCHED | 0.0 | 1.104–1.104 | 191.8 → 191.8 |
 | given VL VL Bracing SHS100*3 | 60 | 60 MATCHED | 0.0 | 1.000–1.001 | 2,013.3 → 2,014.1 |
 

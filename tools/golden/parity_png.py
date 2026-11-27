@@ -499,6 +499,65 @@ def c06(shots, video=None):
     return compose('C06', [('R13 (Tekla IFC v3), gable node 3425 (gusset 6509), wall view', r13), ('Tekla assembly drawing 11 (Package_2): gusset 6509', tekla_page2('11')), ('app on the emulator, 3D', pic), ('app on the emulator, orthographic wall view (landscape)', app)],
                    'C06 on R13 Tube gusset (20) at the gable nodes: R13 | Tekla drawing | app 3D | app (Gusset tab: Gusset plane at a node = Tekla)', ['Measured on the models the emulator built and saved (c06_case.ss, c06_gd30.ss):'] + ['! ' + m for m in lines])
 
+def c19_match(ss):
+    """C19: every R13 stanchion against the model's stanchion on the same line (0.1 mm): top square at R13's top, foot on R13's foot plane"""
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R13.ss')))['doc']; M = json.load(gzip.open(ss))['doc']
+    isS = lambda b: str((b.get('st') or {}).get('name', '')).upper() == 'STANCHION' and b.get('shape')
+    ms = [b for b in M['bodies'] if isS(b)]; ok = 0; n = 0; bad = []
+    for r in [b for b in R['bodies'] if isS(b)]:
+        n += 1; RV = VT(r)[0]; c = (RV.min(0) + RV.max(0)) / 2
+        m = next((b for b in ms if np.abs((VT(b)[0].min(0) + VT(b)[0].max(0)) / 2 - c)[:2].max() < 0.1 and abs(VT(b)[0][:, 2].max() - RV[:, 2].max()) < 0.1), None)
+        if m is None: bad.append(r['id']); continue
+        V = VT(m)[0]; mid = (RV[:, 2].max() + RV[:, 2].min()) / 2; f = RV[RV[:, 2] < mid]
+        A = np.c_[np.ones(len(f)), f[:, 0], f[:, 1]]; co = np.linalg.lstsq(A, f[:, 2], rcond=None)[0]; g = V[V[:, 2] < mid]
+        res = np.abs(g[:, 2] - np.c_[np.ones(len(g)), g[:, 0], g[:, 1]] @ co).max(); top = np.ptp(V[V[:, 2] > mid][:, 2])
+        if res <= 0.1 and top <= 0.1 and abs(V[:, 2].min() - RV[:, 2].min()) <= 0.1: ok += 1
+        else: bad.append(r['id'])
+    return ok, n, bad
+
+def c19(before, after, shots=None):
+    """C19 railing welds: one stair (R13 lower flight, left railing SR9002 / HR9002) in R13 | the model before | after, side / post detail /
+    front / 3D (orthographic renders of the saved .ss: before = main's R13_app.ss, after = this branch's); optional emulator stills (shots dir)
+    -> docs/steel/parity/C19_before.png, docs/steel/parity/C19.png"""
+    st = lambda b: b.get('st') or {}
+    def nm(b): return str(st(b).get('name', '')).strip().upper()
+    colr = lambda b: {'STRINGER': (60, 110, 200), 'STANCHION': (235, 150, 30), 'HAND RAIL': (60, 170, 90), 'HANDRAIL': (60, 170, 90), 'RAILING': (160, 90, 200), 'KNEE RAIL': (160, 90, 200)}.get(nm(b), (120, 120, 120))
+    box = (np.array([500.0, 8200.0, -50.0]), np.array([640.0, 12100.0, 3100.0]))
+    def pick(path):
+        D = json.load(gzip.open(path))['doc']
+        return [b for b in D['bodies'] if b.get('shape') and nm(b) in ('STRINGER', 'STANCHION', 'HAND RAIL', 'HANDRAIL', 'RAILING', 'KNEE RAIL') and (VT(b)[0].max(0) > box[0]).all() and (VT(b)[0].min(0) < box[1]).all()]
+    d3 = np.array([-0.9, -1.1, 0.7]); d3 /= np.linalg.norm(d3)   # 3D: the target moved toward the camera (an orthographic view), so nothing is cut away
+    views = [('side, the flight (section at the posts\' axis, x)', np.array([565.5, 10070.0, 1600.0]), (-1, 0, 0), 2300.0),
+             ('foot of post R13 808 (section): cut on the stringer top', np.array([565.5, 10435.0, 1300.0]), (-1, 0, 0), 170.0),
+             ('top of post R13 808 (section): square at the rail axis', np.array([565.5, 10435.0, 2298.0]), (-1, 0, 0), 170.0),
+             ('3D', np.array([565.5, 10070.0, 1600.0]) + d3 * 6000, tuple(d3), 2300.0)]
+    def row(path):
+        bs = pick(path); return [render([b for b in bs if not (t is views[2][1] and False)], t, d, dist, colr, W=760, H=1100) for _, t, d, dist in views]
+    R13 = os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R13.ss'); r13 = row(R13)
+    def rb(path):
+        r = subprocess.run([sys.executable, os.path.join(REPO, 'tools', 'golden', 'geom_checks.py'), path], capture_output=True, text=True).stdout.splitlines()
+        g = lambda k: sum(int(l.split()[0]) for l in r[1:] if k in l)
+        return f"rule B (whole model): Stanchion / STRINGER {g('Stanchion CHS48*3 / STRINGER')}, Hand Rail / Stanchion {g('Hand Rail CHS48*3 / Stanchion')} (R13: 0 and 26), RAILING / Stanchion {g('RAILING PD50*5 / Stanchion')} (R13: 26)"
+    out = []
+    for tag, path in (('before', before), ('after', after)):
+        ok, n, bad = c19_match(path); mo = row(path)
+        W = 760; H = 1100; img = Image.new('RGB', (30 + len(views) * (W + 30), 100 + 2 * (H + 60) + 200), 'white'); d = ImageDraw.Draw(img)
+        d.text((30, 16), f"C19 Railing welds ({tag}): R13 (Tekla IFC, top row) | the app's R13 rebuild {tag} C19 (bottom row), one stair: SR9002 / HR9002", font=FB, fill=(0, 0, 0))
+        for i, (t, *_ ) in enumerate(views):
+            x = 30 + i * (W + 30)
+            for j, (lbl, im) in enumerate((('R13: ' + t, r13[i]), (f'app {tag}: ' + t, mo[i]))):
+                y = 100 + j * (H + 60); img.paste(im, (x, y + 30)); d.rectangle((x, y + 30, x + W - 1, y + 30 + H - 1), outline=(160, 160, 160)); d.text((x, y), lbl, font=F, fill=(40, 40, 40))
+        y = 100 + 2 * (H + 60) + 10
+        for ln in [f"stanchions matching R13 (0.1 mm: top square at R13's top, foot on R13's foot plane, lowest foot point): {ok} / {n}", rb(path),
+                   'R13: each stanchion welded to the stringer it stands on (a 2), foot cut on the stringer top flange, top square at the hand rail axis (1000 above the foot centre)']:
+            d.text((30, y), ln, font=FB if ln.startswith('stanch') else F, fill=(190, 0, 0) if ln.startswith('stanch') else (0, 0, 0)); y += 44
+        p = os.path.join(REPO, 'docs', 'steel', 'parity', 'C19_before.png' if tag == 'before' else 'C19.png'); img.save(p); print(p, img.size, ok, n); out.append(p)
+    if shots:   # the emulator's stills beside R13: before (v69 railing) / after (Tekla railing)
+        ims = [shot(shots, k)[0] for k in ('ortho_side_v69', 'ortho_side_tekla', 'ortho_foot_tekla', 'ortho_top_tekla')]
+        compose('C19_emulator', [('R13 side', r13[0]), ('app, Railing (S77) v69', ims[0]), ('app, Railing (S77) Tekla', ims[1]), ('app Tekla: foot', ims[2]), ('app Tekla: top', ims[3])],
+                'C19 Railing (S77) on the emulator: v69 -> Tekla (R13 values), orthographic stills', ['emulator models: c19_v69.ss, c19_tekla.ss'])
+    return out
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17, 'X01': x01, 'X02': x02, 'C08': c08}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17, 'X01': x01, 'X02': x02, 'C08': c08, 'C19': c19}[sys.argv[1]](*sys.argv[2:])

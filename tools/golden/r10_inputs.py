@@ -57,7 +57,7 @@ How the inputs are chosen (the owner's workflow: grid in Tekla syntax, Column / 
        row 15  cap 39               [mezzanine column, girder]    R10 'End Plate ' PL16*120 on the column top
        row 17  146 hanger           [rafter, gable column]        R10 'PLATE' / 'D' FLT10*120 under the rafter
        row 18  stair treads         [stringer, stringer]          the two sloped stringers of each flight
-       row 19  railing welds        'weldonly' [rail, stanchion]  stanchion tops on a hand rail
+       row 19  railing welds        'weldonly' [stringer, stanchion]  stanchion feet on the stringer / landing beam (C19)
        (stair) end plate 144        [post, stair beam]            R10 'ENDPLATE' FLT10*150 of the stair beams (not a checklist row)
      144 settings: tp, bolt, ext / extb (plate beyond the beam depth projected on the face, as FAM.EP measures it), cols,
      gauge (gauge2), side, rows, e, pitches, gap. 146: t, bolt, rows / pitch along the secondary's depth, cols / pitchH,
@@ -972,14 +972,17 @@ def main():
                 Hc = float(re.match(r'^BI(\d+(?:\.\d+)?)', col['st']['prof']).group(1)); sf = Hc / 2 / abs(dot(dd, d0))
                 s_out = max(dot(sub(x, Pc), far) for x in v if dot(sub(x, P), n_) < 0.5); q['e'] = r3(sf - s_out); parts_.append(cap_beam[col['i']])
             conn('Tcolcap', parts_, q, 'X02', [b['id']])
-    # ---- row 19: railing welds (stanchion top on a hand rail)
-    rails = [m for m in members if m['st']['name'] == 'Hand Rail']
+    # ---- row 19: railing welds (C19, PARITY.md): Tekla welds each stanchion to the part it STANDS on (R13 tkWelds: main = the stringer,
+    # or the landing beam's top flange; a = 2), not to the hand rail. The stanchion's foot is cut on that part's top face (weldonly: the
+    # fit = 'face': a plane on the stringer's sloped top flange; v70 C19), its top stays square at the hand rail's centre line (no weld, no cut there).
+    # Before C19: weldonly [hand rail, stanchion] cut each top by the rail and left the foot square in the stringer (22 overlaps).
+    of_r13 = {r: m['i'] for m in members for r in m['r10']}
     for m in members:
         if m['st']['name'] != 'Stanchion': continue
-        top = max([m['st']['p1'], m['st']['p2']], key=lambda p: p[2])
-        for r in rails:
-            dd, _ = point_seg(top, r['st']['p1'], r['st']['p2'])
-            if dd < 30: conn('weldonly', [r['i'], m['i']], OrderedDict(), '19', []); break
+        for w in byid[m['r10'][0]]['st'].get('tkWelds') or []:
+            main = of_r13.get(w.get('main'))
+            if main is not None and main != m['i']:
+                conn('weldonly', [main, m['i']], OrderedDict(a=(w.get('above') or {}).get('a') or 4, fit='face'), '19', []); break
 
     # ---- parts no component makes
     handled_names = {'Base Plate', 'GROUT', 'CASTPLATE', 'PLATE', 'End plate Post', 'ENDPLATE', 'End Plate', 'End Plate ', 'Shear Plate', 'D', 'Connection Plate'}

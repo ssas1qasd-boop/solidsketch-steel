@@ -14,6 +14,7 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 - **C07:** the 18 PL5 end plates at the upper ends of VL6011-VL6014 match (they were the gable nodes' turned plates, see C06 "Gable / end-frame nodes"; not IFC rounding).
 - **C12 / C20 / C14 on R13:** agent R13 (branch r13-conn).
 - **Row 18 counter plates, SGR9001 / SR9001–SR9004 assembly weights:** agent C18 (branch c18).
+- **Row 19 stanchions (C19):** agent C19 (branch agent/c19): 26 / 26 at 0.1 mm; the 26 hand rail / stanchion overlaps (R13's own) wait for the owner's OK on the baseline.
 - **Data quirk (R12 and R13):** one monitor rafter end plate (R12 body 1985, PLATE FLT12*120, assembly mark '14', class 99) is not in a PR assembly, so its 144 is not rebuilt and PR7001 / one PC7001 keep a square end (box 36.8 mm, +0.4 kg).
 - **GA drawings (S12):** Package_2 has 16 GA sheets, the web build's fixed list makes 13. Accepted for now (owner 2026-11-28); the 3 extra sheets are open for S12.
 - **Assembly weights per mark:** 1001, SGR9001 and SR9001–SR9004 differ from Package_2's assembly list (the same differences as R12 vs Package_1): the known C01 / C18 / C19 gaps.
@@ -326,6 +327,30 @@ Delivered for the owner's phone check; ✓ only after the owner's OK.
 
 ### Status
 Delivered for the owner's phone check; ✓ only after the owner's OK.
+
+## C19 · Railing welds as Tekla: stanchions welded to the part they stand on, foot fitted on its face, top square at the hand rail (agent C19, 2026-11-28)
+**What Tekla does (R13, all 26 stanchions, 6 hand rails, 6 railings; no video needed):**
+- Each stanchion CHS48*3 has one workshop fillet weld, a = 2, whose **main part is the part it stands on**: the stringer UPN240 (22: SR9001-SR9004) or the landing beam's top flange (4: STB9001). It is in that part's assembly. The hand rails CHS48*3 (HR9001-HR9003) and railings PD50*5 have no welds and no owner (loose parts).
+- **Foot:** cut on the stringer's top face, a plane (R13's mesh: every foot vertex on one plane, residual 0.000). The member line starts at the cut's **lowest point**: p1 = foot centre - r x slope (24 x 0.5055 = 12.13 on the lower flights, 24 x 0.5851 = 14.04 on the upper ones); on the landing the foot is level on the flange.
+- **Top:** square (one z level), at the hand rail's **centre line**, 1000 above the foot centre (stair) / the landing top; so each stanchion is 1000 x 405 mm² (Tekla's 12-gon) = 3.18 kg, st.tkW. The hand rail runs from the first post's centre line to the last one's; the railing PD50*5 500 lower. Both run into the posts: R13's own rule B has 26 hand rail / stanchion (992-2468 mm³, 1.52-1.54 deep) and 26 railing / stanchion overlaps.
+- **Post layout:** a fixed plan spacing from the first post (700 on the lower flights, 800 on the upper ones), the last post at the end (675.4 / 614.2 short); landing: the two ends.
+
+**Change (web `web/v70/c19.js`, app `ClassicApps.weldonly`, `StairsRailing.railing19`, `GenRun` rail):**
+1. Weld (no parts) `weldonly`: `q.fit = 'face'` fits the secondary's end on the main part's face (v69 stFaceAt at that end: a half-space cut, a plane); `'none'` = no cut; absent = v69 (the main part's envelope: for a channel stringer the outline is the C, so the foot's lower wedge stayed inside the channel under the flange, 1,043 mm³ per post).
+2. Row 19 inputs (`r10_inputs.py`): `weldonly [the part from R13's tkWelds main, stanchion] {a: 2, fit: 'face'}` instead of `[hand rail, stanchion]` (which cut each top by the rail and left the foot square in the stringer: 22 overlaps).
+3. Railing (stRailing, and Railing S77 with the new **Railing type = Tekla (R13)**; fields Post / Hand rail / Knee rail profile, Hand rail height, Knee rail height, Post spacing (plan), Post weld a; defaults R13's): posts at the plan spacing from the first point + the end, foot at the walking line minus r x slope, top square at the hand rail axis, each post welded (fit face, a 2) to the picked part (S77: the first part; the path is its top face between the two picked points), rails end to end with no welds. Railing type v69 (default) = unchanged.
+
+| Check | Before (main 2d5687e) | After |
+|---|---|---|
+| Stanchions vs R13 (`R13C19Test`, 0.1 mm: p1 / p2, top square at R13's top, foot on R13's foot plane, st.tkW) | 0 / 26 (top cut by the rail: z spread 39-42; foot square) | **26 / 26** |
+| Stanchion weights (app, 26) | 82.38 kg (3.15-3.21) | 82.68 kg = Tekla 82.68 (all 3.18) |
+| Rule B, app R13 rebuild | 22 Stanchion / STRINGER (not on the list) | 0; **26 Hand Rail / Stanchion new**: R13's own, same parts within 0.1 mm (proposal for the owner, not on `ruleB_r13_baseline.txt`) |
+| Web R13 rebuild weight | 64,014.32 kg | 64,014.62 kg (+0.30, the stanchions) |
+
+Tests: golden case `t19_r13_flight1_railing` (c09 rule-B dump), app goldens `rl_tekla_r13` / `rl_tekla_landing` (s10_stairs), `R13C19Test`, `C19RecordingTest` (Railing S77 v69 -> Tekla with R13's values), `parity_png.py C19` (docs/steel/parity/C19_before.png, C19.png).
+
+### Status
+Waiting for the main session's merge and the owner's OK on the 26 hand rail / stanchion baseline lines; ✓ only after the owner's phone OK.
 
 ## C01 / C16 · Base plate 1042 / 1004 as Tekla: anchor rods as parts, nut and washer, grout with slopes, cast plate under the grout (owner 2026-11-27)
 

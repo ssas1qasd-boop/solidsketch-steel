@@ -60,6 +60,14 @@ class GenRun(private val data: SteelData, private val doc: DocumentApi, private 
             undo?.group("Divide into $n", run) ?: run()
             return "Divided into $n parts"
         }
+        if (kind == "rail" && Js.str(q["tmode"]) == "tekla") {   // v70 C19 (web/v70/c19.js): Tekla's railing along the first part's top face, between the picked points
+            if (aSt == null || Js.str(aSt["kind"]) != "member") return "Pick the part the railing stands on"
+            val M = Joints.mf(aSt, data.profiles); val up = if (M.eh.z >= 0) M.eh else M.eh * -1.0
+            fun top(p: D3): D3 { val v = p - M.c1; return M.c1.add(M.a, v dot M.a).add(up, M.h / 2) }
+            val pa = top(pts.getOrNull(0)?.let { D3(it[0], it[1], it[2]) } ?: M.c1); val pb = top(pts.getOrNull(1)?.let { D3(it[0], it[1], it[2]) } ?: M.c2)
+            val o = LinkedHashMap(q).apply { put("path", JsonArray(listOf(arr(pa), arr(pb)))) }
+            return com.solidsketchapp.steel.apps.StairsRailing(data, doc, undo, parts, comps).railing(JsonObject(o), picked[0]).toast
+        }
         if (aSt == null || bSt == null) return "Pick two parts"
         val A = picked[0].value; val B = picked[1].value
         val MA = Joints.mf(aSt, data.profiles); val MB = Joints.mf(bSt, data.profiles)

@@ -28,4 +28,8 @@ module.exports = {
   gen_ts71_rev: { members: [BEAM([4000, -1000, 3000], [4000, 1000, 3000], 'HEA200'), BEAM([0, -1000, 0], [0, 1000, 0], 'HEA200')], run: { gen: ['TS71', [0, 1], []] } },
   gen_ts77: { members: [BEAM([0, 0, 0], [6000, 0, 0])], run: { gen: ['TS77', [0], []] } },
   gen_ts77_two: { members: [BEAM([0, 0, 0], [6000, 0, 0]), BEAM([6000, 0, 0], [6000, 4000, 0])], run: { gen: ['TS77', [0, 1], [[500, 0, 0], [6000, 3500, 0]]] } },
+  // v70 C19: Tekla's railing (R13 lower flight, left: stringer 844; posts at 700 plan from y 8335, the last at 11810.441; foot centres on the top face)
+  rl_tekla_r13: { members: [['BEAM', { name: 'STRINGER', prof: 'UPN240', p1: [565.5, 12035.972, 1972.906], p2: [565.5, 8289.137, 78.835], rot: 'Top', rAng: 180, plane: 'Middle', depth: 'Middle' }]],
+    run: { railing: { tmode: 'tekla', path: [[565.5, 8335, 236.481], [565.5, 11810.441, 1993.359]], on: { idx: 0 } } } },
+  rl_tekla_landing: { members: [BEAM([0, -500, 0], [0, 1500, 0], 'HEA200')], run: { railing: { tmode: 'tekla', path: [[0, 0, 95], [0, 565.75, 95]] } } },
 };

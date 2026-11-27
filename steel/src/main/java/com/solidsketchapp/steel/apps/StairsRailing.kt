@@ -140,6 +140,7 @@ class StairsRailing(private val data: SteelData, private val doc: DocumentApi, p
      * rail, knee; [on]: the part the posts get T13 fittings to (v69 o.on; then no support welds).
      */
     fun railing(o: JsonObject, on: BodyId? = null): Result {
+        if (Js.str(o["tmode"]) == "tekla") return railing19(o, on)
         val q = LinkedHashMap<String, JsonElement>(mapOf("h" to jsNum(1100.0), "postS" to jsNum(1200.0), "post" to s("CHS42.4x3.2"), "rail" to s("CHS42.4x2.6"), "knee" to JsonPrimitive(true))).apply { putAll(o) }
         val P = (q["path"] as JsonArray).map(::v3); val posts = ArrayList<JsonObject>(); val rails = ArrayList<JsonObject>()
         val h = Js.num(q["h"]); val rr = or(data.profiles.lookup(Js.str(q["rail"]))?.d, 42.4)
@@ -167,5 +168,31 @@ class StairsRailing(private val data: SteelData, private val doc: DocumentApi, p
                 val sup = supportAt(v3(st["p1"]), own, 40.0); if (sup != null && !linked(sup, id)) l2 += Triple("weldonly", listOf(sup, id), none) }
             if (l2.isNotEmpty()) conns += connectMany(l2, "Railing: posts to supports") }
         return Result(ids, conns, toast)
+    }
+
+    /** v70 C19 (web/v70/c19.js): Tekla's railing (R13): posts at a fixed plan spacing [ps] from the first point, the last at the end; each post's foot
+     *  on the walking line (its lowest point r x slope below it, cut on the part it stands on by a Weld fit = 'face', a = [wa]), its top square at
+     *  the hand rail's axis [rh] above the foot centre; hand rail and knee rail ([kh], profile [knee], '' = none) from end to end, no welds. */
+    val RAIL19: Map<String, JsonElement> = linkedMapOf("tmode" to s("tekla"), "post" to s("CHS48*3"), "rail" to s("CHS48*3"), "knee" to s("PD50*5"),
+        "rh" to jsNum(1000.0), "kh" to jsNum(500.0), "ps" to jsNum(700.0), "wa" to jsNum(2.0))
+    private fun railing19(o: JsonObject, on: BodyId?): Result {
+        val q = LinkedHashMap(RAIL19).apply { putAll(o) }; val P = (q["path"] as JsonArray).map(::v3); val posts = ArrayList<JsonObject>(); val rails = ArrayList<JsonObject>()
+        val pr = or(data.profiles.lookup(Js.str(q["post"]))?.d, 48.0) / 2; val rh = Js.num(q["rh"]); val kh = Js.num(q["kh"]); val ps = Js.num(q["ps"])
+        val knee: String? = q["knee"].let { k -> if (!Js.truthy(k)) null else if ((k as? JsonPrimitive)?.isString == true) Js.str(k) else Js.str(RAIL19["knee"]) }
+        for (k in 0 until P.size - 1) { val a = P[k]; val b = P[k + 1]; val Lh = D3(b.x - a.x, b.y - a.y, 0.0).length(); if (!(Lh > 0)) continue
+            val drop = pr * abs(b.z - a.z) / Lh
+            val ss = ArrayList<Double>(); var t = 0.0; while (t < Lh - 1) { ss += t; t += if (ps > 0) ps else Lh }; ss += Lh
+            for (sv in ss) { if (k > 0 && sv == 0.0) continue; val F = a.lerp(b, sv / Lh)
+                posts += member("COLUMN", "name" to s("STANCHION"), "prof" to q.getValue("post"), "ap" to s("HR"), "pp" to s("hr"), "cls" to jsNum(11.0), "rot" to s("Front"),
+                    "p1" to arr(F.add(D3.Z, -drop)), "p2" to arr(F.add(D3.Z, rh))) }
+            for ((z, nm, pf) in listOf(Triple(rh, "HANDRAIL", q.getValue("rail"))) + (if (knee != null) listOf(Triple(kh, "KNEE RAIL", s(knee))) else emptyList()))
+                rails += member("BEAM", "name" to s(nm), "prof" to pf, "ap" to s("HR"), "pp" to s("hr"), "cls" to jsNum(11.0), "depth" to s("Middle"),
+                    "p1" to arr(a.add(D3.Z, z)), "p2" to arr(b.add(D3.Z, z))) }
+        val ids = addMany(posts + rails, "Railing"); val pid = ids.subList(0, posts.size); val own = ids.filterNotNull().toSet()
+        val list = ArrayList<Triple<String, List<BodyId>, JsonObject>>(); val wq = JsonObject(linkedMapOf("a" to jsNum(Js.num(q["wa"]).takeIf { it > 0 } ?: 2.0), "fit" to s("face")))
+        for (id in pid) { if (id == null) continue; val sup = on ?: supportAt(v3(stOf(id)!!["p1"]), own, 40.0)
+            if (sup != null && !linked(sup, id)) list += Triple("weldonly", listOf(sup, id), wq) }
+        val conns = ArrayList<String?>(); if (list.isNotEmpty()) conns += connectMany(list, "Railing: posts welded to the support")
+        return Result(ids, conns, "Railing: ${posts.size} posts, ${rails.size} rails")
     }
 }
