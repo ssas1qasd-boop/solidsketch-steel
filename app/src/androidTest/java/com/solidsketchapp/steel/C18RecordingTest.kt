@@ -40,7 +40,9 @@ import kotlin.math.sqrt
  * Tekla: 12 bent grating treads, rise 156.667, first tread 145.863 along the run, 47.43 above the stringer line), Pick parts (the two
  * sloped stringers); Stair end plate on the left landing piece through the post STR9001 (320 x 150 x 12, 2 x 4 M16); orbit;
  * orthographic side elevation and a tread section in landscape; saved (c18/c18_case.ss). Then the treads' dialog again: 12 -> 10
- * treads, Modify, orbit, stills, saved (c18_ntr10.ss). /sdcard/c18_rec.mp4.
+ * treads, Modify, orbit, stills, saved (c18_ntr10.ss). R13: the top plate through a counter plate on girder EB4002 (Stair end plate:
+ * Counter plate on the main part = Yes, Plate welded to the member = No: the plate loose, its own assembly), orbit, orthographic stills.
+ * /sdcard/c18_rec.mp4.
  */
 @RunWith(AndroidJUnit4::class)
 class C18RecordingTest {
@@ -143,7 +145,7 @@ class C18RecordingTest {
     @Test fun c18Recording() {
         dir = "c18"; start()
         look(mid, Vec3(-1.0, -0.6, 0.7), 5200.0); pause(800)
-        val rec = ua.executeShellCommand("screenrecord --bit-rate 6000000 --time-limit 175 /sdcard/c18_rec.mp4")
+        val rec = ua.executeShellCommand("screenrecord --bit-rate 6000000 --time-limit 180 /sdcard/c18_rec.mp4")
         try {
             pause(1500)
             fun str(o: String) = member("BEAM", """{"name":"STRINGER","prof":"UPN240",$o,"plane":"Middle","depth":"Middle"}""")
@@ -180,6 +182,28 @@ class C18RecordingTest {
             if (mode().comps!!.conns().none { it.type == "Tsep" }) { act.runOnUiThread { mode().catPick("Tsep") }; pause(400); hitParts("Tsep", Vec3(530.0, 12060.0, 2070.0), Vec3(560.0, 12235.0, 1500.0)) }
             waitFor("the stair end plate") { mode().comps!!.conns().count { it.type == "Tsep" } == 1 }
             act.runOnUiThread { mode().catDone() }; pause(800)
+            // R13: the top plate (loose, PLSTR9001) bolted outward through a counter plate on girder EB4002 (Stair end plate: Counter plate = Yes,
+            // Plate welded to the member = No); the top piece of SR9003 and a 2.2 m length of EB4002
+            str(""""p1":[1650.5,16540.197,3880],"p2":[1650.5,16701,3880],"rot":"Top","rAng":180""")
+            member("BEAM", """{"prof":"BI320-8-120-10","p1":[334,16785,3840],"p2":[2500,16785,3840],"rot":"Top","rAng":0,"plane":"Middle","depth":"Middle"}"""); pause(1000)
+            val top = Vec3(1620.0, 16700.0, 3840.0)
+            look(top, Vec3(1.0, -0.8, 0.6), 2200.0); pause(1000); shot("top_members")
+            openCatalog("Stair end plate")
+            tab("Plates"); field("h", "320"); field("b", "150"); field("t", "12"); field("de", "40"); field("dw", "-32.5"); pick("end", "End"); pick("cplate", "Yes"); pick("pweld", "No (a loose plate, its own assembly)"); shot("dialog_sep_counter")
+            tab("Bolts"); field("nr", "4"); field("nc", "2"); field("bp", "85"); field("bg", "70"); field("bx", "-32.9"); field("by", "38.7"); pick("bd", "M16"); pick("bside", "On the member end, outward"); field("bgrip", "0"); shot("dialog_sep_counter_bolts")
+            val nSep = mode().comps!!.conns().count { it.type == "Tsep" }
+            sh("input keyevent 111"); pause(600); press("Pick parts"); pause(800); look(top, Vec3(1.0, -0.8, 0.6), 2200.0); pause(1200)
+            for (k in 0 until 3) { if (mode().comps!!.conns().count { it.type == "Tsep" } > nSep) break
+                if (compose.onAllNodes(hasText("Pick parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty()) { sh("input keyevent 111"); pause(500); press("Pick parts"); pause(800); look(top, Vec3(1.0, -0.8, 0.6), 2200.0); pause(800) }
+                act.runOnUiThread { mode().catPick(mode().catK ?: "Tsep") }; pause(400); shot("pick_sep_counter")
+                tapAt(screen(Vec3(1650.5, 16600.0 - 20 * k, 3990.0))); pause(700); tapAt(screen(Vec3(2000.0 + 100 * k, 16785.0, 4000.0))); pause(1500) }
+            if (mode().comps!!.conns().count { it.type == "Tsep" } == nSep) { act.runOnUiThread { mode().catPick("Tsep") }; pause(400); hitParts("Tsep", Vec3(1650.5, 16600.0, 3990.0), Vec3(2000.0, 16785.0, 4000.0)) }
+            waitFor("the stair end plate with its counter plate") { mode().comps!!.conns().count { it.type == "Tsep" } == nSep + 1 }
+            act.runOnUiThread { mode().catDone() }; pause(800)
+            waitFor("the counter plate", 30_000) { act.testDoc.bodyIds().any { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "COUNTER PLATE" } }
+            assertTrue("loose top plate", mode().stOf(bodyNamed("STAIR PLATE"))?.get("asm") == null)
+            orbit(top, 1600.0, "counter")
+            landscape(true); orthoShot(top, Vec3(1.0, 0.02, 0.05), 900.0, "ortho_counter_side"); orthoShot(top, Vec3(0.02, -1.0, 0.05), 700.0, "ortho_counter_front"); landscape(false)
             orbit(mid, 3600.0, "r12")
             stills("")
             save("c18_case.ss")

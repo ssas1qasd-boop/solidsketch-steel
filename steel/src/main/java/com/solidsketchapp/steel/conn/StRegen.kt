@@ -92,6 +92,7 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
             m.putAll(g.set)   // v69 c.nSteps (stairtreads, v44 L15397)
             connsOut[c.id] = JsonObject(m)
             var ix = 0
+            val tread70 = c.type == "stairtreads" && (c.q["tmode"] as? JsonPrimitive)?.contentOrNull == "tekla"; var lastTread: String? = null   // v70 C18 (R13): each tread its own assembly, its brackets in it
             for (p in g.parts) {
                 val piece = if (p.pieces.size == 1) p.pieces[0] else runCatching { booleans.union(p.pieces) }.getOrElse { com.solidsketchapp.steel.geom.Prism.concat(p.pieces) }
                 val man = if (p.minus.isEmpty()) piece else runCatching { booleans.subtract(piece, p.minus) }.getOrElse { piece }
@@ -102,12 +103,13 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
                         "prof" to JsonPrimitive("M" + com.solidsketchapp.core.api.JsNumber.format(StBuild.jsNum(bolts["d"])))).apply { putAll(bolts) })
                     color = 0x5A5F66; type = "stBolt"
                 } else {
-                    st = kidSt(c, p, owner(c, p.name, ix++)); type = "stPlate"
+                    val own = owner(c, p.name, ix++); st = kidSt(c, p, if (tread70 && p.name == "TREAD") null else if (tread70 && p.name == "BRACKET") lastTread else own); type = "stPlate"
                     val cls = StBolts.tkNum(c.q["cls"], 1.0).toInt()
                     color = if (cls > 1) TK_CLS[cls] ?: 0x9AA0A6 else 0x9AA0A6
                 }
                 fun body(name: String) = JsonObject(linkedMapOf("name" to JsonPrimitive(name), "color" to JsonPrimitive(color), "hidden" to JsonPrimitive(false), "type" to JsonPrimitive(type), "st" to st)).toString()
                 val id = doc.addBody(body(p.name), man); doc.replaceBody(id, body("${p.name} ${id.value}"), man)
+                if (tread70 && p.name == "TREAD") lastTread = id.value.toString()
             }
         }
         if (connsOut.isNotEmpty()) doc.setField("stConns", JsonArray(all.map { connsOut[it.id] ?: it.raw }).toString())
@@ -137,7 +139,7 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
         if (fam == "TG") { if (Regex("FIN|CROSSING").containsMatchIn(name)) return p[0]
             if ((d?.def?.get("kind") as? JsonPrimitive)?.contentOrNull == "cross") return p.getOrNull(1 + minOf(1, maxOf(0, ix - 1) shr 1)) ?: p.getOrNull(1); return p.getOrNull(1) }
         if (fam == "CL") return p[0]
-        if (c.type == "Tsep") return if (name == "COUNTER PLATE") p.getOrNull(1) else p[0]   // v70 C18 (web stOwner wrapper)
+        if (c.type == "Tsep") return if (name == "COUNTER PLATE") p.getOrNull(1) else if ((c.q["pweld"] as? JsonPrimitive)?.contentOrNull == "0") null else p[0]   // v70 C18 (web stOwner wrapper; R13: a loose plate is its own assembly)
         if ((c.type == "T133" || c.type == "T135") && name == "STUB") return p[0]
         return when (fam) {
             "EP", "CA", "BE" -> if (Regex("FRONT|STUB|STIFF|SHIM").containsMatchIn(name)) p[0] else if (p.getOrNull(2) != null && ix >= 0 && name == "END PLATE" && ix > 0) p[2] else sec
