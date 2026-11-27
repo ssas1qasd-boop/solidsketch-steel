@@ -169,7 +169,7 @@ private fun TkChkLabel(text: String, checked: Boolean, onChange: (Boolean) -> Un
 }
 
 @Composable
-private fun TkCheck(checked: Boolean, onChange: (Boolean) -> Unit) = Checkbox(checked, onChange, Modifier.size(28.dp),   // v69: accent-color #2a6fd1, 18 px
+private fun TkCheck(checked: Boolean, onChange: (Boolean) -> Unit, modifier: Modifier = Modifier) = Checkbox(checked, onChange, modifier.size(28.dp),   // v69: accent-color #2a6fd1, 18 px
     colors = androidx.compose.material3.CheckboxDefaults.colors(checkedColor = Color(0xFF2A6FD1), uncheckedColor = Color(0xFF767676), checkmarkColor = Color.White))
 
 @Composable
@@ -202,7 +202,7 @@ private fun TkPicker(pics: CompPics, f: TkField, value: JsonElement, onPick: (Js
 private fun InputBox(d: CompDialog, pics: CompPics, i: CompDialog.Input, rev: Int, bump: () -> Unit, modifier: Modifier) {
     @Suppress("UNUSED_EXPRESSION") rev
     when (i.f.type) {
-        "chk" -> TkCheck(Js.str(i.value) != "0") { i.value = Js.n(if (it) 1.0 else 0.0); bump() }
+        "chk" -> TkCheck(Js.str(i.value) != "0", { i.value = Js.n(if (it) 1.0 else 0.0); bump() }, Modifier.testTag("tk_${i.f.k}"))   // tag: the field key (emulator tests)
         "sel" -> TkPicker(pics, i.f, i.value, { i.value = it; bump() }, modifier.testTag("tk_${i.f.k}"))   // tag: the field key (emulator tests)
         else -> TkText(d.text(i), { d.setText(i, it); bump() }, d.placeholder(i.f), i.f.type == "num", modifier.testTag("tk_${i.f.k}"))
     }
@@ -330,7 +330,7 @@ private fun FieldRow(d: CompDialog, pics: CompPics, f: TkField, rev: Int, bump: 
     val narrow = androidx.compose.ui.platform.LocalConfiguration.current.screenWidthDp < 560
     Column(Modifier.fillMaxWidth().padding(vertical = 2.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            TkCheck(i?.on ?: false) { if (i != null) { i.on = it; bump() } }
+            TkCheck(i?.on ?: false, { if (i != null) { i.on = it; bump() } })
             Text(f.lbl, fontSize = 13.sp, color = if (f.off != null) Color(0x801D2330) else INK, modifier = Modifier.weight(1.2f))
             if (!narrow) { if (i != null) InputBox(d, pics, i, rev, bump, Modifier.weight(1f)) else Text("—", modifier = Modifier.weight(1f), color = Color(0x801D2330)) }
         }

@@ -18484,7 +18484,7 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 3.67,
-   "v69": 6819,
+   "v69": 5699,
    "v69name": "STAIR PLATE",
    "v69prof": "FLT12*150",
    "boxDiff": 0.0,
@@ -18501,7 +18501,7 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "v69": 6821,
+   "v69": 5701,
    "v69name": "STAIR PLATE",
    "v69prof": "FLT12*150",
    "boxDiff": 0.01,
@@ -18518,7 +18518,7 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "v69": 6823,
+   "v69": 5703,
    "v69name": "STAIR PLATE",
    "v69prof": "FLT12*150",
    "boxDiff": 0.01,
@@ -18535,7 +18535,7 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "v69": 6825,
+   "v69": 5705,
    "v69name": "STAIR PLATE",
    "v69prof": "FLT12*150",
    "boxDiff": 0.0,
@@ -18552,7 +18552,7 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 3.67,
-   "v69": 6827,
+   "v69": 5707,
    "v69name": "STAIR PLATE",
    "v69prof": "FLT12*150",
    "boxDiff": 0.0,
@@ -18569,7 +18569,7 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "v69": 6829,
+   "v69": 5709,
    "v69name": "STAIR PLATE",
    "v69prof": "FLT12*150",
    "boxDiff": 0.0,
@@ -18586,7 +18586,7 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "v69": 6831,
+   "v69": 5711,
    "v69name": "STAIR PLATE",
    "v69prof": "FLT12*150",
    "boxDiff": 0.0,
@@ -18615,7 +18615,7 @@
    "row": "18",
    "label": "Stair Plate",
    "kg": 4.52,
-   "v69": 6833,
+   "v69": 5713,
    "v69name": "STAIR PLATE",
    "v69prof": "FLT12*150",
    "boxDiff": 0.0,
@@ -18644,7 +18644,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6735,
+   "v69": 5615,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.001,
@@ -18661,7 +18661,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6736,
+   "v69": 5616,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.001,
@@ -18678,7 +18678,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6734,
+   "v69": 5614,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.001,
@@ -18695,7 +18695,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6732,
+   "v69": 5612,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.002,
@@ -18712,7 +18712,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6733,
+   "v69": 5613,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.002,
@@ -18729,7 +18729,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6731,
+   "v69": 5611,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.002,
@@ -18746,7 +18746,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6729,
+   "v69": 5609,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -18763,7 +18763,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6730,
+   "v69": 5610,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -18780,7 +18780,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6728,
+   "v69": 5608,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.0,
@@ -18797,7 +18797,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6793,
+   "v69": 5673,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.007,
@@ -18814,7 +18814,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6794,
+   "v69": 5674,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.007,
@@ -18831,7 +18831,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6792,
+   "v69": 5672,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.007,
@@ -18848,7 +18848,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6790,
+   "v69": 5670,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.006,
@@ -18865,7 +18865,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6791,
+   "v69": 5671,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.006,
@@ -18882,7 +18882,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6789,
+   "v69": 5669,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.006,
@@ -18899,7 +18899,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6787,
+   "v69": 5667,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.006,
@@ -18916,7 +18916,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6788,
+   "v69": 5668,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.006,
@@ -18933,7 +18933,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6786,
+   "v69": 5666,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.006,
@@ -18950,7 +18950,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6784,
+   "v69": 5664,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.006,
@@ -18967,7 +18967,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6785,
+   "v69": 5665,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.006,
@@ -18984,7 +18984,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6783,
+   "v69": 5663,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.006,
@@ -19001,7 +19001,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6781,
+   "v69": 5661,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.004,
@@ -19018,7 +19018,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6782,
+   "v69": 5662,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.004,
@@ -19035,7 +19035,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6780,
+   "v69": 5660,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.004,
@@ -19052,7 +19052,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6778,
+   "v69": 5658,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.004,
@@ -19069,7 +19069,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6779,
+   "v69": 5659,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.004,
@@ -19086,7 +19086,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6777,
+   "v69": 5657,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.004,
@@ -19103,7 +19103,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6774,
+   "v69": 5654,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.004,
@@ -19120,7 +19120,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6771,
+   "v69": 5651,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.002,
@@ -19137,7 +19137,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6768,
+   "v69": 5648,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.002,
@@ -19154,7 +19154,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6765,
+   "v69": 5645,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.002,
@@ -19171,7 +19171,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6762,
+   "v69": 5642,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.0,
@@ -19188,7 +19188,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6759,
+   "v69": 5639,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.0,
@@ -19205,7 +19205,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6722,
+   "v69": 5602,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.001,
@@ -19222,7 +19222,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6719,
+   "v69": 5599,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.0,
@@ -19239,7 +19239,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6716,
+   "v69": 5596,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.001,
@@ -19256,7 +19256,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6713,
+   "v69": 5593,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.001,
@@ -19273,7 +19273,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6710,
+   "v69": 5590,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.0,
@@ -19290,7 +19290,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6707,
+   "v69": 5587,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.0,
@@ -19307,7 +19307,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6704,
+   "v69": 5584,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.0,
@@ -19324,7 +19324,7 @@
    "row": "18",
    "label": "THREAD",
    "kg": 4.62,
-   "v69": 6725,
+   "v69": 5605,
    "v69name": "TREAD",
    "v69prof": "PL10*335.7",
    "boxDiff": 0.0,
@@ -19341,7 +19341,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6726,
+   "v69": 5606,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19358,7 +19358,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6727,
+   "v69": 5607,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19375,7 +19375,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6723,
+   "v69": 5603,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.001,
@@ -19392,7 +19392,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6724,
+   "v69": 5604,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.001,
@@ -19409,7 +19409,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6714,
+   "v69": 5594,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.001,
@@ -19426,7 +19426,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6712,
+   "v69": 5592,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19443,7 +19443,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6709,
+   "v69": 5589,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19460,7 +19460,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6711,
+   "v69": 5591,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19477,7 +19477,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6708,
+   "v69": 5588,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19494,7 +19494,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6706,
+   "v69": 5586,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19511,7 +19511,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6705,
+   "v69": 5585,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19528,7 +19528,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6717,
+   "v69": 5597,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.001,
@@ -19545,7 +19545,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6715,
+   "v69": 5595,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.001,
@@ -19562,7 +19562,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6718,
+   "v69": 5598,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.001,
@@ -19579,7 +19579,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6720,
+   "v69": 5600,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19596,7 +19596,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6721,
+   "v69": 5601,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19613,7 +19613,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6775,
+   "v69": 5655,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.004,
@@ -19630,7 +19630,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6776,
+   "v69": 5656,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.004,
@@ -19647,7 +19647,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6772,
+   "v69": 5652,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.002,
@@ -19664,7 +19664,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6773,
+   "v69": 5653,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.002,
@@ -19681,7 +19681,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6769,
+   "v69": 5649,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.002,
@@ -19698,7 +19698,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6770,
+   "v69": 5650,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.002,
@@ -19715,7 +19715,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6766,
+   "v69": 5646,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.002,
@@ -19732,7 +19732,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6767,
+   "v69": 5647,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.002,
@@ -19749,7 +19749,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6763,
+   "v69": 5643,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19766,7 +19766,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6764,
+   "v69": 5644,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19783,7 +19783,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6760,
+   "v69": 5640,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -19800,7 +19800,7 @@
    "row": "18",
    "label": "BRACKET",
    "kg": 0.76,
-   "v69": 6761,
+   "v69": 5641,
    "v69name": "BRACKET",
    "v69prof": "L60*6",
    "boxDiff": 0.0,
@@ -31290,7 +31290,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 6835,
+   "v69": 5715,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31307,7 +31307,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 6836,
+   "v69": 5716,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31324,7 +31324,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 6837,
+   "v69": 5717,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31341,7 +31341,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 6838,
+   "v69": 5718,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31358,7 +31358,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 6839,
+   "v69": 5719,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31375,7 +31375,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 6840,
+   "v69": 5720,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31392,7 +31392,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 6841,
+   "v69": 5721,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31409,7 +31409,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 6842,
+   "v69": 5722,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31426,7 +31426,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 6843,
+   "v69": 5723,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31443,7 +31443,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 6844,
+   "v69": 5724,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31460,7 +31460,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 6845,
+   "v69": 5725,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31477,7 +31477,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 6846,
+   "v69": 5726,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31494,7 +31494,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 6847,
+   "v69": 5727,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31511,7 +31511,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 6848,
+   "v69": 5728,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31528,7 +31528,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 6849,
+   "v69": 5729,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31545,7 +31545,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 6850,
+   "v69": 5730,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31562,7 +31562,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 6851,
+   "v69": 5731,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31579,7 +31579,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 6852,
+   "v69": 5732,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31596,7 +31596,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 6853,
+   "v69": 5733,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31613,7 +31613,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 6854,
+   "v69": 5734,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31630,7 +31630,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 1.88,
-   "v69": 6855,
+   "v69": 5735,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31647,7 +31647,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 6856,
+   "v69": 5736,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31664,7 +31664,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 6857,
+   "v69": 5737,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31681,7 +31681,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.83,
-   "v69": 6858,
+   "v69": 5738,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.0,
@@ -31698,7 +31698,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 6859,
+   "v69": 5739,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31715,7 +31715,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 6860,
+   "v69": 5740,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31732,7 +31732,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 3.01,
-   "v69": 6861,
+   "v69": 5741,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31749,7 +31749,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 6862,
+   "v69": 5742,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31766,7 +31766,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 6863,
+   "v69": 5743,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -31783,7 +31783,7 @@
    "row": "-",
    "label": "column top cap plate",
    "kg": 2.03,
-   "v69": 6864,
+   "v69": 5744,
    "v69name": "Cap Plate",
    "v69prof": "FLT8*150",
    "boxDiff": 0.001,
@@ -77734,10 +77734,7 @@
    "status": "MATCHED"
   }
  ],
- "v69Extra": {
-  "NUT NUT M12": 560,
-  "WASHER WASHER M12": 560
- },
+ "v69Extra": {},
  "bolts": {
   "r10": {
    "groups": 1294,
@@ -77795,7 +77792,7 @@
  "totals": {
   "bodies": {
    "r10": 6242,
-   "v69": 6864
+   "v69": 5744
   },
   "kinds": {
    "r10": {
@@ -77805,7 +77802,7 @@
    },
    "v69": {
     "bolts": 1205,
-    "conn": 4820,
+    "conn": 3700,
     "member": 839
    }
   },
@@ -77986,7 +77983,6 @@
     "HAUNCH_PLATE | PL8": 48,
     "HZ Bracing | SHS100*3": 96,
     "Hand Rail | CHS48*3": 6,
-    "NUT | NUT M12": 560,
     "NUT | PD40*10": 192,
     "Purlin | CC200-2-20-60": 220,
     "RAFTER | BI150-6-120-8": 24,
@@ -78003,14 +77999,13 @@
     "Tie Rod THREAD100MM | ROD12": 140,
     "VL Bracing | SHS100*3": 60,
     "WASHER | PD40*10": 192,
-    "WASHER | WASHER M12": 560,
     "Web | PL8": 48
    }
   },
   "weightKg": {
    "r10": 64021.96,
-   "v69": 64025.41,
-   "diff": 3.45,
+   "v69": 64003.01,
+   "diff": -18.95,
    "r10Weights": {
     "weight_t": 64.022,
     "net_t": 64.01,
@@ -78019,10 +78014,10 @@
     "boltBodiesExcluded": 1294
    },
    "v69Weights": {
-    "weight_t": 64.025,
-    "net_t": 64.002,
-    "gross_t": 64.079,
-    "parts": 6061,
+    "weight_t": 64.003,
+    "net_t": 63.979,
+    "gross_t": 64.057,
+    "parts": 4941,
     "boltBodiesExcluded": 1205
    }
   },
@@ -78037,7 +78032,7 @@
    ],
    "detail parts (R10) / component parts (v69)": [
     9767.77,
-    9773.31
+    9750.91
    ]
   }
  },
@@ -79746,9 +79741,6 @@
    "bolts": 104,
    "parts": 364
   },
-  "8": {
-   "parts": 1120
-  },
   "9": {
    "boltCount": 192,
    "bolts": 24,
@@ -79861,7 +79853,7 @@
   "8": {
    "title": "Sag rod (purlin -> rod)",
    "components": 280,
-   "v69Parts": 1120,
+   "v69Parts": 0,
    "v69Bolts": 0,
    "r10Parts": 0,
    "status": {},
@@ -81231,9 +81223,1410 @@
   ]
  },
  "replay": {
-  "errors": [],
+  "errors": [
+   [
+    "conn",
+    1023,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1024,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1025,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1026,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1027,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1028,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1029,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1030,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1031,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1032,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1033,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1034,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1035,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1036,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1037,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1038,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1039,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1040,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1041,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1042,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1043,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1044,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1045,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1046,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1047,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1048,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1049,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1050,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1051,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1052,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1053,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1054,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1055,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1056,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1057,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1058,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1059,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1060,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1061,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1062,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1063,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1064,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1065,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1066,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1067,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1068,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1069,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1070,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1071,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1072,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1073,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1074,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1075,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1076,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1077,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1078,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1079,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1080,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1081,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1082,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1083,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1084,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1085,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1086,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1087,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1088,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1089,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1090,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1091,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1092,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1093,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1094,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1095,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1096,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1097,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1098,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1099,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1100,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1101,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1102,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1103,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1104,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1105,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1106,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1107,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1108,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1109,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1110,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1111,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1112,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1113,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1114,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1115,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1116,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1117,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1118,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1119,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1120,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1121,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1122,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1123,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1124,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1125,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1126,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1127,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1128,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1129,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1130,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1131,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1132,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1133,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1134,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1135,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1136,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1137,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1138,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1139,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1140,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1141,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1142,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1143,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1144,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1145,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1146,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1147,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1148,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1149,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1150,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1151,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1152,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1153,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1154,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1155,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1156,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1157,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1158,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1159,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1160,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1161,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1162,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1163,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1164,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1165,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1166,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1167,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1168,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1169,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1170,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1171,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1172,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1173,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1174,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1175,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1176,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1177,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1178,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1179,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1180,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1181,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1182,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1183,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1184,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1185,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1186,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1187,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1188,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1189,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1190,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1191,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1192,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1193,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1194,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1195,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1196,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1197,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1198,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1199,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1200,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1201,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1202,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1203,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1204,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1205,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1206,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1207,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1208,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1209,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1210,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1211,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1212,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1213,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1214,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1215,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1216,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1217,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1218,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1219,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1220,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1221,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1222,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1223,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1224,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1225,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1226,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1227,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1228,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1229,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1230,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1231,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1232,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1233,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1234,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1235,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1236,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1237,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1238,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1239,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1240,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1241,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1242,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1243,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1244,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1245,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1246,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1247,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1248,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1249,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1250,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1251,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1252,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1253,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1254,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1255,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1256,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1257,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1258,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1259,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1260,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1261,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1262,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1263,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1264,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1265,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1266,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1267,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1268,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1269,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1270,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1271,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1272,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1273,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1274,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1275,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1276,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1277,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1278,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1279,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1280,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1281,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1282,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1283,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1284,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1285,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1286,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1287,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1288,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1289,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1290,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1291,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1292,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1293,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1294,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1295,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1296,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1297,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1298,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1299,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1300,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1301,
+    "not built (red symbol)"
+   ],
+   [
+    "conn",
+    1302,
+    "not built (red symbol)"
+   ]
+  ],
   "connectionsListed": 1369,
   "connectionsInV69": 1369,
-  "notOk": 0
+  "notOk": 280
  }
 }

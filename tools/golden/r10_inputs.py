@@ -853,7 +853,7 @@ def main():
             dd, s1, t1 = seg_dist(m['st']['p1'], m['st']['p2'], pm['st']['p1'], pm['st']['p2'])
             if dd < 110 and 0 < t1 < 1: hit.append(pm['i'])
         if not hit: unhandled['Tie Rod crossing no purlin'].append(m['r10'][0])
-        for h in sorted(hit): conn('Tsag', [h, m['i']], OrderedDict(), '8', [])
+        for h in sorted(hit): conn('Tsag', [h, m['i']], OrderedDict(nut=0, washer=0) if TEKLA else OrderedDict(), '8', [])   # C08 (PARITY.md): Tekla's sag rods have no nut or washer parts (R12 / R13: plain ROD12 members, no bolts)
 
     # ---- row 18: stair treads between the two sloped stringers of a flight
     str_ = [m for m in members if m['st']['name'] == 'STRINGER' and abs(m['st']['p1'][2] - m['st']['p2'][2]) > 500]

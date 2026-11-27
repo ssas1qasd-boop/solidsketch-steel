@@ -8,17 +8,17 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 
 | | R13 | v69 rebuild |
 |---|---|---|
-| Bodies | 6,242 | 6,864 |
+| Bodies | 6,242 | 5,744 |
 | … kind `bolts` | 1,294 | 1,205 |
-| … kind `conn` | 0 | 4,820 |
+| … kind `conn` | 0 | 3,700 |
 | … kind `member` | 1,540 | 839 |
 | … kind `plate` | 3,408 | 0 |
 | Connections | 1,700 (TKBOLT / TKCUT) | 1,369 (components) |
 | Bolts | 4,596 in 1,294 groups | 4,598 in 1,205 groups |
-| Weight (v66 Tekla weights, bolts excluded) | 64,021.96 kg | 64,025.41 kg (+3.45) |
+| Weight (v66 Tekla weights, bolts excluded) | 64,021.96 kg | 64,003.01 kg (-18.95) |
 | … builtup members | 37,892.73 kg | 37,890.44 kg |
 | … given members | 16,361.46 kg | 16,361.66 kg |
-| … detail parts (R13) / component parts (v69) | 9,767.77 kg | 9,773.31 kg |
+| … detail parts (R13) / component parts (v69) | 9,767.77 kg | 9,750.91 kg |
 
 Members: 839 placed (201 built-up equivalents, 638 R13 members as given): 4 INPUT EQUAL, SOLID DIFFERS, 835 MATCHED.
 - built-up equivalents: 197 matched of 201 (inputs equal R13 for all 201)
@@ -34,7 +34,7 @@ Status words: MATCHED = equal within the tolerances (0.1 mm points and boxes, vo
 - Grid: `x 0 13195 13195 13195 13195`, `y 0 5570 5570 5570 5570 5570`, `z 0 7500 1500` (R13's own, Tekla syntax).
 - **Portal frame application: not used.** v69's portal frame (v33, with v42 girts / gables and v43 crane) makes one span at x = 0 (two columns, two rafters per frame) and replaces the parts of an earlier run, so it cannot make R13's four spans on five column lines, its built-up BI220 / BI320 columns, the ridge monitor or the mezzanine. Option needed: number of spans (or a list of spans), an x origin, and built-up / different column sections per line. Everything is placed member by member, as in the owner's video (Column / Beam tools on the grid).
 - Members: 201 built-up equivalents (each R13 web with its two flanges → one `BI<H>-<tw>-<b>-<tf>` member on the section centre line, ends from the three plates) and 638 R13 members as given (purlins, bracing, struts, sag rods, stair stringers, stanchions, hand rails, railings). Not placed because v69 components make them: Anchor Bolt ROD16 (16), Anchor Bolt ROD20 (192), BRACKET L60*6 (46), Cleat Angle L140*60*6 (264), NUT PD40*10 (192), WASHER PD40*10 (192).
-- Components: 1369 in one `connectMany` step: T1004 4, T1042 48, T144 105, T146 88, T186 24, T39 2, Tcl 264, Tcolcap 30, Teh 48, Tsag 280, Tsep 8, Ttg 352, Ttgx 52, apex 36, stairtreads 2, weldonly 26. v69 built 1369 connections, 0 with a red symbol, 0 replay errors.
+- Components: 1369 in one `connectMany` step: T1004 4, T1042 48, T144 105, T146 88, T186 24, T39 2, Tcl 264, Tcolcap 30, Teh 48, Tsag 280, Tsep 8, Ttg 352, Ttgx 52, apex 36, stairtreads 2, weldonly 26. v69 built 1369 connections, 280 with a red symbol, 280 replay errors.
 - Which parts each component joins comes from R13: the detail plate it would make (base plate, end plate, shear plate, tongue, cleat …) and the TKBOLT bolt groups that join that plate to the other assembly; settings (plate thickness and size, bolt diameter, rows / gauge / pitches / edge distance, anchors, grout, cast plate) come from that plate and its bolts where v69 has the option.
 - R13 detail plates for which no component was added (not bolted to another assembly, or no rule): PLATE FLT12*120 (): 1.
 - Webs left as plates (no two flanges found): 96 (96 are the eave and apex haunch webs, which have one flange; the apex haunch is made by the v54 apex).
@@ -52,7 +52,7 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 | 5 | Tube gusset 20: tongue (main -> brace) | 352 | 1298 / 1408 | 1294 | 1239 | 55 / 0 | 0 | partly |
 | 6 | Node gusset (several braces on one gusset) | (row 5) | 0 / 0 | 250 | 233 | 17 / 0 | 0 | partly |
 | 7 | Tube crossing (continuous -> half 1 -> half 2) | 52 | 364 / 416 | 118 | 100 | 18 / 0 | 0 | partly |
-| 8 | Sag rod (purlin -> rod) | 280 | 1120 / 0 | 0 (+140 members as given, 140 matched) | 0 | 0 / 0 | 0 | placed as given |
+| 8 | Sag rod (purlin -> rod) | 280 | 0 / 0 | 0 (+140 members as given, 140 matched) | 0 | 0 / 0 | 0 | placed as given |
 | 9 | 144: monitor post on rafter | 24 | 72 / 192 | 72 | 72 | 0 / 0 | 0 | reproduced |
 | 10 | 144: monitor rafter to post | 23 | 23 / 138 | 24 | 23 | 0 / 0 | 1 | partly |
 | 11 | Joining plates 14: monitor apex | 12 | 24 / 48 | 24 | 24 | 0 / 0 | 0 | reproduced |
@@ -127,7 +127,7 @@ Field differences on members (count of members): none (every placed member has R
 
 ## v69 parts with no R13 counterpart
 
-NUT NUT M12: 560, WASHER WASHER M12: 560.
+.
 
 ## Bolts per size
 
@@ -195,25 +195,25 @@ Names differ between Tekla and v69 (e.g. `Base Plate × FLT20*200` against `BASE
 | Gusset Plate × FLT5*45 | 2 | HAUNCH_PLATE × PL8 | 48 |
 | Gusset Plate × PL12*210.3 | 5 | HZ Bracing × SHS100*3 | 96 |
 | Gusset Plate × PL12*210.4 | 5 | Hand Rail × CHS48*3 | 6 |
-| Gusset Plate × PL12*211.6 | 8 | NUT × NUT M12 | 560 |
-| Gusset Plate × PL12*212.7 | 10 | NUT × PD40*10 | 192 |
-| Gusset Plate × PL12*213 | 24 | Purlin × CC200-2-20-60 | 220 |
-| Gusset Plate × PL12*213.4 | 32 | RAFTER × BI150-6-120-8 | 24 |
-| Gusset Plate × PL12*214.1 | 20 | RAFTER × BI220-8-150-10 | 48 |
-| Gusset Plate × PL12*219.6 | 1 | RAILING × PD50*5 | 6 |
-| Gusset Plate × PL12*222.6 | 8 | SHEAR TAB × PL10 | 112 |
-| Gusset Plate × PL12*222.9 | 10 | STAIR PLATE × FLT12*150 | 8 |
-| Gusset Plate × PL12*223.1 | 2 | STIFFENER × PL10 | 68 |
-| Gusset Plate × PL12*230.7 | 4 | STRINGER × UPN240 | 12 |
-| Gusset Plate × PL12*234.3 | 1 | Stanchion × CHS48*3 | 26 |
-| Gusset Plate × PL12*279.7 | 13 | Strut × SHS100*3 | 72 |
-| Gusset Plate × PL12*280.4 | 11 | TONGUE PLATE × FLT12*140 | 456 |
-| Gusset Plate × PL12*283.8 | 3 | TREAD × PL10*335.7 | 23 |
-| Gusset Plate × PL12*318.2 | 5 | Tie Rod THREAD100MM × ROD12 | 140 |
-| Gusset Plate × PL12*328.8 | 5 | VL Bracing × SHS100*3 | 60 |
-| Gusset Plate × PL12*330.1 | 16 | WASHER × PD40*10 | 192 |
-| Gusset Plate × PL12*330.5 | 12 | WASHER × WASHER M12 | 560 |
-| Gusset Plate × PL12*331.1 | 5 | Web × PL8 | 48 |
+| Gusset Plate × PL12*211.6 | 8 | NUT × PD40*10 | 192 |
+| Gusset Plate × PL12*212.7 | 10 | Purlin × CC200-2-20-60 | 220 |
+| Gusset Plate × PL12*213 | 24 | RAFTER × BI150-6-120-8 | 24 |
+| Gusset Plate × PL12*213.4 | 32 | RAFTER × BI220-8-150-10 | 48 |
+| Gusset Plate × PL12*214.1 | 20 | RAILING × PD50*5 | 6 |
+| Gusset Plate × PL12*219.6 | 1 | SHEAR TAB × PL10 | 112 |
+| Gusset Plate × PL12*222.6 | 8 | STAIR PLATE × FLT12*150 | 8 |
+| Gusset Plate × PL12*222.9 | 10 | STIFFENER × PL10 | 68 |
+| Gusset Plate × PL12*223.1 | 2 | STRINGER × UPN240 | 12 |
+| Gusset Plate × PL12*230.7 | 4 | Stanchion × CHS48*3 | 26 |
+| Gusset Plate × PL12*234.3 | 1 | Strut × SHS100*3 | 72 |
+| Gusset Plate × PL12*279.7 | 13 | TONGUE PLATE × FLT12*140 | 456 |
+| Gusset Plate × PL12*280.4 | 11 | TREAD × PL10*335.7 | 23 |
+| Gusset Plate × PL12*283.8 | 3 | Tie Rod THREAD100MM × ROD12 | 140 |
+| Gusset Plate × PL12*318.2 | 5 | VL Bracing × SHS100*3 | 60 |
+| Gusset Plate × PL12*328.8 | 5 | WASHER × PD40*10 | 192 |
+| Gusset Plate × PL12*330.1 | 16 | Web × PL8 | 48 |
+| Gusset Plate × PL12*330.5 | 12 |  |  |
+| Gusset Plate × PL12*331.1 | 5 |  |  |
 | Gusset Plate × PL12*332.5 | 4 |  |  |
 | Gusset Plate × PL12*333.9 | 5 |  |  |
 | Gusset Plate × PL12*349.6 | 4 |  |  |

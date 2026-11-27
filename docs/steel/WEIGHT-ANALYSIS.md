@@ -1,8 +1,9 @@
-# Weight analysis: the R12 rebuild vs Tekla, part by part
+# Weight analysis: the R13 rebuild vs Tekla, part by part
 
-Written 2026-11-27. This is a read-only investigation: no code and no other file was changed.
+Written 2026-11-27 on R12 (v1 to v10), moved to R13 with v11. R13 is the reference model since the owner's OK of 2026-11-28. This is a read-only investigation: no code and no other file was changed.
 
 ## History
+v1 to v10 are against R12 (Tekla 63,705.82 kg). v11 is against R13 (Tekla 64,017.49 kg).
 - **v1** (C20 snapshot, before ce01af4): app 63,495.66 kg, Tekla 63,705.82, **Δ −210.16**. Bolt holes were taken off component parts, and the grout was weighed as S275.
 - **v2** (ce01af4: gross rule `holeFill70` / `TeklaWeight.holeFill`, grout weighs 0, stair-post 146 bolts L40): app 62,516.10 kg (web; the app reports 62,517.22), Tekla 63,705.82, **Δ −1,189.72**.
 - **v3** (bccb1e7, C05: Ttg tube ends as Tekla, parametric SHS / RHS with square corners, hole fill by rays on the part mesh including other connections' bolts): app 62,591.88 kg (web; the app reports 62,592.04), Tekla 63,705.82, **Δ −1,113.94**.
@@ -12,96 +13,111 @@ Written 2026-11-27. This is a read-only investigation: no code and no other file
 - **v7** (4890e47, C18 stairs: U-pan grating treads PL10*335.7 at 1,333 kg/m³, L60*6 brackets, mitred stringers, 8 stair end plates): app 63,086.22 kg (web; the app reports 63,086.36), **Δ −619.60**.
 - **v8** (907edf2, C03: apex haunch as Tekla 106, with the 48 apex stiffeners FLT10*60 and Tekla's haunch outline): app 63,102.54 kg (web), **Δ −603.28**.
 - **v9** (acc995b, C17: gable hanger 146, the 2 hangers with no partner now made, and the other 14 with Tekla's outline): app 63,105.97 kg (web), **Δ −599.85**.
-- **v10** (72de6af, X01 + X02: a built-up BI member is weighed as Tekla's three plates, with Tekla's fittings; column cap plates FLT8*150 from a new Column cap plate component): app 62,919.28 kg (web; the app reports 62,919.39), **Δ −786.54**. This is the current state. All the tables below are for v10 unless they say otherwise.
+- **v10** (72de6af, X01 + X02: a built-up BI member is weighed as Tekla's three plates, with Tekla's fittings; column cap plates FLT8*150 from a new Column cap plate component): app 62,919.28 kg (web; the app reports 62,919.39), **Δ −786.54**. Last snapshot on R12.
+- **v11** (e089185, R13 = the reference: the 3 mezzanine girders EB4007 with their webs, the 6 drilled column shear plates and their 6 bolt groups): app 64,025.41 kg (web; the app reports 64,025.52), Tekla 64,017.49, **Δ +7.92** (against the Part List 64,023.4: **+2.01**). This is the current state. All the tables below are for v11 unless they say otherwise.
 
 **Compared:**
-- **Tekla:** each R12 part's own Tekla weight (`st.tkW` in `tests/steel/models/Frame_28x53m_R12.ss`). There are 4,945 parts and they sum to **63,705.82 kg**. Tekla's Part List total is 63,711.7 kg.
-- **App:** the web rebuild in the v10 snapshot (`rebuild_v69.json`, `compare_v69.json`, `rebuild_inputs.json`, `R12_app.ss` after 72de6af). The app and the web build give the same rebuild body by body (`R11RebuildTest`). The total is **62,919.28 kg**, bolts excluded. The app's own total is 62,919.39, 0.11 kg above the web.
-- **Difference:** app − Tekla = **−786.54 kg** (against the Part List, −792.42 kg). The groups below add up to exactly this figure (residual 0.00 kg) in every snapshot.
+- **Tekla:** each R13 part's own Tekla weight (`st.tkW` in `tests/steel/models/Frame_28x53m_R13.ss`). There are 4,948 parts and they sum to **64,017.49 kg**. Tekla's Part List total (`SingleList.xsr`, Package_2) is **64,023.4 kg**, 5.91 kg above the parts' sum (R12: 5.88 kg, the same rounding gap).
+- **App:** the web rebuild of R13 in the v11 snapshot at e089185 (`tests/steel/golden/r13/rebuild_v69.json`, `compare_v69.json`, `rebuild_inputs.json`). The app and the web build give the same rebuild body by body (`R13RebuildTest`: 6,864 bodies, 0 differences). The total is **64,025.41 kg**, bolts excluded. The app's own total is 64,025.52, 0.11 kg above the web.
+- **The two web totals in `compare_v69.json` → `totals.weightKg`:**
+  - `v69` = **64,025.41 kg**: the rebuild, 6,061 parts (each built-up as three plates), 1,205 bolt bodies excluded. This is the app figure used here.
+  - `r10` = **64,021.96 kg**: the web v70 weight rule applied to R13's own 4,948 parts (1,294 bolt bodies excluded). It is not Tekla's weight. It is the same figure as `weights_v70.json` and `docs/steel/WEIGHTS-R13.md`, where it stands +4.47 kg above `st.tkW` (64,017.49): the PD40*10 washers +1.92, the UPN240 stringers +1.64, plates +0.88, SHS +0.03.
+  - `diff` = +3.45 kg is rebuild − rule on R13, not rebuild − Tekla.
+- **Difference:** app − Tekla = **+7.92 kg** against `st.tkW`, and **+2.01 kg** against the Part List. The groups below add up to exactly +7.92 kg (residual 0.00 kg), as in every snapshot.
 
-## Summary (v10, after C03, C17, X01 and X02)
+## Summary (v11, R13)
 
-**C01 / C16 (v6):** the anchor rods, nuts and washers are now parts. Rows 1 and 16 match completely: 744 parts, 923.41 kg = 923.41 kg. Groups A1–A3 (−340.80 kg) are gone, and their parts are now in D2, which is still +0.98 kg in total.
+**R13 (v11):** the R12 data gap is gone. Of the −803.44 kg that waited for R13, −794.40 kg is closed and only the 2 counter plates on EB4002 (−9.04) are left. The rest of the model is the same as R12, so every other group has the same Δ as v10.
 
-**C18 (v7):** the stairs match. Row 18 has 81 of 83 parts MATCHED, 186.04 kg = 186.04 kg. The app's extra steel treads, supports and foot plates (+227.84 kg) are gone. B2 is now only the 2 counter plates FLT12*150 on EB4002 (−9.04 kg), left for R13 by the owner's decision. The 12 UPN240 stringers now match too (D5 UPN −0.10, which is rounding).
+| R12 item (v10) | Parts | Δ v10 | Where it is in v11 | Tekla R13 kg | App v11 kg | **Δ v11** |
+|---|---|---|---|---|---|---|
+| A5: flanges FLT12*250 of EB4006 / EB4008, no web | 6 | −760.50 | D4: 3 girders EB4007 (2 flanges + the new web FLT8*300 each), built-up members. Status INPUT EQUAL, SOLID DIFFERS (box 30 mm off) | 1,072.17 (760.50 + 3 × 103.89) | 1,072.20 | **+0.03** |
+| A7 (C20): stiffeners FLT10*70 at C2019 / C2023 | 12 | −19.08 | D2: row 20 Top / Bot FS / NS, MATCHED | 19.08 | 19.08 | **0.00** |
+| A7 (C12): column shear plates FLT10*150 | 6 | −14.82 | D2: row 20 shear tabs, now drilled (marks 4514 ×3, 4515 ×3), MATCHED | 14.82 | 14.85 | **+0.03** |
+| B2 (C18): counter plates FLT12*150 on EB4002 | 2 | −9.04 | Still B2, MISSING. Not part of the R13 change | 9.04 | 0 | **−9.04** |
+| **Total** | **26** | **−803.44** | | **1,115.11** | **1,106.13** | **−8.98** |
 
-**C03 (v8):** the apex haunch is made as Tekla 106. Row 3 matches completely: 192 of 192 parts MATCHED, 1,885.92 kg = 1,885.92 kg (48 end plates 482.40, 48 stiffeners 16.80, 96 haunch webs and flanges 1,386.72). A4 (−16.80) is gone, and the haunch outline (+0.48 in D2) too.
+- The +0.03 on the shear plates is the three 4515 plates: app 2.48, Tekla 2.47 each (rounding). The three 4514 plates are equal.
+- The +0.03 on the girders is 0.01 kg on each EB4007 (357.40 vs 357.39). The box differs by 30 mm; agent R13 is on these girders (C12 / C20).
+- v10 → v11: Tekla went up 311.67 kg (the 3 webs), the app 1,106.13 kg (the girders 1,072.20, the stiffeners 19.08, the shear plates 14.85). Δ went from −786.54 to +7.92 (+794.46 = 760.50 + 33.90 + 0.06).
 
-**C17 (v9):** the gable hangers match. Row 17: 16 of 16 parts MATCHED, 28.56 kg = 28.56 kg. The 2 hangers with no partner (−3.57 in A7) are made, and the 14 ROUGH hangers (+0.14 in D2) now have Tekla's outline.
+**Done before R13 (v6 to v10, on R12, unchanged on R13):**
+- **C01 / C16 (v6):** anchor rods, nuts and washers are parts. Rows 1 and 16: 744 parts, 923.41 kg = 923.41 kg.
+- **C18 (v7):** stairs. Row 18: 81 of 83 parts MATCHED, 186.04 kg = 186.04 kg. Only the 2 counter plates (B2) are left.
+- **C03 (v8):** apex haunch as Tekla 106. Row 3: 192 of 192 MATCHED, 1,885.92 kg = 1,885.92 kg.
+- **C17 (v9):** gable hangers. Row 17: 16 of 16 MATCHED, 28.56 kg = 28.56 kg.
+- **X01 (v10):** built-up members as Tekla's three plates, with Tekla's fittings. D4 went from +257.36 to −1.96 kg (v11: −1.93). PR7001 (+0.39) is an R12 data quirk that R13 keeps: plate F7501 has assembly mark '14'.
+- **X02 (v10):** 30 column cap plates FLT8*150 from a new Column cap plate component. 30 of 30 MATCHED, 72.63 kg = 72.63 kg.
 
-**X01 (v10):** a built-up BI member is now weighed as Tekla's three plates (Web, Top flange, Bottom flange). Each plate is its own solid, without bolt holes. Tekla's fittings are made too: the apex rafters and the 144 secondaries are fitted to the end plate face, and the 144 option `cfit` fits the column top to the rafter's top face. D4 went from +257.36 to **−1.96 kg**. 835 of 836 members are MATCHED. PR7001 (+0.39) is left: an R12 data quirk (plate 1985, F7501, has assembly mark '14').
-
-**X02 (v10):** the 30 column cap plates FLT8*150 are made by a new Column cap plate component. All 30 are MATCHED, 72.63 kg = 72.63 kg. A6 (−72.63) is gone.
-
-**Why the total went down in v10:** v69's catalog rule (BI area × member length) made the built-ups 257 kg too heavy. That excess had been hiding part of the R13 gap. Now the built-ups weigh as Tekla's, so the gap shows in full.
+**Why Δ is now positive:** the app still makes the sag-rod nuts and washers (C08, +22.40). Tekla has none. They hide the parts the app still lacks (−12.48: B2 and A7) and the rounding (−2.00). Against the Part List the app is only +2.01 kg off, but that is luck, not parity.
 
 **Owner decisions reflected here:**
-- EB4006 / EB4008 (A5), and with them the C20 / C12 parts in A7 and the C18 counter plates, wait for R13.
+- R13 is the reference (owner OK 2026-11-28). The weight target is Tekla's Part List, 64,023.4 kg; part by part it is `st.tkW`, 64,017.49 kg.
 - The 17 C06 gable gussets and the 18 C07 PL5 plates (both NEAR) are accepted for now.
 
-The −786.54 kg left is almost all R13 work (−803.44 kg). Against that stand only C08 (+22.40), C10 / C13 (−3.44) and rounding (−2.06).
-
-| # | Group | R12 parts | App parts (v10) | kg R12 | kg app v8 | kg app v9 | kg app v10 | Δ v8 | Δ v9 | **Δ v10** | Fix / code |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| A1 | (a) Anchor rods ROD20 | 192 → 0 (matched) | – | – | – | – | – | 0.00 | 0.00 | **0.00** | Done (C01, v6): parts in D2 |
-| A2 | (a) Anchor nuts and washers PD40*10 | 384 → 0 (matched) | – | – | – | – | – | 0.00 | 0.00 | **0.00** | Done (C01, v6) |
-| A3 | (a) Anchor rods ROD16 | 16 → 0 (matched) | – | – | – | – | – | 0.00 | 0.00 | **0.00** | Done (C16, v6) |
-| A4 | (a) Apex stiffener FLT10*60 | 48 → 0 (matched) | – | – | – | – | – | 0.00 | 0.00 | **0.00** | Done (C03, v8): parts in D2 |
-| A5 | (a) Girder flanges EB4006 / EB4008 (no web in R12) | 6 | 0 | 760.50 | 0 | 0 | 0 | −760.50 | −760.50 | **−760.50** | R13 (owner) |
-| A6 | (a) Column top cap plates FLT8*150 | 30 → 0 (matched) | – | 72.63 → – | 0 | 0 | – | −72.63 | −72.63 | **0.00** | Done (X02, v10): parts in D2 |
-| A7 | (a) Parts with no secondary part to pick | 25 → 23 | 0 | 40.91 → 37.34 | 0 | 0 | 0 | −40.91 | −37.34 | **−37.34** | R13 33.90 (C20 / C12), C10 2.60, C13 0.84; C17 done (v9) |
-| B1 | (a)+(b) Tube gusset and crossing | 1,662 | 1,662 | 4,044.25 | 4,041.92 | 4,041.92 | 4,041.92 | −2.33 | −2.33 | **−2.33** | Done (C05–C07); 35 NEAR parts accepted |
-| B2 | (a)+(b) Stairs: parts not yet made | 2 | 0 | 9.04 | 0 | 0 | 0 | −9.04 | −9.04 | **−9.04** | Done (C18, v7); 2 counter plates on EB4002 for R13 |
-| C1 | (b) Sag-rod nuts and washers M12 (Tekla has none) | 0 | 1,120 | 0.00 | 22.40 | 22.40 | 22.40 | +22.40 | +22.40 | **+22.40** | C08: nut / washer off |
-| D1 | (c) Grout | 52 | 52 | 0.00 | 0 | 0 | 0 | 0.00 | 0.00 | **0.00** | Done |
-| D2 | (c) The same component part (rounding, outline) | 1,936 → 1,938 → 1,968 | same | 5,598.50 → 5,602.07 → 5,674.70 | 5,599.00 | 5,602.43 | 5,675.06 | +0.50 | +0.36 | **+0.36** | Done; Tekla's rounding (C09 +0.48, C13 −0.12) |
-| D4 | (c) Built-up members: v8 / v9 one BI catalog member, v10 three plates as Tekla | 594 | 198 members (594 plates) | 36,820.20 | 37,077.56 | 37,077.56 | 36,818.24 | +257.36 | +257.36 | **−1.96** | Done (X01, v10); rounding, PR7001 +0.39 |
-| D5 | (c) Members placed as given | 638 | 638 | 16,359.79 | 16,361.66 | 16,361.66 | 16,361.66 | +1.87 | +1.87 | **+1.87** | Done; rounding |
-| | **Total** | **4,945** | **5,606 / 5,608 / 5,638** | **63,705.82** | **63,102.54** | **63,105.97** | **62,919.28** | **−603.28** | **−599.85** | **−786.54** | residual 0.00 in each |
+| # | Group | R13 parts | App parts (v11) | kg Tekla R12 | kg Tekla R13 | kg app v10 | kg app v11 | Δ v10 | **Δ v11** | Fix / owner |
+|---|---|---|---|---|---|---|---|---|---|---|
+| A1 | (a) Anchor rods ROD20 | 0 (matched) | – | – | – | – | – | 0.00 | **0.00** | Done (C01, v6): parts in D2 |
+| A2 | (a) Anchor nuts and washers PD40*10 | 0 (matched) | – | – | – | – | – | 0.00 | **0.00** | Done (C01, v6) |
+| A3 | (a) Anchor rods ROD16 | 0 (matched) | – | – | – | – | – | 0.00 | **0.00** | Done (C16, v6) |
+| A4 | (a) Apex stiffener FLT10*60 | 0 (matched) | – | – | – | – | – | 0.00 | **0.00** | Done (C03, v8) |
+| A5 | (a) Girder flanges EB4006 / EB4008 (no web in R12) | 0 (R12: 6) | – | 760.50 | – | 0 | – | −760.50 | **0.00** | Done (R13, v11): 3 girders EB4007 in D4 |
+| A6 | (a) Column top cap plates FLT8*150 | 0 (matched) | – | – | – | – | – | 0.00 | **0.00** | Done (X02, v10) |
+| A7 | (a) Parts with no secondary part to pick | 5 (R12: 23) | 0 | 37.34 | 3.44 | 0 | 0 | −37.34 | **−3.44** | R13 closed 33.90 (C20, C12: now in D2). Left: C10 2.60, C13 0.84 (main session) |
+| B1 | (a)+(b) Tube gusset and crossing | 1,662 | 1,662 | 4,044.25 | 4,044.25 | 4,041.92 | 4,041.92 | −2.33 | **−2.33** | 90 NEAR parts (C05–C07): agent TUBES |
+| B2 | (a)+(b) Stairs: parts not yet made | 2 | 0 | 9.04 | 9.04 | 0 | 0 | −9.04 | **−9.04** | 2 counter plates on EB4002: agent C18 |
+| C1 | (b) Sag-rod nuts and washers M12 (Tekla has none) | 0 | 1,120 | 0.00 | 0.00 | 22.40 | 22.40 | +22.40 | **+22.40** | C08, nut / washer off: main session (now) |
+| D1 | (c) Grout | 52 | 52 | 0.00 | 0.00 | 0 | 0 | 0.00 | **0.00** | Done |
+| D2 | (c) The same component part (rounding, outline) | 1,986 (R12: 1,968) | same | 5,674.70 | 5,708.60 | 5,675.06 | 5,708.99 | +0.36 | **+0.39** | Done; Tekla's rounding (C09 +0.48, C13 −0.12, C20 4515 +0.03) |
+| D4 | (c) Built-up members, three plates as Tekla | 603 (R12: 594) | 201 members (603 plates) | 36,820.20 | 37,892.37 | 36,818.24 | 37,890.44 | −1.96 | **−1.93** | Done (X01); rounding, PR7001 +0.39, EB4007 +0.03 (agent R13) |
+| D5 | (c) Members placed as given | 638 | 638 | 16,359.79 | 16,359.79 | 16,361.66 | 16,361.66 | +1.87 | **+1.87** | Done; rounding (SHS braces: agent TUBES) |
+| | **Total** | **4,948** | **5,659** | **63,705.82** | **64,017.49** | **62,919.28** | **64,025.41** | **−786.54** | **+7.92** | residual 0.00 in each |
 
 How to read the table:
-- Where a group's R12 parts became MATCHED, they moved into D2. That is why D2 grows from 1,219 (v2) to 1,968 parts while its Δ stays below +1.
-- The app parts count one row per built-up member. With each built-up as three plates, the app has 6,034 parts in v10.
-- v7 → v8 went up by 16.32 kg: the apex stiffeners (+16.80) minus the old haunch outline (−0.48).
-- v8 → v9 went up by 3.43 kg: the two new hangers (+3.57) minus the old hanger outline (−0.14).
-- v9 → v10 went down by 186.69 kg: the built-ups (−259.32) and the cap plates (+72.63).
-- Earlier states: v1 −210.16, v2 −1,189.72, v3 −1,113.94, v4 −963.07, v5 −723.40, v6 −382.60, v7 −619.60 (see History).
+- Where a group's parts became MATCHED, they moved into D2. That is why D2 grows from 1,219 (v2) to 1,986 parts while its Δ stays below +1.
+- The app parts count one row per built-up member. With each built-up as three plates, the app has 6,061 parts in v11 (6,034 in v10).
+- R13 renumbered the model. Marks in this report are R13's where they say v11, and R12's in the history sections. For example, R12's EB4009 is R13's EB4006.
+- v10 → v11 went up by 1,106.13 kg in the app and by 311.67 kg in Tekla (see the R13 table above).
+- Earlier states: v1 −210.16, v2 −1,189.72, v3 −1,113.94, v4 −963.07, v5 −723.40, v6 −382.60, v7 −619.60, v8 −603.28, v9 −599.85, v10 −786.54 (see History).
 
 ### What is left, ranked by kg
 
-| Order | Fix | Code | Δ kg it removes | Parts | What |
-|---|---|---|---|---|---|
-| 1 | **R13 (owner):** EB4006 / EB4008 flanges, their C20 stiffeners and C12 shear plates, and the 2 counter plates on EB4002 | R13 | −803.44 | 26 | Two girders with flanges but no web in R12 (A5 760.50, A7 33.90, B2 9.04) |
-| 2 | Sag-rod nut and washer off (not in the owner's order yet) | C08 | +22.40 | 1,120 | Tekla has no nut or washer parts on the sag rods |
-| 3 | Monitor plate, MBC2001 stiffeners (R12 data, no partner) | C10, C13 | −3.44 | 5 | |
-| 4 | Rounding: B1 −2.33, D4 −1.96, D5 +1.87, D2 +0.36 | – | −2.06 | | Tekla's rounding, accepted NEAR parts, PR7001 |
-| Done (v8) | Apex haunch and stiffeners | C03 | −16.80 (+0.48 outline in D2) → **0.00** | 48 + 96 | Row 3: 192 / 192, 1,885.92 kg = Tekla |
-| Done (v9) | Gable hanger | C17 | −3.57 (+0.14 outline in D2) → **0.00** | 2 + 14 | Row 17: 16 / 16, 28.56 kg = Tekla |
-| Done (v10) | Built-ups as Tekla | X01 | +257.36 → **−1.96** | 198 members | Three plates as solids, with Tekla's fittings; 835 / 836 members MATCHED |
-| Done (v10) | Column top cap plates | X02 | −72.63 → **0.00** | 30 | New Column cap plate component; 30 / 30 MATCHED |
+Four pieces of work run in parallel. Each line names who has it.
 
-The owner's four fixes (C03, C17, X01, X02) are done. Δ is −786.54 kg. The v7 forecast was about −784 kg; the 2.58 kg more is the built-ups' rounding (D4 −1.96) and the C03 / C17 outlines (−0.62), which the forecast's rounding line still counted. After R13 and C08 as well, Δ would be −5.50 kg: C10 / C13 (−3.44) and rounding (−2.06).
+| Order | Fix | Code | Δ kg it removes | Parts | Owner | What |
+|---|---|---|---|---|---|---|
+| 1 | Sag-rod nut and washer off | C08 | +22.40 | 1,120 | Main session (now) | Tekla has no nut or washer parts on the sag rods (560 NUT M12 16.80, 560 WASHER M12 5.60) |
+| 2 | Counter plates FLT12*150 on EB4002 (mark 9504, 4.52 kg each) | C18 | −9.04 | 2 | Agent C18 | Row 18. The same agent also checks the SGR / SR assembly weights against Tekla's lists; those do not change the part total |
+| 3 | Monitor plate F7501, MBC2001 stiffeners | C10, C13 | −3.44 | 5 | Main session (after C08) | F7501 FLT12*120 2.60 (R12 data, no partner); 4 Stiff. FLT10*50 0.84 |
+| 4 | Tube gusset and crossing NEAR parts | C05, C06, C07 | −2.33 | 90 NEAR | Agent TUBES | Node gussets −2.46, end caps +0.13. The SHS braces in D5 (+2.27) are the same joints |
+| 5 | The 3 fixed girders, C12 / C20 there, C14 | C12, C20, C14 | −0.06 (EB4007 +0.03, shear plates 4515 +0.03) | 3 girders + 6 plates | Agent R13 | Mostly geometry: the EB4007 box is 30 mm off. Weight is already within rounding |
+| 6 | Rounding: D4 −1.93, D5 +1.87, D2 +0.39 (B1 in line 4) | – | about −2.00 in all with B1 | | – | Tekla's rounding, accepted NEAR parts, PR7001 |
+| Done (v11) | R13: girders EB4007 with web, C20 stiffeners, C12 shear plates | R13 | −794.40 → **+0.06** | 3 girders + 18 | | A5 −760.50 and A7 −33.90 closed |
+| Done (v10) | Built-ups as Tekla, column cap plates | X01, X02 | +257.36 → −1.96; −72.63 → 0.00 | 198 members, 30 | | |
+| Done (v8, v9) | Apex haunch, gable hanger | C03, C17 | −16.80, −3.57 → **0.00** | 48 + 96, 2 + 14 | | Rows 3 and 17 equal Tekla |
+
+After C08, C18 and C10 / C13, Δ would be about **−2.00 kg** against `st.tkW` (64,017.49): the rounding in B1, D4, D5 and D2. Against the Part List (64,023.4) that is about **−7.91 kg**, because the list total is 5.91 kg above the sum of Tekla's own part weights. Agents TUBES and R13 work on the last 2 kg.
 
 ## Method
 
-1. **Pairing.** Every R12 part with `st.tkW` is paired once, using the matches in `compare_v69.json` (the `classify()` / greedy-box logic in `tools/golden/r10_compare.py`):
+1. **Pairing.** Every R13 part (R12 up to v10) with `st.tkW` is paired once, using the matches in `compare_v69.json` (the `classify()` / greedy-box logic in `tools/golden/r10_compare.py`):
    - Members placed as given: the rebuilt member with that input (`rebuild_inputs.members[i].r10`).
    - Built-ups: one BI member against its three R12 plates.
    - Detail parts: the component part matched as MATCHED, NEAR or ROUGH. Parts with no match are MISSING. Anchor rods matched to bolts are AS BOLT.
    - App parts that no R12 part matched are EXTRA.
 
-   That gives 4,945 R12 parts against 4,959 app parts (bolt bodies excluded on both sides).
-2. **Grouping.** Each pairing goes into exactly one group, using the R12-REPORT row (row N = C<NN>) or, for an extra part, the row of the app connection that made it.
-3. **Bolt holes in the app, estimated per part.** I cast rays along every app bolt axis through the app's meshes (`R12_app.ss`, 4,650 bolts). The ray on the axis meets no steel where there is a hole. Eight rays just outside the hole radius measure the material around it, which gives the hole length in each part. Hole weight = the app's hole section (a 12-gon, `stCyl(…, d0/2, …, 12)`, area 3·r²) × length × 7,850. It counts only where the part is weighed by its solid: every component part, and members that are not catalog.
+   In v1 that gave 4,945 R12 parts against 4,959 app parts (bolt bodies excluded on both sides). In v11 it gives 4,948 R13 parts against 5,659 app parts (one per built-up member; 6,061 with each built-up as three plates).
+2. **Grouping.** Each pairing goes into exactly one group, using the R12-REPORT / R13-REPORT row (row N = C<NN>) or, for an extra part, the row of the app connection that made it.
+3. **Bolt holes in the app, estimated per part (v1, R12).** I cast rays along every app bolt axis through the app's meshes (`R12_app.ss`, 4,650 bolts). The ray on the axis meets no steel where there is a hole. Eight rays just outside the hole radius measure the material around it, which gives the hole length in each part. Hole weight = the app's hole section (a 12-gon, `stCyl(…, d0/2, …, 12)`, area 3·r²) × length × 7,850. It counts only where the part is weighed by its solid: every component part, and members that are not catalog.
 
    Check: on the 1,061 MATCHED component parts, app weight + estimated holes − Tekla weight leaves −0.11 kg in total. For example, the 48 eave end plates differ by −22.08 kg and the holes come to 21.88 kg. So the estimate is accurate to about 1 %.
-4. **Gross check on R12.** Plates: NC header (DSTV_Plates in `tests/steel/tekla/Frame_28mx53m_Package_1.zip`) L × W × t × density, and the NC outline (AK contour) area × t. Members: Tekla's section area × NC length. Tekla's areas are the polygons proven in `WEIGHTS-R12.md`: rods are 8-gons, tubes 12/16-gons, SHS has square corners, CC is 704 mm², UPN240 is 33.2 kg/m and L60*6 is 5.42 kg/m. Also used: the R12 solid (mesh volume × density). Equal means equal after rounding to 0.01 kg.
+4. **Gross check on R12 (not repeated on R13).** Plates: NC header (DSTV_Plates in `tests/steel/tekla/Frame_28mx53m_Package_1.zip`) L × W × t × density, and the NC outline (AK contour) area × t. Members: Tekla's section area × NC length. Tekla's areas are the polygons proven in `WEIGHTS-R12.md`: rods are 8-gons, tubes 12/16-gons, SHS has square corners, CC is 704 mm², UPN240 is 33.2 kg/m and L60*6 is 5.42 kg/m. Also used: the R12 solid (mesh volume × density). Equal means equal after rounding to 0.01 kg.
 
-Scratch scripts and outputs are outside the repo: `decomp.py`, `holes.py`, `grosscheck.py`, `gross2.py`, `groups.py`, and `v2_*.py` … `v10_*.py` for the later snapshots. Step 3 (the hole estimate) was used for v1. For v2 it is used only to find holes that are still taken off: it compares each part's v2 − v1 weight with its estimated holes.
+Scratch scripts and outputs are outside the repo: `decomp.py`, `holes.py`, `grosscheck.py`, `gross2.py`, `groups.py`, and `v2_*.py` … `v11_*.py` for the later snapshots. `v11_decomp.py` and `v11_groups.py` read `Frame_28x53m_R13.ss` and the three r13 files as committed in e089185 (the working copy of `rebuild_inputs.json` already holds the C08 work in progress). They pair by the compare's matches and group by row, part name and status, so R13's new body ids and marks need no mapping. Step 3 (the hole estimate) was used for v1. For v2 it is used only to find holes that are still taken off: it compares each part's v2 − v1 weight with its estimated holes.
 
 ## (a) Parts missing in the app
 
-This table describes the v1 to v5 state. A1–A3 are done in v6 (C01 / C16), A4 in v8 (C03), A7's two C17 hangers in v9 and A6 in v10 (X02). A5 and A7's C20 / C12 parts wait for R13 (owner).
+This table describes the v1 to v5 state, on R12 with R12's marks. A1–A3 are done in v6 (C01 / C16), A4 in v8 (C03), A7's two C17 hangers in v9, A6 in v10 (X02), and A5 with A7's C20 / C12 parts in v11 (R13). A7's C10 / C13 parts (3.44 kg) are left.
 
 | Group | Code | Parts | Tekla kg | Examples (mark, assembly: Tekla kg → app) | Why / fix |
 |---|---|---|---|---|---|
@@ -137,13 +153,13 @@ Earlier: v1 −459.74 (holes taken off, other outlines), v2 −394.66.
 - Tekla: 23 gratings THREAD PL10*335.7 at 1,333 kg/m³ (106.26 kg, e.g. 9503 / SGR9001 4.62), 46 brackets L60*6 (34.96, e.g. 9502 0.76) and 10 stringer end plates FLT12*150 (43.50, e.g. 9505 / SR9002 3.67).
 - App: 20 steel treads PL6 (325.00, e.g. body 6091 15.38 kg), 40 supports L50*5 (48.80, 1.15 each) and 4 foot plates PL12 (38.60, 9.21 each).
 - Δ +227.84 in v2 to v6 (+227.68 in v1; the foot plates' holes, 0.16 kg, were filled in v2).
-- **Done in v7 (C18):** grating treads (Grating, 1,333 kg/m³), L60*6 brackets, Tekla's 23 treads, mitred stringers and 8 stair end plates. 81 of 83 row-18 parts are MATCHED (186.04 = 186.04 kg). The 2 counter plates FLT12*150 on EB4002 (9504, 4.52 kg each) wait for R13.
+- **Done in v7 (C18):** grating treads (Grating, 1,333 kg/m³), L60*6 brackets, Tekla's 23 treads, mitred stringers and 8 stair end plates. 81 of 83 row-18 parts are MATCHED (186.04 = 186.04 kg). The 2 counter plates FLT12*150 on EB4002 (9504, 4.52 kg each) were left for R13, but R13 did not change them: they are still missing in v11 (−9.04, agent C18).
 
 ## (b) Extra parts the app makes and Tekla does not
 
 | Group | Code | Parts | App kg | Examples | Fix |
 |---|---|---|---|---|---|
-| C1 | C08 | 560 NUT M12 + 560 WASHER M12 | 16.80 + 5.60 | body 4972 NUT 0.03; body 4971 WASHER 0.01 | R12's sag rods are plain ROD12 members with no nut or washer parts (they are placed as given, and the 140 rods weigh the same: 191.80 = 191.80). Tsag with nut / washer off (or as bolt items, not parts) for Tekla parity. |
+| C1 | C08 | 560 NUT M12 + 560 WASHER M12 | 16.80 + 5.60 | body 4972 NUT 0.03; body 4971 WASHER 0.01 | R12's sag rods are plain ROD12 members with no nut or washer parts (they are placed as given, and the 140 rods weigh the same: 191.80 = 191.80). Tsag with nut / washer off (or as bolt items, not parts) for Tekla parity. Unchanged in v11; main session (now). |
 
 The other extra parts (tongues, caps, gussets, treads) belong to the families in B1 and B2.
 
@@ -152,7 +168,7 @@ The other extra parts (tongues, caps, gussets, treads) belong to the families in
 ### D1 Grout (C01, C16): 0.00 kg in v2 (+1,131.76 in v1)
 All 52 grout plates (paired, NEAR within 5 mm) now weigh 0, as in Tekla. In v1 they had material S275 and were weighed as steel, for example 6 / assembly 3 PL30*260 at 25.37 kg and 8 / assembly 5 FLT30*300 at 22.27 kg. **Done.**
 
-### D2 The same component part: +0.36 kg in v9 and v10 (+0.50 in v8, +0.98 in v2 to v7, −85.98 in v1, of which bolt holes −85.87)
+### D2 The same component part: +0.39 kg in v11 (+0.36 in v9 and v10, +0.50 in v8, +0.98 in v2 to v7, −85.98 in v1, of which bolt holes −85.87)
 These are the 1,219 component parts that match Tekla's part. Since ce01af4 every part in this group equals Tekla to 0.01 kg, apart from four outline or rounding cases:
 - C03 apex haunch (NEAR, outline about 26 mm off): +0.48
 - C09 HAUNCH_PLATE (Tekla 0.17 against a solid of 0.182): +0.48
@@ -160,6 +176,8 @@ These are the 1,219 component parts that match Tekla's part. Since ce01af4 every
 - C13 Stiff. FLT10*50 (Tekla 0.21 against a solid of 0.201): −0.12
 
 The C03 outline is gone in v8 and the C17 outline in v9. In v10 only the two Tekla rounding cases are left (C09 +0.48, C13 −0.12), on 1,968 parts.
+
+In v11 (R13) D2 has 1,986 parts. The 18 new ones are the 12 C20 stiffeners FLT10*70 at the fixed girders (19.08 = 19.08) and the 6 drilled column shear plates FLT10*150, now row 20 shear tabs (Tekla 14.82, app 14.85). The +0.03 is the three plates 4515: app 2.48, Tekla 2.47 each.
 
 In particular, every one of these is now equal: the end plates (C02 384.48 = 384.48, C03 482.40 = 482.40), the base plates (471.30 = 471.30), the cleats L140*60*6 (290.40 = 290.40), the C14 shear tabs (104.04 = 104.04) and the C13 end plate 4512 (6.48 = 6.48).
 
@@ -188,7 +206,7 @@ The table below is the **v1** state, kept because it shows what the hole fill ch
 
 **(d) Rounding.** Both sides round each part to 0.01 kg. Most of the −0.11 kg left in D2 is that rounding, plus the error of the hole estimate. In Tekla's own data, 78 plates (C09 haunch plates, C13 Stiff., some FLT5 caps) differ from their own solid by up to 0.015 kg. That is Tekla's internal rounding of the same solid (see the check below), and it accounts for +0.48 / −0.12 kg here.
 
-### D4 Built-up members (X01): −1.96 kg in v10 (+257.36 in v1 to v9)
+### D4 Built-up members (X01): −1.93 kg in v11 (−1.96 in v10, +257.36 in v1 to v9)
 The text and the first table below describe v1 to v9. The app places one BI member, weighed as a catalog section × length (area × L × 7,850; checked on all 198). Tekla weighs three plates as solids. The difference splits into two parts:
 
 | Part of Δ | kg | What it is |
@@ -215,13 +233,16 @@ Examples: EB4009: 357.39 → 364.12; C2017: 307.81 → 310.20; R3019: 236.90 →
 | MBC, STB, STR | 10 | 538.66 | 542.22 | 539.16 | +3.56 | **+0.50** |
 | **Total** | **198** | **36,820.20** | **37,077.56** | **36,818.24** | **+257.36** | **−1.96** |
 
-Examples in v10 (Tekla → app): EB4009 357.39 → 357.53; C2017 307.81 → 307.81; C2005 261.80 → 261.80; R3019 236.90 → 236.91. The one member not MATCHED is PR7001 (18.70 → 19.09, INPUT EQUAL, SOLID DIFFERS), an R12 data quirk: plate 1985 (F7501) has assembly mark '14'.
+**v11 (R13):** the 3 fixed girders EB4007 are new in D4 (2 flanges FLT12*250 and the web FLT8*300 each). Tekla 3 × 357.39 = 1,072.17 kg, app 3 × 357.40 = 1,072.20 (+0.03). Their status is INPUT EQUAL, SOLID DIFFERS: the box is 30 mm off (agent R13). EB is now 15 members, 5,009.63 → 5,010.79 (+1.16). The other groups are as in v10. D4 is 201 members (603 plates), 37,892.37 → 37,890.44, **−1.93**; 197 MATCHED, and 4 INPUT EQUAL, SOLID DIFFERS (the 3 EB4007 and PR7001).
 
-### D5 Members placed as given: +1.99 kg in v5 (−1.00 in v3 / v4, −72.00 in v1 / v2)
+Examples in v10 (Tekla → app, R12 marks): EB4009 357.39 → 357.53; C2017 307.81 → 307.81; C2005 261.80 → 261.80; R3019 236.90 → 236.91. The one member not MATCHED is PR7001 (18.70 → 19.09, INPUT EQUAL, SOLID DIFFERS), an R12 data quirk: plate 1985 (F7501) has assembly mark '14'.
+
+### D5 Members placed as given: +1.87 kg in v8 to v11 (+1.99 in v5, −1.00 in v3 / v4, −72.00 in v1 / v2)
 - **SHS100*3:** 228 members, all MATCHED. Tekla 8,533.25 kg, app 8,535.52 kg (+2.27). Since C07, 42 crossing-half braces are +0.04 kg each and a few are +0.07 (for example 6519 / VL6013 50.98 → 51.05). That is a slightly shorter cut where the halves meet the gusset, within the 0.1 mm box tolerance. 167 are equal.
 - **CHS48*3 stanchions:** −0.30. For example, 25 / SR9002 3.18 → 3.16, from the stanchion end cut (C19).
 - **UPN240 stringers:** +0.02. 4 are still INPUT EQUAL, SOLID DIFFERS (C18).
 - Purlins (220), sag rods (140), railings and hand rails: equal.
+- v11 (R13), 638 members, all MATCHED: HZ SHS +1.31, VL SHS +0.99, struts SHS −0.03, CHS48*3 stanchions −0.30, UPN240 −0.10. Total +1.87, as in v10.
 - v1 / v2 for history: SHS was −71.72 kg, because Ttg slots and cut-backs took more off than Tekla's own cuts.
 
 ## Is Tekla's weight the gross weight? Checked on all 4,945 R12 parts
@@ -263,4 +284,6 @@ Hypothesis: "Tekla weight = gross, with no holes and no chamfers taken off" (pla
 ## Not verified
 - In v1, app hole weights were an estimate from ray casting. The v2 hole fill confirms them to about 1 % on every component family except the node gussets (above).
 - B1 and B2 compare part families as a whole, because many of their parts are more than 50 mm from Tekla's and cannot be paired one to one.
-- The app's own total is 0.14–0.16 kg above the web's in v3 to v7, and 0.11 kg above in v10 (v8 and v9: the app total was not recorded). This report uses the web per-part weights.
+- The app's own total is 0.14–0.16 kg above the web's in v3 to v7, and 0.11 kg above in v10 and v11 (v8 and v9: the app total was not recorded). This report uses the web per-part weights.
+- The v11 app total (64,025.52) is taken from a local `R13RebuildTest` run of 2026-11-27 (`app/build/test-results`), not run again for this report. Its printed text still says "R12" and R12's Tekla totals; only the two rebuild figures are used.
+- The gross check and the hole estimate were done on R12. R13 adds 3 webs and drills 6 plates, so they were not repeated.

@@ -608,6 +608,24 @@ Tekla's IFC carries no component information. Which connections were components 
 
 The owner can see the component symbols in Tekla. Rows marked "to confirm" wait for that.
 
+## C08 · Sag rod at purlin: no nut or washer parts (owner 2026-11-28)
+
+### Target: R13
+- **R13 (and R12):** the 140 tie rods (ROD12, "Tie Rod THREAD100MM") are plain members. Tekla has no connection, bolt, nut or washer on them: no TKBOLT joins a rod, and Package_2's BOLT-LIST has no M12 nuts.
+- **Purlins:** the purlins are drilled where the rods pass. Our Sag rod component already cuts that hole, and 220 / 220 purlins match R13.
+- **Weight:** v69's Sag rod (Tsag) made a nut and a washer M12 as steel parts at each purlin web face: 560 + 560 parts, +22.40 kg that Tekla doesn't have.
+
+### Change
+- **Settings, not code:** the Sag rod component already has the Parts tab switches "Nuts" / "Washers" in web v70 and the app (FamSR), so no generator changes. v69's default (on) is kept for new models.
+- **R13 inputs:** `tools/golden/r10_inputs.py` sets them off for models built from Tekla's IFC (R12, R13).
+- **Dialog test tag:** dialog checkboxes now carry the test tag `tk_<key>` (CompUi.kt), so the emulator tests can set them.
+
+### Result (R13 rebuild, web = app)
+- **Extra parts:** v69 parts Tekla doesn't have went from 1,120 to 0.
+- **Weight:** 64,025.41 → 64,003.01 kg (web; app 64,003.12), so −22.40 kg.
+- **vs Tekla:** against `st.tkW` 64,017.49 kg: +7.92 → −14.48 kg (the parts still missing: C18 counter plates −9.04, C10 / C13 −3.44, tubes −2.33). Against the Part List 64,023.4: −20.39 kg.
+- **Recording:** C08RecordingTest (Sag rod at purlin through its dialog: Nuts / Washers off, then on + Modify).
+
 ## X01 · Built-ups as three plates with end cuts, and Tekla's fittings (owner 2026-11-27)
 
 ### Target: R12
