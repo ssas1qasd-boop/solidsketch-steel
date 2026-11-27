@@ -4,74 +4,74 @@ Daemon will be stopped at the end of the build
 > Configure project :app
 Passing custom test runner argument android.testInstrumentationRunnerArguments.notClass from gradle.properties or command line is not compatible with configuration caching. Please specify this argument using android gradle dsl.
 
-> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core-io:preBuild UP-TO-DATE
 > Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
-> Task :core-io:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :core-io:preDebugBuild UP-TO-DATE
+> Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-view:preBuild UP-TO-DATE
 > Task :core-view:preDebugBuild UP-TO-DATE
-> Task :core-io:writeDebugAarMetadata UP-TO-DATE
+> Task :core-view:writeDebugAarMetadata UP-TO-DATE
 > Task :app:generateDebugBuildConfig UP-TO-DATE
 > Task :steel:preBuild UP-TO-DATE
-> Task :core-view:writeDebugAarMetadata UP-TO-DATE
+> Task :core-io:writeDebugAarMetadata UP-TO-DATE
 > Task :steel:preDebugBuild UP-TO-DATE
-> Task :app:generateDebugResValues UP-TO-DATE
 > Task :core-io:generateDebugResValues UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
 > Task :steel:writeDebugAarMetadata UP-TO-DATE
 > Task :core-view:generateDebugResValues UP-TO-DATE
-> Task :core-view:generateDebugResources UP-TO-DATE
 > Task :core-io:generateDebugResources UP-TO-DATE
-> Task :core-io:packageDebugResources UP-TO-DATE
+> Task :core-view:generateDebugResources UP-TO-DATE
 > Task :core-view:packageDebugResources UP-TO-DATE
-> Task :core-io:extractDeepLinksDebug UP-TO-DATE
 > Task :steel:generateDebugResValues UP-TO-DATE
+> Task :core-io:packageDebugResources UP-TO-DATE
+> Task :core-io:extractDeepLinksDebug UP-TO-DATE
 > Task :steel:generateDebugResources UP-TO-DATE
 > Task :core-io:processDebugManifest UP-TO-DATE
 > Task :steel:packageDebugResources UP-TO-DATE
 > Task :core-view:extractDeepLinksDebug UP-TO-DATE
 > Task :steel:extractDeepLinksDebug UP-TO-DATE
-> Task :core-api:compileKotlin UP-TO-DATE
-> Task :steel:processDebugManifest UP-TO-DATE
 > Task :core-view:processDebugManifest UP-TO-DATE
-> Task :core-view:compileDebugLibraryResources UP-TO-DATE
+> Task :steel:processDebugManifest UP-TO-DATE
 > Task :core-io:compileDebugLibraryResources UP-TO-DATE
+> Task :core-view:compileDebugLibraryResources UP-TO-DATE
+> Task :core-api:compileKotlin UP-TO-DATE
+> Task :core-view:parseDebugLocalResources UP-TO-DATE
+> Task :core-io:parseDebugLocalResources UP-TO-DATE
 > Task :core-api:compileJava NO-SOURCE
 > Task :core-api:processResources NO-SOURCE
 > Task :core-api:classes UP-TO-DATE
-> Task :core-io:parseDebugLocalResources UP-TO-DATE
-> Task :core-view:parseDebugLocalResources UP-TO-DATE
-> Task :core-api:jar UP-TO-DATE
 > Task :core-view:generateDebugRFile UP-TO-DATE
 > Task :core-io:generateDebugRFile UP-TO-DATE
-> Task :steel:compileDebugLibraryResources UP-TO-DATE
 > Task :core-io:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :core-view:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :steel:compileDebugLibraryResources UP-TO-DATE
+> Task :core-io:javaPreCompileDebug UP-TO-DATE
+> Task :core-api:jar UP-TO-DATE
 > Task :steel:parseDebugLocalResources UP-TO-DATE
+> Task :core-view:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :steel:generateDebugRFile UP-TO-DATE
 > Task :steel:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-view:compileDebugKotlin UP-TO-DATE
 > Task :core-view:javaPreCompileDebug UP-TO-DATE
 > Task :core-view:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-io:compileDebugKotlin UP-TO-DATE
-> Task :core-io:javaPreCompileDebug UP-TO-DATE
 > Task :core-view:bundleLibCompileToJarDebug UP-TO-DATE
-> Task :core-io:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-view:mergeDebugShaders UP-TO-DATE
-> Task :core-io:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :core-view:compileDebugShaders NO-SOURCE
 > Task :core-view:generateDebugAssets UP-TO-DATE
-> Task :core-io:mergeDebugShaders UP-TO-DATE
+> Task :core-io:compileDebugJavaWithJavac NO-SOURCE
 > Task :core-view:packageDebugAssets UP-TO-DATE
+> Task :core-io:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :core-io:mergeDebugShaders UP-TO-DATE
+> Task :core-view:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :core-io:compileDebugShaders NO-SOURCE
 > Task :core-io:generateDebugAssets UP-TO-DATE
-> Task :core-view:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :core-io:packageDebugAssets UP-TO-DATE
 > Task :core-io:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :core-io:processDebugJavaRes UP-TO-DATE
-> Task :core-io:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :core-view:processDebugJavaRes UP-TO-DATE
+> Task :core-io:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :core-view:bundleLibRuntimeToDirDebug UP-TO-DATE
 > Task :core-io:mergeDebugJniLibFolders UP-TO-DATE
 > Task :core-io:mergeDebugNativeLibs NO-SOURCE
@@ -101,20 +101,20 @@ Passing custom test runner argument android.testInstrumentationRunnerArguments.n
 > Task :app:processDebugManifest UP-TO-DATE
 > Task :app:processDebugManifestForPackage UP-TO-DATE
 > Task :app:processDebugResources UP-TO-DATE
-> Task :core-view:configureCMakeDebug[x86_64]
-> Task :steel:configureCMakeDebug[x86_64]
-> Task :core-view:buildCMakeDebug[x86_64]
-> Task :steel:buildCMakeDebug[x86_64]
-> Task :steel:mergeDebugJniLibFolders UP-TO-DATE
-> Task :steel:mergeDebugNativeLibs UP-TO-DATE
-> Task :core-view:mergeDebugNativeLibs UP-TO-DATE
-> Task :core-view:copyDebugJniLibsProjectOnly UP-TO-DATE
-> Task :steel:copyDebugJniLibsProjectOnly UP-TO-DATE
 > Task :app:compileDebugKotlin UP-TO-DATE
 > Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :steel:configureCMakeDebug[x86_64]
+> Task :core-view:configureCMakeDebug[x86_64]
 > Task :app:compileDebugJavaWithJavac UP-TO-DATE
 > Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
 > Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :core-view:buildCMakeDebug[x86_64]
+> Task :steel:buildCMakeDebug[x86_64]
+> Task :steel:mergeDebugJniLibFolders UP-TO-DATE
+> Task :core-view:mergeDebugNativeLibs UP-TO-DATE
+> Task :core-view:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :steel:mergeDebugNativeLibs UP-TO-DATE
+> Task :steel:copyDebugJniLibsProjectOnly UP-TO-DATE
 > Task :app:processDebugAndroidTestManifest UP-TO-DATE
 > Task :app:generateDebugAndroidTestBuildConfig UP-TO-DATE
 > Task :app:checkDebugAndroidTestAarMetadata UP-TO-DATE
@@ -178,7 +178,7 @@ emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 2/2 completed. (0 skipped) (0 failed)
 Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795794158096.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795795177338.json
 
-BUILD SUCCESSFUL in 2m 59s
+BUILD SUCCESSFUL in 3m 30s
 133 actionable tasks: 6 executed, 127 up-to-date
