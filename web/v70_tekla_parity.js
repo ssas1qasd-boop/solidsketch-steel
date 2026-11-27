@@ -470,6 +470,7 @@
   };
   { const ep70 = FAM.EP; FAM.EP = X => { const r = ep70(X); if ((X.q.scr === 'auto' || X.q.scr === 'both') && r !== null) for (const Bm of [X.B, X.B2].filter(Boolean)) stiff70(X, Bm); return r; }; }
   //
+  // == C05 ==
   // ---------- C05 · Tube gusset (20): the tube end, the connection plate, the end plates and the bolts (docs/steel/PARITY.md "C05") ----------
   // Tekla's 20 (conn_20_help 2025): the brace is bolted to the gusset through a connection plate inside its slot (Brace conn tab:
   // Connection plate t, Picture 4 = the brace length on the connection plate, default 150), the tube sealed by End plates (5) on both
@@ -559,6 +560,7 @@
       const sh = q.gpos === 'middle' ? -(+q.side || 1) * (q.t + q.tf) / 2 * stU() : 0; const W0 = L0.W.clone().addScaledVector(L0.g, sh);
       NODE = { W: W0, g: L0.g }; try { const r = tgN(X); if (q.gshape === 'tekla') gusset70(X, Object.assign({}, L0, { W: W0 })); return r; } finally { NODE = null; }
     };
+    // == C06 ==
     // C06 · Tekla 20's gusset outline (docs/steel/PARITY.md "C06", R12: 62 node gussets + 104 single-brace gussets): per brace an edge
     // square to it, Picture 5 (gd, default 20) before its end plate, its half-lengths gwa / gwb on the sides toward + / - the main part's
     // axis (Picture 3 / 6 / 7; default half the plate width); the outline is the convex hull of those edges' corners and of each corner
@@ -605,6 +607,7 @@
         TKF('gmid', 'First brace modelled from (mm before its tube end)', { ph: '0' }), TKF('pofs', 'Connection plate off the brace axis (mm, toward the gusset)', { ph: 'at the gusset edge' })]]); }
     const bt = tabs.find(t => t.name === 'Bolts'); if (bt) { const g = (bt.groups || []).find(x => x[0] === 'Bolt assembly'); const f = TKF('blrule', 'Bolt length', { type: 'sel', dv: '', opts: [tkOpt('', 'v69 (grip + 2 d)'), tkOpt('tekla', 'Tekla (grip + nut + washer + 5, up to 5 mm)')] });
       if (g) { if (!g[1].some(x => x.k === 'blrule')) g[1] = g[1].concat([f]); } else bt.fields = (bt.fields || []).concat([f]); } }
+  // == C07 ==
   // ---------- C07 · Tube crossing (Tekla 20 at a crossing): the halves end on a gusset through the continuous brace (docs/steel/PARITY.md "C07") ----------
   // R12 (52 crossings): each half's tube end as C05 (Tube end at the brace end, the connection plate on its axis, two end plates, Tekla's
   // slot and bolt length); the crossing gusset beside the plates (gusset side), through the continuous tube; its outline by C06's rule:

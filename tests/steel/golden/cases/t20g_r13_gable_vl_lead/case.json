@@ -1,0 +1,122 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  },
+  {
+   "id": 2,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttg",
+   [
+    0,
+    1
+   ],
+   {
+    "L": 315,
+    "blrule": "tekla",
+    "bolt": 16,
+    "e": 40,
+    "g": 60,
+    "gmid": 279.28,
+    "gplane": "perp",
+    "gshape": "tekla",
+    "ins": 150,
+    "p": 60,
+    "pofs": -12.019,
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ],
+  [
+   "Ttg",
+   [
+    0,
+    2
+   ],
+   {
+    "L": 315,
+    "blrule": "tekla",
+    "bolt": 16,
+    "e": 40,
+    "g": 60,
+    "gplane": "perp",
+    "gshape": "tekla",
+    "ins": 150,
+    "p": 60,
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ]
+ ],
+ "description": "R13 gable node 3419 (gusset PL12*222.9, mark 12): column C 39693 / 5645, VL6012 first (plates through its middle, gmid; its plate pofs off its axis), strut ST5007 skewed 0.51 deg.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     39693,
+     5645,
+     230
+    ],
+    "p2": [
+     39693,
+     5645,
+     7522.736
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rot": "Below"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     39693,
+     5433.822,
+     6909.337
+    ],
+    "p2": [
+     39693,
+     3122.387,
+     5467.473
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "Strut",
+    "p1": [
+     39690.738,
+     5393.024,
+     7180
+    ],
+    "p2": [
+     39645.264,
+     327.197,
+     7180
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20g_r13_gable_vl_lead",
+ "pageErrors": []
+}

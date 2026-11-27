@@ -14,6 +14,7 @@ import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Assume.assumeTrue
 import org.junit.Test
 import java.io.File
@@ -120,9 +121,13 @@ class R13C05Test {
             val am = gst["amark"]?.jsonPrimitive?.content ?: ""; val row = if (Regex("^1\\d").containsMatchIn(am)) "6 (C06 gable node)" else "6"; val n = cnt.getOrPut(row) { IntArray(6) }
             val rb = box(pts(r12.bodyMesh(BodyId(gid.toString()))!!)); n[1]++
             if (appG.any { b -> (0..5).all { abs(b[it] - rb[it]) <= 0.1 } }) n[0]++ else bad += "row $row R12 gusset $gid ($am ${gst["tprof"]?.jsonPrimitive?.content}): no gusset within 0.1 mm of ${rb.map { Math.round(it * 10) / 10.0 }}" }
-        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "5" -> "C05 Tube gusset 20, tube ends"; "6" -> "C06 gussets (node, single-brace, fin)"; "6 (C06 gable node)" -> "C06 gable / end-frame node gussets, not asserted"; else -> "C05 ends at C06 nodes (own-assembly gussets), not asserted" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
+        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "5" -> "C05 Tube gusset 20, tube ends"; "6" -> "C06 gussets (node, single-brace, fin)"; "6 (C06 gable node)" -> "C06 gable / end-frame node gussets, 6 open"; else -> "C05 ends at C06 gable nodes" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
         File(root, "build").mkdirs(); File(root, "build/r13-c05-report.txt").writeText(rep + "\n\n" + diag.joinToString("\n") + "\n"); println(rep.lines().take(14).joinToString("\n"))
         cnt["5"]!!.let { n -> assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
         cnt["6"]?.let { n -> assertEquals(rep, n[1], n[0]) }
+        // C05 / C06 / C07 gable nodes (gplane 'perp', PARITY.md "C06"): every plate, end plate, bolt and brace body at the 18 nodes matched;
+        // their gussets all but the 6 strut-led ones at 0.126 mm (Tekla's main part edge, open)
+        cnt["5 (C06 node)"]!!.let { n -> assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
+        cnt["6 (C06 gable node)"]!!.let { n -> assertEquals(rep, 18, n[1]); assertTrue(rep, n[0] >= n[1] - 6) }
     }
 }

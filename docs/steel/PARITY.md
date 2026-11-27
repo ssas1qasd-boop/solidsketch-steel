@@ -10,8 +10,8 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 **What R13 changed (owner, 2026-11-28):** the 3 mezzanine girders at C/D/E 5-6 have their web FLT8*300 (mark 4518, EB4007, 103.89 kg each), 6 new bolt groups 8 x M16 L45 into the column shear plates (now drilled), 6 new welds; the bottom flanges joined EB4007. The C20 stiffeners and C12 shear plates were already in Tekla. Nothing else changed.
 
 ## Open (owner decisions, 2026-11-27 / 28)
-- **C06:** 17 gable / end-frame node gussets within 0.2–4.3 mm (braces skewed out of the gusset plane): agent TUBES (branch tubes) re-checks on R13.
-- **C07:** 18 PL5 end plates at the upper ends of the wall crossings VL6011–VL6014, 0.1–1.7 mm (Tekla's 0.3° turn): agent TUBES.
+- **C06:** the gable / end-frame nodes re-done on R13 (agent TUBES, section C06 "Gable / end-frame nodes"): 11 of the 17 gussets and every plate, end plate and bolt there now match at 0.1 mm; open: the main part edge of the 6 strut-led gussets (0.126 mm), and 8 lead plates' bolts with 1.8-2.3 mm air (Tekla's own geometry, rule B).
+- **C07:** the 18 PL5 end plates at the upper ends of VL6011-VL6014 match (they were the gable nodes' turned plates, see C06 "Gable / end-frame nodes"; not IFC rounding).
 - **C12 / C20 / C14 on R13:** agent R13 (branch r13-conn).
 - **Row 18 counter plates, SGR9001 / SR9001–SR9004 assembly weights:** agent C18 (branch c18).
 - **Data quirk (R12 and R13):** one monitor rafter end plate (R12 body 1985, PLATE FLT12*120, assembly mark '14', class 99) is not in a PR assembly, so its 144 is not rebuilt and PR7001 / one PC7001 keep a square end (box 36.8 mm, +0.4 kg).
@@ -321,8 +321,8 @@ Delivered for the owner's phone check; ✓ only after the owner's OK.
 | App = web | — | `R12RebuildTest` 0 differences; `S7T144Test` + 4 t20x cases |
 | Weight (rebuild, web) | 62,742.75 kg | 62,982.42 kg (app 62,982.56; Tekla 63,705.8) |
 
-### Open
-- 18 PL5 "crossing caps" (R12 names them Gusset Plate PL5*32–93): they are the halves' end plates at the upper ends of the wall crossings VL6011–VL6014 on the frame lines, trimmed by Tekla. Ours have the same trimmed size (within 0.2 mm) but Tekla's are turned about 0.3° about the brace axis (X axis (−1, 0.003, −0.004) in R12), 0.1–1.7 mm at the far corner. Probably the IFC export's rounding; not changed.
+### Open (closed on R13, agent TUBES 2026-11-28)
+- The 18 PL5 "crossing caps" (Gusset Plate PL5*32-93) are the end plates of VL6011-VL6014 at their upper ends, i.e. at the gable / end-frame nodes, not at a crossing: their 0.3 deg turn is the connection plate turned square to the gusset normal (C06 "Gable / end-frame nodes"), not IFC rounding. With gplane 'perp' all 18 match (0.002 mm), row 7 118 / 118.
 
 ### Status
 Delivered for the owner's phone check; ✓ only after the owner's OK.
@@ -359,6 +359,29 @@ Delivered for the owner's phone check; ✓ only after the owner's OK.
 | Rule B | — | 0 failures: R12 node R3019, R12 single gusset, HEA240 two braces 'middle', IPE360 V node with a shortened edge |
 | App = web | — | `R12RebuildTest` 0 differences; `S7T144Test` + 4 t20g cases |
 | Weight (rebuild, web) | 62,591.88 kg | 62,742.75 kg (Tekla 63,705.8); the 233 matched gussets 1,107.25 kg vs Tekla's 1,109.77 (e.g. the 32 PL12*213.4: 108.8 = 108.8) |
+
+### Gable / end-frame nodes (R13, agent TUBES, 2026-11-28)
+The 18 own-assembly gussets (marks 11 / 12 / 13) at the gable and end-frame columns: a strut (ST5005 / ST5006 / ST5007) and a wall brace (VL6009-VL6014) on one gusset, the strut skewed 0.82-9.0 mrad out of the wall (its Tekla reference line starts on the far column's centre, IFC placement), so the two braces are not in one plane. Measured on R13 with the IFC placements (Package_2 `out.ifc` = `Frame_28x53m_tekla_v3.ifc`: each plate's origin = its tip centre, X along its brace):
+- **Gusset plane:** square to the strut (the brace most square to the main part): normal = strut × column axis, to 1e-6 at all 18 nodes.
+- **Plates turned to the gusset:** every connection plate keeps its brace's direction and has its width in the gusset plane (normal = the gusset normal made square to the brace; e.g. VL6012 at 3419: plate N (0.99999, -0.00251, 0.00403) = (0.99996, -0.00897, 0) less its component along the brace). The end plates follow (they are boxes in the plate's frame, to the tube wall at the nearer corner; R13's 0.3 deg "turn" of the C07 caps is this, not IFC rounding).
+- **The plates' plane (gusset ± 12) passes through the middle of the first brace's Tekla reference line** (its IFC start to its far end): 12.0000 mm from the gusset mid-plane at all 10 nodes whose first brace is a VL (VL6010 / VL6011 / VL6012, reference start 280.09 / 421.50 mm before the tube end). At the 8 nodes whose first brace is the strut (plate on its axis) this is the strut's own plane, as before.
+- **A plate whose brace is off that plane crosses it at its own gusset edge** (Picture 5: plate tip + 140): VL6009 / VL6013 / VL6014 at 139.88-140.0 from the tip (all 8 strut-led nodes).
+- **The first brace's plate (VL, 10 nodes) is 1.10-12.02 mm off its axis**, proportional to the strut's skew (1339 x the skew at the y = 5645 columns, 1296 x at y = 27925), toward no point of the model found: entered as a measured input (pofs), not a rule.
+- **The gusset's brace edges:** Picture 5 is the least gap to the end plate, at the gusset face nearest it: the edge sits tf/2 x |sin tilt| nearer the tip (139.954 for 7.6 mrad, 139.995 for 0.8 mrad: all 36 VL edges in the plate's frame, ±70 across), its corners moved along the plate normal onto the gusset mid-plane.
+- **Open (6 gussets, 0.126 mm):** at the strut-led nodes with the 9 mrad strut (3425, 3487, 3601, 3674, 3747, 4057) Tekla's main part edge (square to the strut) is 0.234 mm off the column web at the mid-plane (ours 0.108); at the VL-led nodes it is 0.101 inside (ours 0.000 from the plates' line, within 0.1). No point of the model was found that puts it there (the edge's plane meets the web 14 mm beyond the plates' plane at the strut-led nodes, 12 mm before the VL plane at the VL-led ones).
+- **Rule B:** the 8 VL lead plates at the 9 mrad VL-led nodes stand 1.45-2.5 mm off the gusset along their bolts (R13: TKBOLT grip 25.8 / 26.7 against a 24 mm stack): Tekla's own geometry, reproduced (case t20g_r13_gable_vl_lead: 2 bolt-grip findings "air 2.3"). Every other t20 / t20g / t20x case: 0 failures.
+
+**Change (web v70 sections "C05" / "C06", app `FamTG.gen` / `teklaOutline` / `nodeToff`):** Ttg Gusset tab, group "Gusset plate shape": **Gusset plane at a node** = Tekla (gplane 'perp': the rules above), **First brace modelled from (mm before its tube end)** (gmid), **Connection plate off the brace axis** (pofs, measured). Old models unchanged (gplane '').
+**R13 inputs (`r10_inputs.py` `c05_gable`):** a node whose braces are not all in the gusset's plane gets gplane 'perp' (36 ends at 18 nodes); where no plate is on its axis the VL goes first with gmid (from R13: 273.3-283.7 / 421.9, Tekla's 280.09 / 421.50 within the 0.001 mm rounding) and pofs.
+
+| Check (R13 rebuild, web, 0.1 mm boxes) | Before (main 5f16e60) | After |
+|---|---|---|
+| Row 5 (tube ends) | 1,239 / 1,294 (55 NEAR) | 1,294 / 1,294 |
+| Row 6 (gussets) | 233 / 250 (17 NEAR, 0.2-4.3 mm) | 244 / 250 (6 NEAR, 0.126 mm) |
+| Row 7 (crossings) | 100 / 118 (18 NEAR) | 118 / 118 |
+| Bolts at the same position (R13 4,596) | 4,524 (groups 1,276) | 4,548 (groups 1,282) |
+| App (`R13C05Test`) | gable nodes not asserted | plates / end plates 82 / 82, bolts 144 / 144, bodies 72 / 72; gable gussets 12 / 18 (6 open) |
+| Weight (rebuild, web) | 64,005.59 kg | 64,005.36 kg (rows 5-7: 4,041.92 -> 4,041.83; Tekla's parts 4,044.29) |
 
 ### Status
 Delivered for the owner's phone check; ✓ only after the owner's OK.
@@ -404,6 +427,9 @@ Delivered for the owner's phone check; ✓ only after the owner's OK.
 | Rule B | — | 0 failures on 4 cases (R12 node R3019, R12 single strut, HEA200 + SHS80*4 at 45°, IPE300 V node with SHS120*5) and on every earlier case |
 | App = web | — | `R12RebuildTest` 0 differences; `S7T144Test` + 4 t20 cases; host tests 124 / 124 |
 | Weight (rebuild, web) | 62,516.10 kg | 62,591.88 kg (Tekla 63,705.8): +75.8 kg from the square-cornered SHS braces and the row-5 parts now made as Tekla's |
+
+### R13 (agent TUBES, 2026-11-28)
+- The 55 row-5 parts left NEAR on R13 (plates and end plates at the 18 gable / end-frame nodes) all match with C06's gable-node rules (plates turned square to the gusset normal; the plates' plane through the first brace's middle): row 5 1,294 / 1,294; app `R13C05Test` asserts them (82 / 82 plates, 144 / 144 bolts, 72 / 72 member bodies).
 
 ### Status
 Delivered for the owner's phone check; ✓ only after the owner's OK.
