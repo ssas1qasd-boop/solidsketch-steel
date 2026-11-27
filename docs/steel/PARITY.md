@@ -7,6 +7,12 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
 
 **Weight target:** Tekla's per-part weights (`st.tkW`). They sum to 63,705.8 kg; Tekla's Part List total is 63,711.7 kg.
 
+## Open until R13 (owner decisions, 2026-11-27)
+- **EB4006 / EB4008** were a Tekla model error (flanges with no web). The owner fixed them in Tekla (webs added, renumbered); R13 (new IFC + package) will replace R12 for them. Until then the 12 C20 stiffeners and weight group A5 stay as they are, and C12, C14, C20 and the mezzanine girders are not touched.
+- **C06:** 17 gable / end-frame node gussets within 0.2–4.3 mm (braces skewed out of the gusset plane): accepted for now, re-check on R13.
+- **C07:** 18 PL5 end plates at the upper ends of the wall crossings VL6011–VL6014, 0.1–1.7 mm (Tekla's 0.3° turn): accepted for now, re-check on R13.
+- Order of the next connections on R12: C01 + C16, C18, C03, C17, X01, X02.
+
 ## Weights (owner, 2026-11-26)
 **Target:** Tekla's per-part weights (`st.tkW`, 63,705.8 kg; Part List 63,711.7).
 
