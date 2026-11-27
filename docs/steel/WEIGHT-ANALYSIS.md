@@ -4,7 +4,8 @@ Written 2026-11-27. This is a read-only investigation: no code and no other file
 
 ## History
 - **v1** (C20 snapshot, before ce01af4): app 63,495.66 kg, Tekla 63,705.82, **Δ −210.16**. Bolt holes were taken off component parts, and the grout was weighed as S275.
-- **v2** (ce01af4: gross rule `holeFill70` / `TeklaWeight.holeFill`, grout weighs 0, stair-post 146 bolts L40): app 62,516.10 kg (web; the app reports 62,517.22), Tekla 63,705.82, **Δ −1,189.72**. - **v3** (bccb1e7, C05: Ttg tube ends as Tekla, parametric SHS / RHS with square corners, hole fill by rays on the part mesh including other connections' bolts): app 62,591.88 kg (web; the app reports 62,592.04), Tekla 63,705.82, **Δ −1,113.94**.
+- **v2** (ce01af4: gross rule `holeFill70` / `TeklaWeight.holeFill`, grout weighs 0, stair-post 146 bolts L40): app 62,516.10 kg (web; the app reports 62,517.22), Tekla 63,705.82, **Δ −1,189.72**.
+- **v3** (bccb1e7, C05: Ttg tube ends as Tekla, parametric SHS / RHS with square corners, hole fill by rays on the part mesh including other connections' bolts): app 62,591.88 kg (web; the app reports 62,592.04), Tekla 63,705.82, **Δ −1,113.94**.
 - **v4** (7b1ec0e, C06: node gussets with Tekla 20's outline): app 62,742.75 kg (web; the app reports 62,742.91), **Δ −963.07**.
 - **v5** (ee9267c, C07: tube crossing as Tekla 20): app 62,982.42 kg (web; the app reports 62,982.56), **Δ −723.40**. This is the current state. All the tables below are for v5 unless they say otherwise.
 
