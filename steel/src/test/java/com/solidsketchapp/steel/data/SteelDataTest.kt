@@ -90,11 +90,11 @@ class SteelDataTest {
         assertEquals("End plate", data.tk.familyNames["EP"])
         assertEquals(listOf("main part", "secondary part"), data.tk.pickOrders["ms"])
         assertNotNull(data.tk.byId("T144")); assertEquals("End plates", data.tk.byId("T144")!!.group)
-        // 246 TK + 4 CONN items (tube crossing, tube gusset, sag rod, purlin cleat) + 2 applications = 252 sheet items.
-        assertEquals(listOf("Ttgx", "Ttg", "Tsag", "Tcl"), data.tk.connItems.map { it.id })
+        // 246 TK + 5 CONN items (tube crossing, tube gusset, sag rod, purlin cleat; v70 C02h eave haunch Teh) + 2 applications = 253 sheet items.
+        assertEquals(listOf("Teh", "Ttgx", "Ttg", "Tsag", "Tcl"), data.tk.connItems.map { it.id })
         assertEquals("Tube crossing (tongues)", data.tk.connItem("Ttgx")!!.label)
         assertEquals(listOf("continuous brace", "half 1", "half 2"), data.tk.connItem("Ttgx")!!.parts)
-        assertEquals(252, data.tk.catalog.sumOf { it.second.size })
+        assertEquals(253, data.tk.catalog.sumOf { it.second.size })
     }
 
     @Test
@@ -103,7 +103,7 @@ class SteelDataTest {
         assertEquals(listOf("S235", "S275", "S355"), m.grades)
         assertEquals(7850.0, m.density("S275"), 0.0); assertEquals(7850.0, m.density("St-52"), 0.0); assertEquals(7850.0, m.density(null), 0.0)
         assertEquals(0.0, m.density("GROUT"), 0.0); assertEquals(0.0, m.density("C30/37"), 0.0); assertEquals(0.0, m.density("concrete"), 0.0)
-        assertEquals(1383.0, m.density("grating"), 0.0)
+        assertEquals(1333.0, m.density("grating"), 0.0)   // v70: Tekla's grating density (R12)
         assertEquals(33.2, m.teklaKgPerM["UPN240"]!!, 0.0); assertEquals(287.0, m.teklaRoundAreaMm2["ROD20"]!!, 0.0)
         val col = data.propertySet("COLUMN")!!
         assertEquals("HEA300", col.prof); assertEquals("S275", col.mat); assertEquals(2, col.cls)

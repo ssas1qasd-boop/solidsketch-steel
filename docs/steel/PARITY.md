@@ -117,6 +117,51 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C05 · Tube gusset (20), the tube end: connection plate, end plates, slot, bolts (owner 2026-11-27)
+
+### Step 0: Tekla's own site
+- [Tube gusset (20), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_20_help) (also [2024](https://support.tekla.com/doc/tekla-structures/2024/conn_20_help)): connects 1–10 hollow braces to a beam or column with a gusset plate; "bolts the braces to the gusset plate using a connection plate and an optional tongue plate"; "the hollow braces can be sealed with end plates". Part key: 1 gusset, 3 tongue plate, 6 connection plate, 7 end plates (seal plates).
+  - **Picture tab:** 4 "Brace length on the connection plate", default 150 mm; 5 "Distance between the gusset plate and the brace (the end plate)", default 20 mm; 1 / 10 gusset edges; 2, 3, 6, 7 gusset shape.
+  - **Brace conn tab:** Connection plate t / b / h (default t 20); End plates (default t 5); brace connection types (welded / bolted / notched); "Cut in bracing": width "where t is the thickness of the connection plate" and length; connection plate cut or brace notched; one or two connection plates; end plate shape (square / round) and edge distance.
+  - **Selection order:** main part, then the braces (first, second, …).
+- So R12's names are Tekla's: "Connection Plate" FLT12*140 = 20's connection plate (no tongue plate); "Gusset Plate" FLT5*100 = its end plates (the IFC names them after the gusset part type).
+- Tekla's own videos: none found for 20 (the "Tekla Software" hit is Multiple stiffeners 1064, C20).
+
+### Step 1: videos (`tests/steel/videos/C05/`)
+- `find.py`: Tekla's page above, then YouTube "TUBE GUSSET 20" (Z5SVpvwDdv8) and "[Tekla Structures 2020] Tube Gusset" (igIjArVFNn0); `gemini_read.py` on both, Brace conn tab. Values in `VIDEO.txt`.
+
+### Step 2: the Tekla package
+- NC 6508 (380 pieces): connection plate 315 × 140 × 12, holes d18 at 40 / 100 along × 40 / 100 across (gauge 60). NC 6512 (42): 285 × 140 × 12, holes at 30 / 80 × 45 / 95 (gauge 50). NC 1 (794): end plate 44 × 100 × 5. Single-part drawings 6508, 6512, 1.
+
+### R12 (456 tube ends; row 5 = 352 Ttg ends + 104 crossing halves of row 7)
+- Every brace solid ends exactly at its own end points (Tekla cut it there) and lies on its reference line; SHS100*3 with square corners.
+- Connection plate on the tube axis, 150 inside, 165 (or 135) out; slot = the plate (12 wide, 150 long). Two end plates 5 thick on the tube's end face, each from the plate to the tube wall (100 × 44).
+- 4 M16 8.8 L50 (grip 24 = plate + gusset): 40 + 60 (30 + 50) from the plate's tip, gauge 60 (50); head point on the plate face.
+- The plate plane: v69's automatic choice at 272 ends; the rafter's plane at 80 strut ends (single struts on a rafter top: Tekla's plate is in the rafter slope, v69 stood it vertical).
+- At a node (several braces on one gusset) the first picked brace's plate is on its own axis; the others lie against the same gusset, off their axes by 9.4 / 11.3 / 46.9 mm (R12's lead = the brace whose plate is on its axis).
+
+### Change, in web v70 (section "C05") and the app (`FamTG`, `StProf`, `TeklaWeight`)
+- Ttg options (old models unchanged): **Tube end** = at the brace end (as Tekla); **Connection plate position** = against the gusset (at a node); **Gusset side**; **Gusset plane** adds Vertical; Bolts tab **Bolt length** = Tekla. In 'at the brace end' mode the slot is Tekla's (t × the length inside) and the head point is on the plate face.
+- Parametric SHS / RHS written in Tekla's `*` notation have square corners (r 0), as Tekla's IFC; v69's own names (SHS80x5) keep r = 2 t.
+- Weight: the hole fill now measures on the part's own mesh (rays; the drilled hole is stBolts' 12-gon), so a page that builds many models leaks no Manifold objects (the S10 portal golden crashed); same numbers as before (tab 2.47, cleat 1.10); app = web.
+
+### Search result: the R12 inputs (`tools/golden/r10_inputs.py` `c05_q`, `c05_order`)
+- Per end, measured on R12: L, ins, e, p, gauge, plane, side; tend 'end', tpos 'gusset', blrule 'tekla'. The node's first brace (plate on its axis) goes first in the list (Tekla's pick order).
+
+### Checks
+| Check | Before (ce01af4) | After |
+|---|---|---|
+| Row 5 R12 parts matched (web rebuild, 0.1 mm boxes) | 0 / 1,294 (584 MISSING) | 943 / 1,294 (0 MISSING); the rest: 104 crossing-half plates + their end plates (row 7, C07) and the ends at 6 own-assembly gusset nodes (C06) |
+| App vs R12 (`R12C05Test`, 0.1 mm) | — | plates 916 / 916, bolts 1,264 / 1,264, member bodies 632 / 632 (the C06-node ends counted apart: plates 27 / 82) |
+| Brace bodies (web) | HZ 96 / ST 68 / VL 56 SOLID DIFFERS | 228 / 228 MATCHED (box 0.0, volume 0.999–1.001) |
+| R12 bolts on the same line | 2,450 of 4,548 (2,096 same length / grade) | 3,834 (3,480) |
+| Rule B | — | 0 failures on 4 cases (R12 node R3019, R12 single strut, HEA200 + SHS80*4 at 45°, IPE300 V node with SHS120*5) and on every earlier case |
+| App = web | — | `R12RebuildTest` 0 differences; `S7T144Test` + 4 t20 cases; host tests 124 / 124 |
+| Weight (rebuild, web) | 62,516.10 kg | 62,591.88 kg (Tekla 63,705.8): +75.8 kg from the square-cornered SHS braces and the row-5 parts now made as Tekla's |
+
+### Status
+Delivered for the owner's phone check; ✓ only after the owner's OK.
+
 ## C20 · Column with stiffeners (186) at the mezzanine column webs, and row 12 (owner 2026-11-26)
 
 **Scope (owner):** the column stiffeners FLT10*70 / FLT10*90 (Top / Bot, FS / NS) at the mezzanine columns, and the shear tab 186 makes on the column web; where R12 has 186 (tab + column stiffeners together), 186 replaces 146 in row 12. No other connection touched.

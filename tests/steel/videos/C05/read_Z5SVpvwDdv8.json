@@ -1,0 +1,716 @@
+{
+ "url": "https://www.youtube.com/watch?v=Z5SVpvwDdv8",
+ "component": "Tube gusset (20)",
+ "tab": "Brace conn",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "10:28",
+    "end": "12:08",
+    "note": "Brace conn tab on Tube gusset (20) dialog"
+   }
+  ],
+  "language": "en",
+  "units": "mm"
+ },
+ "pass2": [
+  {
+   "span": [
+    "10:28",
+    "12:08"
+   ],
+   "seconds": [
+    625,
+    685
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Connection plate t",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Connection plate b",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Connection plate h",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Connection plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "End plate t",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "End plate b",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "End plate h",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "End plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate t",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate b",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate h",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate t",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate b",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate h",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Cover plate t",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Cover plate b",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Cover plate h",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Cover plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Connection plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "End plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Cover plate",
+      "value": false,
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Connection plate Pos. No",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Connection plate Material",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Connection plate Name",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Connection plate Finish",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "End plate Pos. No",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "End plate Material",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "End plate Name",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "End plate Finish",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate Pos. No",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate Material",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate Name",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate Finish",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate Pos. No",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate Material",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate Name",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate Finish",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Cover plate Pos. No",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Cover plate Material",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Cover plate Name",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Cover plate Finish",
+      "value": "",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "label": "Connection plate t",
+      "value": "8.00",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Connection plate b",
+      "value": "6.00",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Connection plate h",
+      "value": "190.00",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Connection plate",
+      "value": true,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "End plate t",
+      "value": "8.00",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "End plate b",
+      "value": "6.00",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "End plate h",
+      "value": "190.00",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "End plate",
+      "value": true,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate t",
+      "value": "",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate b",
+      "value": "",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate h",
+      "value": "",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate",
+      "value": false,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate t",
+      "value": "",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate b",
+      "value": "",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate h",
+      "value": "",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate",
+      "value": false,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Cover plate t",
+      "value": "",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Cover plate b",
+      "value": "",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Cover plate h",
+      "value": "",
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Cover plate",
+      "value": false,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Connection plate",
+      "value": true,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "End plate",
+      "value": true,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate",
+      "value": false,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate",
+      "value": false,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Cover plate",
+      "value": false,
+      "t": "10:53",
+      "sure": true
+     },
+     {
+      "label": "Connection plate Pos. No",
+      "value": "PL 1",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "label": "Connection plate Material",
+      "value": "Q245B",
+      "t": "11:15",
+      "sure": true
+     },
+     {
+      "label": "Connection plate Name",
+      "value": "PLATE",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "label": "Connection plate Finish",
+      "value": "",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "label": "End plate Pos. No",
+      "value": "PL 1",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "label": "End plate Material",
+      "value": "Q245B",
+      "t": "11:15",
+      "sure": true
+     },
+     {
+      "label": "End plate Name",
+      "value": "PLATE",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "label": "End plate Finish",
+      "value": "",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate Pos. No",
+      "value": "",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate Material",
+      "value": "",
+      "t": "11:15",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate Name",
+      "value": "",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate Finish",
+      "value": "",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate Pos. No",
+      "value": "",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate Material",
+      "value": "",
+      "t": "11:15",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate Name",
+      "value": "",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate Finish",
+      "value": "",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "label": "Cover plate Pos. No",
+      "value": "",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "label": "Cover plate Material",
+      "value": "",
+      "t": "11:15",
+      "sure": true
+     },
+     {
+      "label": "Cover plate Name",
+      "value": "",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "label": "Cover plate Finish",
+      "value": "",
+      "t": "11:23",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "10:28",
+    "12:08"
+   ],
+   "seconds": [
+    685,
+    731
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Connection plate t",
+      "value": "8.00",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Connection plate b",
+      "value": "190.00",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "End plates t",
+      "value": "8.00",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate t",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate t",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Cover plate t",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Connection plate pos no",
+      "value": "PL 1",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Connection plate material",
+      "value": "Q245B",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Connection plate name",
+      "value": "PLATE",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "End plates pos no",
+      "value": "PL 1",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "End plates material",
+      "value": "Q245B",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "End plates name",
+      "value": "PLATE",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate pos no",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate material",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate name",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate pos no",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate material",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate name",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Cover plate pos no",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Cover plate material",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     },
+     {
+      "label": "Cover plate name",
+      "value": "",
+      "t": "11:25",
+      "sure": true
+     }
+    ]
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

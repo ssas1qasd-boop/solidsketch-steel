@@ -31,7 +31,18 @@ import kotlin.math.sin
 class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: BooleanEngine) {
     class W(val weight: Double, val net: Double, val catalog: Boolean, val kgm: Double, val len: Double, val tkArea: Double? = null, val ownArea: Double? = null, val holesFilled: Double = 0.0)
     /** A component's bolt group as its body records it: head points, shank axis, hole diameter d0, bolt length L. */
-    class Bolts(val pts: List<D3>, val ax: D3, val d0: Double, val len: Double)
+    class Bolts(val pts: List<D3>, val ax: D3, val d0: Double, val len: Double, val slot: Double = 0.0)
+
+    /**
+     * The bolt groups that may drill a part (web v70 holeFill70): those of the connections that join it, of its own connection
+     * ([partConn], a component's part), and of every connection sharing a part with its own (a node gusset is drilled by the other
+     * braces' tongues). [conns]: connection id -> its parts; [byConn]: connection id -> its bolt groups (not TKBOLT).
+     */
+    fun candidates(partId: String, partConn: String?, conns: Map<String, List<String>>, byConn: Map<String, List<Bolts>>): List<Bolts> {
+        val byPart = HashMap<String, MutableList<Bolts>>(); for ((cid, ps) in conns) { val g = byConn[cid] ?: continue; for (p in ps) byPart.getOrPut(p) { ArrayList() } += g }
+        val out = LinkedHashSet<Bolts>(); byPart[partId]?.let { out += it }; partConn?.let { c -> byConn[c]?.let { out += it }; conns[c]?.forEach { p -> byPart[p]?.let { out += it } } }
+        return out.toList()
+    }
 
     companion object {
         val DENS = mapOf("GROUT" to 0.0, "CONCRETE" to 0.0, "ANTIMATERIAL" to 0.0, "MISC_UNDEFINED" to 0.0, "GRATING" to 1333.0)
@@ -99,23 +110,38 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
     }
 
     /**
-     * The volume of the bolt holes a part really has (web v70 holeFill70, the same steps): per bolt, from the head point along the
-     * shank (−2 … L + 2): if the core (r0 − 0.5) finds material the part has no hole for it; else the part's thickness t is measured in a
-     * ring r0 + 0.3 … r0 + 1.3 (32-gons) and the hole as drilled is t × the outer circle's area less the material inside that circle.
+     * The volume of the bolt holes a part really has (web v70 holeFill70, the same steps): per bolt, the line from 2 before the head
+     * point to L + 2; material on it = the part has no hole for that bolt; else the hole as drilled (stBolts: a 12-gon of radius d0 / 2,
+     * area 3 (d0 / 2)^2, swept along a slot) x the part's thickness there (the median of 8 lines parallel to the bolt, 0.8 mm outside
+     * the hole). Rays on the part's own mesh.
      */
     fun holeFill(mesh: Mesh, bolts: List<Bolts>): Double {
-        val n = 32; fun pa(r: Double) = n / 2.0 * sin(2 * PI / n) * r * r
-        fun circ(r: Double) = (0 until n).map { i -> doubleArrayOf(r * kotlin.math.cos(2 * PI * i / n), r * sin(2 * PI * i / n)) }
+        val p = mesh.positions; val ix = mesh.indices; val lo = DoubleArray(3) { Double.MAX_VALUE }; val hi = DoubleArray(3) { -Double.MAX_VALUE }
+        for (i in 0 until mesh.vertexCount) for (k in 0..2) { val v = p[i * 3 + k].toDouble(); if (v < lo[k]) lo[k] = v; if (v > hi[k]) hi[k] = v }
+        fun inside(P: D3, a: D3, s0: Double, s1: Double): Double {
+            class H(val s: Double, val out: Boolean); val hs = ArrayList<H>()
+            for (t in 0 until mesh.triangleCount) { val i0 = 3 * ix[3 * t]; val i1 = 3 * ix[3 * t + 1]; val i2 = 3 * ix[3 * t + 2]
+                val e1x = (p[i1] - p[i0]).toDouble(); val e1y = (p[i1 + 1] - p[i0 + 1]).toDouble(); val e1z = (p[i1 + 2] - p[i0 + 2]).toDouble()
+                val e2x = (p[i2] - p[i0]).toDouble(); val e2y = (p[i2 + 1] - p[i0 + 1]).toDouble(); val e2z = (p[i2 + 2] - p[i0 + 2]).toDouble()
+                val px = a.y * e2z - a.z * e2y; val py = a.z * e2x - a.x * e2z; val pz = a.x * e2y - a.y * e2x; val det = e1x * px + e1y * py + e1z * pz; if (abs(det) < 1e-12) continue
+                val inv = 1 / det; val tx = P.x - p[i0]; val ty = P.y - p[i0 + 1]; val tz = P.z - p[i0 + 2]; val u = (tx * px + ty * py + tz * pz) * inv; if (u < -1e-9 || u > 1 + 1e-9) continue
+                val qx = ty * e1z - tz * e1y; val qy = tz * e1x - tx * e1z; val qz = tx * e1y - ty * e1x; val w = (a.x * qx + a.y * qy + a.z * qz) * inv; if (w < -1e-9 || u + w > 1 + 1e-9) continue
+                hs += H((e2x * qx + e2y * qy + e2z * qz) * inv, det < 0) }
+            hs.sortBy { it.s }; val h = ArrayList<H>(); for (x in hs) if (h.isEmpty() || abs(x.s - h.last().s) > 1e-6 || x.out != h.last().out) h += x
+            var len = 0.0; var inS: Double? = null
+            for (x in h) { if (!x.out) { if (inS == null) inS = x.s } else if (inS != null) { len += max(0.0, kotlin.math.min(x.s, s1) - max(inS, s0)); inS = null } }
+            return len
+        }
+        fun c(v: D3, k: Int) = when (k) { 0 -> v.x; 1 -> v.y; else -> v.z }
         var fill = 0.0
         for (g in bolts) {
             val a = g.ax.normalize(); val x = (a cross (if (abs(a.z) < 0.9) D3(0.0, 0.0, 1.0) else D3(1.0, 0.0, 0.0))).normalize(); val y = a cross x
-            val r0 = g.d0 / 2; val z0 = -2.0; val z1 = g.len + 2
-            for (p in g.pts) { val f = com.solidsketchapp.steel.conn.Joints.Frame3(p, x, y)
-                if (abs(booleans.volume(booleans.intersect(mesh, f.poly(circ(r0 - 0.5), z0, z1)))) > 1) continue
-                val o = f.poly(circ(r0 + 1.3), z0, z1); val ring = booleans.subtract(o, listOf(f.poly(circ(r0 + 0.3), z0, z1)))
-                val v = abs(booleans.volume(booleans.intersect(mesh, ring))); if (!(v > 0)) continue
-                val mo = abs(booleans.volume(booleans.intersect(mesh, o))); val t = v / (pa(r0 + 1.3) - pa(r0 + 0.3))
-                fill += max(0.0, t * pa(r0 + 1.3) - mo) }
+            val hr = g.d0 / 2; val rr = hr + 0.8; val area = 3 * hr * hr + g.slot * 2 * hr * kotlin.math.cos(PI / 12)
+            for (pa in g.pts) { val pb = pa.add(a, g.len + 2); val m = hr + 2
+                if ((0..2).any { k -> max(c(pa, k), c(pb, k)) + m < lo[k] || kotlin.math.min(c(pa, k), c(pb, k)) - m > hi[k] }) continue
+                if (inside(pa, a, -2.0, g.len + 2) > 0.5) continue
+                val ts = (0 until 8).map { i -> val f = (i + 0.37) * PI / 4; inside(pa.add(x, rr * kotlin.math.cos(f)).add(y, rr * sin(f)), a, -2.0, g.len + 2) }.sorted()
+                val tm = (ts[3] + ts[4]) / 2; if (tm > 0) fill += tm * area }
         }
         return fill
     }

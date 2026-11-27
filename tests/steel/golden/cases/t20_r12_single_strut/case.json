@@ -1,0 +1,75 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttg",
+   [
+    0,
+    1
+   ],
+   {
+    "L": 315,
+    "blrule": "tekla",
+    "bolt": 16,
+    "e": 40,
+    "g": 60,
+    "ins": 150,
+    "p": 60,
+    "plane": "main",
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ]
+ ],
+ "description": "R12 R3023 / ST5012: one strut on the rafter, its plate in the rafter plane on a fin (Gusset plane: main part plane).",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     52682.387,
+     22355,
+     7433.94
+    ],
+    "p2": [
+     46290.5,
+     22355,
+     8887.194
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "Strut",
+    "p1": [
+     49545.335,
+     16984,
+     8147.745
+    ],
+    "p2": [
+     49545.335,
+     22156,
+     8147.745
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 192.809,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20_r12_single_strut",
+ "pageErrors": []
+}

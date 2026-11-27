@@ -2629,6 +2629,7 @@
     "T41",
     "T51",
     "T102",
+    "Teh",
     "T106",
     "T130",
     "T134",
@@ -2914,6 +2915,31 @@
  ],
  "connItems": [
   {
+   "id": "Teh",
+   "label": "Eave haunch",
+   "tekla": "Eave haunch (SolidSketch, C02h)",
+   "code": "C02h",
+   "parts": [
+    "main part (column)",
+    "secondary part (rafter)"
+   ],
+   "fam": "EH",
+   "grp": "Haunch and moment",
+   "gen": false,
+   "ro": [],
+   "def": {
+    "hlen": 2000,
+    "hdep": 82.91,
+    "tw": 8,
+    "tf": 10,
+    "bf": 150,
+    "a": 6,
+    "nweb": "Web",
+    "nfl": "Bottom flange",
+    "cls": 1
+   }
+  },
+  {
    "id": "Ttgx",
    "label": "Tube crossing (tongues)",
    "tekla": "Tube crossing with crossing gusset",
@@ -2969,7 +2995,10 @@
     "cap": 5,
     "side": 1,
     "plane": "auto",
-    "a": 3.5
+    "a": 3.5,
+    "tend": "",
+    "blrule": "",
+    "tpos": ""
    }
   },
   {

@@ -121,35 +121,48 @@
       return Object.assign({}, r, { weight: r2(net), net: r2(net), gross: r2(Math.max(r.gross, net)), tkArea: r2(At), ownArea: r2(Am) });
     }
     // Gross (owner 2026-11-27): Tekla weighs a part without its bolt holes. Imported TKBOLT holes: the part rebuilt without them (v66,
-    // above). A component's own bolt holes (its plates, the parts it drills): each hole the part really has (the bolt's core, r0 - 0.5,
-    // finds no material) is filled back: the part's thickness t at the hole is measured in a ring r0 + 0.3 ... r0 + 1.3 round it, and the fill is
-    // t x the outer circle's area less the material inside that circle (the hole as drilled, whatever its polygon) (32-gons; the same steps as the app's TeklaWeight.holeFill). Segment: from the head point, the bolt's length (+ 2 each end).
-    const HN = 32, polyA = (n, r) => n / 2 * Math.sin(2 * Math.PI / n) * r * r;
+    // above). A component's own bolt holes (its plates, the parts it drills): each hole the part really has (no material on the bolt's
+    // line, from 2 before the head point to L + 2) is filled back as the hole as drilled (stBolts: a 12-gon of radius d0 / 2, area
+    // 3 (d0 / 2)^2, swept along a slot) x the part's thickness there (the median of 8 lines parallel to the bolt, 0.8 mm outside the
+    // hole). Rays on the part's own mesh (no Manifold objects); the same steps as the app's TeklaWeight.holeFill.
     let HIX = null;   // conn id -> its bolt bodies; parts drilled per conn (rebuilt when the model changes)
     const holeIndex = () => { const key = S.bodies.length + ':' + (S.stConns || []).length; if (HIX && HIX.key === key && HIX.bodies === S.bodies) return HIX;
       const conns = new Map((S.stConns || []).map(c => [c.id, c])), byConn = new Map();
       for (const g of S.bodies) { const q = g.st; if (!q || q.kind !== 'bolts' || !q.pts || !q.ax) continue; const c = conns.get(q.conn); if (!c || c.type === 'TKBOLT') continue; if (!byConn.has(c.id)) byConn.set(c.id, { c, gs: [] }); byConn.get(c.id).gs.push(q); }
       const byPart = new Map(); for (const [cid, e] of byConn) for (const pid of e.c.parts) { if (!byPart.has(pid)) byPart.set(pid, []); byPart.get(pid).push(...e.gs); }
       return (HIX = { key, bodies: S.bodies, byConn, byPart }); };
-    const vol3 = (m, U) => { const v = Math.abs(m.volume()) / (U * U * U); m.delete && m.delete(); return v; };
+    // the part's mesh, once per solid: positions and triangles (no Manifold objects: a page that builds many models must not leak)
+    const MESH = new WeakMap(); const meshOf = m => { let r = MESH.get(m); if (!r) { const g = m.getMesh(), n = g.numProp, v = g.vertProperties, t = g.triVerts; r = { v, t, n }; MESH.set(m, r); } return r; };
+    function insideLen(M, P, a, s0, s1) {   // the length of the segment P + a s (s0 <= s <= s1) inside the closed mesh M (ray / triangle, Moller-Trumbore)
+      const { v, t, n } = M, hs = [];
+      for (let k = 0; k < t.length; k += 3) { const i0 = t[k] * n, i1 = t[k + 1] * n, i2 = t[k + 2] * n;
+        const e1x = v[i1] - v[i0], e1y = v[i1 + 1] - v[i0 + 1], e1z = v[i1 + 2] - v[i0 + 2], e2x = v[i2] - v[i0], e2y = v[i2 + 1] - v[i0 + 1], e2z = v[i2 + 2] - v[i0 + 2];
+        const px = a.y * e2z - a.z * e2y, py = a.z * e2x - a.x * e2z, pz = a.x * e2y - a.y * e2x, det = e1x * px + e1y * py + e1z * pz; if (Math.abs(det) < 1e-12) continue;
+        const inv = 1 / det, tx = P.x - v[i0], ty = P.y - v[i0 + 1], tz = P.z - v[i0 + 2], u = (tx * px + ty * py + tz * pz) * inv; if (u < -1e-9 || u > 1 + 1e-9) continue;
+        const qx = ty * e1z - tz * e1y, qy = tz * e1x - tx * e1z, qz = tx * e1y - ty * e1x, w = (a.x * qx + a.y * qy + a.z * qz) * inv; if (w < -1e-9 || u + w > 1 + 1e-9) continue;
+        hs.push({ s: (e2x * qx + e2y * qy + e2z * qz) * inv, out: det < 0 }); }
+      hs.sort((x, y) => x.s - y.s); const h = []; for (const x of hs) if (!h.length || Math.abs(x.s - h[h.length - 1].s) > 1e-6 || x.out !== h[h.length - 1].out) h.push(x);
+      let len = 0, inS = null; for (const x of h) { if (!x.out) { if (inS === null) inS = x.s; } else if (inS !== null) { len += Math.max(0, Math.min(x.s, s1) - Math.max(inS, s0)); inS = null; } } return len;
+    }
     const FILL = new WeakMap();   // solid -> its hole fill (a part is weighed more than once per report)
     function holeFill70(b) {
       if (!b || !b.st || !b.man || !['plate', 'member', 'conn'].includes(b.st.kind)) return 0;
       if (FILL.has(b.man)) return FILL.get(b.man);
-      const U = stU(), H = holeIndex(); const gs = [...(H.byPart.get(b.id) || []), ...((H.byConn.get(b.st.conn) || {}).gs || [])]; if (!gs.length) { FILL.set(b.man, 0); return 0; } let fill = 0;
-      const bb = b.man.boundingBox(), lo = bb.min, hi = bb.max;   // a bolt whose line cannot reach the part's box is skipped
-      const circ = r => Array.from({ length: HN }, (_, i) => [r * U * Math.cos(2 * Math.PI * i / HN), r * U * Math.sin(2 * Math.PI * i / HN)]);
+      const U = stU(), H = holeIndex(); const own = H.byConn.get(b.st.conn), oc = (S.stConns || []).find(c => c.id === b.st.conn);
+      // candidates: the bolts of the connections that join this part, of its own connection, and of every connection sharing a part with
+      // its own (a node gusset is drilled by the other braces' tongues too); the core ray below keeps only holes the part has
+      const gs = [...new Set([...(H.byPart.get(b.id) || []), ...((own || {}).gs || []), ...(oc ? oc.parts.flatMap(pid => H.byPart.get(pid) || []) : [])])]; if (!gs.length) { FILL.set(b.man, 0); return 0; }
+      const bb = b.man.boundingBox(), lo = bb.min, hi = bb.max; let M = null, fill = 0;
       for (const q of gs) {
         const a = V3(q.ax).normalize(), X = new THREE.Vector3().crossVectors(a, Math.abs(a.z) < 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0)).normalize(), Y = new THREE.Vector3().crossVectors(a, X);
-        const r0 = (+q.d0 || +q.d + 2) / 2, L = +q.L || 3 * (+q.d || 20), z0 = -2 * U, z1 = (L + 2) * U;
-        for (const P0 of q.pts) { const Pa = V3(P0).multiplyScalar(U), Pb = Pa.clone().addScaledVector(a, (L + 2) * U), m = (r0 + 2) * U;
+        const hr = (+q.d0 || +q.d + 2) / 2, L = +q.L || 3 * (+q.d || 20), rr = hr + 0.8;
+        const area = 3 * hr * hr + (Math.max(+q.sl1 || 0, 0) + Math.max(+q.sl2 || 0, 0)) * 2 * hr * Math.cos(Math.PI / 12);   // stBolts' hole: a 12-gon of radius hr (area 3 hr^2), swept along a slot
+        for (const P0 of q.pts) { const Pa = V3(P0).multiplyScalar(U), Pb = Pa.clone().addScaledVector(a, (L + 2) * U), m = (hr + 2) * U;
           if ([0, 1, 2].some(k => Math.max(Pa.getComponent(k), Pb.getComponent(k)) + m < lo[k] || Math.min(Pa.getComponent(k), Pb.getComponent(k)) - m > hi[k])) continue;
-          const F = stFrame3(V3(P0), X, Y);
-          const core = F.poly(circ(r0 - 0.5), z0, z1); const vc = vol3(b.man.intersect(core), U); core.delete && core.delete(); if (vc > 1) continue;   // no hole for this bolt in this part
-          const o = F.poly(circ(r0 + 1.3), z0, z1), i2 = F.poly(circ(r0 + 0.3), z0, z1), ring = o.subtract(i2); i2.delete && i2.delete();
-          const v = vol3(b.man.intersect(ring), U); ring.delete && ring.delete(); if (!(v > 0)) { o.delete && o.delete(); continue; }
-          const mo = vol3(b.man.intersect(o), U); o.delete && o.delete(); const t = v / (polyA(HN, r0 + 1.3) - polyA(HN, r0 + 0.3));
-          fill += Math.max(0, t * polyA(HN, r0 + 1.3) - mo); } }   // the material missing inside the outer circle at the ring's thickness = the hole as drilled
+          M = M || meshOf(b.man); const s0 = -2 * U, s1 = (L + 2) * U;
+          if (insideLen(M, Pa, a, s0, s1) > 0.5 * U) continue;   // material on the bolt's line: the part has no hole for it
+          const ts = []; for (let i = 0; i < 8; i++) { const f = (i + 0.37) * Math.PI / 4; ts.push(insideLen(M, Pa.clone().addScaledVector(X, rr * Math.cos(f) * U).addScaledVector(Y, rr * Math.sin(f) * U), a, s0, s1) / U); }
+          ts.sort((x, y) => x - y); const tm = (ts[3] + ts[4]) / 2; if (tm > 0) fill += tm * area; } }
       FILL.set(b.man, fill); return fill;
     }
     function partWeight70(b) {
@@ -415,6 +428,78 @@
   };
   { const ep70 = FAM.EP; FAM.EP = X => { const r = ep70(X); if ((X.q.scr === 'auto' || X.q.scr === 'both') && r !== null) for (const Bm of [X.B, X.B2].filter(Boolean)) stiff70(X, Bm); return r; }; }
   //
+  // ---------- C05 · Tube gusset (20): the tube end, the connection plate, the end plates and the bolts (docs/steel/PARITY.md "C05") ----------
+  // Tekla's 20 (conn_20_help 2025): the brace is bolted to the gusset through a connection plate inside its slot (Brace conn tab:
+  // Connection plate t, Picture 4 = the brace length on the connection plate, default 150), the tube sealed by End plates (5) on both
+  // sides of the plate. R12 (456 tube ends): the plate on the tube axis, 150 inside the tube, 165 (or 135) out of it; the two end plates
+  // 5 thick on the tube's end face, each from the plate to the tube's wall (100 wide); 4 M16 L50 at 40 + 60 (or 30 + 50) from the
+  // plate's tip, gauge 60 (50); grip = plate + gusset. The tube end itself is where Tekla cut the brace: R12's braces end there, so
+  // 'Tube end' = 'brace end' keeps it (v69 cut the tube back to its own clearance rule: the tongues landed 23 to 162 mm off).
+  // Bolt length: Tekla's rule (blrule 'tekla', as 144 / 146).
+  ST_LBL.tend = 'Tube end'; ST_LBL.blrule = ST_LBL.blrule || 'Bolt length';
+  Object.assign(CONN.Ttg.def, { tend: '', blrule: '' });
+  { const v54tgSet69 = v54tgSet;
+    v54tgSet = function (q, A, Br, plane, gRef) {   // 'Tube end' = 'brace end': the clearance that puts the tube end at the brace's own end
+      const r = v54tgSet69(q, A, Br, plane, gRef); if (q.tend !== 'end') return r;
+      const U = stU(), MA = stMF(A.st), MB = stMF(Br.st); const dl = P => { const v = P.clone().sub(MA.c1); return v.addScaledVector(MA.a, -v.dot(MA.a)).length(); };
+      const E = dl(MB.c1) <= dl(MB.c2) ? MB.c1 : MB.c2; const want = E.clone().sub(r.W).dot(r.d) - (q.L - q.ins) * U; const sinT = Math.max(0.2, Math.abs(r.d.dot(r.nF)));
+      return v54tgSet69(Object.assign({}, q, { clear: q.clear + (want - r.sTip) * sinT / U }), A, Br, plane, gRef);
+    };
+    const tg70 = FAM.TG;
+    FAM.TG = X => {
+      const q = X.q; if (q.kind === 'cross' || q.tend !== 'end' || !X.B) return tgBl70(X, tg70);
+      let s0; try { s0 = v54tgSet(Object.assign({}, q, { tend: '' }), X.A, X.B); } catch (e) { return tgBl70(X, tg70); }
+      const s1 = v54tgSet(q, X.A, X.B); const sinT = Math.max(0.2, Math.abs(s0.d.dot(s0.nF)));   // the single-brace path computes its own tip: give it the same clearance
+      return tgBl70(Object.assign({}, X, { q: Object.assign({}, q, { clear: q.clear + (s1.sTip - s0.sTip) * sinT / stU() }) }), tg70);
+    };
+    function tgBl70(X, f) {   // Tekla's bolt length: the bolt groups the family makes get L = grip + nut + washer + 5, up to 5
+      if (X.q.blrule !== 'tekla') return f(X);
+      const bolts0 = X.bolts; const Y = Object.assign({}, X, { bolts: (B, n, L, d, grade) => bolts0(B, n, tkBoltLen70(X.q.bolt, X.q.t + X.q.tf), d, grade) });
+      return f(Y);
+    }
+  }
+
+  // C05 · at a node (several braces on one gusset): Tekla lays every connection plate against the shared gusset, so a brace whose axis is
+  // off the first brace's plane gets its plate off its own axis (R12: 9.4 / 11.3 / 46.9 mm at 52 strut and vertical-brace ends); v69
+  // centred each tongue on its own tube. 'Connection plate position' = 'against the gusset' (tpos 'gusset').
+  ST_LBL.tpos = 'Connection plate position'; CONN.Ttg.def.tpos = '';
+  { let NODE = null; const tgEnd69 = tgEnd, set70 = v54tgSet;
+    // v70 'Tube end' = 'brace end': Tekla's slot is the plate itself (R12: t wide, the length inside the tube), v69 cut t + 2 x ins + 11
+    const tgEnd70 = (X, Br, S0, d, g, sTip, toff, out) => {
+      const { U, q, cut, plate, weld } = X; const MB = stMF(Br.st); const pIn = new THREE.Vector3().crossVectors(g, d).normalize(); const t = q.t * U, w2 = q.w / 2 * U, e = q.e * U, p = q.p * U, BIG = v49Big();
+      const sTube = sTip + (q.L - q.ins) * U; const F = stFrame3(S0, d, pIn);
+      const tg = F.box(sTip, sTip + q.L * U, -w2, w2, toff - t / 2, toff + t / 2); const bl = []; for (const s of [sTip + e, sTip + e + p]) for (const z of [-q.g / 2 * U, q.g / 2 * U]) bl.push(F.P(s, z, toff - out * (t / 2 + (q.blrule === 'tekla' ? 0 : 0.1) * U)));   // Tekla's head point is on the plate face
+      cut(Br.id, F.box(-BIG, sTube, -BIG / 10, BIG / 10, -BIG / 10, BIG / 10)); const hw = tubeHalf(MB, pIn) * U, hg = tubeHalf(MB, g) * U;
+      cut(Br.id, F.box(sTube - 1 * U, sTube + q.ins * U, -hw - 5 * U, hw + 5 * U, toff - t / 2, toff + t / 2));
+      if (q.cap) for (const sg of [1, -1]) { const z0 = toff + sg * t / 2, z1 = sg * hg; if (Math.abs(z1 - z0) > 1 * U && Math.sign(z1 - z0) === sg) plate('END CAP', F.box(sTube - q.cap * U, sTube, -hw, hw, z0, z1), q.cap, 'FLT' + q.cap + '*' + Math.round(2 * hw / U)); }
+      weld('Tongue in tube', q.a, 4 * q.ins); return { tg, bl, F };
+    };
+    tgEnd = function (X, Br, S0, d, g, sTip, toff, out) { if (NODE && toff === 0 && Math.abs(g.dot(NODE.g)) > 0.99) toff = -S0.clone().sub(NODE.W).dot(g); return (X.q.tend === 'end' ? tgEnd70 : tgEnd69)(X, Br, S0, d, g, sTip, toff, out); };
+    v54tgSet = function (q, A, Br, plane, gRef) { const r = set70(q, A, Br, plane, gRef); if (!NODE || !(Math.abs(r.g.dot(NODE.g)) > 0.99)) return r;
+      const sh = -r.W.clone().sub(NODE.W).dot(r.g); return Object.assign({}, r, { bl: r.bl.map(P => P.clone().addScaledVector(r.g, sh)) }); };
+    const tgN = FAM.TG;
+    FAM.TG = X => {
+      const q = X.q; if (q.tpos !== 'gusset' || q.kind === 'cross' || !q.node || !X.B || !X.c) return tgN(X);
+      let L0 = null; try { const A = X.A, me = v54tgSet(q, A, X.B), R = (q.nodeR || 450) * stU();
+        const all = v54group(X.c, A).filter(o => o.c === X.c || o.c.parts[1] !== X.B.id).map(o => { try { return Object.assign({}, o, { s: v54tgSet(o.q, A, o.Br) }); } catch (e) { return null; } }).filter(o => o && o.s.W.distanceTo(me.W) < R && o.s.nF.dot(me.nF) > 0.9);
+        if (all.length >= 2) { const plane = all.some(o => o.s.steep) ? 'main' : null; all.sort((a, b) => (a.c.id ?? -1) - (b.c.id ?? -1)); L0 = v54tgSet(all[0].q, A, all[0].Br, plane); } } catch (e) { L0 = null; }
+      if (!L0) return tgN(X);
+      NODE = { W: L0.W, g: L0.g }; try { return tgN(X); } finally { NODE = null; }
+    };
+  }
+  // C05 · Ttg dialog (Tekla 20's Brace conn tab): Tube end, Connection plate position, gusset side; Bolts tab: Tekla's bolt length
+  { const tabs = TKD.Ttg.tabs; const gt = tabs.find(t => t.name === 'Gusset');
+    if (gt) { gt.groups = (gt.groups || []).map(g => g[0] === 'Gusset' ? [g[0], g[1].map(f => f.k === 'plane' ? TKF('plane', 'Gusset plane', { type: 'sel', opts: [tkOpt('auto', 'Automatic'), tkOpt('main', 'Main part plane'), tkOpt('vert', 'Vertical')] }) : f)] : g);
+      gt.groups.push(['Brace connection', [TKF('tend', 'Tube end', { type: 'sel', dv: '', opts: [tkOpt('', 'Cut back to the clearance (v69)'), tkOpt('end', 'At the brace end (as Tekla)')] }),
+        TKF('tpos', 'Connection plate position', { type: 'sel', dv: '', opts: [tkOpt('', 'Centred on the brace (v69)'), tkOpt('gusset', 'Against the gusset (as Tekla)')] }),
+        TKF('side', 'Gusset side', { type: 'sel', dv: 1, opts: [tkOpt(1, 'Side 1'), tkOpt(-1, 'Side 2')] })]]); }
+    const bt = tabs.find(t => t.name === 'Bolts'); if (bt) { const g = (bt.groups || []).find(x => x[0] === 'Bolt assembly'); const f = TKF('blrule', 'Bolt length', { type: 'sel', dv: '', opts: [tkOpt('', 'v69 (grip + 2 d)'), tkOpt('tekla', 'Tekla (grip + nut + washer + 5, up to 5 mm)')] });
+      if (g) { if (!g[1].some(x => x.k === 'blrule')) g[1] = g[1].concat([f]); } else bt.fields = (bt.fields || []).concat([f]); } }
+  // C05 · Tekla's parametric hollow sections have square corners (R12's SHS100*3: 1,164 mm², the IFC solid; docs/steel/PARITY.md
+  // "Weights"): a profile written in Tekla's * notation (SHS100*3, RHS200*100*5) gets r 0; v69's own names (SHS80x5) keep r = 2 t.
+  { const stProf69 = stProf; stProf = function (name) { const r = stProf69(name); if (!r || r.kind !== 'R' || !/^\s*(SHS|RHS)\s*\d+(\.\d+)?\s*\*/i.test(String(name || ''))) return r;
+      return Object.assign({}, r, { r: 0, m: (r.h * r.b - (r.h - 2 * r.t) * (r.b - 2 * r.t)) * 7.85e-3 }); };
+    if (window.__st && window.__st.prof) window.__st.prof = stProf; }
   // ---------- C20 · Column with stiffeners (186): Tekla's shear tab + column stiffeners (docs/steel/PARITY.md "C20") ----------
   // Tekla's 186 help (conn_186_help 2025): a square shear tab welded to the main part web and stiffeners, bolted to the secondary web;
   // Stiffeners tab Top / Bottom NS / FS (t, b, h), orientation, creation, shape, Stiffener gap 1 (distance from the flange edge to the

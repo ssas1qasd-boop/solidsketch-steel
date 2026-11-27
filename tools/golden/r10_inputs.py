@@ -531,6 +531,45 @@ def main():
         if taken: q['scr'] = 'none'; return q, []   # the stiffeners are the first 186's; the sizes still set the flange strip (Picture 2)
         return q, stf
 
+    c05_off = {}
+    def c05_order(lst):
+        """C05: Tekla centres a node's gusset on the first picked brace (its plate on its own axis); the others lie against the gusset.
+        v69 takes the node's first connection as that brace, so the Ttg entries whose R12 plate is on its axis go first (stable)."""
+        ix = [i for i, e in enumerate(lst) if e[0] == 'Ttg']
+        tg = sorted((lst[i] for i in ix), key=lambda e: 0 if c05_off.get(e[4][0], 0.0) < 0.5 else 1)
+        out = list(lst)
+        for i, e in zip(ix, tg): out[i] = e
+        return out
+    def c05_q(cp, br, cs, main):
+        """C05: the tube end (where Tekla cut the brace: its own end), the connection plate's length (out + 150 in) and its bolts (e from the
+        tip, p, gauge), measured on R12; bolt length Tekla's rule."""
+        import numpy as _np
+        bst = members[br]['st']; p1, p2 = _np.asarray(bst['p1'], float), _np.asarray(bst['p2'], float)
+        vc = _np.asarray(cp['shape']['vp'], float).reshape(-1, 3); cc = vc.mean(0)
+        P, O = (p1, p2) if _np.linalg.norm(cc - p1) < _np.linalg.norm(cc - p2) else (p2, p1); a = (O - P) / _np.linalg.norm(O - P)
+        s = (vc - P) @ a; L = round(float(s.max() - s.min()), 1); ins = round(float(s.max()), 1)
+        pts = _np.asarray([q3 for c in cs for q3 in c['q']['pts']], float); sp = sorted({round(float(x), 1) for x in (pts - P) @ a})
+        e = round(sp[0] - float(s.min()), 1) if sp else 40.0; p = round(sp[-1] - sp[0], 1) if len(sp) > 1 else 60.0
+        X = vc - cc; w_, vv = _np.linalg.eigh(X.T @ X); n = vv[:, 0]; u = _np.cross(a, n); g = round(float(_np.ptp(pts @ u)), 1) if len(pts) else 60.0
+        out = OrderedDict(tend='end', blrule='tekla', tpos='gusset', L=L, ins=ins, e=e, p=p, g=g)
+        c05_off[cp['id']] = abs(float((cc - P) @ n))   # the plate's offset from its tube axis: 0 = the node's first brace (Tekla's pick order)
+        # the plate's plane: v69's choices (Ttg 'plane') give the plate normal g = d x v2 with v2 = the main part's axis ('main') or Z ('vert');
+        # 'auto' (v69) picks Z when the brace is more than ~73 deg off the main part's axis, else the axis
+        mst = members[main]['st']; ma = _np.asarray(mst['p2'], float) - _np.asarray(mst['p1'], float); ma /= _np.linalg.norm(ma)
+        def gof(v2):
+            g_ = _np.cross(a, v2); return g_ / _np.linalg.norm(g_) if _np.linalg.norm(g_) > 0.1 else None
+        auto = _np.array([0, 0, 1.0]) if abs(a @ ma) < 0.3 else ma
+        cand = [(k, gof(v)) for k, v in (('', auto), ('main', ma), ('vert', _np.array([0, 0, 1.0])))]
+        hit = next((k for k, g_ in cand if g_ is not None and abs(g_ @ n) > 0.999), None)
+        if hit: out['plane'] = hit
+        # the gusset's side of the plate (v69 'side': the gusset on +side x g): the other plate the bolts join
+        gk = hit if hit is not None else ''; g_ = dict(cand)[gk]
+        oth = [i for c in cs for i in c['parts'] if i != cp['id'] and i in byid]
+        if oth and g_ is not None:
+            go = _np.asarray(byid[oth[0]]['shape']['vp'], float).reshape(-1, 3).mean(0)
+            out['side'] = 1 if (go - cc) @ g_ > 0 else -1
+        return out
+
     def section_hb(bst):
         m = re.match(r'^BI(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)', bst['prof'])
         if m: return float(m.group(1)), float(m.group(3))
@@ -683,7 +722,9 @@ def main():
         if members[other]['kind'] == 'given' and re.search(r'Bracing|Strut', members[other]['st']['name']):
             continue   # crossing: handled below
         # gusset owned by a loose gusset assembly: nearest frame member to the gusset
-        conn('Ttg', [other, br], OrderedDict(bolt=d), '5', [b['id']])
+        q = OrderedDict(bolt=d)
+        if MODEL == 'R12': q.update(c05_q(b, br, bt[other], other))   # C05 (PARITY.md): Tekla's 20 tube end as R12
+        conn('Ttg', [other, br], q, '5', [b['id']])
     # crossings: halves whose tongues bolt to a gusset of a continuous brace
     crossing = defaultdict(set)
     for b in plates:
@@ -731,7 +772,7 @@ def main():
     out['grid'] = OrderedDict((k, doc['stGrid'][k]) for k in ('x', 'y', 'z'))
     out['members'] = members
     out['steps'] = [OrderedDict(op='grid', grid=out['grid']), OrderedDict(op='addMany', **{'from': 0, 'to': len(members)}),
-                    OrderedDict(op='connectMany', list=conns)]
+                    OrderedDict(op='connectMany', list=c05_order(conns))]
     out['notPlaced'] = OrderedDict(sorted((k, sorted(v)) for k, v in not_placed.items()))
     out['notes'] = notes
     out['unhandled'] = OrderedDict(sorted((k, sorted(v)) for k, v in unhandled.items()))

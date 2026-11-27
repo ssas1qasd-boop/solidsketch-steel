@@ -6,6 +6,7 @@ import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.int
 import kotlinx.serialization.json.double
+import kotlinx.serialization.json.doubleOrNull
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
@@ -59,12 +60,12 @@ class R12RebuildTest {
         val boltsByConn = HashMap<String, MutableList<com.solidsketchapp.steel.model.TeklaWeight.Bolts>>()
         for ((_, st) in sts) { if (st == null || st["kind"]?.jsonPrimitive?.content != "bolts" || st["pts"] == null) continue
             boltsByConn.getOrPut(st["conn"]!!.jsonPrimitive.content) { ArrayList() } += com.solidsketchapp.steel.model.TeklaWeight.Bolts((st["pts"] as JsonArray).map { d3(it) }, d3(st["ax"]),
-                st["d0"]?.jsonPrimitive?.double ?: (st["d"]!!.jsonPrimitive.double + 2), st["L"]?.jsonPrimitive?.double ?: 60.0) }
-        val byPart = HashMap<String, MutableList<com.solidsketchapp.steel.model.TeklaWeight.Bolts>>()
-        for (c in m.comps.conns()) { val gs = boltsByConn[c.id] ?: continue; for (pid in c.parts) byPart.getOrPut(pid) { ArrayList() } += gs }
+                st["d0"]?.jsonPrimitive?.double ?: (st["d"]!!.jsonPrimitive.double + 2), st["L"]?.jsonPrimitive?.double ?: 60.0,
+                (st["sl1"]?.jsonPrimitive?.doubleOrNull ?: 0.0).coerceAtLeast(0.0) + (st["sl2"]?.jsonPrimitive?.doubleOrNull ?: 0.0).coerceAtLeast(0.0)) }
+        val connParts = m.comps.conns().associate { it.id to it.parts }
         val gb = g.getValue("bodies").jsonArray; var wApp = 0.0; var wWeb = 0.0; val wBad = ArrayList<String>()
         for ((i, id) in idsAll.withIndex()) { val st = sts[id] ?: continue; if (st["kind"]?.jsonPrimitive?.content == "bolts") continue
-            val bs = (byPart[id.value] ?: emptyList<com.solidsketchapp.steel.model.TeklaWeight.Bolts>()) + (st["conn"]?.jsonPrimitive?.content?.let { boltsByConn[it] } ?: emptyList())
+            val bs = tw.candidates(id.value, st["conn"]?.jsonPrimitive?.content, connParts, boltsByConn)
             val w = tw.part(st, m.doc.bodyMesh(id)!!, false, { null }, bs).weight; val web = (gb[i].jsonObject["w"] as? JsonObject)?.get("weight")?.jsonPrimitive?.double ?: 0.0
             wApp += w; wWeb += web; if (abs(w - web) > 0.011 && wBad.size < 20) wBad += "body $i ${st["name"]?.jsonPrimitive?.content} ${st["prof"]?.jsonPrimitive?.content}: app $w web $web" }
         val wrep = "R12 rebuild weight (gross, grout 0): app %.2f kg, web %.2f kg, Tekla st.tkW 63,705.82 kg, Part List 63,711.7 kg".format(java.util.Locale.ROOT, wApp, wWeb)

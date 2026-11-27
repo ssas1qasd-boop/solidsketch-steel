@@ -1,0 +1,163 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  },
+  {
+   "id": 2,
+   "ok": true
+  },
+  {
+   "id": 3,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttg",
+   [
+    0,
+    1
+   ],
+   {
+    "L": 285,
+    "blrule": "tekla",
+    "bolt": 16,
+    "e": 30,
+    "g": 50,
+    "ins": 150,
+    "p": 50,
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ],
+  [
+   "Ttg",
+   [
+    0,
+    2
+   ],
+   {
+    "L": 315,
+    "blrule": "tekla",
+    "bolt": 16,
+    "e": 40,
+    "g": 60,
+    "ins": 150,
+    "p": 60,
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ],
+  [
+   "Ttg",
+   [
+    0,
+    3
+   ],
+   {
+    "L": 315,
+    "blrule": "tekla",
+    "bolt": 16,
+    "e": 40,
+    "g": 60,
+    "ins": 150,
+    "p": 60,
+    "plane": "main",
+    "side": 1,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ]
+ ],
+ "description": "R12 R3019 node: HZ6014 (plate 285, e 30, p 50, g 50), HZ6004 and strut ST5008 (plane: rafter) on one gusset; plates against the gusset.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     39848.613,
+     22355,
+     7422.572
+    ],
+    "p2": [
+     46290.5,
+     22355,
+     8887.194
+    ],
+    "plane": "Middle",
+    "prof": "BI220-8-150-10",
+    "rot": "Top"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "HZ Bracing",
+    "p1": [
+     41609.01,
+     24871.307,
+     7833.07
+    ],
+    "p2": [
+     42819.298,
+     22586.496,
+     8108.24
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 191.298,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "HZ Bracing",
+    "p1": [
+     45984.326,
+     27712.652,
+     8827.837
+    ],
+    "p2": [
+     43258.451,
+     22604.743,
+     8208.085
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 191.279,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "Strut",
+    "p1": [
+     43035.665,
+     22664.389,
+     8147.745
+    ],
+    "p2": [
+     43035.665,
+     27616.278,
+     8147.745
+    ],
+    "plane": "Middle",
+    "prof": "SHS100*3",
+    "rAng": 167.191,
+    "rot": "Top"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20_r12_node_r3019",
+ "pageErrors": []
+}

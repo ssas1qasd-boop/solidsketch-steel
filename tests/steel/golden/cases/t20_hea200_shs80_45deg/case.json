@@ -1,0 +1,63 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "Ttg",
+   [
+    0,
+    1
+   ],
+   {
+    "blrule": "tekla",
+    "bolt": 16,
+    "tend": "end",
+    "tpos": "gusset"
+   }
+  ]
+ ],
+ "description": "HEA200 column, SHS80*4 brace at 45 deg ending 250 from the column axis: R12 settings (plate 12 x 140, 315 / 150, bolts 40 + 60, gauge 60) on another size.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     6000
+    ],
+    "prof": "HEA200"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "depth": "Middle",
+    "name": "VL Bracing",
+    "p1": [
+     176.8,
+     0,
+     3176.8
+    ],
+    "p2": [
+     3000,
+     0,
+     6000
+    ],
+    "plane": "Middle",
+    "prof": "SHS80*4"
+   },
+   "set": "BRACING"
+  }
+ ],
+ "name": "t20_hea200_shs80_45deg",
+ "pageErrors": []
+}

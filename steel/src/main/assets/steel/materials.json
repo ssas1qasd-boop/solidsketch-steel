@@ -12,14 +12,14 @@
    "CONCRETE": 0,
    "ANTIMATERIAL": 0,
    "MISC_UNDEFINED": 0,
-   "GRATING": 1383
+   "GRATING": 1333
   },
   "zeroIfMatches": "^C\\d{2}/\\d{2}|CONCRETE|GROUT",
   "caseInsensitive": true
  },
  "teklaKgPerM": {
   "UPN240": 33.2,
-  "CC200-2-20-60": 5.53,
+  "CC200-2-20-60": 5.5264,
   "L60*6": 5.42,
   "L140*60*6": 9.14
  },

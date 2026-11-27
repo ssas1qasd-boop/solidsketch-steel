@@ -60,6 +60,8 @@ internal class StProf(private val cat: ProfileCatalog) {
             val t = if (three) m.groupValues[4].toDouble() else m.groupValues[3].toDouble()
             val a = 2 * t * (h + bv - 2 * t)
             val key = if (three) "${m.groupValues[1]}${js(h)}*${js(bv)}*${js(t)}" else "${m.groupValues[1]}${js(h)}*${js(t)}"
+            // v70 C05: Tekla's parametric hollow (written with '*', e.g. SHS100*3) has square corners (R12: 1,164 mm²); v69's own names (SHS80x5) keep r = 2t
+            if (Regex("""^\s*(SHS|RHS)\s*\d+(\.\d+)?\s*\*""", RegexOption.IGNORE_CASE).containsMatchIn(name)) return Profile(key, "R", h = h, b = bv, t = t, r = 0.0, m = (h * bv - (h - 2 * t) * (bv - 2 * t)) * stLen, P = 2 * (h + bv) / 1000)
             return Profile(key, "R", h = h, b = bv, t = t, r = 2 * t, m = a * stLen, P = 2 * (h + bv) / 1000)
         }
         reRound.find(s)?.let { m ->

@@ -41,7 +41,7 @@ class S7T144Test {
     @Test
     fun t144EqualsGolden() {
         val bad = mutableListOf<String>()
-        for (case in listOf("t144_standard", "t144_odd_profile", "t144_sloped", "t144_c09_r12", "t144_c09_hea160_ipe300_5deg", "t144_c09_ipe200_ipe360_10deg_auto_convex", "t144_c09_concave_level", "t144_c02_r12", "teh_r12", "teh_hea300_ipe360_10deg", "teh_hea240_ipe300_15deg_tp25", "teh_ipe400_5deg_no144", "t144_c13_r12", "t144_c13_hea300_ipe360_stiff", "t144_c13_hem300_ipe450_sloped_gaps", "t144_c13_heb400_ipe500_perp_concave", "t186_r12_c2020", "t186_r12_egc2002", "t186_hea300_ipe300", "t186_heb240_ipe240_tekla_defaults", "t186_hea260_ipe270_skew15")) {
+        for (case in listOf("t144_standard", "t144_odd_profile", "t144_sloped", "t144_c09_r12", "t144_c09_hea160_ipe300_5deg", "t144_c09_ipe200_ipe360_10deg_auto_convex", "t144_c09_concave_level", "t144_c02_r12", "teh_r12", "teh_hea300_ipe360_10deg", "teh_hea240_ipe300_15deg_tp25", "teh_ipe400_5deg_no144", "t144_c13_r12", "t144_c13_hea300_ipe360_stiff", "t144_c13_hem300_ipe450_sloped_gaps", "t144_c13_heb400_ipe500_perp_concave", "t186_r12_c2020", "t186_r12_egc2002", "t186_hea300_ipe300", "t186_heb240_ipe240_tekla_defaults", "t186_hea260_ipe270_skew15", "t20_r12_node_r3019", "t20_r12_single_strut", "t20_hea200_shs80_45deg", "t20_ipe300_v_node_shs120")) {
             val gold = Json.parseToJsonElement(File(root, "tests/steel/golden/cases/$case/dump.json").readText()).jsonObject
             val input = Json.parseToJsonElement(File(root, "tests/steel/golden/cases/$case/case.json").readText()).jsonObject
             val doc = MemoryDocument(); val build = StBuild(data.profiles, union = { engine.union(it) })

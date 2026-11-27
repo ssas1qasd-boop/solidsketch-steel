@@ -1,0 +1,357 @@
+{
+ "url": "https://www.youtube.com/watch?v=igIjArVFNn0",
+ "component": "Tube gusset (20)",
+ "tab": "Brace conn",
+ "model": "gemini-flash-latest",
+ "pass1": {
+  "spans": [
+   {
+    "start": "03:56",
+    "end": "04:13",
+    "note": ""
+   },
+   {
+    "start": "05:07",
+    "end": "05:33",
+    "note": ""
+   },
+   {
+    "start": "06:04",
+    "end": "06:48",
+    "note": ""
+   },
+   {
+    "start": "07:07",
+    "end": "07:27",
+    "note": ""
+   }
+  ],
+  "language": "Vietnamese",
+  "units": "mm"
+ },
+ "pass2": [
+  {
+   "span": [
+    "03:56",
+    "04:13"
+   ],
+   "seconds": [
+    233,
+    256
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "1",
+      "value": "13",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "2",
+      "value": "20",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "3",
+      "value": "20",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "4",
+      "value": "20",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "5",
+      "value": "20",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "6",
+      "value": "13",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "7",
+      "value": "32",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "8",
+      "value": "32",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "9",
+      "value": "32",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "10",
+      "value": "32",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "11",
+      "value": "30",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "12",
+      "value": "30",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "13",
+      "value": "30",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "14",
+      "value": "30",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "15",
+      "value": "20",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "16",
+      "value": "20",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "17",
+      "value": "20",
+      "t": "03:56",
+      "sure": true
+     },
+     {
+      "label": "18",
+      "value": "20",
+      "t": "03:56",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "05:07",
+    "05:33"
+   ],
+   "seconds": [
+    304,
+    336
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Connection plate",
+      "value": "6.0",
+      "t": "05:08",
+      "sure": true
+     },
+     {
+      "label": "End plates",
+      "value": "6.0",
+      "t": "05:08",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate",
+      "value": "",
+      "t": "05:08",
+      "sure": true
+     },
+     {
+      "label": "Tongue plate",
+      "value": "",
+      "t": "05:08",
+      "sure": true
+     },
+     {
+      "label": "Cover plate",
+      "value": "",
+      "t": "05:08",
+      "sure": true
+     },
+     {
+      "label": "Stiffener",
+      "value": "",
+      "t": "05:08",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "06:04",
+    "06:48"
+   ],
+   "seconds": [
+    361,
+    411
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Connection plate",
+      "value": "8.0",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "End plates",
+      "value": "180",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "Middle end plate",
+      "value": "",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "Torque plate",
+      "value": "",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "Cover plate",
+      "value": "",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "Stiffener",
+      "value": "",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "",
+      "t": "06:43",
+      "sure": false
+     },
+     {
+      "label": "2",
+      "value": "",
+      "t": "06:43",
+      "sure": false
+     },
+     {
+      "label": "3",
+      "value": "",
+      "t": "06:43",
+      "sure": false
+     },
+     {
+      "label": "4",
+      "value": "",
+      "t": "06:43",
+      "sure": false
+     },
+     {
+      "label": "5",
+      "value": "1",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "Pos_No",
+      "value": "",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "t": "06:43",
+      "sure": true
+     },
+     {
+      "label": "-10.0",
+      "value": "",
+      "t": "06:44",
+      "sure": true
+     },
+     {
+      "label": "-10.0",
+      "value": "",
+      "t": "06:44",
+      "sure": true
+     },
+     {
+      "label": "10.0",
+      "value": "",
+      "t": "06:44",
+      "sure": true
+     },
+     {
+      "label": "10.0",
+      "value": "",
+      "t": "06:44",
+      "sure": true
+     }
+    ]
+   }
+  },
+  {
+   "span": [
+    "07:07",
+    "07:27"
+   ],
+   "seconds": [
+    424,
+    450
+   ],
+   "read": {
+    "fields": [
+     {
+      "label": "Brace conn",
+      "value": "",
+      "t": "07:09",
+      "sure": true
+     }
+    ]
+   }
+  }
+ ],
+ "models_used": [
+  "gemini-flash-lite-latest"
+ ]
+}

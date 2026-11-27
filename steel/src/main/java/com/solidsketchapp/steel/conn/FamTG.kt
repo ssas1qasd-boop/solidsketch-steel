@@ -62,15 +62,25 @@ object FamTG {
         val mb = Joints.mf(brSt, x.profiles); val pIn = (g cross d).normalize(); val t = x.n("t"); val w2 = x.n("w") / 2; val e = x.n("e"); val p = x.n("p")
         val sTube = sTip + (x.n("L") - x.n("ins")); val f = Joints.Frame3(s0, d, pIn)
         val tg = f.box(sTip, sTip + x.n("L"), -w2, w2, toff - t / 2, toff + t / 2); val bl = ArrayList<D3>()
-        for (s in listOf(sTip + e, sTip + e + p)) for (z in listOf(-x.n("g") / 2, x.n("g") / 2)) bl += f.p(s, z, toff - out * (t / 2 + 0.1))
+        val v70 = x.s("tend") == "end"   // v70 C05: Tekla's slot (t wide, the length inside the tube) and head point on the plate face
+        for (s in listOf(sTip + e, sTip + e + p)) for (z in listOf(-x.n("g") / 2, x.n("g") / 2)) bl += f.p(s, z, toff - out * (t / 2 + (if (v70 && x.s("blrule") == "tekla") 0.0 else 0.1)))
         x.cut(brId, f.box(-BIG, sTube, -BIG / 10, BIG / 10, -BIG / 10, BIG / 10)); val hw = tubeHalf(mb, pIn); val hg = tubeHalf(mb, g)
-        x.cut(brId, f.box(sTube - 1, sTube + x.n("ins") + 10, -hw - 5, hw + 5, toff - t / 2 - 1, toff + t / 2 + 1))
+        if (v70) x.cut(brId, f.box(sTube - 1, sTube + x.n("ins"), -hw - 5, hw + 5, toff - t / 2, toff + t / 2))
+        else x.cut(brId, f.box(sTube - 1, sTube + x.n("ins") + 10, -hw - 5, hw + 5, toff - t / 2 - 1, toff + t / 2 + 1))
         if (x.t("cap")) for (sg in listOf(1.0, -1.0)) { val z0 = toff + sg * t / 2; val z1 = sg * hg
             if (abs(z1 - z0) > 1 && Math.signum(z1 - z0) == sg) x.plate("END CAP", f.box(sTube - x.n("cap"), sTube, -hw, hw, z0, z1), x.n("cap"), "FLT" + FamCL.jsStr(x.q["cap"]) + "*" + JsNumber.format(floor(2 * hw + 0.5))) }
         x.weld("Tongue in tube", x.n("a"), 4 * x.n("ins")); return End(tg, bl, f)
     }
 
     private fun flt(x: FamCtx) = "FLT" + FamCL.jsStr(x.q["t"]) + "*" + FamCL.jsStr(x.q["w"])
+    /** v70 C05: Tekla's bolt length (grip = plate + gusset) when blrule is 'tekla', else v69's [len]. */
+    private fun blen(x: FamCtx, len: Double) = if (x.s("blrule") == "tekla") Fam.tkBoltLen(x.n("bolt"), x.n("t") + x.n("tf")) else len
+    /** v70 C05 'Tube end' = 'brace end': the tip that puts the tube end at the brace's own end (the end nearer the main part). */
+    private fun tipAtEnd(x: FamCtx, q: QR, br: JsonObject, w: D3, d: D3): Double {
+        val mb = Joints.mf(br, x.profiles); val ma = Joints.mf(x.a, x.profiles)
+        fun dl(p: D3): Double { val v = p - ma.c1; return v.add(ma.a, -(v dot ma.a)).length() }
+        val e = if (dl(mb.c1) <= dl(mb.c2)) mb.c1 else mb.c2; return ((e - w) dot d) - (q.n("L") - q.n("ins"))
+    }
 
     /** v69 CONN.Ttg.def (L15608; node / nodeR added at L15849): a neighbour's q in the node is this def + its c.q. */
     private val TTG_DEF = Fam.obj("node" to 1, "nodeR" to 450, "t" to 12, "w" to 140, "L" to 315, "ins" to 150, "tf" to 12, "fw" to 140, "e" to 40, "p" to 60, "g" to 60,
@@ -93,7 +103,8 @@ object FamTG {
         var g = (d cross v2).normalize(); if (gRef != null && (g dot gRef) < 0) g = -g; val pIn = (g cross d).normalize()
         val sinT = max(0.2, abs(dn)); val cosT = sqrt(max(0.0, 1 - sinT * sinT))
         val outst = if (!fa.flange && ma.kind == "I" && !(abs(g dot ma.eh) > 0.9 && abs(ma.a.z) < 0.8)) ma.b / 2 - ma.tw / 2 else 0.0
-        val sTip = (outst + w2 * cosT + q.n("clear")) / sinT; val sEnd = sTip + (2 * q.n("e") + q.n("p")); val fw2 = (if (q.t("fw")) q.n("fw") else q.n("w")) / 2; val s0 = -80 - outst / sinT
+        val sTip = if (q.s("tend") == "end") tipAtEnd(x, q, br, w, d) else (outst + w2 * cosT + q.n("clear")) / sinT
+        val sEnd = sTip + (2 * q.n("e") + q.n("p")); val fw2 = (if (q.t("fw")) q.n("fw") else q.n("w")) / 2; val s0 = -80 - outst / sinT
         fun p3(s: Double, y: Double) = w.add(d, s).add(pIn, y)
         val fin = listOf(p3(s0, -fw2), p3(sEnd, -fw2), p3(sEnd, fw2 - 25), p3(sEnd - 25, fw2), p3(s0, fw2))
         val sg = if (q.t("side")) q.n("side") else 1.0; val bl = ArrayList<D3>()
@@ -116,9 +127,13 @@ object FamTG {
         if (all.size < 2) return tg22(x)
         val plane = if (all.any { it.s!!.steep }) "main" else null; val s2 = all.sortedBy { it.id.toDoubleOrNull() ?: -1.0 }; val lead = s2[0]
         val l0 = tgSet(x, lead.q, lead.br, plane, null); val gN = l0.g; for (o in s2) o.s = tgSet(x, o.q, o.br, plane, gN)
+        // v70 C05 'Connection plate position' = 'against the gusset': every plate lies on the first brace's plane (web: NODE)
+        val ag = x.s("tpos") == "gusset"
+        fun shift(st: TgSet) = if (ag && abs(st.g dot l0.g) > 0.99) -((st.w - l0.w) dot st.g) else 0.0
+        if (ag) for (o in s2) { val st = o.s!!; val sh = shift(st); if (sh != 0.0) o.s = TgSet(st.d, st.w, st.g, st.pIn, st.nF, st.f0, st.sTip, st.fin, st.bl.map { it.add(st.g, sh) }, st.sg, st.steep) }
         val mine = s2.find { it.id == mineId } ?: s2.first { it.brId == x.bId }; val sm = mine.s!!; val t = x.n("t"); val tf = x.n("tf"); val sg = sm.sg
-        val r = tgEnd(x, b, x.bId!!, sm.w, sm.d, sm.g, sm.sTip, 0.0, sg); val bb = x.group(r.bl, sm.g * sg, x.n("bolt"), t + tf + 2)
-        x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes); x.bolts(bb, r.bl.size, x.n("t") + x.n("tf") + 2 * x.n("bolt"))
+        val r = tgEnd(x, b, x.bId!!, sm.w, sm.d, sm.g, sm.sTip, shift(sm), sg); val bb = x.group(r.bl, sm.g * sg, x.n("bolt"), t + tf + 2)
+        x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes); x.bolts(bb, r.bl.size, blen(x, x.n("t") + x.n("tf") + 2 * x.n("bolt")))
         if (mine !== s2[0]) return   // the first connection of the node builds the shared gusset
         val a1 = l0.d.add(gN, -(l0.d dot gN)).normalize(); val a2 = (gN cross a1).normalize(); val o = l0.w; val gf = Joints.Frame3(o, a1, a2)
         val pts = ArrayList<DoubleArray>(); for (m in s2) for (p in m.s!!.fin) { val v = p - o; pts += doubleArrayOf(v dot a1, v dot a2) }
@@ -153,7 +168,7 @@ object FamTG {
             x.cut(x.aId, gf.box(pts.minOf { it[0] } - 1, pts.maxOf { it[0] } + 1, -hwC - 10, hwC + 10, -t / 2 - 1, t / 2 + 1))   // slot the continuous brace for the gusset
             val gh = ArrayList<Mesh>()
             for (r in ends) { val bb = x.group(r.bl, g, x.n("bolt"), 2 * t + 2); gh += bb.holes
-                x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes); x.bolts(bb, r.bl.size, 2 * x.n("t") + 2 * x.n("bolt")) }
+                x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes); x.bolts(bb, r.bl.size, blen(x, 2 * x.n("t") + 2 * x.n("bolt"))) }
             x.plate("CROSSING GUSSET", gus, t, minus = gh); x.weld("Crossing gusset to brace", x.n("a"), 4 * 2 * hwC); return
         }
         val br = x.b ?: throw IllegalStateException("not built"); val mb = Joints.mf(br, x.profiles); val ma = Joints.mf(x.a, x.profiles)
@@ -165,7 +180,7 @@ object FamTG {
         if ((d cross v2).length() < 0.1) v2 = ma.es
         val g = (d cross v2).normalize(); val pIn = (g cross d).normalize(); val sinT = max(0.2, abs(dn)); val cosT = sqrt(max(0.0, 1 - sinT * sinT))
         val outst = if (!fa.flange && ma.kind == "I" && !(abs(g dot ma.eh) > 0.9 && abs(ma.a.z) < 0.8)) ma.b / 2 - ma.tw / 2 else 0.0
-        val sTip = (outst + w2 * cosT + x.n("clear")) / sinT; val sg = if (x.t("side")) x.n("side") else 1.0; val toff = 0.0
+        val sTip = if (x.s("tend") == "end") tipAtEnd(x, QR(x.q), br, w, d) else (outst + w2 * cosT + x.n("clear")) / sinT; val sg = if (x.t("side")) x.n("side") else 1.0; val toff = 0.0
         val r = tgEnd(x, br, x.bId!!, w, d, g, sTip, toff, sg)
         val tf = x.n("tf"); val fw2 = (if (x.t("fw")) x.n("fw") else x.n("w")) / 2; val z0 = toff + sg * t / 2; val z1 = toff + sg * (t / 2 + tf); val sEnd = sTip + (2 * x.n("e") + x.n("p"))
         val s0 = -80 - outst / sinT
@@ -175,6 +190,6 @@ object FamTG {
         val bb = x.group(r.bl, g * sg, x.n("bolt"), t + tf + 2)
         x.plate("TONGUE PLATE", r.tg, t, flt(x), minus = bb.holes)
         x.plate("FIN PLATE", fin, tf, minus = listOfNotNull(behind, runCatching { envelope(x, x.a) }.getOrNull()) + bb.holes)
-        x.bolts(bb, r.bl.size, x.n("t") + x.n("tf") + 2 * x.n("bolt")); x.weld("Fin plate to main part", x.n("a"), 2 * (sEnd + outst / sinT + 80))
+        x.bolts(bb, r.bl.size, blen(x, x.n("t") + x.n("tf") + 2 * x.n("bolt"))); x.weld("Fin plate to main part", x.n("a"), 2 * (sEnd + outst / sinT + 80))
     }
 }
