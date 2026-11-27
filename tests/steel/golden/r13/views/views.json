@@ -1,0 +1,216 @@
+[
+ {
+  "key": "bolts",
+  "title": "Bolts at node gussets",
+  "file": "R13_bolts.ss",
+  "target": [
+   26502.0,
+   22474.0,
+   3838.0
+  ],
+  "dir": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "dist": 660.0,
+  "count": 19,
+  "ids": [
+   1,
+   3764
+  ],
+  "parts": [
+   "Web FLT8*300",
+   "Shear Plate FLT10*150"
+  ],
+  "amark": [
+   "EB4007",
+   "C2022"
+  ],
+  "pos": [
+   "4518",
+   "4515"
+  ],
+  "value": "grip 18.0 vs stack 8.0",
+  "depth": null,
+  "vmin": null,
+  "vmax": null,
+  "dmin": null,
+  "dmax": null,
+  "kinds": {
+   "grip / ": 19
+  }
+ },
+ {
+  "key": "builtup",
+  "title": "Built-up member: web against flange",
+  "file": "R13_builtup.ss",
+  "target": [
+   26498.0,
+   27925.0,
+   3838.0
+  ],
+  "dir": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "dist": 624.8000000000001,
+  "count": 3,
+  "ids": [
+   1,
+   386
+  ],
+  "parts": [
+   "Web FLT8*300",
+   "Web FLT8*300"
+  ],
+  "amark": [
+   "EB4007",
+   "C2024"
+  ],
+  "pos": [
+   "4518",
+   "2521"
+  ],
+  "value": 18176.0,
+  "depth": 3.9444,
+  "vmin": 18176.0,
+  "vmax": 18176.0,
+  "dmin": 3.9444,
+  "dmax": 3.9444,
+  "kinds": {
+   "Web FLT8*300 / Web FLT8*300": 3
+  }
+ },
+ {
+  "key": "rail_stanchion",
+  "title": "Hand rail / railing into the stanchion",
+  "file": "R13_rail_stanchion.ss",
+  "target": [
+   598.0,
+   12929.75,
+   3068.0
+  ],
+  "dir": [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  "dist": 220.0,
+  "count": 52,
+  "ids": [
+   800,
+   870
+  ],
+  "parts": [
+   "Hand Rail CHS48*3",
+   "Stanchion CHS48*3"
+  ],
+  "amark": [
+   "HR9003",
+   "STB9001"
+  ],
+  "pos": [
+   "9522",
+   "23"
+  ],
+  "value": 1065.2,
+  "depth": 1.4997,
+  "vmin": 989.3,
+  "vmax": 7722.1,
+  "dmin": 1.4265,
+  "dmax": 1.9862,
+  "kinds": {
+   "Hand Rail CHS48*3 / Stanchion CHS48*3": 26,
+   "RAILING PD50*5 / Stanchion CHS48*3": 26
+  }
+ },
+ {
+  "key": "anchor_grout",
+  "title": "Anchor rod through the grout (grout not drilled)",
+  "file": "R13_anchor_grout.ss",
+  "target": [
+   1569.0,
+   13047.75,
+   15.0
+  ],
+  "dir": [
+   0.0,
+   -0.99214,
+   0.12513
+  ],
+  "dist": 220.0,
+  "count": 208,
+  "ids": [
+   846,
+   850
+  ],
+  "parts": [
+   "Anchor Bolt ROD16",
+   "GROUT PL30*230"
+  ],
+  "amark": [
+   "1002",
+   "7"
+  ],
+  "pos": [
+   "1502",
+   "24"
+  ],
+  "value": 5430.8,
+  "depth": 5.9301,
+  "vmin": 5430.5,
+  "vmax": 8485.5,
+  "dmin": 5.93,
+  "dmax": 7.0636,
+  "kinds": {
+   "Anchor Bolt ROD20 / GROUT PL30*260": 128,
+   "Anchor Bolt ROD20 / GROUT FLT30*300": 64,
+   "Anchor Bolt ROD16 / GROUT PL30*230": 16
+  }
+ },
+ {
+  "key": "anchor_nut",
+  "title": "Nut / washer on the anchor rod",
+  "file": "R13_anchor_nut.ss",
+  "target": [
+   49340.5,
+   27930.0,
+   270.0
+  ],
+  "dir": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "dist": 220.0,
+  "count": 384,
+  "ids": [
+   4160,
+   4162
+  ],
+  "parts": [
+   "NUT PD40*10",
+   "Anchor Bolt ROD20"
+  ],
+  "amark": [
+   "1001",
+   "1001"
+  ],
+  "pos": [
+   "5",
+   "1501"
+  ],
+  "value": 22.3,
+  "depth": 0.1618,
+  "vmin": 11.2,
+  "vmax": 22.5,
+  "dmin": 0.1605,
+  "dmax": 0.1625,
+  "kinds": {
+   "NUT PD40*10 / Anchor Bolt ROD20": 192,
+   "WASHER PD40*10 / Anchor Bolt ROD20": 192
+  }
+ }
+]

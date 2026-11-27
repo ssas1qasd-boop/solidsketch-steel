@@ -37,7 +37,7 @@ import re
 from collections import defaultdict, OrderedDict, Counter
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-MODEL = os.environ.get('SS_MODEL', 'R12')   # R11 = the reference (docs/steel/PARITY.md); SS_MODEL=R10 for the old one
+MODEL = os.environ.get('SS_MODEL', 'R13')   # R11 = the reference (docs/steel/PARITY.md); SS_MODEL=R10 for the old one
 G = os.path.join(REPO, 'tests', 'steel', 'golden', MODEL.lower())
 R10 = os.path.join(REPO, 'tests', 'steel', 'models', f'Frame_28x53m_{MODEL}.ss')
 REPORT = os.path.join(REPO, 'docs', 'steel', f'{MODEL}-REPORT.md')

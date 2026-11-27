@@ -21,17 +21,17 @@ import kotlin.math.abs
  * mitre fit, Stair end plates) with the R12 inputs and checks against R12 within 0.1 mm: the 23 grating treads, the 46 L60*6 brackets,
  * the 8 stair plates on the stringer pieces (the 2 counter plates on EB4002 are a mezzanine girder's: left for R13), the 12 stringer
  * pieces (box) and every bolt of these parts (point, axis, length, grade); the treads' and brackets' weight against Tekla's.
- * Needs Manifold: -PhostJni. Writes build/r12-c18-report.txt.
+ * Needs Manifold: -PhostJni. Writes build/r13-c18-report.txt.
  */
-class R12C18Test {
+class R13C18Test {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
     private fun box(v: List<DoubleArray>) = (0..2).map { k -> v.minOf { it[k] } } + (0..2).map { k -> v.maxOf { it[k] } }
     private fun pts(m: Mesh) = (0 until m.vertexCount).map { i -> DoubleArray(3) { m.positions[i * 3 + it].toDouble() } }
 
     @Test fun c18EqualR12() {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
-        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r12/rebuild_inputs.json").readText()).jsonObject
-        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R12.ss").inputStream())
+        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r13/rebuild_inputs.json").readText()).jsonObject
+        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R13.ss").inputStream())
         val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
         val members = inp.getValue("members").jsonArray.map { it.jsonObject }
         val steps = inp.getValue("steps").jsonArray.map { it.jsonObject }
@@ -64,7 +64,7 @@ class R12C18Test {
                 if (hit != null && hit.getValue("ax").jsonArray.map { it.jsonPrimitive.double }.zip(gax).all { (a, b) -> abs(a - b) <= 2e-3 } && abs(hit.getValue("L").jsonPrimitive.double - gL) < 0.5) nb[0]++
                 else bad += "bolt at $gp (axis $gax, L $gL) not reproduced" } }
         val rep = cnt.entries.joinToString("\n") { (k, n) -> "$k: ${n[0]} / ${n[1]}" } + "\nbolts: ${nb[0]} / ${nb[1]}" + "\ntreads + brackets weight: app %.2f kg, Tekla %.2f kg".format(java.util.Locale.ROOT, wApp, wR12) + (if (bad.isEmpty()) "" else "\n" + bad.take(30).joinToString("\n"))
-        File(root, "build").mkdirs(); File(root, "build/r12-c18-report.txt").writeText(rep + "\n"); println(rep.lines().take(12).joinToString("\n"))
+        File(root, "build").mkdirs(); File(root, "build/r13-c18-report.txt").writeText(rep + "\n"); println(rep.lines().take(12).joinToString("\n"))
         for ((_, n) in cnt) assertEquals(rep, n[1], n[0]); assertEquals(rep, nb[1], nb[0]); assertEquals(rep, wR12, wApp, 0.05)
     }
 }

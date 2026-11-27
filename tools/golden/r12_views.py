@@ -14,8 +14,9 @@ import numpy as np
 import manifold3d as mf
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-R12 = os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')
-VDIR = os.path.join(REPO, 'tests', 'steel', 'golden', 'r12', 'views')
+MODEL = os.environ.get('SS_MODEL', 'R13'); ML = MODEL.lower()   # the reference model (R13 since 2026-11-28)
+R12 = os.path.join(REPO, 'tests', 'steel', 'models', f'Frame_28x53m_{MODEL}.ss')
+VDIR = os.path.join(REPO, 'tests', 'steel', 'golden', ML, 'views')
 PKG = os.path.join(REPO, 'tests', 'steel', 'tekla', 'Frame_28mx53m_Package_1.zip')
 
 GROUPS = [   # (key, title, test on a failure) - first match wins
@@ -79,8 +80,8 @@ def prepare(fails_path):
             x = json.loads(json.dumps(B[i])); x['color'] = 0xd03030 if i == ids[0] else 0x3060d0 if (len(ids) > 1 and i == ids[1]) else 0xb0b0b8
             bodies.append(x)
         out = {k2: v for k2, v in D.items() if k2 != 'doc'}; d2 = json.loads(json.dumps({k2: v for k2, v in D['doc'].items() if k2 not in ('bodies', 'stConns')}))
-        d2['bodies'] = bodies; d2['stConns'] = [c for c in D['doc']['stConns'] if set(c['parts']) <= set(keep)]; out['doc'] = d2; out['name'] = 'R12_' + k
-        fn = 'R12_%s.ss' % k
+        d2['bodies'] = bodies; d2['stConns'] = [c for c in D['doc']['stConns'] if set(c['parts']) <= set(keep)]; out['doc'] = d2; out['name'] = MODEL + '_' + k
+        fn = MODEL + '_%s.ss' % k
         with open(os.path.join(VDIR, fn), 'wb') as fh:
             with gzip.GzipFile(fileobj=fh, mode='wb', mtime=0, filename='') as gz: gz.write(json.dumps(out, separators=(',', ':')).encode())
         vals = [x['value'] for x in g['fails'] if isinstance(x['value'], (int, float))]; deps = [x['depth'] for x in g['fails'] if x.get('depth') is not None]
@@ -104,7 +105,7 @@ def tekla_page(amark, out_png):
 def compose(shots):
     from PIL import Image, ImageDraw, ImageFont
     F = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 22); FB = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 26)
-    views = json.load(open(os.path.join(VDIR, 'views.json'))); outd = os.path.join(REPO, 'docs', 'steel', 'parity', 'r12'); os.makedirs(outd, exist_ok=True)
+    views = json.load(open(os.path.join(VDIR, 'views.json'))); outd = os.path.join(REPO, 'docs', 'steel', 'parity', ML); os.makedirs(outd, exist_ok=True)
     for v in views:
         p = next((os.path.join(shots, x) for x in sorted(os.listdir(shots)) if x.endswith('_%s.png' % v['key'])), None)
         if p is None: print('no screenshot for', v['key']); continue
@@ -125,18 +126,18 @@ def compose(shots):
         tim = Image.open(tk).convert('RGB') if ok else Image.new('RGB', (800, H), (240, 240, 240))
         tim = tim.resize((int(tim.width * H / tim.height), H)) if ok else tim
         W = em.width + tim.width + 60; im = Image.new('RGB', (W, H + 260), (255, 255, 255)); d = ImageDraw.Draw(im)
-        d.text((20, 14), 'R12 rule-B failure group: %s (%d)' % (v['title'], v['count']), font=FB, fill=(0, 0, 0))
-        d.text((20, 50), 'left: the app on the emulator, R12 opened, orthographic camera; red = %s, blue = %s (marks %s / %s, assembly %s)' % (v['parts'][0], v['parts'][1], v['pos'][0], v['pos'][1], v['amark'][0]), font=F, fill=(40, 40, 40))
+        d.text((20, 14), MODEL + ' rule-B failure group: %s (%d)' % (v['title'], v['count']), font=FB, fill=(0, 0, 0))
+        d.text((20, 50), 'left: the app on the emulator, %s opened, orthographic camera; red = %s, blue = %s (marks %s / %s, assembly %s)' % (MODEL, v['parts'][0], v['parts'][1], v['pos'][0], v['pos'][1], v['amark'][0]), font=F, fill=(40, 40, 40))
         d.text((20, 80), 'right: Tekla assembly drawing %s (package)' % v['amark'][0], font=F, fill=(40, 40, 40))
         im.paste(em, (20, 120)); im.paste(tim, (40 + em.width, 120))
         y = 130 + H
         meas = ('overlap %.1f mm³ (all in group %.1f..%.1f), mean depth %.4f mm (group %.4f..%.4f)' % (v['value'], v['vmin'], v['vmax'], v['depth'] or 0, v['dmin'] or 0, v['dmax'] or 0)) if isinstance(v['value'], (int, float)) else 'measured: %s' % v['value']
         d.text((20, y), meas, font=FB, fill=(200, 0, 0)); d.text((20, y + 40), 'in this group: ' + '; '.join('%s x%d' % (a, b) for a, b in list(v['kinds'].items())[:4]), font=F, fill=(60, 60, 60))
-        out = os.path.join(outd, 'R12_%s.png' % v['key']); im.save(out); os.remove(tk) if ok else None; print(out, im.size)
+        out = os.path.join(outd, MODEL + '_%s.png' % v['key']); im.save(out); os.remove(tk) if ok else None; print(out, im.size)
 
 def preview():
     from PIL import Image, ImageDraw
-    views = json.load(open(os.path.join(VDIR, 'views.json'))); out = os.path.join(REPO, 'build', 'r12', 'preview'); os.makedirs(out, exist_ok=True)
+    views = json.load(open(os.path.join(VDIR, 'views.json'))); out = os.path.join(REPO, 'build', ML, 'preview'); os.makedirs(out, exist_ok=True)
     for v in views:
         D = json.load(gzip.open(os.path.join(VDIR, v['file'])))['doc']; t = np.array(v['target']); d = np.array(v['dir']); d /= np.linalg.norm(d)
         r = np.cross([0, 0, 1.0], d); r = r / np.linalg.norm(r) if np.linalg.norm(r) > 1e-6 else np.array([1.0, 0, 0]); u = np.cross(d, r)
@@ -150,5 +151,5 @@ def preview():
 
 if __name__ == '__main__':
     if sys.argv[1] == 'preview': preview(); sys.exit()
-    if sys.argv[1] == 'prepare': prepare(sys.argv[2] if len(sys.argv) > 2 else os.path.join(REPO, 'build', 'r12', 'geom_r12.json'))
+    if sys.argv[1] == 'prepare': prepare(sys.argv[2] if len(sys.argv) > 2 else os.path.join(REPO, 'build', ML, 'geom_%s.json' % ML))
     else: compose(sys.argv[2])

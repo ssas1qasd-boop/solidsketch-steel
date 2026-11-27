@@ -20,17 +20,17 @@ import kotlin.math.abs
  * C01 / C16 Base plate 1042 / 1004 as Tekla (docs/steel/PARITY.md "C01 / C16"): the app rebuilds R12's 52 bases (48 columns on 1042,
  * 4 stair posts on 1004) with the R12 inputs and checks every R12 part of them within 0.1 mm (box, 6 numbers): base plates, the hooked
  * anchor rods (ROD20 / ROD16, also by volume within 0.1 %), the nuts and washers PD40*10, the grout (with slopes) and the cast plates;
- * and their weight against Tekla's (st.tkW) part by part. Needs Manifold: -PhostJni. Writes build/r12-c01-report.txt.
+ * and their weight against Tekla's (st.tkW) part by part. Needs Manifold: -PhostJni. Writes build/r13-c01-report.txt.
  */
-class R12C01Test {
+class R13C01Test {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
     private fun box(v: List<DoubleArray>) = (0..2).map { k -> v.minOf { it[k] } } + (0..2).map { k -> v.maxOf { it[k] } }
     private fun pts(m: Mesh) = (0 until m.vertexCount).map { i -> DoubleArray(3) { m.positions[i * 3 + it].toDouble() } }
 
     @Test fun c01EqualR12() {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
-        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r12/rebuild_inputs.json").readText()).jsonObject
-        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R12.ss").inputStream())
+        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r13/rebuild_inputs.json").readText()).jsonObject
+        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R13.ss").inputStream())
         val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
         val members = inp.getValue("members").jsonArray.map { it.jsonObject }
         val steps = inp.getValue("steps").jsonArray.map { it.jsonObject }
@@ -60,7 +60,7 @@ class R12C01Test {
             if (hit != null && volOk) n[0]++ else bad += "R12 ${id.value} $what: ${if (hit == null) "no app part within 0.1 mm of ${rb.map { Math.round(it * 10) / 10.0 }}" else "volume ${hit.vol}"}"
             if (hit != null) { wR12 += st["tkW"]?.jsonPrimitive?.double ?: 0.0; wApp += tw.part(hit.st, hit.mesh, false, { null }, holes).weight } }
         val rep = cnt.entries.joinToString("\n") { (k, n) -> "$k: ${n[0]} / ${n[1]}" } + "\nweight of these parts: app %.2f kg, Tekla %.2f kg".format(java.util.Locale.ROOT, wApp, wR12) + (if (bad.isEmpty()) "" else "\n" + bad.take(30).joinToString("\n"))
-        File(root, "build").mkdirs(); File(root, "build/r12-c01-report.txt").writeText(rep + "\n"); println(rep.lines().take(14).joinToString("\n"))
+        File(root, "build").mkdirs(); File(root, "build/r13-c01-report.txt").writeText(rep + "\n"); println(rep.lines().take(14).joinToString("\n"))
         for ((_, n) in cnt) assertEquals(rep, n[1], n[0]); assertEquals(rep, wR12, wApp, 0.05)
     }
 }

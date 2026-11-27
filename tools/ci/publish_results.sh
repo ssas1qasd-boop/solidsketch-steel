@@ -42,10 +42,11 @@ cat "$OUT/summary.md" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
 R=$(mktemp -d); git -C "$R" init -q; git -C "$R" config user.name "ci-results"; git -C "$R" config user.email "ci-results@users.noreply.github.com"
 URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 if git -C "$R" fetch -q --depth 1 "$URL" ci-results 2>/dev/null; then git -C "$R" checkout -q -b ci-results FETCH_HEAD; else git -C "$R" checkout -q --orphan ci-results; fi
-D="runs/${GITHUB_RUN_ID:-local}"; mkdir -p "$R/$D" "$R/latest"; rm -f "$R"/latest/*
-for f in summary.md steps.json device.txt connected_rc.txt connected_seconds.txt; do [ -f "$OUT/$f" ] && cp "$OUT/$f" "$R/$D/" && cp "$OUT/$f" "$R/latest/"; done
-[ -f "$OUT/connected.log" ] && tail -n 400 "$OUT/connected.log" > "$R/$D/connected_tail.log" && cp "$R/$D/connected_tail.log" "$R/latest/"
-[ -f "$OUT/unit.log" ] && tail -n 300 "$OUT/unit.log" > "$R/$D/unit_tail.log" && cp "$R/$D/unit_tail.log" "$R/latest/"
-[ -f "$OUT/build.log" ] && tail -n 300 "$OUT/build.log" > "$R/$D/build_tail.log" && cp "$R/$D/build_tail.log" "$R/latest/"
-[ -f "$OUT/logcat.txt" ] && grep -E " (E|F) |AndroidRuntime|FATAL" "$OUT/logcat.txt" | tail -n 300 > "$R/latest/logcat_errors.txt" || true
-git -C "$R" add -A && git -C "$R" commit -q -m "results of run ${GITHUB_RUN_ID:-local} (${GITHUB_SHA:-?})" && git -C "$R" push -q "$URL" ci-results || echo "could not publish to ci-results"
+BR="${GITHUB_REF_NAME:-main}"; LT=latest; [ "$BR" = main ] || LT="latest-${BR//\//-}"   # one latest folder per branch (several agents run CI at once)
+D="runs/${GITHUB_RUN_ID:-local}"; mkdir -p "$R/$D" "$R/$LT"; rm -f "$R/$LT"/*
+for f in summary.md steps.json device.txt connected_rc.txt connected_seconds.txt; do [ -f "$OUT/$f" ] && cp "$OUT/$f" "$R/$D/" && cp "$OUT/$f" "$R/$LT/"; done
+[ -f "$OUT/connected.log" ] && tail -n 400 "$OUT/connected.log" > "$R/$D/connected_tail.log" && cp "$R/$D/connected_tail.log" "$R/$LT/"
+[ -f "$OUT/unit.log" ] && tail -n 300 "$OUT/unit.log" > "$R/$D/unit_tail.log" && cp "$R/$D/unit_tail.log" "$R/$LT/"
+[ -f "$OUT/build.log" ] && tail -n 300 "$OUT/build.log" > "$R/$D/build_tail.log" && cp "$R/$D/build_tail.log" "$R/$LT/"
+[ -f "$OUT/logcat.txt" ] && grep -E " (E|F) |AndroidRuntime|FATAL" "$OUT/logcat.txt" | tail -n 300 > "$R/$LT/logcat_errors.txt" || true
+git -C "$R" add -A && git -C "$R" commit -q -m "results of run ${GITHUB_RUN_ID:-local} (${BR}, ${GITHUB_SHA:-?})" && { for i in 1 2 3 4; do git -C "$R" push -q "$URL" HEAD:ci-results && break; git -C "$R" pull -q --rebase "$URL" ci-results; sleep $((i * 5)); done; } || echo "could not publish to ci-results"   # other branches push too: rebase and retry

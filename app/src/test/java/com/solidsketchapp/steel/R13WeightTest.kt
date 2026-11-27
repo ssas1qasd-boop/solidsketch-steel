@@ -23,21 +23,21 @@ import kotlin.math.abs
 
 /**
  * The app's own weight of R12 (owner 2026-11-26): every part weighed by [TeklaWeight] (the app's port of web v66 + v70 "Weights ·
- * Tekla's own rule"), against web v70 part by part (tests/steel/golden/r12/weights_v70.json, 0.01 kg) and against Tekla per profile
- * (st.tkW, Tekla's own weight in its IFC). Writes build/r12-weights-app.md. Needs Manifold: -PhostJni.
+ * Tekla's own rule"), against web v70 part by part (tests/steel/golden/r13/weights_v70.json, 0.01 kg) and against Tekla per profile
+ * (st.tkW, Tekla's own weight in its IFC). Writes build/r13-weights-app.md. Needs Manifold: -PhostJni.
  */
-class R12WeightTest {
+class R13WeightTest {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
 
     @Test fun appWeighsR12LikeTekla() {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
         val data = SteelData.load { File(root, "steel/src/main/assets/steel/$it").readText() }; val engine = ManifoldBooleanEngine()
-        val doc = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R12.ss").inputStream())
+        val doc = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R13.ss").inputStream())
         val regen = StRegen(StBuild(data.profiles, union = { engine.union(it) }), engine, data.profiles, data.tk).also { it.ui = TkUi.parse(File(root, "steel/src/main/assets/steel/tk_ui.json").readText()) }
         val conns = regen.conns(doc); regen.allConns = conns
         val holed = conns.filter { it.type == "TKBOLT" }.flatMap { it.parts }.toSet(); val notHoles = conns.filter { it.type != "TKBOLT" }
         val tw = TeklaWeight(data.profiles, engine)
-        val gold = Json.parseToJsonElement(File(root, "tests/steel/golden/r12/weights_v70.json").readText()).jsonObject.getValue("parts").jsonObject
+        val gold = Json.parseToJsonElement(File(root, "tests/steel/golden/r13/weights_v70.json").readText()).jsonObject.getValue("parts").jsonObject
         class Row(var n: Int = 0, var tk: Double = 0.0, var app: Double = 0.0, var web: Double = 0.0)
         val by = sortedMapOf<String, Row>(); var bad = 0; val badList = ArrayList<String>()
         for (id in doc.bodyIds()) {
@@ -55,7 +55,7 @@ class R12WeightTest {
         for ((k, r) in by.entries.sortedByDescending { it.value.tk }) { sb.append("| $k | ${r.n} | %.2f | %.2f | %+.2f | %.2f |\n".format(java.util.Locale.ROOT, r.tk, r.app, r.app - r.tk, r.web)); T += r.tk; A += r.app; Wb += r.web }
         sb.append("| **Total** | ${by.values.sumOf { it.n }} | **%.2f** | **%.2f** | %+.2f | %.2f |\n".format(java.util.Locale.ROOT, T, A, A - T, Wb))
         sb.append("\nParts where the app differs from web v70 by more than 0.01 kg: $bad\n").append(badList.joinToString("\n"))
-        File(root, "build").mkdirs(); File(root, "build/r12-weights-app.md").writeText(sb.toString()); println(sb)
+        File(root, "build").mkdirs(); File(root, "build/r13-weights-app.md").writeText(sb.toString()); println(sb)
         assertTrue(badList.joinToString("\n"), bad == 0)
         assertTrue("total app %.2f vs Tekla %.2f".format(A, T), abs(A - T) <= 10.0)
     }

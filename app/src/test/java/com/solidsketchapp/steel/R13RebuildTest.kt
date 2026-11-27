@@ -17,18 +17,18 @@ import java.io.File
 import kotlin.math.abs
 
 /**
- * R12 (the reference since 2026-11-26, docs/steel/PARITY.md): the R12 frame rebuilt from tests/steel/golden/r12/rebuild_inputs.json
- * (tools/golden/r10_inputs.py) in the app and in web v70 (tests/steel/golden/r12/rebuild_v69.json, tools/golden/r10_rebuild.js): the grid,
+ * R12 (the reference since 2026-11-26, docs/steel/PARITY.md): the R12 frame rebuilt from tests/steel/golden/r13/rebuild_inputs.json
+ * (tools/golden/r10_inputs.py) in the app and in web v70 (tests/steel/golden/r13/rebuild_v69.json, tools/golden/r10_rebuild.js): the grid,
  * every member in one step, every component in one step. The app's model must equal the web's body by body (AppGoldenTest.compare).
- * The app's model is saved as build/R12_app.ss (owner delivery: open it on the phone). How both compare with R12 itself:
- * docs/steel/R12-REPORT.md. Needs Manifold: -PhostJni. Writes build/r12-rebuild-report.txt.
+ * The app's model is saved as build/R13_app.ss (owner delivery: open it on the phone). How both compare with R12 itself:
+ * docs/steel/R12-REPORT.md. Needs Manifold: -PhostJni. Writes build/r13-rebuild-report.txt.
  */
-class R12RebuildTest {
+class R13RebuildTest {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
 
     @Test fun r12RebuildEqualsWeb() {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
-        val inF = File(root, "tests/steel/golden/r12/rebuild_inputs.json"); val outF = File(root, "tests/steel/golden/r12/rebuild_v69.json")
+        val inF = File(root, "tests/steel/golden/r13/rebuild_inputs.json"); val outF = File(root, "tests/steel/golden/r13/rebuild_v69.json")
         assumeTrue(inF.exists() && outF.exists())
         val inp = Json.parseToJsonElement(inF.readText()).jsonObject; val g = Json.parseToJsonElement(outF.readText()).jsonObject
         val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
@@ -50,8 +50,8 @@ class R12RebuildTest {
         val bad = all - known.toSet()
         val rep = "R12 rebuild, app vs web (v69 + v70): ${m.doc.bodyIds().size} bodies vs ${g.getValue("bodies").jsonArray.size}, ${m.comps.conns().size} connections vs ${(g["conns"] as JsonArray).size}, " +
             "${bad.size} differences (+ ${known.size} known: Cap 39 bolt layout), built in ${"%.1f".format(java.util.Locale.ROOT, secs)} s\n" + (bad + known).take(200).joinToString("\n")
-        File(root, "build").mkdirs(); File(root, "build/r12-rebuild-report.txt").writeText(rep + "\n"); println(rep.lines().take(30).joinToString("\n"))
-        File(root, "build/R12_app.ss").outputStream().use { com.solidsketchapp.core.io.SsCodec.write(m.doc as com.solidsketchapp.core.io.MemoryDocument, it, name = "Frame_28x53m_R12_app") }
+        File(root, "build").mkdirs(); File(root, "build/r13-rebuild-report.txt").writeText(rep + "\n"); println(rep.lines().take(30).joinToString("\n"))
+        File(root, "build/R13_app.ss").outputStream().use { com.solidsketchapp.core.io.SsCodec.write(m.doc as com.solidsketchapp.core.io.MemoryDocument, it, name = "Frame_28x53m_R12_app") }
         assertTrue(bad.take(60).joinToString("\n"), bad.isEmpty())
         // weights (owner 2026-11-27: gross, no bolt holes taken off; grout 0): the app's TeklaWeight against web v70's partWeight, part by part
         val engine = com.solidsketchapp.core.view.ManifoldBooleanEngine(); val tw = com.solidsketchapp.steel.model.TeklaWeight(t.data.profiles, engine)
@@ -71,8 +71,8 @@ class R12RebuildTest {
             val wr = tw.part(st, m.doc.bodyMesh(id)!!, false, { null }, bs); val w = wr.weight; val wj = gb[i].jsonObject["w"] as? JsonObject; val web = wj?.get("weight")?.jsonPrimitive?.double ?: 0.0
             wApp += w; wWeb += web; if (abs(w - web) > 0.011 && wBad.size < 20) wBad += "body $i ${st["name"]?.jsonPrimitive?.content} ${st["prof"]?.jsonPrimitive?.content}: app $w web $web" +
                 (wr.subs?.let { ss -> " · app plates " + ss.joinToString { "${it.role} ${it.weight} (holes ${it.holesFilled})" } + " · web plates " + ((wj?.get("subs") as? JsonArray)?.joinToString { it.jsonObject["weight"].toString() + " (holes " + it.jsonObject["holesFilledKg"] + ")" } ?: "-") + " · bolts ${bs.size}" + (ss.firstOrNull { it.holesFilled > 0 && it.role == "w" }?.mesh?.let { wm -> " · web holes from " + bs.filter { b -> tw.holeFill(wm, listOf(b)) > 0 }.joinToString { b -> "pts0 ${b.pts[0]} ax ${b.ax} d0 ${b.d0} L ${b.len} n ${b.pts.size}" } } ?: "") } ?: "") }
-        val wrep = "R12 rebuild weight (gross, grout 0): app %.2f kg, web %.2f kg, Tekla st.tkW 63,705.82 kg, Part List 63,711.7 kg".format(java.util.Locale.ROOT, wApp, wWeb)
-        File(root, "build/r12-rebuild-weight.txt").writeText(wrep + "\n" + wBad.joinToString("\n") + "\n"); println(wrep)
+        val wrep = "R13 rebuild weight (gross, grout 0): app %.2f kg, web %.2f kg, Tekla st.tkW 64,017.49 kg, Part List 64,023.4 kg".format(java.util.Locale.ROOT, wApp, wWeb)
+        File(root, "build/r13-rebuild-weight.txt").writeText(wrep + "\n" + wBad.joinToString("\n") + "\n"); println(wrep)
         assertTrue(wrep + "\n" + wBad.joinToString("\n"), wBad.isEmpty())
     }
 }

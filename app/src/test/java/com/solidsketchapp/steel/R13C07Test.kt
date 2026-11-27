@@ -25,17 +25,17 @@ import kotlin.math.sqrt
  * half 2) with the R12 inputs and checks against R12 itself, within 0.1 mm: every crossing gusset, the halves' connection plates and
  * end plates (FLT5*100) and the crossing caps (PL5) by box (6 numbers); every bolt of the halves (point, axis, length, grade); the
  * continuous brace and both halves (box). The PL5 caps at the gable nodes' vertical braces (skewed out of the plane, C06) are counted
- * apart. Needs Manifold: -PhostJni. Writes build/r12-c07-report.txt.
+ * apart. Needs Manifold: -PhostJni. Writes build/r13-c07-report.txt.
  */
-class R12C07Test {
+class R13C07Test {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
     private fun box(v: List<DoubleArray>) = (0..2).map { k -> v.minOf { it[k] } } + (0..2).map { k -> v.maxOf { it[k] } }
     private fun pts(m: Mesh) = (0 until m.vertexCount).map { i -> DoubleArray(3) { m.positions[i * 3 + it].toDouble() } }
 
     @Test fun c07EqualR12() {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
-        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r12/rebuild_inputs.json").readText()).jsonObject
-        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R12.ss").inputStream())
+        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r13/rebuild_inputs.json").readText()).jsonObject
+        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R13.ss").inputStream())
         val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
         val members = inp.getValue("members").jsonArray.map { it.jsonObject }
         val steps = inp.getValue("steps").jsonArray.map { it.jsonObject }
@@ -78,7 +78,7 @@ class R12C07Test {
         for (i in need) { mN++; val rb = box(members[i].getValue("r10").jsonArray.flatMap { pts(r12.bodyMesh(BodyId(it.jsonPrimitive.int.toString()))!!) }); val ob = box(pts(m.doc.bodyMesh(ids.getValue(i))!!))
             if ((0..5).all { abs(ob[it] - rb[it]) <= 0.1 }) mOk++ else bad += "member $i: box $ob vs R12 $rb" }
         val rep = cnt.entries.joinToString("\n") { (r, n) -> "row $r (${if (r == "7") "C07 Tube crossing" else "C07 caps at the gable nodes' skewed braces, not asserted"}): parts ${n[0]} / ${n[1]}" + (if (r == "7") ", bolts ${n[2]} / ${n[3]}, members (box) $mOk / $mN" else "") } + "\n" + bad.take(40).joinToString("\n")
-        File(root, "build").mkdirs(); File(root, "build/r12-c07-report.txt").writeText(rep + "\n"); println(rep.lines().take(10).joinToString("\n"))
+        File(root, "build").mkdirs(); File(root, "build/r13-c07-report.txt").writeText(rep + "\n"); println(rep.lines().take(10).joinToString("\n"))
         cnt["7"]!!.let { n -> assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]) }; assertEquals(rep, mN, mOk)
     }
 }

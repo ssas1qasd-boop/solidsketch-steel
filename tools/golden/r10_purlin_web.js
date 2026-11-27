@@ -5,7 +5,7 @@
 'use strict';
 const fs = require('fs'), path = require('path'), zlib = require('zlib');
 const { REPO, GOLDEN, openV69 } = require('./lib/v69');
-const M = process.env.SS_MODEL || 'R12';
+const M = process.env.SS_MODEL || 'R13';
 const r10 = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(REPO, `tests/steel/models/Frame_28x53m_${M}.ss`))).toString());
 const purl = r10.doc.bodies.filter(b => b.st && b.st.kind === 'member' && /^(C|CC|Z|ZZ)\d/.test(b.st.prof || ''));
 const side = (vp, st) => {   // web side along st.v: -1 / +1, and the web face position along v (outer face)

@@ -2,7 +2,7 @@
 """R13 (Tekla IFC v3, the fixed model) vs R12, by geometry, and R13 against the lists and drawings of Tekla's Package_2.
 
     python3 tools/golden/r12_build.py R13 && node tools/golden/r13_totals.js && python3 -I tools/golden/r13_compare.py
-      -> build/r13/compare.json, docs/steel/R13-REPORT.md
+      -> build/r13/compare.json, docs/steel/R13-PACKAGE.md
 
 Tekla renumbered the model after the fix, so parts are paired by geometry, never by mark:
   parts  same kind + Tekla profile + grade, solid boxes within 0.1 mm (greedy, nearest first). A pair is "same" when the two
@@ -316,7 +316,7 @@ def report(o):
     L += ['Bolts per size:', '', '| Size | Tekla | R13 |', '|---|---|---|'] + [f"| {k} | {bl['tekla'].get(k, 0)} | {bl['r13'].get(k, 0)} |" for k in sorted(set(bl['tekla']) | set(bl['r13']))] + ['']
     if dl['mismatches']:
         L += ['Assemblies whose parts differ from their drawing\'s material list (mark, main part id, R13 extra, R13 missing):', ''] + [f'- {a} ({b}): {c} / {d}' for a, b, c, d in dl['mismatches'][:60]] + ['']
-    open(os.path.join(REPO, 'docs', 'steel', 'R13-REPORT.md'), 'w').write('\n'.join(L) + '\n')
+    open(os.path.join(REPO, 'docs', 'steel', 'R13-PACKAGE.md'), 'w').write('\n'.join(L) + '\n')
     print('\n'.join(L))
 
 

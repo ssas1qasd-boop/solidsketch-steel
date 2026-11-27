@@ -22,15 +22,15 @@ import kotlin.math.sqrt
 
 /**
  * C14 Shear plate (146), joist <- girder, v70 · Tekla parity (docs/steel/PARITY.md "C14"): the app rebuilds R12's 68 joist joints with the
- * R12 inputs (tests/steel/golden/r12/rebuild_inputs.json: every member, then the 68 row-14 T146 entries: Bolts tab 'Top' 77.2, edge 30,
+ * R12 inputs (tests/steel/golden/r13/rebuild_inputs.json: every member, then the 68 row-14 T146 entries: Bolts tab 'Top' 77.2, edge 30,
  * horizontal edge 35, gap 20) and checks against R12 itself (Tekla's IFC), within 0.1 mm:
  *   - every shear tab (box, 6 numbers),
  *   - every bolt (point, axis, length, grade: 272),
  *   - the joist's and the girder's solid inside a box 300 mm round each tab (symmetric difference <= 0.1 mm x surface area; two girder
  *     ends are cut by the column's own connection, not built here, so the girder pass mark is 66 / 68).
- * Needs Manifold: -PhostJni. Writes build/r12-c14-report.txt.
+ * Needs Manifold: -PhostJni. Writes build/r13-c14-report.txt.
  */
-class R12C14Test {
+class R13C14Test {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
     private val engine by lazy { ManifoldBooleanEngine() }
     private fun box(v: List<DoubleArray>) = (0..2).map { k -> v.minOf { it[k] } } + (0..2).map { k -> v.maxOf { it[k] } }
@@ -43,8 +43,8 @@ class R12C14Test {
 
     @Test fun c14EqualsR12() {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
-        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r12/rebuild_inputs.json").readText()).jsonObject
-        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R12.ss").inputStream())
+        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r13/rebuild_inputs.json").readText()).jsonObject
+        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R13.ss").inputStream())
         val rst = { id: Int -> Json.parseToJsonElement(r12.bodyJson(BodyId(id.toString()))!!).jsonObject }
         val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
         val members = inp.getValue("members").jsonArray.map { it.jsonObject }
@@ -88,7 +88,7 @@ class R12C14Test {
             }
         }
         val rep = "C14 Shear plate 146 (joist <- girder), app vs R12: tabs $tabs / ${list.size}, bolts $bolts / $nb, joists $joists / ${list.size}, girders $girders / ${list.size}\n" + bad.take(40).joinToString("\n")
-        File(root, "build").mkdirs(); File(root, "build/r12-c14-report.txt").writeText(rep + "\n"); println(rep.lines().take(12).joinToString("\n"))
+        File(root, "build").mkdirs(); File(root, "build/r13-c14-report.txt").writeText(rep + "\n"); println(rep.lines().take(12).joinToString("\n"))
         assertEquals(rep, list.size, tabs); assertEquals(rep, nb, bolts); assertEquals(rep, list.size, joists); assertEquals(rep, list.size - 2, girders)
     }
 }

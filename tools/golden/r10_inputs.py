@@ -83,7 +83,9 @@ def mesh_v(b):   # a body's mesh vertices [[x, y, z], ...]
 
 WEB_GAP = 40.0   # mm: a flange plane may sit up to this far from the web edge (R10's gable column webs are 28 mm off)
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-MODEL = os.environ.get('SS_MODEL', 'R12')   # R11 = the reference since 2026-11-25 (R10 + Tekla-proven fixes, docs/steel/PARITY.md); SS_MODEL=R10 for the old one
+MODEL = os.environ.get('SS_MODEL', 'R13')   # R13 = the reference since 2026-11-28 (Tekla's fixed model, docs/steel/R13.md)
+TEKLA = MODEL in ('R12', 'R13')   # models built from Tekla's own IFC (the measured Tekla settings apply)
+#   # R11 = the reference since 2026-11-25 (R10 + Tekla-proven fixes, docs/steel/PARITY.md); SS_MODEL=R10 for the old one
 R10 = os.path.join(REPO, 'tests', 'steel', 'models', f'Frame_28x53m_{MODEL}.ss')
 OUT = os.path.join(REPO, 'tests', 'steel', 'golden', MODEL.lower(), 'rebuild_inputs.json')
 
@@ -156,7 +158,7 @@ class Pl:
         self.t, self.w = thick_width(s.get('tprof'))
         if s['kind'] == 'plate':
             P = s['pts3']; N = unit(s['ncF']['N']); X = unit(s['ncF']['X'])
-            if MODEL == 'R12' and len(P) >= 3:   # C02h (PARITY.md): ncF's directions are rounded to 3 decimals (a 6 m rafter tilts 1 mm);
+            if TEKLA and len(P) >= 3:   # C02h (PARITY.md): ncF's directions are rounded to 3 decimals (a 6 m rafter tilts 1 mm);
                 # the exact plane from the outline (Newell) and the outline edge along ncF's X
                 nw = [0.0, 0.0, 0.0]
                 for i in range(len(P)):
@@ -693,21 +695,21 @@ def main():
             other = sorted(bt, key=lambda m: -len(bt[m]))[0]; cs = bt[other]; d = bolt_d(cs)
             pts, ux, uy = bolt_layout(cs, p.X, p.Y)
             if key3 in EP:
-                refs = [b['id']]; hps = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'HAUNCH_PLATE'] if MODEL == 'R12' else []
-                if MODEL == 'R12' and EP[key3] == '13':   # C13: the girder-side 'Top Stiff.' / 'Bot Stiff.' next to this end plate are 144's haunch plates
+                refs = [b['id']]; hps = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'HAUNCH_PLATE'] if TEKLA else []
+                if TEKLA and EP[key3] == '13':   # C13: the girder-side 'Top Stiff.' / 'Bot Stiff.' next to this end plate are 144's haunch plates
                     pc = Pl(b).centre(); hps = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] in ('Top Stiff.', 'Bot Stiff.') and norm(sub(Pl(byid[x]).centre(), pc)) < 300]
                 if hps:   # C09 (PARITY.md): Tekla's 144 Haunch tab, read off R12's haunch plates; the plate on Tekla's flange plate, 0.75 mm under the axis' top face
                     g = ep_gap(p, members[own]['st'], members[other]['st']); q = ep_q(p, members[own]['st'], pts, d, members[other]['st'], gap=g); q['gap'] = g
                     q.update(hp_q(b, hps, members[own]['st'])); refs += hps
                 else: q = ep_q(p, members[own]['st'], pts, d, members[other]['st'])
-                if MODEL == 'R12' and EP[key3] in ('2', '9', '13'):   # C02 / C09 / C13 (PARITY.md): Tekla's bolt length and bolting direction
+                if TEKLA and EP[key3] in ('2', '9', '13'):   # C02 / C09 / C13 (PARITY.md): Tekla's bolt length and bolting direction
                     c0 = p.centre(); far = max((members[own]['st']['p1'], members[own]['st']['p2']), key=lambda P: norm(sub(P, c0)))
                     tosec = p.N if dot(sub(far, c0), p.N) > 0 else mul(p.N, -1)
                     q['blrule'] = 'tekla'; q['bdir'] = 2 if dot(cs[0]['q']['ax'], tosec) > 0 else 1
-                if MODEL == 'R12' and EP[key3] in ('2', '10') and top_sloped(other):   # X02 (PARITY.md): the column / post top fitted to the rafter's top face
+                if TEKLA and EP[key3] in ('2', '10') and top_sloped(other):   # X02 (PARITY.md): the column / post top fitted to the rafter's top face
                     q['cfit'] = 'top'; cap_beam[other] = own
                 conn('T144', [other, own], q, EP[key3], refs)
-                if MODEL == 'R12' and EP[key3] == '2':   # C02h (PARITY.md): Eave haunch (Teh), read off R12's web + flange
+                if TEKLA and EP[key3] == '2':   # C02h (PARITY.md): Eave haunch (Teh), read off R12's web + flange
                     hq = eave_haunch_q(b, other, own)
                     if hq: conn('Teh', [other, own], hq[0], '2', hq[1])
             elif s['name'] == 'End Plate' and s['tprof'] == 'FLT20*400':   # apex 106 with haunch (v54 apex)
@@ -723,14 +725,14 @@ def main():
                     hp = Pl(byid[hw[0]]); q.update(len=round(hp.x1 - hp.x0), depth=round(hp.y1 - hp.y0), hw=hp.t)
                     fl = sorted(hf, key=lambda x: norm(sub(Pl(byid[x]).centre(), hp.centre())))
                     if fl: fp = Pl(byid[fl[0]]); q.update(hf=fp.t, hb=fp.w)
-                    if MODEL == 'R12':   # C03 (PARITY.md): Tekla 106's haunch: length horizontal from the apex joint, depth plumb at the end plate
+                    if TEKLA:   # C03 (PARITY.md): Tekla 106's haunch: length horizontal from the apex joint, depth plumb at the end plate
                         hwn = sorted(hw, key=lambda x: norm(sub(Pl(byid[x]).centre(), p.centre())))[0]; wv = mesh_v(byid[hwn]); c0 = p.centre()
                         hdir = [-p.N[0], -p.N[1], 0]; hl = math.hypot(hdir[0], hdir[1]); hdir = [hdir[0] / hl, hdir[1] / hl, 0]
                         if dot(sub(Pl(byid[hwn]).centre(), c0), hdir) < 0: hdir = [-hdir[0], -hdir[1], 0]   # from the plate toward the haunch
                         joint = sub(c0, mul(hdir, p.t / 2)); far = max(dot(sub(v, joint), hdir) for v in wv)
                         atp = [v[2] for v in wv if abs(dot(sub(v, joint), hdir) - p.t) < 0.5]
                         if atp: q.update(hrule='tekla', len=r3(far), depth=r3(max(atp) - min(atp)))
-                if MODEL == 'R12':   # C03: the end plate stiffener above the rafter (Stiff. FLT10*60 behind this plate)
+                if TEKLA:   # C03: the end plate stiffener above the rafter (Stiff. FLT10*60 behind this plate)
                     stf = [x for x in asm_parts[asm_of[b['id']]] if byid[x]['st']['name'] == 'Stiff.' and byid[x]['st'].get('tprof', '').startswith('FLT') and norm(sub(Pl(byid[x]).centre(), p.centre())) < 200]
                     if stf:
                         sv = mesh_v(byid[stf[0]]); c0 = p.centre(); hdir = [-p.N[0], -p.N[1], 0]; hl = math.hypot(hdir[0], hdir[1]); hdir = [hdir[0] / hl, hdir[1] / hl, 0]
@@ -752,14 +754,14 @@ def main():
             elif s['name'] == 'Shear Plate':
                 q = sp_q(p, pts, d, members[other]['st'])
                 row = '14' if s['tprof'] == 'FLT10*130' and g == 'EB' else '12'
-                if row == '14' and MODEL == 'R12':   # C14 (PARITY.md): Tekla's Bolts tab 'Top' + the dimension from the joist's top to the top bolt row
+                if row == '14' and TEKLA:   # C14 (PARITY.md): Tekla's Bolts tab 'Top' + the dimension from the joist's top to the top bolt row
                     jt = max(max(byid[i]['shape']['vp'][2::3]) for i in members[other]['r10'])
                     q['refV'] = 'Top'; q['posV'] = r3(jt - max(pp[2] for pp in pts))
                     q.update(sp_qh(p, pts, members[other]['st']))
-                c20 = c20_q(b, own, other) if MODEL == 'R12' and row == '12' else None
+                c20 = c20_q(b, own, other) if TEKLA and row == '12' else None
                 if c20: q.update(c20[0]); conn('T186', [own, other], q, '20', [b['id']] + c20[1])   # C20 (PARITY.md): Column with stiffeners (186)
                 else:
-                    if MODEL == 'R12' and row == '12':   # C20 follow-up (owner 2026-11-27): the stair posts' 146 as Tekla's (C14's Bolts tab, Tekla bolt length)
+                    if TEKLA and row == '12':   # C20 follow-up (owner 2026-11-27): the stair posts' 146 as Tekla's (C14's Bolts tab, Tekla bolt length)
                         q.update(sp_qh(p, pts, members[other]['st'])); q['refV'] = 'Middle'
                         a_, eh_, es_ = v69_eh(members[other]['st']); zc = dot(members[other]['st']['p1'], eh_)   # the beam's centre line, along its depth
                         q['posV'] = r3(zc - sum(dot(pp, eh_) for pp in pts) / len(pts))
@@ -778,7 +780,7 @@ def main():
                     if cand and cand[0][0] < 250: rf = cand[0][1]
                     if members[gc]['st']['name'] == 'RAFTER' or gc == rf: gc = other if other != rf else own
                 q = sp_q(p, pts, d, members[gc]['st'])
-                if MODEL == 'R12':   # C17 (PARITY.md): Tekla 146 as a hanger: measured from the rafter's face at the tab's own plane
+                if TEKLA:   # C17 (PARITY.md): Tekla 146 as a hanger: measured from the rafter's face at the tab's own plane
                     cst = members[gc]['st']; a_, eh_, es_ = v69_eh(cst); tv = mesh_v(b); cax = cst['p1']
                     sz = [dot(sub(v, cax), es_) for v in tv]; tops = {}   # the tab's top line (the rafter's underside) over its thickness ...
                     for v, d_ in zip(tv, sz): tops[round(d_, 2)] = max(tops.get(round(d_, 2), -1e9), v[2])
@@ -812,7 +814,7 @@ def main():
             continue   # crossing: handled below
         # gusset owned by a loose gusset assembly: nearest frame member to the gusset
         q = OrderedDict(bolt=d)
-        if MODEL == 'R12': q.update(c05_q(b, br, bt[other], other))   # C05 (PARITY.md): Tekla's 20 tube end as R12
+        if TEKLA: q.update(c05_q(b, br, bt[other], other))   # C05 (PARITY.md): Tekla's 20 tube end as R12
         conn('Ttg', [other, br], q, '5', [b['id']])
     # crossings: halves whose tongues bolt to a gusset of a continuous brace
     def c07_q(cont, hv):
@@ -839,7 +841,7 @@ def main():
             if members[other]["kind"] == "given" and re.search(r"Bracing|Strut", members[other]["st"]["name"]): crossing[other].add(br)
     for cont, halves in sorted(crossing.items()):
         hv = sorted(halves)
-        if len(hv) == 2: conn('Ttgx', [cont] + hv, c07_q(cont, hv) if MODEL == 'R12' else OrderedDict(), '7', [])
+        if len(hv) == 2: conn('Ttgx', [cont] + hv, c07_q(cont, hv) if TEKLA else OrderedDict(), '7', [])
         else: unhandled[f'crossing with {len(hv)} halves'].append(members[cont]['r10'][0])
 
     # ---- row 8: sag rods through purlins
@@ -860,7 +862,7 @@ def main():
             pa = sorted([a['st']['p1'], a['st']['p2']], key=lambda p: p[2]); pb = sorted([b2['st']['p1'], b2['st']['p2']], key=lambda p: p[2])
             if abs(pa[0][2] - pb[0][2]) < 5 and abs(pa[0][1] - pb[0][1]) < 5:
                 q = OrderedDict()
-                if MODEL == 'R12':   # C18 (v70): the treads as Tekla, measured on R12's treads between these stringers
+                if TEKLA:   # C18 (v70): the treads as Tekla, measured on R12's treads between these stringers
                     lo = pa[0]; hi = pa[1]; dh = [hi[0] - lo[0], hi[1] - lo[1], 0]; run = math.hypot(dh[0], dh[1]); dh = [dh[0] / run, dh[1] / run, 0]; H = hi[2] - lo[2]
                     xlo, xhi = sorted([pa[0][0], pb[0][0]]); ts = []
                     for t in plates:
@@ -888,7 +890,7 @@ def main():
     def tk_bolt_len(d, grip):
         m = {10: 8.4, 12: 10.8, 14: 12.8, 16: 14.8, 20: 18, 22: 19.4, 24: 21.5, 27: 23.8, 30: 25.6, 36: 31}.get(int(d), 0.9 * d); w = {10: 2, 12: 2.5, 14: 2.5, 16: 3, 20: 3, 22: 3, 24: 4, 27: 4, 30: 4, 36: 5}.get(int(d), 0.16 * d)
         return math.ceil((grip + m + w + 5) / 5 - 1e-6) * 5
-    if MODEL == 'R12':
+    if TEKLA:
         strs = [m for m in members if m['st']['name'] == 'STRINGER']
         for pb in plates:
             if pb['st']['name'] != 'Stair Plate' or str(pb['st'].get('amark', '')).startswith('EB'): continue
@@ -916,7 +918,7 @@ def main():
             else: q.update(nr=0, nc=0)
             conn('Tsep', parts_, q, '18', [pb['id']])
     # ---- X02: column cap plates (R12: 30 FLT8*150 on the column tops, no Tekla component in the IFC; PARITY.md "X02")
-    if MODEL == 'R12':
+    if TEKLA:
         for b in plates:
             if b['st']['name'] != 'Cap Plate': continue
             p, L, W = pl_dims(b); v = mesh_v(b); c = [sum(x[k] for x in v) / len(v) for k in range(3)]

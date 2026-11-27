@@ -19,13 +19,13 @@ import kotlin.math.abs
 
 /**
  * C04 purlin cleat (Tcl), v70 · Tekla parity (docs/steel/PARITY.md "C04"; R12 = Tekla's IFC: the cleat's underside at the purlin's underside): the app rebuilds R12's 264 purlin
- * cleats with the R12 inputs (tests/steel/golden/r12/rebuild_inputs.json: the 835 members, then only the 264 Tcl entries; new
+ * cleats with the R12 inputs (tests/steel/golden/r13/rebuild_inputs.json: the 835 members, then only the 264 Tcl entries; new
  * components = 'Cleat location' Back, Tekla's cleat) and every cleat, stiffener and bolt must sit where R12 (= Tekla's IFC) has
- * it (tests/steel/golden/r12/c04_r12.json, tools/golden/r10_c04.py with SS_MODEL=R12): box within 0.1 mm on all six numbers, volume
+ * it (tests/steel/golden/r13/c04_r13.json, tools/golden/r10_c04.py with SS_MODEL=R12): box within 0.1 mm on all six numbers, volume
  * within 2 %, every bolt position within 0.1 mm. 'v69' and settings stored without 'loc' (an old model) keep v69's cleat: the same
- * angle, v69's own stiffener (not NC 8504: no stiffener matches). Needs Manifold: -PhostJni. Writes build/r12-c04-report.txt.
+ * angle, v69's own stiffener (not NC 8504: no stiffener matches). Needs Manifold: -PhostJni. Writes build/r13-c04-report.txt.
  */
-class R12C04Test {
+class R13C04Test {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
     private val engine by lazy { ManifoldBooleanEngine() }
     private fun box(m: Mesh): List<Double> { val lo = DoubleArray(3) { Double.MAX_VALUE }; val hi = DoubleArray(3) { -Double.MAX_VALUE }
@@ -34,8 +34,8 @@ class R12C04Test {
     private class Result(val matched: Int, val bolts: Int, val bad: List<String>, val stiff: Int = 0)
 
     private fun run(loc: String?): Result {
-        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r12/rebuild_inputs.json").readText()).jsonObject
-        val gold = Json.parseToJsonElement(File(root, "tests/steel/golden/r12/c04_r12.json").readText()).jsonObject.getValue("cleats").jsonArray.map { it.jsonObject }
+        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r13/rebuild_inputs.json").readText()).jsonObject
+        val gold = Json.parseToJsonElement(File(root, "tests/steel/golden/r13/c04_r13.json").readText()).jsonObject.getValue("cleats").jsonArray.map { it.jsonObject }
         val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
         val members = inp.getValue("members").jsonArray.map { it.jsonObject.getValue("st").jsonObject }
         val ids = ArrayList<BodyId>()
@@ -73,7 +73,7 @@ class R12C04Test {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
         val r = run(null)   // new components: the default, Back (Tekla)
         val rep = "C04 purlin cleat, app (Cleat location Back = Tekla) vs R12: ${r.matched} / 528 parts, ${r.bolts} / 1056 bolts within 0.1 mm\n" + r.bad.take(100).joinToString("\n")
-        File(root, "build").mkdirs(); File(root, "build/r12-c04-report.txt").writeText(rep + "\n"); println(rep.lines().take(20).joinToString("\n"))
+        File(root, "build").mkdirs(); File(root, "build/r13-c04-report.txt").writeText(rep + "\n"); println(rep.lines().take(20).joinToString("\n"))
         assertEquals(r.bad.take(20).joinToString("\n"), 528, r.matched); assertEquals(1056, r.bolts)
     }
 

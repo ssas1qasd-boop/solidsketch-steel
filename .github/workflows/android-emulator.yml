@@ -7,7 +7,7 @@ name: Emulator UI tests
 
 on:
   push:
-    branches: [main]
+    branches: ['**', '!ci-results']   # every branch but the results branch (each agent runs the full suite on its own branch; concurrency is per branch)
     paths-ignore: ['docs/**', '**.md', 'tests/steel/ui/compare/**']   # documentation-only pushes do not start a run
   workflow_dispatch:
 
@@ -38,8 +38,8 @@ jobs:
           echo "nproc: $(nproc)"; free -g; df -h / | tail -1
           [ -e /dev/kvm ] && echo "/dev/kvm: present" || echo "/dev/kvm: MISSING"
           total_mb=$(free -m | awk '/^Mem:/ {print $2}')
-          cores=$(( $(nproc) < 4 ? $(nproc) : 4 ))
-          if [ "$total_mb" -ge $((12 * 1024)) ]; then ram=8192; else ram=$(( (total_mb - 3072) / 1024 * 1024 )); [ "$ram" -lt 2048 ] && ram=2048; fi
+          cores=4; ram=8192   # owner 2026-11-28: the repo is public, the standard runner has 4 vCPU / 16 GB
+          [ "$(nproc)" -ge 4 ] && [ "$total_mb" -ge $((12 * 1024)) ] || echo "::warning::runner smaller than 4 vCPU / 12 GB: the emulator still gets 4 cores / 8192M"
           echo "EMU_CORES=$cores" >> "$GITHUB_ENV"; echo "EMU_RAM=${ram}M" >> "$GITHUB_ENV"
           echo "emulator: cores $cores, ram ${ram}M (host RAM ${total_mb} MB), heap 1024M, disk 8G, KVM"
 

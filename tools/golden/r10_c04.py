@@ -10,7 +10,7 @@ Each stiffener and bolt group belongs to the cleat nearest to it (R10 has no lin
 """
 import gzip, json, math, os
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-MODEL = os.environ.get('SS_MODEL', 'R12')
+MODEL = os.environ.get('SS_MODEL', 'R13')
 G = os.path.join(REPO, 'tests', 'steel', 'golden', MODEL.lower())
 d = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', f'Frame_28x53m_{MODEL}.ss')))['doc']
 B = {b['id']: b for b in d['bodies']}

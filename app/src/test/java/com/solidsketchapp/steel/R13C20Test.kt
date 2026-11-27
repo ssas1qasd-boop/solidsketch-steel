@@ -21,15 +21,16 @@ import kotlin.math.abs
 import kotlin.math.sqrt
 
 /**
- * C05 Tube gusset (20), the tube end (docs/steel/PARITY.md "C05"): the app rebuilds R12's 352 brace ends of row 5 with the R12 inputs
- * (tests/steel/golden/r12/rebuild_inputs.json: Tube end = brace end, plate L 315 / 285 with 150 inside, e / p / gauge, plate plane and
- * gusset side, plates against the node gusset, Tekla bolt length) and checks against R12 itself, within 0.1 mm: the connection plate and
- * the two end plates FLT5 on the tube end (box, 6 numbers), every bolt (point, axis, length, grade), the brace's and the main part's
- * solids inside a box 300 mm round the plate (as R12C09Test). Known, C06: the ends at the 6 nodes whose gusset is its own Tekla assembly
- * (marks 11 / 12 / 13: there the gusset is centred on the braces and both plates lie beside it) are counted apart.
- * Needs Manifold: -PhostJni. Writes build/r12-c05-report.txt.
+ * C20 Column with stiffeners (186) and C12 Shear plate (146), v70 · Tekla parity (docs/steel/PARITY.md "C20"): the app rebuilds R12's
+ * mezzanine column web joints with the R12 inputs (tests/steel/golden/r13/rebuild_inputs.json): row 20, the 18 joints where R12 has
+ * Tekla's Top / Bottom NS / FS stiffeners next to the shear tab (186: tab b 150 / 100, stiffeners t 10, b 70 / 90, Stiffener gap 2 = 2,
+ * chamfer 5.6 / 4.2, K preparation, the flange strip 20 past the stiffener; the second beam at a column shares the first one's stiffeners),
+ * and row 12, the 4 joints that stay Shear plate (146). Checks against R12 itself (Tekla's IFC), within 0.1 mm: every tab and stiffener
+ * (box, 6 numbers), every bolt (point, axis, length, grade), and the column's and the beam's solids inside a box 300 mm round the tab
+ * (symmetric difference <= 0.1 mm x surface area, or no larger than the same member with no connection, as R12C09Test).
+ * Needs Manifold: -PhostJni. Writes build/r13-c20-report.txt.
  */
-class R12C05Test {
+class R13C20Test {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
     private val engine by lazy { ManifoldBooleanEngine() }
     private fun box(v: List<DoubleArray>) = (0..2).map { k -> v.minOf { it[k] } } + (0..2).map { k -> v.maxOf { it[k] } }
@@ -40,16 +41,16 @@ class R12C05Test {
             val vx = (p[k] - p[i]).toDouble(); val vy = (p[k + 1] - p[i + 1]).toDouble(); val vz = (p[k + 2] - p[i + 2]).toDouble()
             a += sqrt((uy * vz - uz * vy).let { it * it } + (uz * vx - ux * vz).let { it * it } + (ux * vy - uy * vx).let { it * it }) / 2 }; return a }
 
-    @Test fun c05EqualR12() {
+    @Test fun c20c12EqualR12() {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
-        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r12/rebuild_inputs.json").readText()).jsonObject
-        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R12.ss").inputStream())
+        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r13/rebuild_inputs.json").readText()).jsonObject
+        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R13.ss").inputStream())
         val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
         val members = inp.getValue("members").jsonArray.map { it.jsonObject }
         val steps = inp.getValue("steps").jsonArray.map { it.jsonObject }
         steps.first { it["op"]!!.jsonPrimitive.content == "grid" }.let { m.doc.setField("stGrid", it.getValue("grid").toString()) }
         val list = steps.first { it["op"]!!.jsonPrimitive.content == "connectMany" }.getValue("list").jsonArray.map { it.jsonArray }
-            .filter { it[0].jsonPrimitive.content == "Ttg" && it[3].jsonPrimitive.content == "5" }
+            .filter { it[0].jsonPrimitive.content in setOf("T146", "T186") && it[3].jsonPrimitive.content in setOf("12", "20") }
         val need = list.flatMap { e -> e[1].jsonArray.map { it.jsonPrimitive.int } }.toSortedSet()
         val ids = HashMap<Int, BodyId>(); for (i in need) { val st = members[i].getValue("st").jsonObject; ids[i] = m.parts.addBuilt(st, m.parts.mesh(st)) }
         m.comps.addMany(list.map { e -> Triple(e[0].jsonPrimitive.content, e[1].jsonArray.map { ids.getValue(it.jsonPrimitive.int) }, e[2].jsonObject) }, merge = true)
@@ -58,22 +59,12 @@ class R12C05Test {
         for (id in m.doc.bodyIds()) { val st = Json.parseToJsonElement(m.doc.bodyJson(id)!!).jsonObject["st"]?.jsonObject ?: continue
             st["conn"]?.jsonPrimitive?.content?.let { kids.getOrPut(it) { ArrayList() } += id to st } }
         val tkb = Json.parseToJsonElement(r12.field("stConns")!!).jsonArray.map { it.jsonObject }.filter { it["type"]!!.jsonPrimitive.content == "TKBOLT" }
-        val capBodies = r12.bodyIds().mapNotNull { id -> val st = Json.parseToJsonElement(r12.bodyJson(id) ?: return@mapNotNull null).jsonObject["st"]?.jsonObject ?: return@mapNotNull null
-            if (st["tprof"]?.jsonPrimitive?.content == "FLT5*100") Triple(id.value.toInt(), st["amark"]?.jsonPrimitive?.content, box(pts(r12.bodyMesh(id)!!))) else null }
-        fun capsOf(am: String?, b: List<Double>) = capBodies.filter { (_, a, cb) -> a == am && sqrt((0..2).sumOf { k -> ((cb[k] + cb[k + 3]) / 2 - (b[k] + b[k + 3]) / 2).let { it * it } }) < 100 }.map { it.first }
         val cnt = HashMap<String, IntArray>()   // row -> [plates ok, plates, bolts ok, bolts, members ok, members]
         val bad = ArrayList<String>(); val diag = ArrayList<String>()
         for ((e, c) in list.zip(conns)) {
-            val cp = e[4].jsonArray.first().jsonPrimitive.int
-            // the gusset the plate is bolted to: its own Tekla assembly (mark 11 / 12 / 13) = a C06 node, counted apart
-            val gus = tkb.firstOrNull { cp in it.getValue("parts").jsonArray.map { p -> p.jsonPrimitive.int } }?.getValue("parts")?.jsonArray?.map { it.jsonPrimitive.int }?.firstOrNull { it != cp }
-            val gMark = gus?.let { Json.parseToJsonElement(r12.bodyJson(BodyId(it.toString()))!!).jsonObject["st"]!!.jsonObject["amark"]?.jsonPrimitive?.content } ?: ""
-            val row = if (Regex("^1\\d").containsMatchIn(gMark)) "5 (C06 node)" else "5"; val n = cnt.getOrPut(row) { IntArray(6) }
-            // the two end plates on this tube end: R12's FLT5 plates of the brace's assembly within 120 mm of the connection plate's inner end
-            val cpBox = box(pts(r12.bodyMesh(BodyId(cp.toString()))!!)); val brAm = Json.parseToJsonElement(r12.bodyJson(BodyId(cp.toString()))!!).jsonObject["st"]!!.jsonObject["amark"]?.jsonPrimitive?.content
-            val caps = capsOf(brAm, cpBox); val refs = listOf(cp) + caps
+            val row = e[3].jsonPrimitive.content + (if (e[0].jsonPrimitive.content == "Teh") "h" else ""); val n = cnt.getOrPut(row) { IntArray(6) }; val refs = e[4].jsonArray.map { it.jsonPrimitive.int }
             val k = kids[c.id].orEmpty().filter { it.second["kind"]?.jsonPrimitive?.content != "bolts" }.map { pts(m.doc.bodyMesh(it.first)!!) }.map(::box)
-            if (false) {   // each R12 haunch part: our part with the same box (0.1 mm) and the same solid (symmetric difference <= 0.1 mm x its surface)
+            if (row == "2h") {   // each R12 haunch part: our part with the same box (0.1 mm) and the same solid (symmetric difference <= 0.1 mm x its surface)
                 val ours = kids[c.id].orEmpty().filter { it.second["kind"]?.jsonPrimitive?.content != "bolts" }.map { m.doc.bodyMesh(it.first)!! }
                 for (r in refs) { n[1]++; n[5]++; val rm = r12.bodyMesh(BodyId(r.toString()))!!; val rb = box(pts(rm))
                     val hit = ours.firstOrNull { o -> val b = box(pts(o)); (0..5).all { abs(b[it] - rb[it]) <= 0.1 } }
@@ -82,7 +73,7 @@ class R12C05Test {
                     if (x <= 0.1 * area(rm)) n[4]++ else bad += "row $row R12 $r: solid differs by %.1f mm³".format(java.util.Locale.ROOT, x) }
                 continue }
             fun nameOf(r: Int) = Json.parseToJsonElement(r12.bodyJson(BodyId(r.toString()))!!).jsonObject["st"]!!.jsonObject["name"]!!.jsonPrimitive.content.trim()
-            val epId = cp
+            val epId = refs.first { r -> nameOf(r).lowercase() == "shear plate" }   // the refs are sorted by id: the tab is not always first
             for (r in refs) { n[1]++; val rb = box(pts(r12.bodyMesh(BodyId(r.toString()))!!))
                 if (k.any { b -> (0..5).all { abs(b[it] - rb[it]) <= 0.1 } }) n[0]++ else bad += "row $row R12 $r: no plate within 0.1 mm of ${rb.map { Math.round(it * 10) / 10.0 }}" }
             val ours = kids[c.id].orEmpty().filter { it.second["kind"]?.jsonPrimitive?.content == "bolts" }
@@ -110,19 +101,10 @@ class R12C05Test {
                 if (ok) n[4]++ else bad += "row $row R12 $epId: member $mi differs by %.0f mm³ (%.3f mm over its faces); with no connection %.0f; the connection removes %.0f mm³, %.0f of it inside Tekla's part".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla)
                 diag += "row $row member $mi: diff %.0f (%.3f mm), no-conn %.0f, removed %.0f, removed inside Tekla %.1f".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla) }
         }
-        // C06: every R12 gusset these plates bolt to (node gussets, single-brace gussets, fins): an app gusset / fin with the same box (0.1 mm);
-        // the gable / end-frame nodes whose braces are not in the gusset's plane (marks 11 / 12 / 13 and their plates) are counted apart
-        val gus = list.flatMap { e -> val cp = e[4].jsonArray.first().jsonPrimitive.int
-            tkb.filter { cp in it.getValue("parts").jsonArray.map { p -> p.jsonPrimitive.int } }.flatMap { it.getValue("parts").jsonArray.map { p -> p.jsonPrimitive.int } }.filter { it != cp } }.toSortedSet()
-        val appG = m.doc.bodyIds().mapNotNull { id -> val st = Json.parseToJsonElement(m.doc.bodyJson(id)!!).jsonObject["st"]?.jsonObject ?: return@mapNotNull null
-            if (st["name"]?.jsonPrimitive?.content in setOf("GUSSET PLATE", "FIN PLATE")) box(pts(m.doc.bodyMesh(id)!!)) else null }
-        for (gid in gus) { val gst = Json.parseToJsonElement(r12.bodyJson(BodyId(gid.toString()))!!).jsonObject["st"]!!.jsonObject; if (gst["name"]?.jsonPrimitive?.content?.trim() != "Gusset Plate") continue
-            val am = gst["amark"]?.jsonPrimitive?.content ?: ""; val row = if (Regex("^1\\d").containsMatchIn(am)) "6 (C06 gable node)" else "6"; val n = cnt.getOrPut(row) { IntArray(6) }
-            val rb = box(pts(r12.bodyMesh(BodyId(gid.toString()))!!)); n[1]++
-            if (appG.any { b -> (0..5).all { abs(b[it] - rb[it]) <= 0.1 } }) n[0]++ else bad += "row $row R12 gusset $gid ($am ${gst["tprof"]?.jsonPrimitive?.content}): no gusset within 0.1 mm of ${rb.map { Math.round(it * 10) / 10.0 }}" }
-        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "5" -> "C05 Tube gusset 20, tube ends"; "6" -> "C06 gussets (node, single-brace, fin)"; "6 (C06 gable node)" -> "C06 gable / end-frame node gussets, not asserted"; else -> "C05 ends at C06 nodes (own-assembly gussets), not asserted" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
-        File(root, "build").mkdirs(); File(root, "build/r12-c05-report.txt").writeText(rep + "\n\n" + diag.joinToString("\n") + "\n"); println(rep.lines().take(14).joinToString("\n"))
-        cnt["5"]!!.let { n -> assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
-        cnt["6"]?.let { n -> assertEquals(rep, n[1], n[0]) }
+        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "20" -> "C20 Column with stiffeners 186"; else -> "C12 Shear plate 146, column web" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
+        File(root, "build").mkdirs(); File(root, "build/r13-c20-report.txt").writeText(rep + "\n\n" + diag.joinToString("\n") + "\n"); println(rep.lines().take(14).joinToString("\n"))
+        // row 12's four 146 joints (R12 9-12: stair posts STR9001-9004 to the stair beam STB9002 at +2009): since the C20 follow-up (owner 2026-11-27)
+        // with Tekla's Bolts tab (Middle 0, edge 35, tab b 150) and Tekla's bolt length (grip 16 + nut + washer + 5 -> L40)
+        for ((_, n) in cnt) { assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
     }
 }

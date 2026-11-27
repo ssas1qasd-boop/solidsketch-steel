@@ -17,14 +17,14 @@ import org.junit.runner.RunWith
 import kotlin.math.sqrt
 
 /**
- * R12 rule-B failure groups (owner, 2026-11-25, step 1): each group's piece of R12 (tests/steel/golden/r12/views/R12_<group>.ss, cut
- * out of R12 unchanged by tools/golden/r12_views.py prepare; the two parts red / blue) opened in the app, ORTHOGRAPHIC camera at the
- * measured spot looking along the contact face; one screenshot per group (r12/NN_<group>.png) and the spot's pixel on screen
- * (r12/NN_<group>.txt: x y of the view's top-left on screen + the spot's pixel in the view) for the labels drawn by
+ * R13 (reference since 2026-11-28) rule-B failure groups (owner, 2026-11-25, step 1): each group's piece of R13 (tests/steel/golden/r13/views/R13_<group>.ss, cut
+ * out of R13 unchanged by tools/golden/r12_views.py prepare; the two parts red / blue) opened in the app, ORTHOGRAPHIC camera at the
+ * measured spot looking along the contact face; one screenshot per group (r13/NN_<group>.png) and the spot's pixel on screen
+ * (r13/NN_<group>.txt: x y of the view's top-left on screen + the spot's pixel in the view) for the labels drawn by
  * r12_views.py compose.
  */
 @RunWith(AndroidJUnit4::class)
-class R12ViewsTest {
+class R13ViewsTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
     private val act get() = compose.activity
     private val storage = TestStorage()
@@ -35,7 +35,7 @@ class R12ViewsTest {
     }
     private fun pause(ms: Long) { compose.waitForIdle(); Thread.sleep(ms) }
 
-    @Test fun r12FailureGroups() {
+    @Test fun r13FailureGroups() {
         waitFor("the steel data", 60_000) { act.testSteel != null }
         val ctx = InstrumentationRegistry.getInstrumentation().context
         val views = Json.parseToJsonElement(ctx.assets.open("views.json").bufferedReader().readText()).jsonArray
@@ -53,9 +53,9 @@ class R12ViewsTest {
             pause(2500)
             n++
             compose.waitForIdle(); Thread.sleep(500)
-            ua.takeScreenshot()?.let { b -> storage.openOutputFile("r12/%02d_%s.png".format(n, key)).use { b.compress(Bitmap.CompressFormat.PNG, 100, it) } }
+            ua.takeScreenshot()?.let { b -> storage.openOutputFile("r13/%02d_%s.png".format(n, key)).use { b.compress(Bitmap.CompressFormat.PNG, 100, it) } }
             val px = act.testViewport.worldToScreen(tv); val loc = IntArray(2); act.testViewportView?.getLocationOnScreen(loc)
-            storage.openOutputFile("r12/%02d_%s.txt".format(n, key)).use { it.write("${loc[0]} ${loc[1]} ${px?.first} ${px?.second}\n".toByteArray()) }
+            storage.openOutputFile("r13/%02d_%s.txt".format(n, key)).use { it.write("${loc[0]} ${loc[1]} ${px?.first} ${px?.second}\n".toByteArray()) }
             act.runOnUiThread { act.testViewport.camera.orthographic = false }
         }
     }

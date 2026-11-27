@@ -1,18 +1,23 @@
-# Tekla parity: web v70 chapter and app, against Tekla (R12)
+# Tekla parity: web v70 chapter and app, against Tekla (R13)
 
 Each section covers one connection where v69 differs from Tekla (shown by `tests/steel/models/Frame_28x53m_R10.ss` and Tekla's help). It gives the rule, the proof, the change and the tests. The web change is the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`). It goes into the reference copy just before the `v28 · BIM layers` chapter: `python3 tools/web/build_v70.py` writes `reference/solidsketch_v70.html`, and the golden harness (`tools/golden/lib/v69.js`) adds the same text in memory, so every golden made from now on comes from v69 + v70 (`SS_ORACLE=v69` runs plain v69). The app port follows the same steps in the same order. Models saved before v70 keep their v69 result unless the new option is set.
 
-## Reference model: R12 (owner, 2026-11-26)
-`tests/steel/models/Frame_28x53m_R12.ss`, built by `tools/golden/r12_build.py` from Tekla's own IFC export (`tests/steel/tekla/Frame_28x53m_tekla_v2.ifc`), is the reference for everything: golden tests, `docs/steel/R12-REPORT.md`, rule B and the weight target. See `docs/steel/R12.md` for how it is built and how it differs from R11. R10 and R11 stay unchanged, for history.
+## Reference model: R13 (owner, 2026-11-28)
+`tests/steel/models/Frame_28x53m_R13.ss` is the reference for everything: golden tests (`tests/steel/golden/r13/`), `docs/steel/R13-REPORT.md` (the rebuild against R13), rule B and the weight target. It is built by `tools/golden/r12_build.py R13` from Tekla's IFC export of the fixed model (Package_2 `out.ifc` = `tests/steel/tekla/Frame_28x53m_tekla_v3.ifc`). `docs/steel/R13.md` says how; `docs/steel/R13-PACKAGE.md` compares it with R12 and checks it against Package_2's lists. R10, R11 and R12 stay unchanged, for history (their tools run with `SS_MODEL=R12` etc.).
 
-**Weight target:** Tekla's per-part weights (`st.tkW`). They sum to 63,705.8 kg; Tekla's Part List total is 63,711.7 kg.
+**Weight target:** Tekla's Part List total, **64,023.4 kg** (Package_2 `SingleList.xsr`). Tekla's per-part weights (`st.tkW`) sum to 64,017.49 kg (the same 5.9 kg rounding gap as R12).
 
-## Open until R13 (owner decisions, 2026-11-27)
-- **EB4006 / EB4008** were a Tekla model error (flanges with no web). The owner fixed them in Tekla (webs added, renumbered); R13 (new IFC + package) will replace R12 for them. Until then the 12 C20 stiffeners and weight group A5 stay as they are, and C12, C14, C20 and the mezzanine girders are not touched.
-- **C06:** 17 gable / end-frame node gussets within 0.2–4.3 mm (braces skewed out of the gusset plane): accepted for now, re-check on R13.
-- **C07:** 18 PL5 end plates at the upper ends of the wall crossings VL6011–VL6014, 0.1–1.7 mm (Tekla's 0.3° turn): accepted for now, re-check on R13.
-- Order of the next connections on R12: C01 + C16, C18, C03, C17, X01, X02.
-- **R12 data quirk:** one monitor rafter end plate (body 1985, PLATE FLT12*120, assembly mark '14', class 99) is not in a PR assembly, so its 144 is not rebuilt and PR7001 / one PC7001 keep a square end (box 36.8 mm, +0.4 kg). Re-check on R13.
+**What R13 changed (owner, 2026-11-28):** the 3 mezzanine girders at C/D/E 5-6 have their web FLT8*300 (mark 4518, EB4007, 103.89 kg each), 6 new bolt groups 8 x M16 L45 into the column shear plates (now drilled), 6 new welds; the bottom flanges joined EB4007. The C20 stiffeners and C12 shear plates were already in Tekla. Nothing else changed.
+
+## Open (owner decisions, 2026-11-27 / 28)
+- **C06:** 17 gable / end-frame node gussets within 0.2–4.3 mm (braces skewed out of the gusset plane): agent TUBES (branch tubes) re-checks on R13.
+- **C07:** 18 PL5 end plates at the upper ends of the wall crossings VL6011–VL6014, 0.1–1.7 mm (Tekla's 0.3° turn): agent TUBES.
+- **C12 / C20 / C14 on R13:** agent R13 (branch r13-conn).
+- **Row 18 counter plates, SGR9001 / SR9001–SR9004 assembly weights:** agent C18 (branch c18).
+- **Data quirk (R12 and R13):** one monitor rafter end plate (R12 body 1985, PLATE FLT12*120, assembly mark '14', class 99) is not in a PR assembly, so its 144 is not rebuilt and PR7001 / one PC7001 keep a square end (box 36.8 mm, +0.4 kg).
+- **GA drawings (S12):** Package_2 has 16 GA sheets, the web build's fixed list makes 13. Accepted for now (owner 2026-11-28); the 3 extra sheets are open for S12.
+- **Assembly weights per mark:** 1001, SGR9001 and SR9001–SR9004 differ from Package_2's assembly list (the same differences as R12 vs Package_1): the known C01 / C18 / C19 gaps.
+- **Rule B on R13 itself (Tekla's model), new since R12:** each new EB4007 web runs 3.94 mm into the column web of C2021 / C2024 (3 overlaps, 18,176 mm³ each), and the 3 new bolt groups' grip is 18 against 8 mm of material on the bolt line (+3 grip failures). Both are in Tekla's model as exported; shown in `docs/steel/parity/r13/` (emulator images).
 
 ## Weights (owner, 2026-11-26)
 **Target:** Tekla's per-part weights (`st.tkW`, 63,705.8 kg; Part List 63,711.7).

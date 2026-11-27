@@ -21,16 +21,20 @@ import kotlin.math.abs
 import kotlin.math.sqrt
 
 /**
- * C20 Column with stiffeners (186) and C12 Shear plate (146), v70 · Tekla parity (docs/steel/PARITY.md "C20"): the app rebuilds R12's
- * mezzanine column web joints with the R12 inputs (tests/steel/golden/r12/rebuild_inputs.json): row 20, the 18 joints where R12 has
- * Tekla's Top / Bottom NS / FS stiffeners next to the shear tab (186: tab b 150 / 100, stiffeners t 10, b 70 / 90, Stiffener gap 2 = 2,
- * chamfer 5.6 / 4.2, K preparation, the flange strip 20 past the stiffener; the second beam at a column shares the first one's stiffeners),
- * and row 12, the 4 joints that stay Shear plate (146). Checks against R12 itself (Tekla's IFC), within 0.1 mm: every tab and stiffener
- * (box, 6 numbers), every bolt (point, axis, length, grade), and the column's and the beam's solids inside a box 300 mm round the tab
- * (symmetric difference <= 0.1 mm x surface area, or no larger than the same member with no connection, as R12C09Test).
- * Needs Manifold: -PhostJni. Writes build/r12-c20-report.txt.
+ * C02 + C09 + C13 End plate (144), v70 · Tekla parity (docs/steel/PARITY.md "C02 / C09"): the app rebuilds R12's 144 joints of rows 2 (eave,
+ * column <- rafter, 48) and 9 (monitor post on the rafter, 24) with the R12 inputs (tests/steel/golden/r13/rebuild_inputs.json: Haunch tab
+ * top / bottom plate t 8, b 60, h 60, chamfers 15 line, creation 'both'; Bolts tab bolt length Tekla, bolting direction 2) and checks
+ * against R12 itself (Tekla's IFC), within 0.1 mm:
+ *   - every end plate and haunch plate (box, 6 numbers),
+ *   - every bolt (point, axis, length, grade),
+ *   - the two members' solids inside a box 300 mm round the end plate: symmetric difference <= 0.1 mm x surface area, or (built-up
+ *     members whose own section differs from Tekla's: R12-REPORT "INPUT EQUAL, SOLID DIFFERS") no larger than the same member with no
+ *     connection, with what the connection removes (end cut, holes) outside Tekla's part.
+ * Row 2's tapered eave haunch (Web FLT8*80 + Bottom flange FLT10*150, 48 + 48) is C02h, the Eave haunch (Teh: Haunch length
+ * 2,000, depth 82.91; row "2h"): each part's box within 0.1 mm, and R12's solid covered by ours (missing volume <= 0.1 mm x its surface).
+ * Needs Manifold: -PhostJni. Writes build/r13-c09-report.txt.
  */
-class R12C20Test {
+class R13C09Test {
     private val root = generateSequence(File("").absoluteFile) { it.parentFile }.first { File(it, "settings.gradle.kts").exists() }
     private val engine by lazy { ManifoldBooleanEngine() }
     private fun box(v: List<DoubleArray>) = (0..2).map { k -> v.minOf { it[k] } } + (0..2).map { k -> v.maxOf { it[k] } }
@@ -41,16 +45,16 @@ class R12C20Test {
             val vx = (p[k] - p[i]).toDouble(); val vy = (p[k + 1] - p[i + 1]).toDouble(); val vz = (p[k + 2] - p[i + 2]).toDouble()
             a += sqrt((uy * vz - uz * vy).let { it * it } + (uz * vx - ux * vz).let { it * it } + (ux * vy - uy * vx).let { it * it }) / 2 }; return a }
 
-    @Test fun c20c12EqualR12() {
+    @Test fun c02c09EqualR12() {
         assumeTrue("host JNI not built (use -PhostJni)", System.getProperty("sscore.hostJni") == "1")
-        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r12/rebuild_inputs.json").readText()).jsonObject
-        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R12.ss").inputStream())
+        val inp = Json.parseToJsonElement(File(root, "tests/steel/golden/r13/rebuild_inputs.json").readText()).jsonObject
+        val r12 = SsCodec.read(File(root, "tests/steel/models/Frame_28x53m_R13.ss").inputStream())
         val t = AppGoldenTest(); val m = t.build(JsonObject(emptyMap()))
         val members = inp.getValue("members").jsonArray.map { it.jsonObject }
         val steps = inp.getValue("steps").jsonArray.map { it.jsonObject }
         steps.first { it["op"]!!.jsonPrimitive.content == "grid" }.let { m.doc.setField("stGrid", it.getValue("grid").toString()) }
         val list = steps.first { it["op"]!!.jsonPrimitive.content == "connectMany" }.getValue("list").jsonArray.map { it.jsonArray }
-            .filter { it[0].jsonPrimitive.content in setOf("T146", "T186") && it[3].jsonPrimitive.content in setOf("12", "20") }
+            .filter { it[0].jsonPrimitive.content in setOf("T144", "Teh") && it[3].jsonPrimitive.content in setOf("2", "9", "13") }
         val need = list.flatMap { e -> e[1].jsonArray.map { it.jsonPrimitive.int } }.toSortedSet()
         val ids = HashMap<Int, BodyId>(); for (i in need) { val st = members[i].getValue("st").jsonObject; ids[i] = m.parts.addBuilt(st, m.parts.mesh(st)) }
         m.comps.addMany(list.map { e -> Triple(e[0].jsonPrimitive.content, e[1].jsonArray.map { ids.getValue(it.jsonPrimitive.int) }, e[2].jsonObject) }, merge = true)
@@ -73,7 +77,7 @@ class R12C20Test {
                     if (x <= 0.1 * area(rm)) n[4]++ else bad += "row $row R12 $r: solid differs by %.1f mm³".format(java.util.Locale.ROOT, x) }
                 continue }
             fun nameOf(r: Int) = Json.parseToJsonElement(r12.bodyJson(BodyId(r.toString()))!!).jsonObject["st"]!!.jsonObject["name"]!!.jsonPrimitive.content.trim()
-            val epId = refs.first { r -> nameOf(r).lowercase() == "shear plate" }   // the refs are sorted by id: the tab is not always first
+            val epId = refs.firstOrNull { r -> nameOf(r).lowercase().let { "end plate" in it || it == "plate" } } ?: refs.first { r -> nameOf(r) != "HAUNCH_PLATE" }
             for (r in refs) { n[1]++; val rb = box(pts(r12.bodyMesh(BodyId(r.toString()))!!))
                 if (k.any { b -> (0..5).all { abs(b[it] - rb[it]) <= 0.1 } }) n[0]++ else bad += "row $row R12 $r: no plate within 0.1 mm of ${rb.map { Math.round(it * 10) / 10.0 }}" }
             val ours = kids[c.id].orEmpty().filter { it.second["kind"]?.jsonPrimitive?.content == "bolts" }
@@ -101,10 +105,8 @@ class R12C20Test {
                 if (ok) n[4]++ else bad += "row $row R12 $epId: member $mi differs by %.0f mm³ (%.3f mm over its faces); with no connection %.0f; the connection removes %.0f mm³, %.0f of it inside Tekla's part".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla)
                 diag += "row $row member $mi: diff %.0f (%.3f mm), no-conn %.0f, removed %.0f, removed inside Tekla %.1f".format(java.util.Locale.ROOT, x, x / area(rr), x0, cutVol, cutInTekla) }
         }
-        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "20" -> "C20 Column with stiffeners 186"; else -> "C12 Shear plate 146, column web" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
-        File(root, "build").mkdirs(); File(root, "build/r12-c20-report.txt").writeText(rep + "\n\n" + diag.joinToString("\n") + "\n"); println(rep.lines().take(14).joinToString("\n"))
-        // row 12's four 146 joints (R12 9-12: stair posts STR9001-9004 to the stair beam STB9002 at +2009): since the C20 follow-up (owner 2026-11-27)
-        // with Tekla's Bolts tab (Middle 0, edge 35, tab b 150) and Tekla's bolt length (grip 16 + nut + washer + 5 -> L40)
+        val rep = cnt.toSortedMap().entries.joinToString("\n") { (r, n) -> "row $r (${when (r) { "2" -> "C02 eave, End plate 144"; "2h" -> "C02h Eave haunch"; "13" -> "C13 mezzanine girder, End plate 144"; else -> "C09 monitor post" }}): plates ${n[0]} / ${n[1]}, bolts ${n[2]} / ${n[3]}, member bodies ${n[4]} / ${n[5]}" } + "\n" + bad.take(40).joinToString("\n")
+        File(root, "build").mkdirs(); File(root, "build/r13-c09-report.txt").writeText(rep + "\n\n" + diag.joinToString("\n") + "\n"); println(rep.lines().take(14).joinToString("\n"))
         for ((_, n) in cnt) { assertEquals(rep, n[1], n[0]); assertEquals(rep, n[3], n[2]); assertEquals(rep, n[5], n[4]) }
     }
 }
