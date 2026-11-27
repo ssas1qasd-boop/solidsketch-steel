@@ -219,10 +219,31 @@ object ClassicApps {
 
     /** v44 L15376: a weld with no parts; the secondary is cut with the main part's envelope (stEnvelope, v40 L14883). */
     fun weldonly(x: FamCtx) {
-        val bId = x.bId; if (bId != null && x.b != null) runCatching { FamWF.envelope(x, x.a) }.getOrNull()?.let { x.cut(bId, it) }
         // (c.q && c.q.a) || 4: c.q itself, not the def
         val cq = x.conn?.q ?: x.q
+        // v70 C19 (web/v70/c19.js): q.fit 'face' = Tekla's fit of the secondary's end on the main part's face (a plane), 'none' = no cut;
+        // anything else = v69 (the main part's envelope)
+        val fit = (cq["fit"] as? JsonPrimitive)?.takeIf { it.isString }?.content
+        val bId = x.bId
+        if (bId != null && x.b != null) when (fit) {
+            "face" -> runCatching { fitFace19(x) }.getOrNull()?.let { x.cut(bId, it) }
+            "none" -> {}
+            else -> runCatching { FamWF.envelope(x, x.a) }.getOrNull()?.let { x.cut(bId, it) }
+        }
         val a = cq["a"].let { if (jsTruthy(it)) StBuild.jsNum(it!!) else 4.0 }
         weld(x, "Fillet weld all round", a, 150.0)
+    }
+
+    /** v70 C19 fitFace19: the half-space beyond the main part's face (v69 stFaceAt) at the secondary's end nearest the main part. */
+    private fun fitFace19(x: FamCtx): com.solidsketchapp.core.api.Mesh? {
+        val ma = Joints.mf(x.a, x.profiles); val mb = Joints.mf(x.b!!, x.profiles)
+        fun dl(p: D3): Double { val v = p - ma.c1; return v.add(ma.a, -(v dot ma.a)).length() }
+        val near = dl(mb.c1) <= dl(mb.c2); val e = if (near) mb.c1 else mb.c2; val far = if (near) mb.c2 else mb.c1
+        val f = FamCL.faceAt(ma, e.add((far - e).normalize(), 1e-3)); val n = f.n.normalize()
+        if (((far - e) dot n) <= 0) return null
+        val q = f.pc.add(n, f.off); val o = e.add(n, -((e - q) dot n))
+        val xx = n.cross(if (abs(n.z) < 0.9) D3.Z else D3(1.0, 0.0, 0.0)).normalize(); val yy = xx.cross(n).normalize()
+        val w = 2 * maxOf(mb.h, mb.b) + 100; val d = ma.h + ma.b + 100
+        return Joints.box3(o, xx, yy, -w, w, -w, w, 0.0, d)
     }
 }
