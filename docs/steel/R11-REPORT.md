@@ -20,8 +20,9 @@ Web build = v69 + the chapter **v70 · Tekla parity** (`web/v70_tekla_parity.js`
 | … given members | 16,360.56 kg | 16,241.25 kg |
 | … detail parts (R11) / component parts (v69) | 10,545.30 kg | 7,779.28 kg |
 
-Members: 835 placed (197 built-up equivalents, 638 R11 members as given): 422 INPUT EQUAL, SOLID DIFFERS, 413 MATCHED.
-- built-up equivalents: 5 matched of 197 (inputs equal R11 for all 197)
+Members: 835 placed (197 built-up equivalents, 638 R11 members as given): 389 INPUT EQUAL, SOLID DIFFERS, 446 MATCHED.
+- built-up equivalents: 38 matched of 197 (inputs equal R11 for all 197)
+  - 33 of them matched against R11's part less the part's own clash with another R11 part (R11's rule B: C2012 103,477 mm³, R3005 909,917 mm³, R3010 909,917 mm³, R3011 869,610 mm³, R3001 791,404 mm³, R3009 791,403 mm³, R3011 751,096 mm³, R3005 909,912 mm³, R3010 909,912 mm³, R3011 869,604 mm³, R3002 790,795 mm³, R3012 790,794 mm³, R3014 750,487 mm³, R3001 791,404 mm³, R3009 791,403 mm³, R3011 751,096 mm³, R3007 764,759 mm³, R3017 789,435 mm³, R3021 742,487 mm³, R3018 743,375 mm³, R3004 951,962 mm³, R3016 952,849 mm³, R3018 861,478 mm³, R3015 908,482 mm³, R3019 788,780 mm³, R3007 764,769 mm³, R3017 789,445 mm³, R3018 743,388 mm³, R3018 861,474 mm³, R3003 952,848 mm³, R3015 908,478 mm³, MBC2001 5,243 mm³, MBC2001 5,243 mm³): the component cuts the member at the main part's face (docs/steel/PARITY.md "C12 / C20 on R13")
 - R11 members as given: 408 matched of 638 (inputs equal R11 for all 638)
 
 R11 detail parts (plates that are not built-up webs / flanges, and the members v69 components make): 3716: 208 AS BOLT, 778 MATCHED, 2047 MISSING, 253 NEAR, 430 ROUGH.
@@ -70,16 +71,16 @@ Columns: the components added for the row; the parts and bolts v69 made with the
 
 | Group | count | status | box diff (max, mm) | volume v69 / R11 | kg R11 → v69 |
 |---|---|---|---|---|---|
-| builtup C COLUMN BI220-8-150-10 | 15 | 12 INPUT EQUAL, SOLID DIFFERS, 3 MATCHED | 24.6 | 1.000–1.012 | 3,934.6 → 3,954.0 |
+| builtup C COLUMN BI220-8-150-10 | 15 | 11 INPUT EQUAL, SOLID DIFFERS, 4 MATCHED | 24.6 | 1.000–1.012 | 3,934.6 → 3,954.0 |
 | builtup C COLUMN BI320-8-150-10 | 15 | 15 INPUT EQUAL, SOLID DIFFERS | 47.7 | 1.000–1.005 | 4,625.9 → 4,635.0 |
 | builtup EB BEAM BI320-8-120-10 | 5 | 5 INPUT EQUAL, SOLID DIFFERS | 55.0 | 0.997–1.009 | 1,435.7 → 1,437.0 |
 | builtup EB BEAM BI324-8-250-12 | 7 | 7 INPUT EQUAL, SOLID DIFFERS | 10.0 | 1.015–1.017 | 2,501.7 → 2,540.3 |
 | builtup EGC COLUMN BI220-6-200-10 | 16 | 16 INPUT EQUAL, SOLID DIFFERS | 63.0 | 1.001–1.001 | 5,090.2 → 5,095.8 |
 | builtup MB BEAM BI220-8-140-10 | 34 | 34 INPUT EQUAL, SOLID DIFFERS | 10.0 | 0.997–0.997 | 6,448.8 → 6,429.1 |
-| builtup MBC COLUMN BI320-8-150-10 | 2 | 2 INPUT EQUAL, SOLID DIFFERS | 1.0 | 1.000–1.000 | 289.4 → 289.4 |
+| builtup MBC COLUMN BI320-8-150-10 | 2 | 2 MATCHED | 0.0 | 1.000–1.000 | 289.4 → 289.4 |
 | builtup PC COLUMN BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | 7.2 | 1.025–1.030 | 391.7 → 401.3 |
 | builtup PR RAFTER BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | 56.9 | 0.998–1.024 | 449.8 → 449.3 |
-| builtup R RAFTER BI220-8-150-10 | 48 | 48 INPUT EQUAL, SOLID DIFFERS | 125.0 | 1.000–1.000 | 11,407.4 → 11,405.0 |
+| builtup R RAFTER BI220-8-150-10 | 48 | 18 INPUT EQUAL, SOLID DIFFERS, 30 MATCHED | 125.0 | 1.000–1.000 | 11,407.4 → 11,405.0 |
 | builtup STB BEAM BI212-6-150-6 | 3 | 1 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | 20.8 | 0.990–1.000 | 54.1 → 53.8 |
 | builtup STR COLUMN BI162-6-150-6 | 4 | 4 INPUT EQUAL, SOLID DIFFERS | 23.0 | 1.002–1.002 | 172.4 → 172.4 |
 | given 10 RAILING PD50*5 | 2 | 2 MATCHED | 0.0 | 1.000–1.000 | 6.1 → 6.1 |
@@ -190,16 +191,15 @@ Field differences on members (count of members): none (every placed member has R
 | 20 | Top FS / EGC Top FS FLT10*90 | 2 | 2 MISSING | — | 2.8 → 0.0 |  |  |
 | 20 | Top NS / C Top NS FLT10*70 | 15 | 15 MISSING | — | 24.3 → 0.0 | Column with stiffeners (186) at the beam on the column web (v70 C20): 12 of 15 columns match; at C2019 and the two C2023 joints the beam on the web is EB4006 / EB4008, which has flanges only and no web in R12 (no member placed, so no secondary to pick) | none (R12 data) |
 | 20 | Top NS / EGC Top NS FLT10*90 | 2 | 2 MISSING | — | 2.8 → 0.0 |  |  |
-| builtup | C BI220-8-150-10 | 15 | 12 INPUT EQUAL, SOLID DIFFERS, 3 MATCHED | — | 3,934.6 → 3,954.0 | Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent | built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part |
+| builtup | C BI220-8-150-10 | 15 | 11 INPUT EQUAL, SOLID DIFFERS, 4 MATCHED | — | 3,934.6 → 3,954.0 | Tekla built-up section (three plates) placed as one v69 BI member: one solid with square ends against three Tekla plates with their own end cuts (sloped column tops, plumb rafter ends, notches); the inputs equal the derived equivalent | built-up members as plates (Web / Top flange / Bottom flange as parts of one assembly) and end fitting to the connected part |
 | builtup | C BI320-8-150-10 | 15 | 15 INPUT EQUAL, SOLID DIFFERS | — | 4,625.9 → 4,635.0 | as above | as above |
 | builtup | EB BI320-8-120-10 | 5 | 5 INPUT EQUAL, SOLID DIFFERS | — | 1,435.7 → 1,437.0 | as above | as above |
 | builtup | EB BI324-8-250-12 | 7 | 7 INPUT EQUAL, SOLID DIFFERS | — | 2,501.7 → 2,540.3 | as above | as above |
 | builtup | EGC BI220-6-200-10 | 16 | 16 INPUT EQUAL, SOLID DIFFERS | — | 5,090.2 → 5,095.8 | as above | as above |
 | builtup | MB BI220-8-140-10 | 34 | 34 INPUT EQUAL, SOLID DIFFERS | — | 6,448.8 → 6,429.1 | as above | as above |
-| builtup | MBC BI320-8-150-10 | 2 | 2 INPUT EQUAL, SOLID DIFFERS | — | 289.4 → 289.4 | as above | as above |
 | builtup | PC BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | — | 391.7 → 401.3 | as above | as above |
 | builtup | PR BI150-6-120-8 | 24 | 24 INPUT EQUAL, SOLID DIFFERS | — | 449.8 → 449.3 | as above | as above |
-| builtup | R BI220-8-150-10 | 48 | 48 INPUT EQUAL, SOLID DIFFERS | — | 11,407.4 → 11,405.0 | as above | as above |
+| builtup | R BI220-8-150-10 | 48 | 18 INPUT EQUAL, SOLID DIFFERS, 30 MATCHED | — | 11,407.4 → 11,405.0 | as above | as above |
 | builtup | STB BI212-6-150-6 | 3 | 1 INPUT EQUAL, SOLID DIFFERS, 2 MATCHED | — | 54.1 → 53.9 | as above | as above |
 | builtup | STR BI162-6-150-6 | 4 | 4 INPUT EQUAL, SOLID DIFFERS | — | 172.4 → 172.4 | as above | as above |
 
