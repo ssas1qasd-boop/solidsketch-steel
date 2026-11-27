@@ -528,11 +528,12 @@ def c19(before, after, shots=None):
         return [b for b in D['bodies'] if b.get('shape') and nm(b) in ('STRINGER', 'STANCHION', 'HAND RAIL', 'HANDRAIL', 'RAILING', 'KNEE RAIL') and (VT(b)[0].max(0) > box[0]).all() and (VT(b)[0].min(0) < box[1]).all()]
     d3 = np.array([-0.9, -1.1, 0.7]); d3 /= np.linalg.norm(d3)   # 3D: the target moved toward the camera (an orthographic view), so nothing is cut away
     views = [('side, the flight (section at the posts\' axis, x)', np.array([565.5, 10070.0, 1600.0]), (-1, 0, 0), 2300.0),
+             ('front, along the flight (y)', np.array([565.5, 10070.0 - 6000.0, 1650.0]), (0, -1, 0), 1500.0),
              ('foot of post R13 808 (section): cut on the stringer top', np.array([565.5, 10435.0, 1300.0]), (-1, 0, 0), 170.0),
              ('top of post R13 808 (section): square at the rail axis', np.array([565.5, 10435.0, 2298.0]), (-1, 0, 0), 170.0),
              ('3D', np.array([565.5, 10070.0, 1600.0]) + d3 * 6000, tuple(d3), 2300.0)]
     def row(path):
-        bs = pick(path); return [render([b for b in bs if not (t is views[2][1] and False)], t, d, dist, colr, W=760, H=1100) for _, t, d, dist in views]
+        bs = pick(path); return [render(bs, t, d, dist, colr, W=760, H=1100) for _, t, d, dist in views]
     R13 = os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R13.ss'); r13 = row(R13)
     def rb(path):
         r = subprocess.run([sys.executable, os.path.join(REPO, 'tools', 'golden', 'geom_checks.py'), path], capture_output=True, text=True).stdout.splitlines()

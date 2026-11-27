@@ -20,7 +20,7 @@
 | C14 | Shear plate 146, joist <- girder | 🟡 | delivered, waiting for the phone OK |
 | C17 | Shear plate 146 as gable hanger | 🟡 | delivered, waiting for the phone OK |
 | C18 | Stairs (treads, brackets, stair end plates, counter plates) | 🟡 | delivered, waiting for the phone OK |
-| C19 | Railing welds (stanchion top square, foot cut on the stringer slope) | 🟡 | fix in progress (agent row 19, 2026-11-28) |
+| C19 | Railing welds (stanchion top square, foot cut on the stringer slope) | 🟡 | delivered 2026-11-28 (DELIVERY_2026-11-28_2.md, commit fd71ed7); waiting for the phone OK |
 | C20 | Column with stiffeners 186 | 🟡 | delivered, waiting for the phone OK |
 | X01 | Built-ups as three plates, fittings | 🟡 | delivered, waiting for the phone OK |
 | X02 | Column tops, cap plates | 🟡 | delivered, waiting for the phone OK |
