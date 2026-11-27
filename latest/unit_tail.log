@@ -1,22 +1,22 @@
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-io:preBuild UP-TO-DATE
 > Task :core-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-view:preBuild UP-TO-DATE
-> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :app:preBuild UP-TO-DATE
-> Task :app:preDebugBuild UP-TO-DATE
 > Task :core-view:preDebugBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
 > Task :core-io:preDebugBuild UP-TO-DATE
 > Task :app:generateDebugBuildConfig
 > Task :steel:preBuild UP-TO-DATE
 > Task :steel:preDebugBuild UP-TO-DATE
-> Task :core-view:writeDebugAarMetadata
-> Task :core-io:writeDebugAarMetadata
 > Task :steel:writeDebugAarMetadata
+> Task :core-io:writeDebugAarMetadata
+> Task :core-view:writeDebugAarMetadata
+> Task :app:generateDebugResValues
 > Task :core-io:generateDebugResValues
 > Task :core-view:generateDebugResValues
-> Task :app:generateDebugResValues
 > Task :core-io:generateDebugResources
 > Task :core-view:generateDebugResources
 > Task :core-view:packageDebugResources
@@ -27,38 +27,38 @@ Daemon will be stopped at the end of the build
 > Task :steel:packageDebugResources
 > Task :core-view:extractDeepLinksDebug
 > Task :core-io:processDebugManifest
-> Task :core-view:processDebugManifest
 > Task :steel:extractDeepLinksDebug
-> Task :core-io:compileDebugLibraryResources
-> Task :steel:processDebugManifest
-> Task :core-view:compileDebugLibraryResources
-> Task :app:checkDebugAarMetadata
-> Task :app:mapDebugSourceSetPaths
+> Task :core-view:processDebugManifest
 > Task :core-api:processResources NO-SOURCE
+> Task :app:checkDebugAarMetadata
+> Task :steel:processDebugManifest
+> Task :core-io:compileDebugLibraryResources
+> Task :core-view:compileDebugLibraryResources
+> Task :app:mapDebugSourceSetPaths
 > Task :app:generateDebugResources
 > Task :core-view:parseDebugLocalResources
 > Task :core-io:parseDebugLocalResources
 > Task :core-view:generateDebugRFile
 > Task :core-io:generateDebugRFile
 > Task :core-io:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :core-io:javaPreCompileDebug
 > Task :steel:compileDebugLibraryResources
+> Task :core-io:javaPreCompileDebug
 > Task :core-view:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :core-view:javaPreCompileDebug
-> Task :core-io:mergeDebugShaders
 > Task :steel:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :steel:parseDebugLocalResources
 > Task :steel:javaPreCompileDebug
-> Task :core-io:compileDebugShaders NO-SOURCE
-> Task :core-io:generateDebugAssets UP-TO-DATE
-> Task :core-io:packageDebugAssets
-> Task :core-view:mergeDebugShaders
 > Task :steel:generateDebugRFile
+> Task :core-io:mergeDebugShaders
+> Task :core-view:mergeDebugShaders
+> Task :core-io:compileDebugShaders NO-SOURCE
 > Task :core-view:compileDebugShaders NO-SOURCE
+> Task :core-io:generateDebugAssets UP-TO-DATE
 > Task :core-view:generateDebugAssets UP-TO-DATE
-> Task :steel:mergeDebugShaders
 > Task :core-view:packageDebugAssets
+> Task :core-io:packageDebugAssets
 > Task :core-io:preDebugUnitTestBuild UP-TO-DATE
+> Task :steel:mergeDebugShaders
 > Task :steel:compileDebugShaders NO-SOURCE
 > Task :steel:generateDebugAssets UP-TO-DATE
 > Task :core-io:generateDebugUnitTestStubRFile
@@ -77,9 +77,9 @@ Daemon will be stopped at the end of the build
 > Task :app:processDebugMainManifest
 > Task :app:mergeDebugResources
 > Task :app:processDebugManifest
-> Task :app:preDebugUnitTestBuild UP-TO-DATE
-> Task :app:javaPreCompileDebug
 > Task :app:processDebugManifestForPackage
+> Task :app:javaPreCompileDebug
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
 > Task :app:javaPreCompileDebugUnitTest
 > Task :app:mergeDebugShaders
 > Task :app:compileDebugShaders NO-SOURCE
@@ -88,7 +88,11 @@ Daemon will be stopped at the end of the build
 > Task :app:processDebugResources
 > Task :app:packageDebugUnitTestForUnitTest
 > Task :app:generateDebugUnitTestConfig
+
 > Task :core-api:compileKotlin
+e: The daemon has terminated unexpectedly on startup attempt #1 with error code: 0. The daemon process output:
+    1. Kotlin compile daemon is ready
+
 > Task :core-api:compileJava NO-SOURCE
 > Task :core-api:classes UP-TO-DATE
 > Task :core-api:jar
@@ -109,8 +113,8 @@ To learn more, see the documentation of the '@ConsistentCopyVisibility' and '@Ex
 This will become an error in Kotlin 2.1.
 
 > Task :core-io:compileDebugJavaWithJavac NO-SOURCE
-> Task :core-io:bundleLibRuntimeToJarDebug
 > Task :core-io:bundleLibCompileToJarDebug
+> Task :core-io:bundleLibRuntimeToJarDebug
 > Task :core-io:processDebugJavaRes
 > Task :core-io:compileDebugUnitTestKotlin
 > Task :core-io:compileDebugUnitTestJavaWithJavac NO-SOURCE
@@ -127,8 +131,8 @@ This will become an error in Kotlin 2.1.
 > Task :steel:compileDebugKotlin
 > Task :core-io:testDebugUnitTest
 > Task :steel:compileDebugJavaWithJavac NO-SOURCE
-> Task :steel:processDebugJavaRes
 > Task :steel:bundleLibCompileToJarDebug
+> Task :steel:processDebugJavaRes
 > Task :steel:bundleLibRuntimeToJarDebug
 > Task :steel:compileDebugUnitTestKotlin
 > Task :steel:compileDebugUnitTestJavaWithJavac NO-SOURCE
@@ -143,7 +147,7 @@ This will become an error in Kotlin 2.1.
 > Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
 > Task :app:processDebugUnitTestJavaRes
 > Task :app:testDebugUnitTest
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795794826855.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/unit-1795801361159.json
 
-BUILD SUCCESSFUL in 1m 53s
+BUILD SUCCESSFUL in 2m 1s
 93 actionable tasks: 93 executed
