@@ -2,11 +2,11 @@
 
 - data files on main: true
 - KVM: yes · runner cores: 4
-- unit tests incl. UI golden (gate before the APK): failure
+- unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 0 (152 s)
-- job time until this step: 618 s = 10.3 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 0 (138 s)
+- job time until this step: 623 s = 10.4 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -20,103 +20,27 @@ Night mode: yes
 [ ] com.android.internal.systemui.navbar.gestural
 ```
 
-JUnit (unit + instrumented): 63 tests, 19 failed
-
-```
-com.solidsketchapp.steel.UiScreensTest.s01_main: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiScreensTest.s05_dialog_t144: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiScreensTest.s07_menu: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiScreensTest.s06_dialog_t144_bolts: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiScreensTest.s03_grid_sheet: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiScreensTest.s02_steel_grid: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiScreensTest.s04_catalog: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.GridLabelsFollowViewTest.labelsFollowEveryViewChange: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.catalogBoxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.dialogT144Boxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.visibleGridSheet: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.visibleCatalog: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.visibleMain: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.portalSheetBoxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.visibleDialogT144: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.panelBoxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.overlayFollowsEveryCameraState: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.visiblePortalSheet: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
-
-```
-com.solidsketchapp.steel.UiGoldenTest.gridSheetBoxes: java.lang.AssertionError: Failed to fetch maven artifact org.robolectric:android-all-instrumented:14-robolectric-10818077-i7
-```
+JUnit (unit + instrumented): 63 tests, 0 failed
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 1456 |  |
-| steel | ✓ | 2850 |  |
-| grid | ✓ | 5037 |  |
-| orbit | ✓ | 1072 |  |
-| pan | ✓ | 1014 |  |
-| zoom | ✓ | 1142 |  |
-| column | ✓ | 2193 |  |
-| properties_apply | ✓ | 4350 |  |
-| beam | ✓ | 2203 |  |
-| properties_modify | ✓ | 2926 |  |
-| catalog | ✓ | 3711 |  |
-| endplate_dialog | ✓ | 2018 |  |
-| endplate_pick | ✓ | 2597 |  |
-| cleat_dialog | ✓ | 5454 |  |
-| save_open | ✓ | 1276 |  |
-| portal_create | ✓ | 14170 |  |
-| portal_modify | ✓ | 18925 |  |
+| start | ✓ | 1234 |  |
+| steel | ✓ | 1288 |  |
+| grid | ✓ | 4038 |  |
+| orbit | ✓ | 1051 |  |
+| pan | ✓ | 906 |  |
+| zoom | ✓ | 990 |  |
+| column | ✓ | 1969 |  |
+| properties_apply | ✓ | 4040 |  |
+| beam | ✓ | 1925 |  |
+| properties_modify | ✓ | 3798 |  |
+| catalog | ✓ | 3050 |  |
+| endplate_dialog | ✓ | 1874 |  |
+| endplate_pick | ✓ | 2474 |  |
+| cleat_dialog | ✓ | 4569 |  |
+| save_open | ✓ | 1091 |  |
+| portal_create | ✓ | 12878 |  |
+| portal_modify | ✓ | 17748 |  |
 
 connected.log (end):
 ```
@@ -156,9 +80,9 @@ Starting 2 tests on emulator-5554 - 15
 emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
 Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795816998905.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795817677525.json
 
-BUILD SUCCESSFUL in 2m 32s
+BUILD SUCCESSFUL in 2m 17s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```
