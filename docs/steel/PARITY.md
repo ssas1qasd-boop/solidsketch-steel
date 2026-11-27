@@ -489,9 +489,9 @@ As "C20" and "C14" (186 / 146 help pages: Picture 1 = gap between the main part 
   - 3 × BOLTS grip 18 vs 8: the groups at C2017 / C2022; the checker reads the tab beside the hole on the bolt line, and at the 145 hole the tab is not there (the hole is open at the tab's end), so only the 8 mm web counts.
   - Both are in Tekla's model as exported (a web copied 30 mm off). In Tekla: move the 3 webs 30 mm in -y (Picture 1 = 20 both ends); the tabs then get 55 / 115 holes (4506) and the clash goes. Owner's decision; nothing in R13 is changed.
 
-### Change, in web v70 (sections "C20" input / FAM.ST) and the app (`Fam.st`)
+### Change, in web v70 (`web/v70/c20.js`, section `// == C20 ==`) and the app (`Fam.st`)
 - **Inputs** (`r10_inputs.py c20_q`): Picture 1 = the secondary's own end from the main part's web face, and the Bolts tab's horizontal edge distance from that end (Tekla's 146 / 186 dimension). R12 could not tell this from "the tab end less the edge" (gap 20 + eh 35 = tab 150 - eh 35 at every R12 joint), so v69's tab-based reading gave the EB4007 joints gap 80 / eh 5 and gap -40 / eh 65: our 186 then cut 30 mm off Tekla's web at C2017 / C2022 (`R13C20Test`: 72,431 mm³). Now gap 50 / -10, eh 35 at the six; every other joint keeps gap 20, eh 35 (EGC2002's 10 / 45 becomes 20 / 35: the same bolts, the beam end where it is).
-- **186 with Picture 1 < 0** (web `FAM.ST`, app `Fam.st`, only T186 with Stiffener creation set): the secondary is cut at the main part's web face, never into it (rule B); the bolts stay at Picture 1 + the edge distance. So our rebuild is Tekla's EB4007 less its clash.
+- **186 with Picture 1 < 0** (web `web/v70/c20.js`: a FAM.ST wrapper that runs the 186 with gap 0, edge + gap and the tab length kept; app `Fam.st`: the end cut at max(gap, 0); only T186 with Stiffener creation set): the secondary is cut at the main part's web face, never into it (rule B); the bolts stay at Picture 1 + the edge distance. So our rebuild is Tekla's EB4007 less its clash.
 - Not reproduced on purpose: the clash itself. Reproduced as Tekla: the open 145 hole (it is Tekla's NC; our rule B does not flag it for a component bolt, whose axis is 5 mm inside the tab).
 
 ### Checks
