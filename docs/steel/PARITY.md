@@ -31,6 +31,11 @@ Each section covers one connection where v69 differs from Tekla (shown by `tests
    - ONE report, `docs/steel/parity/DELIVERY_<date>.md`: a table with one row per connection (status, loops, rule B, goldens), plus the R13 totals before → after.
 5. **When to deliver:** when at least 2 connections are ready, or once a day, whichever comes first. No separate APKs from individual agents.
 
+6. **main is merge-only (owner, 2026-11-28).** No rebase, reset --hard or force push on main, by the main session or any agent. Agents rebase only their own branches. If a git command stops halfway, it is aborted and the owner is told.
+7. **`tools/ci/ruleB_known.txt` needs the owner's OK (owner, 2026-11-28).** No new entry without it. Each proposed entry is shown to the owner with the case, the count and the proof that R13 has the same finding, and waits.
+
+**Parked for later (owner, 2026-11-28; not worked on now):** the 6 C06 gussets at 0.126 mm (the 0.1 mm tolerance is NOT widened); EB4007 (a known Tekla error, fixed later in Tekla with an R14); the phone checks.
+
 ## Group 1 Tekla parity: the two-video method (owner standing rule, 2026-11-28)
 **Scope:** Group 1 is End plates (23), Shear tabs (32) and Clip angles (10): 65 components (`tk_catalog.json`).
 - **Order:** End plates first, then Shear tabs, then Clip angles. Within a group the most used components go first. T144, T146 and T14 already match R13, but still go through the two-video test.
