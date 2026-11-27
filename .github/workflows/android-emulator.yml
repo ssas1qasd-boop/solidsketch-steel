@@ -31,6 +31,18 @@ jobs:
       - name: Start time
         run: echo "RUN_START=$(date +%s)" >> "$GITHUB_ENV"
 
+      # Owner 2026-11-27: the runner's real resources, and the emulator gets as much as the runner allows: cores = min(4, nproc);
+      # RAM 8192M on a runner with at least 12 GB, otherwise the most that leaves 3 GB for the host (whole GB, at least 2048M).
+      - name: Runner resources
+        run: |
+          echo "nproc: $(nproc)"; free -g; df -h / | tail -1
+          [ -e /dev/kvm ] && echo "/dev/kvm: present" || echo "/dev/kvm: MISSING"
+          total_mb=$(free -m | awk '/^Mem:/ {print $2}')
+          cores=$(( $(nproc) < 4 ? $(nproc) : 4 ))
+          if [ "$total_mb" -ge $((12 * 1024)) ]; then ram=8192; else ram=$(( (total_mb - 3072) / 1024 * 1024 )); [ "$ram" -lt 2048 ] && ram=2048; fi
+          echo "EMU_CORES=$cores" >> "$GITHUB_ENV"; echo "EMU_RAM=${ram}M" >> "$GITHUB_ENV"
+          echo "emulator: cores $cores, ram ${ram}M (host RAM ${total_mb} MB), heap 1024M, disk 8G, KVM"
+
       - uses: actions/checkout@v4
 
       - name: Data files on main?
@@ -102,7 +114,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-${{ env.API }}-x86_64-google_apis-v1
+          key: avd-${{ env.API }}-x86_64-google_apis-v2-${{ env.EMU_RAM }}-c${{ env.EMU_CORES }}
 
       - name: Create the AVD snapshot (first run only)
         if: steps.data.outputs.ok == 'true' && steps.avd-cache.outputs.cache-hit != 'true'
@@ -112,10 +124,12 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_6
-          ram-size: 4096M
-          disk-size: 6000M
+          cores: ${{ env.EMU_CORES }}
+          ram-size: ${{ env.EMU_RAM }}
+          heap-size: 1024M
+          disk-size: 8G
           force-avd-creation: false
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          emulator-options: -accel on -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: false
           emulator-boot-timeout: 900
           script: echo "AVD snapshot created"
@@ -128,7 +142,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-${{ env.API }}-x86_64-google_apis-v1
+          key: avd-${{ env.API }}-x86_64-google_apis-v2-${{ env.EMU_RAM }}-c${{ env.EMU_CORES }}
 
       - name: Save NDK, CMake and Manifold
         if: always() && steps.data.outputs.ok == 'true' && steps.native-cache.outputs.cache-hit != 'true'
@@ -150,10 +164,12 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_6
-          ram-size: 4096M
-          disk-size: 6000M
+          cores: ${{ env.EMU_CORES }}
+          ram-size: ${{ env.EMU_RAM }}
+          heap-size: 1024M
+          disk-size: 8G
           force-avd-creation: false
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          emulator-options: -accel on -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           emulator-boot-timeout: 900
           script: bash tools/ci/emulator_run.sh
