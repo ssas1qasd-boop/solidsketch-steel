@@ -185,6 +185,8 @@ class SteelMode(
     /** A sheet the panel should open (v69 stGenRun kind 'portal' → stPortalSheet). */
     var sheetRequest: String? = null
     fun selectConn(id: String?) { selConn = id; changed() }
+    /** The same as a tap on component [id]'s symbol: select it and open its dialog (v69 stSymHit); also for tests and accessibility. */
+    fun openConnDialog(id: String) { val c = comps?.conn(id) ?: return; selConn = c.id; dialogRequest = c.type to c.id; changed() }
     class Sym(val id: String, val p: D3, val s: Int, val x: Float, val y: Float)
     private var symCache: Pair<Int, List<Pair<com.solidsketchapp.steel.conn.StConn, D3>>>? = null
     private var docRev = 0

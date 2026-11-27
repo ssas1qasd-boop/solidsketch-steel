@@ -440,6 +440,28 @@ def x01(app_ss):
     return compose('X01', [('R12 (Tekla IFC), rafter R3011 at the apex, front', r12), ('Tekla assembly drawing R3011 (package)', tekla_page('R3011')), ('app rebuild of R12 (R12_app.ss), same view', app)],
                    'X01 Built-ups as three plates with end cuts: R12 | Tekla drawing | app', ['Measured on R12 and the rebuilds:'] + ['! ' + m for m in lines])
 
+def c08(shots, video=None):
+    """C08: c08_case.ss (R13's tie rod TR8002 through purlins PU8008 / PU8009, Sag rod at purlin with Nuts / Washers off) and c08_nuts.ss (on)"""
+    st = lambda b: b.get('st') or {}
+    def meas(f):
+        D = json.load(gzip.open(os.path.join(shots, f)))['doc']; n = sum(1 for b in D['bodies'] if st(b).get('name') in ('NUT', 'WASHER'))
+        rod = [b for b in D['bodies'] if st(b).get('prof') == 'ROD12'][0]; pur = [b for b in D['bodies'] if st(b).get('name') == 'Purlin']
+        return f"{n} nut / washer parts; rod {st(rod).get('prof')}; purlin holes: " + ', '.join(str(len(VT(p)[0])) + ' vertices' for p in pur)
+    a, b = meas('c08_case.ss'), meas('c08_nuts.ss')
+    lines = ['app (c08_case.ss, Nuts / Washers off): ' + a, 'after Nuts / Washers on + Modify (c08_nuts.ss): ' + b,
+             'R13: 140 tie rods ROD12 ("Tie Rod THREAD100MM"), no connection, bolt, nut or washer on them; the purlins drilled where the rods pass (220 / 220 purlins match)',
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c08_case.ss')).split(';')[0] + ' | nuts on: ' + rule_b(os.path.join(shots, 'c08_nuts.ss')).split(';')[0],
+             'R13 rebuild (web v70 and app): 1,120 v69 nut / washer parts Tekla does not have -> 0; -22.40 kg (64,025.41 -> 64,003.01 web, before C10 / C13)']
+    app, meta = shot(shots, 'ortho_purlin'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'rod through the purlin web, no nut / washer (Tekla)')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R13.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
+    near_ = [b for b in RB if (VT(b)[0].min(0) < t + 400).all() and (VT(b)[0].max(0) > t - 400).all()]
+    colr = lambda b: (230, 170, 40) if st(b).get('prof') == 'ROD12' else (60, 110, 200)
+    r12 = render(near_, t, dv, dist, colr, W=1100, H=1100)
+    pic = Image.open(video).convert('RGB') if video else tekla_page('PU8009')
+    return compose('C08', [('R13 (Tekla IFC), rod TR8002 at purlin PU8008, along the purlin', r12), ('Tekla assembly drawing PU8008 (package)', tekla_page('PU8008')), ('Tekla assembly drawing PU8009 (package)', pic), ('app on the emulator, orthographic, along the purlin (landscape)', app)],
+                   'C08 Sag rod at purlin: R13 | Tekla drawing | Tekla drawing | app (Parts: Nuts / Washers off)', ['Measured on the models the emulator built and saved (c08_case.ss, c08_nuts.ss):'] + ['! ' + m for m in lines])
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17, 'X01': x01, 'X02': x02}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17, 'X01': x01, 'X02': x02, 'C08': c08}[sys.argv[1]](*sys.argv[2:])

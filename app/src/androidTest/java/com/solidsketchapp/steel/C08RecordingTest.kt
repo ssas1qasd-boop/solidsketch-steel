@@ -172,8 +172,12 @@ class C08RecordingTest {
             stills("")
             save("c08_case.ss")
             // the dialog again: nuts and washers on (v69), Modify
-            act.runOnUiThread { act.testViewport.selection.setSelected(listOfNotNull(act.testDoc.bodyIds().firstOrNull { (mode().stOf(it)?.get("name") as? JsonPrimitive)?.contentOrNull == "Tie Rod THREAD100MM" })) }; pause(800)
-            press("Components")
+            // with no nut or washer the component has no part of its own: its symbol opens the dialog (v69 stSymHit), as the owner taps it
+            look(Vec3(30129.734, 25327.5, 8428.0), Vec3(0.5, -1.0, 0.4), 1400.0); pause(1500)
+            val sid = mode().comps!!.conns().first { it.type == "Tsag" }.id
+            for (k in 0 until 3) { if (compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty()) break
+                val sy = mode().symbolsOnScreen().firstOrNull { it.id == sid }
+                if (sy != null) tapAt(Offset(sy.x, sy.y)) else act.runOnUiThread { mode().openConnDialog(sid) }; pause(1500) }
             waitFor("the Tsag dialog") { compose.onAllNodes(hasText("Parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty() }; pause(800)
             tab("Parts"); check("nut", true); check("washer", true); pause(600); shot("dialogsag_nuts")
             press("Modify"); pause(800)
