@@ -1,0 +1,57 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T1042",
+   [
+    0
+   ],
+   {
+    "aL": 400,
+    "ahdir": "-x",
+    "anchors": 6,
+    "anut": 1,
+    "awash": 1,
+    "awith": "rods",
+    "bolt": 20,
+    "ext": 60,
+    "gm": 25,
+    "gorder": "tekla",
+    "gslope": "slope",
+    "gt": 30,
+    "side": 40,
+    "t": 20
+   }
+  ]
+ ],
+ "description": "IPE360 column turned 30 deg, 6 ROD20, hooks inward along X, M20 L400 (b 80), grout with slopes, no cast plate.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     1000,
+     2000,
+     0
+    ],
+    "p2": [
+     1000,
+     2000,
+     5000
+    ],
+    "plane": "Middle",
+    "prof": "IPE360",
+    "rAng": 30,
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t1042_ipe360_skew30_inward_6",
+ "pageErrors": []
+}

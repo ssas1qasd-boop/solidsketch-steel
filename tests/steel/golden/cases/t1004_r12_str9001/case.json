@@ -1,0 +1,63 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T1004",
+   [
+    0
+   ],
+   {
+    "aL": 250,
+    "ahdir": "x",
+    "ahr": 32,
+    "ahw": 68,
+    "anch": 192,
+    "anchors": 4,
+    "anut": 0,
+    "aup": 50,
+    "awash": 0,
+    "awith": "rods",
+    "bolt": 16,
+    "ext": 19,
+    "gm": 30,
+    "gorder": "tekla",
+    "gslope": "slope",
+    "gt": 30,
+    "gx": 70,
+    "gy": 100,
+    "side": 10,
+    "t": 16
+   }
+  ]
+ ],
+ "description": "R12 STR9001: BI162-6-150-6 stair landing post on base plate 1004, plate 16 x 200 x 170, 4 ROD16 L250 (a 32, b 68), no nut / washer, grout PL30 with slopes, no cast plate.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     598,
+     12235.01,
+     30
+    ],
+    "p2": [
+     598,
+     12235.01,
+     2080
+    ],
+    "plane": "Middle",
+    "prof": "BI162-6-150-6",
+    "rAng": 0,
+    "rot": "Back"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t1004_r12_str9001",
+ "pageErrors": []
+}

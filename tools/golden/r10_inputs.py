@@ -77,6 +77,10 @@ import re
 import sys
 from collections import defaultdict, OrderedDict
 
+
+def mesh_v(b):   # a body's mesh vertices [[x, y, z], ...]
+    vp = b['shape']['vp']; return [vp[i:i + 3] for i in range(0, len(vp), 3)]
+
 WEB_GAP = 40.0   # mm: a flange plane may sit up to this far from the web edge (R10's gable column webs are 28 mm off)
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 MODEL = os.environ.get('SS_MODEL', 'R12')   # R11 = the reference since 2026-11-25 (R10 + Tekla-proven fixes, docs/steel/PARITY.md); SS_MODEL=R10 for the old one
@@ -627,11 +631,26 @@ def main():
         q = OrderedDict(t=p.t, ext=r3((Lh - H) / 2), side=r3((Wb - Bf) / 2))
         if an:
             d = float(re.sub(r'\D', '', an[0]['st']['prof']))
-            gx = max(dot(r['st']['p1'], eh) for r in an) - min(dot(r['st']['p1'], eh) for r in an)
-            gy = max(dot(r['st']['p1'], es) for r in an) - min(dot(r['st']['p1'], es) for r in an)
+            def rod_axis(r):   # R12's rod reference line is off the rod (Tekla's hooked rod): the axis is the centre of the top ring
+                rv0 = mesh_v(r); zt = max(v[2] for v in rv0); rg = [v for v in rv0 if abs(v[2] - zt) < 1e-6]; return [sum(v[0] for v in rg) / len(rg), sum(v[1] for v in rg) / len(rg), zt]
+            axs = [rod_axis(r) for r in an]
+            gx = max(dot(a3, eh) for a3 in axs) - min(dot(a3, eh) for a3 in axs)
+            gy = max(dot(a3, es) for a3 in axs) - min(dot(a3, es) for a3 in axs)
             Lr = norm(sub(an[0]['st']['p2'], an[0]['st']['p1']))
             q.update(anchors=len(an), bolt=d, gx=r3(gx), gy=r3(gy), anch=r3(Lr - p.t - 2.6 * d))
-            if any(abs(n['st']['p1'][0] - an[0]['st']['p1'][0]) < 1 and abs(n['st']['p1'][1] - an[0]['st']['p1'][1]) < 1 for n in nuts): q['pw'] = 1
+            # C01 / C16 (v70): anchor rods as parts, measured on R12's first rod (Tekla 1042 Anchor rods tab: 4 length, 5 above the plate,
+            # a hook radius, b hook width, hook direction; nut / washer PD40*10 on the plate)
+            rv = mesh_v(an[0]); ptop = max(q3[2] for q3 in b['st']['pts3']) + p.t / 2; ztop = max(v[2] for v in rv); zlo = min(v[2] for v in rv)
+            ring = [v for v in rv if abs(v[2] - ztop) < 1e-6]; axp = [sum(v[0] for v in ring) / len(ring), sum(v[1] for v in ring) / len(ring)]
+            zse = min(v[2] for v in rv if abs(v[2] - ztop) > 1e-6 and sum(1 for w in rv if abs(w[2] - v[2]) < 1e-6) >= 8)   # the shank's lower ring (8 vertices on one level)
+            far = max(rv, key=lambda v: (v[0] - axp[0]) ** 2 + (v[1] - axp[1]) ** 2); hv = [far[0] - axp[0], far[1] - axp[1]]; hb = math.hypot(*hv)
+            hx = dot([hv[0] / hb, hv[1] / hb, 0], [eh[0], eh[1], 0]); pc = dot([axp[0] - c[0], axp[1] - c[1], 0], [eh[0], eh[1], 0]); pcy = dot([axp[0] - c[0], axp[1] - c[1], 0], [es[0], es[1], 0])
+            if abs(hx) > 0.7: hdir = ('' if hx * pc > 0 else '-') + 'x'; e2 = [eh[0] * (1 if hx > 0 else -1), eh[1] * (1 if hx > 0 else -1)]
+            else: hy = dot([hv[0] / hb, hv[1] / hb, 0], [es[0], es[1], 0]); hdir = ('' if hy * pcy > 0 else '-') + 'y'; e2 = [es[0] * (1 if hy > 0 else -1), es[1] * (1 if hy > 0 else -1)]
+            hb = max((v[0] - axp[0]) * e2[0] + (v[1] - axp[1]) * e2[1] for v in rv)   # b: the hook's end face from the rod axis, along the hook
+            q.update(awith='rods', aL=r3(ztop - zlo), aup=r3(ztop - ptop), ahr=r3(zse - (zlo + d / 2)), ahw=r3(hb), ahdir=hdir)
+            wn = [n for n in nuts if math.hypot(n['st']['p1'][0] - axp[0], n['st']['p1'][1] - axp[1]) < 1]
+            q.update(anut=sum(1 for n in wn if n['st']['name'] == 'NUT'), awash=1 if any(n['st']['name'] == 'WASHER' for n in wn) else 0)
         # grout and cast plate under it: the nearest of each kind within 250 mm in plan (R10's grout is up to 130 mm off centre)
         gr = []
         for kind in ('GROUT', 'CASTPLATE'):
@@ -644,7 +663,11 @@ def main():
             gp, gL, gW = pl_dims(g)
             if g['st']['name'] == 'GROUT':
                 q['gt'] = gp.t; q['gm'] = r3(((max(gL, gW) - max(L, W)) + (min(gL, gW) - min(L, W))) / 4)
-            else: q['cast'] = gp.t
+                gv = mesh_v(g); gz = max(v[2] for v in gv); top = [v for v in gv if abs(v[2] - gz) < 1e-6]   # Tekla's grouting with slopes: the top face is the base plate's size
+                tw_ = max(v[0] for v in top) - min(v[0] for v in top); th_ = max(v[1] for v in top) - min(v[1] for v in top)
+                if abs(min(tw_, th_) - min(L, W)) < 0.5 and abs(max(tw_, th_) - max(L, W)) < 0.5 and q['gm'] > 0: q['gslope'] = 'slope'
+            else: q['cast'] = gp.t; q['castd'] = r3((min(q3[2] for q3 in b['st']['pts3']) - p.t / 2) - (max(q3[2] for q3 in g['st']['pts3']) + gp.t / 2))
+        if q.get('awith') == 'rods' or 'castd' in q: q['gorder'] = 'tekla'
         conn(key, [col], q, '1' if key == 'T1042' else '16', refs)
         if key == 'T1042' and 'gt' not in q: notes.append(f'base plate {b["id"]}: no grout found under it')
 

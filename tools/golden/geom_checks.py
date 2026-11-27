@@ -151,6 +151,10 @@ def check(path):
         # 3 overlap
         for i in range(len(everything)):
             for j in range(i + 1, len(everything)):
+                a_, b_ = sorted([name(everything[i]).split(' ')[0] + ' ' + name(everything[i]).split(' ')[1] if name(everything[i]).startswith('ANCHOR ROD') else name(everything[i]).split(' ')[0], name(everything[j]).split(' ')[0] + ' ' + name(everything[j]).split(' ')[1] if name(everything[j]).startswith('ANCHOR ROD') else name(everything[j]).split(' ')[0]])
+                if (a_, b_) == ('ANCHOR ROD', 'GROUT'): STATS['embedded (anchor rod in grout)'] += 1; continue   # v70 C01: Tekla's grout has no holes; the rods are cast in it (v66 checker: embedded)
+                if a_ == 'ANCHOR ROD' and b_ in ('NUT', 'WASHER') and (depth(everything[i], everything[j]) or 0) < 0.5:   # threaded on the rod: the 12-gon bore on the 8-gon rod's corners (as Tekla's parts)
+                    STATS['nut / washer on its rod'] += 1; continue
                 v = overlap(everything[i], everything[j]); STATS['overlap pairs'] += 1
                 if v is not None and v > OVER: fails.append(dict(check='OVERLAP', conn=cid, type=t, part=name(everything[i]), other=name(everything[j]), value=round(v, 1), depth=depth(everything[i], everything[j]), ids=[everything[i]['id'], everything[j]['id']]))
         # 4 bolts
@@ -160,6 +164,11 @@ def check(path):
             g = next((k for k in bodies.values() if k['st'].get('kind') == 'bolts' and str(k['st'].get('conn')) == cid), None)
             if g and g['st'].get('L'): L = float(g['st']['L'])
             groups.append((q.get('pts') or [], q.get('ax'), float(q.get('d') or 12), float(q.get('tol') if q.get('tol') is not None else 2), None if q.get('holesOnly') else float(q.get('grip') or 0), L, mem))   # holes only: no bolt, no grip
+        for rp in plates:   # v70 C01: anchor rods made as parts: each must pass a hole in the base plate and the cast plate
+            h = rp['st'].get('hole')
+            if not h: continue
+            others = [x for x in everything if x is not rp and not name(x).split(' ')[0] in ('GROUT', 'NUT', 'WASHER', 'ANCHOR')]
+            groups.append((h.get('pts') or [], h.get('ax'), float(h.get('d') or 20), float(h.get('d0') or 22) - float(h.get('d') or 20), 'rod', float(h.get('L') or 0), others))   # 'rod': cast in concrete, no grip / air check (grout between the plates)
         for bb in bolts:
             st = bb['st']; d = float(st.get('d') or 12); Lb = float(st.get('L') or 0)
             groups.append((st.get('pts') or [], st.get('ax'), d, 2.0, None, Lb, everything))
@@ -170,6 +179,7 @@ def check(path):
                 for p, r in res:
                     if t != 'TKBOLT' and r == 'MISSES': continue       # a component bolt group's parts: only the ones it passes
                     if r != 'HOLE': fails.append(dict(check='BOLTS', conn=cid, type=t, part=name(p), value=r))
+                if grip == 'rod': continue
                 if grip is not None and abs(grip - mat) > GRIP: fails.append(dict(check='BOLTS', conn=cid, type=t, part='grip', value=f'grip {grip:.1f} vs stack {mat:.1f}'))
                 elif grip is None and t != 'TKBOLT' and span - mat > GRIP: fails.append(dict(check='BOLTS', conn=cid, type=t, part='grip', value=f'air {span - mat:.1f} along the shank (stack {mat:.1f})'))
     # 3 overlap across connections at one joint: plates of two connections that share a member (e.g. two cleats on one purlin end)

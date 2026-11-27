@@ -31,7 +31,7 @@ import kotlin.math.sin
 class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: BooleanEngine) {
     class W(val weight: Double, val net: Double, val catalog: Boolean, val kgm: Double, val len: Double, val tkArea: Double? = null, val ownArea: Double? = null, val holesFilled: Double = 0.0)
     /** A component's bolt group as its body records it: head points, shank axis, hole diameter d0, bolt length L. */
-    class Bolts(val pts: List<D3>, val ax: D3, val d0: Double, val len: Double, val slot: Double = 0.0)
+    class Bolts(val pts: List<D3>, val ax: D3, val d0: Double, val len: Double, val slot: Double = 0.0, /** v70 C01: an anchor rod's hole, a [poly]-gon (0 = stBolts' 12-gon, area 3 r^2) */ val poly: Int = 0)
 
     /**
      * The bolt groups that may drill a part (web v70 holeFill70): those of the connections that join it, of its own connection
@@ -102,7 +102,7 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
         }
         if (gross < net - 1e-6) gross = max(gross, net)
         var fillKg = 0.0
-        if (!(cat && kgm > 0 && len > 0) && bolts.isNotEmpty() && (kind == "plate" || kind == "member" || kind == "conn")) {   // gross (owner 2026-11-27): a component's bolt holes filled back
+        if (!(cat && kgm > 0 && len > 0) && bolts.isNotEmpty() && (kind == "plate" || kind == "member" || kind == "conn") && !prof(st).uppercase().startsWith("PD")) {   // C01: a PD ring's bore is its profile's   // gross (owner 2026-11-27): a component's bolt holes filled back
             val f = holeFill(mesh, bolts); if (f > 0) { fillKg = f * 1e-9 * rho * (if (at != null && am != null) at / am else 1.0); net += fillKg; gross = max(gross, net) }   // a catalog part with no length (a cleat angle): its solid
         }
         val weight = if (cat) gross else net
@@ -136,7 +136,7 @@ class TeklaWeight(private val profiles: ProfileCatalog, private val booleans: Bo
         var fill = 0.0
         for (g in bolts) {
             val a = g.ax.normalize(); val x = (a cross (if (abs(a.z) < 0.9) D3(0.0, 0.0, 1.0) else D3(1.0, 0.0, 0.0))).normalize(); val y = a cross x
-            val hr = g.d0 / 2; val rr = hr + 0.8; val area = 3 * hr * hr + g.slot * 2 * hr * kotlin.math.cos(PI / 12)
+            val hr = g.d0 / 2; val rr = hr + 0.8; val area = (if (g.poly > 0) g.poly / 2.0 * sin(2 * PI / g.poly) * hr * hr else 3 * hr * hr) + g.slot * 2 * hr * kotlin.math.cos(PI / 12)
             for (pa in g.pts) { val pb = pa.add(a, g.len + 2); val m = hr + 2
                 if ((0..2).any { k -> max(c(pa, k), c(pb, k)) + m < lo[k] || kotlin.math.min(c(pa, k), c(pb, k)) - m > hi[k] }) continue
                 if (inside(pa, a, -2.0, g.len + 2) > 0.5) continue

@@ -128,7 +128,7 @@
     let HIX = null;   // conn id -> its bolt bodies; parts drilled per conn (rebuilt when the model changes)
     const holeIndex = () => { const key = S.bodies.length + ':' + (S.stConns || []).length; if (HIX && HIX.key === key && HIX.bodies === S.bodies) return HIX;
       const conns = new Map((S.stConns || []).map(c => [c.id, c])), byConn = new Map();
-      for (const g of S.bodies) { const q = g.st; if (!q || q.kind !== 'bolts' || !q.pts || !q.ax) continue; const c = conns.get(q.conn); if (!c || c.type === 'TKBOLT') continue; if (!byConn.has(c.id)) byConn.set(c.id, { c, gs: [] }); byConn.get(c.id).gs.push(q); }
+      for (const g of S.bodies) { const q0 = g.st; const q = q0 && q0.kind === 'conn' && q0.hole ? Object.assign({ conn: q0.conn }, q0.hole) : q0; if (!q || (q.kind !== 'bolts' && q === q0) || !q.pts || !q.ax) continue; const c = conns.get(q.conn); if (!c || c.type === 'TKBOLT') continue; if (!byConn.has(c.id)) byConn.set(c.id, { c, gs: [] }); byConn.get(c.id).gs.push(q); }   // C01: anchor rods made as parts carry their hole (st.hole)
       const byPart = new Map(); for (const [cid, e] of byConn) for (const pid of e.c.parts) { if (!byPart.has(pid)) byPart.set(pid, []); byPart.get(pid).push(...e.gs); }
       return (HIX = { key, bodies: S.bodies, byConn, byPart }); };
     // the part's mesh, once per solid: positions and triangles (no Manifold objects: a page that builds many models must not leak)
@@ -147,6 +147,7 @@
     const FILL = new WeakMap();   // solid -> its hole fill (a part is weighed more than once per report)
     function holeFill70(b) {
       if (!b || !b.st || !b.man || !['plate', 'member', 'conn'].includes(b.st.kind)) return 0;
+      if (/^PD/i.test(String(b.st.prof || ''))) return 0;   // C01: a nut / washer ring (PD40*10): its bore is the profile's, Tekla weighs the pipe section
       if (FILL.has(b.man)) return FILL.get(b.man);
       const U = stU(), H = holeIndex(); const own = H.byConn.get(b.st.conn), oc = (S.stConns || []).find(c => c.id === b.st.conn);
       // candidates: the bolts of the connections that join this part, of its own connection, and of every connection sharing a part with
@@ -156,7 +157,7 @@
       for (const q of gs) {
         const a = V3(q.ax).normalize(), X = new THREE.Vector3().crossVectors(a, Math.abs(a.z) < 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0)).normalize(), Y = new THREE.Vector3().crossVectors(a, X);
         const hr = (+q.d0 || +q.d + 2) / 2, L = +q.L || 3 * (+q.d || 20), rr = hr + 0.8;
-        const area = 3 * hr * hr + (Math.max(+q.sl1 || 0, 0) + Math.max(+q.sl2 || 0, 0)) * 2 * hr * Math.cos(Math.PI / 12);   // stBolts' hole: a 12-gon of radius hr (area 3 hr^2), swept along a slot
+        const area = (q.poly ? q.poly / 2 * Math.sin(2 * Math.PI / q.poly) * hr * hr : 3 * hr * hr) + (Math.max(+q.sl1 || 0, 0) + Math.max(+q.sl2 || 0, 0)) * 2 * hr * Math.cos(Math.PI / 12);   // C01: a rod's hole is a 24-gon   // stBolts' hole: a 12-gon of radius hr (area 3 hr^2), swept along a slot
         for (const P0 of q.pts) { const Pa = V3(P0).multiplyScalar(U), Pb = Pa.clone().addScaledVector(a, (L + 2) * U), m = (hr + 2) * U;
           if ([0, 1, 2].some(k => Math.max(Pa.getComponent(k), Pb.getComponent(k)) + m < lo[k] || Math.min(Pa.getComponent(k), Pb.getComponent(k)) - m > hi[k])) continue;
           M = M || meshOf(b.man); const s0 = -2 * U, s1 = (L + 2) * U;
@@ -650,3 +651,81 @@
         ['Welds (stiffeners)', [TKF('sprep', 'Stiffener weld preparation', { type: 'sel', dv: '', opts: [tkOpt('', 'None'), tkOpt('K', 'K: 45 deg double bevel, t / 3 from each face')], note: 'Tekla sets this with the stiffener welds (Welds tab); R12 has K' })]]] };
     if (si >= 0) tabs[si] = stiffTab; else tabs.splice(3, 0, stiffTab);
     const hi = tabs.findIndex(t => t.name === 'Beam cut'); if (hi >= 0) tabs.splice(hi, 1, tkOff('Doubler plate', ['Doubler plates'])); }
+  // ---------- C01 / C16 · Base plate 1042 / 1004 as Tekla: anchor rods as parts, nuts and washers, grout under the plate, cast plate under the grout ----------
+  // Tekla's help (detail_1042_help / detail_1004_help, Anchor rods tab): "Base plate with: bolts / anchor rods"; 1 nut size (default
+  // the rod diameter), 2 washer thickness (half the nut size), 3 gap plate to washer, 4 rod length (500), 5 rod above the base plate
+  // (50), 6 distance between the cast plate and the base plate; hook type 1: a = hook radius (2 x diameter), b = hook width (1 / 5 of
+  // the rod length); the washer has no hole by default. R12 (52 bases, docs/steel/PARITY.md "C01 / C16"): ROD20 (frame, gable and
+  // mezzanine columns) length 600, a 40, b 120, a washer PD40*10 (10) and a nut PD40*10 (20) on the plate; ROD16 (stair posts) length
+  // 250, a 32, b 68, no nut, no washer; hooks outward along the plate's X (column depth) or Y; Tekla's rod is an 8-gon swept round the
+  // bend in two chords; holes in the base and cast plate are 24-gons of radius d / 2 + 1; the grout (no holes) lies directly under the
+  // plate, the margin on every side; the cast plate under the grout. Old models (awith '' / gorder '') are v69's unchanged.
+  for (const k of ['T1042', 'T1004']) if (CONN[k]) Object.assign(CONN[k].def, { awith: '', aL: '', aup: 50, ahr: '', ahw: '', ahdir: 'x', anut: 1, awash: 1, nutL: '', washT: '', gorder: '', castd: '', gslope: '' });
+  for (const k of ['T1042', 'T1004']) { const T = TKD[k]; if (!T) continue; const at = T.tabs.find(t => t.name === 'Anchor rods'); if (!at) continue;
+    at.groups = (at.groups || []).concat([['Base plate with', [TKF('awith', 'Base plate with', { type: 'sel', dv: '', opts: [tkOpt('', 'Bolts (v69: an anchor bolt group)'), tkOpt('rods', 'Anchor rods (parts: rod, nut, washer, as Tekla)')] })]],
+      ['Anchor rod (Tekla)', [TKF('aL', '4 · Length of the anchor rod', { ph: '500' }), TKF('aup', '5 · Length of the anchor rod above the base plate', { ph: '50' }),
+        TKF('ahr', 'a · Radius of the hook', { ph: '2 x diameter' }), TKF('ahw', 'b · Width of the hook', { ph: '1/5 of the length' }),
+        TKF('ahdir', 'Hook direction', { type: 'sel', dv: 'x', opts: [tkOpt('x', 'Outward along the plate X (column depth)'), tkOpt('y', 'Outward along the plate Y'), tkOpt('-x', 'Inward along X'), tkOpt('-y', 'Inward along Y'), tkOpt('none', 'Straight rod')] }),
+        TKF('anut', 'Nuts', { type: 'sel', dv: 1, opts: [tkOpt(0, 'None'), tkOpt(1, '1'), tkOpt(2, '2')] }), TKF('nutL', '1 · Size of the nut', { ph: 'rod diameter' }),
+        TKF('awash', 'Washer', { type: 'sel', dv: 1, opts: [tkOpt(0, 'Not created'), tkOpt(1, 'Created (PD40*10 style ring)')] }), TKF('washT', '2 · Thickness of the washer', { ph: 'half the nut size' })]],
+      ['Grout and cast plate (Tekla)', [TKF('gorder', 'Order under the plate', { type: 'sel', dv: '', opts: [tkOpt('', 'v69: cast plate under the plate, grout under it'), tkOpt('tekla', 'Tekla: grout under the plate, cast plate under the grout')] }),
+        TKF('castd', '6 · Distance between the cast plate and the base plate', { ph: 'grout thickness' }),
+        TKF('gslope', 'Grouting', { type: 'sel', dv: '', opts: [tkOpt('', 'Without slopes (a box, the margin on every side)'), tkOpt('slope', 'With slopes (the plate size at the top, the margin at the bottom)')] })]]]); }
+  function bpRod70(top, hd, n, d, L, a, b, U) {   // Tekla hook type 1: an 8-gon (vertices on the bend plane and across it) down from top, bent by a in two chords, b from the axis
+    const r = d / 2, w = hd ? new THREE.Vector3().crossVectors(n, hd).normalize() : null, P = [top.clone()];
+    const zl = top.clone().addScaledVector(n, -(L - r) * U);   // the hook leg's centre line level (the rod's lowest point is L below the top)
+    if (!hd) P.push(top.clone().addScaledVector(n, -L * U)); else {
+      const c = zl.clone().addScaledVector(n, a * U); P.push(c.clone());                                     // the shank's end
+      P.push(zl.clone().addScaledVector(hd, a * U * (1 - Math.SQRT1_2)).addScaledVector(n, a * U * (1 - Math.SQRT1_2)));   // the middle of the bend (45 deg)
+      P.push(zl.clone().addScaledVector(hd, a * U)); P.push(zl.clone().addScaledVector(hd, b * U - 0)); }   // the end of the bend, the hook's end face b from the axis
+    const segs = []; for (let i = 0; i + 1 < P.length; i++) { const dv = P[i + 1].clone().sub(P[i]); if (dv.length() > 1e-9) segs.push([P[i], P[i + 1], dv.normalize()]); }
+    let out = null;
+    segs.forEach(([p0, p1, dv], i) => {
+      const u = w ? new THREE.Vector3().crossVectors(w, dv).normalize() : new THREE.Vector3().crossVectors(Math.abs(dv.z) < 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0), dv).normalize(); const v = new THREE.Vector3().crossVectors(dv, u);
+      const ext = 4 * r * U, len = p1.distanceTo(p0) + 2 * ext, poly = Array.from({ length: 8 }, (_, k) => [r * U * Math.cos(k * Math.PI / 4), r * U * Math.sin(k * Math.PI / 4)]);
+      let m = C.placeInFrame(C.extrudeRegions([{ outer: poly, holes: [] }], len)[0], { origin: p0.clone().addScaledVector(dv, -ext).toArray(), u: u.toArray(), v: v.toArray(), n: dv.toArray() });
+      const big = 4 * (L + b + 10 * r) * U, half = (o, nn) => { const x = new THREE.Vector3().crossVectors(Math.abs(nn.z) < 0.9 ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(1, 0, 0), nn).normalize(), y = new THREE.Vector3().crossVectors(nn, x); return stBox3(o, x, y, -big, big, -big, big, 0, big); };
+      const mA = i === 0 ? dv : segs[i - 1][2].clone().add(dv).normalize(), mB = i === segs.length - 1 ? dv : dv.clone().add(segs[i + 1][2]).normalize();
+      m = m.intersect(half(p0, mA)).subtract(half(p1, mB)); out = out ? out.add(m) : m; });
+    return out;
+  }
+  function bpRing70(P, n, ro, ri, h, U) { const pg = R => Array.from({ length: 12 }, (_, k) => [R * U * Math.cos(k * Math.PI / 6), R * U * Math.sin(k * Math.PI / 6)]);
+    const u = (Math.abs(n.z) < 0.9 ? new THREE.Vector3().crossVectors(new THREE.Vector3(0, 0, 1), n) : new THREE.Vector3(1, 0, 0)).normalize(), v = new THREE.Vector3().crossVectors(n, u);
+    return C.placeInFrame(C.extrudeRegions([{ outer: pg(ro), holes: ri > 0 ? [pg(ri).reverse()] : [] }], h * U)[0], { origin: P.toArray(), u: u.toArray(), v: v.toArray(), n: n.toArray() }); }
+  function bpHole70(P, n, r, U) { const pg = Array.from({ length: 24 }, (_, k) => [r * U * Math.cos(k * Math.PI / 12), r * U * Math.sin(k * Math.PI / 12)]);
+    const u = (Math.abs(n.z) < 0.9 ? new THREE.Vector3().crossVectors(new THREE.Vector3(0, 0, 1), n) : new THREE.Vector3(1, 0, 0)).normalize(), v = new THREE.Vector3().crossVectors(n, u);
+    return C.placeInFrame(C.extrudeRegions([{ outer: pg, holes: [] }], 4000 * U)[0], { origin: P.clone().addScaledVector(n, -2000 * U).toArray(), u: u.toArray(), v: v.toArray(), n: n.toArray() }); }
+  { const bp69 = FAM.BP;
+    FAM.BP = X => {
+      const { U, q, A, cut, plate, weld } = X; if (q.awith !== 'rods' && q.gorder !== 'tekla') return bp69(X);
+      const M = stMF(A.st); const vert = Math.abs(M.a.z) > 0.8; const round = q.shape === 'round' || M.p.kind === 'O'; if (!vert || round || q.bearing) return bp69(X);
+      const low = M.c1.z <= M.c2.z ? M.c1 : M.c2; const n = new THREE.Vector3(0, 0, 1); const Xd = M.eh.clone().addScaledVector(n, -M.eh.dot(n)).normalize(), Yd = new THREE.Vector3().crossVectors(n, Xd);
+      const t = q.t * U, L = (M.h / 2 + q.ext) * U, W = (M.b / 2 + q.side) * U; const O = low.clone();
+      cut(A.id, stBox3(O, Xd, Yd, -L * 4, L * 4, -W * 4, W * 4, -1000 * U, t));
+      const na = Math.max(2, q.anchors | 0); const ax = (q.gx > 0 ? q.gx / 2 : M.h / 2 + q.ext * 0.55) * U, ay = (q.gy > 0 ? q.gy / 2 : Math.max(M.b / 2 - 40, 50)) * U;
+      const pts = []; if (na === 2) pts.push([0, -ay], [0, ay]); else { for (const sx of [-1, 1]) for (const sy of [-1, 1]) pts.push([sx * ax, sy * ay]); if (na >= 6) pts.push([0, -ay], [0, ay]); if (na >= 8) pts.push([-ax, 0], [ax, 0]); }
+      const at = p => O.clone().addScaledVector(Xd, p[0]).addScaledVector(Yd, p[1]); const d = +q.bolt || 20, rods = q.awith === 'rods';
+      const tol = tkNum(q.tol, d <= 24 ? 2 : 3), hr = (d + tol) / 2; let holes = null;
+      let BB = null; if (rods) holes = stUnion(pts.map(p => bpHole70(at(p), n, hr, U)));
+      else { const tw = q.pw ? 10 : 0; const bl = pts.map(p => at(p).addScaledVector(n, t + tw * U + 1.2 * d * U)); BB = stBolts(bl, [0, 0, -1], d, t + tw * U + q.anch * U, U); holes = stUnion(BB.holes); }
+      let bp = stBox3(O, Xd, Yd, -L, L, -W, W, 0, t); if (holes) bp = bp.subtract(holes); plate('BASE PLATE', bp, q.t);
+      if (!rods) X.out.parts.push({ name: 'ANCHOR BOLTS', man: BB.man, bolts: { pts: BB.pts, ax: BB.ax, d: q.bolt, n: pts.length, grade: q.grade, L: Math.round(q.anch + q.t + 2.6 * q.bolt) } });
+      weld('Column to base plate', q.a, (M.p.P || 1.5) * 1000);
+      const gt = +q.gt || 0, tek = q.gorder === 'tekla', cz = tek ? -(tkNum(q.castd, gt) || 0) * U : 0;   // the cast plate's top: Tekla 6 below the base plate (default: under the grout); v69 directly under the plate
+      if (q.cast > 0) { let cp = stBox3(O, Xd, Yd, -L, L, -W, W, cz - q.cast * U, cz); if (holes) cp = cp.subtract(holes); plate('CAST PLATE', cp, q.cast); }
+      if (gt > 0) { const z1 = tek ? 0 : -(q.cast || 0) * U, gm = q.gm * U; let gp = stBox3(O, Xd, Yd, -L - gm, L + gm, -W - gm, W + gm, z1 - gt * U, z1); if (!tek && holes) gp = gp.subtract(holes);
+        if (q.gslope === 'slope' && gm > 0) { const big = 100 * (L + W + gt * U);   // Tekla's grouting with slopes: each side from the plate's edge at the top to the margin at the bottom
+          for (const [e, h] of [[Xd, L], [Xd.clone().negate(), L], [Yd, W], [Yd.clone().negate(), W]]) { const nrm = e.clone().multiplyScalar(gt * U).addScaledVector(n, gm).normalize(), o = O.clone().addScaledVector(e, h).addScaledVector(n, z1);
+            const x = new THREE.Vector3().crossVectors(n, e).normalize(), y = new THREE.Vector3().crossVectors(nrm, x); gp = gp.subtract(stBox3(o, x, y, -big, big, -big, big, 0, big)); } } X.out.parts.push({ name: 'GROUT', man: gp, prof: 'PL' + q.gt, mat: 'GROUT' }); }
+      if (!rods) { if (q.pw) for (const p of pts) { const P = at(p); const r0 = d / 2 + 1; X.out.parts.push({ name: 'PLATE WASHER', man: v54ring(P.clone().addScaledVector(n, t), [0, 0, 1], 20, r0, 10, U), prof: 'PD40*10' });
+          const zf = t + 10 * U + 1.2 * d * U - (t + 10 * U + q.anch * U); X.out.parts.push({ name: 'ANCHOR WASHER', man: v54ring(P.clone().addScaledVector(n, zf), [0, 0, 1], 20, r0, 20, U), prof: 'PD40*10' }); }
+        return; }
+      const Lr = tkNum(q.aL, 500), up = tkNum(q.aup, 50), a = tkNum(q.ahr, 2 * d), b = tkNum(q.ahw, Lr / 5), nutL = tkNum(q.nutL, d), wT = tkNum(q.washT, nutL / 2), nn = +q.anut || 0;
+      for (const p of pts) { const P = at(p), top = P.clone().addScaledVector(n, t + up * U);
+        const s = q.ahdir || 'x', hd = s === 'none' ? null : (s.endsWith('x') ? Xd : Yd).clone().multiplyScalar((s.startsWith('-') ? -1 : 1) * (Math.sign(s.endsWith('x') ? p[0] : p[1]) || 1));
+        X.out.parts.push({ name: 'ANCHOR ROD', man: bpRod70(top, hd, n, d, Lr, a, b, U), prof: 'ROD' + d, hole: { pts: [top.clone().divideScalar(U).toArray()], ax: [0, 0, -1], d, d0: d + tol, L: Lr, poly: 24 } });
+        const pd = 'PD' + 2 * d + '*' + d / 2;   // R12: PD40*10 on ROD20 (outside 2 d, wall d / 2)
+        let z = t + 0; if (+q.awash) { X.out.parts.push({ name: 'WASHER', man: bpRing70(P.clone().addScaledVector(n, z), n, d, d / 2, wT, U), prof: pd }); z += wT * U; }
+        for (let k = 0; k < Math.min(2, nn); k++) { X.out.parts.push({ name: 'NUT', man: bpRing70(P.clone().addScaledVector(n, z), n, d, d / 2, nutL, U), prof: pd }); z += nutL * U; } }
+    }; }
+  { const kid69 = tkKidSt; tkKidSt = function (c, p, asm) { const st = kid69(c, p, asm); if (p.hole && st && st.kind === 'conn') st.hole = p.hole; return st; }; }

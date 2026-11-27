@@ -58,10 +58,12 @@ class R12RebuildTest {
         val sts = idsAll.associateWith { id -> m.doc.bodyJson(id)?.let { Json.parseToJsonElement(it).jsonObject["st"] as? JsonObject } }
         fun d3(e: kotlinx.serialization.json.JsonElement?) = (e as JsonArray).map { it.jsonPrimitive.double }.let { com.solidsketchapp.steel.geom.D3(it[0], it[1], it[2]) }
         val boltsByConn = HashMap<String, MutableList<com.solidsketchapp.steel.model.TeklaWeight.Bolts>>()
-        for ((_, st) in sts) { if (st == null || st["kind"]?.jsonPrimitive?.content != "bolts" || st["pts"] == null) continue
+        for ((_, st0) in sts) { val h = st0?.get("hole") as? JsonObject   // v70 C01: anchor rods made as parts carry their hole
+            val st = if (st0 != null && h != null && st0["kind"]?.jsonPrimitive?.content == "conn") JsonObject(LinkedHashMap(h).apply { put("kind", kotlinx.serialization.json.JsonPrimitive("bolts")); put("conn", st0["conn"]!!) }) else st0
+            if (st == null || st["kind"]?.jsonPrimitive?.content != "bolts" || st["pts"] == null) continue
             boltsByConn.getOrPut(st["conn"]!!.jsonPrimitive.content) { ArrayList() } += com.solidsketchapp.steel.model.TeklaWeight.Bolts((st["pts"] as JsonArray).map { d3(it) }, d3(st["ax"]),
                 st["d0"]?.jsonPrimitive?.double ?: (st["d"]!!.jsonPrimitive.double + 2), st["L"]?.jsonPrimitive?.double ?: 60.0,
-                (st["sl1"]?.jsonPrimitive?.doubleOrNull ?: 0.0).coerceAtLeast(0.0) + (st["sl2"]?.jsonPrimitive?.doubleOrNull ?: 0.0).coerceAtLeast(0.0)) }
+                (st["sl1"]?.jsonPrimitive?.doubleOrNull ?: 0.0).coerceAtLeast(0.0) + (st["sl2"]?.jsonPrimitive?.doubleOrNull ?: 0.0).coerceAtLeast(0.0), st["poly"]?.jsonPrimitive?.doubleOrNull?.toInt() ?: 0) }
         val connParts = m.comps.conns().associate { it.id to it.parts }
         val gb = g.getValue("bodies").jsonArray; var wApp = 0.0; var wWeb = 0.0; val wBad = ArrayList<String>()
         for ((i, id) in idsAll.withIndex()) { val st = sts[id] ?: continue; if (st["kind"]?.jsonPrimitive?.content == "bolts") continue

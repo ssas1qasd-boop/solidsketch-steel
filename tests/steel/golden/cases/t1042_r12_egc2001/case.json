@@ -1,0 +1,65 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T1042",
+   [
+    0
+   ],
+   {
+    "aL": 600,
+    "ahdir": "x",
+    "ahr": 40,
+    "ahw": 120,
+    "anch": 528,
+    "anchors": 4,
+    "anut": 1,
+    "aup": 50,
+    "awash": 1,
+    "awith": "rods",
+    "bolt": 20,
+    "cast": 4,
+    "castd": 30,
+    "ext": 20,
+    "gm": 30,
+    "gorder": "tekla",
+    "gslope": "slope",
+    "gt": 30,
+    "gx": 80,
+    "gy": 100,
+    "side": 20,
+    "t": 20
+   }
+  ]
+ ],
+ "description": "R12 EGC2001: BI220-6-200-10 gable column (rot Front), plate 20 x 240 x 260, gauges 80 / 100.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     49290.5,
+     27890,
+     230
+    ],
+    "p2": [
+     49290.5,
+     27890,
+     8043.935
+    ],
+    "plane": "Middle",
+    "prof": "BI220-6-200-10",
+    "rAng": 0,
+    "rot": "Front"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t1042_r12_egc2001",
+ "pageErrors": []
+}

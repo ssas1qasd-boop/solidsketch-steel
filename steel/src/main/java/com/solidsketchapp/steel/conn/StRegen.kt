@@ -121,6 +121,7 @@ class StRegen(private val build: StBuild, private val booleans: BooleanEngine, p
             "cls" to jsNum(StBolts.tkNum(c.q["cls"], 1.0).toInt().let { if (it == 0) 1 else it }.toDouble()))
         if (asm != null) m["asm"] = asm.toLongOrNull()?.let { jsNum(it.toDouble()) } ?: JsonPrimitive(asm)
         if (ps("pp").isNotEmpty()) m["pp"] = JsonPrimitive(ps("pp")); if (ps("ps").isNotEmpty()) m["ps"] = jsNum(StBuild.jsNum(P["ps"])); if (ps("fin").isNotEmpty()) m["fin"] = JsonPrimitive(ps("fin"))
+        p.hole?.let { m["hole"] = it }   // v70 C01 (web tkKidSt wrapper: after the v69 fields)
         return JsonObject(m)
     }
 

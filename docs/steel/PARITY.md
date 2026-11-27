@@ -123,6 +123,48 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 - **Node gussets** (176 bolt × gusset failures: marks 6507, 6514, 6515, 6521, 6522, 6523, 6525, 6533, 6534, 6536, 6550, 6554). Proven wrong in R10: on every failing instance R10's gusset outline equals its NC outline in the plate's own frame, but the brace bolts do not pass the NC holes. There is an exact in-plane rigid move (some mirrored) that puts all NC holes on the bolts with 0.0 mm residual, so the gusset, not the brace, is misplaced in its plane. **Not fixed:** the 2 × 2 hole groups are symmetric, giving 4–8 exact moves per plate, and the weld / contact test could not pick one (these gussets have no part of their own assembly next to them). The node drawings (GA "Frame Connections", the HZ / VL / C / R assemblies) are needed to choose each move. Next step after C04, with the owner's go.
 - **Stair plate 9505** (2 holes-only anchor bolts, connections 316 / 317): the plate has its NC holes (40 / 110 × 70 / 190); 2 of its 4 anchor points are 124 mm off the plate along the stair. Not decided which (plate or anchors) is wrong; not fixed.
 
+## C01 / C16 · Base plate 1042 / 1004 as Tekla: anchor rods as parts, nut and washer, grout with slopes, cast plate under the grout (owner 2026-11-27)
+
+### Step 0: Tekla's own site
+- [Base plate (1042)](https://support.tekla.com/doc/tekla-structures/2025/detail_1042_help) and [Base plate (1004)](https://support.tekla.com/doc/tekla-structures/2025/detail_1004_help), **Anchor rods tab**: "Base plate with: bolts, anchor rods, or a custom component" (default bolts). Anchor rod dimensions: 1 nut size (default the rod diameter), 2 washer thickness (half the nut size), 3 gap between the plate and the nut or washer, 4 rod length (500), 5 rod length above the base plate (50), 6 distance between the cast plate and the base plate (60). Hook type 1: a = radius of the hook (2 x diameter), b = width of the hook (1/5 of the rod length). Hook direction types 1–4. The washer has no hole by default. Grout: thickness, "created with or without slopes"; cast unit type Cast in place.
+- Tekla's own videos: none on the page.
+
+### Step 1: videos (`tests/steel/videos/C01/`)
+- `find.py`: Tekla's pages (no media), then YouTube. `gemini_read.py` on two 1042 videos, Anchor rods tab: see `VIDEO.txt`.
+
+### Step 2: the Tekla package
+- Assembly 1001 (192 pieces): 1501 ROD20 St-52 L677.1 1.5 kg + 4 PD40*10 (washer, 10) + 5 PD40*10 (nut, 20). Single-part 1501: 600 overall, hooked, the bend drawn in chords. 1002 / 1502: ROD16 L283.7 0.4 kg, 250 overall.
+
+### R12 (52 bases: 48 columns on 1042, 4 stair posts on 1004)
+- **Rod:** an 8-gon (Tekla's ROD20 / ROD16, vertices on the bend plane and across it) from 50 above the plate top down to 600 (250) below it, bent outward along the plate X (the column depth) with a = 2 d (40 / 32) in two chords, the hook's end face b = 120 (68) from the axis. Volume 195,490 (53,399) mm³ = Tekla's 1.53 (0.42) kg.
+- **Washer** PD40*10 (12-gon ring 20 / 10) on the plate, 10 thick; **nut** PD40*10 on it, 20 thick. None on the stair posts.
+- **Holes** in the base and cast plates: 24-gons of radius d / 2 + 1 (11 / 9).
+- **Grout:** directly under the plate, 30 thick, **with slopes**: the plate's size at the top, the margin (30) at the bottom (R12's FLT30*300 / PL30*260 / PL30*230 solids are frustums), no holes, weight 0.
+- **Cast plate** PL4, the plate's size, **under the grout** (Tekla 6 = 30). v69 put it directly under the plate, the grout under it (30 mm off).
+- The earlier report's "grout 130–150 mm off centre" was R10's; R12's grout is centred on the plate.
+
+### Change, in web v70 (section "C01 / C16") and the app (`FamBP.bp70`)
+- 1042 / 1004 Anchor rods tab: **Base plate with** = Anchor rods; group "Anchor rod (Tekla)": 4 length, 5 above the plate, a, b, hook direction (outward / inward along X or Y, or straight), nuts (0 / 1 / 2), 1 nut size, washer, 2 washer thickness; group "Grout and cast plate (Tekla)": order (grout under the plate, cast plate under the grout), 6 cast plate distance, grouting with / without slopes. Old models (Bolts, v69 order) are v69's unchanged.
+- Nut and washer: PD(2d)*(d/2) (PD40*10 on M20).
+- Weight: a rod part carries its hole (st.hole, a 24-gon) so the base and cast plates are weighed gross; PD rings are weighed by their solid (their bore is the profile's).
+- Rule B (`geom_checks.py`): an anchor rod in the grout is embedded (Tekla's grout has no holes); a nut / washer on its own rod touching the rod's corners (< 0.5 mm) is the thread; each rod must pass a hole in the base and cast plate (no grip check: concrete between them).
+
+### Search result: the R12 inputs (`r10_inputs.py`)
+- Per base, measured on R12's first rod and the parts under the plate: awith rods, aL, aup, ahr, ahw, ahdir (all x), anut, awash, gorder tekla, castd, gslope slope; the anchor gauges from the rods' own axes (R12's rod reference lines are 55 mm off the rods).
+
+### Checks
+| Check | Before (C07, ee9267c) | After |
+|---|---|---|
+| Row 1 R12 parts (web rebuild, 0.1 mm) | 48 / 720 (the base plates; 192 rods as a bolt group, 384 nuts and washers missing, 48 cast plates 30 mm off, 48 grouts near) | 720 / 720 |
+| Row 16 | 4 / 24 (16 rods as bolts, grout near) | 24 / 24 |
+| App vs R12 (`R12C01Test`, 0.1 mm, rods also by volume) | — | 744 / 744 parts; their weight 923.41 kg = Tekla 923.41 |
+| Rule B | — | 0 failures: R12 C2020, R12 EGC2001, R12 STR9001 (1004), HEA300 defaults Y-hooks 2 nuts, IPE360 turned 30° with 6 rods hooked inward |
+| App = web | — | `R12RebuildTest` 0 differences; `S7T144Test` + 5 t1042 cases; host tests 126 / 126 |
+| Weight (rebuild, web) | 62,982.42 kg | 63,323.22 kg (app 63,323.36; Tekla 63,705.8): +340.8 kg (rods, nuts, washers as parts) |
+
+### Status
+Delivered for the owner's phone check; ✓ only after the owner's OK.
+
 ## C07 · Tube crossing (Tekla 20 crossing): continuous brace, two halves, crossing gusset (owner 2026-11-27)
 
 ### Step 0: Tekla's own site

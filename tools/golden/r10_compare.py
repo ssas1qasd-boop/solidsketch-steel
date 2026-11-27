@@ -116,12 +116,7 @@ REASONS = [
     (r'^- \| (Top|Bottom) flange \| EB', 'three mezzanine girders exist in R10 as flanges only (no web in the Tekla import), so no member was placed', 'none (R10 data)'),
     (r'^- \| (Web|Bottom flange) \| STB', 'stair beam STB9002 whose top flange is a notched PLATE: not recognised as a built-up section, not placed', 'none (built-up detection)'),
     (r'column top cap plate', 'loose cap plates FLT8*150 on the column tops under the rafters (marks A1 to A4, and in C2 assemblies): no v69 component in the checklist makes them', 'a column cap plate option in End plate 144 (or Tekla 1002-style cap)'),
-    (r'^1 \| Anchor Bolt|^16 \| Anchor Bolt', 'v69 base plates make the anchors as one bolt group (kind bolts: M20 L677 / M16 L284, grade 4.6) on the same axes; R10 has ROD20 / ROD16 members',
-     'base plate option "anchor rods as parts" (ROD members + nut / washer parts in the assembly)'),
-    (r'^1 \| NUT', 'R10 has a NUT member (PD40*10) on every anchor; v69 has no nut part (pw = 1 makes a plate washer and an anchor washer)', 'nut parts per anchor (Tekla 1042 Anchor rods tab)'),
-    (r'^1 \| WASHER', 'v69\'s PLATE WASHER is a PD40*10 ring at the same place (box within 5 mm); the solid is a ring with a hole, R10\'s washer is a plain disc', 'none needed for the position; washer solid with or without the hole'),
-    (r'^1 \| CASTPLATE', 'v69 puts the cast plate directly under the base plate and the grout under the cast plate; R10 has the grout under the plate and the cast plate under the grout (same plate, 30 mm lower)', 'cast plate below the grout (Tekla 1042 order)'),
-    (r'GROUT', 'R10\'s grout is 130 to 150 mm off the base plate centre (one side flush with the plate) and its own assembly; v69 centres it with the margin gm on every side (same-size part 130 mm away)', 'grout position / margins per side'),
+    (r'^(1|16) \|', 'C01 / C16 (v70: Base plate with = Anchor rods: hooked ROD20 / ROD16 parts (a 2 d, b), washer and nut PD40*10, grout with slopes under the plate, cast plate under the grout): every base part matches', 'done (v70 C01 / C16)'),
     (r'^2 \| eave haunch|^2 \| haunch', 'C02h Eaves haunch (102) haunch plates: length 2,000 from the column axis, depth 82.91 at the end plate (exploded in Tekla)', 'done (v70 C02h)'),
     (r'^3 \| haunch', 'the v54 apex makes the haunch (APEX HAUNCH WEB triangle + FLANGE) from len / depth / hw / hf / hb; the flanges land within 5 mm, the webs are about 26 mm off (outline and length rule differ)', 'haunch outline as Tekla 106 (start at the plate, depth measured square to the rafter)'),
     (r'^3 \| apex stiffener', 'stiffener FLT10*60 (2504) under the apex plates: the v54 apex makes none', 'apex stiffener option (Tekla 106 Stiffeners tab)'),
@@ -208,7 +203,7 @@ def main():
     pairs = []
     anchors = []
     for d in details:
-        if d['st']['name'] == 'Anchor Bolt': anchors.append(d); continue
+        if d['st']['name'] == 'Anchor Bolt': anchors.append(d)   # v70 C01: also matched by box (rods made as parts); the bolt-group check below is the fallback
         bx = rv[d['id']]['box']; c = cen(bx); k0 = tuple(int(math.floor(x / C)) for x in c)
         for dx in (-1, 0, 1):
             for dy in (-1, 0, 1):
@@ -253,7 +248,7 @@ def main():
         if d['id'] in c20_ids and s['name'] == 'Shear Plate': row_, label = '20', 'shear tab'
         r = OrderedDict(id=d['id'], kind=s['kind'], name=s['name'], tprof=s.get('tprof') or s.get('prof'), amark=s.get('amark', ''),
                         row=row_, label=label, kg=r2((rv[d['id']]['w'] or {}).get('weight', 0) or 0))
-        if s['name'] == 'Anchor Bolt':
+        if s['name'] == 'Anchor Bolt' and d['id'] not in match:   # v70 C01: rods made as parts are matched by box like any part
             L = dist(s['p1'], s['p2']); best = None
             for vid, p, bl, bd_ in bolt_pts:
                 dd = math.hypot(p[0] - s['p1'][0], p[1] - s['p1'][1])

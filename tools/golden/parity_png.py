@@ -294,6 +294,33 @@ def c07(shots, video=None):
     return compose('C07', [('R12 (Tekla IFC), crossing HZ6004 (gusset 6534), plan', r12), ('Tekla single-part drawing 6534 (package)', tekla_sp('6534')), ('Tekla help: Tube gusset (20) Picture tab (5 = gusset to end plate)', pic), ('app on the emulator, orthographic plan (landscape)', app)],
                    'C07 Tube crossing (Tekla 20): R12 | Tekla drawing | Tekla help picture | app (Tube end = at the brace end)', ['Measured on the models the emulator built and saved (c07_case.ss, c07_gd30.ss):'] + ['! ' + m for m in lines])
 
+def c01(shots, video=None):
+    """C01 / C16: c01_case.ss (R12's C2020 base through the 1042 dialog: anchor rods as parts) and c01_hooky.ss (hook direction Y, Modify)"""
+    st = lambda b: b.get('st') or {}
+    def meas(f):
+        D = json.load(gzip.open(os.path.join(shots, f)))['doc']; c = next(c for c in D['stConns'] if c['type'] == 'T1042'); kids = [b for b in D['bodies'] if st(b).get('conn') == c['id']]
+        by = lambda n: [b for b in kids if st(b).get('name') == n]; bp = by('BASE PLATE')[0]; top = VT(bp)[0][:, 2].max(); bot = VT(bp)[0][:, 2].min()
+        r = by('ANCHOR ROD')[0]; rv = VT(r)[0]; ext = np.ptp(rv[:, :2], 0)
+        g = by('GROUT')[0]; gv = VT(g)[0]; gz0, gz1 = gv[:, 2].min(), gv[:, 2].max(); gb = np.ptp(gv[np.isclose(gv[:, 2], gz0)][:, :2], 0); gt = np.ptp(gv[np.isclose(gv[:, 2], gz1)][:, :2], 0)
+        cp = by('CAST PLATE')[0]; cz = VT(cp)[0][:, 2]
+        nz = sorted((round(VT(b)[0][:, 2].min() - top, 1), round(VT(b)[0][:, 2].max() - top, 1), st(b).get('name')) for b in by('NUT')[:1] + by('WASHER')[:1])
+        return (f"{len(by('ANCHOR ROD'))} rods {st(r).get('prof')}: top +{rv[:, 2].max() - top:.1f}, bottom {rv[:, 2].min() - top:.1f} from the plate top, hook {max(ext):.1f} x {min(ext):.1f} in plan",
+                f"washer / nut {nz}; grout {gz1 - gz0:.0f} thick, bottom {gb[0]:.0f} x {gb[1]:.0f}, top {gt[0]:.0f} x {gt[1]:.0f} (plate {np.ptp(VT(bp)[0][:, 0]):.0f} x {np.ptp(VT(bp)[0][:, 1]):.0f}); cast plate {cz.min() - bot:.0f} .. {cz.max() - bot:.0f} below the plate", ext)
+    a1, a2, ea = meas('c01_case.ss'); b1, b2, eb = meas('c01_hooky.ss')
+    lines = ['app (c01_case.ss): ' + a1, '   ' + a2, f"after Hook direction = Y + Modify (c01_hooky.ss): hook {eb[0]:.1f} x {eb[1]:.1f} in plan (X x Y)",
+             'R12 / Tekla 1501: ROD20 600 overall, +50 above the plate, a 40, b 120, 1.53 kg; washer PD40*10 0..10, nut 10..30; grout PL30 with slopes (margin 30), cast plate PL4 30 below the plate',
+             'rule B on the emulator models: ' + rule_b(os.path.join(shots, 'c01_case.ss')).split(';')[0] + ' | after hook Y: ' + rule_b(os.path.join(shots, 'c01_hooky.ss')).split(';')[0],
+             'R12 rebuild (web v70 and app): row 1 48 -> 720 / 720, row 16 4 -> 24 / 24 at 0.1 mm; app vs R12 744 / 744 parts, 923.41 kg = Tekla 923.41']
+    app, meta = shot(shots, 'ortho_front'); t = np.array([float(x) for x in meta[4:7]]); dv = [float(x) for x in meta[7:10]]; dist = float(meta[10])
+    label(app, (40, 140), 'hooked ROD20, washer + nut, grout with slopes, cast plate')
+    R = json.load(gzip.open(os.path.join(REPO, 'tests', 'steel', 'models', 'Frame_28x53m_R12.ss')))['doc']; RB = [b for b in R['bodies'] if b.get('shape')]
+    near_ = [b for b in RB if (VT(b)[0].min(0) < t + 900).all() and (VT(b)[0].max(0) > t - 900).all()]
+    colr = lambda b: (200, 60, 60) if st(b).get('name') == 'Anchor Bolt' else (230, 170, 40) if st(b).get('name') in ('NUT', 'WASHER') else (150, 150, 150) if st(b).get('name') == 'GROUT' else (150, 90, 200) if st(b).get('name') == 'CASTPLATE' else (60, 110, 200) if st(b).get('name') == 'Base Plate' else (60, 150, 80)
+    r12 = render(near_, t + np.array([0, -800.0, 0]), dv, dist, colr, W=1100, H=1100)
+    pic = Image.open(video).convert('RGB') if video else tekla_page('1001')
+    return compose('C01', [('R12 (Tekla IFC), base of C2020, front elevation', r12), ('Tekla single-part drawing 1501 (package)', tekla_sp('1501')), ('video / Tekla assembly drawing 1001', pic), ('app on the emulator, orthographic front (landscape)', app)],
+                   'C01 / C16 Base plate 1042 / 1004: R12 | Tekla drawing | video | app (Anchor rods tab: Base plate with = Anchor rods)', ['Measured on the models the emulator built and saved (c01_case.ss, c01_hooky.ss):'] + ['! ' + m for m in lines])
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01}[sys.argv[1]](*sys.argv[2:])

@@ -1,0 +1,57 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T1042",
+   [
+    0
+   ],
+   {
+    "ahdir": "y",
+    "anchors": 4,
+    "anut": 2,
+    "awash": 1,
+    "awith": "rods",
+    "bolt": 24,
+    "cast": 6,
+    "castd": 60,
+    "ext": 75,
+    "gm": 40,
+    "gorder": "tekla",
+    "gt": 40,
+    "side": 50,
+    "t": 25
+   }
+  ]
+ ],
+ "description": "HEA300 column, rods with Tekla defaults (L 500, a 2d, b L/5), hooks along Y, two nuts, grout box without slopes, cast plate 60 below the base plate (Tekla 6 default).",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     4000
+    ],
+    "plane": "Middle",
+    "prof": "HEA300",
+    "rAng": 0,
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t1042_hea300_defaults_y_2nuts",
+ "pageErrors": []
+}

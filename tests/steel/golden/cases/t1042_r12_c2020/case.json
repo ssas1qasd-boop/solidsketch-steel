@@ -1,0 +1,65 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T1042",
+   [
+    0
+   ],
+   {
+    "aL": 600,
+    "ahdir": "x",
+    "ahr": 40,
+    "ahw": 120,
+    "anch": 528,
+    "anchors": 4,
+    "anut": 1,
+    "aup": 50,
+    "awash": 1,
+    "awith": "rods",
+    "bolt": 20,
+    "cast": 4,
+    "castd": 30,
+    "ext": 20,
+    "gm": 30,
+    "gorder": "tekla",
+    "gslope": "slope",
+    "gt": 30,
+    "gx": 100,
+    "gy": 100,
+    "side": 25,
+    "t": 20
+   }
+  ]
+ ],
+ "description": "R12 C2020: BI320-8-150-10 frame column, plate 20 x 360 x 200, 4 ROD20 L600 (a 40, b 120) hooked along the column depth, washer + nut PD40*10, grout PL30 with slopes, cast plate PL4 under it.",
+ "members": [
+  {
+   "extra": {
+    "depth": "Middle",
+    "p1": [
+     52838,
+     16785,
+     230
+    ],
+    "p2": [
+     52838,
+     16785,
+     7547.745
+    ],
+    "plane": "Middle",
+    "prof": "BI320-8-150-10",
+    "rAng": 0,
+    "rot": "Below"
+   },
+   "set": "COLUMN"
+  }
+ ],
+ "name": "t1042_r12_c2020",
+ "pageErrors": []
+}
