@@ -97,7 +97,7 @@ class C18RecordingTest {
     }
     /** Pick parts: the two parts at the given points (another pair if a tap missed), until a component of [type] is added. */
     private fun pickParts(type: String, cam: () -> Unit, pairs: List<Pair<Vec3, Vec3>>) {
-        press("Pick parts"); pause(800); cam(); pause(1200)
+        sh("input keyevent 111"); pause(600); press("Pick parts"); pause(800); cam(); pause(1200)
         val n0 = mode().comps!!.conns().count { it.type == type }
         for ((a, b) in pairs) { if (mode().comps!!.conns().count { it.type == type } > n0) break
             act.runOnUiThread { mode().catPick(mode().catK ?: type) }; pause(400); shot("pick_${type}"); tapAt(screen(a)); pause(700); tapAt(screen(b)); pause(1300) }
@@ -142,8 +142,9 @@ class C18RecordingTest {
             openCatalog("Stair treads")
             tab("Treads"); pick("tmode", "Tekla (R12): bent grating treads on bolted brackets"); field("ntr", "12"); field("rise", "156.667"); field("s0", "145.863"); field("dz", "47.43"); shot("dialog_treads")
             tab("Bolts"); shot("dialog_tread_bolts")
-            press("Pick parts"); pause(800); look(mid, Vec3(-0.05, -0.08, 1.0), 4600.0); pause(1200)
+            sh("input keyevent 111"); pause(600); press("Pick parts"); pause(800); look(mid, Vec3(-0.05, -0.08, 1.0), 4600.0); pause(1200)
             for (dy in listOf(0.0, 400.0, -400.0)) { if (mode().comps!!.conns().any { it.type == "stairtreads" }) break
+                if (compose.onAllNodes(hasText("Pick parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty()) { sh("input keyevent 111"); pause(500); press("Pick parts"); pause(800); look(mid, Vec3(-0.05, -0.08, 1.0), 4600.0); pause(800) }
                 act.runOnUiThread { mode().catPick(mode().catK ?: "stairtreads") }; pause(400); shot("pick_treads")
                 val z = 1025.9 + dy * 0.5055 + 128.0
                 tapAt(screen(Vec3(545.0, 10162.0 + dy, z))); pause(700); tapAt(screen(Vec3(1671.0, 10162.0 + dy, z))); pause(1500) }
@@ -155,8 +156,9 @@ class C18RecordingTest {
             openCatalog("Stair end plate")
             tab("Plates"); field("h", "320"); field("b", "150"); field("t", "12"); field("de", "40"); field("dw", "-32.5"); pick("end", "Start"); shot("dialog_sep_plates")
             tab("Bolts"); field("nr", "4"); field("nc", "2"); field("bp", "85"); field("bg", "70"); field("bx", "-32.9"); field("by", "38.7"); pick("bd", "M16"); pick("bside", "On the main part's far side"); field("mgrip", "6"); shot("dialog_sep_bolts")
-            press("Pick parts"); pause(800); look(Vec3(580.0, 12150.0, 1900.0), Vec3(-1.0, -0.35, 0.45), 1600.0); pause(1200)
+            sh("input keyevent 111"); pause(600); press("Pick parts"); pause(800); look(Vec3(580.0, 12150.0, 1900.0), Vec3(-1.0, -0.35, 0.45), 1600.0); pause(1200)
             for (k in 0 until 3) { if (mode().comps!!.conns().any { it.type == "Tsep" }) break
+                if (compose.onAllNodes(hasText("Pick parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty()) { sh("input keyevent 111"); pause(500); press("Pick parts"); pause(800); look(Vec3(580.0, 12150.0, 1900.0), Vec3(-1.0, -0.35, 0.45), 1600.0); pause(800) }
                 act.runOnUiThread { mode().catPick(mode().catK ?: "Tsep") }; pause(400); shot("pick_sep")
                 tapAt(screen(Vec3(530.0, 12060.0 + 20 * k, 2070.0))); pause(700); tapAt(screen(Vec3(560.0, 12235.0, 1500.0 - 100 * k))); pause(1500) }
             waitFor("the stair end plate") { mode().comps!!.conns().count { it.type == "Tsep" } == 1 }

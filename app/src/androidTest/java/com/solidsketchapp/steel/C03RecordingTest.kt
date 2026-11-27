@@ -96,7 +96,7 @@ class C03RecordingTest {
     }
     /** Pick parts: the two parts at the given points (another pair if a tap missed), until a component of [type] is added. */
     private fun pickParts(type: String, cam: () -> Unit, pairs: List<Pair<Vec3, Vec3>>) {
-        press("Pick parts"); pause(800); cam(); pause(1200)
+        sh("input keyevent 111"); pause(600); press("Pick parts"); pause(800); cam(); pause(1200)
         val n0 = mode().comps!!.conns().count { it.type == type }
         for ((a, b) in pairs) { if (mode().comps!!.conns().count { it.type == type } > n0) break
             act.runOnUiThread { mode().catPick(mode().catK ?: type) }; pause(400); shot("pick_${type}"); tapAt(screen(a)); pause(700); tapAt(screen(b)); pause(1300) }
@@ -136,8 +136,9 @@ class C03RecordingTest {
             tab("Haunch"); pick("hrule", "Tekla: length horizontal from the apex, depth plumb at the end plate"); field("len", "2000"); field("depth", "83.373"); field("hw", "8"); field("hf", "10"); field("hb", "150"); shot("dialog106_haunch")
             tab("Stiffeners"); pick("ast", "Created"); field("asl", "60"); field("ach", "30"); field("att", "10"); field("ash", "87.988"); shot("dialog106_stiffeners")
             tab("Bolts"); field("rowsAt", "50 120 260 330"); field("gauge", "80"); pick("bolt", "M20"); shot("dialog106_bolts")
-            press("Pick parts"); pause(800); look(apexP, Vec3(0.02, -1.0, 0.15), 4200.0); pause(1200)
+            sh("input keyevent 111"); pause(600); press("Pick parts"); pause(800); look(apexP, Vec3(0.02, -1.0, 0.15), 4200.0); pause(1200)
             for (dx in listOf(1500.0, 2200.0, 1000.0)) { if (mode().comps!!.conns().any { it.type == "T106" }) break
+                if (compose.onAllNodes(hasText("Pick parts") and hasClickAction()).fetchSemanticsNodes().isNotEmpty()) { sh("input keyevent 111"); pause(500); press("Pick parts"); pause(800); look(apexP, Vec3(0.02, -1.0, 0.15), 4200.0); pause(800) }
                 act.runOnUiThread { mode().catPick(mode().catK ?: "T106") }; pause(400); shot("pick_T106")
                 tapAt(screen(Vec3(46290.5 + dx, 27925.0, 8887.194 - dx * 0.22735))); pause(700); tapAt(screen(Vec3(46290.5 - dx, 27925.0, 8887.194 - dx * 0.22735))); pause(1500) }
             waitFor("the T106") { mode().comps!!.conns().count { it.type == "T106" } == 1 }
