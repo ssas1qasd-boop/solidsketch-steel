@@ -141,7 +141,7 @@ The first version of the standing rule (send 2–3 video links and wait for the 
 ### Checks
 | Check | Before (C06, 7b1ec0e) | After |
 |---|---|---|
-| Row 7 R12 parts (web rebuild, 0.1 mm boxes) | crossing gussets 0 / 52, caps 0 / 66 | 100 / 118: gussets 52 / 52, caps 48 / 66 (18 NEAR at 0.1–1.7 mm, below) |
+| Row 7 R12 parts (web rebuild, 0.1 mm boxes) | 32 / 118: crossing gussets 0 / 52 (ROUGH), caps 32 / 66 (18 NEAR, 16 ROUGH) | 100 / 118: gussets 52 / 52, caps 48 / 66 (the same 18 NEAR at 0.1–1.7 mm, below) |
 | Row 5 (the halves' plates and end plates) | 943 / 1,294 | 1,239 / 1,294 (the rest: the C06 gable nodes) |
 | App vs R12 (`R12C07Test`, 0.1 mm) | — | parts 364 / 364, bolts 416 / 416, member bodies 156 / 156 |
 | Rule B | — | 0 failures: R12 HZ6004, R12 VL crossing on line 6, SHS80*4 X at 60° (halves 330 from the crossing: at 230 the connection plate would clash with the continuous tube, also in Tekla), SHS120*5 X at 90° side 2 with 285 plates |
