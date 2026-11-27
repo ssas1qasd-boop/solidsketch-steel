@@ -1,12 +1,12 @@
-# Emulator UI run 46007965184 (08d8118)
+# Emulator UI run 46017464845 (72de6af)
 
 - data files on main: true
 - KVM: yes · runner cores: 2
 - unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 0 (376 s)
-- job time until this step: 1832 s = 30.5 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 0 (359 s)
+- job time until this step: 1771 s = 29.5 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -24,23 +24,23 @@ JUnit (unit + instrumented): 62 tests, 0 failed
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 3235 |  |
-| steel | ✓ | 12686 |  |
-| grid | ✓ | 12054 |  |
-| orbit | ✓ | 1668 |  |
-| pan | ✓ | 1667 |  |
-| zoom | ✓ | 1801 |  |
-| column | ✓ | 3391 |  |
-| properties_apply | ✓ | 10024 |  |
-| beam | ✓ | 3366 |  |
-| properties_modify | ✓ | 7678 |  |
-| catalog | ✓ | 5218 |  |
-| endplate_dialog | ✓ | 4188 |  |
-| endplate_pick | ✓ | 5950 |  |
-| cleat_dialog | ✓ | 11577 |  |
-| save_open | ✓ | 2800 |  |
-| portal_create | ✓ | 36143 |  |
-| portal_modify | ✓ | 63148 |  |
+| start | ✓ | 3062 |  |
+| steel | ✓ | 13218 |  |
+| grid | ✓ | 8785 |  |
+| orbit | ✓ | 3109 |  |
+| pan | ✓ | 1348 |  |
+| zoom | ✓ | 1620 |  |
+| column | ✓ | 4068 |  |
+| properties_apply | ✓ | 8620 |  |
+| beam | ✓ | 3351 |  |
+| properties_modify | ✓ | 8225 |  |
+| catalog | ✓ | 6674 |  |
+| endplate_dialog | ✓ | 3504 |  |
+| endplate_pick | ✓ | 5914 |  |
+| cleat_dialog | ✓ | 9246 |  |
+| save_open | ✓ | 3766 |  |
+| portal_create | ✓ | 40849 |  |
+| portal_modify | ✓ | 59497 |  |
 
 connected.log (end):
 ```
@@ -80,9 +80,9 @@ emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 2/2 completed. (0 skipped) (0 failed)
 Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795786904776.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795790814013.json
 
-BUILD SUCCESSFUL in 6m 14s
+BUILD SUCCESSFUL in 5m 58s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```
