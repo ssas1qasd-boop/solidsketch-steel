@@ -537,7 +537,25 @@ def main():
         if taken: q['scr'] = 'none'; return q, []   # the stiffeners are the first 186's; the sizes still set the flange strip (Picture 2)
         return q, stf
 
-    c05_off = {}; c05_gus = {}
+    c05_off = {}; c05_gus = {}; c05_geo = {}
+    def c05_gable(es, gid):
+        """C06 gable nodes (PARITY.md "C06"): a node whose braces are not all in the gusset's plane. Tekla's gusset is square to the brace most
+        square to the main part (gplane 'perp'), every plate turned to it; the plates' plane passes through the middle of the first brace's
+        reference line (Tekla's start of that brace = gmid before its tube end) and its plate sits pofs off its axis (both measured on R13)."""
+        import numpy as _np
+        gp = _np.asarray(byid[gid]['st']['pts3'], float); gc = gp.mean(0); X_ = gp - gc; ng = _np.linalg.eigh(X_.T @ X_)[1][:, 0]
+        geo = {e[4][0]: c05_geo[e[4][0]] for e in es if e[4][0] in c05_geo}
+        par = [k for k, (P, O, cc) in geo.items() if abs(((O - P) / _np.linalg.norm(O - P)) @ ng) < 1e-5]
+        if len(geo) != len(es) or not par or len(par) == len(es): return None
+        pi = float((geo[par[0]][2] - gc) @ ng)   # the plates' plane, from a plate whose brace lies parallel to the gusset
+        for e in es: e[2]['gplane'] = 'perp'; e[2].pop('gpos', None)
+        if min(c05_off.get(e[4][0], 0.0) for e in es) < 0.5: return None   # the first brace's plate on its axis: the plates' plane is its plane
+        lead = next(e for e in es if e[4][0] not in par); P, O, cc = geo[lead[4][0]]; d = (O - P) / _np.linalg.norm(O - P)
+        f0 = float(((P + O) / 2 - gc) @ ng) - pi; lead[2]['gmid'] = round(2 * f0 / float(d @ ng), 2)
+        nv = ng - (ng @ d) * d; nv /= _np.linalg.norm(nv); ax = P + d * float((cc - P) @ d)
+        if (gc - cc) @ nv < 0: nv = -nv
+        lead[2]['pofs'] = round(float((cc - ax) @ nv), 3)
+        return lead
     def c05_order(lst):
         """C05: Tekla centres a node's gusset on the first picked brace (its plate on its own axis); the others lie against the gusset.
         v69 takes the node's first connection as that brace, so the Ttg entries whose R12 plate is on its axis go first (stable)."""
@@ -545,11 +563,14 @@ def main():
         nodes = defaultdict(list)
         for e in lst:
             if e[0] == 'Ttg' and e[4][0] in c05_gus: nodes[c05_gus[e[4][0]]].append(e)
-        for es in nodes.values():
+        leads = set()
+        for gid, es in nodes.items():
             if min(c05_off.get(e[4][0], 0.0) for e in es) > 5:
                 for e in es: e[2]['gpos'] = 'middle'
+            ld = c05_gable(es, gid)
+            if ld is not None: leads.add(ld[4][0])
         ix = [i for i, e in enumerate(lst) if e[0] == 'Ttg']
-        tg = sorted((lst[i] for i in ix), key=lambda e: 0 if c05_off.get(e[4][0], 0.0) < 0.5 else 1)
+        tg = sorted((lst[i] for i in ix), key=lambda e: 0 if c05_off.get(e[4][0], 0.0) < 0.5 or e[4][0] in leads else 1)
         out = list(lst)
         for i, e in zip(ix, tg): out[i] = e
         return out
@@ -565,7 +586,7 @@ def main():
         e = round(sp[0] - float(s.min()), 1) if sp else 40.0; p = round(sp[-1] - sp[0], 1) if len(sp) > 1 else 60.0
         X = vc - cc; w_, vv = _np.linalg.eigh(X.T @ X); n = vv[:, 0]; u = _np.cross(a, n); g = round(float(_np.ptp(pts @ u)), 1) if len(pts) else 60.0
         out = OrderedDict(tend='end', blrule='tekla', tpos='gusset', L=L, ins=ins, e=e, p=p, g=g)
-        c05_off[cp['id']] = abs(float((cc - P) @ n))   # the plate's offset from its tube axis: 0 = the node's first brace (Tekla's pick order)
+        c05_off[cp['id']] = abs(float((cc - P) @ n)); c05_geo[cp['id']] = (P, O, cc)   # the plate's offset from its tube axis: 0 = the node's first brace (Tekla's pick order)
         # the plate's plane: v69's choices (Ttg 'plane') give the plate normal g = d x v2 with v2 = the main part's axis ('main') or Z ('vert');
         # 'auto' (v69) picks Z when the brace is more than ~73 deg off the main part's axis, else the axis
         mst = members[main]['st']; ma = _np.asarray(mst['p2'], float) - _np.asarray(mst['p1'], float); ma /= _np.linalg.norm(ma)
