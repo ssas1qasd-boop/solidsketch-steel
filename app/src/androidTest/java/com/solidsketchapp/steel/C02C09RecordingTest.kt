@@ -37,12 +37,12 @@ import kotlin.math.sqrt
 /**
  * C02 + C02h + C09, the owner's video check (docs/steel/PARITY.md "C02h", "C09"), each its own screen recording:
  *  - c02Recording: R12's eave (BI320 column, BI220 rafter at 12.8 deg). End plate (144) through its dialog with R12's settings (Picture
- *    t 20, 1 = -10, 2 = -104.385, gap 0; Bolts M20, 4 rows, 6 = 50.045, s = 70 70 80, 5 = 70, 3 = 40, Bolt length Tekla, Bolting
+ *    t 20, 1 = -10, 2 = -104.385, gap 0; Bolts M20, 4 rows, 6 = 40.045 (Tekla: from the rafter top; e 50.045 from the plate top), s = 70 70 80, 5 = 70, 3 = 40, Bolt length Tekla, Bolting
  *    direction 2; Haunch tab: not created), Pick parts (column, rafter); then the Eave haunch (C02h) through its dialog (D = depth at the column 82.91, L = haunch length
  *    2000; Parts: web t 8, flange 10 x 150), Pick parts; orbit, orthographic stills, the model saved (c02/c02_case.ss), then the
  *    haunch's dialog again: Haunch length 1500, Modify, orbit again. /sdcard/c02_rec.mp4.
  *  - c09Recording: R12's monitor post (BI150 post on the BI220 rafter). End plate (144) with R12's settings (t 12, 1 = -55.358, 2 = -60.814,
- *    gap 0; Haunch tab: Top / Bottom plate 8 x 60 x 60, chamfers 15 line, Top and bottom created; Bolts M16, 4 rows, 6 = 30.025,
+ *    gap 0; Haunch tab: Top / Bottom plate 8 x 60 x 60, chamfers 15 line, Top and bottom created; Bolts M16, 4 rows, 6 = -25.333 (Tekla: from the post end; e 30.025 from the plate top),
  *    s = 70 70 70, 5 = 90, 3 = 35, Tekla length, direction 2), Pick parts (rafter, post); orbit, stills, saved (c09/c09_case.ss), then
  *    Haunch tab Top plate b 40, Modify, orbit again. /sdcard/c09_rec.mp4.
  */
@@ -139,7 +139,7 @@ class C02C09RecordingTest {
             tab("Picture"); field("tp", "20"); field("ext", "-10"); field("extb", "-104.385"); field("gap", "0"); shot("dialog144_picture")
             // R12's eaves have no 144 haunch plates; set it, as the dialog keeps the last settings as the defaults for new components (CI 45828385900: C09 ran first)
             tab("Haunch"); pick("hpc", "Haunch plates are not created"); shot("dialog144_haunch")
-            tab("Bolts"); pick("bolt", "M20"); field("rows", "4"); field("e", "50.045"); field("pitches", "70 70 80"); field("gauge", "70"); field("side", "40")
+            tab("Bolts"); pick("bolt", "M20"); field("rows", "4"); field("e", "40.045"); field("pitches", "70 70 80"); field("gauge", "70"); field("side", "40")
             pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); pick("bdir", "Bolting direction 2"); shot("dialog144_bolts")
             pickParts("T144", cam, pairs)
             assertTrue("144 bolt length rule ${q("T144", "blrule")}", q("T144", "blrule") == "tekla")
@@ -183,7 +183,7 @@ class C02C09RecordingTest {
             tab("Picture"); field("tp", "12"); field("ext", "-55.358"); field("extb", "-60.814"); field("gap", "0"); shot("dialog144_picture")
             tab("Haunch"); field("hpt1", "8"); field("hpb1", "60"); field("hph1", "60"); field("hpt2", "8"); field("hpb2", "60"); field("hph2", "60")
             field("hc1", "15"); field("hc2", "15"); field("hc3", "15"); field("hc4", "15"); pick("hct", "Line chamfer"); pick("hpc", "Top and bottom haunch plates are created"); shot("dialog144_haunch")
-            tab("Bolts"); pick("bolt", "M16"); field("rows", "4"); field("e", "30.025"); field("pitches", "70 70 70"); field("gauge", "90"); field("side", "35")
+            tab("Bolts"); pick("bolt", "M16"); field("rows", "4"); field("e", "-25.333"); field("pitches", "70 70 70"); field("gauge", "90"); field("side", "35")
             pick("blrule", "Tekla (grip + nut + washer + 5, up to 5 mm)"); pick("bdir", "Bolting direction 2"); shot("dialog144_bolts")
             val cam = { look(Vec3(35000.0, 27925.0, 8900.0), Vec3(0.12, -1.0, 0.22), 6500.0) }
             val pairs = listOf(35700.0 to 9300.0, 35950.0 to 9450.0, 35400.0 to 9200.0, 36100.0 to 9400.0).map { (rx, pz) ->

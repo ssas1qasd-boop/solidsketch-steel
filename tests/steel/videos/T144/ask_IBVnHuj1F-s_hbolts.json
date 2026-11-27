@@ -1,0 +1,83 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "span": [
+  "18:40",
+  "19:58"
+ ],
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "This part of a Tekla Structures video shows the End plate (144) dialog, Bolts tab: a picture of the end plate with the bolts and input boxes around it.\nFocus ONLY on the HORIZONTAL bolt layout: the boxes under the picture (number of bolts across, the horizontal bolt spacing, the left and right edge distances) and the horizontal position box with its reference list (Left/Middle/Right) above the picture.\nRead at full resolution. List every change the presenter makes to these boxes (time, which box, old -> new) and their values at the end of this part.\nAlso count, in the model view, how many bolts there are across the plate (in one row) at the end of this part.\nJSON: {\"changes\": [{\"t\": \"mm:ss\", \"box\": \"...\", \"from\": \"...\", \"to\": \"...\"}], \"final\": [{\"box\": \"...\", \"value\": \"...\", \"sure\": true}], \"bolts_across_in_model\": \"...\"}\n",
+ "answer": {
+  "changes": [
+   {
+    "t": "18:51",
+    "box": "number of bolts across",
+    "from": "1",
+    "to": "2"
+   },
+   {
+    "t": "18:53",
+    "box": "horizontal bolt spacing",
+    "from": "0.00",
+    "to": "120"
+   },
+   {
+    "t": "19:10",
+    "box": "left edge distance",
+    "from": "30",
+    "to": "60"
+   },
+   {
+    "t": "19:16",
+    "box": "right edge distance",
+    "from": "30",
+    "to": "100"
+   },
+   {
+    "t": "19:22",
+    "box": "right edge distance",
+    "from": "100",
+    "to": "70"
+   },
+   {
+    "t": "19:35",
+    "box": "left edge distance",
+    "from": "60",
+    "to": "30"
+   },
+   {
+    "t": "19:39",
+    "box": "right edge distance",
+    "from": "70",
+    "to": "30"
+   }
+  ],
+  "final": [
+   {
+    "box": "horizontal position reference",
+    "value": "Middle",
+    "sure": true
+   },
+   {
+    "box": "number of bolts across",
+    "value": "2",
+    "sure": true
+   },
+   {
+    "box": "horizontal bolt spacing",
+    "value": "120",
+    "sure": true
+   },
+   {
+    "box": "left edge distance",
+    "value": "30",
+    "sure": true
+   },
+   {
+    "box": "right edge distance",
+    "value": "30",
+    "sure": true
+   }
+  ],
+  "bolts_across_in_model": "2"
+ }
+}

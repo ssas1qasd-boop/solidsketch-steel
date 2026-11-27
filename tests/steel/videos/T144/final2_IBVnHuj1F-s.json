@@ -1,0 +1,664 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "model": "gemini-3.5-flash-lite",
+ "tabs": {
+  "Plates": {
+   "span": "09:30-09:52",
+   "read": {
+    "final": [
+     {
+      "label": "End Plate / thickness",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "label": "Profile",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Folded Plate / thickness",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 1 / thickness",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "label": "Number of fitting pl. 1",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 2 / thickness",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Number of fitting pl. 2",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 3 / thickness",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Number of fitting pl. 3",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "label": "Max",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Tolerance",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "changes": [],
+    "model": []
+   }
+  },
+  "Stiffeners": {
+   "span": "12:45-13:15",
+   "read": {
+    "final": [
+     {
+      "label": "Top NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top NS check",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Top FS check",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS check",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS check",
+      "value": "checked",
+      "sure": true
+     },
+     {
+      "label": "t top NS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "t top FS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "t bottom NS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "t bottom FS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "h top NS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "h top FS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "h bottom NS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "h bottom FS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "n top NS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "n top FS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "n bottom NS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "n bottom FS",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "Pos.No top NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Pos.No top FS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Pos.No bottom NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Pos.No bottom FS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Material top NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Material top FS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Material bottom NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Material bottom FS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Name top NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Name top FS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Name bottom NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Name bottom FS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Finish top NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Finish top FS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Finish bottom NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Finish bottom FS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Stiffener placement 1",
+      "value": "selected",
+      "sure": true
+     },
+     {
+      "label": "Stiffener placement 2",
+      "value": "unselected",
+      "sure": true
+     },
+     {
+      "label": "Stiffener placement 3",
+      "value": "unselected",
+      "sure": true
+     },
+     {
+      "label": "Stiffener placement 4",
+      "value": "unselected",
+      "sure": true
+     },
+     {
+      "label": "Stiffener type selection",
+      "value": "parallel to flange",
+      "sure": true
+     },
+     {
+      "label": "Stiffener horizontal dimension 1",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Stiffener vertical dimension 1",
+      "value": "30.00",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "12:58",
+      "label": "Stiffener type selection",
+      "from": "parallel to beam slope",
+      "to": "parallel to flange"
+     }
+    ],
+    "model": []
+   }
+  },
+  "Bolts": {
+   "span": "19:38-20:00",
+   "read": {
+    "final": [
+     {
+      "label": "Bolt size",
+      "value": "20",
+      "sure": true
+     },
+     {
+      "label": "Bolt standard",
+      "value": "A325M",
+      "sure": true
+     },
+     {
+      "label": "Tolerance",
+      "value": "2.00",
+      "sure": true
+     },
+     {
+      "label": "Thread in mat",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Cut length",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "Bolt comment",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension top",
+      "value": "30",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension middle left",
+      "value": "30",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension bottom left",
+      "value": "4",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension bottom right",
+      "value": "30",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension middle right",
+      "value": "30",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension right vertical",
+      "value": "120.00",
+      "sure": true
+     },
+     {
+      "label": "Hole type",
+      "value": "Slotted",
+      "sure": true
+     },
+     {
+      "label": "Rotate slots",
+      "value": "Parallel",
+      "sure": true
+     },
+     {
+      "label": "Slot size in",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "label": "Tolerance 2",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Bolt assembly length",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Effect in modify",
+      "value": false,
+      "sure": true
+     },
+     {
+      "label": "Additional length",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Delete bolts",
+      "value": false,
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "19:42",
+      "label": "Picture dimension bottom left",
+      "from": "75",
+      "to": "4"
+     }
+    ],
+    "model": [
+     {
+      "t": "19:38",
+      "what": "Bolt edge distance error message at the bottom: Bolt edge distance of the bolt with id 02dbe36a-277a-43c4-94ad-e6e8d353813c is too small"
+     }
+    ]
+   }
+  },
+  "Haunch": {
+   "span": "23:35-24:12",
+   "read": {
+    "final": [
+     {
+      "label": "Top plate / t (thickness)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top plate / b (width)",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "Top plate / h (height)",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate / t (thickness)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate / b (width)",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate / h (height)",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Image drop-down list (Haunch/Stiffener type)",
+      "value": "Stiffeners top and bottom",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "23:45",
+      "label": "Image drop-down list (Haunch/Stiffener type)",
+      "from": "Stiffeners top and bottom",
+      "to": "None"
+     },
+     {
+      "t": "23:57",
+      "label": "Image drop-down list (Haunch/Stiffener type)",
+      "from": "None",
+      "to": "Stiffeners top and bottom"
+     }
+    ],
+    "model": [
+     {
+      "t": "23:35",
+      "what": "Component End plate (144)"
+     }
+    ]
+   }
+  },
+  "BoltsReview": {
+   "span": "24:14-24:24",
+   "read": {
+    "final": [
+     {
+      "label": "Bolt size",
+      "value": "20",
+      "sure": true
+     },
+     {
+      "label": "Bolt standard",
+      "value": "A325N",
+      "sure": true
+     },
+     {
+      "label": "Tolerance",
+      "value": "2",
+      "sure": true
+     },
+     {
+      "label": "Thread in mat",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Cut length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bolt comment",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Hole type",
+      "value": "Slotted",
+      "sure": true
+     },
+     {
+      "label": "Rotate slots",
+      "value": "Parallel",
+      "sure": true
+     },
+     {
+      "label": "Slot x",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "label": "Slot y",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "label": "Delete",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Left",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Right",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Middle x",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "label": "Middle y",
+      "value": "120.00",
+      "sure": true
+     },
+     {
+      "label": "Bolt extra length",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Cut length effect in modify",
+      "value": false,
+      "sure": true
+     }
+    ],
+    "changes": [],
+    "model": []
+   }
+  },
+  "Picture": {
+   "span": "07:25-07:45",
+   "read": {
+    "final": [
+     {
+      "label": "ignore other types",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "top clearance",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "bottom clearance",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "profile offset",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "gap",
+      "value": "0",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "07:37",
+      "label": "gap",
+      "from": "20.00",
+      "to": "0"
+     }
+    ],
+    "model": []
+   }
+  }
+ }
+}

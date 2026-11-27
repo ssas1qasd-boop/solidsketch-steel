@@ -91,4 +91,21 @@ module.exports = [
               member('BEAM', { prof: 'IPE500', p1: [0, 0, 7000], p2: [6000, 0, 7524.9] })],
     conns: [['T144', [0, 1], { gap: 0, ext: 80, extb: 80, rows: 4, e: 40, pitches: '80 422 80', scr: 'auto', sor: 'perp', sct: 'concave', sc1: 20, sc2: 15, sth1: 300, sth2: 300, sth3: 300, sth4: 300 }]],
   },
+  // Group 1 two-video test (docs/steel/PARITY.md "T144 · End plate (144): the two-video test"; tests/steel/videos/T144/VIDEO_1.txt, VIDEO_2.txt).
+  {
+    name: 't144_v1',
+    description: 'Video 1 (VLQiysAuEr4, final state 27:18): HEA360 column, IPE400 beam on its flange. Picture 1 = -80, 2 = -80, gap 0; Plates: End plate t 20, b 180, h 560, Fitting plate 1 t 12; Stiffeners created t 10 (Top / Bottom NS / FS), positions 1 = 20, 2 / 5 = 40 (Tekla: up; saved sg2 / sg5 = -40), 3 / 4 = -40; Haunch top / bottom 12 x 80 x 80, chamfers 80 line, both; Bolts M20, 5 rows, s 120, 6 = -40 (Top), 3 = 40, 4 / 5 blank (spacing = b - 2 x 40 = 100); Tekla bolt length.',
+    members: [member('COLUMN', { prof: 'HEA360', rot: 'Top', p1: [0, 0, 0], p2: [0, 0, 9000] }),
+              member('BEAM', { prof: 'IPE400', p1: [0, 0, 6000], p2: [6000, 0, 6000] })],
+    conns: [['T144', [0, 1], { tp: 20, ext: 80, extb: 80, gap: 0, epb: 180, eph: 560, shim: 12, scr: 'both', stt1: 10, stt2: 10, stt3: 10, stt4: 10, sg1: 20, sg2: -40, sg5: -40, sg3: -40, sg4: -40,
+      hpc: 'both', hct: 'line', hpt1: 12, hpb1: 80, hph1: 80, hpt2: 12, hpb2: 80, hph2: 80, hc1: 80, hc2: 80, hc3: 80, hc4: 80, bolt: 20, rows: 5, pitch: 120, pitches: '', e: 40, refV: 'Top', side: 40, cols: 2, gauge: '', blrule: 'tekla' }]],
+  },
+  {
+    name: 't144_v2',
+    description: 'Video 2 (IBVnHuj1F-s, final state 24:24): HEA400 column, HEA400 beam on its flange. Picture 1 = 0, 2 = 0, gap 0; Plates: End plate t 20, Fitting plate 1 t 20; Stiffeners created t 10, chamfers 30 x 30 line; Haunch top / bottom 10 x 75 x 75, chamfers 1-4 = 55 line, both; Bolts M20, 4 rows, s 120, 6 = 30 (Top), 2 across, 5 = 120, 3 = 30, Tekla length.',
+    members: [member('COLUMN', { prof: 'HEA400', rot: 'Top', p1: [0, 0, 0], p2: [0, 0, 7000] }),
+              member('BEAM', { prof: 'HEA400', p1: [0, 0, 5000], p2: [6000, 0, 5000] })],
+    conns: [['T144', [0, 1], { tp: 20, ext: 0, extb: 0, gap: 0, shim: 20, scr: 'both', stt1: 10, stt2: 10, stt3: 10, stt4: 10, sc1: 30, sc2: 30, sct: 'line',
+      hpc: 'both', hct: 'line', hpt1: 10, hpb1: 75, hph1: 75, hpt2: 10, hpb2: 75, hph2: 75, hc1: 55, hc2: 55, hc3: 55, hc4: 55, bolt: 20, rows: 4, pitch: 120, pitches: '', e: 30, refV: 'Top', side: 30, cols: 2, gauge: 120, blrule: 'tekla' }]],
+  },
 ];

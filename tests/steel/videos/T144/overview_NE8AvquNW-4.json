@@ -1,0 +1,71 @@
+{
+ "url": "https://www.youtube.com/watch?v=NE8AvquNW-4",
+ "models": [
+  "gemini-flash-lite-latest"
+ ],
+ "overview": {
+  "language": "English",
+  "units": "inch",
+  "tekla_version": "Tekla Structures - Educational version",
+  "members": [
+   {
+    "role": "main",
+    "profile": "W8X35",
+    "orientation": "column",
+    "slope_or_skew": "",
+    "note": "column"
+   },
+   {
+    "role": "secondary",
+    "profile": "W12X40",
+    "orientation": "beam",
+    "slope_or_skew": "",
+    "note": "beam"
+   }
+  ],
+  "connection_type": "beam to column flange",
+  "dialog_spans": [
+   {
+    "tab": "Picture",
+    "start": "01:06",
+    "end": "01:17",
+    "values_changed": "right side erection gap = 1/16 (first application) or 0"
+   },
+   {
+    "tab": "Plates",
+    "start": "01:17",
+    "end": "02:08",
+    "values_changed": "End plate: thk=3/4, width=7 7/8, height=1'-8\", pos no=1, material=A36, name=END PLATE"
+   },
+   {
+    "tab": "Stiffeners",
+    "start": "02:08",
+    "end": "03:38",
+    "values_changed": "Stiffeners top/bottom near/far side = 1/2, pos no=1, material=A36, name=STIFFENER"
+   },
+   {
+    "tab": "Haunch",
+    "start": "03:39",
+    "end": "03:52",
+    "values_changed": "top plate=0, bottom plate=0"
+   },
+   {
+    "tab": "Bolts",
+    "start": "04:04",
+    "end": "06:15",
+    "values_changed": "bolt size=3/4, standard=A325N, top/bottom dx=-2\", edge distance=2\", horizontal no=5 (deleted 5 & 6), bolt-to-bolt=4\", vertical no=2, bolt-to-bolt=4 3/8\" (deleted 6th bolt)"
+   },
+   {
+    "tab": "Picture",
+    "start": "08:27",
+    "end": "08:58",
+    "values_changed": "right side erection gap = 1/16 (second application)"
+   }
+  ],
+  "result": "End plate connection with stiffeners matching the drawing: end plate 3/4 x 7 7/8 x 1'-8\", 3/4 A325N bolts arranged in 2 vertical lines with 4 3/8\" spacing and 4\" pitch, stiffeners matching flange thickness (1/2\") on column/beam matching top and bottom near and far sides, erection gap 1/16\".",
+  "applied_times": [
+   "00:44",
+   "08:21"
+  ]
+ }
+}

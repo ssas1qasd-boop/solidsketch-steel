@@ -1,0 +1,1220 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "model": "gemini-3.6-flash",
+ "tabs": {
+  "Model": {
+   "span": "03:30-05:15",
+   "read": {
+    "final": [
+     {
+      "label": "Top extension / offset (column/main part side)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top extension / offset (beam/secondary part side)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom extension / offset (beam/secondary part side)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom gap / clearance",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "changes": [],
+    "model": [
+     {
+      "t": "04:16",
+      "what": "Beam created with Profile HEA400"
+     },
+     {
+      "t": "04:21",
+      "what": "Column Profile modified from UC254*254*73 to HEA400"
+     },
+     {
+      "t": "04:53",
+      "what": "End plate (144) connection applied between Column (main part) and Beam (secondary part)"
+     }
+    ]
+   }
+  },
+  "Picture": {
+   "span": "05:10-07:45",
+   "read": {
+    "final": [
+     {
+      "label": "Top plate extension / projection (Picture tab)",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate extension / projection (Picture tab)",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Gap between column and end plate (Picture tab)",
+      "value": "0.00",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "05:33",
+      "label": "Bottom plate extension",
+      "from": "",
+      "to": "-50"
+     },
+     {
+      "t": "05:37",
+      "label": "Top plate extension",
+      "from": "",
+      "to": "-50"
+     },
+     {
+      "t": "06:06",
+      "label": "Bottom plate extension",
+      "from": "-50.00",
+      "to": "0.00"
+     },
+     {
+      "t": "06:07",
+      "label": "Top plate extension",
+      "from": "-50.00",
+      "to": "0.00"
+     },
+     {
+      "t": "06:22",
+      "label": "Gap between column and end plate",
+      "from": "",
+      "to": "20"
+     },
+     {
+      "t": "07:38",
+      "label": "Gap between column and end plate",
+      "from": "20.00",
+      "to": "0.00"
+     }
+    ],
+    "model": [
+     {
+      "t": "05:11",
+      "what": "End plate (144) component properties dialog opened for beam-to-column connection"
+     },
+     {
+      "t": "06:36",
+      "what": "Presenter explains design considerations regarding column flange thickness (10 mm) versus end plate thickness (20 mm)"
+     }
+    ]
+   }
+  },
+  "Plates": {
+   "span": "07:40-09:52",
+   "read": {
+    "final": [
+     {
+      "label": "End Plate t (thickness)",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "label": "End Plate h (height)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "End Plate b (width)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "End Plate Pos. No (position number prefix)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "End Plate Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "End Plate Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "End Plate Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Folded Plate t",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Folded Plate Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Folded Plate Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Folded Plate Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Folded Plate Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 1 t",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 1 Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 1 Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 1 Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 1 Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Number of fitting pl. 1 (DEF=1)",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 2 t",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 2 Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 2 Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 2 Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 2 Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Number of fitting pl. 2 (DEF=1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 3 t",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 3 Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 3 Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 3 Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Fitting Plate 3 Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Number of fitting pl. 3 (DEF=1)",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "07:51",
+      "label": "End Plate t",
+      "from": "",
+      "to": "20.00"
+     },
+     {
+      "t": "08:47",
+      "label": "Fitting Plate 1 t",
+      "from": "",
+      "to": "20.00"
+     }
+    ],
+    "model": []
+   }
+  },
+  "Stiffeners": {
+   "span": "09:45-13:15",
+   "read": {
+    "final": [
+     {
+      "label": "Top NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "t (thickness)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "n",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "Top NS Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top FS Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top NS Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top FS Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top NS Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top FS Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top NS Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top FS Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom NS Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom FS Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Tolerance",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "10:07",
+      "label": "t",
+      "from": "10.00",
+      "to": "10"
+     },
+     {
+      "t": "10:07",
+      "label": "h",
+      "from": "10.00",
+      "to": "10"
+     },
+     {
+      "t": "10:07",
+      "label": "n",
+      "from": "10.00",
+      "to": "10"
+     },
+     {
+      "t": "10:39",
+      "label": "Top NS",
+      "value": "10.00",
+      "to": "0.00"
+     },
+     {
+      "t": "10:48",
+      "label": "Top NS",
+      "value": "0.00",
+      "to": "10"
+     },
+     {
+      "t": "11:20",
+      "label": "Stiffener cope/chamfer",
+      "value": "",
+      "to": "15.00"
+     },
+     {
+      "t": "11:34",
+      "label": "Stiffener cope/chamfer",
+      "value": "15.00",
+      "to": "25.00"
+     },
+     {
+      "t": "11:41",
+      "label": "Stiffener cope/chamfer",
+      "value": "25.00",
+      "to": "30.00"
+     }
+    ],
+    "model": []
+   }
+  },
+  "General": {
+   "span": "13:10-16:45",
+   "read": {
+    "final": [
+     {
+      "label": "Up direction",
+      "value": "auto",
+      "sure": true
+     },
+     {
+      "label": "Dx",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Dy",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Locked",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Class",
+      "value": "400",
+      "sure": true
+     },
+     {
+      "label": "Connection code",
+      "value": "M1_A400",
+      "sure": true
+     },
+     {
+      "label": "AutoDefaults rule group",
+      "value": "None",
+      "sure": true
+     },
+     {
+      "label": "AutoConnection rule group",
+      "value": "None",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "13:49",
+      "label": "Class",
+      "from": "99",
+      "to": "400"
+     },
+     {
+      "t": "14:18",
+      "label": "Connection code",
+      "from": "",
+      "to": "M1_A400"
+     }
+    ],
+    "model": [
+     {
+      "t": "14:02",
+      "what": "HE400"
+     }
+    ]
+   }
+  },
+  "Bolts": {
+   "span": "16:40-20:00",
+   "read": {
+    "final": [
+     {
+      "label": "Bolt size / Bolt size",
+      "value": "20",
+      "sure": true
+     },
+     {
+      "label": "Bolt standard / Bolt standard",
+      "value": "A325M",
+      "sure": true
+     },
+     {
+      "label": "Tolerance / Tolerance",
+      "value": "2.00",
+      "sure": true
+     },
+     {
+      "label": "Threaded in mat. / Threaded in material",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Cut length / Cut length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bolt comment / Bolt comment",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Hole type / Hole type",
+      "value": "Slotted",
+      "sure": true
+     },
+     {
+      "label": "Rotate slots / Rotate slots",
+      "value": "Parallel",
+      "sure": true
+     },
+     {
+      "label": "Slots in / Slots in",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "label": "Extra length / Extra length",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Top / Top",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Top / Top",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Middle / Middle",
+      "value": "Middle",
+      "sure": true
+     },
+     {
+      "label": "Middle / Middle",
+      "value": "120.00",
+      "sure": true
+     },
+     {
+      "label": "Below / Below",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Below / Below",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Middle / Middle",
+      "value": "Middle",
+      "sure": true
+     },
+     {
+      "label": "1 / 1",
+      "value": "4",
+      "sure": true
+     },
+     {
+      "label": "2 / 2",
+      "value": "70.00",
+      "sure": true
+     },
+     {
+      "label": "Delete / Delete",
+      "value": "",
+      "sure": false
+     },
+     {
+      "label": "Picture dimension top / Picture dimension top",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension bottom / Picture dimension bottom",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension horizontal gap / Picture dimension horizontal gap",
+      "value": "-20.00",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension top-right / Picture dimension top-right",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "label": "Picture dimension bottom-right / Picture dimension bottom-right",
+      "value": "1",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "17:21",
+      "label": "Bolt standard / Bolt standard",
+      "from": "Default",
+      "to": "A325NM"
+     },
+     {
+      "t": "17:23",
+      "label": "Bolt size / Bolt size",
+      "from": "Default",
+      "to": "20"
+     },
+     {
+      "t": "17:26",
+      "label": "Tolerance / Tolerance",
+      "from": "0.00",
+      "to": "2"
+     },
+     {
+      "t": "17:49",
+      "label": "Middle / Middle",
+      "from": "",
+      "to": "60"
+     },
+     {
+      "t": "18:01",
+      "label": "Middle / Middle",
+      "from": "60",
+      "to": "100"
+     },
+     {
+      "t": "18:06",
+      "label": "Middle / Middle",
+      "from": "100",
+      "to": "120"
+     },
+     {
+      "t": "18:11",
+      "label": "Top / Top",
+      "from": "",
+      "to": "30"
+     },
+     {
+      "t": "18:12",
+      "label": "Below / Below",
+      "from": "",
+      "to": "30"
+     },
+     {
+      "t": "18:29",
+      "label": "Picture dimension top-right / Picture dimension top-right",
+      "value": "1",
+      "to": ""
+     },
+     {
+      "t": "18:29",
+      "label": "Picture dimension bottom-right / Picture dimension bottom-right",
+      "value": "1",
+      "to": ""
+     },
+     {
+      "t": "18:54",
+      "label": "1 / 1",
+      "from": "",
+      "to": "2"
+     },
+     {
+      "t": "18:54",
+      "label": "2 / 2",
+      "from": "",
+      "to": "120"
+     },
+     {
+      "t": "19:11",
+      "label": "1 / 1",
+      "from": "2",
+      "to": "4"
+     },
+     {
+      "t": "19:12",
+      "label": "2 / 2",
+      "from": "120",
+      "to": "60"
+     },
+     {
+      "t": "19:18",
+      "label": "2 / 2",
+      "from": "60",
+      "to": "100"
+     },
+     {
+      "t": "19:22",
+      "label": "2 / 2",
+      "from": "100",
+      "to": "70"
+     },
+     {
+      "t": "19:35",
+      "label": "Top / Top",
+      "from": "",
+      "to": "30"
+     },
+     {
+      "t": "19:35",
+      "label": "Below / Below",
+      "from": "",
+      "to": "30"
+     },
+     {
+      "t": "19:36",
+      "label": "1 / 1",
+      "from": "4",
+      "to": "4"
+     },
+     {
+      "t": "19:36",
+      "label": "2 / 2",
+      "from": "70",
+      "to": "30"
+     },
+     {
+      "t": "19:42",
+      "label": "2 / 2",
+      "from": "30",
+      "to": "80"
+     }
+    ],
+    "model": []
+   }
+  },
+  "Haunch": {
+   "span": "19:55-24:10",
+   "read": {
+    "final": [
+     {
+      "label": "Top plate checkbox",
+      "value": true,
+      "sure": true
+     },
+     {
+      "label": "t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "b",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "h",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "Pos_No (Top plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Material (Top plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Name (Top plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Finish (Top plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom plate checkbox",
+      "value": true,
+      "sure": true
+     },
+     {
+      "label": "t (Bottom plate)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "b (Bottom plate)",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "h (Bottom plate)",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "Pos_No (Bottom plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Material (Bottom plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Name (Bottom plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Finish (Bottom plate)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "1",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "2",
+      "value": "75.00",
+      "sure": true
+     },
+     {
+      "label": "3",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "4",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "5",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "6",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "label": "7",
+      "value": "55.00",
+      "sure": true
+     },
+     {
+      "label": "8",
+      "value": "55.00",
+      "sure": true
+     },
+     {
+      "label": "9",
+      "value": "55.00",
+      "sure": true
+     },
+     {
+      "label": "10",
+      "value": "55.00",
+      "sure": true
+     }
+    ],
+    "changes": [
+     {
+      "t": "22:20",
+      "label": "t",
+      "from": "",
+      "to": "75"
+     },
+     {
+      "t": "22:27",
+      "label": "h",
+      "from": "",
+      "to": "75"
+     },
+     {
+      "t": "22:32",
+      "label": "t",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "22:49",
+      "label": "7",
+      "from": "",
+      "to": "55"
+     },
+     {
+      "t": "22:50",
+      "label": "8",
+      "from": "",
+      "to": "55"
+     },
+     {
+      "t": "22:52",
+      "label": "9",
+      "from": "",
+      "to": "55"
+     },
+     {
+      "t": "22:53",
+      "label": "10",
+      "from": "",
+      "to": "55"
+     },
+     {
+      "t": "22:57",
+      "label": "3",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "23:01",
+      "label": "4",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "23:06",
+      "label": "5",
+      "from": "",
+      "to": "10"
+     },
+     {
+      "t": "23:07",
+      "label": "6",
+      "from": "",
+      "to": "10"
+     }
+    ],
+    "model": [
+     {
+      "t": "22:13",
+      "what": "75.00 mm"
+     }
+    ]
+   }
+  },
+  "Bolts2": {
+   "span": "24:10-24:35",
+   "read": {
+    "final": [
+     {
+      "label": "Bolt size",
+      "value": "20",
+      "sure": true
+     },
+     {
+      "label": "Bolt standard",
+      "value": "A325N",
+      "sure": true
+     },
+     {
+      "label": "Tolerance",
+      "value": "2",
+      "sure": true
+     },
+     {
+      "label": "Thread in mat",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Cut length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bolt comment",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Hole type",
+      "value": "Slotted",
+      "sure": true
+     },
+     {
+      "label": "Rotate slots",
+      "value": "Parallel",
+      "sure": true
+     },
+     {
+      "label": "Slot x",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "label": "Slot y",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "label": "Top",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Middle",
+      "value": "120.00",
+      "sure": true
+     },
+     {
+      "label": "Bottom",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Left",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Right",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "label": "Top",
+      "value": "90.00",
+      "sure": true
+     },
+     {
+      "label": "Middle",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bottom",
+      "value": "90.00",
+      "sure": true
+     }
+    ],
+    "changes": [],
+    "model": []
+   }
+  },
+  "End": {
+   "span": "24:30-26:38",
+   "read": {
+    "final": [
+     {
+      "label": "Bolt size",
+      "value": "20",
+      "sure": true
+     },
+     {
+      "label": "Bolt standard",
+      "value": "A325M",
+      "sure": true
+     },
+     {
+      "label": "Tolerance",
+      "value": "2.00",
+      "sure": true
+     },
+     {
+      "label": "Thread in mat",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "label": "Cut length in mat",
+      "value": "Site",
+      "sure": true
+     },
+     {
+      "label": "Cut length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Bolt Comment",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Hole type",
+      "value": "Slotted",
+      "sure": true
+     },
+     {
+      "label": "Rotate Slots",
+      "value": "Parallel",
+      "sure": true
+     },
+     {
+      "label": "Slots in",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "label": "Extra length",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Effect in modify",
+      "value": "",
+      "sure": true
+     },
+     {
+      "label": "Additional length",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "label": "Middle 30",
+      "value": "30",
+      "sure": true
+     },
+     {
+      "label": "Middle 30",
+      "value": "30",
+      "sure": true
+     },
+     {
+      "label": "Middle 4 80",
+      "value": "80",
+      "sure": true
+     },
+     {
+      "label": "Middle 30",
+      "value": "30",
+      "sure": true
+     },
+     {
+      "label": "Middle 30",
+      "value": "30",
+      "sure": true
+     },
+     {
+      "label": "Middle 30",
+      "value": "30",
+      "sure": true
+     },
+     {
+      "label": "Middle 1 50",
+      "value": "50",
+      "sure": true
+     },
+     {
+      "label": "Middle 1 120.00",
+      "value": "120.00",
+      "sure": true
+     }
+    ],
+    "changes": [],
+    "model": []
+   }
+  }
+ }
+}

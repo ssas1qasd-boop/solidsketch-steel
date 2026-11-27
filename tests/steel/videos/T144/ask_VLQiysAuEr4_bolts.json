@@ -1,0 +1,131 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "span": [
+  "22:50",
+  "25:35"
+ ],
+ "model": "gemini-3.6-flash",
+ "prompt": "This part of a Tekla Structures video shows the End plate (144) dialog, Bolts tab. The tab has a picture of the end plate with the bolt group\nand input boxes around it. In Tekla's help the boxes are: horizontal: \"number of bolts\" (count across), \"bolt spacing\" (gauge list),\n\"edge distance\" (bolt centre to the plate's side edge), \"horizontal bolt group position\" with its reference list (Left/Middle/Right);\nvertical: \"number of bolts\" (rows), \"bolt spacing\" (pitch list), \"vertical bolt group position\" (from the top) with its reference list\n(Top/Middle/Below), \"distance from the bottom of the beam to the lowest bolt\", and \"bolts to delete\".\nRead at full resolution. For the LAST state of the tab in this part, give each box: where it sits on the picture (e.g. \"left of the plate,\ntop\"), which of the help's meanings it is, and its value exactly as shown. Also the bolt size, standard, tolerance, hole type, site/workshop,\nbolting direction, and any measurements the presenter makes in the model (with what they measure).\nAlso give, for each change the presenter makes: time, box, old -> new.\nJSON: {\"final\": [{\"position\": \"...\", \"meaning\": \"...\", \"value\": \"...\", \"sure\": true}], \"other\": [{\"label\": \"...\", \"value\": \"...\"}],\n\"changes\": [{\"t\": \"mm:ss\", \"box\": \"...\", \"from\": \"...\", \"to\": \"...\"}], \"measurements\": [{\"t\": \"mm:ss\", \"what\": \"...\", \"value\": \"...\"}]}\n",
+ "answer": {
+  "final": [
+   {
+    "position": "top left, top edge distance / vertical offset",
+    "meaning": "vertical distance from top edge of plate to first bolt",
+    "value": "40.00",
+    "sure": true
+   },
+   {
+    "position": "top left, position reference dropdown",
+    "meaning": "reference position for top vertical bolt group placement",
+    "value": "Top",
+    "sure": true
+   },
+   {
+    "position": "bottom left, bottom edge distance / offset",
+    "meaning": "vertical distance from bottom edge of plate to last bolt",
+    "value": "-40.00",
+    "sure": true
+   },
+   {
+    "position": "middle right, vertical bolt count",
+    "meaning": "number of bolt rows in vertical direction",
+    "value": "5",
+    "sure": true
+   },
+   {
+    "position": "middle right, vertical bolt spacing",
+    "meaning": "pitch / spacing between vertical bolt rows",
+    "value": "120.00",
+    "sure": true
+   }
+  ],
+  "other": [
+   {
+    "label": "Bolt size",
+    "value": "20.00"
+   },
+   {
+    "label": "Bolt standard",
+    "value": "8.8-K"
+   },
+   {
+    "label": "Tolerance",
+    "value": "2.00"
+   },
+   {
+    "label": "Thread in nut",
+    "value": "Yes"
+   },
+   {
+    "label": "Cut length",
+    "value": "100.00"
+   },
+   {
+    "label": "Workshop/Site",
+    "value": "Site"
+   }
+  ],
+  "changes": [
+   {
+    "t": "22:57",
+    "box": "Workshop/Site dropdown",
+    "from": "Workshop",
+    "to": "Site"
+   },
+   {
+    "t": "23:13",
+    "box": "Top vertical edge distance",
+    "from": "",
+    "to": "40.00"
+   },
+   {
+    "t": "23:16",
+    "box": "Bottom vertical edge distance",
+    "from": "",
+    "to": "-40.00"
+   },
+   {
+    "t": "23:22",
+    "box": "Vertical bolt count",
+    "from": "",
+    "to": "5"
+   },
+   {
+    "t": "23:25",
+    "box": "Vertical bolt spacing",
+    "from": "",
+    "to": "100.00"
+   },
+   {
+    "t": "23:27",
+    "box": "Vertical bolt spacing",
+    "from": "100.00",
+    "to": "120.00"
+   },
+   {
+    "t": "24:21",
+    "box": "Horizontal bolt count and spacing",
+    "from": "",
+    "to": "2 * 60.00"
+   },
+   {
+    "t": "24:28",
+    "box": "Horizontal bolt count and spacing",
+    "from": "2 * 60.00",
+    "to": ""
+   }
+  ],
+  "measurements": [
+   {
+    "t": "23:40",
+    "what": "distance between adjacent vertical bolt centers",
+    "value": "120.00 mm"
+   },
+   {
+    "t": "23:50",
+    "what": "vertical edge distance from plate top to first bolt center",
+    "value": "40.00 mm"
+   }
+  ]
+ }
+}

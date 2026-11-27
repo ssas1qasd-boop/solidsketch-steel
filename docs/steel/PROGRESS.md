@@ -361,3 +361,9 @@ Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, n
 - Stanchions as Tekla: welded (a 2, fit = face) to the part they stand on, foot cut on its top face, top square at the hand rail axis; 26 / 26 at 0.1 mm, 3.18 kg each (before 0 / 26). Rule B: the 22 stanchion / stringer overlaps gone; 26 hand rail / stanchion overlaps appear (R13's own; baseline proposal for the owner).
 - Web: `web/v70/c19.js`; app: `ClassicApps.weldonly` (fit), `StairsRailing.railing19`, `GenRun` (Railing S77 type Tekla); `r10_inputs.py` row 19; tests `R13C19Test`, `C19RecordingTest`, case `t19_r13_flight1_railing`, app goldens `rl_tekla_r13`, `rl_tekla_landing`.
 
+## T144 two-video test · 2026-11-28 (agent g1-t144, branch `agent/g1-t144`; for the main session's merge)
+- Videos: VLQiysAuEr4 (video 1), IBVnHuj1F-s (video 2); `tests/steel/videos/T144/`.
+- Dialog: Plates End plate b / h; Bolts 6 shown as Tekla's (from the secondary's top), 5 may be blank (= b - 2 x edge); Stiffener positions 2 / 5 in Tekla's sign (PARITY.md "T144").
+- Goldens `t144_v1`, `t144_v2` (web = app, `S7T144Test`); rule B on them: 4 + 4 findings from the videos' own values (reported, not hidden).
+- Emulator: `T144V1RecordingTest`, `T144V2RecordingTest`.
+

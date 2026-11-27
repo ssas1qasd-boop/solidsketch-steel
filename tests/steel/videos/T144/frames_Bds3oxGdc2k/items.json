@@ -1,0 +1,456 @@
+[
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 120,
+  "ts": "0:02:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "which would be the column, and the secondary part, which says maximum one, would be the beam. Let’s wait a moment for it to load, and it will appear. Here it is, good. We are going to start making the necessary modifications we want. For example,"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 140,
+  "ts": "0:02:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "I’m going to first edit the bolt part so they can be seen. I’ll set it to 325. I’ll use a half-inch bolt. Modify, and that’s it. We’ll come back here again. Although it shows the distance here, this 5mm distance is"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 160,
+  "ts": "0:02:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "from the beam edge to this plate, right ? Which is 5 mm. You can see it there. I’m going to modify it. No, I don’t want it like that. I’ll make it overhang the other way; let’s say,"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 180,
+  "ts": "0:03:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "make it -10, for example. -1 here and -10 here. I’ll apply it, and it has been modified. Okay. There is a small tolerance here that tells us there is a 1 mm gap between the plate and the column. I'm going to leave it like that ; I'm not going to change it. I think"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 200,
+  "ts": "0:03:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "it's okay. Let's change the view if I have another view here on the E axis. Let's use Ctrl + P. There we have the position. And I'm going to use the other one, the horizontal one, not the vertical one. Right, just so you can"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 220,
+  "ts": "0:03:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "see how it's going to be modified. Okay . Right, now that we have modified the dimension of the PR plate, we will go to the other section, which is plates. It says here that the plate has a thickness of 10. We can also edit the"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 240,
+  "ts": "0:04:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "base, but we have already edited it here, right? We can edit it either here or just leave it here, right? For example, if I edit and enter 200, and 200, it will change and it will turn yellow. The height should be more."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 260,
+  "ts": "0:04:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "There it is. Okay, that is where it is being modified. As you can see here, this 10 is always maintained; it is being maintained. I am going to leave it at zero. Let's see, I'll leave it like that, ready. And I will vary the"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 280,
+  "ts": "0:04:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "width. I'll set it to 180, for example. Done. There it is. Next, the material. Here we can choose the plate material. We can set it to be an A36 plate. Done. And that is how we modify it. We can also add a name, like connection plate,"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 300,
+  "ts": "0:05:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "for example. Connection plate. This is useful when you make your plate report or when you are drawing up the plans, so you can identify the type of plate you are measuring, right? You are taking. Okay. I'll leave this part as"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 320,
+  "ts": "0:05:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "is; it's not that relevant for this connection anyway. And we will move on to the next one, the stiffeners. In the stiffeners, we have this, which shows us how it will be visualized, right? We have several options: straight or diagonal. In this case, our beam"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 340,
+  "ts": "0:05:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "doesn't come in at a diagonal; it is practically perpendicular to the column . So, I'm going to leave it as 10 as well. Let's see, 10 10, and let's see if it modifies correctly. Nothing has changed, as you can see. Why hasn't it"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 360,
+  "ts": "0:06:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "changed? Because we still haven't activated it here in this panel. Here it shows us how the column looks from a plan view. Currently, it's like this, but if we change it, it should show up. Okay. Okay. There it is. It shows up well now, but it's too short, the"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 380,
+  "ts": "0:06:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "stiffeners overlap. Let's keep modifying. Let's change it again. Let's see if we put 50 here. 50 and 100, right? Let's say I'm testing measurements. Here it is, for example,"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 400,
+  "ts": "0:06:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "here it is displayed, for example, I'm going to put 150 and 200 here. And there it is. Good, that's how it's displayed. How can we give it a more exact measurement? Well, let's measure the column here. column. How much is it"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 420,
+  "ts": "0:07:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "on the inside? It's 218. We write 218 here, which would be the base, if I'm not mistaken. Let's see, um, okay. So, it's the other way around. This 218"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 440,
+  "ts": "0:07:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "corresponds to our height. We modify it . And good, it's flush now. And now we are going to modify our height. We place the measurement from here to here . What does it measure? 116.25. 125. We type it in, you can round it to 116. Exactly, but I'm going to put 116.25."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 460,
+  "ts": "0:07:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "And we modify it. And now we have our plate aligned. Sorry, it moved here. Well, we have to do the same for the others. Simply Ctrl + C and Ctrl + V. Likewise here, Ctrl + C, Ctrl + V, Ctrl"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 480,
+  "ts": "0:08:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "+ V, Ctrl + V. And we modify. And now we have our plates, our stiffeners aligned. Okay, that's how it can be seen. Done. Eh, well, here we can also see how aligned it is or if it is not"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 500,
+  "ts": "0:08:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "aligned. For example, let's change to a side view. We will select the work plane. I am going to select the other position, a position that allows me to see it in a side view. It won't let me"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 520,
+  "ts": "0:08:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "here. Let's assume this one. I'm going to use it. Ctrl + P. No, it won't let me. I'm going to redraw it again. I select view plane, model origin here."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 540,
+  "ts": "0:09:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "That's it. I'm going to select another view, which would be axis one. And here , yes, it will let me see. Good. Done. I'll enlarge this. And here we can see, right, that the stiffeners are aligned."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 560,
+  "ts": "0:09:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "And we can also see this millimeter that we had edited here at the beginning, this one that was like a tolerance that is normally used when there are these types of joints. Here if we measure it, it should measure one . There it is. It measures 1.9. Hm."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 580,
+  "ts": "0:09:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "Let's see, here. There it is. 1 mm. Good. Sorry. Then we go back to, I'll choose vertical view again, and I want to see all three views. There it is."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 600,
+  "ts": "0:10:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "Let's go back to the stiffener and continue. Select the cone so that the modifications I make are active. And now we can move on to what is the corner plate. What is a corner plate? It is basically the part where we can put a plate on top of the beam."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 620,
+  "ts": "0:10:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "Currently, it was empty. I am going to enter some measurements so you can see how it is displayed. And currently it is not seen, it is not seen, it does not look good at all. Let's see why it is not seen again. Here we verify"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 640,
+  "ts": "0:10:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "control 50. Control B, control 50, control B. We modify it and it still doesn't show up. Well, we are going to go here to the part where it shows us how you want it, and now yes, now it should be seen, but it isn't. How"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 660,
+  "ts": "0:11:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "strange. We continue modifying. It's still not visible. And let's see why it's not showing. Why is it not showing ? It could be because we already have a plate. In this case we already have it;"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 680,
+  "ts": "0:11:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "it could be that it's not visible because we already have this plate that is bolted to the column, and drawing another plate on top might cause an error, or I don't understand why it shouldn't appear. Let's see, let's go back to the general part. If I delete"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 700,
+  "ts": "0:11:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "it here, no, but that wouldn't have anything to do with it, would it? Plates, plates, plates, plates. Stiffeners, general, corner plate. It is not displayed. I don't understand, I"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 720,
+  "ts": "0:12:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "don't understand right now why it shouldn't come out. The stiffener should appear here. I'm going to look for what this error is due to, but I think it might be because, if we look at the drawing, the plate reaches the"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 740,
+  "ts": "0:12:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "edge of the beam. And here, since we already have a plate, there might be an interference, that's why. Hm. Well, then I'll try to figure out this problem and in another future video I could explain it, right? Okay. Well,"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 760,
+  "ts": "0:12:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "friends, I have already found out, right now I just wanted to clarify that I found why the corner plate part was not being displayed. Right, it's because in this case I have -10 here, which would create a plate with very, very little space, right? For example,"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 780,
+  "ts": "0:13:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "in this case, I've added, I've set it to -50 and now we'll see there will be a change, and the angle plate will be created, right? For that, I go here to the angle, and it has a thickness of 10 . And here, you would simply modify the"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 800,
+  "ts": "0:13:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "thickness to your liking. You can see how it changes. I'm going to leave it at 10 and here at 10 as well. Modify, and I'm going to make it grow a bit more. I think I could leave it at 70. 70. And here also 70. Good. And we are"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 820,
+  "ts": "0:13:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "going to go into the modifications for the angle. For example, here you have the chamfer. I would edit it if I were you, you can put a chamfer of 10, and here you see how it changes. It could be the same for the bottom part. I’m going to leave it the same. And for"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 840,
+  "ts": "0:14:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "example, if you want to make the bottom part a chamfer too, we'll leave it as a chamfer. Let's use this. There it is. I’m going to set it to 10 by 10 for everything. 10 10 and it would be modified. There it is on the bottom"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 860,
+  "ts": "0:14:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "part as well. Correct. Good. Anyway, now we will continue with the notch parts. In this case, we aren't going to use them because we don't need to, so we'll go to the bolt section. As I told you at the beginning, I had chosen this"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 880,
+  "ts": "0:14:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "bolt code 325 with a size of 16, which would be 5/8 or perhaps a 1/2 inch one. You can use that as well. I'm going to leave it as 16. Let's make the modifications. Here we have three, the distance of three bolts with 100 between each one. And if I change it to"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 900,
+  "ts": "0:15:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "four. And here I will modify, I will set it to 120. Let's see, I want to see how it looks. And there it is. It's a bit close together. I think it's correct. Good. The width, the bolt width distance here is 100, it’s 80."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 920,
+  "ts": "0:15:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "I'm going to set it to 100. And this is how it would look. And this is how our connection would turn out. Alright, I'm not going to modify anything else here because I think it’s correct, or in any case, you could leave it, right? Maybe at a distance of 25, for example."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 940,
+  "ts": "0:15:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "and there will be a change there, right ? So, I will leave it as it was a moment ago so as not to make any more changes. And this is how our connection would end up. We are going to visualize what this weld is. I'm going to double-click in the workspace and I'm"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 960,
+  "ts": "0:16:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "going to visualize the weld part. I'll set it to exact model and let's see if it changes. No, in component exactly, without weld mark. There it is. And this is how our connection would look."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 980,
+  "ts": "0:16:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "Okay. Nothing, just, well, everything is finished up to this point. If, for example, you want to save this connection, you can go here and name the connection. Connection. Um, name it 144, right? Which is one of yours, right? 144 let's say column beam, for"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 1000,
+  "ts": "0:16:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "example, click save as and it will be saved. And you click modify. and okay. And again, if you want to create this same connection, repeat it here, for example, double-click on the connection"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 1020,
+  "ts": "0:17:00",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": ", wait for it to load, click on the main part which is the column and then the beam. And it will be created because you already have one saved previously. But if I load the standard, load, I load the standard, it will be modified. Let's see, let's click on it."
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 1040,
+  "ts": "0:17:20",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": "Load standard. It should be modified. Well, this is the standard connection that came out at the beginning, right? But since we already have a saved connection, we come here to 144, click load, and the connection we already have should be displayed. You see, and"
+ },
+ {
+  "videoId": "Bds3oxGdc2k",
+  "t": 1060,
+  "ts": "0:17:40",
+  "width": 640,
+  "height": 360,
+  "source": "media",
+  "text": ""
+ },
+ {
+  "type": "summary",
+  "mode": "segment",
+  "videoId": "Bds3oxGdc2k",
+  "title": "Tekla Structures 🏗 /V022.PLACA UNIÓN (144)✨",
+  "frames": 48,
+  "every": 20,
+  "source": "media",
+  "resolution": "640x360",
+  "lowResolutionFallback": false,
+  "downloadedBytes": 14593831,
+  "proxy": "residential",
+  "variableCostUsd": 0.134171,
+  "stoppedByBudget": false,
+  "quality": "hd",
+  "hdAttempted": true,
+  "hdSkippedReason": "",
+  "videoEvent": "video-processed-hd",
+  "transcriptAvailable": true,
+  "lang": "en",
+  "markdown": "# Tekla Structures 🏗 /V022.PLACA UNIÓN (144)✨\n\n- [0:02:00](https://youtu.be/Bds3oxGdc2k?t=120) which would be the column, and the secondary part, which says maximum one, would be the beam. Let’s wait a moment for it to load, and it will appear. Here it is, good. We are going to start making the necessary modifications we want. For example, ![frame](<apify record url removed>)\n- [0:02:20](https://youtu.be/Bds3oxGdc2k?t=140) I’m going to first edit the bolt part so they can be seen. I’ll set it to 325. I’ll use a half-inch bolt. Modify, and that’s it. We’ll come back here again. Although it shows the distance here, this 5mm distance is ![frame](<apify record url removed>)\n- [0:02:40](https://youtu.be/Bds3oxGdc2k?t=160) from the beam edge to this plate, right ? Which is 5 mm. You can see it there. I’m going to modify it. No, I don’t want it like that. I’ll make it overhang the other way; let’s say, ![frame](<apify record url removed>)\n- [0:03:00](https://youtu.be/Bds3oxGdc2k?t=180) make it -10, for example. -1 here and -10 here. I’ll apply it, and it has been modified. Okay. There is a small tolerance here that tells us there is a 1 mm gap between the plate and the column. I'm going to leave it like that ; I'm not going to change it. I think ![frame](<apify record url removed>)\n- [0:03:20](https://youtu.be/Bds3oxGdc2k?t=200) it's okay. Let's change the view if I have another view here on the E axis. Let's use Ctrl + P. There we have the position. And I'm going to use the other one, the horizontal one, not the vertical one. Right, just so you can ![frame](<apify record url removed>)\n- [0:03:40](https://youtu.be/Bds3oxGdc2k?t=220) see how it's going to be modified. Okay . Right, now that we have modified the dimension of the PR plate, we will go to the other section, which is plates. It says here that the plate has a thickness of 10. We can also edit the ![frame](<apify record url removed>)\n- [0:04:00](https://youtu.be/Bds3oxGdc2k?t=240) base, but we have already edited it here, right? We can edit it either here or just leave it here, right? For example, if I edit and enter 200, and 200, it will change and it will turn yellow. The height should be more. ![frame](<apify record url removed>)\n- [0:04:20](https://youtu.be/Bds3oxGdc2k?t=260) There it is. Okay, that is where it is being modified. As you can see here, this 10 is always maintained; it is being maintained. I am going to leave it at zero. Let's see, I'll leave it like that, ready. And I will vary the ![frame](<apify record url removed>)\n- [0:04:40](https://youtu.be/Bds3oxGdc2k?t=280) width. I'll set it to 180, for example. Done. There it is. Next, the material. Here we can choose the plate material. We can set it to be an A36 plate. Done. And that is how we modify it. We can also add a name, like connection plate, ![frame](<apify record url removed>)\n- [0:05:00](https://youtu.be/Bds3oxGdc2k?t=300) for example. Connection plate. This is useful when you make your plate report or when you are drawing up the plans, so you can identify the type of plate you are measuring, right? You are taking. Okay. I'll leave this part as ![frame](<apify record url removed>)\n- [0:05:20](https://youtu.be/Bds3oxGdc2k?t=320) is; it's not that relevant for this connection anyway. And we will move on to the next one, the stiffeners. In the stiffeners, we have this, which shows us how it will be visualized, right? We have several options: straight or diagonal. In this case, our beam ![frame](<apify record url removed>)\n- [0:05:40](https://youtu.be/Bds3oxGdc2k?t=340) doesn't come in at a diagonal; it is practically perpendicular to the column . So, I'm going to leave it as 10 as well. Let's see, 10 10, and let's see if it modifies correctly. Nothing has changed, as you can see. Why hasn't it ![frame](<apify record url removed>)\n- [0:06:00](https://youtu.be/Bds3oxGdc2k?t=360) changed? Because we still haven't activated it here in this panel. Here it shows us how the column looks from a plan view. Currently, it's like this, but if we change it, it should show up. Okay. Okay. There it is. It shows up well now, but it's too short, the ![frame](<apify record url removed>)\n- [0:06:20](https://youtu.be/Bds3oxGdc2k?t=380) stiffeners overlap. Let's keep modifying. Let's change it again. Let's see if we put 50 here. 50 and 100, right? Let's say I'm testing measurements. Here it is, for example, ![frame](<apify record url removed>)\n- [0:06:40](https://youtu.be/Bds3oxGdc2k?t=400) here it is displayed, for example, I'm going to put 150 and 200 here. And there it is. Good, that's how it's displayed. How can we give it a more exact measurement? Well, let's measure the column here. column. How much is it ![frame](<apify record url removed>)\n- [0:07:00](https://youtu.be/Bds3oxGdc2k?t=420) on the inside? It's 218. We write 218 here, which would be the base, if I'm not mistaken. Let's see, um, okay. So, it's the other way around. This 218 ![frame](<apify record url removed>)\n- [0:07:20](https://youtu.be/Bds3oxGdc2k?t=440) corresponds to our height. We modify it . And good, it's flush now. And now we are going to modify our height. We place the measurement from here to here . What does it measure? 116.25. 125. We type it in, you can round it to 116. Exactly, but I'm going to put 116.25. ![frame](<apify record url removed>)\n- [0:07:40](https://youtu.be/Bds3oxGdc2k?t=460) And we modify it. And now we have our plate aligned. Sorry, it moved here. Well, we have to do the same for the others. Simply Ctrl + C and Ctrl + V. Likewise here, Ctrl + C, Ctrl + V, Ctrl ![frame](<apify record url removed>)\n- [0:08:00](https://youtu.be/Bds3oxGdc2k?t=480) + V, Ctrl + V. And we modify. And now we have our plates, our stiffeners aligned. Okay, that's how it can be seen. Done. Eh, well, here we can also see how aligned it is or if it is not ![frame](<apify record url removed>)\n- [0:08:20](https://youtu.be/Bds3oxGdc2k?t=500) aligned. For example, let's change to a side view. We will select the work plane. I am going to select the other position, a position that allows me to see it in a side view. It won't let me ![frame](<apify record url removed>)\n- [0:08:40](https://youtu.be/Bds3oxGdc2k?t=520) here. Let's assume this one. I'm going to use it. Ctrl + P. No, it won't let me. I'm going to redraw it again. I select view plane, model origin here. ![frame](<apify record url removed>)\n- [0:09:00](https://youtu.be/Bds3oxGdc2k?t=540) That's it. I'm going to select another view, which would be axis one. And here , yes, it will let me see. Good. Done. I'll enlarge this. And here we can see, right, that the stiffeners are aligned. ![frame](<apify record url removed>)\n- [0:09:20](https://youtu.be/Bds3oxGdc2k?t=560) And we can also see this millimeter that we had edited here at the beginning, this one that was like a tolerance that is normally used when there are these types of joints. Here if we measure it, it should measure one . There it is. It measures 1.9. Hm. ![frame](<apify record url removed>)\n- [0:09:40](https://youtu.be/Bds3oxGdc2k?t=580) Let's see, here. There it is. 1 mm. Good. Sorry. Then we go back to, I'll choose vertical view again, and I want to see all three views. There it is. ![frame](<apify record url removed>)\n- [0:10:00](https://youtu.be/Bds3oxGdc2k?t=600) Let's go back to the stiffener and continue. Select the cone so that the modifications I make are active. And now we can move on to what is the corner plate. What is a corner plate? It is basically the part where we can put a plate on top of the beam. ![frame](<apify record url removed>)\n- [0:10:20](https://youtu.be/Bds3oxGdc2k?t=620) Currently, it was empty. I am going to enter some measurements so you can see how it is displayed. And currently it is not seen, it is not seen, it does not look good at all. Let's see why it is not seen again. Here we verify ![frame](<apify record url removed>)\n- [0:10:40](https://youtu.be/Bds3oxGdc2k?t=640) control 50. Control B, control 50, control B. We modify it and it still doesn't show up. Well, we are going to go here to the part where it shows us how you want it, and now yes, now it should be seen, but it isn't. How ![frame](<apify record url removed>)\n- [0:11:00](https://youtu.be/Bds3oxGdc2k?t=660) strange. We continue modifying. It's still not visible. And let's see why it's not showing. Why is it not showing ? It could be because we already have a plate. In this case we already have it; ![frame](<apify record url removed>)\n- [0:11:20](https://youtu.be/Bds3oxGdc2k?t=680) it could be that it's not visible because we already have this plate that is bolted to the column, and drawing another plate on top might cause an error, or I don't understand why it shouldn't appear. Let's see, let's go back to the general part. If I delete ![frame](<apify record url removed>)\n- [0:11:40](https://youtu.be/Bds3oxGdc2k?t=700) it here, no, but that wouldn't have anything to do with it, would it? Plates, plates, plates, plates. Stiffeners, general, corner plate. It is not displayed. I don't understand, I ![frame](<apify record url removed>)\n- [0:12:00](https://youtu.be/Bds3oxGdc2k?t=720) don't understand right now why it shouldn't come out. The stiffener should appear here. I'm going to look for what this error is due to, but I think it might be because, if we look at the drawing, the plate reaches the ![frame](<apify record url removed>)\n- [0:12:20](https://youtu.be/Bds3oxGdc2k?t=740) edge of the beam. And here, since we already have a plate, there might be an interference, that's why. Hm. Well, then I'll try to figure out this problem and in another future video I could explain it, right? Okay. Well, ![frame](<apify record url removed>)\n- [0:12:40](https://youtu.be/Bds3oxGdc2k?t=760) friends, I have already found out, right now I just wanted to clarify that I found why the corner plate part was not being displayed. Right, it's because in this case I have -10 here, which would create a plate with very, very little space, right? For example, ![frame](<apify record url removed>)\n- [0:13:00](https://youtu.be/Bds3oxGdc2k?t=780) in this case, I've added, I've set it to -50 and now we'll see there will be a change, and the angle plate will be created, right? For that, I go here to the angle, and it has a thickness of 10 . And here, you would simply modify the ![frame](<apify record url removed>)\n- [0:13:20](https://youtu.be/Bds3oxGdc2k?t=800) thickness to your liking. You can see how it changes. I'm going to leave it at 10 and here at 10 as well. Modify, and I'm going to make it grow a bit more. I think I could leave it at 70. 70. And here also 70. Good. And we are ![frame](<apify record url removed>)\n- [0:13:40](https://youtu.be/Bds3oxGdc2k?t=820) going to go into the modifications for the angle. For example, here you have the chamfer. I would edit it if I were you, you can put a chamfer of 10, and here you see how it changes. It could be the same for the bottom part. I’m going to leave it the same. And for ![frame](<apify record url removed>)\n- [0:14:00](https://youtu.be/Bds3oxGdc2k?t=840) example, if you want to make the bottom part a chamfer too, we'll leave it as a chamfer. Let's use this. There it is. I’m going to set it to 10 by 10 for everything. 10 10 and it would be modified. There it is on the bottom ![frame](<apify record url removed>)\n- [0:14:20](https://youtu.be/Bds3oxGdc2k?t=860) part as well. Correct. Good. Anyway, now we will continue with the notch parts. In this case, we aren't going to use them because we don't need to, so we'll go to the bolt section. As I told you at the beginning, I had chosen this ![frame](<apify record url removed>)\n- [0:14:40](https://youtu.be/Bds3oxGdc2k?t=880) bolt code 325 with a size of 16, which would be 5/8 or perhaps a 1/2 inch one. You can use that as well. I'm going to leave it as 16. Let's make the modifications. Here we have three, the distance of three bolts with 100 between each one. And if I change it to ![frame](<apify record url removed>)\n- [0:15:00](https://youtu.be/Bds3oxGdc2k?t=900) four. And here I will modify, I will set it to 120. Let's see, I want to see how it looks. And there it is. It's a bit close together. I think it's correct. Good. The width, the bolt width distance here is 100, it’s 80. ![frame](<apify record url removed>)\n- [0:15:20](https://youtu.be/Bds3oxGdc2k?t=920) I'm going to set it to 100. And this is how it would look. And this is how our connection would turn out. Alright, I'm not going to modify anything else here because I think it’s correct, or in any case, you could leave it, right? Maybe at a distance of 25, for example. ![frame](<apify record url removed>)\n- [0:15:40](https://youtu.be/Bds3oxGdc2k?t=940) and there will be a change there, right ? So, I will leave it as it was a moment ago so as not to make any more changes. And this is how our connection would end up. We are going to visualize what this weld is. I'm going to double-click in the workspace and I'm ![frame](<apify record url removed>)\n- [0:16:00](https://youtu.be/Bds3oxGdc2k?t=960) going to visualize the weld part. I'll set it to exact model and let's see if it changes. No, in component exactly, without weld mark. There it is. And this is how our connection would look. ![frame](<apify record url removed>)\n- [0:16:20](https://youtu.be/Bds3oxGdc2k?t=980) Okay. Nothing, just, well, everything is finished up to this point. If, for example, you want to save this connection, you can go here and name the connection. Connection. Um, name it 144, right? Which is one of yours, right? 144 let's say column beam, for ![frame](<apify record url removed>)\n- [0:16:40](https://youtu.be/Bds3oxGdc2k?t=1000) example, click save as and it will be saved. And you click modify. and okay. And again, if you want to create this same connection, repeat it here, for example, double-click on the connection ![frame](<apify record url removed>)\n- [0:17:00](https://youtu.be/Bds3oxGdc2k?t=1020) , wait for it to load, click on the main part which is the column and then the beam. And it will be created because you already have one saved previously. But if I load the standard, load, I load the standard, it will be modified. Let's see, let's click on it. ![frame](<apify record url removed>)\n- [0:17:20](https://youtu.be/Bds3oxGdc2k?t=1040) Load standard. It should be modified. Well, this is the standard connection that came out at the beginning, right? But since we already have a saved connection, we come here to 144, click load, and the connection we already have should be displayed. You see, and ![frame](<apify record url removed>)\n- [0:17:40](https://youtu.be/Bds3oxGdc2k?t=1060) ![frame](<apify record url removed>)\n"
+ }
+]

@@ -1,0 +1,2259 @@
+{
+ "url": "https://www.youtube.com/watch?v=Bds3oxGdc2k",
+ "chunks": [
+  {
+   "seconds": [
+    0.0,
+    60.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "00:30",
+      "tab": "Dibujo / Picture",
+      "label": "1 / top clearance",
+      "value": "120",
+      "sure": true
+     },
+     {
+      "t": "00:30",
+      "tab": "Dibujo / Picture",
+      "label": "2 / bottom clearance",
+      "value": "120",
+      "sure": true
+     },
+     {
+      "t": "00:30",
+      "tab": "Dibujo / Picture",
+      "label": "plate thickness",
+      "value": "15,00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    60.0,
+    120.0
+   ],
+   "model": "gemini-flash-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "01:56",
+      "tab": "Dibujo (Picture)",
+      "label": "top plate projection",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "01:56",
+      "tab": "Dibujo (Picture)",
+      "label": "gap between parts",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "01:56",
+      "tab": "Dibujo (Picture)",
+      "label": "bottom plate projection",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "01:56",
+      "tab": "Dibujo (Picture)",
+      "label": "horizontal clearance",
+      "value": "0.00",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "01:13",
+      "what": "Column height dimension: 3500.00"
+     },
+     {
+      "t": "01:21",
+      "what": "Column height modified to: 4500.00"
+     },
+     {
+      "t": "01:24",
+      "what": "Second column height dimension: 3500.00"
+     },
+     {
+      "t": "01:27",
+      "what": "Second column height modified to: 4500.00"
+     }
+    ],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    120.0,
+    180.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Por defecto / By default",
+      "value": "Por defecto",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "2.00",
+      "value": "2.00",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Extender tornillo / Extend bolt",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Tolerancia / Tolerance",
+      "value": "2.00",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Rosca mat / Thread in material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Borde dist. / Edge dist.",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Longitudinal corte / Longitudinal cut",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Borde tornillo / Bolt edge",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Tipo de agujero / Hole type",
+      "value": "Est\u00e1ndar",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Tama\u00f1o perno / Bolt size",
+      "value": "M16",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Est\u00e1ndar perno / Bolt standard",
+      "value": "73.8",
+      "sure": false
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Longitud perno / Bolt length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Cortar / Cut",
+      "value": "Efecto al crear / Effect when creating",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Agujero alargado / Oversized hole",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Dimensiones del agujero alargado / Oversized hole dimensions",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Distancias / Distances (picture item 1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Distancias / Distances (picture item 2)",
+      "value": "2 80.00",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Distancias / Distances (picture item 3)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Distancias / Distances (picture item 4)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Distancias / Distances (picture item 5)",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Distancias / Distances (picture item 6)",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Distancias / Distances (picture item 7)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Distancias / Distances (picture item 8)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Tipo de colocaci\u00f3n de perno / Bolt arrangement type",
+      "value": "Imagen con pernos",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Posici\u00f3n / Position",
+      "value": "Medio / Middle",
+      "sure": true
+     },
+     {
+      "t": "02:24",
+      "tab": "Tornillos / Bolts",
+      "label": "Borde / Edge (picture)",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "02:30",
+      "what": "Modified bolt size to M20"
+     },
+     {
+      "t": "02:49",
+      "what": "Measured distance 5.00 mm between beam edge and end plate"
+     }
+    ],
+    "actions": [
+     {
+      "t": "02:30",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    180.0,
+    240.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "03:00",
+      "tab": "Dibujo / Picture",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "03:00",
+      "tab": "Dibujo / Picture",
+      "label": "1",
+      "value": "-10.00",
+      "sure": true
+     },
+     {
+      "t": "03:00",
+      "tab": "Dibujo / Picture",
+      "label": "3",
+      "value": "-10.00",
+      "sure": true
+     },
+     {
+      "t": "03:00",
+      "tab": "Dibujo / Picture",
+      "label": "4",
+      "value": "-10.00",
+      "sure": true
+     },
+     {
+      "t": "03:04",
+      "tab": "Dibujo / Picture",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "03:04",
+      "tab": "Dibujo / Picture",
+      "label": "1",
+      "value": "-10",
+      "sure": true
+     },
+     {
+      "t": "03:04",
+      "tab": "Dibujo / Picture",
+      "label": "3",
+      "value": "-10",
+      "sure": true
+     },
+     {
+      "t": "03:04",
+      "tab": "Dibujo / Picture",
+      "label": "4",
+      "value": "-10",
+      "sure": true
+     },
+     {
+      "t": "03:54",
+      "tab": "Placas / Plates",
+      "label": "Placa de uni\u00f3n / End plate",
+      "value": "",
+      "sure": false
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "03:08",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    240.0,
+    300.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "04:00",
+      "tab": "Placas / Plates",
+      "label": "Placa de uni\u00f3n / Connection plate (thickness)",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "04:00",
+      "tab": "Placas / Plates",
+      "label": "Placa de uni\u00f3n / Connection plate (width)",
+      "value": "100.00",
+      "sure": true
+     },
+     {
+      "t": "04:00",
+      "tab": "Placas / Plates",
+      "label": "Chapa plegada / Folded plate (thickness)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:00",
+      "tab": "Placas / Plates",
+      "label": "Pl. adaptaci\u00f3n 1 / Adapt plate 1 (thickness)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "04:00",
+      "tab": "Placas / Plates",
+      "label": "Pl. adaptaci\u00f3n 2 / Adapt plate 2 (thickness)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "04:14",
+      "tab": "Placas / Plates",
+      "label": "Placa de uni\u00f3n / Connection plate (width)",
+      "value": "200",
+      "sure": true
+     },
+     {
+      "t": "04:15",
+      "tab": "Placas / Plates",
+      "label": "Placa de uni\u00f3n / Connection plate (width)",
+      "value": "200",
+      "sure": true
+     },
+     {
+      "t": "04:44",
+      "tab": "Placas / Plates",
+      "label": "Placa de uni\u00f3n / Connection plate (width)",
+      "value": "180",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "04:16",
+      "what": "Modify"
+     },
+     {
+      "t": "04:24",
+      "what": "Modify"
+     },
+     {
+      "t": "04:38",
+      "what": "Modify"
+     },
+     {
+      "t": "04:46",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    300.0,
+    360.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "05:00",
+      "tab": "Placas / Plates",
+      "label": "Placa de union / Connection plate",
+      "value": "PL UNI\u00d3N",
+      "sure": true
+     },
+     {
+      "t": "05:00",
+      "tab": "Placas / Plates",
+      "label": "Chapa plegada / Folded plate",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:00",
+      "tab": "Placas / Plates",
+      "label": "N\u00famero de pl. adaptaci\u00f3n 1 (DSP-1) / No. of adaptation pl. 1 (DSP-1)",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "t": "05:00",
+      "tab": "Placas / Plates",
+      "label": "PL adaptaci\u00f3n 1 / Adaptation pl. 1",
+      "value": "PL",
+      "sure": true
+     },
+     {
+      "t": "05:00",
+      "tab": "Placas / Plates",
+      "label": "N\u00famero de pl. adaptaci\u00f3n 2 (DSP-2) / No. of adaptation pl. 2 (DSP-2)",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "t": "05:00",
+      "tab": "Placas / Plates",
+      "label": "PL adaptaci\u00f3n 2 / Adaptation pl. 2",
+      "value": "PL",
+      "sure": true
+     },
+     {
+      "t": "05:00",
+      "tab": "Placas / Plates",
+      "label": "N\u00famero de pl. adaptaci\u00f3n 3 (DSP-3) / No. of adaptation pl. 3 (DSP-3)",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "t": "05:00",
+      "tab": "Placas / Plates",
+      "label": "PL adaptaci\u00f3n 3 / Adaptation pl. 3",
+      "value": "PL",
+      "sure": true
+     },
+     {
+      "t": "05:00",
+      "tab": "Placas / Plates",
+      "label": "Tolerancia / Tolerance",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:25",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC superior / Stiffener top",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:25",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC superior / Stiffener top",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:25",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC interior / Stiffener intermediate",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:25",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC inferior / Stiffener bottom",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:25",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC inferior / Stiffener bottom",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:48",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC superior / Stiffener top",
+      "value": "10,00",
+      "sure": true
+     },
+     {
+      "t": "05:48",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC superior / Stiffener top",
+      "value": "10,00",
+      "sure": true
+     },
+     {
+      "t": "05:48",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC interior / Stiffener intermediate",
+      "value": "10,00",
+      "sure": true
+     },
+     {
+      "t": "05:48",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC inferior / Stiffener bottom",
+      "value": "10,00",
+      "sure": true
+     },
+     {
+      "t": "05:48",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "SC inferior / Stiffener bottom",
+      "value": "10,00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "05:56",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    360.0,
+    420.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "06:00",
+      "tab": "Dibujo",
+      "label": "G superior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "06:00",
+      "tab": "Dibujo",
+      "label": "G superior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "06:00",
+      "tab": "Dibujo",
+      "label": "G inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "06:00",
+      "tab": "Dibujo",
+      "label": "G inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "06:27",
+      "tab": "Rigidizadores",
+      "label": "t Superior",
+      "value": "50",
+      "sure": true
+     },
+     {
+      "t": "06:27",
+      "tab": "Rigidizadores",
+      "label": "t Superior",
+      "value": "50",
+      "sure": true
+     },
+     {
+      "t": "06:27",
+      "tab": "Rigidizadores",
+      "label": "t Inferior",
+      "value": "100",
+      "sure": true
+     },
+     {
+      "t": "06:27",
+      "tab": "Rigidizadores",
+      "label": "t Inferior",
+      "value": "100",
+      "sure": true
+     },
+     {
+      "t": "06:46",
+      "tab": "Rigidizadores",
+      "label": "h Superior",
+      "value": "150",
+      "sure": true
+     },
+     {
+      "t": "06:46",
+      "tab": "Rigidizadores",
+      "label": "h Superior",
+      "value": "150",
+      "sure": true
+     },
+     {
+      "t": "06:46",
+      "tab": "Rigidizadores",
+      "label": "h Inferior",
+      "value": "200",
+      "sure": true
+     },
+     {
+      "t": "06:46",
+      "tab": "Rigidizadores",
+      "label": "h Inferior",
+      "value": "200",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "06:13",
+      "what": "Modify"
+     },
+     {
+      "t": "06:36",
+      "what": "Modify"
+     },
+     {
+      "t": "06:52",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    420.0,
+    480.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "07:07",
+      "tab": "Rigidizadores",
+      "label": "e superior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "07:07",
+      "tab": "Rigidizadores",
+      "label": "h superior",
+      "value": "218.00",
+      "sure": true
+     },
+     {
+      "t": "07:07",
+      "tab": "Rigidizadores",
+      "label": "e superior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "07:07",
+      "tab": "Rigidizadores",
+      "label": "h superior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "07:07",
+      "tab": "Rigidizadores",
+      "label": "e inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "07:07",
+      "tab": "Rigidizadores",
+      "label": "h inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "07:07",
+      "tab": "Rigidizadores",
+      "label": "e inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "07:07",
+      "tab": "Rigidizadores",
+      "label": "h inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "07:22",
+      "tab": "Rigidizadores",
+      "label": "h superior",
+      "value": "218.00",
+      "sure": true
+     },
+     {
+      "t": "07:54",
+      "tab": "Rigidizadores",
+      "label": "h superior",
+      "value": "218.00",
+      "sure": true
+     },
+     {
+      "t": "07:55",
+      "tab": "Rigidizadores",
+      "label": "h superior",
+      "value": "116.25",
+      "sure": true
+     },
+     {
+      "t": "07:57",
+      "tab": "Rigidizadores",
+      "label": "h superior",
+      "value": "116.25",
+      "sure": true
+     },
+     {
+      "t": "07:58",
+      "tab": "Rigidizadores",
+      "label": "h superior",
+      "value": "116.25",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "07:05",
+      "what": "Measured dimension 218.00"
+     },
+     {
+      "t": "07:35",
+      "what": "Measured dimension 116.25"
+     }
+    ],
+    "actions": [
+     {
+      "t": "07:13",
+      "what": "Modify"
+     },
+     {
+      "t": "07:24",
+      "what": "Modify"
+     },
+     {
+      "t": "07:44",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    480.0,
+    540.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "08:00",
+      "tab": "Rigidizadores",
+      "label": "sup superior",
+      "value": "116.25",
+      "sure": true
+     },
+     {
+      "t": "08:00",
+      "tab": "Rigidizadores",
+      "label": "inf superior",
+      "value": "116.25",
+      "sure": true
+     },
+     {
+      "t": "08:00",
+      "tab": "Rigidizadores",
+      "label": "sup inferior",
+      "value": "116.25",
+      "sure": true
+     },
+     {
+      "t": "08:00",
+      "tab": "Rigidizadores",
+      "label": "inf inferior",
+      "value": "116.25",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "08:10",
+      "what": "Dimension 116.25, 218.00 (218.00, 0.00)"
+     },
+     {
+      "t": "08:17",
+      "what": "Dimension 218.00 (218.00, 0.00, 0.00, 0.00), 116.25 (0.00, 116.25, 0.00)"
+     }
+    ],
+    "actions": [
+     {
+      "t": "08:03",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    540.0,
+    600.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "09:00",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "IC superior / Top flange",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "09:00",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "IC superior / Top flange",
+      "value": "119.00",
+      "sure": true
+     },
+     {
+      "t": "09:00",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "IC superior / Top flange",
+      "value": "116.00",
+      "sure": true
+     },
+     {
+      "t": "09:00",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "IC inferior / Bottom flange",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "09:00",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "IC inferior / Bottom flange",
+      "value": "119.00",
+      "sure": true
+     },
+     {
+      "t": "09:00",
+      "tab": "Rigidizadores / Stiffeners",
+      "label": "IC inferior / Bottom flange",
+      "value": "116.00",
+      "sure": true
+     },
+     {
+      "t": "09:21",
+      "tab": "Dibujo / Picture",
+      "label": "1",
+      "value": "1.00",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "09:34",
+      "what": "measured dimension 1.39 mm"
+     },
+     {
+      "t": "09:44",
+      "what": "measured dimension 1.00 mm"
+     }
+    ],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    600.0,
+    660.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "10:00",
+      "tab": "Dibujo",
+      "label": "1",
+      "value": "6,00",
+      "sure": true
+     },
+     {
+      "t": "10:00",
+      "tab": "Dibujo",
+      "label": "2",
+      "value": "10,00",
+      "sure": true
+     },
+     {
+      "t": "10:00",
+      "tab": "Dibujo",
+      "label": "3",
+      "value": "3,00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    660.0,
+    720.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "11:00",
+      "tab": "Placas / Plates",
+      "label": "Placa superior / Placa superior (1)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "11:00",
+      "tab": "Placas / Plates",
+      "label": "Placa superior / Placa superior (2)",
+      "value": "100.00",
+      "sure": true
+     },
+     {
+      "t": "11:00",
+      "tab": "Placas / Plates",
+      "label": "Placa inferior / Placa inferior (3)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "11:00",
+      "tab": "Placas / Plates",
+      "label": "Placa inferior / Placa inferior (4)",
+      "value": "100.00",
+      "sure": true
+     },
+     {
+      "t": "11:06",
+      "tab": "Placas / Plates",
+      "label": "Placa superior / Placa superior (1)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "11:06",
+      "tab": "Placas / Plates",
+      "label": "Placa superior / Placa superior (2)",
+      "value": "100.00",
+      "sure": true
+     },
+     {
+      "t": "11:06",
+      "tab": "Placas / Plates",
+      "label": "Placa inferior / Placa inferior (3)",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "11:06",
+      "tab": "Placas / Plates",
+      "label": "Placa inferior / Placa inferior (4)",
+      "value": "100.00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "11:06",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    720.0,
+    780.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "12:00",
+      "tab": "Dibujo / Picture",
+      "Placa superior / Top plate": "unchecked",
+      "Placa inferior / Bottom plate": "unchecked",
+      "sure": true
+     },
+     {
+      "t": "12:00",
+      "tab": "Dibujo / Picture",
+      "Placa superior / Top plate": "checked",
+      "Placa inferior / Bottom plate": "checked",
+      "sure": true
+     },
+     {
+      "t": "12:20",
+      "tab": "Dibujo / Picture",
+      "Placa superior / Top plate": "checked",
+      "Placa inferior / Bottom plate": "checked",
+      "sure": true
+     },
+     {
+      "t": "12:40",
+      "tab": "Dibujo / Picture",
+      "Placa superior / Top plate": "checked",
+      "Placa inferior / Bottom plate": "checked",
+      "sure": true
+     },
+     {
+      "t": "12:40",
+      "tab": "Dibujo / Picture",
+      "1": "10.00",
+      "sure": true
+     },
+     {
+      "t": "12:40",
+      "tab": "Dibujo / Picture",
+      "2": "1.00",
+      "sure": true
+     },
+     {
+      "t": "12:40",
+      "tab": "Dibujo / Picture",
+      "3": "10.00",
+      "sure": true
+     },
+     {
+      "t": "12:50",
+      "tab": "Cantoner / Haunch",
+      "Dimensiones / Dimensions - Profile": "auto",
+      "Dimensiones / Dimensions - h1": "",
+      "Dimensiones / Dimensions - b1": "",
+      "Dimensiones / Dimensions - t1": "",
+      "Dimensiones / Dimensions - b2": "",
+      "Dimensiones / Dimensions - t2": "",
+      "Dimensiones / Dimensions - h2": "-10",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    780.0,
+    840.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "13:00",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "-50",
+      "sure": true
+     },
+     {
+      "t": "13:00",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:01",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "-50",
+      "sure": true
+     },
+     {
+      "t": "13:01",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:02",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "-50",
+      "sure": true
+     },
+     {
+      "t": "13:02",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:03",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "-50",
+      "sure": true
+     },
+     {
+      "t": "13:03",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:04",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "-50",
+      "sure": true
+     },
+     {
+      "t": "13:04",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:05",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "-50",
+      "sure": true
+     },
+     {
+      "t": "13:05",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:06",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "-50",
+      "sure": true
+     },
+     {
+      "t": "13:06",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:07",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "13:07",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:08",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "13:08",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:09",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "13:09",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:10",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "13:10",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:11",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "13:11",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:12",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "13:12",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:13",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "13:13",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:14",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "13:14",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:15",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "50.00",
+      "sure": true
+     },
+     {
+      "t": "13:15",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:16",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:16",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:17",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:17",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:18",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:18",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:19",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:19",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:20",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:20",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:21",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:21",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:22",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:22",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:23",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:23",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:24",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:24",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:25",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:25",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:26",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:26",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:27",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:27",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:28",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:28",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:29",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:29",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:30",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:30",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:31",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:31",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:32",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:32",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:33",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:33",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:34",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:34",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:35",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:35",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:36",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:36",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:37",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:37",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:38",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:38",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:39",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:39",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:40",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:40",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:41",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:41",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:42",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:42",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:43",
+      "tab": "Picture / Dibujo",
+      "label": "1",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:43",
+      "tab": "Picture / Dibujo",
+      "label": "2",
+      "value": "70",
+      "sure": true
+     },
+     {
+      "t": "13:44",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:44",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:45",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:45",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:46",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:46",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:47",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:47",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:48",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:48",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:49",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:49",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:50",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:50",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:51",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:51",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:52",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:52",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:53",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:53",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:54",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:54",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:55",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:55",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:56",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:56",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:57",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:57",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:58",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:58",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:59",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "13:59",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "14:00",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa superior",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "14:00",
+      "tab": "Haunch / Cantonera",
+      "label": "Placa inferior",
+      "value": "10",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "13:12",
+      "what": "Modify"
+     },
+     {
+      "t": "13:31",
+      "what": "Modify"
+     },
+     {
+      "t": "13:42",
+      "what": "Modify"
+     },
+     {
+      "t": "13:52",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    840.0,
+    900.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "14:00",
+      "tab": "Plates (Placas)",
+      "label": "Placa superior",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "14:00",
+      "tab": "Plates (Placas)",
+      "label": "Placa inferior",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "14:36",
+      "tab": "Bolts (Tornillos)",
+      "label": "Tama\u00f1o tornillo",
+      "value": "25.00",
+      "sure": true
+     },
+     {
+      "t": "14:36",
+      "tab": "Bolts (Tornillos)",
+      "label": "Tolerancia",
+      "value": "2.00",
+      "sure": true
+     },
+     {
+      "t": "14:36",
+      "tab": "Bolts (Tornillos)",
+      "label": "Rosca ext.",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "14:36",
+      "tab": "Bolts (Tornillos)",
+      "label": "Longitud corte",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "14:36",
+      "tab": "Bolts (Tornillos)",
+      "label": "Est\u00e1ndar tornillo",
+      "value": "A325N",
+      "sure": true
+     },
+     {
+      "t": "14:49",
+      "tab": "Bolts (Tornillos)",
+      "label": "Tama\u00f1o tornillo",
+      "value": "16.00",
+      "sure": true
+     },
+     {
+      "t": "14:54",
+      "tab": "Bolts (Tornillos)",
+      "label": "dx",
+      "value": "100.00",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "14:00",
+      "what": "End plate connection (144) dialog and 3D model view"
+     }
+    ],
+    "actions": [
+     {
+      "t": "14:19",
+      "what": "Modify"
+     },
+     {
+      "t": "14:52",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    900.0,
+    960.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "15:00",
+      "tab": "Dibujo / Picture",
+      "label": "Tornillos",
+      "value": "4",
+      "sure": true
+     },
+     {
+      "t": "15:00",
+      "tab": "Dibujo / Picture",
+      "label": "1",
+      "value": "120",
+      "sure": true
+     },
+     {
+      "t": "15:04",
+      "tab": "Dibujo / Picture",
+      "label": "1",
+      "value": "120",
+      "sure": true
+     },
+     {
+      "t": "15:20",
+      "tab": "Dibujo / Picture",
+      "label": "Distancia de ancho de los tornillos",
+      "value": "100",
+      "sure": true
+     },
+     {
+      "t": "15:22",
+      "tab": "Dibujo / Picture",
+      "label": "Distancia de ancho de los tornillos",
+      "value": "100",
+      "sure": true
+     },
+     {
+      "t": "15:35",
+      "tab": "Dibujo / Picture",
+      "label": "2",
+      "value": "25",
+      "sure": true
+     },
+     {
+      "t": "15:43",
+      "tab": "Dibujo / Picture",
+      "label": "2",
+      "value": "7.27",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "15:12",
+      "what": "Model view update after modify"
+     }
+    ],
+    "actions": [
+     {
+      "t": "15:08",
+      "what": "Modify"
+     },
+     {
+      "t": "15:23",
+      "what": "Modify"
+     },
+     {
+      "t": "15:38",
+      "what": "Modify"
+     },
+     {
+      "t": "15:45",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    960.0,
+    1020.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": [
+    {
+     "fields": [
+      {
+       "t": "16:26",
+       "tab": "Picture",
+       "label": "1",
+       "value": "75.00",
+       "sure": true
+      },
+      {
+       "t": "16:26",
+       "tab": "Picture",
+       "label": "2",
+       "value": "75.00",
+       "sure": true
+      },
+      {
+       "t": "16:26",
+       "tab": "Picture",
+       "label": "3",
+       "value": "1.00",
+       "sure": true
+      }
+     ],
+     "model": [],
+     "actions": []
+    }
+   ]
+  }
+ ]
+}

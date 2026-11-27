@@ -22,7 +22,7 @@ rm -f "$OUT/.stop"
 REC=$!
 
 START=$(date +%s)
-./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.notClass=com.solidsketchapp.steel.C04RecordingTest,com.solidsketchapp.steel.C14RecordingTest,com.solidsketchapp.steel.C02C09RecordingTest,com.solidsketchapp.steel.C13RecordingTest,com.solidsketchapp.steel.C20RecordingTest,com.solidsketchapp.steel.C05RecordingTest,com.solidsketchapp.steel.C06RecordingTest,com.solidsketchapp.steel.C07RecordingTest,com.solidsketchapp.steel.C01RecordingTest,com.solidsketchapp.steel.C18RecordingTest,com.solidsketchapp.steel.C19RecordingTest,com.solidsketchapp.steel.C03RecordingTest,com.solidsketchapp.steel.C17RecordingTest,com.solidsketchapp.steel.X02RecordingTest,com.solidsketchapp.steel.C08RecordingTest --stacktrace > "$OUT/connected.log" 2>&1
+./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.notClass=com.solidsketchapp.steel.C04RecordingTest,com.solidsketchapp.steel.C14RecordingTest,com.solidsketchapp.steel.C02C09RecordingTest,com.solidsketchapp.steel.C13RecordingTest,com.solidsketchapp.steel.C20RecordingTest,com.solidsketchapp.steel.C05RecordingTest,com.solidsketchapp.steel.C06RecordingTest,com.solidsketchapp.steel.C07RecordingTest,com.solidsketchapp.steel.C01RecordingTest,com.solidsketchapp.steel.C18RecordingTest,com.solidsketchapp.steel.C19RecordingTest,com.solidsketchapp.steel.C03RecordingTest,com.solidsketchapp.steel.C17RecordingTest,com.solidsketchapp.steel.X02RecordingTest,com.solidsketchapp.steel.C08RecordingTest,com.solidsketchapp.steel.T144V1RecordingTest,com.solidsketchapp.steel.T144V2RecordingTest --stacktrace > "$OUT/connected.log" 2>&1
 RC=$?
 echo "$(( $(date +%s) - START ))" > "$OUT/connected_seconds.txt"
 echo "$RC" > "$OUT/connected_rc.txt"
@@ -35,12 +35,12 @@ for f in $(adb shell ls /sdcard/ | tr -d '\r' | grep '^ci_rec_.*\.mp4$'); do adb
 A=app/build/outputs/connected_android_test_additional_output; R1="$OUT/pass1"; mkdir -p "$R1"
 cp -r "$A" "$R1/additional" 2>/dev/null || true; cp -r app/build/reports/androidTests "$R1/reports" 2>/dev/null || true; cp -r app/build/outputs/androidTest-results "$R1/results" 2>/dev/null || true
 # The connection being delivered now (C04 and C14 recordings were delivered with their own runs; set REC_CLASSES to run them again)
-REC_CLASSES="${REC_CLASSES:-C19RecordingTest C18RecordingTest}"
+REC_CLASSES="${REC_CLASSES:-T144V1RecordingTest T144V2RecordingTest C02C09RecordingTest C13RecordingTest}"
 for CLS in $REC_CLASSES; do
-  adb shell rm -f /sdcard/c02_rec.mp4 /sdcard/c09_rec.mp4 /sdcard/c04_rec.mp4 /sdcard/c14_rec.mp4 /sdcard/c13_rec.mp4 /sdcard/c20_rec.mp4 /sdcard/c05_rec.mp4 /sdcard/c06_rec.mp4 /sdcard/c07_rec.mp4 /sdcard/c01_rec.mp4 /sdcard/c18_rec.mp4 /sdcard/c19_rec.mp4 /sdcard/c03_rec.mp4 /sdcard/c17_rec.mp4 /sdcard/x02_rec.mp4 /sdcard/c08_rec.mp4 || true
+  adb shell rm -f /sdcard/c02_rec.mp4 /sdcard/c09_rec.mp4 /sdcard/c04_rec.mp4 /sdcard/c14_rec.mp4 /sdcard/c13_rec.mp4 /sdcard/c20_rec.mp4 /sdcard/c05_rec.mp4 /sdcard/c06_rec.mp4 /sdcard/c07_rec.mp4 /sdcard/c01_rec.mp4 /sdcard/c18_rec.mp4 /sdcard/c19_rec.mp4 /sdcard/c03_rec.mp4 /sdcard/c17_rec.mp4 /sdcard/x02_rec.mp4 /sdcard/c08_rec.mp4 /sdcard/t144v1_rec.mp4 /sdcard/t144v2_rec.mp4 || true
   ./gradlew --no-daemon :app:connectedDebugAndroidTest -Pabis=x86_64 -PskipUiGolden -Pandroid.testInstrumentationRunnerArguments.class=com.solidsketchapp.steel.$CLS --stacktrace > "$OUT/${CLS}.log" 2>&1
   echo $? > "$OUT/${CLS}_rc.txt"
-  for v in c02 c09 c04 c14 c13 c20 c05 c06 c07 c01 c18 c19 c03 c17 x02 c08; do adb pull /sdcard/${v}_rec.mp4 "$OUT/$(echo $v | tr a-z A-Z)_recording.mp4" 2>/dev/null || true; done
+  for v in c02 c09 c04 c14 c13 c20 c05 c06 c07 c01 c18 c19 c03 c17 x02 c08 t144v1 t144v2; do adb pull /sdcard/${v}_rec.mp4 "$OUT/$(echo $v | tr a-z A-Z)_recording.mp4" 2>/dev/null || true; done
   mkdir -p "$R1/${CLS}_additional"; cp -r "$A/." "$R1/${CLS}_additional/" 2>/dev/null || true
 done
 for CLS in $REC_CLASSES; do cp -rn "$R1/${CLS}_additional/." "$A/" 2>/dev/null || true; done

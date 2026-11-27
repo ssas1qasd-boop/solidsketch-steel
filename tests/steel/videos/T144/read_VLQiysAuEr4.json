@@ -1,0 +1,3875 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "chunks": [
+  {
+   "seconds": [
+    90.0,
+    150.0
+   ],
+   "model": "gemini-flash-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "02:23",
+      "tab": "Picture",
+      "label": "Save / Load",
+      "value": "standard",
+      "sure": true
+     },
+     {
+      "t": "02:23",
+      "tab": "Picture",
+      "label": "top extension",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "02:23",
+      "tab": "Picture",
+      "label": "bottom extension",
+      "value": "",
+      "sure": false
+     }
+    ],
+    "model": [
+     {
+      "t": "01:44",
+      "what": "Right-click context menu: Create view > 3D view of component"
+     },
+     {
+      "t": "01:58",
+      "what": "Right-click context menu: Create view > Default views of component"
+     },
+     {
+      "t": "02:02",
+      "what": "Personal views created: Component basic view, Component end view, Component front view, Component perspective view, Component top view"
+     },
+     {
+      "t": "02:22",
+      "what": "Double click on End plate (144) component opens component dialog"
+     },
+     {
+      "t": "02:28",
+      "what": "Tooltip displayed: Select components"
+     }
+    ],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    150.0,
+    210.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "02:43",
+      "tab": "Picture",
+      "label": "ignore other types",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:43",
+      "tab": "Picture",
+      "label": "1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:43",
+      "tab": "Picture",
+      "label": "2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "02:43",
+      "tab": "Picture",
+      "label": "",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "03:04",
+      "tab": "Picture",
+      "label": "",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "03:10",
+      "tab": "Picture",
+      "label": "",
+      "value": "0",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "02:35",
+      "what": "180.00 dimension"
+     },
+     {
+      "t": "02:43",
+      "what": "Tekla Structures End plate (144) dialog opened on Picture tab"
+     },
+     {
+      "t": "03:04",
+      "what": "Component modified with 10.00 gap"
+     }
+    ],
+    "actions": [
+     {
+      "t": "03:03",
+      "what": "Modify"
+     },
+     {
+      "t": "03:11",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    210.0,
+    270.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "03:30",
+      "tab": "Picture",
+      "label": "ignore other types",
+      "value": "ignore other types",
+      "sure": true
+     },
+     {
+      "t": "03:40",
+      "tab": "Picture",
+      "label": "1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "03:40",
+      "tab": "Picture",
+      "label": "2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "03:41",
+      "tab": "Picture",
+      "label": "1",
+      "value": "-40",
+      "sure": true
+     },
+     {
+      "t": "03:41",
+      "tab": "Picture",
+      "label": "2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "03:55",
+      "tab": "Picture",
+      "label": "1",
+      "value": "-80",
+      "sure": true
+     },
+     {
+      "t": "03:59",
+      "tab": "Picture",
+      "label": "2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:00",
+      "tab": "Picture",
+      "label": "2",
+      "value": "80",
+      "sure": true
+     },
+     {
+      "t": "04:06",
+      "tab": "Picture",
+      "label": "2",
+      "value": "-80",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "03:42",
+      "what": "Modify"
+     },
+     {
+      "t": "03:57",
+      "what": "Modify"
+     },
+     {
+      "t": "04:02",
+      "what": "Modify"
+     },
+     {
+      "t": "04:07",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    270.0,
+    330.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "04:36",
+      "tab": "Picture",
+      "label": "End Plate 1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:36",
+      "tab": "Picture",
+      "label": "End Plate 2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:36",
+      "tab": "Picture",
+      "label": "End Plate 3",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:36",
+      "tab": "Picture",
+      "label": "Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:36",
+      "tab": "Picture",
+      "label": "Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:36",
+      "tab": "Picture",
+      "label": "Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:36",
+      "tab": "Picture",
+      "label": "Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:37",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "04:38",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "04:42",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "8.00",
+      "sure": true
+     },
+     {
+      "t": "04:49",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20",
+      "sure": true
+     },
+     {
+      "t": "05:13",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "05:13",
+      "tab": "Picture",
+      "label": "End Plate 1",
+      "value": "0",
+      "sure": true
+     },
+     {
+      "t": "05:13",
+      "tab": "Picture",
+      "label": "End Plate 2",
+      "value": "0",
+      "sure": true
+     },
+     {
+      "t": "05:13",
+      "tab": "Picture",
+      "label": "End Plate 3",
+      "value": "180",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "04:31",
+      "what": "3D view of steel connection with end plate and bolts"
+     },
+     {
+      "t": "05:05",
+      "what": "Switching to Component end view"
+     }
+    ],
+    "actions": [
+     {
+      "t": "04:39",
+      "what": "Modify"
+     },
+     {
+      "t": "04:45",
+      "what": "Modify"
+     },
+     {
+      "t": "04:50",
+      "what": "Modify"
+     },
+     {
+      "t": "05:28",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    330.0,
+    390.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "End Plate h",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "End Plate h2",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "End Plate b",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Seat",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Seat Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Seat Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Seat Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Seat Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Number of Fitting plt 1 (DST=1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 1 t",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 1 d",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Number of Fitting plt 2 (DST=1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 2 t",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 3",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Number of Fitting plt 3 (DST=1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 3 t",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:30",
+      "tab": "Plates",
+      "label": "Tolerance",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "05:48",
+      "tab": "Plates",
+      "label": "End Plate h2",
+      "value": "160",
+      "sure": true
+     },
+     {
+      "t": "05:59",
+      "tab": "Plates",
+      "label": "Seat",
+      "value": "20",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "05:30",
+      "what": "Tekla Structures model showing column-beam end plate connection with bolts and component symbol (nd plate 144)"
+     }
+    ],
+    "actions": [
+     {
+      "t": "05:48",
+      "what": "Modify"
+     },
+     {
+      "t": "06:00",
+      "what": "Modify"
+     },
+     {
+      "t": "06:24",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    390.0,
+    450.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "End plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "Exceed Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "Exceded Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "Seat",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 1",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "Number of Fitting plt. 1 (DEF=1)",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "Number of Fitting plt. 2 (DEF=1)",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 3",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "Number of Fitting plt. 3 (DEF=1)",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "t": "06:30",
+      "tab": "Picture",
+      "label": "300.00",
+      "value": "300.00",
+      "sure": true
+     },
+     {
+      "t": "06:33",
+      "tab": "Picture",
+      "label": "Exceed Plate",
+      "value": "500.00",
+      "sure": true
+     },
+     {
+      "t": "06:33",
+      "tab": "Picture",
+      "label": "Exceded Plate",
+      "value": "500.00",
+      "sure": true
+     },
+     {
+      "t": "06:35",
+      "tab": "Picture",
+      "label": "Exceed Plate",
+      "value": "12",
+      "sure": true
+     },
+     {
+      "t": "06:35",
+      "tab": "Picture",
+      "label": "Exceded Plate",
+      "value": "12",
+      "sure": true
+     },
+     {
+      "t": "06:42",
+      "tab": "Picture",
+      "label": "300.00",
+      "value": "400",
+      "sure": true
+     },
+     {
+      "t": "06:58",
+      "tab": "Picture",
+      "label": "Exceed Plate",
+      "value": "12",
+      "sure": true
+     },
+     {
+      "t": "06:58",
+      "tab": "Picture",
+      "label": "Exceded Plate",
+      "value": "12",
+      "sure": true
+     },
+     {
+      "t": "07:18",
+      "tab": "Picture",
+      "label": "300.00",
+      "value": "200",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "06:36",
+      "what": "Modify"
+     },
+     {
+      "t": "06:45",
+      "what": "Modify"
+     },
+     {
+      "t": "06:58",
+      "what": "Modify"
+     },
+     {
+      "t": "07:21",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    450.0,
+    510.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "07:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "t": "07:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "07:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "07:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "580.00",
+      "sure": true
+     },
+     {
+      "t": "07:30",
+      "tab": "Picture",
+      "label": "Folded Plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "07:30",
+      "tab": "Picture",
+      "label": "Seat",
+      "value": "15.00",
+      "sure": true
+     },
+     {
+      "t": "07:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 1",
+      "value": "15.00",
+      "sure": true
+     },
+     {
+      "t": "07:54",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "07:54",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "07:54",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "07:54",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "580.00",
+      "sure": true
+     },
+     {
+      "t": "07:54",
+      "tab": "Picture",
+      "label": "Folded Plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "07:54",
+      "tab": "Picture",
+      "label": "Seat",
+      "value": "15.00",
+      "sure": true
+     },
+     {
+      "t": "07:54",
+      "tab": "Picture",
+      "label": "Fitting Plate 1",
+      "value": "15.00",
+      "sure": true
+     },
+     {
+      "t": "07:57",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "07:57",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "200.00",
+      "sure": true
+     },
+     {
+      "t": "07:57",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "07:57",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "600.00",
+      "sure": true
+     },
+     {
+      "t": "08:08",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "08:08",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "200.00",
+      "sure": true
+     },
+     {
+      "t": "08:08",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "08:08",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "600.00",
+      "sure": true
+     },
+     {
+      "t": "08:24",
+      "tab": "Picture",
+      "label": "Folded Plate",
+      "value": "0.00",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "07:37",
+      "what": "Measured distance: 201.00"
+     },
+     {
+      "t": "07:43",
+      "what": "Measured distance: 200"
+     },
+     {
+      "t": "08:12",
+      "what": "Component modified"
+     },
+     {
+      "t": "08:27",
+      "what": "Component modified (folded plate removed)"
+     }
+    ],
+    "actions": [
+     {
+      "t": "08:11",
+      "what": "Modify"
+     },
+     {
+      "t": "08:26",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    510.0,
+    570.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "08:30",
+      "tab": "Plates",
+      "label": "End Plate",
+      "value": "20.00 0.00 180.00 350.00",
+      "sure": true
+     },
+     {
+      "t": "08:30",
+      "tab": "Plates",
+      "label": "Faceted Plate",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "08:30",
+      "tab": "Plates",
+      "label": "Seat",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "08:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "08:30",
+      "tab": "Plates",
+      "label": "Number of fitting pl. 1 (DST = 1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "08:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "08:30",
+      "tab": "Plates",
+      "label": "Number of fitting pl. 2 (DST = 1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "08:30",
+      "tab": "Plates",
+      "label": "Fitting Plate 3",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "08:30",
+      "tab": "Plates",
+      "label": "Number of fitting pl. 3 (DST = 1)",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    570.0,
+    630.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "150.00",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Seat",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Number of Fitting plt 1 (DST = 1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Number of Fitting plt 2 (DST = 1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 3",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Number of Fitting plt 3 (DST = 1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Material",
+      "value": "St.52",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Name",
+      "value": "Plate",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "tab": "Picture",
+      "label": "Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:34",
+      "tab": "Picture",
+      "label": "Name",
+      "value": "Plate",
+      "sure": true
+     },
+     {
+      "t": "09:41",
+      "tab": "Picture",
+      "label": "Pos. No",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:43",
+      "tab": "Picture",
+      "label": "Material",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:44",
+      "tab": "Picture",
+      "label": "Name",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "09:45",
+      "tab": "Picture",
+      "label": "Finish",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "10:19",
+      "actions": [
+       {
+        "t": "10:19",
+        "what": "Modify"
+       }
+      ]
+     }
+    ],
+    "model": [
+     {
+      "t": "09:30",
+      "what": "Tekla Structures End plate (144) dialog and model view"
+     }
+    ],
+    "actions": [
+     {
+      "t": "10:19",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    630.0,
+    690.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Gusset plate",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "h",
+      "value": "560.00",
+      "sure": true
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "b",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Stiffener",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Notch",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 1",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Number of fitting pl. 1 (DSTV)",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 2",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Number of fitting pl. 2 (DSTV)",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 3",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Number of fitting pl. 3 (DSTV)",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Pos. No",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Material",
+      "value": "St 52",
+      "sure": true
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Name",
+      "value": "Plate",
+      "sure": true
+     },
+     {
+      "t": "10:30",
+      "tab": "Picture",
+      "label": "Finish",
+      "value": "",
+      "sure": false
+     }
+    ],
+    "model": [
+     {
+      "t": "10:31",
+      "what": "User navigates in Tekla Structures model viewport"
+     },
+     {
+      "t": "11:09",
+      "what": "Clash Check Manager window lists: 1 clash, COLUMN - SPACER PLATE"
+     }
+    ],
+    "actions": [
+     {
+      "t": "10:31",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    690.0,
+    750.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Stiffened plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Notch",
+      "value": "50.00, 180.00, 180.00",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "S\u00e9at",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 1",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Number of filling pl. 1 (EDF) = 1",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 2",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Number of filling pl. 2 (EDF) = 1",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 3",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Number of filling pl. 3 (EDF) = 1",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Pos. No",
+      "value": "P / 1",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Material",
+      "value": "St 52",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Name",
+      "value": "Plate",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Finish",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "Tolerance",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "1",
+      "value": "2",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "2",
+      "value": "1",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "3",
+      "value": "3",
+      "sure": true
+     },
+     {
+      "t": "11:30",
+      "tab": "Picture",
+      "label": "4",
+      "value": "4",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "11:45",
+      "what": "Beam component selected"
+     }
+    ],
+    "actions": [
+     {
+      "t": "11:36",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    750.0,
+    810.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "12:30",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Top NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "12:30",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Top FS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "12:30",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Bottom NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "12:30",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Bottom PS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "12:36",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Top NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "12:43",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Top NS",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "12:47",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Top NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "12:52",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Top FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "12:58",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Bottom NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:06",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Bottom PS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:19",
+      "tab": "Select Material",
+      "label": "Selected grade",
+      "value": "St-52",
+      "sure": true
+     },
+     {
+      "t": "13:24",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Material Top NS",
+      "value": "St-52",
+      "sure": true
+     },
+     {
+      "t": "13:25",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Material Top FS",
+      "value": "St-52",
+      "sure": true
+     },
+     {
+      "t": "13:26",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Material Bottom NS",
+      "value": "St-52",
+      "sure": true
+     },
+     {
+      "t": "13:27",
+      "tab": "Stiffeners / Stiffeners",
+      "label": "Material Bottom PS",
+      "value": "St-52",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "12:30",
+      "what": "Tekla Structures model showing steel connection with end plate and stiffeners."
+     },
+     {
+      "t": "13:16",
+      "what": "Select Material dialog open"
+     }
+    ],
+    "actions": [
+     {
+      "t": "12:37",
+      "what": "Modify"
+     },
+     {
+      "t": "12:44",
+      "what": "Modify"
+     },
+     {
+      "t": "12:48",
+      "what": "Modify"
+     },
+     {
+      "t": "13:01",
+      "what": "Modify"
+     },
+     {
+      "t": "13:08",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    810.0,
+    870.0
+   ],
+   "model": "gemini-flash-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "13:30",
+      "tab": "Stiffeners",
+      "label": "Top NS t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:30",
+      "tab": "Stiffeners",
+      "label": "Top FS t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:30",
+      "tab": "Stiffeners",
+      "label": "Bottom NS t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:30",
+      "tab": "Stiffeners",
+      "label": "Bottom FS t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "13:30",
+      "tab": "Stiffeners",
+      "label": "Top NS Material",
+      "value": "St 52",
+      "sure": true
+     },
+     {
+      "t": "13:30",
+      "tab": "Stiffeners",
+      "label": "Top FS Material",
+      "value": "St 52",
+      "sure": true
+     },
+     {
+      "t": "13:30",
+      "tab": "Stiffeners",
+      "label": "Bottom NS Material",
+      "value": "St 52",
+      "sure": true
+     },
+     {
+      "t": "13:30",
+      "tab": "Stiffeners",
+      "label": "Bottom FS Material",
+      "value": "St 52",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "14:11",
+      "what": "Column stiffeners disappear after modifying component with stiffener type set to none"
+     },
+     {
+      "t": "14:19",
+      "what": "Column stiffeners reappear after restoring stiffener option"
+     }
+    ],
+    "actions": [
+     {
+      "t": "13:48",
+      "what": "Modify"
+     },
+     {
+      "t": "14:10",
+      "what": "Modify"
+     },
+     {
+      "t": "14:19",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    870.0,
+    930.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "14:30",
+      "tab": "Stiffeners",
+      "label": "Top NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "14:30",
+      "tab": "Stiffeners",
+      "label": "Top FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "14:30",
+      "tab": "Stiffeners",
+      "label": "Bottom NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "14:30",
+      "tab": "Stiffeners",
+      "label": "Bottom FS",
+      "value": "10.00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "14:54",
+      "what": "Modify"
+     },
+     {
+      "t": "15:07",
+      "what": "Modify"
+     },
+     {
+      "t": "15:12",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    930.0,
+    990.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "15:30",
+      "tab": "Stiffeners",
+      "label": "Top NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "15:30",
+      "tab": "Stiffeners",
+      "label": "Top FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "15:30",
+      "tab": "Stiffeners",
+      "label": "Bottom NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "15:30",
+      "tab": "Stiffeners",
+      "label": "Bottom PS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "15:52",
+      "tab": "Stiffeners",
+      "label": "Stiffener width clearance",
+      "value": "20",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "15:52",
+      "what": "User enters 20 for stiffener width clearance"
+     },
+     {
+      "t": "15:54",
+      "what": "User clicks Modify"
+     }
+    ],
+    "actions": [
+     {
+      "t": "15:54",
+      "what": "Modify"
+     },
+     {
+      "t": "16:22",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    990.0,
+    1050.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "16:30",
+      "tab": "Stiffeners",
+      "label": "Top NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "16:30",
+      "tab": "Stiffeners",
+      "label": "Top FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "16:30",
+      "tab": "Stiffeners",
+      "label": "Bottom NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "16:30",
+      "tab": "Stiffeners",
+      "label": "Bottom FS",
+      "value": "10.00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    1050.0,
+    1110.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "17:38",
+      "tab": "Stiffeners",
+      "label": "Top NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "17:38",
+      "tab": "Stiffeners",
+      "label": "Top FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "17:38",
+      "tab": "Stiffeners",
+      "label": "Bottom NS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "17:38",
+      "tab": "Stiffeners",
+      "label": "Bottom FS",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "17:39",
+      "tab": "Stiffeners",
+      "label": "Top NS width",
+      "value": "300",
+      "sure": true
+     },
+     {
+      "t": "17:40",
+      "tab": "Stiffeners",
+      "label": "Top NS width",
+      "value": "300",
+      "sure": true
+     },
+     {
+      "t": "17:46",
+      "tab": "Stiffeners",
+      "label": "Top FS width",
+      "value": "300",
+      "sure": true
+     },
+     {
+      "t": "18:18",
+      "tab": "Haunch",
+      "label": "Top plate thickness",
+      "value": "12.00",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "17:39",
+      "what": "Stiffener modified"
+     }
+    ],
+    "actions": [
+     {
+      "t": "17:41",
+      "what": "Modify"
+     },
+     {
+      "t": "17:54",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    1110.0,
+    1170.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "18:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "18:30",
+      "tab": "Picture",
+      "label": "Stiffener",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "18:30",
+      "tab": "Picture",
+      "label": "Weld",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "18:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "18:30",
+      "tab": "Picture",
+      "label": "Number of Fitting pl. (EDF) = 1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "18:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "18:30",
+      "tab": "Picture",
+      "label": "Number of Fitting pl. (2.EDF) = 1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "18:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 3",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "18:30",
+      "tab": "Picture",
+      "label": "Number of Fitting pl. (3.EDF) = 1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "18:32",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "18:32",
+      "tab": "Haunch",
+      "label": "Bottom plate",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "18:35",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "18:35",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:35",
+      "tab": "Haunch",
+      "label": "0.00",
+      "sure": true
+     },
+     {
+      "t": "18:35",
+      "tab": "Haunch",
+      "label": "0.00",
+      "sure": true
+     },
+     {
+      "t": "18:36",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "18:36",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:36",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:36",
+      "tab": "Haunch",
+      "label": "0.00",
+      "sure": true
+     },
+     {
+      "t": "18:41",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "18:41",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:41",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:41",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:49",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "18:49",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:49",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:49",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:49",
+      "tab": "Haunch",
+      "label": "Bottom plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "18:49",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:49",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "18:49",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:11",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "19:11",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:11",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:11",
+      "tab": "Haunch",
+      "label": "20.00",
+      "sure": true
+     },
+     {
+      "t": "19:21",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "19:21",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:21",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:21",
+      "tab": "Haunch",
+      "label": "80.00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "18:42",
+      "what": "Modify"
+     },
+     {
+      "t": "18:53",
+      "what": "Modify"
+     },
+     {
+      "t": "19:24",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    1170.0,
+    1230.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "19:30",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "19:30",
+      "tab": "Haunch",
+      "label": "Top plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "19:30",
+      "tab": "Haunch",
+      "label": "Top plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:30",
+      "tab": "Haunch",
+      "label": "Top plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:30",
+      "tab": "Haunch",
+      "label": "Bottom plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "19:30",
+      "tab": "Haunch",
+      "label": "Bottom plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "19:30",
+      "tab": "Haunch",
+      "label": "Bottom plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:30",
+      "tab": "Haunch",
+      "label": "Bottom plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:43",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "19:43",
+      "tab": "Haunch",
+      "label": "Top plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "19:43",
+      "tab": "Haunch",
+      "label": "Top plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:43",
+      "tab": "Haunch",
+      "label": "Top plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:43",
+      "tab": "Haunch",
+      "label": "Bottom plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "19:43",
+      "tab": "Haunch",
+      "label": "Bottom plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "19:43",
+      "tab": "Haunch",
+      "label": "Bottom plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:43",
+      "tab": "Haunch",
+      "label": "Bottom plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:46",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "19:46",
+      "tab": "Haunch",
+      "label": "Top plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "19:46",
+      "tab": "Haunch",
+      "label": "Top plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:46",
+      "tab": "Haunch",
+      "label": "Top plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:46",
+      "tab": "Haunch",
+      "label": "Bottom plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "19:46",
+      "tab": "Haunch",
+      "label": "Bottom plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "19:46",
+      "tab": "Haunch",
+      "label": "Bottom plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:46",
+      "tab": "Haunch",
+      "label": "Bottom plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:54",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "19:54",
+      "tab": "Haunch",
+      "label": "Top plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "19:54",
+      "tab": "Haunch",
+      "label": "Top plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:54",
+      "tab": "Haunch",
+      "label": "Top plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:54",
+      "tab": "Haunch",
+      "label": "Bottom plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "19:54",
+      "tab": "Haunch",
+      "label": "Bottom plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "19:54",
+      "tab": "Haunch",
+      "label": "Bottom plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "19:54",
+      "tab": "Haunch",
+      "label": "Bottom plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "20:07",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "20:07",
+      "tab": "Haunch",
+      "label": "Top plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "20:07",
+      "tab": "Haunch",
+      "label": "Top plate y",
+      "value": "120.00",
+      "sure": true
+     },
+     {
+      "t": "20:07",
+      "tab": "Haunch",
+      "label": "Top plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "20:07",
+      "tab": "Haunch",
+      "label": "Bottom plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "20:07",
+      "tab": "Haunch",
+      "label": "Bottom plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "20:07",
+      "tab": "Haunch",
+      "label": "Bottom plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "20:07",
+      "tab": "Haunch",
+      "label": "Bottom plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "20:25",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "-12.00",
+      "sure": true
+     },
+     {
+      "t": "20:25",
+      "tab": "Haunch",
+      "label": "Top plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "20:25",
+      "tab": "Haunch",
+      "label": "Top plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "20:25",
+      "tab": "Haunch",
+      "label": "Top plate z",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "20:25",
+      "tab": "Haunch",
+      "label": "Bottom plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "20:25",
+      "tab": "Haunch",
+      "label": "Bottom plate x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "20:25",
+      "tab": "Haunch",
+      "label": "Bottom plate y",
+      "value": "80.00",
+      "sure": true
+     },
+     {
+      "t": "20:25",
+      "tab": "Haunch",
+      "label": "Bottom plate z",
+      "value": "80.00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "19:42",
+      "what": "Modify"
+     },
+     {
+      "t": "19:44",
+      "what": "Modify"
+     },
+     {
+      "t": "19:59",
+      "what": "Modify"
+     },
+     {
+      "t": "20:10",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    1230.0,
+    1290.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "20:30",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "20:30",
+      "tab": "Haunch",
+      "label": "Top plate Y",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "20:30",
+      "tab": "Haunch",
+      "label": "Top plate Z",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "20:30",
+      "tab": "Haunch",
+      "label": "Bottom plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "20:30",
+      "tab": "Haunch",
+      "label": "Bottom plate Y",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "20:30",
+      "tab": "Haunch",
+      "label": "Bottom plate Z",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "20:38",
+      "tab": "Haunch",
+      "label": "Top plate",
+      "value": "12.00",
+      "sure": true
+     },
+     {
+      "t": "20:42",
+      "tab": "Haunch",
+      "label": "Top plate Z",
+      "value": "0",
+      "sure": true
+     },
+     {
+      "t": "20:43",
+      "tab": "Haunch",
+      "label": "Top plate Y",
+      "value": "0",
+      "sure": true
+     },
+     {
+      "t": "20:47",
+      "tab": "Haunch",
+      "label": "Top plate Y",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "20:47",
+      "tab": "Haunch",
+      "label": "Top plate Z",
+      "value": "10",
+      "sure": true
+     },
+     {
+      "t": "20:52",
+      "tab": "Haunch",
+      "label": "Top plate Y",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "20:52",
+      "tab": "Haunch",
+      "label": "Top plate Z",
+      "value": "0.00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "20:42",
+      "what": "Modify"
+     },
+     {
+      "t": "20:49",
+      "what": "Modify"
+     },
+     {
+      "t": "20:52",
+      "what": "Modify"
+     },
+     {
+      "t": "21:05",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    1290.0,
+    1350.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "21:30",
+      "tab": "Notch",
+      "label": "ignore other types",
+      "value": "ignore other types",
+      "sure": true
+     },
+     {
+      "t": "21:30",
+      "tab": "Notch",
+      "label": "Manual nothch control",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "21:30",
+      "tab": "Notch",
+      "label": "BCSI notch def",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "t": "22:20",
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20",
+      "sure": true
+     },
+     {
+      "t": "22:20",
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "t": "22:20",
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "22:20",
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "no",
+      "sure": true
+     },
+     {
+      "t": "22:20",
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "22:20",
+      "tab": "Bolts",
+      "label": "Comment",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    1350.0,
+    1410.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Bolt size",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Bolt standard",
+      "value": "88-4",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Tolerance",
+      "value": "2.00",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Thread in nut",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Cut length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Comment",
+      "value": "Workshop",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Hole type",
+      "value": "Slotted",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Rotate slots",
+      "value": "Perp.",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Slots in",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "X",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Y",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Effect in modify",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Length",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Width",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "22:30",
+      "tab": "Bolt",
+      "label": "Top",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "22:33",
+      "actions": [
+       {
+        "t": "22:33",
+        "what": "Modify"
+       }
+      ]
+     },
+     {
+      "t": "22:35",
+      "tab": "Bolt",
+      "label": "Comment",
+      "value": "Workshop",
+      "sure": true
+     },
+     {
+      "t": "22:40",
+      "tab": "Bolt",
+      "label": "Comment",
+      "value": "Site",
+      "sure": true
+     },
+     {
+      "t": "22:43",
+      "actions": [
+       {
+        "t": "22:43",
+        "what": "Modify"
+       }
+      ]
+     },
+     {
+      "t": "22:56",
+      "tab": "Bolt",
+      "label": "Comment",
+      "value": "Workshop",
+      "sure": true
+     },
+     {
+      "t": "22:57",
+      "tab": "Bolt",
+      "label": "Comment",
+      "value": "Site",
+      "sure": true
+     },
+     {
+      "t": "22:58",
+      "actions": [
+       {
+        "t": "22:58",
+        "what": "Modify"
+       }
+      ]
+     },
+     {
+      "t": "23:12",
+      "tab": "Bolt",
+      "label": "Top",
+      "value": "40.00",
+      "sure": true
+     },
+     {
+      "t": "23:15",
+      "tab": "Bolt",
+      "label": "Bottom",
+      "value": "-40.00",
+      "sure": true
+     },
+     {
+      "t": "23:17",
+      "actions": [
+       {
+        "t": "23:17",
+        "what": "Modify"
+       }
+      ]
+     },
+     {
+      "t": "23:22",
+      "tab": "Bolt",
+      "label": "Spacing",
+      "value": "100.00",
+      "sure": true
+     },
+     {
+      "t": "23:26",
+      "tab": "Bolt",
+      "label": "Spacing",
+      "value": "120",
+      "sure": true
+     },
+     {
+      "t": "23:29",
+      "actions": [
+       {
+        "t": "23:29",
+        "what": "Modify"
+       }
+      ]
+     }
+    ],
+    "model": [],
+    "actions": []
+   }
+  },
+  {
+   "seconds": [
+    1410.0,
+    1470.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "A325N",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Thread in mat.",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Comment",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Hole type",
+      "value": "Standard",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Rotate slot",
+      "value": "Perpendicular",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Slot in",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "X distance (top)",
+      "value": "-40.00",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Y distance (top)",
+      "value": "-40.00",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "Y distance list",
+      "value": "120.00",
+      "sure": true
+     },
+     {
+      "t": "23:30",
+      "tab": "Bolts",
+      "label": "X distance list",
+      "value": "0.00",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "23:40",
+      "what": "Measured distance 120.00"
+     },
+     {
+      "t": "23:44",
+      "what": "Measured distance 120.00"
+     },
+     {
+      "t": "23:50",
+      "what": "Measured distance 44.18"
+     }
+    ],
+    "actions": [
+     {
+      "t": "24:14",
+      "what": "Modify"
+     },
+     {
+      "t": "24:20",
+      "what": "Modify"
+     },
+     {
+      "t": "24:28",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    1470.0,
+    1530.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "8.8",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Comment",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Hole type",
+      "value": "Standard",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Rotate slots",
+      "value": "Parallel",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Slotted in",
+      "value": "Default",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "x",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "y",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "z",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Additional X",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Additional Y",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Effect in Modify",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Tolerance 2",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "top value",
+      "value": "-40.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "edge distance",
+      "value": "-40.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "pitch value",
+      "value": "125.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "edge distance",
+      "value": "-40.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "edge distance",
+      "value": "-40.00",
+      "sure": true
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Delete bolts",
+      "value": "",
+      "sure": false
+     },
+     {
+      "t": "24:30",
+      "tab": "Bolts",
+      "label": "Bolt group shape",
+      "value": "4x2",
+      "sure": true
+     },
+     {
+      "t": "24:36",
+      "tab": "Bolts",
+      "label": "Delete bolts",
+      "value": "Selected",
+      "sure": true
+     },
+     {
+      "t": "24:54",
+      "tab": "Angle box",
+      "label": "Top angle",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "24:54",
+      "tab": "Angle box",
+      "label": "Bottom angle",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "model": [
+     {
+      "t": "24:30",
+      "what": "Tekla Structures model showing column-beam end plate connection with bolts."
+     },
+     {
+      "t": "24:38",
+      "what": "Presenter clicks Modify button in End plate (144) dialog."
+     },
+     {
+      "t": "24:43",
+      "what": "Presenter opens bolt group pattern dropdown list."
+     },
+     {
+      "t": "24:53",
+      "what": "Presenter switches to Angle box tab."
+     },
+     {
+      "t": "24:58",
+      "what": "Presenter enables top and bottom angles in Angle box tab."
+     },
+     {
+      "t": "25:00",
+      "what": "Presenter clicks Modify to add top and bottom angles."
+     },
+     {
+      "t": "25:21",
+      "what": "Presenter presses Ctrl+Z to undo changes."
+     }
+    ],
+    "actions": [
+     {
+      "t": "24:38",
+      "what": "Modify"
+     },
+     {
+      "t": "25:10",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    1530.0,
+    1590.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "Use analysis redoubts",
+      "value": "No",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "Member selection",
+      "value": "Primary",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "Analysis combination",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "Connected",
+      "value": "true",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "UX",
+      "value": "Fixed",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "UX value",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "UY",
+      "value": "Fixed",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "UY value",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "UZ",
+      "value": "Fixed",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "UZ value",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "RX",
+      "value": "Fixed",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "RX value",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "RY",
+      "value": "Fixed",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "RY value",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "RZ",
+      "value": "Fixed",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "RZ value",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "Longitudinal member offset",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "Analysis profile",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "25:30",
+      "tab": "Analysis",
+      "label": "Analysis profile length",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "25:56",
+      "tab": "Plates",
+      "label": "End Plate h",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "25:56",
+      "tab": "Plates",
+      "label": "End Plate b",
+      "value": "30.00",
+      "sure": true
+     },
+     {
+      "t": "25:56",
+      "tab": "Plates",
+      "label": "End Plate length",
+      "value": "500.00",
+      "sure": true
+     },
+     {
+      "t": "25:56",
+      "tab": "Plates",
+      "label": "End Plate width",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "25:59",
+      "tab": "Stiffeners",
+      "label": "Top NS t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "25:59",
+      "tab": "Stiffeners",
+      "label": "Top FS t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "25:59",
+      "tab": "Stiffeners",
+      "label": "Bottom NS t",
+      "value": "10.00",
+      "sure": true
+     },
+     {
+      "t": "25:59",
+      "tab": "Stiffeners",
+      "label": "Bottom FS t",
+      "value": "10.00",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "26:20",
+      "what": "Modify"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    1590.0,
+    1650.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "26:30",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "26:35",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "26:40",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "End plate",
+      "sure": true
+     },
+     {
+      "t": "26:45",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "End Plate Contant",
+      "sure": true
+     },
+     {
+      "t": "26:50",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "End Plate 144 Contant",
+      "sure": true
+     },
+     {
+      "t": "26:55",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "4M End Plate 144 Contant",
+      "sure": true
+     },
+     {
+      "t": "27:00",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "4M End Plate 144 Contant",
+      "sure": true
+     },
+     {
+      "t": "27:05",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "4M End Plate 144 Contant",
+      "sure": true
+     },
+     {
+      "t": "27:10",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "4M End Plate 144 Contant",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "27:16",
+      "what": "Modify"
+     },
+     {
+      "t": "27:16",
+      "what": "Apply"
+     },
+     {
+      "t": "27:16",
+      "what": "OK"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    1650.0,
+    1710.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "28:06",
+      "tab": "Picture",
+      "label": "ignore other types",
+      "value": "ignore other types",
+      "sure": true
+     },
+     {
+      "t": "28:06",
+      "tab": "Picture",
+      "label": "Save as",
+      "value": "4M End Plate 144 Content",
+      "sure": true
+     },
+     {
+      "t": "28:24",
+      "tab": "Plates",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "28:24",
+      "tab": "Plates",
+      "label": "End Plate",
+      "value": "0.00",
+      "sure": true
+     },
+     {
+      "t": "28:24",
+      "tab": "Plates",
+      "label": "End Plate",
+      "value": "180.00",
+      "sure": true
+     },
+     {
+      "t": "28:24",
+      "tab": "Plates",
+      "label": "End Plate",
+      "value": "160.00",
+      "sure": true
+     },
+     {
+      "t": "28:24",
+      "tab": "Plates",
+      "label": "Pos. no",
+      "value": "P",
+      "sure": true
+     },
+     {
+      "t": "28:24",
+      "tab": "Plates",
+      "label": "Material",
+      "value": "St 37-2",
+      "sure": true
+     },
+     {
+      "t": "28:24",
+      "tab": "Plates",
+      "label": "Name",
+      "value": "Plate",
+      "sure": true
+     },
+     {
+      "t": "28:24",
+      "tab": "Plates",
+      "label": "Finish",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "28:16",
+      "what": "Modify"
+     },
+     {
+      "t": "28:29",
+      "what": "OK"
+     }
+    ]
+   }
+  },
+  {
+   "seconds": [
+    1710.0,
+    1737.0
+   ],
+   "model": "gemini-flash-lite-latest",
+   "read": {
+    "fields": [
+     {
+      "t": "28:30",
+      "tab": "Picture",
+      "label": "End Plate",
+      "value": "20.00",
+      "sure": true
+     },
+     {
+      "t": "28:30",
+      "tab": "Picture",
+      "label": "Folded Plate",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "28:30",
+      "tab": "Picture",
+      "label": "Slant",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "28:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 1",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "28:30",
+      "tab": "Picture",
+      "label": "Number of fitting plt 1 (EDF = 1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "28:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 2",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "28:30",
+      "tab": "Picture",
+      "label": "Number of fitting plt 2 (EDF = 1)",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "28:30",
+      "tab": "Picture",
+      "label": "Fitting Plate 3",
+      "value": "",
+      "sure": true
+     },
+     {
+      "t": "28:30",
+      "tab": "Picture",
+      "label": "Number of fitting plt 3 (EDF = 1)",
+      "value": "",
+      "sure": true
+     }
+    ],
+    "model": [],
+    "actions": [
+     {
+      "t": "28:39",
+      "what": "OK"
+     }
+    ]
+   }
+  }
+ ]
+}

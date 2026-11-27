@@ -1,0 +1,288 @@
+[
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 20,
+  "ts": "0:00:20",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 24,
+  "ts": "0:00:24",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 28,
+  "ts": "0:00:28",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 32,
+  "ts": "0:00:32",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 36,
+  "ts": "0:00:36",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 40,
+  "ts": "0:00:40",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "type": "summary",
+  "mode": "frames",
+  "videoId": "VLQiysAuEr4",
+  "title": "01I End Plate 144 in Tekla Structures",
+  "frames": 6,
+  "every": 4,
+  "source": "media",
+  "resolution": "854x480",
+  "lowResolutionFallback": false,
+  "downloadedBytes": 33488090,
+  "proxy": "datacenter",
+  "variableCostUsd": 0.006898,
+  "stoppedByBudget": false,
+  "quality": "hd",
+  "hdAttempted": true,
+  "hdSkippedReason": "",
+  "videoEvent": "video-processed-hd"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1370,
+  "ts": "0:22:50",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1375,
+  "ts": "0:22:55",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1380,
+  "ts": "0:23:00",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1385,
+  "ts": "0:23:05",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1390,
+  "ts": "0:23:10",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1395,
+  "ts": "0:23:15",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1400,
+  "ts": "0:23:20",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1405,
+  "ts": "0:23:25",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1410,
+  "ts": "0:23:30",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1415,
+  "ts": "0:23:35",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1420,
+  "ts": "0:23:40",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1425,
+  "ts": "0:23:45",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1430,
+  "ts": "0:23:50",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1435,
+  "ts": "0:23:55",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1440,
+  "ts": "0:24:00",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1445,
+  "ts": "0:24:05",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1450,
+  "ts": "0:24:10",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1455,
+  "ts": "0:24:15",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1460,
+  "ts": "0:24:20",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1465,
+  "ts": "0:24:25",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1470,
+  "ts": "0:24:30",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1475,
+  "ts": "0:24:35",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1480,
+  "ts": "0:24:40",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1485,
+  "ts": "0:24:45",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "videoId": "VLQiysAuEr4",
+  "t": 1490,
+  "ts": "0:24:50",
+  "width": 854,
+  "height": 480,
+  "source": "media"
+ },
+ {
+  "type": "summary",
+  "mode": "frames",
+  "videoId": "VLQiysAuEr4",
+  "title": "01I End Plate 144 in Tekla Structures",
+  "frames": 25,
+  "every": 5,
+  "source": "media",
+  "resolution": "854x480",
+  "lowResolutionFallback": false,
+  "downloadedBytes": 33488090,
+  "proxy": "datacenter",
+  "variableCostUsd": 0.006898,
+  "stoppedByBudget": false,
+  "quality": "hd",
+  "hdAttempted": true,
+  "hdSkippedReason": "",
+  "videoEvent": "video-processed-hd"
+ }
+]

@@ -1,0 +1,60 @@
+{
+ "url": "https://www.youtube.com/watch?v=2jZs89k4W5k",
+ "models": [
+  "gemini-3.5-flash"
+ ],
+ "overview": {
+  "language": "Telugu",
+  "units": "mm",
+  "tekla_version": "2021",
+  "members": [
+   {
+    "role": "main",
+    "profile": "ISMB300",
+    "orientation": "column",
+    "slope_or_skew": "none",
+    "note": "Selected from Profile catalog (changed from ISMB400 at 03:28)"
+   },
+   {
+    "role": "secondary",
+    "profile": "ISMB300",
+    "orientation": "beam",
+    "slope_or_skew": "none",
+    "note": "Selected from Profile catalog (changed from ISMB350 at 05:58)"
+   }
+  ],
+  "connection_type": "beam to column flange",
+  "dialog_spans": [
+   {
+    "tab": "Plates",
+    "start": "08:04",
+    "end": "08:44",
+    "values_changed": "End Plate thickness set to 15"
+   },
+   {
+    "tab": "Stiffeners",
+    "start": "08:54",
+    "end": "09:45",
+    "values_changed": "Top NS=6, Top FS=6, Bottom NS=6, Bottom FS=6; Corner chamfer/gap set to 5.00"
+   },
+   {
+    "tab": "Bolts",
+    "start": "10:01",
+    "end": "13:43",
+    "values_changed": "Bolt size=16, Tolerance=2; Vertical edge distances 50, 50, spacing 3 100; Horizontal edge distances 35, 35, spacing 2 70; Bolt position set to Middle"
+   }
+  ],
+  "result": "End plate thickness 15 mm, M16 bolts (18 mm holes) with 3 rows at 100 mm pitch and 2 columns at 70 mm gauge, 6 mm column web stiffeners top and bottom with 5 mm corner chamfer.",
+  "applied_times": [
+   "08:33",
+   "09:18",
+   "09:41",
+   "11:08",
+   "11:45",
+   "12:26",
+   "13:12",
+   "13:33",
+   "13:43"
+  ]
+ }
+}

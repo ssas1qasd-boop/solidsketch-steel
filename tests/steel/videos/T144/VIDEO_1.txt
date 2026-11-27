@@ -1,0 +1,45 @@
+T144 · End plate (144) · VIDEO 1 (docs/steel/PARITY.md "Group 1 Tekla parity: the two-video method", step 1)
+
+URL:      https://www.youtube.com/watch?v=VLQiysAuEr4
+Title:    "01I End Plate 144 in Tekla Structures" · channel Mohamed Magdi (28:57) · Tekla Structures 2026 UI in English, speech in Arabic, mm
+Found:    YouTube Data API search.list "Tekla end plate 144" (tests/steel/videos/T144/youtube_search.json); Tekla's own help page
+          conn_144_help (2025 / 2024) has no video or animation (find.json).
+Read:     Gemini, two passes: pass 1 the whole video at low resolution (overview_VLQiysAuEr4.json, read_VLQiysAuEr4.json: mostly the
+          lighter model gemini-flash-lite-latest, the free quota of the full model was used up); pass 2 at high resolution per tab, the last
+          state of each tab and every change (final_VLQiysAuEr4.json: gemini-3-flash-preview; ask_VLQiysAuEr4_bolts.json /
+          ask_VLQiysAuEr4_model_*.json: gemini-3.6-flash). Frames (Apify emttn/frameskim): frames_VLQiysAuEr4_hd/ (854 x 480: 00:20-00:40,
+          22:50-24:50), frames_VLQiysAuEr4/ (storyboard 320 x 180 every 35 s, with the English transcript in items.json). Every value below
+          was read by two sources (two Gemini passes, or Gemini + a frame / the transcript / a measurement in the model) unless marked.
+
+Example (the final state, the presenter's last Modify 24:28, saved as an attribute file 26:24-27:16)
+  Members   column HEA360 (frame 00:28 f_28.jpg: the column's property pane "HEA360", narrator "HEA 360"; one Gemini pass misread HEAA360 /
+            HEA300), vertical, top +9000; beam IPE400 (property pane 00:30, narrator "IPE400 ... height 400, flange width 180"),
+            horizontal, on the column's flange, square, level.
+  Picture   1 = -80, 2 = -80 (Tekla sign: the plate 80 above and 80 below the beam; changes 03:30-04:05: 40 -> -40 -> -80, 80 -> -80),
+            3 (gap) blank = Tekla's default 0 (narrator 02:48 "the distance between the plate and the column is zero by default").
+  Plates    End plate t 20, b 180, h 560 (05:22 / 05:46; 560 = 400 + 80 + 80), material St 52 (09:27), name "Plate" (09:35);
+            Folded plate: tried 20 / 12, then blank (08:24); Seat: tried 12 x 200 x 600, then blank (08:17-08:18);
+            Fitting plate 1 t 12 (10:30; still 12 at 18:27), number 1, shape option 1 (holes from the bolt group).
+  Stiffen.  Top NS / Top FS / Bottom NS / Bottom FS t 10, b / h blank, material St-52 (12:36-13:27); orientation and creation: created,
+            parallel; positions: 1 (gap at the web) = 20 (15:53), 2 / 5 (top) = 40, 3 / 4 (bottom) = -40 (15:11-15:25). Narrator 15:02-
+            15:30: "if we make it 40 it goes up ... below, if we make it 40 it will go up, we want it down, so negative 40 ... this one is higher
+            than the flange and this one is lower" -> Tekla: positive = up for both. Chamfers: tried 20 / 0 / 30, then blank (default, 17:26);
+            Top NS h tried 300, then blank (17:53).
+  Haunch    Top plate t 12, b 80, h 80; Bottom plate 12 x 80 x 80 (18:41 / 18:53); chamfers 1 / 2 / 3 / 4 = 80 (19:24 / 19:59; the narrator
+            "I need it to be all chamfered"); top b tried 120 and back to 80 (20:10-20:30); inner chamfer tried 10, then blank (20:54);
+            creation: top and bottom (21:05 off, 21:09 on again).
+  Notch     defaults (21:18-22:22, the options shown, nothing typed).
+  Bolts     M20 (22:24), standard "6914" (one pass "8.8-K"; not in SolidSketch's list), tolerance 2, thread in mat yes, Site (22:41
+            Workshop, 22:57 back to Site), hole type slotted with 0 / 0 (round), rotate slots parallel;
+            vertical: 6 = -40 with reference Top (23:13; frame f_1490.jpg), number 5 (23:22), spacing 120 (23:23 100 -> 23:27 120), 8 = -40
+            (23:16; the lowest bolt 40 below the beam); measured in the model: bolt spacing 120 (23:40), plate top edge to the first bolt 40
+            (23:50);
+            horizontal: edge distances 40 / 40 (frame f_1490.jpg, the two boxes under the picture), number blank (4 typed at 24:17, blank
+            again 24:27), spacing blank (= 180 - 2 x 40 = 100), position reference Middle.
+            Status bar 23:5x: "Bolt edge distance of the bolt ... is too small".
+  General   attributes saved as "EndPlate 144" (26:24-27:16).
+Result (model views 24:35-28:50): end plate 20 x 180 x 560 with a 12 mm fitting plate, 2 x 5 bolts M20, column stiffeners top above the
+  top flange and bottom below the bottom flange, two triangular haunch plates 80 x 80 on the beam flanges inside the extended plate.
+
+Not readable / not used: bolt standard 6914 (SolidSketch has 8.8 / 10.9 / 4.6 / HSFG / 7990), materials St 52 / St-52 (not in the
+  material list), part names, the bolt length (Tekla's rule used: grip + nut + washer + 5, rounded up to 5 mm).

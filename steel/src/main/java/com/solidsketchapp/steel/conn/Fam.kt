@@ -125,12 +125,19 @@ object Fam {
             val n0 = gp + fr + sh; val n1 = n0 + tp
             var yh = yT + x.n("ext"); var yl = yB - x.n("extb")
             if (j.cope) { val k = max(0.2, abs(j.y dot fy)); yh = min(yh, (j.yTop - 10) / k); yl = max(yl, (j.yBot + 10) / k) }
-            val nc = if (jsInt(x.n("cols")) == 4) 4 else 2; val g = x.n("gauge"); val g2 = x.n("gauge2").takeIf { it != 0.0 && !it.isNaN() } ?: g
+            val nc = if (jsInt(x.n("cols")) == 4) 4 else 2
+            // v70 T144: Bolts tab 5 blank = the plate width b less 2 x the edge distance 3 (2 bolts across), else the default 90
+            val g = if (optNum(x, "gauge").isNaN()) optNum(x, "epb").let { b0 -> val sd = x.n("side").let { if (it.isNaN()) 0.0 else it }; if (b0 > 0 && nc != 4 && b0 - 2 * sd > 0) b0 - 2 * sd else 90.0 } else x.n("gauge"); val g2 = x.n("gauge2").takeIf { it != 0.0 && !it.isNaN() } ?: g
             val zs = if (nc == 4) listOf(-g / 2 - g2, -g / 2, g / 2, g / 2 + g2) else listOf(-g / 2, g / 2)
             val zw = (if (nc == 4) g / 2 + g2 else g / 2) + x.n("side")
             run { val ph = x.n("posH"); val gw = zw - x.n("side")
                 zC = when (x.s("refH")) { "Left" -> zC - bp.b / 2 + ph + gw; "Right" -> zC + bp.b / 2 - ph - gw; else -> zC + ph } }
             val ep = ff.box(n0, n1, yl, yh, zC - zw, zC + zw); val hh = yh - yl
+            // v70 T144 (web web/v70/t144.js): Plates tab End plate b / h; blank = as above. b centred on the plate, h down from its top edge;
+            // the bolts stay where the Bolts tab puts them; the shim plates follow the end plate.
+            val pb = optNum(x, "epb").takeIf { it > 0 }; val pH = optNum(x, "eph").takeIf { it > 0 }
+            val epY0 = if (pH != null) yh - pH else yl; val epZ0 = if (pb != null) zC - pb / 2 else zC - zw; val epZ1 = if (pb != null) zC + pb / 2 else zC + zw
+            val epBox = if (pb != null || pH != null) ff.box(n0, n1, epY0, yh, epZ0, epZ1) else ep
             var nr = if (x.t("rows")) jsInt(x.n("rows")) else tkRows(hh); val ps = pitches(x, nr)
             if (x.s("pitches").trim().isNotEmpty()) nr = ps.size + 1
             var top = yh - x.n("e")
@@ -149,8 +156,8 @@ object Fam {
             if (j.cope) { val hb = bp.h / 2
                 if (hb > j.yTop - 10) x.cut(bmId, j.box(-BIG, j.xFace + j.copeL, j.yTop - 10, BIG / 10, -BIG / 10, BIG / 10))
                 if (-hb < j.yBot + 10) x.cut(bmId, j.box(-BIG, j.xFace + j.copeL, -BIG / 10, j.yBot + 10, -BIG / 10, BIG / 10)) }
-            x.plate("END PLATE", ep, x.n("tp"), minus = bb.holes); x.bolts(bb, bl.size, if (tkL) tkBoltLen(x.n("bolt"), grip) else grip + 2 * x.n("bolt"))
-            if (sh != 0.0) x.plate("SHIM", ff.box(n0 - sh, n0, yl, yh, zC - zw, zC + zw), x.n("shim"), minus = bb.holes)
+            x.plate("END PLATE", epBox, x.n("tp"), minus = bb.holes); x.bolts(bb, bl.size, if (tkL) tkBoltLen(x.n("bolt"), grip) else grip + 2 * x.n("bolt"))
+            if (sh != 0.0) x.plate("SHIM", ff.box(n0 - sh, n0, epY0, yh, epZ0, epZ1), x.n("shim"), minus = bb.holes)
             if (fr != 0.0) { val mr2 = j.m.r + 1
                 val f = ff.box(gp, gp + fr, max(yl - 20, if (j.yBot.isFinite()) j.yBot + mr2 else -BIG), min(yh + 20, if (j.yTop.isFinite()) j.yTop - mr2 else BIG), zC - zw - 10, zC + zw + 10)
                 x.plate(if (x.t("stub")) "STUB PLATE" else "FRONT PLATE", f, fr, minus = bb.holes); x.weld("Front plate to main part", x.n("a"), 2 * (yh - yl + 2 * zw)) }

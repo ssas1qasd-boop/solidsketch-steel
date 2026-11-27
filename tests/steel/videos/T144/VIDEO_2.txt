@@ -1,0 +1,39 @@
+T144 · End plate (144) · VIDEO 2 (docs/steel/PARITY.md "Group 1 Tekla parity: the two-video method", step 1)
+
+URL:      https://www.youtube.com/watch?v=IBVnHuj1F-s
+Title:    "27. Tekla Structures Course - End Plate 144" · channel Civilianoo (26:38) · Tekla Structures 2022, English UI, Arabic speech, mm
+Found:    YouTube Data API search.list "Tekla end plate 144" (youtube_search.json).
+Read:     Gemini: pass 1 overview (overview_IBVnHuj1F-s.json lighter model, overview2_IBVnHuj1F-s.json gemini-3.5-flash with the profile
+          names); pass 2 per tab at high resolution: final_IBVnHuj1F-s.json (Model / Picture gemini-3.6-flash; the other tabs the lighter
+          model gemini-3.5-flash-lite: the daily free quota of the full models was used up), final2_IBVnHuj1F-s.json (a second, shorter
+          read of each tab's last state, lighter model), ask_IBVnHuj1F-s_hbolts.json / ask_IBVnHuj1F-s_haunch.json (focused reads, lighter
+          model). No frames: the Apify account reached its monthly limit (HTTP 403) before this video; YouTube itself answers 429.
+          A value is used only where two reads agree, or one read and the geometry (marked).
+
+Why this video and not Bds3oxGdc2k: Bds3oxGdc2k (BIM360.CONSTRUCCIONES, Spanish UI) was read first (final_Bds3oxGdc2k.json,
+  read_Bds3oxGdc2k.json, frames_Bds3oxGdc2k*/); its column is HEA240 by two measurements in the model (07:04 218.00 = h - tf, 07:34
+  116.25 = (b - tw) / 2), but its beam is Tekla's default profile and its name is never shown or spoken, so the example cannot be rebuilt.
+
+Example (the final state, 24:14-24:24 the Bolts tab reviewed; Modify 23:47)
+  Members   column HEA400 (Model read 04:21 "Column Profile modified from UC254*254*73 to HEA400"; overview2 "Column Property Panel 04:20");
+            beam HEA400 (04:16, both reads); column vertical, beam horizontal on the column's flange, square, level.
+  Picture   1 = 0, 2 = 0 (-50 / -50 tried 05:33-05:37, back to 0 at 06:06), 3 (gap) = 0 (20 tried 06:22, back to 0 at 07:37).
+  Plates    End plate t 20 (07:51; both reads), b / h blank; Fitting plate 1 t 20 (08:47; both reads), number 1.
+  Stiffen.  Top NS / Top FS / Bottom NS / Bottom FS t 10 (both reads), b / h blank, created, parallel; positions blank (0); chamfers 30 x 30
+            (11:20 15 -> 11:34 25 -> 11:41 30; both reads, and the pass-1 overview "chamfers 30x30").
+  General   class 400, connection code M1_A400 (13:49 / 14:18).
+  Bolts     M20, tolerance 2 (both reads); standard A325M / A325N (the reads differ; not in SolidSketch's list); thread in mat no; slotted
+            0 / 0 (round);
+            vertical: reference Top, edge distance at the top 30 and at the bottom 30, number 4, spacing 120 (both reads; 18:11-18:12 and
+            19:35); Tekla's status bar at 19:38: "Bolt edge distance of the bolt ... is too small" (4 x 120 from 30 under the top of the 390 mm
+            plate puts the lowest row on its lower edge: Tekla says so itself);
+            horizontal: 2 across, spacing 120 (18:51-18:53; both reads), edge distances 30 / 30 (tried 60 / 100 / 70, back to 30 at 19:35 /
+            19:39; both reads), position Middle.
+  Haunch    Top plate t 10, b 75, h 75; Bottom plate 10 x 75 x 75 (22:20-22:34; both reads); the four chamfer boxes 55 (22:49-22:53; both
+            reads) = SolidSketch's chamfers 1-4; four more boxes set to 10 (22:57-23:07; both reads, meaning not readable: SolidSketch's
+            Haunch tab has no such boxes, see the report); creation: top and bottom (23:45 off, 23:57 on).
+Result: end plate 20 x (2 x 30 + 120 = 180) x 390 flush with the HEA400 beam, a 20 mm fitting plate, 2 x 4 bolts M20, four column
+  stiffeners 10 mm with 30 x 30 chamfers, two haunch plates 75 x 75 on the beam flanges.
+
+Not readable / not used: the bolt standard (A325M / A325N), the four Haunch boxes = 10, part names / materials, the bolt length (Tekla's
+  rule used).
