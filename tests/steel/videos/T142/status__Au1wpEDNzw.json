@@ -1,0 +1,171 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "reads": [
+  {
+   "seconds": [
+    725,
+    760
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [],
+    "fields": [
+     {
+      "tab": "Picture",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Bolt standard",
+      "value": "8.8CSCH",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Thread in mat",
+      "value": "No",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Site",
+      "value": "Site",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Cut length",
+      "value": "",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "1",
+      "value": "Middle",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "2",
+      "value": "45.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "3",
+      "value": "45.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "4",
+      "value": "90.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "1",
+      "value": "Middle",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "2",
+      "value": "45.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "3",
+      "value": "45.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "4",
+      "value": "90.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Delete",
+      "value": "",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "1",
+      "value": "35.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "2",
+      "value": "35.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "2",
+      "value": "40",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate t",
+      "value": "6.00",
+      "t": "12:26",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate b",
+      "value": "75.00",
+      "t": "12:26",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate h",
+      "value": "75",
+      "t": "12:26",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "12:08",
+      "what": "Modify"
+     }
+    ],
+    "notes": "Information: polygon depth value put as zero at 12:05"
+   }
+  }
+ ]
+}

@@ -1,0 +1,144 @@
+{
+ "url": "https://www.youtube.com/watch?v=J2OINltOa4I",
+ "reads": [
+  {
+   "seconds": [
+    248,
+    270
+   ],
+   "model": "gemini-3.1-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "main part",
+      "profile": "I-beam",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "role": "secondary",
+      "profile": "I-beam",
+      "t": "04:08",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "5/8",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "Default",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "1/16",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site",
+      "value": "Site",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Hole type",
+      "value": "Slotted",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Rotate Slots",
+      "value": "Parallel",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Slots in",
+      "value": "Default",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical position",
+      "value": "Middle",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal position",
+      "value": "Middle",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical spacing",
+      "value": "3 5\" 3 1/2",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal spacing",
+      "value": "3 5\" 3 1/2",
+      "t": "04:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bottom vertical spacing",
+      "value": "3 1/2",
+      "t": "04:10",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "04:10",
+      "what": "typed 3.5"
+     },
+     {
+      "t": "04:11",
+      "what": "Modify"
+     },
+     {
+      "t": "04:23",
+      "what": "Modify"
+     },
+     {
+      "t": "04:24",
+      "what": "Apply"
+     },
+     {
+      "t": "04:25",
+      "what": "OK"
+     }
+    ],
+    "notes": "Status bar at 04:26: 'polygon depth value put as zero'. Component symbol is green."
+   }
+  }
+ ]
+}

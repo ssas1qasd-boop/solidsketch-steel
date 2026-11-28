@@ -1,0 +1,73 @@
+{
+ "url": "https://www.youtube.com/watch?v=eFbsbRu2m5c",
+ "reads": [
+  {
+   "seconds": [
+    0,
+    44
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "Beam",
+      "profile": "UC152*152*30",
+      "t": "00:10",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Picture",
+      "label": "1",
+      "value": "31.00",
+      "t": "00:25",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "2",
+      "value": "1.50",
+      "t": "00:25",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "3",
+      "value": "31.00",
+      "t": "00:25",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "4",
+      "value": "1.50",
+      "t": "00:25",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "6.00",
+      "value": "6.00",
+      "t": "00:25",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "6.20",
+      "value": "6.20",
+      "t": "00:25",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "00:25",
+      "what": "Modify"
+     }
+    ],
+    "notes": "Tekla component: Two sided end plate (142)"
+   }
+  }
+ ]
+}

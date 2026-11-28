@@ -367,3 +367,9 @@ Chosen while the owner was away (owner rule 2026-11-23: pick what matches v69, n
 - Goldens `t144_v1`, `t144_v2` (web = app, `S7T144Test`); rule B on them: 4 + 4 findings from the videos' own values (reported, not hidden).
 - Emulator: `T144V1RecordingTest`, `T144V2RecordingTest`.
 
+
+## T142 two-video test · 2026-11-28 (agent g1-t142, branch `agent/g1-t142`; for the main session's merge)
+- Videos: _Au1wpEDNzw (video 1), J2OINltOa4I (video 2, profiles never named: HEB300 / IPE300 stand in); lighter Gemini models only, no frames; `tests/steel/videos/T142/`.
+- Two sided end plate (142) as Tekla: one bolt group through both end plates and the main part, plates on the main part's face; dialog TKD.T142 (Picture 1-5 per side, Plates 1 / Plates 2, Haunch 4 plates, Bolts with 142's numbering, sort secondaries); web `web/v70/t142.js`, app `FamT142` (PARITY.md "T142").
+- Goldens `t142_v1` (video-faithful, rule B 10 from the video's own long bolts), `t142_v2` and 5 default cases (rule B 0), web = app (`S7T144Test`); S9 comp goldens regenerated.
+- Emulator: `T142V1RecordingTest`, `T142V2RecordingTest` (base `T142RecordingBase`).

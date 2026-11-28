@@ -1,0 +1,36 @@
+T142 · Two sided end plate (142) · VIDEO 2 (docs/steel/PARITY.md "Group 1 Tekla parity: the two-video method", step 1)
+
+URL:      https://www.youtube.com/watch?v=J2OINltOa4I
+Title:    "Tekla Structures Tutorial 109 | Two Sided Connection in Tekla" · channel Gani sk (8:38, 2021-06-15; description: "Two sided end
+          plate 142 in tekla") · English, IMPERIAL units (feet-inches). The 142 part: 00:57-04:25 (then End plate 144 at 05:01).
+Found:    YouTube Data API search.list "Tekla two sided end plate 142" / "tekla 142" (youtube_search.json). A different channel, country and
+          example from video 1 (beams on a column WEB, imperial).
+Read:     Gemini, ONLY the lighter models (the full models' free daily quota was used up, see VIDEO_1.txt). Pass 1 the whole video at low
+          resolution (overview_J2OINltOa4I.json, gemini-3.5-flash-lite); pass 2 at high resolution, 1 fps (read_J2OINltOa4I.json:
+          gemini-3.5-flash-lite over 00:00-05:30 in four pieces, gemini-3.1-flash-lite over 02:55-04:28 and 00:00-01:00;
+          status_J2OINltOa4I.json: the status bar). No frames (see VIDEO_1.txt); YouTube's stills maxres1 / maxres2 / maxresdefault show the
+          finished joint (3 rows x 2 bolts on an end plate against the column web, one bolt group through both plates and the web).
+          A value is used only where the two models agree.
+
+Example (the final state: Modify 04:11 / 04:23, Apply / OK 04:24-04:25)
+  Members   a column and two beams placed at grid intersections 00:13-00:43 with the environment's default properties: the Properties
+            pane is never shown and no profile is named (a targeted high-resolution read of 00:05-00:50: "the Properties pane is not shown";
+            the lite models' guesses W16X60 / W14X90 / W12X26 / HE400B / IPE400 disagree and are not used). Imperial W shapes are not in
+            SolidSketch's profile catalog anyway. The beams land on the column's WEB from both sides, in line, level (stills maxres1 / 2).
+            -> The golden t142_v2 uses video 1's HEB300 / IPE300 as stand-ins (NOT from this video), turned so the beams land on the web.
+  Picked    main part (column) 01:07, secondary 1 (left beam) 01:09, secondary 2 (right beam) 01:10 (both models).
+  Picture   not changed (Tekla's defaults: 1-4 blank, gap 5 blank = 0).
+  Plates 1  End plate t 1/2" (01:50; Modify 01:55), b / h blank (both models).
+  Plates 2  End plate t 1/2" (02:05; Modify 02:09).
+  Bolts     size 5/8" (02:22), tolerance 1/16" (02:25; Modify 02:26), standard "Default", thread in mat Yes, Site, hole type Slotted
+            0 / 0 (round), rotate slots Parallel; vertical reference Middle (02:34), horizontal reference Middle (02:49; Modify 02:52).
+            First try (Modify 03:31): vertical edge 3 1/2", 3 bolts, spacing 5"; horizontal edge 3 1/2", 3 bolts, spacing 5".
+            Final (Modify 04:11, both models): vertical edge distance 3 1/2", number 3, spacing 5"; horizontal edge distance 2", number 2,
+            spacing 3 1/2". Apply / OK 04:24-04:25.
+            In mm (exact): t 12.7; bolt 5/8" = 15.875 -> M16 (SolidSketch's nearest size); tolerance 1.5875; vertical edge 88.9, spacing 127;
+            horizontal edge 50.8, spacing 88.9 -> end plate b = 50.8 + 88.9 + 50.8 = 190.5, h = 88.9 + 2 x 127 + 88.9 = 431.8.
+Result (stills maxres1 / maxres2, ~04:19): one end plate per beam against the column web, 3 rows x 2 bolts, the bolts through both plates
+  and the web; no haunch plates. Status bar 04:26: "Information: polygon depth value put as zero"; the symbol green (3.1-lite read).
+
+Not readable / not used: the profiles (never named), the bolt standard, part names / materials, the bolt length (Tekla's rule used:
+  grip 12.7 + 11 (the HEB300 web) + 12.7 = 36.4 -> M16 L60).

@@ -1100,3 +1100,43 @@ Emulator result (CI 46074849242, both recording tests rc 0): the models the emul
 
 ### Status
 Accepted (pending phone OK) only after the main session's merge and delivery. R13 rebuild unchanged (no T144 geometry changes for existing settings).
+
+## T142 · Two sided end plate (142): the two-video test (Group 1, agent g1-t142, 2026-11-28)
+The first End plate (EP) component after T144; its golden / recording / composer code is the pattern for the rest of the family (two-sided: T115, T24, T34, T112). Evidence: `tests/steel/videos/T142/` (VIDEO_1.txt, VIDEO_2.txt, every Gemini read, YouTube's stills). R13 has **0** T142 instances (no R13 rows change).
+
+### Step 1: videos
+- Tekla's own site: [Two sided end plate (142), 2025](https://support.tekla.com/doc/tekla-structures/2025/conn_142_help) (`help_142_2025.txt`): tab text, no video or animation, no worked example with values. Its rules used here: "One bolt group goes through all the three parts"; Picture 1-4 = end plate edges from the top / bottom of secondary 1 / 2, 5 = the gap of each side; Plates 1 / Plates 2 = each end plate's t / b / h ("bolt group dimensions affect the size of the end plates"); Haunch Top plate / Top plate 2 / Bottom plate / Bottom plate 2 with chamfers 1-4 and a creation option per secondary; Bolts 1 / 2 the vertical position from the secondary (Top / Middle / Below), 3 edge distance, 4 number, 5 spacing, 6 / 7 horizontal, 8 delete; Sort secondaries by profile height.
+- **Video 1:** [_Au1wpEDNzw](https://www.youtube.com/watch?v=_Au1wpEDNzw) (Bangladesh Civil Engineering, Tekla 2017, mm): HEB300 column, two IPE300 beams on its flanges; Picture 5 = 2 / 2; Plates 1 / 2: 16 x 150 x 450; Bolts M16, Middle, 5 at 90, edge 45, 2 at 80, edge 35; Haunch 4 plates 6 x 75 x 75, chamfers 75.
+- **Video 2:** [J2OINltOa4I](https://www.youtube.com/watch?v=J2OINltOa4I) (Gani sk, imperial): two beams on a column web; Plates 1 / 2 t 1/2"; Bolts 5/8", tolerance 1/16", Middle, 3 at 5", edge 3 1/2", 2 at 3 1/2", edge 2". **Its profiles are never named** (the Properties pane is never shown; imperial W shapes are not in the catalog): the golden uses video 1's HEB300 / IPE300 as stand-ins, turned so the beams land on the web (not from the video).
+- **Read with the lighter Gemini models only** (`gemini-3.5-flash-lite`, `gemini-3.1-flash-lite`): every full model's free daily quota was used up when this run started. No frames: Apify's monthly limit is used up and YouTube refuses yt-dlp and the watch page; YouTube's own stills (maxres1/2/3) were fetched instead. A value is used only where two reads agree (VIDEO_1 / VIDEO_2 say which).
+- Read and not used: Z1VWgy1vYnY (Civil Raja) and YCIyLguxW8c (Civil 4 Sure): 142 with Tekla's defaults only (all boxes blank), members never named; 837yJ6xiNrQ: component 34, not 142.
+
+### Step 2: settings differences (video 1, then video 2) and what was changed
+| Tab | Tekla (video / help) | SolidSketch before (v69) | Now (web `web/v70/t142.js`, app `FamT142`, dialog `TKD.T142`) |
+|---|---|---|---|
+| (all) | one bolt group through end plate 1, the main part and end plate 2 (help; video 1 12:10-12:17: long bolts across both HEB300 flanges; video 2 stills) | two End plate 144 groups at the same holes, the second one's grip padded | **one group**, grip = both plate stacks + the main part along the bolt line, Tekla's bolt length (video 1: M16 L360; video 2: M16 L60) |
+| (all) | the end plates on the main part's face | a skewed beam's plate square to the beam (into the web) | **on the face** (web / flange normal); the beam's end cut parallel to it |
+| Picture | tabs Picture, Plates 1, Plates 2, Haunch, Notch, Bolts, Holes, General, Design, Welds; 1-4 per secondary, 5 per side | End plate 144's dialog (Stiffeners, Angle box; one plate) | **TKD.T142**: 1 / 2 (secondary 1), 3 / 4 (secondary 2: blank = end plate 2 mirrors end plate 1), 5 / 5 (gap per side), Sort secondaries (default Yes); compensation plates shown off |
+| Picture | 1-4 blank = the plate from the bolt group (video 1: h 450 with a centred group, 75 above / below, filled by the 75 x 75 haunch plates) | blank not accepted | **blank = from the bolt group** (top bolt + 3, lowest bolt - 3; h given: centred on the group) |
+| Picture | gap default (Tekla's End plate family: 0) | 2 | **T142 default gap 0 / 0** (two 2 mm gaps fail rule B: 4 mm of air on the bolt line); old models keep their stored gap |
+| Plates 1 / 2 | each end plate t / b / h (video 1: 16 x 150 x 450 both) | one t for both plates | **tp / epb / eph and tp2 / epb2 / eph2**, blank b / h = the bolt group + edge distances |
+| Haunch | Top plate, Top plate 2, Bottom plate, Bottom plate 2; creation per secondary (video 1: 4 x 6 x 75 x 75, chamfers 75; video 2: none) | 144's two plates for both | **four plates** (hpt1 / hpt3 top, hpt2 / hpt4 bottom), creation hpc / hpc2 (Automatic: where the end plate reaches past the flange and t is given; blank t = no plate, as video 2) |
+| Bolts | 1 / 2 vertical position from the secondary (Top / Middle / Below), 3 edge, 4 number, 5 spacing; 6 / 7 horizontal; 8 delete (help numbering) | 144's labels | **labels as 142's**; Middle = centred on secondary 1 (video 1 and 2 both use Middle) |
+| Bolts | standards 8.8 / imperial "Default" | 8.8 / 10.9 / 4.6 / HSFG / 7990 | not changed: bolt catalog (shared) |
+| Plates | Pos_No / material "50" / names | material list | not changed (shared) |
+| Plates 1 / 2 | shim shapes, safety connections, end plate moves | - | shown off (not used by either video) |
+Old models: the Tekla path runs only when the stored settings carry `bgrp: 'one'` (made after v70); older T142s keep v69's two groups.
+
+### Steps 3-4: the examples as golden cases (`tools/golden/cases/t142.js`)
+- **`t142_v1`** (video-faithful): HEB300 (beams on its flanges), 2 x IPE300; end plates 16 x 150 x 450 centred (75 above and below), gap 2 / 2; M16 x 10 (5 rows at 90 from +180 to -180 about the beam centre, 2 across at 80) L360; 4 haunch plates 6 x 75 x 75 chamfered 75 (triangles, inner corner 15). **Rule B: 10 findings, all from the video's own geometry**: Tekla's bolts cross the whole column (air 263.8 mm along each shank: the 262 mm between the HEB300 flanges + the two 2 mm gaps). So `videoFaithful: true` (not on `ruleB_known.txt`); `videoStatus`: Tekla's status bar shows only "Information: polygon depth value put as zero" (12:05), no warning; ours: green, no message. Loops: 2 (the plate from the bolt group with h; the bolt group through both flanges).
+- **`t142_v2`**: HEB300 (beams on its web, stand-in), 2 x IPE300; end plates 12.7 x 190.5 x 431.8 centred; M16 x 6 (3 rows at 127, 2 across at 88.9) L60. **Rule B: 0** (gated). Loops: 1.
+- Default cases (rule B gated, all 0): `t142_std_hea300_ipe360`, `t142_odd_heb300_ipe270_ipe300` (picked small first: sorted), `t142_sloped_hea300_ipe360_10deg`, `t142_beam_web_ipe500_ipe300` (coped: the plate kept clear of the main beam's flanges and root radius), `t142_skew_hea300_ipe300_10deg` (plates on the web).
+- App = web on all 7 (`S7T144Test`), and on the S9 comp goldens (`tests/steel/golden/comp/s9_ep_ca_be.json`: the five `t142_*` cases now one bolt group; the other entries change only their body ids).
+
+### Step 5: emulator
+`T142V1RecordingTest` / `T142V2RecordingTest` (base `T142RecordingBase`: three-part Pick parts, the views; on `T144RecordingBase`): the members placed, Two sided end plate (142) through its dialog with the video's values (v1: Picture 1-4 blank, 5 = 2 / 2, Plates 1 / 2, Haunch 4 plates, Bolts Middle; v2: inch values in mm), Pick parts (column, beam, beam), orbit front / end / top / 3D, orthographic stills, saved (`t142_v1.ss` / `t142_v2.ss`), then one option + Modify (v1: Haunch plate creation (secondary 2) not created; v2: Bolts 4 rows). `REC_CLASSES` on the branch: these two. Images: `python3 tools/golden/parity_png.py T142_V1 | T142_V2 <shots> <video still>` (composer `twovideo`, for the whole EP family).
+
+Emulator result (CI 46087555492 on f2a1483, both recording tests rc 0; also CI 46085919033 before the rebase): the models the emulator built through the dialog (`t142_v1.ss`, `t142_v2.ss`) equal the goldens (v1: END PLATE 16 x 150 x 450 x 2, HAUNCH_PLATE x 4, M16 L360 x 10, rows z 7030 ... 6670, across y +-40; v2: END PLATE 12.7 x 190.5 x 431.8 x 2, M16 L60 x 6) and show the same rule-B results (10 / 0). Images `docs/steel/parity/t142_v1.png` / `t142_v2.png` (the video 1 still shows the members and the 142 in the catalog: YouTube's stills hold no frame of the finished 142 in video 1).
+
+### Status
+Reported to the main session (branch `agent/g1-t142`); accepted (pending phone OK) only after its merge and delivery.
