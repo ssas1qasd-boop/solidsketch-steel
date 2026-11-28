@@ -11,5 +11,6 @@
   }
  ],
  "model": "gemini-flash-latest",
- "pause": 15
+ "pause": 15,
+ "mode": "static"
 }

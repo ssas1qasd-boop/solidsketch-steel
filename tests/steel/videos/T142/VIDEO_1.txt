@@ -44,3 +44,39 @@ Result (geometry, 12:10-12:17, both lite models): the end plates against the col
 Not readable / not used: the bolt standard (SolidSketch has 8.8 / 10.9 / 4.6 / HSFG / 7990), material "50", Pos_No / names (the part
   marks are SolidSketch's numbering), the haunch creation lists, the members' levels and lengths, the bolt length (Tekla's rule used:
   grip + nut + washer + 5, rounded up to 5 mm: grip 16 + 2 + 300 + 2 + 16 = 336 -> M16 L360).
+
+RE-READ 2026-11-28 WITH THE FULL MODELS (owner, HANDOFF step 1). This section replaces the lite reads above where they differ.
+Reads (all static, GenerateContent with start / end offsets, 1 fps, high resolution; the model is the one Google served):
+  gemini-3.6-flash  pass 1 whole video, low resolution 0.5 fps; pass 2 09:05-10:35, 10:35-12:05, 12:00-13:25, 13:20-14:30
+                    (reread__Au1wpEDNzw.json); focus 09:10-09:35, 11:12-11:52, 12:06-12:30 (reread_focus__Au1wpEDNzw.json);
+                    a second static read of 10:35-12:05 (static_test__Au1wpEDNzw.json).
+  gemini-3.8-flash  (asked as gemini-flash-latest) key values 09:56-11:00, 11:00-12:08, 12:06-12:30 (recheck_flashlatest__Au1wpEDNzw.json).
+  Agentic test (gemini-3.6-flash, Interactions API, 10:35-12:05 given in the prompt; agentic_test__Au1wpEDNzw.json): NOT used. It
+  reported Top / 2 bolts at 70 / edge 40 / horizontal 2 at 90 / standard 7968 / status "Ready", which no static read shows.
+Frames:   none. No frame at a given time can be fetched (Apify used up, YouTube refuses downloads, i.ytimg.com only fixed stills); the
+          status bar and symbol below are Gemini's timestamped descriptions.
+Values:
+  Members   the beams land on the column WEB, from both sides, in line. CHANGED from the lite reads (flanges):
+            3.6 pass 1 ("across the column web"), 3.6 09:10-09:35 ("two beams attach to opposite sides of the column web"),
+            3.6 12:06-12:30 ("each beam end plate sits against the column's WEB ... the bolts pass through both beam end plates and the
+            column web"), 3.8 12:06-12:30 ("the beam connects to the column web between its flanges"). Profiles still not named by
+            any read (3.6 pass 1: "height 300, flange width 150" for the beams) -> HEB300 / IPE300 kept.
+  Picture   1-4 blank; 5 = 2.00 / 2.00 (09:49 / 09:55, 3.6). Unchanged.
+  Plates 1  t 16, b 150, h 450 (10:00-10:15; 3.6 and 3.8), Pos_No EP 1, material 50, END PLATE. Unchanged.
+  Plates 2  t 16, b 150, h 450 (10:38-10:42; 3.6 twice and 3.8). Unchanged.
+  Bolts     M16 (11:03), 8.8XOX (11:07; 3.6 three times, 3.8), tolerance 2 (11:10); vertical reference Top -> Middle (11:31-11:35; 3.8
+            sees the change), edge 45 top and bottom, spacing 90; horizontal Middle, edge 35 / 35, 2 bolts, spacing 80 (11:57-12:05).
+            Unchanged.
+            ROWS, reads disagree: the number box reads "5" (3.6, second static read, 11:24 / 11:44) but "1" in three other reads
+            (3.6 twice, 3.8; also the old lite read); in the model after Modify 3.6 counts 5 rows x 2 per plate (12:06-12:30), 3.8
+            counts 4 rows x 2. Kept: 5 rows (two 3.6 reads agree: box 5 and 5 rows seen; 45 + 4 x 90 + 45 = 450 = h). Listed for the
+            owner: a phone screenshot at 11:24 (the box) and 12:10 (the model) would settle it.
+  Haunch    Top plate, Top plate 2, Bottom plate, Bottom plate 2: t 6, b 75, h 75 (12:30-13:18), STIFFENER, material 50; chamfers 75 /
+            75 / 75 / 75 (13:48-13:54); Modify / Apply / OK 14:13-14:16. Unchanged.
+Status bar: "Information: polygon depth value put as zero" (09:30 after creation, 10:35, 11:00, 12:06 after Modify, 13:20; 3.6 and 3.8);
+          no warning. (3.6 pass 1 once read "polygon depth distance of the bolt cuts is 17.500; it's too small" at 09:30: no other read
+          shows it, not used.)
+Symbol:   GREEN: not selected at 09:30 (3.6) and 09:56 / 11:00 (3.8); selected and green at 12:07-12:10 and 14:17 (3.6, 3.8). NEW (the
+          lite reads did not give the colour).
+Changed from the lite reads: the beams sit on the column web (not the flanges). The bolts therefore run end plate - web - end plate
+  (grip 16 + 2 + 11 + 2 + 16 = 47 -> Tekla M16 L70), and the 263.8 mm of air along each of the 10 shanks of the flange version is gone.

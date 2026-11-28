@@ -1,0 +1,263 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "component": "Two sided end plate (142)",
+ "model_asked": "gemini-3.6-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    635,
+    725
+   ],
+   "span": [
+    "10:35",
+    "12:05"
+   ],
+   "ask": "the second Plates tab (t, b, h); the Bolts tab: bolt size, standard, tolerance, thread in material, site/shop, hole type, the vertical bolt group (reference Top/Middle/Bottom, edge distance, number of bolts, spacing) and the horizontal group (reference, edge distance, number, spacing). Read the number-of-bolts boxes carefully.",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "interactions",
+    "processing": "agentic",
+    "total_tokens": 16839,
+    "total_input_tokens": 705,
+    "input_tokens_by_modality": [
+     {
+      "modality": "text",
+      "tokens": 705
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 1755,
+    "total_tool_use_tokens": 6709,
+    "tool_use_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 5940
+     },
+     {
+      "modality": "text",
+      "tokens": 769
+     }
+    ],
+    "total_thought_tokens": 7670,
+    "initial_input_tokens": 705
+   },
+   "processing_calls": 1,
+   "status": "completed",
+   "mode": "agentic",
+   "read": {
+    "members": [
+     {
+      "role": "Main part (Column)",
+      "profile": "Column",
+      "t": "10:35",
+      "how": "Vertical red steel column",
+      "sure": true
+     },
+     {
+      "role": "Secondary part 1 (Beam)",
+      "profile": "Beam",
+      "t": "10:35",
+      "how": "Horizontal green steel beam on right side",
+      "sure": true
+     },
+     {
+      "role": "Secondary part 2 (Beam)",
+      "profile": "Beam",
+      "t": "10:35",
+      "how": "Horizontal steel beam on left side",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Plates 2",
+      "label": "End plate Pos No prefix",
+      "value": "P",
+      "t": "10:35",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End plate Pos No start number",
+      "value": "1",
+      "t": "10:35",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End plate Name",
+      "value": "END PLATE",
+      "t": "10:35",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End plate Material",
+      "value": "",
+      "t": "10:35",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End plate Finish",
+      "value": "",
+      "t": "10:35",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "Top plate extension / edge distance",
+      "value": "10.00",
+      "t": "10:35",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16.00",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "7968",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in material",
+      "value": "Yes",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site/Shop",
+      "value": "Site",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "100.00",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Hole type",
+      "value": "Regular",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt group reference",
+      "value": "Top",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt group top edge distance",
+      "value": "45.00",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt group number of bolts",
+      "value": "2",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt group spacing",
+      "value": "70.00",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt group reference",
+      "value": "Middle",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt group edge distance",
+      "value": "40.00",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt group number of bolts",
+      "value": "2",
+      "t": "10:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt group spacing",
+      "value": "90.00",
+      "t": "10:58",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "10:58",
+      "button": "Bolts tab"
+     },
+     {
+      "t": "11:01",
+      "button": "Bolt standard dropdown"
+     },
+     {
+      "t": "11:51",
+      "button": "Modify"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "10:35",
+      "text": "Ready",
+      "sure": true
+     },
+     {
+      "t": "11:51",
+      "text": "Ready",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "10:35",
+      "colour": "green",
+      "selected": true,
+      "how": "Component symbol (142 Two sided end plate) displayed at column-beam connection",
+      "sure": true
+     }
+    ],
+    "geometry": "Two-sided end plate joint (component 142) connecting a vertical column to two opposite horizontal beams with end plates and 2x2 bolt groups per side.",
+    "notes": "From 10:35 to 10:57 the presenter views 'Plates 2' tab, then switches to 'Bolts' tab at 10:58. After inspecting bolt properties and group spacing (2 vertical bolts @ 70mm, 2 horizontal bolts @ 90mm), the presenter clicks Modify at 11:51 to generate bolts in 3D model."
+   }
+  }
+ ],
+ "rotations": []
+}

@@ -98,7 +98,8 @@ def rotate(first, fn):
     """fn(model) -> result. Tries `first`, then the other full Flash models, skipping a model whose served model is exhausted."""
     if 'lite' in first: raise ValueError('Flash-Lite (even agentic) is for screening only, never for dialog values (owner 2026-11-28)')
     last = None
-    for m in ([first] if first not in FULL_FLASH else []) + FULL_FLASH:   # the owner's order
+    # a job that names a model starts with it (a second-model cross-check names the other model); then the owner's order
+    for m in [first] + [x for x in FULL_FLASH if x != first]:
         if SERVES.get(m, m) in EXHAUSTED: continue
         try: return m, fn(m)
         except RuntimeError as e:

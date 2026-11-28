@@ -43,3 +43,14 @@ Result (model views 24:35-28:50): end plate 20 x 180 x 560 with a 12 mm fitting 
 
 Not readable / not used: bolt standard 6914 (SolidSketch has 8.8 / 10.9 / 4.6 / HSFG / 7990), materials St 52 / St-52 (not in the
   material list), part names, the bolt length (Tekla's rule used: grip + nut + washer + 5, rounded up to 5 mm).
+
+RE-READ 2026-11-28 (HANDOFF step 1, the symbol colour at the final state). Static reads, served models named:
+  gemini-3.6-flash 24:15-25:15 (reread_VLQiysAuEr4.json) and gemini-3.8-flash 24:15-24:55 (recheck_flashlatest_VLQiysAuEr4.json).
+  No frame at a given time can be fetched (see T142/VIDEO_1.txt); the old Apify frame f_1490 (24:50) is still the only frame.
+  Both models: the Modify at 24:20 gives the status bar "Bolt edge distance of the bolt with id 82ac12cc-c7bd-4384-a78f-e03f71051c35
+  is too small" (3.6 reads the first character as "B") and the symbol turns YELLOW at 24:21 (component selected).
+  gemini-3.8-flash only: a Modify at 24:31 turns the symbol GREEN again ("after reverting to default 2 bolt rows"), then a Modify at
+  24:38; the frame f_1490 (24:50) shows a green cone while the status bar still holds the warning text.
+  -> FOR THE OWNER (not changed): Tekla shows yellow with the warning (= ours), but the video's last state may be green with a stale
+  status bar line, and the presenter may have changed the bolt rows after 24:28. Screenshots asked at 24:21, 24:31, 24:50.
+
