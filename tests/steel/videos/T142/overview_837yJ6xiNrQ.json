@@ -1,0 +1,109 @@
+{
+ "url": "https://www.youtube.com/watch?v=837yJ6xiNrQ",
+ "models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "overview": {
+  "language": "Myanmar",
+  "units": "mm",
+  "tekla_version": "unknown",
+  "components_used": [
+   {
+    "name": "Two Side Endplate",
+    "number": "34",
+    "start": "01:14",
+    "end": "03:52"
+   },
+   {
+    "name": "Shear plate",
+    "number": "34",
+    "start": "06:04",
+    "end": "07:56"
+   }
+  ],
+  "is_142_used": false,
+  "members": [
+   {
+    "role": "main",
+    "profile": "column",
+    "orientation": "column",
+    "slope_or_skew": "",
+    "note": "02:40"
+   },
+   {
+    "role": "secondary 1",
+    "profile": "beam",
+    "orientation": "beam",
+    "slope_or_skew": "",
+    "note": "02:44"
+   },
+   {
+    "role": "secondary 2",
+    "profile": "beam",
+    "orientation": "beam",
+    "slope_or_skew": "",
+    "note": "02:53"
+   }
+  ],
+  "connection_type": "column flange with two opposite beams",
+  "dialog_spans": [
+   {
+    "tab": "Bolts",
+    "start": "01:31",
+    "end": "02:03",
+    "values_changed": "Bolt size 8.8, 16mm, distances 65, 50, 65, 50"
+   },
+   {
+    "tab": "Picture",
+    "start": "02:08",
+    "end": "02:29",
+    "values_changed": "Edge distances 40, 50, 40, 50"
+   },
+   {
+    "tab": "Picture",
+    "start": "03:19",
+    "end": "03:49",
+    "values_changed": "Top/bottom edge distances adjusted to 65, 65"
+   },
+   {
+    "tab": "Picture",
+    "start": "06:06",
+    "end": "06:47",
+    "values_changed": "Shear plate thickness 10mm, material A36, left/right positioning"
+   },
+   {
+    "tab": "Bolts",
+    "start": "06:50",
+    "end": "07:10",
+    "values_changed": "Shear plate bolt size 16mm"
+   }
+  ],
+  "applies": [
+   {
+    "t": "02:32",
+    "what": "Modify"
+   },
+   {
+    "t": "03:36",
+    "what": "Modify"
+   },
+   {
+    "t": "03:48",
+    "what": "Apply"
+   },
+   {
+    "t": "07:04",
+    "what": "Apply"
+   },
+   {
+    "t": "07:08",
+    "what": "Modify"
+   },
+   {
+    "t": "07:43",
+    "what": "Modify"
+   }
+  ],
+  "result": "Two sided end plate connections at column-beam junctions and shear plate connections at secondary beam intersections."
+ }
+}

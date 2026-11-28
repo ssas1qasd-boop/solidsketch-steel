@@ -1,6 +1,125 @@
 {
  "source": "web v70: tkStatus on the video-faithful cases (tools/golden/video_status.js)",
  "cases": {
+  "t142_v1": {
+   "k": "T142",
+   "members": [
+    [
+     "COLUMN",
+     {
+      "prof": "HEB300",
+      "p1": [
+       0,
+       0,
+       0
+      ],
+      "p2": [
+       0,
+       0,
+       7500
+      ],
+      "rot": "Top"
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE300",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       6000,
+       0,
+       7000
+      ]
+     }
+    ],
+    [
+     "BEAM",
+     {
+      "prof": "IPE300",
+      "p1": [
+       0,
+       0,
+       7000
+      ],
+      "p2": [
+       -6000,
+       0,
+       7000
+      ]
+     }
+    ]
+   ],
+   "q": {
+    "ext": "",
+    "extb": "",
+    "ext2": "",
+    "extb2": "",
+    "gap": 2,
+    "gap2": 2,
+    "tp": 16,
+    "epb": 150,
+    "eph": 450,
+    "tp2": 16,
+    "epb2": 150,
+    "eph2": 450,
+    "bolt": 16,
+    "tol": 2,
+    "refV": "Middle",
+    "posV": "",
+    "e": 45,
+    "rows": 5,
+    "pitches": "",
+    "pitch": 90,
+    "refH": "Middle",
+    "posH": 0,
+    "side": 35,
+    "cols": 2,
+    "gauge": 80,
+    "hpc": "auto",
+    "hpc2": "auto",
+    "hpt1": 6,
+    "hpb1": 75,
+    "hph1": 75,
+    "hpt2": 6,
+    "hpb2": 75,
+    "hph2": 75,
+    "hpt3": 6,
+    "hpb3": 75,
+    "hph3": 75,
+    "hpt4": 6,
+    "hpb4": 75,
+    "hph4": 75,
+    "hc1": 75,
+    "hc2": 75,
+    "hc3": 75,
+    "hc4": 75
+   },
+   "ok": true,
+   "status": 1,
+   "msgs": [],
+   "symPos": [
+    0,
+    0,
+    6850
+   ],
+   "video": {
+    "tekla": [
+     {
+      "t": "12:05",
+      "where": "status bar after Modify (Gemini lighter model, status__Au1wpEDNzw.json; no frame)",
+      "text": "Information: polygon depth value put as zero"
+     }
+    ],
+    "expect": [],
+    "symbol": "not read (no frame; the lighter model did not report the cone colour for this span)",
+    "noWarning": "Tekla shows no warning for its 360 mm bolts across the whole HEB300 (both flanges, 2 x 2 mm gaps and the 262 mm between the flanges along the shank); rule B reports that as air along the shank (10 bolts)"
+   }
+  },
   "t144_v1": {
    "k": "T144",
    "members": [

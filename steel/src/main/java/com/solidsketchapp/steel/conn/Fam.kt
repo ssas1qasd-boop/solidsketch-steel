@@ -111,6 +111,7 @@ object Fam {
 
     /** EP · end plates (live v48 L15547): one plate per secondary, flush on the main part's face. */
     fun ep(x: FamCtx) {
+        if (FamT142.applies(x) && FamT142.gen(x)) return   // v70 T142: Tekla's one bolt group through the three parts (web web/v70/t142.js)
         fun one(bm: JsonObject, bmId: String, sharedGrip: Double) {
             val j = Joints.joint(x.a, bm, x.profiles); val bp = j.b; val u = j.uDir; val xu = (j.x dot u).let { if (it == 0.0) 1.0 else it }
             val o = j.e.add(j.x, j.xFace)
@@ -230,7 +231,7 @@ object Fam {
      * outer edge along the secondary, top edge square to it at h above the lower bottom corner, outer top chamfer (1 / 2 top plate,
      * 4 / 3 bottom plate; line, convex or concave arc), inner corner cut 15 x 15. Blank b = the end plate's reach past the flange, blank h = b.
      */
-    private fun haunchPlates(x: FamCtx, bm: JsonObject, hpc: String) {
+    internal fun haunchPlates(x: FamCtx, bm: JsonObject, hpc: String) {
         val j = Joints.joint(x.a, bm, x.profiles); val bp = j.b; val u = j.uDir; val xu = (j.x dot u).let { if (it == 0.0) 1.0 else it }
         val o = j.e.add(j.x, j.xFace)
         var fy = bp.eh.add(u, -(bp.eh dot u)); if (fy.length() < 1e-6) fy = j.y.add(u, -(j.y dot u)); fy = fy.normalize()

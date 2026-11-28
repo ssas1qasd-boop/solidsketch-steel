@@ -1,0 +1,332 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "reads": [
+  {
+   "seconds": [
+    725,
+    800
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "HEB",
+      "t": "12:17",
+      "sure": true
+     },
+     {
+      "role": "secondary beam 1",
+      "profile": "IPE",
+      "t": "12:17",
+      "sure": true
+     },
+     {
+      "role": "secondary beam 2",
+      "profile": "IPE",
+      "t": "12:17",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Picture",
+      "label": "1",
+      "value": "35.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "2",
+      "value": "40.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Bolt standard",
+      "value": "8.8IS0",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Thread in mat",
+      "value": "No",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Cut length",
+      "value": "0.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "vertical spacing list",
+      "value": "45.00 90.00 45.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "horizontal spacing list",
+      "value": "90.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate t",
+      "value": "6.00",
+      "t": "12:33",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate b",
+      "value": "75.00",
+      "t": "12:33",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate h",
+      "value": "75.00",
+      "t": "12:33",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate Pos_No",
+      "value": "STIF 1",
+      "t": "12:44",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate Material",
+      "value": "50",
+      "t": "12:46",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate Name",
+      "value": "STIFFNER",
+      "t": "12:49",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate t",
+      "value": "6.00",
+      "t": "13:01",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate b",
+      "value": "75.00",
+      "t": "13:07",
+      "sure": true
+     },
+     {
+      "tab": "Bottom plate h",
+      "label": "Bottom plate h",
+      "value": "75.00",
+      "t": "13:16",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "12:08",
+      "what": "Modify"
+     },
+     {
+      "t": "12:25",
+      "what": "clicked Haunch tab"
+     },
+     {
+      "t": "12:30",
+      "what": "typed 6.00 into Top plate t"
+     },
+     {
+      "t": "12:32",
+      "what": "typed 75.00 into Top plate b"
+     },
+     {
+      "t": "12:34",
+      "what": "typed 75.00 into Top plate h"
+     },
+     {
+      "t": "12:40",
+      "what": "typed STIF 1 into Top plate Pos_No"
+     },
+     {
+      "t": "12:45",
+      "what": "typed 50 into Top plate Material"
+     },
+     {
+      "t": "12:48",
+      "what": "typed STIFFNER into Top plate Name"
+     },
+     {
+      "t": "13:02",
+      "what": "typed 6.00 into Bottom plate t"
+     },
+     {
+      "t": "13:08",
+      "what": "typed 75.00 into Bottom plate b"
+     },
+     {
+      "t": "13:16",
+      "what": "typed 75.00 into Bottom plate h"
+     }
+    ],
+    "notes": "At 12:17, (a) the end plates sit against the column flange outer faces (the beams are aligned with the column web plane, so their end plates attach to the outer face of the column flanges); (b) the bolts go across both flanges of the column (long bolts); (c) no visible gap between the end plates and the column flange."
+   }
+  },
+  {
+   "seconds": [
+    725,
+    800
+   ],
+   "model": "gemini-3.1-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "main part",
+      "profile": "HEB",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "role": "secondary",
+      "profile": "IPE",
+      "t": "12:05",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Picture",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Bolt standard",
+      "value": "8.8",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Hole type",
+      "value": "Slotted",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Rotate Slots",
+      "value": "Parallel",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Cut length",
+      "value": "0.00",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate t",
+      "value": "6.00",
+      "t": "12:30",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate b",
+      "value": "75.00",
+      "t": "12:33",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate h",
+      "value": "75.00",
+      "t": "12:34",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Pos_No",
+      "value": "STIF 1",
+      "t": "12:40",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Material",
+      "value": "50",
+      "t": "12:45",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Name",
+      "value": "STIFFENER",
+      "t": "12:48",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "12:08",
+      "what": "Modify"
+     }
+    ],
+    "notes": "(a) The end plates sit against the column flange outer faces. (b) The bolts go through the column flanges (long bolts). (c) There is no visible gap between the end plates and the column. View at 12:10."
+   }
+  }
+ ]
+}

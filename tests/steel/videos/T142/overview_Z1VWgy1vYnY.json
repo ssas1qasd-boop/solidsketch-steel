@@ -1,0 +1,91 @@
+{
+ "url": "https://www.youtube.com/watch?v=Z1VWgy1vYnY",
+ "models": [
+  "gemini-3.5-flash"
+ ],
+ "overview": {
+  "language": "Hindi",
+  "units": "mm",
+  "tekla_version": "2023",
+  "components_used": [
+   {
+    "name": "Two sided end plate",
+    "number": "142",
+    "start": "01:14",
+    "end": "05:55"
+   },
+   {
+    "name": "Shear plate simple",
+    "number": "146",
+    "start": "03:32",
+    "end": "05:20"
+   }
+  ],
+  "is_142_used": true,
+  "members": [
+   {
+    "role": "main",
+    "profile": "I-section beam",
+    "orientation": "beam",
+    "slope_or_skew": "horizontal",
+    "note": "Primary beam selected as main part (02:30)"
+   },
+   {
+    "role": "secondary 1",
+    "profile": "I-section beam",
+    "orientation": "beam",
+    "slope_or_skew": "horizontal",
+    "note": "First secondary beam attached to primary beam web (02:33)"
+   },
+   {
+    "role": "secondary 2",
+    "profile": "I-section beam",
+    "orientation": "beam",
+    "slope_or_skew": "horizontal",
+    "note": "Second secondary beam attached to opposite side of primary beam web (02:33)"
+   }
+  ],
+  "connection_type": "Beam to beam two-sided end plate connection (142)",
+  "dialog_spans": [
+   {
+    "tab": "Picture",
+    "start": "01:21",
+    "end": "01:35",
+    "values_changed": "Inspected joint layout diagram"
+   },
+   {
+    "tab": "Plates 1",
+    "start": "01:36",
+    "end": "01:39",
+    "values_changed": "Inspected end plate parameters"
+   },
+   {
+    "tab": "Bolts",
+    "start": "01:42",
+    "end": "01:44",
+    "values_changed": "Inspected bolt spacing and parameters"
+   },
+   {
+    "tab": "Holes",
+    "start": "01:50",
+    "end": "01:54",
+    "values_changed": "Inspected hole settings"
+   }
+  ],
+  "applies": [
+   {
+    "t": "02:38",
+    "what": "Created two-sided end plate connection on Plan +3000 grid line 2"
+   },
+   {
+    "t": "02:43",
+    "what": "Created two-sided end plate connection on Plan +3000 grid line 3"
+   },
+   {
+    "t": "05:39",
+    "what": "Created two-sided end plate connection on Plan +6000"
+   }
+  ],
+  "result": "Two-sided bolted end plate connection connecting secondary floor beams across a main framing beam with shared through-bolts and welded end plates."
+ }
+}

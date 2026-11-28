@@ -1,0 +1,78 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T142",
+   [
+    0,
+    1,
+    2
+   ],
+   {
+    "ext": "",
+    "extb": "",
+    "pitches": "80 80 80",
+    "refV": "Middle",
+    "rows": 4
+   }
+  ]
+ ],
+ "description": "HEA300 column, two IPE360 rafters at 10 deg on its web (both sides up), Two sided end plate (142), Middle bolt group 4 x 2 at 80.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     7500
+    ],
+    "prof": "HEA300"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     6000,
+     0,
+     8058
+    ],
+    "prof": "IPE360"
+   },
+   "set": "RAFTER"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     -6000,
+     0,
+     8058
+    ],
+    "prof": "IPE360"
+   },
+   "set": "RAFTER"
+  }
+ ],
+ "name": "t142_sloped_hea300_ipe360_10deg",
+ "pageErrors": []
+}

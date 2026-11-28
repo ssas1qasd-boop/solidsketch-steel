@@ -1,0 +1,1104 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "reads": [
+  {
+   "seconds": [
+    540,
+    620
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "main part",
+      "profile": "",
+      "t": "09:18",
+      "sure": false
+     },
+     {
+      "role": "secondary part 1",
+      "profile": "",
+      "t": "09:22",
+      "sure": false
+     },
+     {
+      "role": "secondary part 2",
+      "profile": "",
+      "t": "09:24",
+      "sure": false
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Picture",
+      "label": "1",
+      "value": "2.00",
+      "t": "09:49",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "2",
+      "value": "2.00",
+      "t": "09:55",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate t",
+      "value": "16.00",
+      "t": "10:01",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate b",
+      "value": "150.00",
+      "t": "10:11",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate h",
+      "value": "450.00",
+      "t": "10:15",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Pos_No",
+      "value": "EP1",
+      "t": "10:18",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Material",
+      "value": "",
+      "t": "10:19",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "09:11",
+      "what": "typed 142"
+     },
+     {
+      "t": "09:17",
+      "what": "select component 142"
+     },
+     {
+      "t": "09:18",
+      "what": "pick main part"
+     },
+     {
+      "t": "09:22",
+      "what": "pick secondary part 1"
+     },
+     {
+      "t": "09:24",
+      "what": "pick secondary part 2"
+     },
+     {
+      "t": "09:49",
+      "what": "typed 2.00"
+     },
+     {
+      "t": "09:55",
+      "what": "typed 2.00"
+     },
+     {
+      "t": "10:01",
+      "what": "typed 16.00"
+     },
+     {
+      "t": "10:11",
+      "what": "typed 150.00"
+     },
+     {
+      "t": "10:15",
+      "what": "typed 450.00"
+     },
+     {
+      "t": "10:18",
+      "what": "typed EP1"
+     }
+    ],
+    "notes": "User modifies Two sided end plate (142) component properties for a column-beam connection."
+   }
+  },
+  {
+   "seconds": [
+    620,
+    700
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [],
+    "fields": [
+     {
+      "tab": "Picture",
+      "label": "1",
+      "value": "16.00",
+      "t": "10:20",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "2",
+      "value": "150.00",
+      "t": "10:20",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "3",
+      "value": "450.00",
+      "t": "10:20",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Pos_No",
+      "value": "EP1",
+      "t": "10:21",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Material",
+      "value": "50",
+      "t": "10:21",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Name",
+      "value": "END PLATE",
+      "t": "10:28",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "t",
+      "value": "16.00",
+      "t": "10:40",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "b",
+      "value": "150.00",
+      "t": "10:40",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "h",
+      "value": "450",
+      "t": "10:40",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "Pos_No",
+      "value": "EP 1",
+      "t": "10:44",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "Material",
+      "value": "50",
+      "t": "10:46",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "Name",
+      "value": "END PLATE",
+      "t": "10:51",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "11:02",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "8.8HSCH",
+      "t": "11:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2",
+      "t": "11:09",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "vertical position",
+      "value": "45.00",
+      "t": "11:21",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "vertical number",
+      "value": "1",
+      "t": "11:23",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "vertical spacing list",
+      "value": "90",
+      "t": "11:26",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "vertical edge distance",
+      "value": "45",
+      "t": "11:28",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal position",
+      "value": "45.00",
+      "t": "11:39",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal number",
+      "value": "1",
+      "t": "11:39",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal spacing list",
+      "value": "90",
+      "t": "11:39",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal edge distance",
+      "value": "45",
+      "t": "11:39",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "10:29",
+      "what": "typed END PLATE"
+     },
+     {
+      "t": "10:51",
+      "what": "typed END PLATE"
+     },
+     {
+      "t": "11:32",
+      "what": "changed Top to Middle for bolts vertical and horizontal"
+     }
+    ],
+    "notes": "User modifies end plate dimensions, names, material, and bolt properties (size, standard, tolerance, edge distances, and positioning)."
+   }
+  },
+  {
+   "seconds": [
+    700,
+    780
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "45",
+      "value": "45",
+      "t": "11:47",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "35",
+      "value": "35",
+      "t": "11:59",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "35",
+      "value": "35",
+      "t": "11:59",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "2",
+      "value": "2",
+      "t": "12:03",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "80",
+      "value": "80",
+      "t": "12:05",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "t",
+      "value": "6.00",
+      "t": "12:30",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "b",
+      "value": "75.00",
+      "t": "12:33",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "h",
+      "value": "75",
+      "t": "12:34",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Pos_No",
+      "value": "STIFF 1",
+      "t": "12:43",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Material",
+      "value": "50",
+      "t": "12:46",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Name",
+      "value": "STIFFENER",
+      "t": "12:51",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "12:08",
+      "what": "Modify"
+     },
+     {
+      "t": "12:53",
+      "what": "typed 6.00"
+     }
+    ],
+    "notes": "Two sided end plate (142) dialog - Bolts and Haunch tabs."
+   }
+  },
+  {
+   "seconds": [
+    780,
+    870
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [],
+    "fields": [
+     {
+      "tab": "Plates 1",
+      "label": "Top plate t",
+      "value": "6.00",
+      "t": "13:00",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Top plate b",
+      "value": "75.00",
+      "t": "13:00",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Top plate h",
+      "value": "75.00",
+      "t": "13:00",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Bottom plate t",
+      "value": "6.00",
+      "t": "13:02",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Bottom plate b",
+      "value": "75.00",
+      "t": "13:06",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Bottom plate h",
+      "value": "75.00",
+      "t": "13:12",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Top plate 2 t",
+      "value": "6.00",
+      "t": "13:02",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Top plate 2 b",
+      "value": "75.00",
+      "t": "13:10",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Top plate 2 h",
+      "value": "75.00",
+      "t": "13:15",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Bottom plate 2 t",
+      "value": "6.00",
+      "t": "13:03",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Bottom plate 2 b",
+      "value": "75.00",
+      "t": "13:10",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Bottom plate 2 h",
+      "value": "75.00",
+      "t": "13:17",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Pos_No 1",
+      "value": "STIFF 1",
+      "t": "13:21",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Pos_No 2",
+      "value": "STIFF 1",
+      "t": "13:23",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Pos_No 3",
+      "value": "STIFF 1",
+      "t": "13:25",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Pos_No 4",
+      "value": "STIFF 1",
+      "t": "13:27",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Material 1",
+      "value": "50",
+      "t": "13:30",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Material 2",
+      "value": "50",
+      "t": "13:32",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Material 3",
+      "value": "50",
+      "t": "13:33",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Material 4",
+      "value": "50",
+      "t": "13:34",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Name 1",
+      "value": "STIFFENER",
+      "t": "13:36",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Name 2",
+      "value": "STIFFENER",
+      "t": "13:38",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Name 3",
+      "value": "STIFFENER",
+      "t": "13:40",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "Name 4",
+      "value": "STIFFENER",
+      "t": "13:41",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "75.00",
+      "value": "75.00",
+      "t": "13:50",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "75.00",
+      "value": "75.00",
+      "t": "13:51",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "75.00",
+      "value": "75.00",
+      "t": "13:53",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "75.00",
+      "value": "75.00",
+      "t": "13:54",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "14:13",
+      "what": "Modify"
+     },
+     {
+      "t": "14:15",
+      "what": "Apply"
+     },
+     {
+      "t": "14:15",
+      "what": "OK"
+     }
+    ],
+    "notes": "User fills in dimensions and material/name for the four stiffener plates in the Two sided end plate (142) dialog."
+   }
+  },
+  {
+   "seconds": [
+    650,
+    740
+   ],
+   "model": "gemini-3.1-flash-lite",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "main part",
+       "profile": "HEB300",
+       "t": "10:50",
+       "sure": true
+      },
+      {
+       "role": "secondary",
+       "profile": "IPE300",
+       "t": "10:50",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Picture",
+       "label": "t",
+       "value": "16.00",
+       "t": "10:50",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "b",
+       "value": "150.00",
+       "t": "10:50",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "h",
+       "value": "450.00",
+       "t": "10:50",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "Name",
+       "value": "END PLATE",
+       "t": "10:52",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt size",
+       "value": "16",
+       "t": "11:03",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt standard",
+       "value": "8.8ISO4014",
+       "t": "11:06",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Tolerance",
+       "value": "2.00",
+       "t": "11:09",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical position",
+       "value": "Middle",
+       "t": "11:31",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical edge distance",
+       "value": "45.00",
+       "t": "11:20",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical number of bolts",
+       "value": "1",
+       "t": "11:23",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical spacing",
+       "value": "90.00",
+       "t": "11:25",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal position",
+       "value": "Middle",
+       "t": "11:32",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal edge distance",
+       "value": "35.00",
+       "t": "11:55",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal number of bolts",
+       "value": "2",
+       "t": "12:02",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal spacing",
+       "value": "80.00",
+       "t": "12:05",
+       "sure": true
+      }
+     ],
+     "actions": [
+      {
+       "t": "12:08",
+       "what": "Modify"
+      }
+     ],
+     "notes": "The user sets up the bolt group parameters on the Bolts tab and applies the changes to the component."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    500,
+    600
+   ],
+   "model": "gemini-3.1-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "main part",
+      "profile": "HEB300",
+      "t": "09:18",
+      "sure": true
+     },
+     {
+      "role": "secondary part 1",
+      "profile": "IPE300",
+      "t": "09:22",
+      "sure": true
+     },
+     {
+      "role": "secondary part 2",
+      "profile": "IPE300",
+      "t": "09:24",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Picture",
+      "label": "1",
+      "value": "2.00",
+      "t": "09:49",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "2",
+      "value": "2.00",
+      "t": "09:50",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "3",
+      "value": "2.00",
+      "t": "09:53",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "4",
+      "value": "2.00",
+      "t": "09:54",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "5",
+      "value": "2",
+      "t": "09:55",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End plate t",
+      "value": "16",
+      "t": "09:58",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "09:15",
+      "what": "typed 142"
+     },
+     {
+      "t": "09:39",
+      "what": "Modify"
+     }
+    ],
+    "notes": "The two beams are connected to the column's two FLANGES. The bolts go through the end plates and the column flanges."
+   }
+  },
+  {
+   "seconds": [
+    800,
+    890
+   ],
+   "model": "gemini-3.1-flash-lite",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "main part",
+       "profile": "UC203x203x46",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "role": "secondary",
+       "profile": "UB305x165x40",
+       "t": "13:20",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Haunch",
+       "label": "Top plate Pos_No",
+       "value": "STIF 1",
+       "t": "13:22",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate Material",
+       "value": "50",
+       "t": "13:30",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate Name",
+       "value": "STIFFENER",
+       "t": "13:36",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate t",
+       "value": "6.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate b",
+       "value": "75.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate h",
+       "value": "75.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate 2 Pos_No",
+       "value": "STIF 1",
+       "t": "13:26",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate 2 Material",
+       "value": "50",
+       "t": "13:33",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate 2 Name",
+       "value": "STIFFENER",
+       "t": "13:39",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate 2 t",
+       "value": "6.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate 2 b",
+       "value": "75.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate 2 h",
+       "value": "75.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate Pos_No",
+       "value": "STIF 1",
+       "t": "13:24",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate Material",
+       "value": "50",
+       "t": "13:31",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate Name",
+       "value": "STIFFENER",
+       "t": "13:38",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate t",
+       "value": "6.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate b",
+       "value": "75.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate h",
+       "value": "75.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate 2 Pos_No",
+       "value": "STIF 1",
+       "t": "13:27",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate 2 Material",
+       "value": "50",
+       "t": "13:34",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate 2 Name",
+       "value": "STIFFENER",
+       "t": "13:41",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate 2 t",
+       "value": "6.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate 2 b",
+       "value": "75.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate 2 h",
+       "value": "75.00",
+       "t": "13:20",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Chamfer 1",
+       "value": "75.00",
+       "t": "13:48",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Chamfer 2",
+       "value": "75.00",
+       "t": "13:50",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Chamfer 3",
+       "value": "75.00",
+       "t": "13:52",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Chamfer 4",
+       "value": "75.00",
+       "t": "13:54",
+       "sure": true
+      }
+     ],
+     "actions": [
+      {
+       "t": "14:13",
+       "what": "Modify"
+      },
+      {
+       "t": "14:16",
+       "what": "Apply"
+      },
+      {
+       "t": "14:16",
+       "what": "OK"
+      }
+     ],
+     "notes": "The component creates two-sided end plate connections with stiffeners (haunches) on the top and bottom flanges of the secondary beams. The beams are connected to the web of the column."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,892 @@
+{
+ "url": "https://www.youtube.com/watch?v=J2OINltOa4I",
+ "reads": [
+  {
+   "seconds": [
+    0,
+    100
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "main part",
+      "profile": "",
+      "t": "01:07",
+      "sure": true
+     },
+     {
+      "role": "secondary part 1",
+      "profile": "",
+      "t": "01:09",
+      "sure": true
+     },
+     {
+      "role": "secondary part 2",
+      "profile": "",
+      "t": "01:10",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Search",
+      "label": "Search results for '142'",
+      "value": "142",
+      "t": "00:58",
+      "sure": true
+     },
+     {
+      "tab": "Search",
+      "label": "Component",
+      "value": "Two sided end plate (142)",
+      "t": "01:00",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "00:13",
+      "what": "click Steel > Column"
+     },
+     {
+      "t": "00:16",
+      "what": "click grid intersection 1-D to place column"
+     },
+     {
+      "t": "00:20",
+      "what": "click grid intersections 2-D and 3-D to place columns"
+     },
+     {
+      "t": "00:29",
+      "what": "click Steel > Beam"
+     },
+     {
+      "t": "00:32",
+      "what": "pick start and end points between column 1 and column 2"
+     },
+     {
+      "t": "00:39",
+      "what": "pick start and end points between column 2 and column 3"
+     },
+     {
+      "t": "00:57",
+      "what": "typed 142 in Applications & components search"
+     },
+     {
+      "t": "01:05",
+      "what": "select Two sided end plate (142)"
+     },
+     {
+      "t": "01:07",
+      "what": "pick main part (column)"
+     },
+     {
+      "t": "01:09",
+      "what": "pick secondary part 1 (left beam)"
+     },
+     {
+      "t": "01:10",
+      "what": "pick secondary part 2 (right beam)"
+     }
+    ],
+    "notes": "The video demonstrates creating a two-sided end plate connection (component 142) between a central column and two beams in Tekla Structures."
+   }
+  },
+  {
+   "seconds": [
+    100,
+    180
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "",
+      "t": "01:40",
+      "sure": false
+     },
+     {
+      "role": "secondary",
+      "profile": "",
+      "t": "01:40",
+      "sure": false
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Plates 1",
+      "label": "End Plate t",
+      "value": "1/2",
+      "t": "01:50",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End plate t",
+      "value": "1/2",
+      "t": "02:05",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "5/8",
+      "t": "02:22",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "1/16",
+      "t": "02:25",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "vertical position reference (left)",
+      "value": "Middle",
+      "t": "02:34",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal position reference (right)",
+      "value": "Middle",
+      "t": "02:49",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "01:55",
+      "what": "Modify"
+     },
+     {
+      "t": "02:09",
+      "what": "Modify"
+     },
+     {
+      "t": "02:26",
+      "what": "Modify"
+     },
+     {
+      "t": "02:52",
+      "what": "Modify"
+     }
+    ],
+    "notes": "User modifies plate thickness for end plates on both plates tabs to 1/2\", changes bolt size to 5/8\", tolerance to 1/16\", and centers bolts vertically and horizontally using the component dialog."
+   }
+  },
+  {
+   "seconds": [
+    180,
+    260
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "5/8",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "Default",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "1/16",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site",
+      "value": "Site",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt Comment",
+      "value": "",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Hole type",
+      "value": "Slotted",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Rotate Slots",
+      "value": "Parallel",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Slots in",
+      "value": "Default",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical position reference (left diagram top)",
+      "value": "Middle",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal position reference (left diagram top)",
+      "value": "Middle",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance (left diagram top)",
+      "value": "3 1/2",
+      "t": "03:01",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical number of bolts (left diagram top)",
+      "value": "3",
+      "t": "03:08",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical spacing list (left diagram top)",
+      "value": "5",
+      "t": "03:11",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance (left diagram top)",
+      "value": "3 1/2",
+      "t": "03:22",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal number of bolts (left diagram top)",
+      "value": "3",
+      "t": "03:27",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal spacing list (left diagram top)",
+      "value": "5",
+      "t": "03:29",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Delete",
+      "value": "",
+      "t": "03:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance (left diagram bottom)",
+      "value": "3 1/2",
+      "t": "03:38",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical number of bolts (left diagram bottom)",
+      "value": "3",
+      "t": "03:42",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical spacing list (left diagram bottom)",
+      "value": "5",
+      "t": "03:46",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance (left diagram bottom)",
+      "value": "2",
+      "t": "03:57",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal number of bolts (left diagram bottom, left side)",
+      "value": "1",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal number of bolts (left diagram bottom, right side)",
+      "value": "2",
+      "t": "04:04",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal spacing list (left diagram bottom)",
+      "value": "3 1/2",
+      "t": "04:10",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "03:01",
+      "what": "typed 3.5 in vertical edge distance"
+     },
+     {
+      "t": "03:08",
+      "what": "typed 3 in vertical number of bolts"
+     },
+     {
+      "t": "03:11",
+      "what": "typed 5 in vertical spacing"
+     },
+     {
+      "t": "03:21",
+      "what": "typed 3.5 in horizontal edge distance"
+     },
+     {
+      "t": "03:26",
+      "what": "typed 3 in horizontal number of bolts"
+     },
+     {
+      "t": "03:29",
+      "what": "typed 5 in horizontal spacing"
+     },
+     {
+      "t": "03:31",
+      "what": "Modify"
+     },
+     {
+      "t": "03:38",
+      "what": "typed 3 1/2 in vertical edge distance (bottom)"
+     },
+     {
+      "t": "03:42",
+      "what": "typed 3 in vertical number of bolts (bottom)"
+     },
+     {
+      "t": "03:46",
+      "what": "typed 5 in vertical spacing (bottom)"
+     },
+     {
+      "t": "03:58",
+      "what": "typed 2 in horizontal edge distance (bottom)"
+     },
+     {
+      "t": "04:00",
+      "what": "typed 1 in horizontal number of bolts left"
+     },
+     {
+      "t": "04:04",
+      "what": "typed 2 in horizontal number of bolts right"
+     },
+     {
+      "t": "04:09",
+      "what": "typed 3.5 in horizontal spacing (bottom)"
+     },
+     {
+      "t": "04:11",
+      "what": "Modify"
+     }
+    ],
+    "notes": "User modifies bolt parameters on the Bolts tab of component 142 dialog (Two-sided end plate)."
+   }
+  },
+  {
+   "seconds": [
+    260,
+    330
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "main",
+      "profile": "...",
+      "t": "05:09",
+      "sure": false
+     },
+     {
+      "role": "secondary",
+      "profile": "...",
+      "t": "05:10",
+      "sure": false
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "5/8",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "Default",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "1/16",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site",
+      "value": "Site",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt Comment",
+      "value": "",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Hole type",
+      "value": "Slotted",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Rotate Slots",
+      "value": "Parallel",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Slots in",
+      "value": "Default",
+      "t": "04:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Delete",
+      "value": "",
+      "t": "04:20",
+      "sure": true
+     }
+    ],
+    "actions": [
+     {
+      "t": "04:23",
+      "what": "Modify"
+     },
+     {
+      "t": "04:24",
+      "what": "Apply"
+     },
+     {
+      "t": "04:25",
+      "what": "OK"
+     },
+     {
+      "t": "05:01",
+      "what": "typed 144"
+     },
+     {
+      "t": "05:10",
+      "what": "Pick main part as a column"
+     },
+     {
+      "t": "05:11",
+      "what": "Pick secondary part as a beam"
+     }
+    ],
+    "notes": "Video shows component 144 (End plate) applied between a column and a beam. The beam connects to the column web/flange."
+   }
+  },
+  {
+   "seconds": [
+    175,
+    268
+   ],
+   "model": "gemini-3.1-flash-lite",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "main part",
+       "profile": "W14X90",
+       "t": "02:55",
+       "sure": true
+      },
+      {
+       "role": "secondary",
+       "profile": "W12X26",
+       "t": "02:55",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Bolts",
+       "label": "Bolt size",
+       "value": "5/8",
+       "t": "02:55",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt standard",
+       "value": "Default",
+       "t": "02:55",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Tolerance",
+       "value": "1/16",
+       "t": "02:55",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Thread in mat",
+       "value": "Yes",
+       "t": "02:55",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Site/Workshop",
+       "value": "Site",
+       "t": "02:55",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical: top edge distance",
+       "value": "3.5",
+       "t": "03:04",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical: number of bolts",
+       "value": "3",
+       "t": "03:08",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical: spacing",
+       "value": "5",
+       "t": "03:12",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal: left edge distance",
+       "value": "3.5",
+       "t": "03:21",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal: number of bolts",
+       "value": "3",
+       "t": "03:27",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal: spacing",
+       "value": "5",
+       "t": "03:29",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical: top edge distance (secondary 2)",
+       "value": "3 1/2",
+       "t": "03:38",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical: number of bolts (secondary 2)",
+       "value": "3",
+       "t": "03:43",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical: spacing (secondary 2)",
+       "value": "5",
+       "t": "03:47",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal: left edge distance (secondary 2)",
+       "value": "2",
+       "t": "03:58",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal: number of bolts (secondary 2)",
+       "value": "2",
+       "t": "04:00",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal: spacing (secondary 2)",
+       "value": "3 1/2",
+       "t": "04:10",
+       "sure": true
+      }
+     ],
+     "actions": [
+      {
+       "t": "03:31",
+       "what": "Modify"
+      },
+      {
+       "t": "04:11",
+       "what": "Modify"
+      },
+      {
+       "t": "04:24",
+       "what": "Apply"
+      },
+      {
+       "t": "04:25",
+       "what": "OK"
+      }
+     ],
+     "notes": "final_vertical: top edge distance 3.5, number of bolts 3, spacing 5. final_horizontal: left edge distance 2, number of bolts 2, spacing 3.5."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    0,
+    60
+   ],
+   "model": "gemini-3.1-flash-lite",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "column",
+       "profile": "HE400B",
+       "t": "00:14",
+       "sure": true
+      },
+      {
+       "role": "beam",
+       "profile": "IPE400",
+       "t": "00:29",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Picture",
+       "label": "1",
+       "value": "20",
+       "t": "01:02",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "2",
+       "value": "20",
+       "t": "01:02",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "3",
+       "value": "20",
+       "t": "01:02",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "4",
+       "value": "20",
+       "t": "01:02",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "5",
+       "value": "2",
+       "t": "01:02",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Size",
+       "value": "20",
+       "t": "01:05",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Standard",
+       "value": "8.8S",
+       "t": "01:05",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Tolerance",
+       "value": "2",
+       "t": "01:05",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical: edge distance",
+       "value": "40",
+       "t": "01:05",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical: number of bolts",
+       "value": "3",
+       "t": "01:05",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical: spacing",
+       "value": "90",
+       "t": "01:05",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal: edge distance",
+       "value": "40",
+       "t": "01:05",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal: number of bolts",
+       "value": "2",
+       "t": "01:05",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal: spacing",
+       "value": "100",
+       "t": "01:05",
+       "sure": true
+      }
+     ],
+     "actions": [
+      {
+       "t": "01:06",
+       "what": "Modify"
+      }
+     ],
+     "notes": "The user modifies the bolt settings in the 142 component dialog."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    5,
+    50
+   ],
+   "model": "gemini-3.5-flash-lite",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "",
+      "t": "00:27",
+      "sure": false
+     },
+     {
+      "role": "beam",
+      "profile": "",
+      "t": "00:46",
+      "sure": false
+     }
+    ],
+    "fields": [],
+    "actions": [],
+    "notes": "The Properties pane on the right side of the screen is not shown in the video."
+   }
+  }
+ ]
+}

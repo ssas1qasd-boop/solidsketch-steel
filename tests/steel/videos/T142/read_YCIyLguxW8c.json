@@ -1,0 +1,259 @@
+{
+ "url": "https://www.youtube.com/watch?v=YCIyLguxW8c",
+ "reads": [
+  {
+   "seconds": [
+    112,
+    152
+   ],
+   "model": "gemini-3.1-flash-lite",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "main part",
+       "profile": "HEB300",
+       "t": "01:52",
+       "sure": true
+      },
+      {
+       "role": "secondary 1",
+       "profile": "IPE300",
+       "t": "01:52",
+       "sure": true
+      },
+      {
+       "role": "secondary 2",
+       "profile": "IPE300",
+       "t": "01:52",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Picture",
+       "label": "1",
+       "value": "",
+       "t": "01:55",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "2",
+       "value": "",
+       "t": "01:55",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "3",
+       "value": "",
+       "t": "01:55",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "4",
+       "value": "",
+       "t": "01:55",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "5",
+       "value": "",
+       "t": "01:55",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "Sort secondaries by profile height",
+       "value": "checked",
+       "t": "01:55",
+       "sure": true
+      },
+      {
+       "tab": "Picture",
+       "label": "Compensation flange plate arrangements",
+       "value": "Default",
+       "t": "01:55",
+       "sure": true
+      },
+      {
+       "tab": "Plates 1",
+       "label": "First plate t",
+       "value": "",
+       "t": "02:08",
+       "sure": true
+      },
+      {
+       "tab": "Plates 1",
+       "label": "First plate b",
+       "value": "",
+       "t": "02:08",
+       "sure": true
+      },
+      {
+       "tab": "Plates 1",
+       "label": "First plate h",
+       "value": "",
+       "t": "02:08",
+       "sure": true
+      },
+      {
+       "tab": "Plates 1",
+       "label": "Fitting Plate 1 t",
+       "value": "",
+       "t": "02:08",
+       "sure": true
+      },
+      {
+       "tab": "Plates 1",
+       "label": "Fitting Plate 2 t",
+       "value": "",
+       "t": "02:08",
+       "sure": true
+      },
+      {
+       "tab": "Plates 1",
+       "label": "Fitting Plate 3 t",
+       "value": "",
+       "t": "02:08",
+       "sure": true
+      },
+      {
+       "tab": "Plates 1",
+       "label": "Comp. flange pl",
+       "value": "",
+       "t": "02:08",
+       "sure": true
+      },
+      {
+       "tab": "Plates 1",
+       "label": "Tolerance",
+       "value": "",
+       "t": "02:08",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate t",
+       "value": "",
+       "t": "02:16",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate b",
+       "value": "",
+       "t": "02:16",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate h",
+       "value": "",
+       "t": "02:16",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate t",
+       "value": "",
+       "t": "02:16",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate b",
+       "value": "",
+       "t": "02:16",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate h",
+       "value": "",
+       "t": "02:16",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt size",
+       "value": "Default",
+       "t": "02:24",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt standard",
+       "value": "Default",
+       "t": "02:24",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Tolerance",
+       "value": "",
+       "t": "02:24",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Thread in mat",
+       "value": "No",
+       "t": "02:24",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Site/Workshop",
+       "value": "Site",
+       "t": "02:24",
+       "sure": true
+      },
+      {
+       "tab": "Design type",
+       "label": "External design",
+       "value": "Default",
+       "t": "02:27",
+       "sure": true
+      },
+      {
+       "tab": "Design type",
+       "label": "Check connection",
+       "value": "Default",
+       "t": "02:27",
+       "sure": true
+      },
+      {
+       "tab": "Design type",
+       "label": "Design code",
+       "value": "Default",
+       "t": "02:27",
+       "sure": true
+      },
+      {
+       "tab": "Design type",
+       "label": "Load definition",
+       "value": "Default",
+       "t": "02:27",
+       "sure": true
+      }
+     ],
+     "actions": [
+      {
+       "t": "01:52",
+       "what": "Double click on component 142"
+      },
+      {
+       "t": "02:29",
+       "what": "OK"
+      }
+     ],
+     "notes": "The user opens the component dialog, clicks through all tabs (Picture, Plates 1, Plates 2, General, Haunch, Notch, Bolts, Design type, Holes, Analysis) to show default settings, then clicks OK."
+    }
+   ]
+  }
+ ]
+}

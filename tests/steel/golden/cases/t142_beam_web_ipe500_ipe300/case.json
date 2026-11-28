@@ -1,0 +1,72 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T142",
+   [
+    0,
+    1,
+    2
+   ],
+   {}
+  ]
+ ],
+ "description": "IPE500 main beam, two IPE300 floor beams into its web from both sides (coped), Two sided end plate (142) with the defaults.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     -3000,
+     7000
+    ],
+    "p2": [
+     0,
+     3000,
+     7000
+    ],
+    "prof": "IPE500"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     6000,
+     0,
+     7000
+    ],
+    "prof": "IPE300"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     -6000,
+     0,
+     7000
+    ],
+    "prof": "IPE300"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t142_beam_web_ipe500_ipe300",
+ "pageErrors": []
+}

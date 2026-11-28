@@ -1,0 +1,97 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "models": [
+  "gemini-3.1-flash-lite"
+ ],
+ "overview": [
+  {
+   "language": "Bengali",
+   "units": "mm",
+   "tekla_version": "2017",
+   "components_used": [
+    {
+     "name": "End plate",
+     "number": "144",
+     "start": "00:50",
+     "end": "01:05"
+    },
+    {
+     "name": "Two sided end plate",
+     "number": "142",
+     "start": "09:15",
+     "end": "09:30"
+    }
+   ],
+   "is_142_used": true,
+   "members": [
+    {
+     "role": "main",
+     "profile": "HEB300",
+     "orientation": "column",
+     "slope_or_skew": "",
+     "note": "00:00"
+    },
+    {
+     "role": "secondary 1",
+     "profile": "IPE300",
+     "orientation": "beam",
+     "slope_or_skew": "",
+     "note": "00:00"
+    },
+    {
+     "role": "secondary 2",
+     "profile": "IPE300",
+     "orientation": "beam",
+     "slope_or_skew": "",
+     "note": "08:30"
+    }
+   ],
+   "connection_type": "beam-column flange",
+   "dialog_spans": [
+    {
+     "tab": "Picture",
+     "start": "01:26",
+     "end": "01:52",
+     "values_changed": "gap to column: 2mm"
+    },
+    {
+     "tab": "Plates",
+     "start": "01:58",
+     "end": "02:45",
+     "values_changed": "thickness: 16mm, width: 150mm, height: 450mm"
+    },
+    {
+     "tab": "Bolts",
+     "start": "02:52",
+     "end": "05:40",
+     "values_changed": "bolt size: 16mm, standard: 8.8X, tolerance: 2mm, bolt spacing: 5x90mm"
+    },
+    {
+     "tab": "Haunch",
+     "start": "06:00",
+     "end": "07:35",
+     "values_changed": "thickness: 6mm, width: 75mm, height: 75mm, cut: 15mm"
+    }
+   ],
+   "applies": [
+    {
+     "t": "05:15",
+     "what": "Modify"
+    },
+    {
+     "t": "05:35",
+     "what": "Modify"
+    },
+    {
+     "t": "07:35",
+     "what": "Modify"
+    },
+    {
+     "t": "07:44",
+     "what": "Apply"
+    }
+   ],
+   "result": "End plate connection with haunch stiffeners and bolts"
+  }
+ ]
+}

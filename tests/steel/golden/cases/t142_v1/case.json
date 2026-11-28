@@ -1,0 +1,117 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T142",
+   [
+    0,
+    1,
+    2
+   ],
+   {
+    "bolt": 16,
+    "cols": 2,
+    "e": 45,
+    "epb": 150,
+    "epb2": 150,
+    "eph": 450,
+    "eph2": 450,
+    "ext": "",
+    "ext2": "",
+    "extb": "",
+    "extb2": "",
+    "gap": 2,
+    "gap2": 2,
+    "gauge": 80,
+    "hc1": 75,
+    "hc2": 75,
+    "hc3": 75,
+    "hc4": 75,
+    "hpb1": 75,
+    "hpb2": 75,
+    "hpb3": 75,
+    "hpb4": 75,
+    "hpc": "auto",
+    "hpc2": "auto",
+    "hph1": 75,
+    "hph2": 75,
+    "hph3": 75,
+    "hph4": 75,
+    "hpt1": 6,
+    "hpt2": 6,
+    "hpt3": 6,
+    "hpt4": 6,
+    "pitch": 90,
+    "pitches": "",
+    "posH": 0,
+    "posV": "",
+    "refH": "Middle",
+    "refV": "Middle",
+    "rows": 5,
+    "side": 35,
+    "tol": 2,
+    "tp": 16,
+    "tp2": 16
+   }
+  ]
+ ],
+ "description": "Video 1 (_Au1wpEDNzw, Bangladesh Civil Engineering, Tekla 2017): HEB300 column, two IPE300 beams on its flanges; Picture 1-4 blank, 5 = 2 / 2; Plates 1 and 2: end plate 16 x 150 x 450; Bolts M16, Middle, 5 x 2, spacing 90, edge 45 / 35, horizontal spacing 80; Haunch: 4 plates 6 x 75 x 75, chamfers 75.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     7500
+    ],
+    "prof": "HEB300",
+    "rot": "Top"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     6000,
+     0,
+     7000
+    ],
+    "prof": "IPE300"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     -6000,
+     0,
+     7000
+    ],
+    "prof": "IPE300"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t142_v1",
+ "pageErrors": []
+}

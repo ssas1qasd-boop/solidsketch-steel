@@ -1,0 +1,99 @@
+{
+ "url": "https://www.youtube.com/watch?v=YCIyLguxW8c",
+ "models": [
+  "gemini-3.5-flash"
+ ],
+ "overview": {
+  "language": "Hindi",
+  "units": "mm",
+  "tekla_version": "Educational version",
+  "components_used": [
+   {
+    "name": "Two sided end plate",
+    "number": "142",
+    "start": "01:42",
+    "end": "05:13"
+   },
+   {
+    "name": "Eaves haunch",
+    "number": "102",
+    "start": "05:40",
+    "end": "09:51"
+   }
+  ],
+  "is_142_used": true,
+  "members": [
+   {
+    "role": "main",
+    "profile": "I-section column / beam",
+    "orientation": "column / primary beam",
+    "slope_or_skew": "vertical column or main beam",
+    "note": "Selected first as main part (02:35, 03:22, 03:54, 07:51)"
+   },
+   {
+    "role": "secondary 1",
+    "profile": "I-section beam",
+    "orientation": "beam",
+    "slope_or_skew": "horizontal",
+    "note": "Selected second (02:52, 03:24, 03:56, 07:53)"
+   },
+   {
+    "role": "secondary 2",
+    "profile": "I-section beam",
+    "orientation": "beam",
+    "slope_or_skew": "horizontal",
+    "note": "Selected third for two-sided connection (02:54, 03:25, 03:57)"
+   }
+  ],
+  "connection_type": "beam-to-column web two-sided end plate & eaves haunch rafter-to-column",
+  "dialog_spans": [
+   {
+    "tab": "Picture / Plates 1 / Plates 2 / General / Haunch / Notch / Bolts",
+    "start": "01:56",
+    "end": "02:29",
+    "values_changed": "Inspected default properties for 142 Two sided end plate"
+   },
+   {
+    "tab": "Picture",
+    "start": "05:48",
+    "end": "06:15",
+    "values_changed": "Inspected general haunch geometry and stiffness settings"
+   },
+   {
+    "tab": "Parts",
+    "start": "06:16",
+    "end": "06:40",
+    "values_changed": "Haunch profile set to ISMB350"
+   },
+   {
+    "tab": "Parameters",
+    "start": "06:41",
+    "end": "07:35",
+    "values_changed": "Selected top cap plate option, square cut profile, column top extension set to 12 mm"
+   }
+  ],
+  "applies": [
+   {
+    "t": "03:00",
+    "what": "Created two-sided end plate (142) on column web between two secondary beams"
+   },
+   {
+    "t": "03:45",
+    "what": "Created second two-sided end plate (142) connection on another column"
+   },
+   {
+    "t": "04:00",
+    "what": "Created two-sided end plate (142) beam-to-beam connection"
+   },
+   {
+    "t": "07:54",
+    "what": "Created Eaves haunch (102) connection between column and rafter/beam"
+   },
+   {
+    "t": "08:28",
+    "what": "Created second Eaves haunch (102) connection"
+   }
+  ],
+  "result": "Two-sided end plates with shared/through bolts connecting opposite beams to column/beam webs, and eaves haunches with cap plates, haunch I-sections, and end plate bolting."
+ }
+}

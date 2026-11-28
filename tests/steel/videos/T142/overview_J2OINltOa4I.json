@@ -1,0 +1,101 @@
+{
+ "url": "https://www.youtube.com/watch?v=J2OINltOa4I",
+ "models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "overview": {
+  "language": "English",
+  "units": "inch",
+  "tekla_version": "unknown",
+  "components_used": [
+   {
+    "name": "Two sided end plate",
+    "number": "142",
+    "start": "00:57",
+    "end": "01:14"
+   },
+   {
+    "name": "End plate",
+    "number": "144",
+    "start": "05:03",
+    "end": "05:14"
+   }
+  ],
+  "is_142_used": true,
+  "members": [
+   {
+    "role": "main",
+    "profile": "W16X60 (typical column)",
+    "orientation": "column",
+    "slope_or_skew": "",
+    "note": "00:10-00:23"
+   },
+   {
+    "role": "secondary 1",
+    "profile": "W16X60 (beam)",
+    "orientation": "beam",
+    "slope_or_skew": "",
+    "note": "00:28-00:36"
+   },
+   {
+    "role": "secondary 2",
+    "profile": "W16X60 (beam)",
+    "orientation": "beam",
+    "slope_or_skew": "",
+    "note": "00:37-00:43"
+   }
+  ],
+  "connection_type": "beam-beam-column web",
+  "dialog_spans": [
+   {
+    "tab": "Plates 1",
+    "start": "01:48",
+    "end": "01:59",
+    "values_changed": "End plate 1 thickness = 1/2"
+   },
+   {
+    "tab": "Plates 2",
+    "start": "02:04",
+    "end": "02:13",
+    "values_changed": "End Plate 2 thickness = 1/2"
+   },
+   {
+    "tab": "Bolts",
+    "start": "02:18",
+    "end": "04:26",
+    "values_changed": "Bolt size = 5/8, tolerance = 1/16, top/middle/bottom settings, edge distances and bolt spacings (e.g. 3.5\" edge distance, 5\" pitch)"
+   }
+  ],
+  "applies": [
+   {
+    "t": "01:55",
+    "what": "Modify"
+   },
+   {
+    "t": "02:09",
+    "what": "Modify"
+   },
+   {
+    "t": "02:26",
+    "what": "Modify"
+   },
+   {
+    "t": "02:52",
+    "what": "Modify"
+   },
+   {
+    "t": "03:31",
+    "what": "Modify"
+   },
+   {
+    "t": "04:11",
+    "what": "Modify"
+   },
+   {
+    "t": "04:24",
+    "what": "Apply OK"
+   }
+  ],
+  "result": "Two-sided bolted end plate connection (component 142) and single-sided end plate connection (component 144) applied to W16X60 beams and columns with specified plate thicknesses and bolt patterns."
+ }
+}

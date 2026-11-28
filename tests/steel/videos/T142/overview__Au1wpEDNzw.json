@@ -1,0 +1,133 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "models": [
+  "gemini-3-flash-preview"
+ ],
+ "overview": {
+  "language": "Bengali",
+  "units": "mm",
+  "tekla_version": "2017",
+  "components_used": [
+   {
+    "name": "End plate",
+    "number": "144",
+    "start": "00:49",
+    "end": "07:45"
+   },
+   {
+    "name": "Two sided end plate",
+    "number": "142",
+    "start": "09:15",
+    "end": "14:20"
+   }
+  ],
+  "is_142_used": true,
+  "members": [
+   {
+    "role": "main",
+    "profile": "not explicitly shown",
+    "orientation": "column",
+    "slope_or_skew": "",
+    "note": "Column height mentioned as 300 in dialog (02:18)"
+   },
+   {
+    "role": "secondary 1",
+    "profile": "not explicitly shown",
+    "orientation": "beam",
+    "slope_or_skew": "",
+    "note": "Beam flange width mentioned as 150 in dialog (02:12)"
+   },
+   {
+    "role": "secondary 2",
+    "profile": "not explicitly shown",
+    "orientation": "beam",
+    "slope_or_skew": "",
+    "note": "Opposite side beam for component 142 (09:25)"
+   }
+  ],
+  "connection_type": "beam-column flange",
+  "dialog_spans": [
+   {
+    "tab": "Picture (144)",
+    "start": "01:30",
+    "end": "01:55",
+    "values_changed": "Distance from column to plate: 2"
+   },
+   {
+    "tab": "Plates (144)",
+    "start": "01:55",
+    "end": "02:50",
+    "values_changed": "Thickness: 16, Width: 150, Height: 450, Part name: EP, Material: 50 grade, Name: End Plate"
+   },
+   {
+    "tab": "Bolts (144)",
+    "start": "02:50",
+    "end": "05:55",
+    "values_changed": "Size: 16, Standard: 8.8XOX, Tolerance: 2, Vertical distances: 45, 5*90, 45, Horizontal: 35, 80, 35"
+   },
+   {
+    "tab": "Haunch (144)",
+    "start": "05:55",
+    "end": "07:40",
+    "values_changed": "Thickness: 6, Width: 75, Height: 75, Name: STIFFENER, Material: 50 grade, Notch cuts: 75, 75, 15, 15"
+   },
+   {
+    "tab": "Picture (142)",
+    "start": "09:40",
+    "end": "09:55",
+    "values_changed": "Distances: 2"
+   },
+   {
+    "tab": "Plates 1 (142)",
+    "start": "09:55",
+    "end": "10:30",
+    "values_changed": "Thickness: 16, Width: 150, Height: 450, EP, 50 grade, End Plate"
+   },
+   {
+    "tab": "Plates 2 (142)",
+    "start": "10:30",
+    "end": "10:55",
+    "values_changed": "Same as Plates 1"
+   },
+   {
+    "tab": "Bolts (142)",
+    "start": "10:55",
+    "end": "12:25",
+    "values_changed": "Size: 16, Standard: 8.8XOX, Tolerance: 2, Vertical: 45, 5*90, 45, Horizontal: 35, 80, 35"
+   },
+   {
+    "tab": "Haunch (142)",
+    "start": "12:25",
+    "end": "14:15",
+    "values_changed": "Thickness: 6, Width: 75, Height: 75, STIFFENER, 50 grade, Notch cuts: 75, 75, 15, 15"
+   }
+  ],
+  "applies": [
+   {
+    "t": "01:05",
+    "what": "Component 144 created"
+   },
+   {
+    "t": "05:15",
+    "what": "Modify (Bolts 144)"
+   },
+   {
+    "t": "07:35",
+    "what": "Modify (Haunch 144)"
+   },
+   {
+    "t": "09:30",
+    "what": "Component 142 created"
+   },
+   {
+    "t": "12:10",
+    "what": "Modify (Bolts 142)"
+   },
+   {
+    "t": "14:15",
+    "what": "Modify (Haunch 142)"
+   }
+  ],
+  "result": "Bolted end plate connections with stiffeners/haunches connecting beams to column flanges, both one-sided and two-sided."
+ }
+}

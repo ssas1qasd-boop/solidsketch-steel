@@ -1,0 +1,74 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T142",
+   [
+    0,
+    1,
+    2
+   ],
+   {
+    "rows": 3
+   }
+  ]
+ ],
+ "description": "HEB300 column, IPE270 and IPE300 on its web, picked smaller first (Sort secondaries by profile height: the IPE300 becomes secondary 1; end plate 2 mirrors end plate 1 on the IPE270), 3 rows.",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     7500
+    ],
+    "prof": "HEB300"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     6000,
+     0,
+     7000
+    ],
+    "prof": "IPE270"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     -6000,
+     0,
+     7000
+    ],
+    "prof": "IPE300"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t142_odd_heb300_ipe270_ipe300",
+ "pageErrors": []
+}

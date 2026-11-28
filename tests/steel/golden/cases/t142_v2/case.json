@@ -1,0 +1,96 @@
+{
+ "connResult": [
+  {
+   "id": 1,
+   "ok": true
+  }
+ ],
+ "conns": [
+  [
+   "T142",
+   [
+    0,
+    1,
+    2
+   ],
+   {
+    "bolt": 16,
+    "cols": 2,
+    "e": 88.9,
+    "epb": "",
+    "epb2": "",
+    "eph": "",
+    "eph2": "",
+    "ext": "",
+    "ext2": "",
+    "extb": "",
+    "extb2": "",
+    "gauge": 88.9,
+    "pitch": 127,
+    "pitches": "",
+    "posH": 0,
+    "posV": "",
+    "refH": "Middle",
+    "refV": "Middle",
+    "rows": 3,
+    "side": 50.8,
+    "tol": 1.5875,
+    "tp": 12.7,
+    "tp2": 12.7
+   }
+  ]
+ ],
+ "description": "Video 2 (J2OINltOa4I, Gani sk, imperial): two beams on a column web; Plates 1 and 2: end plate t 1/2\" (12.7), b / h blank; Bolts 5/8\" (M16), tolerance 1/16\" (1.5875), Middle, 3 x 2, vertical spacing 5\" (127), edge 3 1/2\" (88.9), horizontal spacing 3 1/2\" (88.9), edge 2\" (50.8). The video never names its profiles (Tekla imperial defaults, W shapes not in the catalog): HEB300 / IPE300 stand in (NOT from the video).",
+ "members": [
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     0
+    ],
+    "p2": [
+     0,
+     0,
+     7500
+    ],
+    "prof": "HEB300"
+   },
+   "set": "COLUMN"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     6000,
+     0,
+     7000
+    ],
+    "prof": "IPE300"
+   },
+   "set": "BEAM"
+  },
+  {
+   "extra": {
+    "p1": [
+     0,
+     0,
+     7000
+    ],
+    "p2": [
+     -6000,
+     0,
+     7000
+    ],
+    "prof": "IPE300"
+   },
+   "set": "BEAM"
+  }
+ ],
+ "name": "t142_v2",
+ "pageErrors": []
+}
