@@ -102,6 +102,17 @@ For EACH component:
 
 **How this runs with the integration rule:** one agent goes down the order above, one component at a time, each in its own branch `agent/g1-<code>`. It reports to the main session (integration rule step 2). The main session merges it, runs `tools/ci/full_suite.sh`, runs CI on main, and sends that component's delivery (step 6) from the merge commit. Then the next component's agent starts.
 
+## Video reading (free tier only) (owner standing rule, 2026-11-28)
+Applies to every video read for Tekla parity (Group 1 two-video method, step 1, and every later group). Tools: `tools/video/` (`reread.py` reads, `screen.py` screens, `vlib.py` holds the model order).
+- **Free tier only.** One Gemini key (`GEMINI_API_KEY`), one project. Never add extra keys, accounts or projects to raise the quota, and never use Apify through a new account.
+- **Model order.** Gemini 3.6 / 3.7 Flash with agentic video understanding first (Interactions API, `"processing": "agentic"`; agentic mode takes no offsets, so the time range goes into the prompt). When a model's daily quota ends, continue on another full Flash model (3.8 Flash, 3.5 Flash, 3-flash-preview) with static reads and time-range clipping (`video_metadata` start / end offset). Names that Google serves under another model share that model's quota (seen: 3.5 Flash → 3.6 Flash; 3.7 Flash and flash-latest → 3.8 Flash).
+- **Flash-Lite** (even agentic) is for screening only (which component a video uses, where its dialog is open), never for final dialog values.
+- **Record in `VIDEO_*.txt` which model (as served, the response's model version) read what**, value by value or piece by piece, with the mode (agentic / static).
+- **Before any Gemini call,** pick the videos with the YouTube Data API (`YOUTUBE_API_KEY`) and the Tekla User Assistance page of the component. Call Gemini only on the time range of the component, never on a whole video for values.
+- **Exact frames:** give the owner a short list of timestamps (at most ~10) per component. His phone screenshots count as frames.
+- **Quota used up mid-component:** work on code, goldens and CI until the daily reset at 10:00 Cairo time (08:00 UTC), then continue the reads.
+- **Never use proxies, cookies or download workarounds for YouTube** (no yt-dlp tricks, no logged-in sessions, no third-party downloaders). Only the YouTube Data API, Gemini's own YouTube input and YouTube's public still images (`i.ytimg.com`).
+
 ## Weights (owner, 2026-11-26)
 **Target:** Tekla's per-part weights (`st.tkW`, 63,705.8 kg; Part List 63,711.7).
 
