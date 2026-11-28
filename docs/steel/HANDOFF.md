@@ -1,5 +1,7 @@
 # Handoff (session of 2026-11-28, second → next session)
 
+**CHECK FIRST (owner, 2026-11-28):** before any golden, rule-B or host-test work, make sure `reference/solidsketch_v69.html` (20,495,043 bytes, the owner's DEV copy, git-ignored) and the Android SDK / NDK, `local.properties` and `/home/user/m2local` are present, as in the GOOD environment. The last session had neither, so T142's goldens and rule B could not run. If they are missing, say so to the owner at once.
+
 Read first: `CLAUDE.md`, `docs/steel/PARITY.md` (reference R13; Group 1 two-video method; **"Video reading (free tier only)"**, the owner's standing rules for every video read), this file. Work as ONE agent; ignore `docs/steel/agents/` (the split plan was not used). Standing rules: branch work, main merge-only; no `ruleB_known` / baseline entries without the owner's OK; never print keys; ✓ only after the owner's OK from the phone.
 
 ## Where things are
@@ -12,12 +14,12 @@ Read first: `CLAUDE.md`, `docs/steel/PARITY.md` (reference R13; Group 1 two-vide
 - **Keys:** `GEMINI_API_KEY` new (hash differs from `0af73a6b3408`), `YOUTUBE_API_KEY` works. `GEEKFLARE_API_KEY` was not visible in that session (added after it started).
 - **T142 re-read (full models, static reads):** video 1 `_Au1wpEDNzw`: the beams sit on the column **WEB** (gemini-3.6-flash three reads + gemini-3.8-flash; the lite reads had the flanges); every dialog value unchanged (plates 16 x 150 x 450, M16 8.8XOX tol 2, Middle, edge 45 / 35, spacing 90, 2 across at 80, haunch 4 x 6 x 75 x 75, chamfers 75); status bar only "Information: polygon depth value put as zero"; symbol green. Bolt ROWS not settled (box "5" once, "1" three times; model 5 x 2 (3.6) vs 4 x 2 (3.8)); kept 5. Video 2 `J2OINltOa4I`: unchanged; symbol green; profiles still not read (stand-ins stay). Files: `tests/steel/videos/T142/VIDEO_1.txt`, `VIDEO_2.txt` (re-read sections), `reread_*`, `recheck_flashlatest_*`, `reread_focus_*`.
 - **T144 video 2 re-read:** 19:38 frame NOT saved (no frame route); status bar text with the full id `02dbe36a-277a-43c4-94ad-e6e8d353813c` (3.6, four reads); symbol read green while selected (owner saw yellow; level 2 kept). Plates / stiffeners / haunch confirmed; the four Haunch boxes = 10 are the inner notches. Bolt boxes / counts NOT settled (reads disagree; golden 4 x 2 at 120 kept). `tests/steel/videos/T144/VIDEO_2.txt`.
-- **Agentic test** (`tests/steel/videos/T142/AGENTIC_TEST.txt`): same piece, gemini-3.6-flash; agentic values DIFFER from static (defaults / another moment) → not used; all reads static with time-range clipping. Tokens 30,743 static vs 16,839 agentic (video 26,011 → 5,940). PARITY.md still says "agentic first": ask the owner whether to amend it.
+- **Agentic test** (`tests/steel/videos/T142/AGENTIC_TEST.txt`): same piece, gemini-3.6-flash; agentic values DIFFER from static (defaults / another moment) → not used; all reads static with time-range clipping. Tokens 30,743 static vs 16,839 agentic (video 26,011 → 5,940). Owner decision 2026-11-28: agentic only to find timestamps and screen videos; final values from static reads (PARITY.md "Video reading" amended).
 
-## Open decision for the owner: T144 video 1 symbol
+## T144 video 1 symbol: DECIDED (owner, 2026-11-28): the final state is green after the Modify at 24:31; the fix below is APPROVED, to be done next session
 `tests/steel/videos/T144/VIDEO_1.txt` "SYMBOL SETTLED": yellow with "Bolt edge distance ... too small" at 24:21 (3.6, 3.8, 3-flash-preview); **green after the Modify at 24:31** (3.8, 3-flash-preview) / 24:38 (3.6 focus), green at 24:40 and in the frame f_1490 (24:50). Not settled: what the last Modify changed (3-flash-preview: rows back to 5 = the golden; 3.8: "back to the default 2 bolt rows").
-- If the final values = the golden: our check is stricter than Tekla (ours: bolts 1, 2, 9, 10 in STIFFENER 0 mm, a clash with a plate the bolt has no hole in). Proposed fix (web `web/v70/rulecheck.js` + app `TkCheck.kt`): the edge distance only in plates where the bolt has its own hole; t144_v1 → green, `expect: []`, level 1; t144_v2 stays yellow. **Waiting for the owner's OK; no T144 code changed.**
-- To settle: one 3-flash-preview read of 24:26-24:40 (dialog values only) or the owner's screenshots at 24:27 / 24:32.
+- If the final values = the golden: our check is stricter than Tekla (ours: bolts 1, 2, 9, 10 in STIFFENER 0 mm, a clash with a plate the bolt has no hole in). Proposed fix (web `web/v70/rulecheck.js` + app `TkCheck.kt`): the edge distance only in plates where the bolt has its own hole; t144_v1 → green, `expect: []`, level 1; t144_v2 stays yellow. **APPROVED by the owner (2026-11-28); not done yet: do it next session** (web + app, regenerate the status goldens and `video_status.json`, list every golden that changes, CI, then deliver with T142).
+- The owner accepts the green final state; the golden's dialog values for t144_v1 stay as they are.
 
 ## T142 fix: status and next steps
 - Done (work branch, `6b5734a`): `tools/golden/cases/t142.js` t142_v1 column without `rot: 'Top'` (beams on the web), videoStatus (symbol green, no warning); `T142V1RecordingTest` column picked on its flange face, Tekla bolt length L70 (grip 16 + 2 + 11 + 2 + 16 = 47). No generator change needed (the web path is video 2's / the std case's).
@@ -34,7 +36,7 @@ Read first: `CLAUDE.md`, `docs/steel/PARITY.md` (reference R13; Group 1 two-vide
 
 ## Frames plan
 - Now: the owner's phone screenshots (or ScreenApp) at a short timestamp list (max ~10). Asked: T142 v1 `_Au1wpEDNzw` 11:24, 12:10; T144 v2 `IBVnHuj1F-s` 19:38, 19:42, 24:18; T144 v1 `VLQiysAuEr4` 24:21, 24:31 (and 24:27 / 24:32 for the values); T101 `GhD-Ba6Mr2s` 01:45, 02:10, 02:45.
-- A screenshot API key will be in the environment (`GEEKFLARE_API_KEY`): check it is set (never print it) and make ONE test call first. Note PARITY.md "Video reading": no proxies / download workarounds for YouTube; confirm with the owner that a screenshot API on YouTube pages is allowed before using it there.
+- A screenshot API key will be in the environment (`GEEKFLARE_API_KEY`): check it is set (never print it) and make ONE test call first. Owner decision 2026-11-28: a screenshot of the YouTube EMBED page (`https://www.youtube.com/embed/<id>?start=<s>`) is allowed (not a download; PARITY.md "Video reading"). The next session tests it, then takes the listed timestamps.
 - Frameskim (Apify actor) on the ORIGINAL Apify account only after its monthly reset (never a new account).
 
 ## Open items (carried over from the 2026-11-27 / 28 handoff, unchanged)
