@@ -1,58 +1,45 @@
-# Handoff (session of 2026-11-27 / 28 → next session)
+# Handoff (session of 2026-11-28, second → next session)
 
-Read first: `CLAUDE.md`, `docs/steel/PARITY.md` (reference R13; integration rule 1–7; parked items; Group 1 two-video method, order, video-faithful cases, time tracking), this file. Agent briefs: `docs/steel/agents/g1_brief.md` (Group 1 agent) and `docs/steel/agents/agent_brief.md` (setup, pipelines, CI, recording-test patterns). They point to the old session's scratchpad for evidence folders: use the new session's scratchpad instead.
+**CHECK FIRST (owner, 2026-11-28):** before any golden, rule-B or host-test work, make sure `reference/solidsketch_v69.html` (20,495,043 bytes, the owner's DEV copy, git-ignored) and the Android SDK / NDK, `local.properties` and `/home/user/m2local` are present, as in the GOOD environment. The last session had neither, so T142's goldens and rule B could not run. If they are missing, say so to the owner at once.
+
+Read first: `CLAUDE.md`, `docs/steel/PARITY.md` (reference R13; Group 1 two-video method; **"Video reading (free tier only)"**, the owner's standing rules for every video read), this file. Work as ONE agent; ignore `docs/steel/agents/` (the split plan was not used). Standing rules: branch work, main merge-only; no `ruleB_known` / baseline entries without the owner's OK; never print keys; ✓ only after the owner's OK from the phone.
 
 ## Where things are
-- **main:** merge-only (no rebase, reset --hard or force push, by anyone). Head at handoff: the merge of `session/handoff-2026-11-28` (this file, the delivery report, the R13-REPORT status section, the agent briefs) on top of `e9a243c`.
-- **Delivered code commit:** `f4db04a` (APK `0.26.0-parity`, versionCode 37; CI run 46091133130 green).
-- **Agent branches** (all merged, kept for history): `agent/c19`, `agent/g1-t144`, `agent/g1-t142`. No agent is running.
-- **Full suite** (`bash tools/ci/full_suite.sh`, `build/suite/summary.txt`): every step ok except the parked gable-node checks: `ruleB_cases` (`t20g_r13_gable_vl_lead`, 2 bolts) and `ruleB_r13_app` (4 gable-node bolts with 2.3 mm air, not on the baseline). 0 depth drifts.
-- **R13 rebuild:** 839 / 839 members, details 3,701 matched / 6 near / 0 missing, web 64,014.62 kg; 160 assemblies / 416 drawings / 4,596 bolts.
+- **Work branch:** `claude/steel-handoff-continuation-vn4lw5`, last commit `5375700` (pushed, clean). Draft PR #1 (open, draft; not ready). Merge it only when T142's goldens are regenerated and CI is green.
+- **main:** merge-only; head = the merge of this handoff (`docs/handoff-2026-11-28-b`) on top of `a1c83d9` (the merge of `docs/video-reading-rules`: PARITY.md "Video reading (free tier only)" + the CLAUDE.md pointer).
+- **Container gaps in the last session (check first):** `reference/solidsketch_v69.html` was NOT in the container (git-ignored owner DEV copy; not on the owner's Drive either), and there was no Android SDK / NDK / `local.properties` / `/home/user/m2local`. Without v69 the web goldens, `run_cases.js`, `c09_cases.js` (rule B on web) and `video_status.js` cannot run; host tests only through CI. Ask the owner for the v69 HTML if it is still missing.
+- **Tools (on the work branch):** `tools/video/reread.py` (two-pass reads per job file; static or agentic; records model asked / served, mode, token usage, rotations), `tools/video/vlib.py` (`rotate()`: the model order below, never Flash-Lite for values; `agentic()`: Interactions API), `tools/video/screen.py` (screening which component a video uses; Flash-Lite or 3-flash-preview allowed), job files in `tools/video/jobs/`.
 
-## Delivered (all 🟡, waiting for the owner's phone OK)
-| Delivery | Commit | What |
-|---|---|---|
-| `docs/steel/parity/DELIVERY_2026-11-28.md` | 1ebb96d | C08, C10, C13, C12/C20/C14 at the fixed girders, C18, C05, C06 (6 gussets open), C07, shared weight rules |
-| `docs/steel/parity/DELIVERY_2026-11-28_2.md` | fd71ed7 | C19 railing stanchions (26/26 = R13; 26 Hand Rail / Stanchion baseline lines with R13's depth, approved) |
-| `docs/steel/parity/DELIVERY_2026-11-28_3.md` | f4db04a | Group 1: T144 (accepted, pending phone OK) and **T142: video evidence provisional (read without frames, quota-limited); no ✓ until re-read** |
+## Done this session
+- **Keys:** `GEMINI_API_KEY` new (hash differs from `0af73a6b3408`), `YOUTUBE_API_KEY` works. `GEEKFLARE_API_KEY` was not visible in that session (added after it started).
+- **T142 re-read (full models, static reads):** video 1 `_Au1wpEDNzw`: the beams sit on the column **WEB** (gemini-3.6-flash three reads + gemini-3.8-flash; the lite reads had the flanges); every dialog value unchanged (plates 16 x 150 x 450, M16 8.8XOX tol 2, Middle, edge 45 / 35, spacing 90, 2 across at 80, haunch 4 x 6 x 75 x 75, chamfers 75); status bar only "Information: polygon depth value put as zero"; symbol green. Bolt ROWS not settled (box "5" once, "1" three times; model 5 x 2 (3.6) vs 4 x 2 (3.8)); kept 5. Video 2 `J2OINltOa4I`: unchanged; symbol green; profiles still not read (stand-ins stay). Files: `tests/steel/videos/T142/VIDEO_1.txt`, `VIDEO_2.txt` (re-read sections), `reread_*`, `recheck_flashlatest_*`, `reread_focus_*`.
+- **T144 video 2 re-read:** 19:38 frame NOT saved (no frame route); status bar text with the full id `02dbe36a-277a-43c4-94ad-e6e8d353813c` (3.6, four reads); symbol read green while selected (owner saw yellow; level 2 kept). Plates / stiffeners / haunch confirmed; the four Haunch boxes = 10 are the inner notches. Bolt boxes / counts NOT settled (reads disagree; golden 4 x 2 at 120 kept). `tests/steel/videos/T144/VIDEO_2.txt`.
+- **Agentic test** (`tests/steel/videos/T142/AGENTIC_TEST.txt`): same piece, gemini-3.6-flash; agentic values DIFFER from static (defaults / another moment) → not used; all reads static with time-range clipping. Tokens 30,743 static vs 16,839 agentic (video 26,011 → 5,940). Owner decision 2026-11-28: agentic only to find timestamps and screen videos; final values from static reads (PARITY.md "Video reading" amended).
 
-Status tables: `docs/steel/R12-REPORT.md` (connections C01–C20, X01–X02) and `docs/steel/R13-REPORT.md` (Group 1), both in their `<!-- owner-status -->` sections (kept through regeneration). Time rows: `docs/steel/parity/TIMES.md`.
+## T144 video 1 symbol: DECIDED (owner, 2026-11-28): the final state is green after the Modify at 24:31; the fix below is APPROVED, to be done next session
+`tests/steel/videos/T144/VIDEO_1.txt` "SYMBOL SETTLED": yellow with "Bolt edge distance ... too small" at 24:21 (3.6, 3.8, 3-flash-preview); **green after the Modify at 24:31** (3.8, 3-flash-preview) / 24:38 (3.6 focus), green at 24:40 and in the frame f_1490 (24:50). Not settled: what the last Modify changed (3-flash-preview: rows back to 5 = the golden; 3.8: "back to the default 2 bolt rows").
+- If the final values = the golden: our check is stricter than Tekla (ours: bolts 1, 2, 9, 10 in STIFFENER 0 mm, a clash with a plate the bolt has no hole in). Proposed fix (web `web/v70/rulecheck.js` + app `TkCheck.kt`): the edge distance only in plates where the bolt has its own hole; t144_v1 → green, `expect: []`, level 1; t144_v2 stays yellow. **APPROVED by the owner (2026-11-28); not done yet: do it next session** (web + app, regenerate the status goldens and `video_status.json`, list every golden that changes, CI, then deliver with T142).
+- The owner accepts the green final state; the golden's dialog values for t144_v1 stay as they are.
 
-## Gemini key
-The owner replaced `GEMINI_API_KEY`; the old session still had the old one. The old key's hash: sha256 first 12 hex = `0af73a6b3408`, length 53. In the new session, check without printing the key:
-`printf %s "$GEMINI_API_KEY" | sha256sum | cut -c1-12` must differ from `0af73a6b3408`, and a one-word `generateContent` call to `gemini-flash-latest` (header `x-goog-api-key`) must return 200, not 429. Never print or store the key.
-Apify: monthly limit used up (USD 5.41 of 5) as of 2026-11-28. YouTube refuses yt-dlp and the watch page from this environment; only `i.ytimg.com` stills (maxres1/2/3, maxresdefault) can be fetched.
+## T142 fix: status and next steps
+- Done (work branch, `6b5734a`): `tools/golden/cases/t142.js` t142_v1 column without `rot: 'Top'` (beams on the web), videoStatus (symbol green, no warning); `T142V1RecordingTest` column picked on its flange face, Tekla bolt length L70 (grip 16 + 2 + 11 + 2 + 16 = 47). No generator change needed (the web path is video 2's / the std case's).
+- Next: with v69 present: `python3 tools/web/build_v70.py`; `node tools/golden/run_cases.js t142_v1` (golden dump + case.json); `node tools/golden/video_status.js`; rule B on the new geometry (`c09_cases.js` skips video-faithful cases, so dump t142_v1 and run `geom_checks.py` on it): the 10 bolts with 263.8 mm air must be gone (2 mm gaps each side remain: the video's own Picture 5 = 2); `bash tools/ci/full_suite.sh`; CI with `REC_CLASSES` = T142 v1 / v2 (S7T144Test compares the app with the new dump); parity PNGs; then the combined delivery (T142 + T144) and R13-REPORT row "accepted (pending phone OK)". Bolt rows stay 5 unless the owner's screenshot (11:24 / 12:10) says otherwise.
 
-## Next steps, in this order
-### 1. Re-read T142 with the full Gemini model (owner, 2026-11-28)
-Both videos, two passes (pass 2 at high resolution, 1 fps, 60–90 s pieces on the dialog), the full model (`gemini-flash-latest` or newer full model; record which). Get frames if any way works (Apify after its monthly reset, or Gemini's own frame times + stills); otherwise say so again.
-- **Video 1** `_Au1wpEDNzw` (Bangladesh Civil Engineering, Tekla 2017, mm). The 142 part 09:11–14:16. Check:
-  - profiles: column HEB300, two IPE300 on the column's flanges, in line (09:18, 10:50; 12:10–12:17); levels / spans if readable;
-  - Picture 1–4 blank and 5 = 2.00 / 2.00 (09:49 / 09:55; one lite read put 2.00 in 1–4 too);
-  - Plates 1 / 2: t 16, b 150, h 450 (10:01–10:51);
-  - Bolts: M16, tolerance 2, vertical reference Top → Middle, edge 45, 5 rows at 90 (11:02–11:32); horizontal Middle, edge 35, 2 at 80 (11:55–12:05); the bolt standard;
-  - Haunch: 4 plates t 6 × 75 × 75, chamfers 1–4 = 75 (12:30–13:54); the creation lists (not read so far);
-  - the status bar after Modify (12:05: "Information: polygon depth value put as zero", no warning) and the component symbol's colour;
-  - whether the bolts really run across the whole column (the golden's 10 rule-B findings, video-faithful: 263.8 mm of air on each shank).
-- **Video 2** `J2OINltOa4I` (Gani sk, imperial). The 142 part 00:57–04:25. Check:
-  - the profiles (00:05–00:50; never named so far; HEB300 / IPE300 stand in, marked not from the video). If the video shows W shapes, say which; they are not in the catalog;
-  - Plates 1 / 2: t 1/2" (01:50, 02:05), b / h blank;
-  - Bolts: 5/8" (→ M16), tolerance 1/16", Site, round, references Middle / Middle (02:22–02:52); final vertical edge 3 1/2", 3 bolts at 5"; horizontal edge 2", 2 bolts at 3 1/2" (Modify 04:11);
-  - the status bar and symbol after 04:25.
-- Write the results into `tests/steel/videos/T142/VIDEO_1.txt` / `VIDEO_2.txt` (mark what changed from the lite reads).
-- **T144's open video points, in the same pass:**
-  - T144 video 2 `IBVnHuj1F-s`: save the 19:38 frame with the status bar "Bolt edge distance of the bolt … is too small" and the symbol (the owner says yellow); store it under `tests/steel/videos/T144/` and add it to `t144_v2`'s `videoStatus.tekla`. Video 2's dialog values were also read by the lighter model only (VIDEO_2.txt): re-check them.
-  - T144 video 1 `VLQiysAuEr4`: the symbol colour at the final state (the frame f_1490 at 24:50 shows the selected cone drawn green; ours is yellow). If Tekla's is green while the status bar warns, report it to the owner before changing anything.
+## T101 status
+- Only ONE usable video: `GhD-Ba6Mr2s` (Dizar Smart, Tekla Educational, mm). `tests/steel/videos/T101/VIDEO_1.txt` (3.6 + 3.8): beam into the column FLANGE; end plate t 10 (PL10*150), b / h blank, Rolled/Sawn; M16 H.T.B, thread Yes; vertical edge 60, 3 bolts at 90, Top → Middle; horizontal edge 30; result ONE vertical line of 3 bolts; symbol green. Not settled: profiles (HEB200 / IPE200 single read), tolerance.
+- Search: `youtube_search.json` (22 queries), `candidates.json`, `screen.json` (16 videos screened, 3-flash-preview: the rest use 144 / 141 / PEB tools); Tekla help `help_101_2025.txt` (no worked example: PARITY says use it as the second reference only if no second video exists, and say so).
+- Settings difference found: Tekla's 101 dialog = Picture (gap, edge distance), End plate (t, h, edge type, adapt to slope), Notch, Bolts, General, Design, Analysis; our app shows the 144 layout (`tk_ui.json` specs T101). Next: a second video (more searches), then the settings check and the dialog change in web + app.
 
-### 2. Fix T142 (and T144) if the re-read differs
-Same method as before (agent on `agent/g1-t142` from fresh main, or the main session): fix in `web/v70/t142.js` + `FamT142.kt`, regenerate `t142_v1` / `t142_v2` (and `video_status.json`), all goldens green, recordings, CI, then a combined delivery. When T142 matches with full-model reads, the owner can give the ✓; change its R13-REPORT row from "provisional" to "accepted (pending phone OK)".
+## Gemini quotas (free tier, one key, one project; per model, 20 requests / day; reset 08:00 UTC = 10:00 Cairo)
+- Order (`vlib.rotate`): **3.6 group** (gemini-3.6-flash; gemini-3.5-flash is served by 3.6 and shares it) → **3.8 group** (gemini-3.8-flash; gemini-3.7-flash and gemini-flash-latest are served by 3.8 and share it) → **gemini-3-flash-preview**. Static reads with time-range clipping (agentic not used, see above). Flash-Lite only for screening.
+- Used on 2026-11-28 (quota day from 08:00 UTC): 3.6 group about 11 requests (8 left); 3.8 group USED UP (20; its 503 retries count); 3-flash-preview 1. Before the 08:00 reset the 3.6 and 3.8 groups were used up and 3-flash-preview had 16 screening requests.
 
-### 3. T101, then the rest of the EP family
-Order (PARITY.md): EP: T101, T29, T32, T24, T34, T115, T27s, T65, T97, T111, T112, T119, T48, T50; then CP: T14, T2, T27; then SD: T1002, T1020, T1026, Tcap; then Shear tabs, then Clip angles. One agent, one component per run (`docs/steel/agents/g1_brief.md`); BLOCKED moves to the end of its family. Combined delivery at ≥ 2 components or once a day. After the first 5 accepted components the delivery reports carry the forecast.
-- For the EP family, reuse: `T142RecordingBase` (three-part pick) / `T144RecordingBase`, the `twovideo` composer in `tools/golden/parity_png.py`, `videoFaithful` / `videoStatus` in the cases files.
-- Web files sort by name: a component file that sorts before `t144.js` is wrapped by T144's wrapper (T142 writes its plates itself for that reason).
+## Frames plan
+- Now: the owner's phone screenshots (or ScreenApp) at a short timestamp list (max ~10). Asked: T142 v1 `_Au1wpEDNzw` 11:24, 12:10; T144 v2 `IBVnHuj1F-s` 19:38, 19:42, 24:18; T144 v1 `VLQiysAuEr4` 24:21, 24:31 (and 24:27 / 24:32 for the values); T101 `GhD-Ba6Mr2s` 01:45, 02:10, 02:45.
+- A screenshot API key will be in the environment (`GEEKFLARE_API_KEY`): check it is set (never print it) and make ONE test call first. Owner decision 2026-11-28: a screenshot of the YouTube EMBED page (`https://www.youtube.com/embed/<id>?start=<s>`) is allowed (not a download; PARITY.md "Video reading"). The next session tests it, then takes the listed timestamps.
+- Frameskim (Apify actor) on the ORIGINAL Apify account only after its monthly reset (never a new account).
 
-## Open items
+## Open items (carried over from the 2026-11-27 / 28 handoff, unchanged)
 - **Parked (after Group 1, one task "gable nodes"):** the 6 C06 gussets at 0.126 mm (never widen the 0.1 mm tolerance); the gable-node bolt air (4 bolts in the R13 rebuild, `t20g_r13_gable_vl_lead`); the hand rail depth bias (ours 0.007–0.099 mm deeper than R13 on all 26 Hand Rail / Stanchion overlaps; check the CHS hand rail mesh facets / orientation and the last-stanchion end; report the cause before changing anything).
 - **Parked:** EB4007 (Tekla's own error, R14 later); phone checks.
 - **Rule checks (shared, open):** any hole near a bolt line still counts as that bolt's own (T25 / T33 / T117 odd profile: 10 mm reported, 4.4 mm true). See PARITY.md "Video-faithful cases".
