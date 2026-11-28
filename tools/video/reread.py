@@ -6,8 +6,11 @@ two-video method step 1; docs/steel/HANDOFF.md step 1):
           each with its time.
 Each answer records the model asked for and the modelVersion Google reports (they can differ). The key comes from GEMINI_API_KEY and is
 never printed or written.
+"mode": "agentic" (owner, 2026-11-28) reads each piece with Gemini's agentic video understanding (Interactions API, vlib.agentic): the
+model navigates to the piece itself; the piece's time range is given in the prompt, since agentic mode refuses offsets. "static" (the
+default) is the GenerateContent read with start/end offsets, 1 fps, high resolution. Each piece records its token usage.
     python3 tools/video/reread.py <job.json> <out.json>
-job.json = {"url": "...", "component": "...", "model": "gemini-3.5-flash", "pass1": true, "context": "...",
+job.json = {"url": "...", "component": "...", "model": "gemini-3.5-flash", "mode": "static" | "agentic", "pass1": true, "context": "...",
             "pieces": [{"start": "mm:ss", "end": "mm:ss", "ask": "what to look for in this piece"}]}
 Pieces already in <out.json> with an answer are not asked again (re-run after a 429 / 503). Pieces are asked 70 s apart
 ("pause" in job.json): the free tier allows only a few requests per minute.
@@ -38,6 +41,9 @@ Answer JSON: {{"members": [{{"role": "...", "profile": "...", "t": "mm:ss", "how
  "symbol": [{{"t": "mm:ss", "colour": "green / yellow / red / not visible", "selected": false, "how": "...", "sure": true}}],
  "geometry": "what the joint looks like (plates, bolts, where they sit)", "notes": "..."}}'''
 
+AG = """Look ONLY at the part of the video from {a} to {b} (mm:ss): go to it directly, zoom into the dialog and the status bar as needed, and
+ignore the rest of the video. """
+
 def sec(s): return int(vlib.mmss(s))
 
 def main(job_f, out_f):
@@ -54,6 +60,7 @@ def main(job_f, out_f):
             res['pass1'] = {'model_asked': model, 'model_served': vlib.SERVED[n] if len(vlib.SERVED) > n else None, 'read': vlib.parse_json(t)}
         except Exception as e: res['pass1'] = {'model_asked': model, 'error': str(e)[:1500]}
         json.dump(res, open(out_f, 'w'), indent=1)
+    agentic = job.get('mode') == 'agentic'
     for pc in job.get('pieces', []):
         a, b = sec(pc['start']), sec(pc['end'])
         if (a, b) in done: continue
@@ -61,9 +68,13 @@ def main(job_f, out_f):
         seg = {'file_data': vid, 'video_metadata': {'start_offset': f'{a}s', 'end_offset': f'{b}s', 'fps': pc.get('fps', 1)}}
         n = len(vlib.SERVED)
         try:
-            t, _ = vlib.call([seg, {'text': P2.format(context=job['context'], ask=pc['ask'])}], media_res='MEDIA_RESOLUTION_HIGH', model=model)
-            rec = {'seconds': [a, b], 'span': [pc['start'], pc['end']], 'ask': pc['ask'], 'model_asked': model,
-                   'model_served': vlib.SERVED[n] if len(vlib.SERVED) > n else None, 'read': vlib.parse_json(t)}
+            if agentic:   # the time range goes into the prompt (agentic mode takes no offsets)
+                t, info = vlib.agentic(url, AG.format(a=pc['start'], b=pc['end']) + P2.format(context=job['context'], ask=pc['ask']), model)
+            else:
+                t, _ = vlib.call([seg, {'text': P2.format(context=job['context'], ask=pc['ask'])}], media_res='MEDIA_RESOLUTION_HIGH', model=model); info = {}
+            rec = {'seconds': [a, b], 'span': [pc['start'], pc['end']], 'ask': pc['ask'], 'model_asked': model, 'mode': 'agentic' if agentic else 'static',
+                   'model_served': vlib.SERVED[n] if len(vlib.SERVED) > n else None, 'usage': vlib.USAGE[n] if len(vlib.USAGE) > n else None, **info,
+                   'read': vlib.parse_json(t)}
         except Exception as e:
             rec = {'seconds': [a, b], 'span': [pc['start'], pc['end']], 'ask': pc['ask'], 'model_asked': model, 'error': str(e)[:1500]}
         res['pass2'].append(rec); json.dump(res, open(out_f, 'w'), indent=1)

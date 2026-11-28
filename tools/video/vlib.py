@@ -5,6 +5,7 @@ import json, os, time, urllib.request, urllib.error, http.client
 MODEL = os.environ.get('GEMINI_MODEL', 'gemini-flash-latest')
 FALLBACK = 'gemini-flash-lite-latest'   # when MODEL stays busy (503) or its daily free quota (20 requests) is used up; the result records which model read it
 USED = []
+USAGE = []    # usage per answer: GenerateContent usageMetadata, or the Interactions API's usage (agentic)
 SERVED = []   # the modelVersion Google reports for each answer (it can differ from the requested name)
 
 def call(parts, tools=None, json_out=True, media_res=None, model=None, tries=4):
@@ -35,7 +36,7 @@ def _call(parts, tools, json_out, media_res, model, tries):
             err = 'connection: %s' % e
         time.sleep(20 * (k + 1))
     else: raise RuntimeError(err)
-    SERVED.append(d.get('modelVersion') or model)
+    SERVED.append(d.get('modelVersion') or model); USAGE.append({'api': 'generateContent', **(d.get('usageMetadata') or {})})
     cand = (d.get('candidates') or [{}])[0]
     txt = ''.join(p.get('text', '') for p in cand.get('content', {}).get('parts', []))
     meta = cand.get('groundingMetadata') or {}
@@ -53,3 +54,29 @@ def parse_json(txt):
 def mmss(s):
     s = str(s).strip(); p = [float(x) for x in s.split(':')]
     return p[0] * 60 + p[1] if len(p) == 2 else p[0] * 3600 + p[1] * 60 + p[2] if len(p) == 3 else p[0]
+
+
+def agentic(url, prompt, model, tries=4):
+    """Agentic video understanding (Gemini API, Sept 2026): the Interactions API with "processing": "agentic" on the video part; the
+    model navigates the video itself (processing_call / processing_result steps) instead of reading every frame. Clipping by
+    start/end offset is refused in this mode ('agentic' is not supported for processing.type: only 'static' takes offsets), so the
+    time range goes into the prompt. Returns (text, steps summary); appends the served model and the usage to SERVED / USAGE."""
+    body = {'model': model, 'input': [{'type': 'text', 'text': prompt}, {'type': 'video', 'uri': url, 'mime_type': 'video/*', 'processing': 'agentic'}]}
+    req = urllib.request.Request('https://generativelanguage.googleapis.com/v1beta/interactions', data=json.dumps(body).encode(),
+                                 headers={'Content-Type': 'application/json', 'x-goog-api-key': os.environ['GEMINI_API_KEY']})
+    err = None
+    for k in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=900) as r: d = json.load(r); break
+        except urllib.error.HTTPError as e:
+            err = 'Gemini %d: %s' % (e.code, e.read()[:1500].decode('utf8', 'replace'))
+            if e.code not in (429, 500, 503) or (e.code == 429 and 'PerDay' in err): raise RuntimeError(err)
+            if e.code == 429: time.sleep(65)
+        except (http.client.RemoteDisconnected, ConnectionError, TimeoutError, urllib.error.URLError) as e:
+            err = 'connection: %s' % e
+        time.sleep(20 * (k + 1))
+    else: raise RuntimeError(err)
+    steps = d.get('steps') or []
+    txt = ''.join(c.get('text', '') for s in steps if s.get('type') == 'model_output' for c in s.get('content', []) if c.get('type') == 'text')
+    SERVED.append(d.get('model') or model); USAGE.append({'api': 'interactions', 'processing': 'agentic', **(d.get('usage') or {})})
+    return txt, {'processing_calls': sum(s.get('type') == 'processing_call' for s in steps), 'status': d.get('status')}
