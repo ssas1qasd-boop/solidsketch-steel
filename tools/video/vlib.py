@@ -3,13 +3,13 @@ printed or written. Retries on 429 / 503 / dropped connections."""
 import json, os, time, urllib.request, urllib.error, http.client
 
 MODEL = os.environ.get('GEMINI_MODEL', 'gemini-flash-latest')
-FALLBACK = 'gemini-flash-lite-latest'   # when MODEL stays busy (503) or its daily free quota (20 requests) is used up; the result records which model read it
+FALLBACK = None   # owner 2026-11-28: no Flash-Lite fallback for dialog values (Flash-Lite only for screening); see rotate() for the full models
 USED = []
 USAGE = []    # usage per answer: GenerateContent usageMetadata, or the Interactions API's usage (agentic)
 SERVED = []   # the modelVersion Google reports for each answer (it can differ from the requested name)
 
 def call(parts, tools=None, json_out=True, media_res=None, model=None, tries=4):
-    for m in ([model] if model else [MODEL, FALLBACK]):
+    for m in ([model] if model else [MODEL]):
         try: r = _call(parts, tools, json_out, media_res, m, tries); USED.append(m); return r
         except RuntimeError as e:
             if '503' not in str(e) and 'connection' not in str(e) and 'PerDay' not in str(e): raise
@@ -80,3 +80,32 @@ def agentic(url, prompt, model, tries=4):
     txt = ''.join(c.get('text', '') for s in steps if s.get('type') == 'model_output' for c in s.get('content', []) if c.get('type') == 'text')
     SERVED.append(d.get('model') or model); USAGE.append({'api': 'interactions', 'processing': 'agentic', **(d.get('usage') or {})})
     return txt, {'processing_calls': sum(s.get('type') == 'processing_call' for s in steps), 'status': d.get('status')}
+
+
+# Owner 2026-11-28: each Gemini model has its own free daily quota (20 requests). When a full Flash model hits it (or stays busy), the
+# read continues on the next full Flash model; Flash-Lite never reads dialog values. Names Google serves under another model share that
+# model's quota (seen: gemini-3.5-flash -> gemini-3.6-flash, gemini-flash-latest -> gemini-3.8-flash; gemini-3.7-flash is deprecated and
+# routes to gemini-3.8-flash).
+FULL_FLASH = ['gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3-flash-preview']
+SERVES = {'gemini-flash-latest': 'gemini-3.8-flash', 'gemini-3.7-flash': 'gemini-3.8-flash', 'gemini-3.5-flash': 'gemini-3.6-flash'}
+AGENTIC_OK = {'gemini-3.8-flash', 'gemini-3.6-flash'}   # served models that take "processing": "agentic" (docs, 2026-11)
+EXHAUSTED = set()   # served models whose daily quota is used up in this run
+ROTATIONS = []      # [(model tried, reason)] for the record
+
+def rotate(first, fn):
+    """fn(model) -> result. Tries `first`, then the other full Flash models, skipping a model whose served model is exhausted."""
+    if 'lite' in first: raise ValueError('Flash-Lite is for screening only, never for dialog values (owner 2026-11-28)')
+    last = None
+    for m in [first] + [x for x in FULL_FLASH if x != first]:
+        if SERVES.get(m, m) in EXHAUSTED: continue
+        try: return m, fn(m)
+        except RuntimeError as e:
+            es = str(e); last = e
+            if '429' in es and 'PerDay' in es:
+                import re
+                hit = re.findall(r'model: ([\w.-]+)', es); EXHAUSTED.add(hit[0] if hit else SERVES.get(m, m)); ROTATIONS.append((m, 'daily quota used up'))
+            elif '429' in es: ROTATIONS.append((m, 'rate limited (429) after retries'))
+            elif '503' in es or 'connection' in es: ROTATIONS.append((m, 'busy (503) / no answer'))
+            elif '404' in es or 'not supported' in es or 'INVALID_ARGUMENT' in es: ROTATIONS.append((m, 'refused: ' + es[:120]))
+            else: raise
+    raise last or RuntimeError('no full Flash model left today')

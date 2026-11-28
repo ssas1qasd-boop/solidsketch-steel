@@ -12,6 +12,8 @@ default) is the GenerateContent read with start/end offsets, 1 fps, high resolut
     python3 tools/video/reread.py <job.json> <out.json>
 job.json = {"url": "...", "component": "...", "model": "gemini-3.5-flash", "mode": "static" | "agentic", "pass1": true, "context": "...",
             "pieces": [{"start": "mm:ss", "end": "mm:ss", "ask": "what to look for in this piece"}]}
+Model: the job's model first; when it hits its daily free quota (or stays busy) the read continues on the next full Flash model
+(vlib.rotate; never Flash-Lite). Every answer records the model asked, the model served and the mode.
 Pieces already in <out.json> with an answer are not asked again (re-run after a 429 / 503). Pieces are asked 70 s apart
 ("pause" in job.json): the free tier allows only a few requests per minute.
 """
@@ -55,9 +57,9 @@ def main(job_f, out_f):
     if job.get('pass1') and not (res.get('pass1') and 'error' not in res['pass1']):
         n = len(vlib.SERVED)
         try:
-            t, _ = vlib.call([{'file_data': vid, 'video_metadata': {'fps': 0.5}}, {'text': P1.format(context=job['context'], comp=job['component'])}],
-                             media_res='MEDIA_RESOLUTION_LOW', model=model)
-            res['pass1'] = {'model_asked': model, 'model_served': vlib.SERVED[n] if len(vlib.SERVED) > n else None, 'read': vlib.parse_json(t)}
+            used, (t, _) = vlib.rotate(model, lambda m: vlib.call([{'file_data': vid, 'video_metadata': {'fps': 0.5}},
+                             {'text': P1.format(context=job['context'], comp=job['component'])}], media_res='MEDIA_RESOLUTION_LOW', model=m))
+            res['pass1'] = {'model_asked': used, 'model_served': vlib.SERVED[-1], 'usage': vlib.USAGE[-1], 'read': vlib.parse_json(t)}
         except Exception as e: res['pass1'] = {'model_asked': model, 'error': str(e)[:1500]}
         json.dump(res, open(out_f, 'w'), indent=1)
     agentic = job.get('mode') == 'agentic'
@@ -68,18 +70,21 @@ def main(job_f, out_f):
         seg = {'file_data': vid, 'video_metadata': {'start_offset': f'{a}s', 'end_offset': f'{b}s', 'fps': pc.get('fps', 1)}}
         n = len(vlib.SERVED)
         try:
-            if agentic:   # the time range goes into the prompt (agentic mode takes no offsets)
-                t, info = vlib.agentic(url, AG.format(a=pc['start'], b=pc['end']) + P2.format(context=job['context'], ask=pc['ask']), model)
-            else:
-                t, _ = vlib.call([seg, {'text': P2.format(context=job['context'], ask=pc['ask'])}], media_res='MEDIA_RESOLUTION_HIGH', model=model); info = {}
-            rec = {'seconds': [a, b], 'span': [pc['start'], pc['end']], 'ask': pc['ask'], 'model_asked': model, 'mode': 'agentic' if agentic else 'static',
-                   'model_served': vlib.SERVED[n] if len(vlib.SERVED) > n else None, 'usage': vlib.USAGE[n] if len(vlib.USAGE) > n else None, **info,
+            def one(m):   # agentic where the model takes it (the time range goes into the prompt: agentic mode takes no offsets), else static
+                if agentic and vlib.SERVES.get(m, m) in vlib.AGENTIC_OK:
+                    t, info = vlib.agentic(url, AG.format(a=pc['start'], b=pc['end']) + P2.format(context=job['context'], ask=pc['ask']), m)
+                    return t, dict(info, mode='agentic')
+                t, _ = vlib.call([seg, {'text': P2.format(context=job['context'], ask=pc['ask'])}], media_res='MEDIA_RESOLUTION_HIGH', model=m)
+                return t, {'mode': 'static'}
+            used, (t, info) = vlib.rotate(model, one)
+            rec = {'seconds': [a, b], 'span': [pc['start'], pc['end']], 'ask': pc['ask'], 'model_asked': used,
+                   'model_served': vlib.SERVED[-1], 'usage': vlib.USAGE[-1], **info,
                    'read': vlib.parse_json(t)}
         except Exception as e:
             rec = {'seconds': [a, b], 'span': [pc['start'], pc['end']], 'ask': pc['ask'], 'model_asked': model, 'error': str(e)[:1500]}
         res['pass2'].append(rec); json.dump(res, open(out_f, 'w'), indent=1)
         print(pc['start'], pc['end'], rec.get('model_served'), 'ERROR ' + rec['error'][:200] if 'error' in rec else 'ok', flush=True)
-    res['pass2'].sort(key=lambda p: p['seconds']); json.dump(res, open(out_f, 'w'), indent=1)
+    res['pass2'].sort(key=lambda p: p['seconds']); res.setdefault('rotations', []).extend(vlib.ROTATIONS); json.dump(res, open(out_f, 'w'), indent=1)
     print('pass1', (res.get('pass1') or {}).get('model_served'), 'error' if 'error' in (res.get('pass1') or {}) else 'ok')
 
 if __name__ == '__main__': main(*sys.argv[1:3])
