@@ -1,0 +1,46 @@
+T142 · Two sided end plate (142) · VIDEO 1 (docs/steel/PARITY.md "Group 1 Tekla parity: the two-video method", step 1)
+
+URL:      https://www.youtube.com/watch?v=_Au1wpEDNzw
+Title:    "TEKLA STRUCTURES I CLASS 11 I ONE & TWO SIDE END PLATE CONNECTION USING COMPONENT" · channel Bangladesh Civil Engineering (14:45,
+          2025-11-24) · Tekla Structures 2017 (title bar "Tekla Model 2017\Class-1\Steel Shed"), speech in Bengali, mm. The 142 part: 09:11-14:16
+          (the first half, 00:49-07:45, is End plate 144 on the same model).
+Found:    YouTube Data API search.list "Tekla two sided endplate" (youtube_search.json; also tools/video/find.py, find.json). Tekla's own help
+          page conn_142_help (2025 / 2024) has no video or animation and no worked example with values (help_142_2025.txt).
+Read:     Gemini, two passes, ONLY the lighter models: the free daily quota of every full model (gemini-3.x-flash, flash-latest, pro) was used
+          up when this run started (429 "PerDay", resets 07:57 UTC). Pass 1 the whole video at low resolution, 0.5 fps (overview__Au1wpEDNzw.json:
+          gemini-3-flash-preview, its last request; profiles__Au1wpEDNzw.json: gemini-3.1-flash-lite); pass 2 at high resolution, 1 fps, in 60-90 s
+          pieces over 08:20-14:50 (read__Au1wpEDNzw.json: gemini-3.5-flash-lite for 09:00-14:30, gemini-3.1-flash-lite for 08:20-10:00,
+          10:50-12:20, 13:20-14:50; geom__Au1wpEDNzw.json: the joint's geometry, both lite models; status__Au1wpEDNzw.json: the status bar).
+          No frames: Apify's monthly limit is used up (USD 5.41 of 5) and YouTube refuses yt-dlp ("sign in to confirm you're not a bot") and
+          the watch page (429). Only YouTube's own still images could be fetched (i.ytimg.com maxres1/2/3, maxresdefault: the model views at
+          ~25 / 50 / 75 % of the video; they show the 144 part and the catalog search "142" at 09:1x). A value below is used only where two
+          reads agree (two passes / two models, or a read and a check in the numbers); single reads are marked.
+
+Example (the final state: Modify 12:08 for Plates / Bolts, Modify / Apply / OK 14:13-14:16 for Haunch)
+  Members   column HEB300 (read "HEB300" by both lite models, at 09:18 and 10:50; consistent with the 144 part's "column 300"), two beams IPE300
+            (both models; the end plate width 150 typed = the IPE300 flange width, h 450 = 300 + 75 + 75 with 75 x 75 haunch plates).
+            The beams land on the column's two FLANGES, in line (both models, 12:10 / 12:17: "the end plates sit against the column flange
+            outer faces"; the YouTube still maxres1 shows the column's flange faces toward the beams). Levels / spans are not readable
+            (the model "Steel Shed": the golden puts the column 0..7500 and the beams' top at +7000; they do not change the joint).
+            Picked: main part (column) 09:18, secondary 1 09:22, secondary 2 09:24 (both models).
+  Picture   1-4 blank (Tekla's default: the plate from the bolt group); 5 = 2.00 and 2.00 (the gap, one box per side; typed 09:49 / 09:55,
+            both models; one 3.1-lite read also puts "2.00" in 1-4: not used, the plate's 75 / 75 overhang needs 1-4 blank). Sort
+            secondaries / compensation plates: not changed.
+  Plates 1  End plate t 16, b 150, h 450 (10:01 / 10:11 / 10:15, both models), Pos_No "EP1", material "50" (grade), name "END PLATE" (10:18-10:28).
+  Plates 2  End plate t 16, b 150, h 450 (10:40), Pos_No "EP 1", material "50", name "END PLATE" (10:44-10:51).
+  Bolts     M16 (11:02), standard "8.8XOX"-like (read "8.8HSCH" / "8.8ISO4014": not readable; SolidSketch's 8.8 used), tolerance 2 (11:09);
+            vertical: reference Top -> Middle (11:31-11:32, both models), edge distance 45 (11:20 / 11:28), number 5, spacing 90 (the
+            overview read "45, 5*90, 45"; the pass-2 reads give 45 / 90 and a number box "1" -> 5 bolts: 45 + 4 x 90 + 45 = 450 = h);
+            horizontal: reference Middle, edge distance 35 (11:55-11:59, both models), number 2 (12:02), spacing 80 (12:05, both models;
+            35 + 80 + 35 = 150 = b). Modify 12:08.
+  Haunch    Top plate, Top plate 2, Bottom plate, Bottom plate 2: t 6, b 75, h 75 each (12:30-13:17, both models), Pos_No "STIFF 1" /
+            "STIF 1", material "50", name "STIFFENER" (13:21-13:41); chamfers 1, 2, 3, 4 = 75 (13:48-13:54, both models). Creation lists:
+            not read (Tekla's default Automatic: the plates exist where the end plate reaches past the flanges). Modify / Apply / OK 14:13-14:16.
+  Notch / Holes / General: not changed.
+Result (geometry, 12:10-12:17, both lite models): the end plates against the column flanges, no visible gap; the bolts run across the
+  whole column through both flanges (long bolts). Status bar after Modify (12:05): "Information: polygon depth value put as zero" (the
+  same information line is there from 09:1x, before the 142 is made); no warning. The symbol's colour was not read.
+
+Not readable / not used: the bolt standard (SolidSketch has 8.8 / 10.9 / 4.6 / HSFG / 7990), material "50", Pos_No / names (the part
+  marks are SolidSketch's numbering), the haunch creation lists, the members' levels and lengths, the bolt length (Tekla's rule used:
+  grip + nut + washer + 5, rounded up to 5 mm: grip 16 + 2 + 300 + 2 + 16 = 336 -> M16 L360).

@@ -581,6 +581,30 @@ def t144(which, shots, video=None):
     return compose(f't144_{which}', [(f'video {src}', vid), ('app on the emulator, 3D', app3), ('app, orthographic front', front), ('app, orthographic end', end)],
                    f'T144 End plate (144), video {which[1]}: video | app (built through the dialog with the video\'s values)', [f'Measured on t144_{which}.ss (the model the emulator built and saved):'] + ['! ' + m for m in lines])
 
+def twovideo(code, which, shots, video, src):
+    """Group 1 two-video composer for the End plate family (first used by T142; PARITY.md "T142 · Two sided end plate (142)"): the video's
+    frame | the app on the emulator (3D, orthographic front and end), with every part measured on the model the emulator built and saved
+    (<code>_<which>.ss): plate sizes on their own axes, bolt sizes / lengths / rows, rule B on that model."""
+    st = lambda b: b.get('st') or {}; c = code.lower()
+    f = os.path.join(shots, f'{c}_{which}.ss'); D = json.load(gzip.open(f))['doc']
+    def sz(b):
+        v = VT(b)[0]; c0 = v.mean(0); _, vv = np.linalg.eigh((v - c0).T @ (v - c0)); return sorted(np.round([np.ptp((v - c0) @ vv[:, i]) for i in range(3)], 1))
+    parts = {}
+    for b in D['bodies']:
+        if st(b).get('kind') == 'conn': parts.setdefault(st(b).get('name'), []).append(' x '.join(f'{x:g}' for x in sz(b)))
+    bo = [b for b in D['bodies'] if st(b).get('kind') == 'bolts']
+    zs = sorted({round(p[2], 1) for b in bo for p in st(b)['pts']}, reverse=True); ys = sorted({round(p[1], 1) for b in bo for p in st(b)['pts']})
+    lines = [f'{k}: ' + ', '.join(f'{v} ({n})' for v, n in sorted(((v, vs.count(v)) for v in set(vs)))) for k, vs in sorted(parts.items())]
+    lines += [f"bolts: {', '.join(f'M{st(b)["d"]:g} L{st(b)["L"]:g} x {st(b).get("n")}' for b in bo)}; rows z {zs}; across y {ys}",
+              'rule B on the emulator model: ' + rule_b(f).split(';')[0]]
+    app3, _ = shot(shots, f'{which}_3d'); end, _ = shot(shots, f'ortho_end_{which}'); front, _ = shot(shots, f'ortho_front_{which}')
+    label(end, (40, 140), 'end plate 1 from the beam side'); label(front, (40, 140), 'along the frame line: both end plates, one bolt group')
+    vid = Image.open(video).convert('RGB'); vid = vid.resize((vid.width * 2, vid.height * 2))
+    return compose(f'{c}_{which}', [(f'video {src}', vid), ('app on the emulator, 3D', app3), ('app, orthographic front', front), ('app, orthographic end', end)],
+                   f'{code} two-video test, video {which[1]}: video | app (built through the dialog with the video\'s values)', [f'Measured on {c}_{which}.ss (the model the emulator built and saved):'] + ['! ' + m for m in lines])
+T142_SRC = {'v1': '_Au1wpEDNzw (Bangladesh Civil Engineering) ~09:1x: the HEB300 / IPE300 members, catalog "Two sided end plate (142)" (YouTube still; no frame of the finished joint)',
+            'v2': 'J2OINltOa4I (Gani sk) ~04:19: the finished 142 on the column web (YouTube still)'}
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(REPO, 'build'), exist_ok=True)
-    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17, 'X01': x01, 'X02': x02, 'C08': c08, 'C19': c19, 'T144_V1': lambda *a: t144('v1', *a), 'T144_V2': lambda *a: t144('v2', *a)}[sys.argv[1]](*sys.argv[2:])
+    {'C04': c04, 'C14': c14, 'C02': c02, 'C09': c09, 'C13': c13, 'C20': c20, 'C05': c05, 'C06': c06, 'C07': c07, 'C01': c01, 'C18': c18, 'C03': c03, 'C17': c17, 'X01': x01, 'X02': x02, 'C08': c08, 'C19': c19, 'T144_V1': lambda *a: t144('v1', *a), 'T144_V2': lambda *a: t144('v2', *a), 'T142_V1': lambda sh, v: twovideo('T142', 'v1', sh, v, T142_SRC['v1']), 'T142_V2': lambda sh, v: twovideo('T142', 'v2', sh, v, T142_SRC['v2'])}[sys.argv[1]](*sys.argv[2:])
