@@ -20,15 +20,15 @@ module.exports = [
     conns: [['T142', [0, 1, 2], { epb: 160, eph: 260, ext: '', refV: 'Middle', rows: 3, pitch: 80 }]] },
   {
     name: 't142_v1',
-    description: 'Video 1 (_Au1wpEDNzw, Bangladesh Civil Engineering, Tekla 2017): HEB300 column, two IPE300 beams on its flanges; Picture 1-4 blank, 5 = 2 / 2; Plates 1 and 2: end plate 16 x 150 x 450; Bolts M16, Middle, 5 x 2, spacing 90, edge 45 / 35, horizontal spacing 80; Haunch: 4 plates 6 x 75 x 75, chamfers 75.',
+    description: 'Video 1 (_Au1wpEDNzw, Bangladesh Civil Engineering, Tekla 2017): HEB300 column, two IPE300 beams on its WEB (full-model re-read 2026-11-28: gemini-3.6-flash twice and gemini-3.8-flash; the lite reads had the flanges); Picture 1-4 blank, 5 = 2 / 2; Plates 1 and 2: end plate 16 x 150 x 450; Bolts M16, Middle, 5 x 2 (row count not settled by the reads: the number box reads 1), spacing 90, edge 45 / 35, horizontal spacing 80; Haunch: 4 plates 6 x 75 x 75, chamfers 75.',
     videoFaithful: true,
     videoStatus: {
-      tekla: [{ t: '12:05', where: 'status bar after Modify (Gemini lighter model, status__Au1wpEDNzw.json; no frame)', text: 'Information: polygon depth value put as zero' }],
+      tekla: [{ t: '12:06', where: 'status bar after Modify (gemini-3.6-flash and gemini-3.8-flash, reread__Au1wpEDNzw.json / recheck_flashlatest__Au1wpEDNzw.json; no frame)', text: 'Information: polygon depth value put as zero' }],
       expect: [],   // Tekla shows only that information line (it is on the status bar from 09:1x on, before the 142 is made): no warning to match
-      symbol: 'not read (no frame; the lighter model did not report the cone colour for this span)',
-      noWarning: 'Tekla shows no warning for its 360 mm bolts across the whole HEB300 (both flanges, 2 x 2 mm gaps and the 262 mm between the flanges along the shank); rule B reports that as air along the shank (10 bolts)',
+      symbol: 'green (gemini-3.6-flash 09:30 and gemini-3.8-flash 09:56 / 11:00, not selected; after Modify 12:08 only seen selected, green); no frame',
+      noWarning: 'Tekla shows no warning on the status bar after Modify (only the information line). The beams sit on the column web (full-model re-read), so the bolts run end plate 1 - web - end plate 2 (the flange version with 360 mm bolts and 263.8 mm of air along each shank is gone)',
     },
-    members: [member('COLUMN', { prof: 'HEB300', p1: [0, 0, 0], p2: [0, 0, 7500], rot: 'Top' }), beam('IPE300', 1), beam('IPE300', -1)],
+    members: [member('COLUMN', { prof: 'HEB300', p1: [0, 0, 0], p2: [0, 0, 7500] }), beam('IPE300', 1), beam('IPE300', -1)],
     conns: [['T142', [0, 1, 2], { ext: '', extb: '', ext2: '', extb2: '', gap: 2, gap2: 2, tp: 16, epb: 150, eph: 450, tp2: 16, epb2: 150, eph2: 450,
       bolt: 16, tol: 2, refV: 'Middle', posV: '', e: 45, rows: 5, pitches: '', pitch: 90, refH: 'Middle', posH: 0, side: 35, cols: 2, gauge: 80,
       hpc: 'auto', hpc2: 'auto', hpt1: 6, hpb1: 75, hph1: 75, hpt2: 6, hpb2: 75, hph2: 75, hpt3: 6, hpb3: 75, hph3: 75, hpt4: 6, hpb4: 75, hph4: 75, hc1: 75, hc2: 75, hc3: 75, hc4: 75 }]],
