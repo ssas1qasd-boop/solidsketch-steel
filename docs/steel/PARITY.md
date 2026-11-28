@@ -105,13 +105,15 @@ For EACH component:
 ## Video reading (free tier only) (owner standing rule, 2026-11-28)
 Applies to every video read for Tekla parity (Group 1 two-video method, step 1, and every later group). Tools: `tools/video/` (`reread.py` reads, `screen.py` screens, `vlib.py` holds the model order).
 - **Free tier only.** One Gemini key (`GEMINI_API_KEY`), one project. Never add extra keys, accounts or projects to raise the quota, and never use Apify through a new account.
-- **Model order.** Gemini 3.6 / 3.7 Flash with agentic video understanding first (Interactions API, `"processing": "agentic"`; agentic mode takes no offsets, so the time range goes into the prompt). When a model's daily quota ends, continue on another full Flash model (3.8 Flash, 3.5 Flash, 3-flash-preview) with static reads and time-range clipping (`video_metadata` start / end offset). Names that Google serves under another model share that model's quota (seen: 3.5 Flash → 3.6 Flash; 3.7 Flash and flash-latest → 3.8 Flash).
+- **Model order (owner, amended 2026-11-28 after the agentic test, `tests/steel/videos/T142/AGENTIC_TEST.txt`).** Final dialog values come ONLY from static reads with time-range clipping (GenerateContent, `video_metadata` start / end offset, high resolution), on the full Flash models in this order: 3.6 Flash group, 3.8 Flash group, 3-flash-preview; when a model's daily quota ends, continue on the next. Names that Google serves under another model share that model's quota (seen: 3.5 Flash → 3.6 Flash; 3.7 Flash and flash-latest → 3.8 Flash).
+- **Agentic video understanding** (Interactions API, `"processing": "agentic"`; no offsets, the time range goes into the prompt) is used ONLY to find timestamps and to screen videos, never for final values: in the test its values differed from the static reads (it used 45 % fewer tokens).
 - **Flash-Lite** (even agentic) is for screening only (which component a video uses, where its dialog is open), never for final dialog values.
 - **Record in `VIDEO_*.txt` which model (as served, the response's model version) read what**, value by value or piece by piece, with the mode (agentic / static).
 - **Before any Gemini call,** pick the videos with the YouTube Data API (`YOUTUBE_API_KEY`) and the Tekla User Assistance page of the component. Call Gemini only on the time range of the component, never on a whole video for values.
 - **Exact frames:** give the owner a short list of timestamps (at most ~10) per component. His phone screenshots count as frames.
 - **Quota used up mid-component:** work on code, goldens and CI until the daily reset at 10:00 Cairo time (08:00 UTC), then continue the reads.
 - **Never use proxies, cookies or download workarounds for YouTube** (no yt-dlp tricks, no logged-in sessions, no third-party downloaders). Only the YouTube Data API, Gemini's own YouTube input and YouTube's public still images (`i.ytimg.com`).
+- **Screenshot API (owner, 2026-11-28):** a screenshot of the YouTube EMBED page (`https://www.youtube.com/embed/<id>?start=<s>`) through the screenshot API key in the environment is allowed: it is not a download. Test the key with one call first; never print it.
 
 ## Weights (owner, 2026-11-26)
 **Target:** Tekla's per-part weights (`st.tkW`, 63,705.8 kg; Part List 63,711.7).
