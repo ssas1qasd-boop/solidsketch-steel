@@ -1136,5 +1136,7 @@ Old models: the Tekla path runs only when the stored settings carry `bgrp: 'one'
 ### Step 5: emulator
 `T142V1RecordingTest` / `T142V2RecordingTest` (base `T142RecordingBase`: three-part Pick parts, the views; on `T144RecordingBase`): the members placed, Two sided end plate (142) through its dialog with the video's values (v1: Picture 1-4 blank, 5 = 2 / 2, Plates 1 / 2, Haunch 4 plates, Bolts Middle; v2: inch values in mm), Pick parts (column, beam, beam), orbit front / end / top / 3D, orthographic stills, saved (`t142_v1.ss` / `t142_v2.ss`), then one option + Modify (v1: Haunch plate creation (secondary 2) not created; v2: Bolts 4 rows). `REC_CLASSES` on the branch: these two. Images: `python3 tools/golden/parity_png.py T142_V1 | T142_V2 <shots> <video still>` (composer `twovideo`, for the whole EP family).
 
+Emulator result (CI 46087555492 on f2a1483, both recording tests rc 0; also CI 46085919033 before the rebase): the models the emulator built through the dialog (`t142_v1.ss`, `t142_v2.ss`) equal the goldens (v1: END PLATE 16 x 150 x 450 x 2, HAUNCH_PLATE x 4, M16 L360 x 10, rows z 7030 ... 6670, across y +-40; v2: END PLATE 12.7 x 190.5 x 431.8 x 2, M16 L60 x 6) and show the same rule-B results (10 / 0). Images `docs/steel/parity/t142_v1.png` / `t142_v2.png` (the video 1 still shows the members and the 142 in the catalog: YouTube's stills hold no frame of the finished 142 in video 1).
+
 ### Status
 Reported to the main session (branch `agent/g1-t142`); accepted (pending phone OK) only after its merge and delivery.
