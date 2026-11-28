@@ -86,17 +86,19 @@ def agentic(url, prompt, model, tries=4):
 # read continues on the next full Flash model; Flash-Lite never reads dialog values. Names Google serves under another model share that
 # model's quota (seen: gemini-3.5-flash -> gemini-3.6-flash, gemini-flash-latest -> gemini-3.8-flash; gemini-3.7-flash is deprecated and
 # routes to gemini-3.8-flash).
-FULL_FLASH = ['gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3-flash-preview']
+# Order (owner 2026-11-28): 3.6 / 3.7 Flash with agentic reads first; when their quota ends, the other full Flash models with static reads
+# and time-range clipping. gemini-3.7-flash routes to gemini-3.8-flash, so it shares 3.8's quota.
+FULL_FLASH = ['gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-3.8-flash', 'gemini-3.5-flash', 'gemini-3-flash-preview']
 SERVES = {'gemini-flash-latest': 'gemini-3.8-flash', 'gemini-3.7-flash': 'gemini-3.8-flash', 'gemini-3.5-flash': 'gemini-3.6-flash'}
-AGENTIC_OK = {'gemini-3.8-flash', 'gemini-3.6-flash'}   # served models that take "processing": "agentic" (docs, 2026-11)
+AGENTIC_MODELS = {'gemini-3.6-flash', 'gemini-3.7-flash'}   # owner 2026-11-28: agentic only on these (asked names); the others read static
 EXHAUSTED = set()   # served models whose daily quota is used up in this run
 ROTATIONS = []      # [(model tried, reason)] for the record
 
 def rotate(first, fn):
     """fn(model) -> result. Tries `first`, then the other full Flash models, skipping a model whose served model is exhausted."""
-    if 'lite' in first: raise ValueError('Flash-Lite is for screening only, never for dialog values (owner 2026-11-28)')
+    if 'lite' in first: raise ValueError('Flash-Lite (even agentic) is for screening only, never for dialog values (owner 2026-11-28)')
     last = None
-    for m in [first] + [x for x in FULL_FLASH if x != first]:
+    for m in ([first] if first not in FULL_FLASH else []) + FULL_FLASH:   # the owner's order
         if SERVES.get(m, m) in EXHAUSTED: continue
         try: return m, fn(m)
         except RuntimeError as e:

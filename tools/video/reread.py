@@ -12,8 +12,8 @@ default) is the GenerateContent read with start/end offsets, 1 fps, high resolut
     python3 tools/video/reread.py <job.json> <out.json>
 job.json = {"url": "...", "component": "...", "model": "gemini-3.5-flash", "mode": "static" | "agentic", "pass1": true, "context": "...",
             "pieces": [{"start": "mm:ss", "end": "mm:ss", "ask": "what to look for in this piece"}]}
-Model: the job's model first; when it hits its daily free quota (or stays busy) the read continues on the next full Flash model
-(vlib.rotate; never Flash-Lite). Every answer records the model asked, the model served and the mode.
+Model order (owner 2026-11-28, vlib.rotate): 3.6 / 3.7 Flash with agentic reads first; when their daily free quota ends (or they stay
+busy), the other full Flash models (3.8, 3.5, 3-flash-preview) with static reads and time-range clipping. Never Flash-Lite. Every answer records the model asked, the model served and the mode.
 Pieces already in <out.json> with an answer are not asked again (re-run after a 429 / 503). Pieces are asked 70 s apart
 ("pause" in job.json): the free tier allows only a few requests per minute.
 """
@@ -71,7 +71,7 @@ def main(job_f, out_f):
         n = len(vlib.SERVED)
         try:
             def one(m):   # agentic where the model takes it (the time range goes into the prompt: agentic mode takes no offsets), else static
-                if agentic and vlib.SERVES.get(m, m) in vlib.AGENTIC_OK:
+                if agentic and m in vlib.AGENTIC_MODELS:
                     t, info = vlib.agentic(url, AG.format(a=pc['start'], b=pc['end']) + P2.format(context=job['context'], ask=pc['ask']), m)
                     return t, dict(info, mode='agentic')
                 t, _ = vlib.call([seg, {'text': P2.format(context=job['context'], ask=pc['ask'])}], media_res='MEDIA_RESOLUTION_HIGH', model=m)
