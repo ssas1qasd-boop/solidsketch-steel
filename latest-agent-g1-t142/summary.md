@@ -1,12 +1,12 @@
-# Emulator UI run 46085919033 (d795b7c)
+# Emulator UI run 46087555492 (f2a1483)
 
 - data files on main: true
 - KVM: yes · runner cores: 4
 - unit tests incl. UI golden (gate before the APK): success
 - build APK + test APK: success
 - emulator tests step: success
-- connectedDebugAndroidTest exit code: 0 (153 s)
-- job time until this step: 1062 s = 17.7 min (billed: whole minutes, rounded up per job)
+- connectedDebugAndroidTest exit code: 0 (198 s)
+- job time until this step: 1319 s = 22.0 min (billed: whole minutes, rounded up per job)
 
 Device:
 ```
@@ -24,27 +24,26 @@ JUnit (unit + instrumented): 64 tests, 0 failed
 
 | step | ok | ms | message |
 |---|---|---|---|
-| start | ✓ | 1550 |  |
-| steel | ✓ | 1793 |  |
-| grid | ✓ | 5749 |  |
-| orbit | ✓ | 1145 |  |
-| pan | ✓ | 1029 |  |
-| zoom | ✓ | 1206 |  |
-| column | ✓ | 2402 |  |
-| properties_apply | ✓ | 4958 |  |
-| beam | ✓ | 2072 |  |
-| properties_modify | ✓ | 3614 |  |
-| catalog | ✓ | 3343 |  |
-| endplate_dialog | ✓ | 2012 |  |
-| endplate_pick | ✓ | 2697 |  |
-| cleat_dialog | ✓ | 5300 |  |
-| save_open | ✓ | 1243 |  |
-| portal_create | ✓ | 13561 |  |
-| portal_modify | ✓ | 17779 |  |
+| start | ✓ | 1732 |  |
+| steel | ✓ | 3748 |  |
+| grid | ✓ | 5846 |  |
+| orbit | ✓ | 1181 |  |
+| pan | ✓ | 1141 |  |
+| zoom | ✓ | 1255 |  |
+| column | ✓ | 2133 |  |
+| properties_apply | ✓ | 5574 |  |
+| beam | ✓ | 2155 |  |
+| properties_modify | ✓ | 4413 |  |
+| catalog | ✓ | 3989 |  |
+| endplate_dialog | ✓ | 2426 |  |
+| endplate_pick | ✓ | 3460 |  |
+| cleat_dialog | ✓ | 6753 |  |
+| save_open | ✓ | 1278 |  |
+| portal_create | ✓ | 19396 |  |
+| portal_modify | ✓ | 26470 |  |
 
 connected.log (end):
 ```
-> Task :app:mergeDebugNativeLibs UP-TO-DATE
 > Task :app:stripDebugDebugSymbols UP-TO-DATE
 > Task :app:validateSigningDebug UP-TO-DATE
 > Task :app:writeDebugAppMetadata UP-TO-DATE
@@ -79,10 +78,11 @@ Starting 2 tests on emulator-5554 - 15
 
 emulator-5554 - 15 Tests 0/2 completed. (0 skipped) (0 failed)
 emulator-5554 - 15 Tests 1/2 completed. (0 skipped) (0 failed)
+emulator-5554 - 15 Tests 2/2 completed. (0 skipped) (0 failed)
 Finished 2 tests on emulator-5554 - 15
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795824582265.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/emu-1795825707347.json
 
-BUILD SUCCESSFUL in 2m 32s
+BUILD SUCCESSFUL in 3m 18s
 133 actionable tasks: 6 executed, 127 up-to-date
 
 ```
