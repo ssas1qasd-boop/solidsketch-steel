@@ -1,0 +1,7 @@
+{"url": "https://www.youtube.com/watch?v=GhD-Ba6Mr2s", "component": "End plate (101)", "model": "gemini-3.8-flash", "mode": "static", "pass1": false, "pause": 60,
+ "context": "Tekla Structures Educational version, English, mm. 'End plate (101)' between a column and a beam; its dialog (tabs Picture, End plate, General, Notch, Bolts, Design, Analysis) is open 00:43-02:16.",
+ "pieces": [
+  {"start": "00:10", "end": "01:30", "ask": "the profiles of the column and the beam (property pane, labels, narrator); whether the beam lands on the column flange or web; the Picture tab: every box (gap, edge distances) and its value; the End plate tab: plate t, b, h, Pos_No, material, name, edge type, every box and its value."},
+  {"start": "01:28", "end": "02:20", "ask": "the Bolts tab: bolt size, standard, tolerance, thread in material, site/workshop, the vertical group (reference, edge distance, number of bolts and spacing as separate boxes, exactly as written) and the horizontal group (reference, edge distance, number of bolts, spacing); every change and Modify press."},
+  {"start": "02:40", "end": "03:10", "ask": "the finished joint in the 3D view: end plate size relative to the beam, the number of bolt rows and bolt columns, where the plate sits (column flange or web); the status bar text and the component symbol colour (and whether selected)."}
+ ]}

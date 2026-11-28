@@ -1,0 +1,827 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "component": "Two sided end plate (142)",
+ "model_asked": "gemini-3.5-flash",
+ "pass1": {
+  "model_asked": "gemini-3.5-flash",
+  "model_served": "gemini-3.6-flash",
+  "read": [
+   {
+    "units": "mm",
+    "members": [
+     {
+      "role": "Column (Main Part)",
+      "profile": "Narrated / modelled height 300mm, flange width 150mm",
+      "t": "09:20",
+      "how": "Clicked main column in view",
+      "sure": true
+     },
+     {
+      "role": "Beam 1 (Primary Secondary)",
+      "profile": "Narrated / modelled flange width 150mm, height 300mm",
+      "t": "09:22",
+      "how": "Clicked first beam on left",
+      "sure": true
+     },
+     {
+      "role": "Beam 2 (Secondary)",
+      "profile": "Narrated / modelled flange width 150mm, height 300mm",
+      "t": "09:24",
+      "how": "Clicked second beam on right",
+      "sure": true
+     }
+    ],
+    "tabs": [
+     {
+      "tab": "Picture",
+      "start": "09:40",
+      "end": "09:55",
+      "values": "Column to plate clear gap: 2 mm (both sides)"
+     },
+     {
+      "tab": "Plates",
+      "start": "09:56",
+      "end": "10:56",
+      "values": "Plate 1 & Plate 2: Thickness=16, Width=150, Height=450, Prefix=EP, Start No.=1, Material=50 Grade, Name=END PLATE"
+     },
+     {
+      "tab": "Bolts",
+      "start": "10:57",
+      "end": "12:24",
+      "values": "Bolt size=16, Standard=8.8XOX, Tolerance=2, Vertical edge distance=45, Bolts=5 x 90, Horizontal edge distance=35, 2 bolts at 80 spacing"
+     },
+     {
+      "tab": "Haunch",
+      "start": "12:25",
+      "end": "14:12",
+      "values": "Top & Bottom Plates: Thickness=6, Width=75, Height=75, Prefix=STIFF, Start No.=1, Material=50 Grade, Name=STIFFENER, Chamfers=75/75"
+     }
+    ],
+    "presses": [
+     {
+      "t": "14:13",
+      "button": "Modify"
+     },
+     {
+      "t": "14:16",
+      "button": "Apply"
+     },
+     {
+      "t": "14:16",
+      "button": "OK"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "09:30",
+      "text": "Information polygon depth distance of the bolt cuts is 17.500; it's too small",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "09:30",
+      "colour": "green",
+      "selected": false,
+      "sure": true
+     },
+     {
+      "t": "14:15",
+      "colour": "green",
+      "selected": false,
+      "sure": true
+     }
+    ],
+    "notes": "Component 142 (Two sided end plate) creates double end plate connection across the column web."
+   }
+  ]
+ },
+ "pass2": [
+  {
+   "seconds": [
+    545,
+    635
+   ],
+   "span": [
+    "09:05",
+    "10:35"
+   ],
+   "ask": "the parts picked (main part, secondary 1, secondary 2) and every profile name visible (column, beams); whether the beams land on the column's flanges or web; the Picture tab: every box including the numbered dimensions 1-5 (which are blank, which hold 2.00); the Plates tab (t, b, h, Pos_No, material, name).",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "main",
+      "profile": "column",
+      "t": "09:20",
+      "how": "picked column as main part",
+      "sure": true
+     },
+     {
+      "role": "secondary 1",
+      "profile": "beam",
+      "t": "09:23",
+      "how": "picked first beam on left",
+      "sure": true
+     },
+     {
+      "role": "secondary 2",
+      "profile": "beam",
+      "t": "09:25",
+      "how": "picked second beam on right",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Picture",
+      "label": "Clearance gap left",
+      "value": "2.00",
+      "t": "09:49",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Clearance gap right",
+      "value": "2.00",
+      "t": "09:55",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate t",
+      "value": "16.00",
+      "t": "10:00",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate b",
+      "value": "150.00",
+      "t": "10:13",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate h",
+      "value": "450.00",
+      "t": "10:15",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Pos_No Prefix",
+      "value": "EP",
+      "t": "10:18",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Pos_No Start number",
+      "value": "1",
+      "t": "10:19",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Material",
+      "value": "50",
+      "t": "10:21",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Name",
+      "value": "END PLATE",
+      "t": "10:29",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "09:10",
+      "button": "Ctrl+F"
+     },
+     {
+      "t": "09:29",
+      "button": "Middle Mouse Button"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "09:18",
+      "text": "Pick main part",
+      "sure": true
+     },
+     {
+      "t": "09:21",
+      "text": "Pick secondary parts (at maximum 2 parts)",
+      "sure": true
+     },
+     {
+      "t": "09:25",
+      "text": "Pick next secondary item. To finish, press the middle mouse button.",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "09:30",
+      "colour": "green",
+      "selected": true,
+      "how": "green cone symbol indicates valid macro creation",
+      "sure": true
+     }
+    ],
+    "geometry": "Two-sided end plate (142) macro creating end plate connections for two aligned beams attached to opposite sides of a column.",
+    "notes": "Demonstration of applying and modifying Component 142 (Two sided end plate) in Tekla Structures 2017."
+   }
+  },
+  {
+   "seconds": [
+    635,
+    725
+   ],
+   "span": [
+    "10:35",
+    "12:05"
+   ],
+   "ask": "the second Plates tab (t, b, h); the Bolts tab: bolt size, standard, tolerance, thread in material, site/shop, hole type, the vertical bolt group (reference Top/Middle/Bottom, edge distance, number of bolts, spacing) and the horizontal group (reference, edge distance, number, spacing). Read the number-of-bolts boxes carefully.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "main part (column)",
+      "profile": "column",
+      "t": "10:35",
+      "how": "red column on right",
+      "sure": true
+     },
+     {
+      "role": "secondary part 1",
+      "profile": "beam",
+      "t": "10:35",
+      "how": "green beam on right connected to column",
+      "sure": true
+     },
+     {
+      "role": "secondary part 2",
+      "profile": "beam",
+      "t": "10:35",
+      "how": "yellow/grey beam on left",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Plates 2",
+      "label": "t",
+      "value": "16.00",
+      "t": "10:38",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "b",
+      "value": "150.00",
+      "t": "10:40",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "h",
+      "value": "450.00",
+      "t": "10:42",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "Pos. No prefix",
+      "value": "OP",
+      "t": "10:44",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "Pos. No start number",
+      "value": "1",
+      "t": "10:45",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "Material",
+      "value": "50",
+      "t": "10:47",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "Name",
+      "value": "END PLATE",
+      "t": "10:50",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "8.8XOX",
+      "t": "11:07",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "11:10",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference 1",
+      "value": "Middle",
+      "t": "11:32",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Top edge distance 1",
+      "value": "45.00",
+      "t": "11:20",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt spacing 1",
+      "value": "1  90.00",
+      "t": "11:27",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bottom edge distance 1",
+      "value": "45.00",
+      "t": "11:29",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference 2",
+      "value": "Middle",
+      "t": "11:34",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Top edge distance 2",
+      "value": "45.00",
+      "t": "11:40",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt spacing 2",
+      "value": "1  90.00",
+      "t": "11:45",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bottom edge distance 2",
+      "value": "45.00",
+      "t": "11:48",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance left",
+      "value": "35.00",
+      "t": "11:57",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance right",
+      "value": "35.00",
+      "t": "12:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt group count",
+      "value": "2",
+      "t": "12:03",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "10:58",
+      "button": "Bolts tab button"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "10:35",
+      "text": "polygon depth value put as zero",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "10:35",
+      "colour": "green",
+      "selected": true,
+      "how": "green joint cone symbol at the beam-column connection",
+      "sure": true
+     }
+    ],
+    "geometry": "Two-sided end plate connection (component 142) connecting a column and two opposite beams.",
+    "notes": "User modifies plate dimensions and position/material properties in Plates 2 tab, then switches to Bolts tab to set bolt size, standard, tolerance, and edge/spacing dimensions."
+   }
+  },
+  {
+   "seconds": [
+    720,
+    805
+   ],
+   "span": [
+    "12:00",
+    "13:25"
+   ],
+   "ask": "the Modify press and the result in the model: do the bolts run across the whole column through both flanges, or only through each end plate and flange; the status bar text after Modify; the component symbol's colour; then the Haunch tab: each plate's t, b, h and the creation lists.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": [
+    {
+     "symbol": [
+      {
+       "t": "12:00",
+       "colour": "green",
+       "selected": true,
+       "how": "visible in 3D view at connection location",
+       "sure": true
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "12:00",
+       "text": "Information: polygon depth value put as zero",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "12:08",
+       "button": "Modify"
+      }
+     ],
+     "geometry": "Two-sided end plate (142) connecting two opposite secondary beams to the main column member with bolted end plates and stiffener plates (haunches).",
+     "fields": [
+      {
+       "tab": "Bolts",
+       "label": "Bolt spacing (horizontal/vertical)",
+       "value": "2 80.00",
+       "t": "12:06",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate t",
+       "value": "6.00",
+       "t": "12:30",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate b",
+       "value": "75.00",
+       "t": "12:33",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate h",
+       "value": "75.00",
+       "t": "12:35",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate Pos.No",
+       "value": "STIFF 1",
+       "t": "12:44",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate Material",
+       "value": "50",
+       "t": "12:46",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate Name",
+       "value": "STIFFENER",
+       "t": "12:51",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate t",
+       "value": "6.00",
+       "t": "13:01",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate b",
+       "value": "75.00",
+       "t": "13:10",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate h",
+       "value": "75.00",
+       "t": "13:13",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate 2 t",
+       "value": "6.00",
+       "t": "13:03",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate 2 b",
+       "value": "75.00",
+       "t": "13:12",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate 2 h",
+       "value": "75.00",
+       "t": "13:16",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate 2 t",
+       "value": "6.00",
+       "t": "13:04",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate 2 b",
+       "value": "75.00",
+       "t": "13:14",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate 2 h",
+       "value": "75.00",
+       "t": "13:18",
+       "sure": true
+      }
+     ],
+     "notes": "User modifies bolt spacing and defines haunch/stiffener plate dimensions in component 142 (Two sided end plate)."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    800,
+    870
+   ],
+   "span": [
+    "13:20",
+    "14:30"
+   ],
+   "ask": "the Haunch tab: plates t / b / h, Pos_No, material, name, the chamfer boxes 1-4 and the creation lists; the Modify / Apply / OK presses; the final status bar text and the component symbol's colour.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "Column",
+      "profile": "unknown",
+      "t": "14:17",
+      "how": "3D view visual inspection",
+      "sure": true
+     },
+     {
+      "role": "Beam",
+      "profile": "unknown",
+      "t": "14:17",
+      "how": "3D view visual inspection",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Haunch",
+      "label": "Top plate t",
+      "value": "6.00",
+      "t": "13:20",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate b",
+      "value": "75.00",
+      "t": "13:20",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate h",
+      "value": "75.00",
+      "t": "13:20",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate Pos_No",
+      "value": "STP 1",
+      "t": "13:20",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate Material",
+      "value": "50",
+      "t": "13:20",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate Name",
+      "value": "STIFFENER",
+      "t": "13:20",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate t",
+      "value": "6.00",
+      "t": "13:20",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate b",
+      "value": "75.00",
+      "t": "13:20",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate h",
+      "value": "75.00",
+      "t": "13:20",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate Pos_No",
+      "value": "STP 1",
+      "t": "13:28",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate Material",
+      "value": "50",
+      "t": "13:31",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate Name",
+      "value": "STIFFENER",
+      "t": "13:38",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate 2 Pos_No",
+      "value": "STP 1",
+      "t": "13:29",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate 2 Material",
+      "value": "50",
+      "t": "13:33",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate 2 Name",
+      "value": "STIFFENER",
+      "t": "13:40",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate 2 Pos_No",
+      "value": "STP 1",
+      "t": "13:30",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate 2 Material",
+      "value": "50",
+      "t": "13:34",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate 2 Name",
+      "value": "STIFFENER",
+      "t": "13:42",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top chamfer horizontal",
+      "value": "75.00",
+      "t": "13:48",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top chamfer vertical",
+      "value": "75.00",
+      "t": "13:50",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom chamfer horizontal",
+      "value": "75.00",
+      "t": "13:52",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom chamfer vertical",
+      "value": "75.00",
+      "t": "13:54",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "14:13",
+      "button": "Modify"
+     },
+     {
+      "t": "14:16",
+      "button": "Apply"
+     },
+     {
+      "t": "14:16",
+      "button": "OK"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "13:20",
+      "text": "Information: polygon depth value put as zero",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "14:17",
+      "colour": "green",
+      "selected": true,
+      "how": "component updated successfully",
+      "sure": true
+     }
+    ],
+    "geometry": "Two-sided end plate connection (142) joining main column to two secondary beams with top/bottom stiffener plates.",
+    "notes": "User modifies stiffener plates configuration, chamfer dimensions (75mm), prefix/material/name attributes, and applies changes via component dialog."
+   }
+  }
+ ]
+}

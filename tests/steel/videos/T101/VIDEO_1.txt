@@ -1,0 +1,32 @@
+T101 · End plate (101) · VIDEO 1 (docs/steel/PARITY.md "Group 1 Tekla parity: the two-video method", step 1; "Video reading (free tier only)")
+
+URL:      https://www.youtube.com/watch?v=GhD-Ba6Mr2s
+Title:    "end plate conection (TEKLA PART 4)" · channel Dizar Smart (5:55, 2017-12-12) · Tekla Structures Educational version, English, mm.
+          The 101 part: 00:12 (catalog "End plate (101)", still maxres1) - 05:30 (the joint copied over the frame).
+Found:    YouTube Data API search.list (youtube_search.json, 22 queries) and the Tekla User Assistance page conn_101_help (help_101_2025.txt:
+          no video, no worked example with values). Screening (tools/video/screen.py, gemini-3-flash-preview, screening only, screen.json):
+          16 end-plate videos; only this one types values into End plate (101) (another, NF2wQIZmH24, opens the 101 dialog for 3 s and
+          uses 144). A second 101 video has NOT been found yet.
+Reads (static, offsets, 1 fps, high resolution; served model named):
+  gemini-3.6-flash  00:00-01:30, 01:25-02:55, 02:50-04:20, 04:15-05:55 (read_GhD-Ba6Mr2s.json)
+  gemini-3.8-flash  00:10-01:30, 01:28-02:20, 02:40-03:10 (read_x_GhD-Ba6Mr2s.json)
+  No frames (no frame at a given time can be fetched); YouTube stills maxres1/2/3 (catalog at 00:12; the frame from afar).
+Example (values where the two models agree; single reads marked)
+  Members   a column and a beam framing into its FLANGE, square, level (both). Profiles: HEB200 / IPE200 (3.6 only, "visual inspection";
+            3.8: "not shown") -> NOT settled.
+  Picture   not changed (3.8: gap, top / bottom extension blank = Tekla defaults: gap 2).
+  End plate t 10 (00:54, both); b / h blank (3.8); the plate is PL8*150 before and PL10*150 after Modify in the property pane (3.8,
+            00:56 / 01:23) -> width 150 by default; edge type Rolled/Sawn (3.8).
+  Bolts     M16 (01:32, both), standard H.T.B (01:34-01:35, both; not in SolidSketch's list), thread in mat Yes (both); tolerance: 0 or
+            blank at 01:30-01:36 (both), 2.00 at 04:31 after Load (3.6 only); Site (3.6).
+            vertical: edge 60 (01:42, both), 3 bolts (3.8 "number 3"; 3.6 "3 90"), spacing 90 (01:45, both), reference Top -> Middle
+            (02:00, both);
+            horizontal: edge 30 (02:09, both); number / spacing not read.
+            Modify 01:51, 01:55, 02:01, 02:10, 02:44; OK 02:58-03:00.
+Result: one vertical line of 3 bolts M16 through the end plate and the column flange, on the beam web line (both: 3.6 01:25-02:55 "a single
+  vertical line of 3 bolts", 3.8 02:40-03:10 "3 bolts in 1 vertical column (3 rows) aligned with the beam web").
+  Status bar: only pick / selection prompts, no warning (both). Symbol: green (00:18 not selected, both; 02:40, 3.8); 3.6 once reads
+  yellow at 01:53 while selected after a Modify, green again at 02:45 (single read).
+Then: saved as attributes "a" (04:18), loaded 04:36 and the joint copied to the other beams (Copy special 04:51-05:26).
+Not settled / not used: the profiles, the horizontal bolt number (1 column seen in the model), the tolerance, b / h.
+Screenshots asked (owner): 01:23 (property pane), 01:45 (Bolts tab), 02:10 (Bolts tab, horizontal), 02:45 (the joint).

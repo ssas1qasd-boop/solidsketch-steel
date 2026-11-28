@@ -1,0 +1,248 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "component": "Two sided end plate (142)",
+ "model_asked": "gemini-3.6-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    635,
+    725
+   ],
+   "span": [
+    "10:35",
+    "12:05"
+   ],
+   "ask": "the second Plates tab (t, b, h); the Bolts tab: bolt size, standard, tolerance, thread in material, site/shop, hole type, the vertical bolt group (reference Top/Middle/Bottom, edge distance, number of bolts, spacing) and the horizontal group (reference, edge distance, number, spacing). Read the number-of-bolts boxes carefully.",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 26443,
+    "candidatesTokenCount": 1638,
+    "totalTokenCount": 30743,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 432
+     },
+     {
+      "modality": "VIDEO",
+      "tokenCount": 26011
+     }
+    ],
+    "thoughtsTokenCount": 2662,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "main part (column)",
+       "profile": "I-section column",
+       "t": "10:35",
+       "how": "selected red column member",
+       "sure": true
+      },
+      {
+       "role": "secondary parts (beams)",
+       "profile": "I-section beams",
+       "t": "10:35",
+       "how": "selected incoming beams on both sides",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Plates 2",
+       "label": "t",
+       "value": "16.00",
+       "t": "10:38",
+       "sure": true
+      },
+      {
+       "tab": "Plates 2",
+       "label": "b",
+       "value": "150.00",
+       "t": "10:40",
+       "sure": true
+      },
+      {
+       "tab": "Plates 2",
+       "label": "h",
+       "value": "450.00",
+       "t": "10:42",
+       "sure": true
+      },
+      {
+       "tab": "Plates 2",
+       "label": "Pos.No (prefix)",
+       "value": "OP",
+       "t": "10:44",
+       "sure": true
+      },
+      {
+       "tab": "Plates 2",
+       "label": "Pos.No (start number)",
+       "value": "1",
+       "t": "10:45",
+       "sure": true
+      },
+      {
+       "tab": "Plates 2",
+       "label": "Material",
+       "value": "50",
+       "t": "10:47",
+       "sure": true
+      },
+      {
+       "tab": "Plates 2",
+       "label": "Name",
+       "value": "END PLATE",
+       "t": "10:50",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt size",
+       "value": "16",
+       "t": "11:03",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt standard",
+       "value": "8.8XOX",
+       "t": "11:07",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Tolerance",
+       "value": "2.00",
+       "t": "11:10",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical reference (left)",
+       "value": "Middle",
+       "t": "11:32",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Top edge distance (left)",
+       "value": "45.00",
+       "t": "11:20",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Number of bolts (left)",
+       "value": "5",
+       "t": "11:24",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt pitch (left)",
+       "value": "90.00",
+       "t": "11:26",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bottom edge distance (left)",
+       "value": "45.00",
+       "t": "11:29",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical reference (right)",
+       "value": "Middle",
+       "t": "11:34",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Top edge distance (right)",
+       "value": "45.00",
+       "t": "11:40",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Number of bolts (right)",
+       "value": "5",
+       "t": "11:44",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt pitch (right)",
+       "value": "90.00",
+       "t": "11:45",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bottom edge distance (right)",
+       "value": "45.00",
+       "t": "11:47",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal edge distance (left)",
+       "value": "35.00",
+       "t": "11:57",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal edge distance (right)",
+       "value": "35.00",
+       "t": "11:59",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Number of bolt columns",
+       "value": "2",
+       "t": "12:02",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "10:57",
+       "button": "Bolts tab"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "10:35",
+       "text": "Information: polygon depth value put as zero",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "10:35",
+       "colour": "green",
+       "selected": true,
+       "how": "component symbol selected in 3D view",
+       "sure": true
+      }
+     ],
+     "geometry": "Two sided end plate connection (142) joining two beams to a column. Plate dimensions set to 16mm thickness, 150mm width, 450mm height with 16mm 8.8XOX bolts.",
+     "notes": "User modifies plate dimensions and bolt parameters for Component 142 (Two sided end plate) in Tekla Structures."
+    }
+   ]
+  }
+ ],
+ "rotations": []
+}

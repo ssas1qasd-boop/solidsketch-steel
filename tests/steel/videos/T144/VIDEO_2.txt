@@ -37,3 +37,23 @@ Result: end plate 20 x (2 x 30 + 120 = 180) x 390 flush with the HEA400 beam, a 
 
 Not readable / not used: the bolt standard (A325M / A325N), the four Haunch boxes = 10, part names / materials, the bolt length (Tekla's
   rule used).
+
+RE-READ 2026-11-28 WITH THE FULL MODELS (HANDOFF step 1). Static reads, served models named:
+  gemini-3.6-flash: 07:40-09:05, 10:50-12:15, 18:05-19:35, 19:30-20:30, 22:10-23:40, 23:40-24:30 (reread_IBVnHuj1F-s.json); 19:33-19:58,
+  24:12-24:28, 23:38-23:52 (reread_focus_IBVnHuj1F-s.json); 19:30-19:58 again (recheck_flashlatest_IBVnHuj1F-s.json: asked
+  gemini-flash-latest, busy, read by gemini-3.6-flash). gemini-3.8-flash: 24:12-24:28 (recheck_flashlatest_IBVnHuj1F-s.json).
+  19:38 FRAME: not saved. No frame at a given time can be fetched (Apify used up, YouTube refuses downloads, i.ytimg.com only fixed
+  stills). Gemini's description instead: status bar "Bolt edge distance of the bolt with id 02dbe36a-277a-43c4-94ad-e6e8d353813c is too
+  small" at 18:05 / 19:30 / 19:33 (3.6, four reads; the full id is new); the symbol is read GREEN while the component is selected at
+  19:30-19:33 (3.6, three reads). The owner saw yellow: the selection highlight may hide the colour; not changed (level 2 kept).
+Confirmed (unchanged): HEA400 / HEA400; end plate t 20 (07:52), fitting plate t 20 (08:48); stiffeners t 10, chamfers 15 -> 25 -> 30
+  (11:18-11:40); M20, tolerance 2, thread in mat No, Site; vertical edge 30 / 30 (18:11-18:12); haunch top / bottom 10 x 75 x 75
+  (22:21-22:33), chamfers 55 x 4 (22:49-22:54).
+NEW: the four Haunch boxes set to 10 (22:58-23:08) are the inner notches (top / bottom haunch inner horizontal / vertical notch = 10).
+NOT SETTLED (reads disagree; the golden keeps 4 rows x 2 at 120, edge 30):
+  vertical boxes "5 120" (19:33) / "3 120" (19:30, 24:17) / number 1, spacing 120 (3.8, 24:18);
+  horizontal: 2 at 120 (18:51-18:52), then 3 / 4 bolts with 60 / 100 / 70, and "4 80" at 19:42 (3.6, three reads), "90" at 24:17 (3.6)
+  and 4 bolts at 90 (3.8, 24:18); in the model 4 rows x 2 (3.6, 24:17) but 7 rows x 2 (3.8, 24:18).
+  Bolt standard A325N (19:30-19:33, 24:18) / 7990 (24:17).
+  -> Screenshots asked at 19:38, 19:42 and 24:18 (Bolts tab and the model).
+

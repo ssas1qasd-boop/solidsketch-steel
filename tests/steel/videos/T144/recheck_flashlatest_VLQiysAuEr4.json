@@ -1,0 +1,228 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "component": "End plate (144)",
+ "model_asked": "gemini-flash-latest",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    1455,
+    1495
+   ],
+   "span": [
+    "24:15",
+    "24:55"
+   ],
+   "ask": "Key values only. the status bar text and the component symbol colour after each Modify, and whether the component is selected.",
+   "model_asked": "gemini-flash-latest",
+   "model_served": "gemini-3.8-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 11911,
+    "candidatesTokenCount": 1148,
+    "totalTokenCount": 14348,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 350
+     },
+     {
+      "modality": "VIDEO",
+      "tokenCount": 11561
+     }
+    ],
+    "thoughtsTokenCount": 1289,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "HEA360",
+      "t": "24:34",
+      "how": "visual context",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "IPE400",
+      "t": "24:34",
+      "how": "visual context",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "8.8X-S",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "100",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Comment",
+      "value": "",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt group horizontal dist",
+      "value": "120.00",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Top bolt edge distance",
+      "value": "-40.00",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bottom bolt edge distance",
+      "value": "40.00",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt count",
+      "value": "4",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt spacing",
+      "value": "105.00",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt count",
+      "value": "",
+      "t": "24:30",
+      "sure": true
+     },
+     {
+      "tab": "Design type",
+      "label": "Reference design",
+      "value": "Default",
+      "t": "24:52",
+      "sure": true
+     },
+     {
+      "tab": "Holes",
+      "label": "Bolt standard",
+      "value": "Default",
+      "t": "24:53",
+      "sure": true
+     },
+     {
+      "tab": "Analysis",
+      "label": "Use analysis end offsets",
+      "value": "No",
+      "t": "24:54",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "24:20",
+      "button": "Modify"
+     },
+     {
+      "t": "24:31",
+      "button": "Modify"
+     },
+     {
+      "t": "24:32",
+      "button": "(Component basic view)"
+     },
+     {
+      "t": "24:38",
+      "button": "Modify"
+     },
+     {
+      "t": "24:51",
+      "button": "Design type"
+     },
+     {
+      "t": "24:53",
+      "button": "Holes"
+     },
+     {
+      "t": "24:54",
+      "button": "Analysis"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "24:21",
+      "text": "Bolt edge distance of the bolt with id 82ac12cc-c7bd-4384-a78f-e03f71051c35 is too small",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "24:15",
+      "colour": "green",
+      "selected": true,
+      "how": "green component cone symbol with magenta selection highlight",
+      "sure": true
+     },
+     {
+      "t": "24:21",
+      "colour": "yellow",
+      "selected": true,
+      "how": "symbol turned yellow after modifying with 4 bolt rows causing edge distance warning",
+      "sure": true
+     },
+     {
+      "t": "24:31",
+      "colour": "green",
+      "selected": true,
+      "how": "symbol turned green after reverting to default 2 bolt rows",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (144) connecting IPE400 beam to HEA360 column flange with two columns of bolts, top and bottom backing/stiffener plates, and haunch stiffener.",
+    "notes": "User tests changing vertical bolt row count to 4, causing a bolt edge distance warning and yellow symbol warning, then reverts it back. In 3D view, demonstrates changing bolt orientation (nut vs bolt head)."
+   }
+  }
+ ],
+ "rotations": []
+}

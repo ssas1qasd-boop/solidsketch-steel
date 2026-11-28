@@ -1,0 +1,17 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "component": "End plate (144)",
+ "model": "gemini-3.8-flash",
+ "mode": "static",
+ "pass1": false,
+ "pause": 5,
+ "context": "Tekla Structures 2026, mm, End plate (144) between a HEA360 column and an IPE400 beam.",
+ "pieces": [
+  {
+   "start": "24:15",
+   "end": "24:40",
+   "fps": 5,
+   "ask": "ONLY the component symbol and the status bar, second by second. The component symbol is the small cone at the beam-column joint. Report its colour (green / yellow / red) at every change, with the time, and say each time whether the component is SELECTED (Tekla draws a selected object with a highlight outline; say what the highlight looks like) so the status colour is not confused with the selection highlight. Report the exact status bar text (bottom left of the window) at every change. Report each Modify / Apply / OK press with its time, especially the one at about 24:31: the cone colour and the status bar text just BEFORE and just AFTER it. Also report the cone colour at 24:40 (the last moment of this piece). Do not read dialog values except the number of bolt rows if a Modify changes it."
+  }
+ ]
+}

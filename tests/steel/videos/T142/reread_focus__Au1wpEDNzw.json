@@ -1,0 +1,385 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "component": "Two sided end plate (142)",
+ "model_asked": "gemini-3.5-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    550,
+    575
+   ],
+   "span": [
+    "09:10",
+    "09:35"
+   ],
+   "ask": "ONLY the profile names of the column and the two beams if any is visible (property pane, labels, the narrator says them), and whether the beams meet the column's flanges or its web. Then the colour of the component symbol right after creation (09:30) and whether the component is selected.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "not visible",
+      "t": "09:20",
+      "how": "3D view",
+      "sure": false
+     },
+     {
+      "role": "beam (first secondary)",
+      "profile": "not visible",
+      "t": "09:23",
+      "how": "3D view",
+      "sure": false
+     },
+     {
+      "role": "beam (second secondary)",
+      "profile": "not visible",
+      "t": "09:25",
+      "how": "3D view",
+      "sure": false
+     }
+    ],
+    "fields": [],
+    "presses": [
+     {
+      "t": "09:16",
+      "button": "Two sided end plate (142) component icon"
+     },
+     {
+      "t": "09:20",
+      "button": "Left-click main column"
+     },
+     {
+      "t": "09:23",
+      "button": "Left-click left beam"
+     },
+     {
+      "t": "09:25",
+      "button": "Left-click right beam"
+     },
+     {
+      "t": "09:29",
+      "button": "Middle mouse click"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "09:18",
+      "text": "Pick main part",
+      "sure": true
+     },
+     {
+      "t": "09:21",
+      "text": "Pick secondary parts (at the maximum 2 parts)",
+      "sure": true
+     },
+     {
+      "t": "09:25",
+      "text": "Pick next secondary part. To finish, press the middle mouse button.",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "text": "Information: polygon depth value put as zero - Pick main part",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "09:30",
+      "colour": "green",
+      "selected": false,
+      "how": "3D component cone symbol visible at joint location",
+      "sure": true
+     }
+    ],
+    "geometry": "Two beams attach to opposite sides of the column web using component 142 (Two sided end plate), secured with two bolts passing through both end plates and the column web.",
+    "notes": "No component dialog properties were modified during this clip."
+   }
+  },
+  {
+   "seconds": [
+    672,
+    712
+   ],
+   "span": [
+    "11:12",
+    "11:52"
+   ],
+   "ask": "ONLY the vertical bolt group boxes on the Bolts tab. For each box give its position on the picture (top edge, between bolts, bottom edge, beside the reference list) and its exact content. Tekla writes several equal spacings as 'n*s' (for example '4*90'): say whether the spacing box shows '90', '4*90', '1 90' or something else, and whether there is a separate 'number of bolts' box and what it shows. How many bolt rows are drawn in the dialog picture?",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 12024,
+    "candidatesTokenCount": 1091,
+    "totalTokenCount": 13952,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 11560
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 464
+     }
+    ],
+    "thoughtsTokenCount": 837,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "dialog": "Tekla Structures Two sided end plate (142)",
+    "tab": "Bolts",
+    "vertical_bolt_boxes": [
+     {
+      "position": "Top edge distance (left side)",
+      "value": "45.00",
+      "t": "11:21",
+      "sure": true
+     },
+     {
+      "position": "Number of bolt rows (left side)",
+      "value": "1",
+      "t": "11:24",
+      "sure": true
+     },
+     {
+      "position": "Vertical bolt spacing (left side)",
+      "value": "90.00",
+      "t": "11:27",
+      "sure": true
+     },
+     {
+      "position": "Bottom edge distance (left side)",
+      "value": "45",
+      "t": "11:29",
+      "sure": true
+     },
+     {
+      "position": "Top edge distance (right side)",
+      "value": "45.00",
+      "t": "11:41",
+      "sure": true
+     },
+     {
+      "position": "Number of bolt rows (right side)",
+      "value": "1",
+      "t": "11:44",
+      "sure": true
+     },
+     {
+      "position": "Vertical bolt spacing (right side)",
+      "value": "90.00",
+      "t": "11:45",
+      "sure": true
+     },
+     {
+      "position": "Bottom edge distance (right side)",
+      "value": "45",
+      "t": "11:48",
+      "sure": true
+     }
+    ],
+    "dropdowns": [
+     {
+      "position": "Left side vertical reference",
+      "initial_value": "Top",
+      "final_value": "Middle",
+      "t": "11:31",
+      "sure": true
+     },
+     {
+      "position": "Right side vertical reference",
+      "initial_value": "Default",
+      "final_value": "Middle",
+      "t": "11:33",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Top edge distance (left)",
+      "value": "45.00",
+      "t": "11:21",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt row count (left)",
+      "value": "1",
+      "t": "11:24",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt spacing (left)",
+      "value": "90.00",
+      "t": "11:27",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bottom edge distance (left)",
+      "value": "45",
+      "t": "11:29",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical position reference (left)",
+      "value": "Middle",
+      "t": "11:31",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical position reference (right)",
+      "value": "Middle",
+      "t": "11:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Top edge distance (right)",
+      "value": "45.00",
+      "t": "11:41",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt row count (right)",
+      "value": "1",
+      "t": "11:44",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt spacing (right)",
+      "value": "90.00",
+      "t": "11:45",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bottom edge distance (right)",
+      "value": "45",
+      "t": "11:48",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "11:12",
+      "colour": "green",
+      "selected": true,
+      "how": "component symbol visible in model space",
+      "sure": true
+     }
+    ],
+    "geometry": "Two sided end plate connection joining a central column web to two opposing beam ends with bolted end plates.",
+    "notes": "User configures symmetrical vertical bolt layout (edge distance 45mm, 1 space of 90mm, bottom distance 45mm, aligned to Middle) for both left and right end plates."
+   }
+  },
+  {
+   "seconds": [
+    726,
+    750
+   ],
+   "span": [
+    "12:06",
+    "12:30"
+   ],
+   "ask": "ONLY the 3D model view after Modify at 12:08: does each beam end plate sit against the column's FLANGE (the wide outer face of the I-section) or against the column's WEB (between the flanges)? Count the bolt rows and columns on one end plate. Do the bolts pass through the whole column (from one end plate through both column flanges to the other end plate) or only through one flange? Then the component symbol (cone) colour and whether the component is selected (highlighted) at that moment.",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 7400,
+    "candidatesTokenCount": 525,
+    "totalTokenCount": 10209,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 6936
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 464
+     }
+    ],
+    "thoughtsTokenCount": 2284,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "I-section",
+      "t": "12:08",
+      "how": "visible in 3D model view",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "I-section",
+      "t": "12:08",
+      "how": "visible in 3D model view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "8.8XOX",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "12:06",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "12:08",
+      "button": "Modify"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "12:06",
+      "text": "Information: polygon depth value put as zero",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "12:08",
+      "colour": "green",
+      "selected": true,
+      "how": "green cone symbol visible at connection location",
+      "sure": true
+     }
+    ],
+    "geometry": "Each beam end plate sits against the column's WEB. On one end plate there are 2 bolt columns and 5 bolt rows (1 row above top flange and 4 rows along beam depth). The bolts pass through both beam end plates and the column web between them.",
+    "notes": "Tekla Structures 2017 dialog for Two sided end plate (142)."
+   }
+  }
+ ],
+ "rotations": []
+}

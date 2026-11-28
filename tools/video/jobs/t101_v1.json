@@ -1,0 +1,31 @@
+{
+ "url": "https://www.youtube.com/watch?v=GhD-Ba6Mr2s",
+ "component": "End plate (101)",
+ "model": "gemini-3.5-flash",
+ "pass1": false,
+ "pause": 70,
+ "context": "Tekla Structures Educational version, English, mm (channel Dizar Smart, 'end plate conection (TEKLA PART 4)'). The presenter selects 'End plate (101)' in the catalog at about 00:12 and opens its dialog at 00:43 (tabs Picture, End plate, General, Notch, Bolts, Design, Analysis); the dialog is open again at 03:56-04:21 and 04:27-04:37.",
+ "pieces": [
+  {
+   "start": "00:00",
+   "end": "01:30",
+   "ask": "the parts picked (main part, secondary part) and their profile names (property pane, labels, the narrator); whether the beam lands on a column flange, a column web or a beam web; the Picture tab: every box and its value (the numbered dimensions); the End plate tab: plate t, b, h and every other box."
+  },
+  {
+   "start": "01:25",
+   "end": "02:55",
+   "ask": "the General, Notch and Bolts tabs: bolt size, standard, tolerance, thread in material, site/shop, hole type; the vertical bolt group (reference, edge distances, number of bolts, spacing as written) and horizontal group (reference, edge distance, number of bolts, spacing); the Apply / Modify / OK presses; the result in the model (plate size, bolt rows and columns, where it sits); the status bar text and the component symbol colour."
+  },
+  {
+   "start": "02:50",
+   "end": "04:20",
+   "ask": "what is done in this part (more connections, copying, changes in the dialog): every dialog value changed, every Modify press, the result in the model, the status bar text and the component symbol colour."
+  },
+  {
+   "start": "04:15",
+   "end": "05:55",
+   "ask": "the dialog values shown at 04:27-04:37 and any change; the final model: plate size, bolt rows and columns, where it sits; the status bar text and the component symbol colour (and whether the component is selected)."
+  }
+ ],
+ "mode": "static"
+}

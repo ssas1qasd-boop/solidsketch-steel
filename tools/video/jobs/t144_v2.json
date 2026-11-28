@@ -1,0 +1,10 @@
+{"url": "https://www.youtube.com/watch?v=IBVnHuj1F-s", "component": "End plate (144)", "model": "gemini-3.5-flash", "pass1": false,
+ "context": "Tekla Structures 2022, English UI, Arabic speech, mm. The presenter adds component 144 'End plate' between a HEA400 column and a HEA400 beam and works through its dialog tabs.",
+ "pieces": [
+  {"start": "07:40", "end": "09:05", "ask": "the Plates tab: end plate t, b, h; fitting plate 1 t, number; the Picture tab boxes if shown."},
+  {"start": "10:50", "end": "12:15", "ask": "the Stiffeners tab: each stiffener's t, b, h, chamfer type and sizes, created / orientation, positions."},
+  {"start": "18:05", "end": "19:35", "ask": "the Bolts tab: bolt size, standard, tolerance, thread in material, hole type, the vertical group (reference, edge distances top/bottom, number, spacing) and the horizontal group (number, spacing, edge distances, reference); the Modify presses."},
+  {"start": "19:30", "end": "20:30", "ask": "the status bar at the bottom of the window around 19:38: its exact text (for example 'Bolt edge distance of the bolt ... is too small'), when it appears and disappears; the component symbol's colour (green / yellow / red) at that time, and whether the component is selected; the Bolts tab values at that time."},
+  {"start": "22:10", "end": "23:40", "ask": "the Haunch tab: top and bottom plate t, b, h; every chamfer box and its value (how many boxes are set to 55 and how many to 10, and what the boxes set to 10 are labelled or where they sit on the picture); the creation lists."},
+  {"start": "23:40", "end": "24:30", "ask": "the last Modify and the final state: the status bar text and the component symbol's colour; the Bolts tab as reviewed at 24:14-24:24."}
+ ]}

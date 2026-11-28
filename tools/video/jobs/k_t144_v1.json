@@ -1,0 +1,16 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "component": "End plate (144)",
+ "pass1": false,
+ "context": "Tekla Structures 2026, mm, End plate (144), HEA360 column, IPE400 beam.",
+ "pieces": [
+  {
+   "start": "24:15",
+   "end": "24:55",
+   "ask": "Key values only. the status bar text and the component symbol colour after each Modify, and whether the component is selected."
+  }
+ ],
+ "model": "gemini-flash-latest",
+ "pause": 15,
+ "mode": "static"
+}

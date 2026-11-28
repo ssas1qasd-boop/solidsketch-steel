@@ -2,7 +2,7 @@
 // gated by rule B (tools/golden/c09_cases.js skips it). Instead our rule checks (v58 tkStatus, live web v70) must give the warnings
 // Tekla shows in that video, as listed in the case's `videoStatus`:
 //   expect: [{ check: 'edge' | 'spacing' | 'outside' | 'weld' | 'overlap', plate?: 'END PLATE', row?: 'lowest' | 'highest' }]
-//   level:  2 (yellow) / 3 (red) / 0 (green) when the video shows the symbol's colour; left out when it cannot be read
+//   level:  2 (yellow) / 3 (red) / 1 (green) when the video shows the symbol's colour; left out when it cannot be read
 //   tekla, symbol, noWarning: what the video shows (recorded, not checked)
 // Writes tests/steel/golden/s7/video_status.json (the same shape as status.json, so S7StatusTest checks app = web) and fails if a
 // case does not give the expected warnings.      node tools/golden/video_status.js

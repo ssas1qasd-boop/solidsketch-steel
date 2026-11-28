@@ -43,3 +43,25 @@ Result (model views 24:35-28:50): end plate 20 x 180 x 560 with a 12 mm fitting 
 
 Not readable / not used: bolt standard 6914 (SolidSketch has 8.8 / 10.9 / 4.6 / HSFG / 7990), materials St 52 / St-52 (not in the
   material list), part names, the bolt length (Tekla's rule used: grip + nut + washer + 5, rounded up to 5 mm).
+
+RE-READ 2026-11-28 (HANDOFF step 1, the symbol colour at the final state). Static reads, served models named:
+  gemini-3.6-flash 24:15-25:15 (reread_VLQiysAuEr4.json) and gemini-3.8-flash 24:15-24:55 (recheck_flashlatest_VLQiysAuEr4.json).
+  No frame at a given time can be fetched (see T142/VIDEO_1.txt); the old Apify frame f_1490 (24:50) is still the only frame.
+  Both models: the Modify at 24:20 gives the status bar "Bolt edge distance of the bolt with id 82ac12cc-c7bd-4384-a78f-e03f71051c35
+  is too small" (3.6 reads the first character as "B") and the symbol turns YELLOW at 24:21 (component selected).
+  gemini-3.8-flash only: a Modify at 24:31 turns the symbol GREEN again ("after reverting to default 2 bolt rows"), then a Modify at
+  24:38; the frame f_1490 (24:50) shows a green cone while the status bar still holds the warning text.
+  -> FOR THE OWNER (not changed): Tekla shows yellow with the warning (= ours), but the video's last state may be green with a stale
+  status bar line, and the presenter may have changed the bolt rows after 24:28. Screenshots asked at 24:21, 24:31, 24:50.
+SYMBOL SETTLED 2026-11-28 (owner: a third full model on 24:15-24:40 only, high resolution, 5 fps; static):
+  gemini-3-flash-preview (symbol_3flashpreview_VLQiysAuEr4.json): yellow with the warning "Bolt edge distance ... too small" from 24:15;
+    Modify presses 24:18 / 24:20 / 24:28 / 24:31 / 24:38; at the Modify 24:31 the cone turns GREEN and the status bar is cleared;
+    green at 24:40. Bolt rows 5 -> 4 (24:17) -> 5 (24:27).
+  gemini-3.8-flash was out of its daily quota; the read went to gemini-3.6-flash (focus, 5 fps; symbol_36focus_VLQiysAuEr4.json):
+    the warning at 24:21 (cone read red), GREEN after the Modify at 24:38, green at 24:40.
+  Earlier reads: gemini-3.8-flash 24:15-24:55: yellow at 24:21, GREEN at 24:31; gemini-3.6-flash 24:15-25:15: yellow at 24:21.
+  The frame f_1490 (24:50, Apify, real pixels): green cone.
+  -> FINAL STATE: GREEN, no warning (3-flash-preview, 3.8, 3.6 focus agree; the 24:50 frame agrees). While the warning shows, the cone is
+     YELLOW (3-flash-preview, 3.8, 3.6 first read; the 3.6 focus read says red). What the last Modifies (24:31 / 24:38) changed in the dialog
+     is not read (3.8: "back to the default 2 bolt rows"; 3-flash-preview: rows back to 5).
+

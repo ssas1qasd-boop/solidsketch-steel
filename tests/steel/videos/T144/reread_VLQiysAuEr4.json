@@ -1,0 +1,131 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "component": "End plate (144)",
+ "model_asked": "gemini-3.5-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    1455,
+    1515
+   ],
+   "span": [
+    "24:15",
+    "25:15"
+   ],
+   "ask": "the component symbol's colour (green / yellow / red) after the last Modify, both while the component is selected and when it is not; the status bar text (for example 'Bolt edge distance of the bolt ... is too small') and its time. Say whether the cone's green could be the selection highlight rather than the status colour.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "Column",
+      "profile": "HEA360",
+      "t": "24:33",
+      "how": "visible in 3D model view",
+      "sure": true
+     },
+     {
+      "role": "Beam",
+      "profile": "IPE400",
+      "t": "24:33",
+      "how": "visible in 3D model view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "8.8-4",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "24:15",
+      "sure": true
+     },
+     {
+      "tab": "Angle box",
+      "label": "Top angle",
+      "value": "1",
+      "t": "24:55",
+      "sure": true
+     },
+     {
+      "tab": "Angle box",
+      "label": "Bottom angle",
+      "value": "1",
+      "t": "24:55",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "24:20",
+      "button": "Modify"
+     },
+     {
+      "t": "24:28",
+      "button": "Modify"
+     },
+     {
+      "t": "24:32",
+      "button": "Component basic view"
+     },
+     {
+      "t": "24:38",
+      "button": "Modify"
+     },
+     {
+      "t": "24:55",
+      "button": "Angle box tab"
+     },
+     {
+      "t": "24:59",
+      "button": "Modify"
+     },
+     {
+      "t": "25:10",
+      "button": "Modify"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "24:21",
+      "text": "Bolt edge distance of the bolt with id B2ac12cc-c7bd-4384-a78f-e03f71051c35 is too small",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "24:15",
+      "colour": "green",
+      "selected": true,
+      "how": "component symbol cone displayed in green",
+      "sure": true
+     },
+     {
+      "t": "24:21",
+      "colour": "yellow",
+      "selected": true,
+      "how": "warning status after modification due to bolt edge distance warning",
+      "sure": true
+     }
+    ],
+    "geometry": "Beam-to-column moment connection using end plate (component 144) with stiffeners, bolted to column flange.",
+    "notes": "Demonstration of modifying bolt layout options and angle box parameters in Tekla Structures End Plate (144) component."
+   }
+  }
+ ]
+}

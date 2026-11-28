@@ -90,9 +90,14 @@ class TkCheck(private val comps: Components, private val doc: DocumentApi, priva
             P.forEachIndexed { i, p0 -> var pierced = 0; var minE = Double.POSITIVE_INFINITY; var minPl: Part? = null
                 for (pl in plates) { val sr = pierce(pl.mesh, p0, ax, hr + slot) ?: continue; pierced++
                     val o = p0.add(ax, (sr[0] + sr[1]) / 2)
-                    // the bolt's own hole outline: both ends on the hole (web v70/rulecheck.js; a midpoint test depended on the triangulation)
-                    for ((a, bb) in slice(pl.mesh, o, ax)) {
-                        val own = P.any { q -> val qo = q.add(ax, (o - q) dot ax); qo.distanceTo(a) < hr + slot + 1.5 && qo.distanceTo(bb) < hr + slot + 1.5 }; if (own) continue
+                    // the bolt's own hole outline: both ends on the hole's ring (web v70/rulecheck.js; a midpoint test depended on the
+                    // triangulation). Plates without this bolt's own hole (< 3 ring segments) get no edge distance (owner, 2026-11-28, T144 v1).
+                    val segs = slice(pl.mesh, o, ax)
+                    fun near(q: D3, a: D3, bb: D3, rin: Double): Boolean { val qo = q.add(ax, (o - q) dot ax); val da = qo.distanceTo(a); val db = qo.distanceTo(bb)
+                        return da < hr + slot + 1.5 && db < hr + slot + 1.5 && da > rin && db > rin }
+                    if (segs.count { (a, bb) -> near(p0, a, bb, hr - 1.0) } < 3) continue
+                    for ((a, bb) in segs) {
+                        val own = P.any { q -> near(q, a, bb, -1.0) }; if (own) continue
                         val dd = segDist(o, a, bb); if (dd < minE) { minE = dd; minPl = pl } } }
                 if (pierced == 0) nOut++ else if (minE < Rule.EDGE * d - 0.5) { val k = s(minPl!!.st, "name"); val e = edge.getOrPut(k) { mutableListOf<Int>() to doubleArrayOf(Double.POSITIVE_INFINITY) }; e.first += i + 1; e.second[0] = min(e.second[0], minE) } }
             for ((nm, o) in edge) msgs += "Bolt edge distance of the bolt${if (o.first.size > 1) "s" else ""} ${o.first.joinToString(", ")} (M${Js.str(Js.n(d))}) in $nm is too small: ${jsRound(o.second[0])} mm < ${jsRound(Rule.EDGE * d)} mm (${Rule.EDGE}·d)"

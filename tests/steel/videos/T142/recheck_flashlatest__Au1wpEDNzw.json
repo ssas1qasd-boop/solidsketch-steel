@@ -1,0 +1,662 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "component": "Two sided end plate (142)",
+ "model_asked": "gemini-flash-latest",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    596,
+    660
+   ],
+   "span": [
+    "09:56",
+    "11:00"
+   ],
+   "ask": "Key values only. Plates 1 and Plates 2: end plate t, b, h.",
+   "model_asked": "gemini-flash-latest",
+   "model_served": "gemini-3.8-flash",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "unknown",
+      "t": "09:56",
+      "how": "visual red H/I column",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "unknown",
+      "t": "09:56",
+      "how": "visual green horizontal beam",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Plates 1",
+      "label": "End Plate t",
+      "value": "16.00",
+      "t": "10:01",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate b",
+      "value": "150.00",
+      "t": "10:06",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate h",
+      "value": "450.00",
+      "t": "10:15",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Pos_No prefix",
+      "value": "EP",
+      "t": "10:18",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Pos_No start",
+      "value": "1",
+      "t": "10:20",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Material",
+      "value": "50",
+      "t": "10:22",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate Name",
+      "value": "END PLATE",
+      "t": "10:29",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End Plate t",
+      "value": "16.00",
+      "t": "10:38",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End Plate b",
+      "value": "150.00",
+      "t": "10:40",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End Plate h",
+      "value": "450.00",
+      "t": "10:42",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End Plate Pos_No prefix",
+      "value": "EP",
+      "t": "10:44",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End Plate Pos_No start",
+      "value": "1",
+      "t": "10:46",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End Plate Material",
+      "value": "50",
+      "t": "10:47",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End Plate Name",
+      "value": "END PLATE",
+      "t": "10:52",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "09:57",
+      "button": "Plates 1 tab"
+     },
+     {
+      "t": "10:31",
+      "button": "Plates 2 tab"
+     },
+     {
+      "t": "10:57",
+      "button": "Bolts tab"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "09:56",
+      "text": "Information: polygon depth value put as zero",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "09:56",
+      "colour": "green",
+      "selected": false,
+      "how": "wireframe cone/component symbol at joint",
+      "sure": true
+     }
+    ],
+    "geometry": "Two-sided end plate connection (142) connecting two beams to a column web/flange; end plates are defined with 16 mm thickness, 150 mm width, and 450 mm height.",
+    "notes": "User switches from Picture tab to Plates 1 tab, sets end plate dimensions and numbering attributes, then duplicates the values on Plates 2 tab before opening Bolts tab."
+   }
+  },
+  {
+   "seconds": [
+    660,
+    728
+   ],
+   "span": [
+    "11:00",
+    "12:08"
+   ],
+   "ask": "Key values only. the Bolts tab: bolt size, tolerance; the vertical group (reference, edge distances, the number-of-bolts box and the spacing box exactly as written, e.g. '90', '4*90'); the horizontal group (reference, edge distances, number of bolts, spacing). How many bolt rows are drawn?",
+   "model_asked": "gemini-flash-latest",
+   "model_served": "gemini-3.8-flash",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "unknown",
+      "t": "11:00",
+      "how": "visual",
+      "sure": true
+     },
+     {
+      "role": "main beam",
+      "profile": "unknown",
+      "t": "11:00",
+      "how": "visual",
+      "sure": true
+     },
+     {
+      "role": "secondary beam",
+      "profile": "unknown",
+      "t": "11:00",
+      "how": "visual",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "Default",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "11:03",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "Default",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "8.8XOX",
+      "t": "11:07",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "11:10",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "No",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site/Workshop",
+      "value": "Site",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Hole type",
+      "value": "Slotted",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Rotate Slots",
+      "value": "Parallel",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Slots in",
+      "value": "Default",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference (top)",
+      "value": "Top",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference (top)",
+      "value": "Middle",
+      "t": "11:32",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference (left)",
+      "value": "Default",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference (left)",
+      "value": "Middle",
+      "t": "11:35",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Right beam top edge distance",
+      "value": "45.00",
+      "t": "11:21",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Right beam bolt count",
+      "value": "1",
+      "t": "11:24",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Right beam bolt spacing",
+      "value": "90.00",
+      "t": "11:26",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Right beam bottom edge distance",
+      "value": "45",
+      "t": "11:28",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Left beam top edge distance",
+      "value": "45.00",
+      "t": "11:40",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Left beam bolt count",
+      "value": "1",
+      "t": "11:44",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Left beam bolt spacing",
+      "value": "90.00",
+      "t": "11:46",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Left beam bottom edge distance",
+      "value": "45",
+      "t": "11:47",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal reference",
+      "value": "Middle",
+      "t": "11:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal left edge distance",
+      "value": "35.00",
+      "t": "11:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal right edge distance",
+      "value": "35.00",
+      "t": "12:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt count",
+      "value": "2",
+      "t": "12:02",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing",
+      "value": "80.00",
+      "t": "12:05",
+      "sure": true
+     }
+    ],
+    "presses": [],
+    "status_bar": [
+     {
+      "t": "11:00",
+      "text": "Information: polygon depth value put as zero",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "11:00",
+      "colour": "green",
+      "selected": false,
+      "how": "visual",
+      "sure": true
+     },
+     {
+      "t": "12:07",
+      "colour": "green",
+      "selected": true,
+      "how": "visual",
+      "sure": true
+     }
+    ],
+    "geometry": "Two-sided end plate connection (component 142) connecting two beams to a column web/flange. In the 3D model prior to clicking Modify, 2 bolt rows (4 bolts total per side) are drawn in magenta wireframe.",
+    "notes": "In the Bolts tab, the vertical group specifies edge distances of 45 mm, 1 space at 90 mm (2 bolt rows), and horizontal group specifies 35 mm edge distances with 2 bolts spaced at 80 mm. Both diagram schematics in the dialog also illustrate 2 bolt rows."
+   }
+  },
+  {
+   "seconds": [
+    726,
+    750
+   ],
+   "span": [
+    "12:06",
+    "12:30"
+   ],
+   "ask": "Key values only. the 3D view after Modify 12:08: do the end plates sit against the column FLANGES or its WEB? How many bolt rows and columns per end plate? Do the bolts pass through the whole column? The status bar text, the component symbol colour and whether it is selected.",
+   "model_asked": "gemini-flash-latest",
+   "model_served": "gemini-3.8-flash",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "I-section",
+      "t": "12:06",
+      "how": "3D view",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "I-section",
+      "t": "12:06",
+      "how": "3D view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "8.8XOX",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Hole type:",
+      "value": "Slotted",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Rotate Slots:",
+      "value": "Parallel",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Slots in:",
+      "value": "Default",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "vertical position reference",
+      "value": "Middle",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "top edge distance",
+      "value": "45.00",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "vertical bolt count",
+      "value": "1",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "vertical bolt spacing",
+      "value": "90.00",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "bottom edge distance",
+      "value": "45.00",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal position reference",
+      "value": "Middle",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal edge distance left",
+      "value": "35.00",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal bolt count",
+      "value": "2",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal bolt spacing",
+      "value": "80.00",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "horizontal edge distance right",
+      "value": "35.00",
+      "t": "12:06",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate t",
+      "value": "",
+      "t": "12:26",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate t",
+      "value": "",
+      "t": "12:26",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate 2 t",
+      "value": "",
+      "t": "12:26",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate 2 t",
+      "value": "",
+      "t": "12:26",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "12:08",
+      "button": "Modify"
+     },
+     {
+      "t": "12:25",
+      "button": "Haunch tab"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "12:06",
+      "text": "Information: polygon depth value put as zero",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "12:06",
+      "colour": "green",
+      "selected": true,
+      "how": "green cone with magenta selection lines",
+      "sure": true
+     },
+     {
+      "t": "12:10",
+      "colour": "green",
+      "selected": true,
+      "how": "green cone symbol visible",
+      "sure": true
+     }
+    ],
+    "geometry": "The beam connects to the column web between its flanges. The end plate has 4 bolt rows and 2 bolt columns (total 8 bolts per plate). The bolts pass through the end plate and the column web.",
+    "notes": "After Modify is pressed at 12:08, the component updates with 4 rows of 2 bolts connecting the beam end plate to the column web. At 12:25 the user switches to the Haunch tab."
+   }
+  }
+ ]
+}

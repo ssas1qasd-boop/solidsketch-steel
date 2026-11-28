@@ -1,0 +1,15 @@
+{
+ "url": "https://www.youtube.com/watch?v=J2OINltOa4I",
+ "component": "Two sided end plate (142)",
+ "pass1": false,
+ "context": "Tekla Structures, imperial. Component 142 'Two sided end plate'; Plates tabs 01:48-02:16, Bolts tab 02:16-04:25.",
+ "pieces": [
+  {
+   "start": "01:45",
+   "end": "04:30",
+   "ask": "Key values only. end plate t (both plates), b, h; bolt size, tolerance; the FINAL vertical group (reference, edge distances, number of bolts, spacing) and horizontal group (edge distances, number, spacing) after the Modify at 04:11; the status bar text after it and the component symbol colour."
+  }
+ ],
+ "model": "gemini-flash-latest",
+ "pause": 15
+}

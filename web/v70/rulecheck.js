@@ -1,6 +1,9 @@
-// == rule checks: bolt's own hole (main session, 2026-11-28) ==
+// == rule checks: bolt's own hole (main session, 2026-11-28; plates without the bolt's hole: owner-approved 2026-11-28) ==
 // v58 tkStatus (v69 L16034) with one change, in the bolt edge distance check: a cut segment is skipped as the bolt's own hole
 // outline only when BOTH its ends lie on that hole (within hr + slot / 2 + 1.5 of the bolt line), not when its midpoint does.
+// And (owner-approved 2026-11-28, T144 video 1): the edge distance is measured only in plates where the bolt has its OWN hole (at
+// least 3 outline segments on that bolt's ring, both ends between hr - 1 and hr + slot / 2 + 1.5). A plate the bolt only clashes
+// with (a stiffener, 0 mm) is no edge case for Tekla, which showed green there; it still counts as a plate the bolt passes through.
 // The midpoint test depended on how the mesh happens to be triangulated: in t144_v1 (video 1) a stiffener face passing through
 // the bolt centre was taken for the hole, and web reported 25 mm where the app (another triangulation) reported 2 mm; the bolt
 // in fact cuts half into the stiffener (0 mm). A hole outline still has both ends on the hole, so a holed plate is measured as before.
@@ -15,7 +18,10 @@ tkStatus = function tkStatus70(c, deep) {
       const edge = new Map(); P.forEach((P0, i) => { let pierced = 0; let minE = Infinity, minPl = null;
         for (const pl of plates) { const sr = tkPierce(pl, P0, ax, hr + Math.max(+B.st.sv || 0, +B.st.sh || 0) / 2 * U, U); if (!sr) continue; pierced++;
           const O = P0.clone().addScaledVector(ax, (sr[0] + sr[1]) / 2); const segs = tkSlice(pl, O, ax);
-          for (const [a, b] of segs) { const m = a.clone().add(b).multiplyScalar(0.5); const own = P.some(Q => { const QO = Q.clone().addScaledVector(ax, O.clone().sub(Q).dot(ax)); const R = hr + Math.max(+B.st.sv || 0, +B.st.sh || 0) / 2 * U + 1.5 * U; return QO.distanceTo(a) < R && QO.distanceTo(b) < R; }); if (own) continue; const dd = tkSegDist(O, a, b); if (dd < minE) { minE = dd; minPl = pl; } } }
+          const R = hr + Math.max(+B.st.sv || 0, +B.st.sh || 0) / 2 * U + 1.5 * U, Rin = hr - 1 * U;
+          const near = (Q, a, b, rin) => { const QO = Q.clone().addScaledVector(ax, O.clone().sub(Q).dot(ax)); const da = QO.distanceTo(a), db = QO.distanceTo(b); return da < R && db < R && da > rin && db > rin; };
+          if (segs.filter(([a, b]) => near(P0, a, b, Rin)).length < 3) continue; // no hole of this bolt in this plate: no edge distance there (Tekla)
+          for (const [a, b] of segs) { const own = P.some(Q => near(Q, a, b, -1)); if (own) continue; const dd = tkSegDist(O, a, b); if (dd < minE) { minE = dd; minPl = pl; } } }
         if (!pierced) nOut++; else if (minE < TK_RULE.edge * d * U - 0.5 * U) { const kk = minPl.st.name; if (!edge.has(kk)) edge.set(kk, { ids: [], min: Infinity }); const o = edge.get(kk); o.ids.push(i + 1); o.min = Math.min(o.min, minE); } });
       for (const [nm, o] of edge) msgs.push(`Bolt edge distance of the bolt${o.ids.length > 1 ? 's' : ''} ${o.ids.join(', ')} (M${d}) in ${nm} is too small: ${Math.round(o.min / U)} mm < ${Math.round(TK_RULE.edge * d)} mm (${TK_RULE.edge}·d)`);
       if (nOut === P.length && plates.length) { const mems = c.parts.map(stBody).filter(b => b && b.man && b.st && b.st.kind === 'member'); const hrr = hr + Math.max(+B.st.sv || 0, +B.st.sh || 0) / 2 * U; if (P.some(P0 => mems.some(m => tkPierce(m, P0, ax, hrr, U)))) nOut = 0; }

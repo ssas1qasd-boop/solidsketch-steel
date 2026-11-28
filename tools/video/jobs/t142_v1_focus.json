@@ -1,0 +1,25 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "component": "Two sided end plate (142)",
+ "model": "gemini-3.5-flash",
+ "pass1": false,
+ "context": "Tekla Structures 2017, mm. Component 142 'Two sided end plate' joins a column and two beams; its Bolts tab is filled 11:00-12:06, Modify 12:08.",
+ "pieces": [
+  {
+   "start": "11:12",
+   "end": "11:52",
+   "ask": "ONLY the vertical bolt group boxes on the Bolts tab. For each box give its position on the picture (top edge, between bolts, bottom edge, beside the reference list) and its exact content. Tekla writes several equal spacings as 'n*s' (for example '4*90'): say whether the spacing box shows '90', '4*90', '1 90' or something else, and whether there is a separate 'number of bolts' box and what it shows. How many bolt rows are drawn in the dialog picture?"
+  },
+  {
+   "start": "12:06",
+   "end": "12:30",
+   "ask": "ONLY the 3D model view after Modify at 12:08: does each beam end plate sit against the column's FLANGE (the wide outer face of the I-section) or against the column's WEB (between the flanges)? Count the bolt rows and columns on one end plate. Do the bolts pass through the whole column (from one end plate through both column flanges to the other end plate) or only through one flange? Then the component symbol (cone) colour and whether the component is selected (highlighted) at that moment."
+  },
+  {
+   "start": "09:10",
+   "end": "09:35",
+   "ask": "ONLY the profile names of the column and the two beams if any is visible (property pane, labels, the narrator says them), and whether the beams meet the column's flanges or its web. Then the colour of the component symbol right after creation (09:30) and whether the component is selected."
+  }
+ ],
+ "mode": "static"
+}

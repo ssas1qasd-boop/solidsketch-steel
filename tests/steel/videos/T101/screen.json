@@ -1,0 +1,963 @@
+{
+ "component": "End plate (101)",
+ "videos": {
+  "4w0DaSCkHm8": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "03:03",
+      "end": "07:25",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title and catalog"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The presenter searches for '144' in the component catalog and selects 'End plate (144)'. Component 101 is not used in the video.",
+    "tekla_version": "20.0",
+    "units": "inch",
+    "language": "English"
+   }
+  },
+  "8AEsqN_pJKs": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "01:52",
+      "end": "05:00",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The presenter only searches for and applies component 144. Component 101 is never mentioned or shown in the catalog or model.",
+    "tekla_version": "16.0",
+    "units": "mm",
+    "language": "Bengali"
+   }
+  },
+  "NF2wQIZmH24": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "29",
+      "name": "End plate",
+      "start": "03:35",
+      "end": "03:39",
+      "tabs": [
+       "Pictures",
+       "Parts",
+       "Parameters",
+       "General",
+       "Bolts",
+       "Notch",
+       "Design"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "101",
+      "name": "End plate",
+      "start": "03:40",
+      "end": "03:43",
+      "tabs": [
+       "Pictures",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "03:44",
+      "end": "10:57",
+      "tabs": [
+       "Pictures",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The 'End plate (101)' component was briefly opened in the catalog and its dialog was viewed at 03:40, but it was not applied to the model; the presenter chose 'End plate (144)' instead.",
+    "tekla_version": "19.0",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "mdaCjsL5p0o": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "01:55",
+      "end": "02:11",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "03:03",
+      "end": "03:29",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "03:31",
+      "end": "04:29",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "04:31",
+      "end": "05:59",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "06:15",
+      "end": "07:00",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "07:31",
+      "end": "08:18",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "08:20",
+      "end": "08:59",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "09:07",
+      "end": "09:31",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle box"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "End plate (101) is visible in the component catalog at 01:32 but is not selected or used in the model.",
+    "tekla_version": "2017",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "GhD-Ba6Mr2s": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "101",
+      "name": "End plate (101)",
+      "start": "00:43",
+      "end": "02:16",
+      "tabs": [
+       "Picture",
+       "End plate",
+       "General",
+       "Notch",
+       "Bolts",
+       "Design",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "101",
+      "name": "End plate (101)",
+      "start": "03:56",
+      "end": "04:21",
+      "tabs": [
+       "Picture",
+       "End plate",
+       "General",
+       "Notch",
+       "Bolts",
+       "Design",
+       "Analysis"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "101",
+      "name": "End plate (101)",
+      "start": "04:27",
+      "end": "04:37",
+      "tabs": [
+       "Picture",
+       "End plate",
+       "General",
+       "Notch",
+       "Bolts",
+       "Design",
+       "Analysis"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": true,
+    "target_evidence": "The user selects 'End plate (101)' from the catalog at 0:12 and opens its properties dialog at 0:43.",
+    "tekla_version": "Educational version",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "6dDKiyX8R2U": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "06:11",
+      "end": "15:24",
+      "tabs": [
+       "Plates",
+       "Bolts",
+       "Picture",
+       "Stiffeners"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The presenter searches for and applies component 144; component 101 is never mentioned or used.",
+    "tekla_version": "Educational version",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "MFMw0XynYV4": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "00:52",
+      "end": "22:06",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Bolts",
+       "Design type",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title / catalog"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "It is shown in the Applications & components catalog search results at 00:15, but not selected.",
+    "tekla_version": "2022",
+    "units": "mm",
+    "language": "Tamil"
+   }
+  },
+  "JmjB31GSNDc": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": [
+    {
+     "components": [
+      {
+       "number": "1042",
+       "name": "Base plate",
+       "start": "10:16",
+       "end": "11:32",
+       "tabs": [
+        "Picture",
+        "Parts",
+        "Parameters",
+        "General",
+        "Anchor rods",
+        "Extra plates",
+        "Bolts",
+        "Analysis"
+       ],
+       "values_typed": false,
+       "how_seen": "dialog title"
+      },
+      {
+       "number": "144",
+       "name": "End plate",
+       "start": "16:15",
+       "end": "16:32",
+       "tabs": [
+        "Picture",
+        "Plates",
+        "Stiffeners",
+        "General",
+        "Haunch",
+        "Notch",
+        "Bolts",
+        "Design type",
+        "Holes",
+        "Angle box",
+        "Analysis"
+       ],
+       "values_typed": false,
+       "how_seen": "dialog title"
+      }
+     ],
+     "uses_target": false,
+     "target_evidence": "End plate (101) is visible in the catalog search results at 13:13 but is not used in the model or edited.",
+     "tekla_version": "2020",
+     "units": "mm",
+     "language": "Tamil"
+    }
+   ]
+  },
+  "mgKLT_yX01g": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "141",
+      "name": "End plate",
+      "start": "00:59",
+      "end": "01:32",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design",
+       "Extra plates",
+       "Angle cleat",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title / catalog / spoken"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The presenter specifically searches for and selects 'End plate (141)' in the Applications & components pane at 00:48.",
+    "tekla_version": "2022",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "AHpP67HxoUw": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": null,
+      "name": "PEB end plate to flange",
+      "start": "00:35",
+      "end": "10:06",
+      "tabs": [
+       "Picture",
+       "Bolts",
+       "Parts",
+       "Stiffeners",
+       "User-defined"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title / catalog / spoken"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The presenter selects and configures the 'PEB end plate to flange' component from the Applications & components catalog; 'End plate (101)' is not used in the video.",
+    "tekla_version": "2022",
+    "units": "mm",
+    "language": "Bengali"
+   }
+  },
+  "tFDJfCQEfT8": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": [
+    {
+     "components": [
+      {
+       "number": "144",
+       "name": "End plate",
+       "start": "05:44",
+       "end": "15:28",
+       "tabs": [
+        "Picture",
+        "Plates",
+        "Stiffeners",
+        "General",
+        "Haunch",
+        "Notch",
+        "Bolts",
+        "Design type",
+        "Holes",
+        "Angle box",
+        "Welds"
+       ],
+       "values_typed": true,
+       "how_seen": "dialog title"
+      }
+     ],
+     "uses_target": false,
+     "target_evidence": "The presenter selects component 144 from the catalog search results, which also include component 101.",
+     "tekla_version": "Educational version",
+     "units": "inch",
+     "language": "English"
+    }
+   ]
+  },
+  "fmOoQB00YIQ": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "00:08",
+      "end": "00:23",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "1014",
+      "name": "Stiffened base plate",
+      "start": "00:24",
+      "end": "00:35",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "00:39",
+      "end": "00:46",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "1014",
+      "name": "Stiffened base plate",
+      "start": "00:47",
+      "end": "00:51",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Analysis"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "00:52",
+      "end": "01:00",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Analysis"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "It is shown in the catalog search results at 0:02 but not used.",
+    "tekla_version": "2017",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "SAxFVhAknVk": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [],
+    "uses_target": false,
+    "target_evidence": "The presenter manually models the end plates using the beam tool and explicitly states at 08:32 that components will be shown in the next part.",
+    "tekla_version": "2017i",
+    "units": "mm",
+    "language": "Bengali"
+   }
+  },
+  "p6tkxj5kKxU": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [],
+    "uses_target": false,
+    "target_evidence": "The presenter models the connection plates manually using the beam tool and does not use the 'End plate (101)' component from the catalog.",
+    "tekla_version": "2018",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "uNowD80wdbU": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": [
+    {
+     "components": [
+      {
+       "number": "144",
+       "name": "End plate",
+       "start": "05:27",
+       "end": "06:44",
+       "tabs": [
+        "Picture",
+        "Plates",
+        "Stiffeners",
+        "Notch",
+        "Bolts",
+        "Design type",
+        "Angle",
+        "Analysis"
+       ],
+       "values_typed": true,
+       "how_seen": "dialog title"
+      },
+      {
+       "number": "1",
+       "name": "Cold-rolled overlap",
+       "start": "10:23",
+       "end": "10:28",
+       "tabs": [
+        "Picture",
+        "Steel",
+        "Bolts",
+        "Analysis"
+       ],
+       "values_typed": false,
+       "how_seen": "dialog title"
+      }
+     ],
+     "uses_target": false,
+     "target_evidence": "The presenter uses End plate (144) for the beam end plate connection, although End plate (101) is visible in the catalog at 05:20.",
+     "tekla_version": "2023",
+     "units": "mm",
+     "language": "English"
+    }
+   ]
+  },
+  "wpbXSnu5rC4": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "00:27",
+      "end": "00:42",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "-100000",
+      "name": "Cap plate detail",
+      "start": "00:43",
+      "end": "00:55",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Welds",
+       "General"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The video demonstrates the configuration of End plate (144) and a Cap plate detail; End plate (101) is never opened or mentioned.",
+    "tekla_version": "2022",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "Uwy5zTz9RdY": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "03:07",
+      "end": "05:24",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle loss",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "07:35",
+      "end": "07:46",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle loss",
+       "Analysis"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "End plate (101) appears in the catalog search results at 01:48 but is not selected or used by the presenter.",
+    "tekla_version": "2021",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "pmKMSaW0ONM": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "10",
+      "name": "Angle box",
+      "start": "00:35",
+      "end": "06:55",
+      "tabs": [
+       "Picture",
+       "Parts",
+       "Stiffeners",
+       "General",
+       "Mesh",
+       "Notch"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The component modified in the video is 'Angle box (10)'. 'End plate (101)' is not used or mentioned.",
+    "tekla_version": "2020",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "NeoTX-cUSlM": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "40",
+      "name": "Haunch",
+      "start": "00:31",
+      "end": "02:40",
+      "tabs": [
+       "Picture",
+       "Parameters",
+       "General",
+       "Haunch",
+       "Extra plates",
+       "Chamfers",
+       "Holes",
+       "Bolts",
+       "Upper beam",
+       "Design"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "40",
+      "name": "Haunch",
+      "start": "04:28",
+      "end": "05:10",
+      "tabs": [
+       "Picture",
+       "Parameters",
+       "General",
+       "Haunch",
+       "Extra plates",
+       "Chamfers",
+       "Holes",
+       "Bolts",
+       "Upper beam",
+       "Design"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The component 'End plate (101)' is not used or mentioned in the video.",
+    "tekla_version": "13.0",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "WcLroQmFRDA": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [],
+    "uses_target": false,
+    "target_evidence": "The presenter models the connection manually using basic parts (Column, Beam) and the Weld tool. No predefined connection components (macros) with numbers in brackets, such as 'End plate (101)', are used in the video.",
+    "tekla_version": "2017",
+    "units": "mm",
+    "language": "English"
+   }
+  }
+ }
+}

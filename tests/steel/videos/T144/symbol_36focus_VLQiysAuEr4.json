@@ -1,0 +1,148 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "component": "End plate (144)",
+ "model_asked": "gemini-3.8-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    1455,
+    1480
+   ],
+   "span": [
+    "24:15",
+    "24:40"
+   ],
+   "ask": "ONLY the component symbol and the status bar, second by second. The component symbol is the small cone at the beam-column joint. Report its colour (green / yellow / red) at every change, with the time, and say each time whether the component is SELECTED (Tekla draws a selected object with a highlight outline; say what the highlight looks like) so the status colour is not confused with the selection highlight. Report the exact status bar text (bottom left of the window) at every change. Report each Modify / Apply / OK press with its time, especially the one at about 24:31: the cone colour and the status bar text just BEFORE and just AFTER it. Also report the cone colour at 24:40 (the last moment of this piece). Do not read dialog values except the number of bolt rows if a Modify changes it.",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 34133,
+    "candidatesTokenCount": 870,
+    "totalTokenCount": 37036,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 507
+     },
+     {
+      "modality": "VIDEO",
+      "tokenCount": 33626
+     }
+    ],
+    "thoughtsTokenCount": 2033,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "Column",
+      "profile": "HEA360",
+      "t": "24:33.200",
+      "how": "visible in 3D view",
+      "sure": true
+     },
+     {
+      "role": "Beam",
+      "profile": "IPE400",
+      "t": "24:33.200",
+      "how": "visible in 3D view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20.00",
+      "t": "24:15.000",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "8.8-k",
+      "t": "24:15.000",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "24:15.000",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in nut",
+      "value": "Yes",
+      "t": "24:15.000",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "24:21.000",
+      "button": "Modify"
+     },
+     {
+      "t": "24:38.400",
+      "button": "Modify"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "24:15.000",
+      "text": "1 objects and 0 handles selected",
+      "sure": true
+     },
+     {
+      "t": "24:21.200",
+      "text": "Bolt edge distance of the bolt with id 82ac12cc-c7bd-4384-a78f-e03f71051c35 is too small",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "24:15.000",
+      "colour": "green",
+      "selected": true,
+      "how": "highlighted yellow cone component symbol",
+      "sure": true
+     },
+     {
+      "t": "24:21.200",
+      "colour": "red",
+      "selected": true,
+      "how": "red cone component symbol",
+      "sure": true
+     },
+     {
+      "t": "24:38.600",
+      "colour": "green",
+      "selected": true,
+      "how": "green cone component symbol",
+      "sure": true
+     },
+     {
+      "t": "24:40.000",
+      "colour": "green",
+      "selected": true,
+      "how": "green cone component symbol",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (144) joining a beam to column with stiffener plates and bolted end plate.",
+    "notes": "Modifying bolt parameters created a bolt edge distance error causing the component symbol to turn red. Selecting a proper bolt pattern option and clicking Modify fixed the error, returning the component symbol to green."
+   }
+  }
+ ],
+ "rotations": [
+  [
+   "gemini-3.8-flash",
+   "daily quota used up"
+  ]
+ ]
+}

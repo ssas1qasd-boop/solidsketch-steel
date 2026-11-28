@@ -1,0 +1,456 @@
+{
+ "url": "https://www.youtube.com/watch?v=GhD-Ba6Mr2s",
+ "component": "End plate (101)",
+ "model_asked": "gemini-3.8-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    10,
+    90
+   ],
+   "span": [
+    "00:10",
+    "01:30"
+   ],
+   "ask": "the profiles of the column and the beam (property pane, labels, narrator); whether the beam lands on the column flange or web; the Picture tab: every box (gap, edge distances) and its value; the End plate tab: plate t, b, h, Pos_No, material, name, edge type, every box and its value.",
+   "model_asked": "gemini-3.8-flash",
+   "model_served": "gemini-3.8-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 23545,
+    "candidatesTokenCount": 1166,
+    "totalTokenCount": 26301,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 425
+     },
+     {
+      "modality": "VIDEO",
+      "tokenCount": 23120
+     }
+    ],
+    "thoughtsTokenCount": 1590,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "not shown",
+      "t": "00:14",
+      "how": "picked as main part, I-section column",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "not shown",
+      "t": "00:16",
+      "how": "picked as secondary part, lands on column flange",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Picture",
+      "label": "gap between plate and column",
+      "value": "",
+      "t": "00:44",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "top extension",
+      "value": "",
+      "t": "00:44",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "bottom extension",
+      "value": "",
+      "t": "00:44",
+      "sure": true
+     },
+     {
+      "tab": "End plate",
+      "label": "t",
+      "value": "",
+      "t": "00:47",
+      "sure": true
+     },
+     {
+      "tab": "End plate",
+      "label": "t",
+      "value": "10.00",
+      "t": "00:54",
+      "sure": true
+     },
+     {
+      "tab": "End plate",
+      "label": "b",
+      "value": "",
+      "t": "00:47",
+      "sure": true
+     },
+     {
+      "tab": "End plate",
+      "label": "h",
+      "value": "",
+      "t": "00:47",
+      "sure": true
+     },
+     {
+      "tab": "End plate",
+      "label": "Pos_No prefix",
+      "value": "",
+      "t": "00:47",
+      "sure": true
+     },
+     {
+      "tab": "End plate",
+      "label": "Pos_No start number",
+      "value": "",
+      "t": "00:47",
+      "sure": true
+     },
+     {
+      "tab": "End plate",
+      "label": "Material",
+      "value": "",
+      "t": "00:47",
+      "sure": true
+     },
+     {
+      "tab": "End plate",
+      "label": "Name",
+      "value": "",
+      "t": "00:47",
+      "sure": true
+     },
+     {
+      "tab": "End plate",
+      "label": "End plate Edge Type",
+      "value": "Rolled/Sawn",
+      "t": "00:47",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "00:46",
+      "button": "End plate tab"
+     },
+     {
+      "t": "01:14",
+      "button": "Modify"
+     },
+     {
+      "t": "01:28",
+      "button": "General tab"
+     },
+     {
+      "t": "01:29",
+      "button": "Bolts tab"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "00:14",
+      "text": "Pick main part",
+      "sure": true
+     },
+     {
+      "t": "00:16",
+      "text": "Pick secondary part (at the maximum 1)",
+      "sure": true
+     },
+     {
+      "t": "00:18",
+      "text": "Pick main part",
+      "sure": true
+     },
+     {
+      "t": "00:33",
+      "text": "Pick position",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "00:18",
+      "colour": "green",
+      "selected": false,
+      "how": "wireframe cone/pyramid connection symbol",
+      "sure": true
+     }
+    ],
+    "geometry": "Beam frames perpendicular into the column flange. Connection 101 creates a welded end plate attached to the beam end and bolted to the column flange with a single vertical line of 3 bolts.",
+    "notes": "Double-clicking the plate in model space opens Column Properties showing the internal plate profile PL8*150 initially (00:56), which updates to PL10*150 after modifying t to 10.00 (01:23)."
+   }
+  },
+  {
+   "seconds": [
+    88,
+    140
+   ],
+   "span": [
+    "01:28",
+    "02:20"
+   ],
+   "ask": "the Bolts tab: bolt size, standard, tolerance, thread in material, site/workshop, the vertical group (reference, edge distance, number of bolts and spacing as separate boxes, exactly as written) and the horizontal group (reference, edge distance, number of bolts, spacing); every change and Modify press.",
+   "model_asked": "gemini-3.8-flash",
+   "model_served": "gemini-3.8-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 15445,
+    "candidatesTokenCount": 814,
+    "totalTokenCount": 16938,
+    "cachedContentTokenCount": 13317,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 15029
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 416
+     }
+    ],
+    "cacheTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 358
+     },
+     {
+      "modality": "VIDEO",
+      "tokenCount": 12959
+     }
+    ],
+    "thoughtsTokenCount": 679,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "unknown",
+      "t": "01:28",
+      "how": "visual inspection",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "unknown",
+      "t": "01:28",
+      "how": "visual inspection",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "01:32",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "H.T.B",
+      "t": "01:34",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "",
+      "t": "01:36",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "01:36",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance",
+      "value": "60.00",
+      "t": "01:42",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical number of bolts",
+      "value": "3",
+      "t": "01:44",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt spacing",
+      "value": "90.00",
+      "t": "01:45",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference",
+      "value": "Middle",
+      "t": "02:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance",
+      "value": "30.00",
+      "t": "02:09",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "01:29",
+      "button": "Bolts tab"
+     },
+     {
+      "t": "01:51",
+      "button": "Modify"
+     },
+     {
+      "t": "02:01",
+      "button": "Modify"
+     },
+     {
+      "t": "02:10",
+      "button": "Modify"
+     },
+     {
+      "t": "02:16",
+      "button": "Close"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "01:28",
+      "text": "1 + 0 object(s) selected",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "01:28",
+      "colour": "green",
+      "selected": false,
+      "how": "wireframe cone visible at connection",
+      "sure": true
+     },
+     {
+      "t": "01:53",
+      "colour": "green",
+      "selected": false,
+      "how": "wireframe cone visible at connection",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate (101) connection between steel column flange and beam web/flange. Bolts configured vertically with 3 bolts spaced at 90 mm, edge distance 60 mm referenced from middle, and horizontal edge distance set to 30 mm.",
+    "notes": "The user configures bolt parameters in the 'Bolts' tab of the End plate (101) dialog, modifying bolt size to 16, standard to H.T.B, vertical bolt spacing/counts, reference from Top to Middle, and horizontal edge distance to 30.00, applying changes each time using Modify."
+   }
+  },
+  {
+   "seconds": [
+    160,
+    190
+   ],
+   "span": [
+    "02:40",
+    "03:10"
+   ],
+   "ask": "the finished joint in the 3D view: end plate size relative to the beam, the number of bolt rows and bolt columns, where the plate sits (column flange or web); the status bar text and the component symbol colour (and whether selected).",
+   "model_asked": "gemini-3.8-flash",
+   "model_served": "gemini-3.8-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 9075,
+    "candidatesTokenCount": 343,
+    "totalTokenCount": 12491,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 8671
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 404
+     }
+    ],
+    "thoughtsTokenCount": 3073,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "I-beam",
+      "t": "02:40",
+      "how": "3D view",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "I-beam",
+      "t": "02:40",
+      "how": "3D view",
+      "sure": true
+     }
+    ],
+    "fields": [],
+    "presses": [
+     {
+      "t": "02:45",
+      "button": "Modify"
+     },
+     {
+      "t": "02:56",
+      "button": "Modify"
+     },
+     {
+      "t": "02:58",
+      "button": "OK"
+     },
+     {
+      "t": "03:00",
+      "button": "OK"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "03:00",
+      "text": "1 + 0 object(s) selected",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "02:40",
+      "colour": "green",
+      "selected": false,
+      "how": "3D view",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (101) between an I-beam and a column flange. The end plate is bolted to the column flange with 3 bolts in 1 vertical column (3 rows) aligned with the beam web.",
+    "notes": "Display and View Properties dialogs are adjusted and closed. Component symbol remains green indicating a valid connection."
+   }
+  }
+ ],
+ "rotations": []
+}

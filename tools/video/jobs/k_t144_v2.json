@@ -1,0 +1,21 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "component": "End plate (144)",
+ "pass1": false,
+ "context": "Tekla Structures 2022, mm, End plate (144), HEA400 column and beam.",
+ "pieces": [
+  {
+   "start": "19:30",
+   "end": "19:58",
+   "ask": "Key values only. the Bolts tab horizontal group (number of bolts, spacing as written, edge distances) and vertical group; the status bar text; the component symbol colour and whether selected."
+  },
+  {
+   "start": "24:12",
+   "end": "24:28",
+   "ask": "Key values only. The Bolts tab as reviewed: vertical group (reference, edge distances, number of bolts, spacing as written) and horizontal group (number of bolts, spacing as written, edge distances). In the 3D view: how many bolts across the end plate and how many rows?"
+  }
+ ],
+ "model": "gemini-flash-latest",
+ "pause": 15,
+ "mode": "static"
+}

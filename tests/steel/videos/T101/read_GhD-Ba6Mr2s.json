@@ -1,0 +1,584 @@
+{
+ "url": "https://www.youtube.com/watch?v=GhD-Ba6Mr2s",
+ "component": "End plate (101)",
+ "model_asked": "gemini-3.5-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    0,
+    90
+   ],
+   "span": [
+    "00:00",
+    "01:30"
+   ],
+   "ask": "the parts picked (main part, secondary part) and their profile names (property pane, labels, the narrator); whether the beam lands on a column flange, a column web or a beam web; the Picture tab: every box and its value (the numbered dimensions); the End plate tab: plate t, b, h and every other box.",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 26485,
+    "candidatesTokenCount": 520,
+    "totalTokenCount": 28088,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 26011
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 474
+     }
+    ],
+    "thoughtsTokenCount": 1083,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "main part (column)",
+       "profile": "unknown",
+       "t": "00:14",
+       "how": "picked column",
+       "sure": true
+      },
+      {
+       "role": "secondary part (beam)",
+       "profile": "unknown",
+       "t": "00:16",
+       "how": "picked beam",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "End plate",
+       "label": "t",
+       "value": "10.00",
+       "t": "00:54",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "00:13",
+       "button": "End plate (101)"
+      },
+      {
+       "t": "00:43",
+       "button": "Double click component symbol"
+      },
+      {
+       "t": "00:46",
+       "button": "End plate tab"
+      },
+      {
+       "t": "01:28",
+       "button": "General tab"
+      },
+      {
+       "t": "01:29",
+       "button": "Bolts tab"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "00:14",
+       "text": "Pick main part",
+       "sure": true
+      },
+      {
+       "t": "00:16",
+       "text": "Pick secondary part (at the maximum 1)",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "00:18",
+       "colour": "green",
+       "selected": false,
+       "how": "component symbol generated",
+       "sure": true
+      }
+     ],
+     "geometry": "End plate connection applied between column flange and beam end with 3 bolts.",
+     "notes": "End plate (101) component applied and properties opened."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    85,
+    175
+   ],
+   "span": [
+    "01:25",
+    "02:55"
+   ],
+   "ask": "the General, Notch and Bolts tabs: bolt size, standard, tolerance, thread in material, site/shop, hole type; the vertical bolt group (reference, edge distances, number of bolts, spacing as written) and horizontal group (reference, edge distance, number of bolts, spacing); the Apply / Modify / OK presses; the result in the model (plate size, bolt rows and columns, where it sits); the status bar text and the component symbol colour.",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 26510,
+    "candidatesTokenCount": 1041,
+    "totalTokenCount": 28517,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 499
+     },
+     {
+      "modality": "VIDEO",
+      "tokenCount": 26011
+     }
+    ],
+    "thoughtsTokenCount": 966,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "Column",
+      "profile": "HEB200",
+      "t": "01:25",
+      "how": "Visual inspection in 3D model view",
+      "sure": true
+     },
+     {
+      "role": "Main beam",
+      "profile": "IPE200",
+      "t": "01:27",
+      "how": "Visual inspection of connected beam profile",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "01:32",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "H.T.B",
+      "t": "01:35",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "0.00",
+      "t": "01:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "01:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance",
+      "value": "60.00",
+      "t": "01:42",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt spacing",
+      "value": "3 90",
+      "t": "01:45",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt reference",
+      "value": "Middle",
+      "t": "02:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance",
+      "value": "30.00",
+      "t": "02:09",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "01:51",
+      "button": "Modify"
+     },
+     {
+      "t": "01:55",
+      "button": "Modify"
+     },
+     {
+      "t": "02:01",
+      "button": "Modify"
+     },
+     {
+      "t": "02:10",
+      "button": "Modify"
+     },
+     {
+      "t": "02:44",
+      "button": "Modify"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "01:25",
+      "text": "1 + 0 object(s) selected",
+      "sure": true
+     },
+     {
+      "t": "02:20",
+      "text": "0 object(s) selected",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "01:27",
+      "colour": "green",
+      "selected": true,
+      "how": "Component symbol displayed at beam-column joint",
+      "sure": true
+     },
+     {
+      "t": "01:53",
+      "colour": "yellow",
+      "selected": true,
+      "how": "Component highlighted after modification",
+      "sure": true
+     },
+     {
+      "t": "02:45",
+      "colour": "green",
+      "selected": false,
+      "how": "Component symbol returned to normal state",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (101) connecting secondary beam flange/web to column flange using a single vertical line of 3 bolts M16 H.T.B.",
+    "notes": "User modifies bolt properties including size, standard, vertical spacing, vertical alignment reference, and horizontal edge distance in the End plate (101) dialog, then updates view display settings to show exact welds."
+   }
+  },
+  {
+   "seconds": [
+    170,
+    260
+   ],
+   "span": [
+    "02:50",
+    "04:20"
+   ],
+   "ask": "what is done in this part (more connections, copying, changes in the dialog): every dialog value changed, every Modify press, the result in the model, the status bar text and the component symbol colour.",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 26457,
+    "candidatesTokenCount": 693,
+    "totalTokenCount": 28201,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 26011
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 446
+     }
+    ],
+    "thoughtsTokenCount": 1051,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "Column",
+      "profile": "I-section",
+      "t": "03:00",
+      "how": "Visual identification in 3D model view",
+      "sure": true
+     },
+     {
+      "role": "Main beam",
+      "profile": "I-section",
+      "t": "03:00",
+      "how": "Visual identification in 3D model view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "H.T.B",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Save as",
+      "value": "a",
+      "t": "04:18",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "02:58",
+      "button": "OK"
+     },
+     {
+      "t": "03:00",
+      "button": "OK"
+     },
+     {
+      "t": "04:19",
+      "button": "Save"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "03:13",
+      "text": "Pick the source object",
+      "sure": true
+     },
+     {
+      "t": "03:16",
+      "text": "Pick the destination object",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "03:02",
+      "colour": "green",
+      "selected": true,
+      "how": "Clicked component cone symbol at beam-column connection",
+      "sure": true
+     },
+     {
+      "t": "03:56",
+      "colour": "green",
+      "selected": true,
+      "how": "Double clicked component cone symbol",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (101) joining secondary beam web to column flange with bolted end plate.",
+    "notes": "User modifies visibility settings, copies the end plate component to multiple beams using 'Copy special -> To another object', and opens End plate (101) component properties dialog."
+   }
+  },
+  {
+   "seconds": [
+    255,
+    355
+   ],
+   "span": [
+    "04:15",
+    "05:55"
+   ],
+   "ask": "the dialog values shown at 04:27-04:37 and any change; the final model: plate size, bolt rows and columns, where it sits; the status bar text and the component symbol colour (and whether the component is selected).",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 29355,
+    "candidatesTokenCount": 1140,
+    "totalTokenCount": 31528,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 28897
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 458
+     }
+    ],
+    "thoughtsTokenCount": 1033,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "main part",
+      "profile": "column",
+      "t": "04:40",
+      "how": "picked in 3D view",
+      "sure": true
+     },
+     {
+      "role": "secondary part",
+      "profile": "beam",
+      "t": "04:41",
+      "how": "picked in 3D view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "16",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "H.T.B",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site / Workshop",
+      "value": "Site",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Edge distance top",
+      "value": "60.00",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt rows spacing",
+      "value": "3 90.00",
+      "t": "04:31",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Edge distance side",
+      "value": "30.00",
+      "t": "04:31",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "04:21",
+      "button": "Close window (X)"
+     },
+     {
+      "t": "04:27",
+      "button": "End plate (101)"
+     },
+     {
+      "t": "04:31",
+      "button": "Bolts tab"
+     },
+     {
+      "t": "04:36",
+      "button": "Load"
+     },
+     {
+      "t": "04:38",
+      "button": "OK"
+     },
+     {
+      "t": "04:51",
+      "button": "Copy special -> To another object"
+     },
+     {
+      "t": "05:26",
+      "button": "Redraw view"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "04:27",
+      "text": "Pick main part",
+      "sure": true
+     },
+     {
+      "t": "04:41",
+      "text": "Pick secondary part (at the maximum 1)",
+      "sure": true
+     },
+     {
+      "t": "04:53",
+      "text": "Pick the source object",
+      "sure": true
+     },
+     {
+      "t": "04:55",
+      "text": "Pick the destination object",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "04:42",
+      "colour": "green",
+      "selected": true,
+      "how": "created connection on beam-column junction",
+      "sure": true
+     },
+     {
+      "t": "05:18",
+      "colour": "green",
+      "selected": false,
+      "how": "copied connection to all remaining upper level beams",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (101) applied to attach secondary steel I-beams to column flanges with bolted end plates containing 3 rows of M16 H.T.B bolts, copied across the entire frame model.",
+    "notes": "The user loads pre-saved connection attributes 'a', applies the end plate (101) connection between column and beam, then uses 'Copy special -> To another object' to rapidly duplicate the joint across the entire upper story grid."
+   }
+  }
+ ],
+ "rotations": []
+}

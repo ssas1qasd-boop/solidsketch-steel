@@ -1,0 +1,348 @@
+End plate (101) | Trimble Help
+Skip to main content
+Help
+not-allowed-link
+search
+menu
+search
+close
+CONTACT SUPPORT
+closewebEnglish
+webchevron_leftEnglish
+Language
+English
+English (United Kingdom)
+Dansk (Danmark)
+Deutsch (Deutschland)
+Español (España)
+Español (México)
+Français (France)
+Italiano (Italia)
+Nederlands (Nederland)
+Norsk bokmål (Norge)
+Polski (Polska)
+Português (Brasil)
+Suomi (Suomi)
+Svenska (Sverige)
+Čeština (Česká republika)
+Русский (Россия)
+日本語 (日本) / Japanese (Japan)
+简体中文 (中国) / Chinese (Simplified, China)
+繁體中文 (臺灣) / Chinese (Traditional, Taiwan)
+한국어 (대한민국) / Korean (South Korea)
+Home
+chevron_right
+Trimble documentation
+chevron_right
+Tekla Structures
+chevron_right
+System components
+chevron_right
+Steel components
+chevron_right
+End plate connections and details
+chevron_right
+End plate (101)
+chevron_right
+Select product version
+2026
+2025
+2024
+2023
+2022
+2021
+Apply
+Product guides
+Tekla Structures 2025 product guides
+Tekla Structures 2025 release notesExpand
+Installation and licensing workflowExpand
+Get familiar with Tekla StructuresExpand
+Create drawingsExpand
+Share models and filesExpand
+Plan and track projectsExpand
+Analyze modelsExpand
+Manage Tekla StructuresExpand
+Advanced optionsExpand
+Template attributes in drawing and report templatesExpand
+Create modelsExpand
+System componentsExpand
+Steel componentsExpand
+Built-up componentsExpand
+Clip angle connectionsExpand
+Cold rolled connectionsExpand
+End plate connections and detailsExpand
+Seating cap plate (2)
+Column - 2 beams (14)
+Two-sided end plate (24)
+Stiffened end plate (27)
+End plate (29)
+Spacer plate (48)
+Double plate (50)
+Partial stiff end plate (65)
+HQ End plate (97)
+End plate (101)
+End plate with compensating flange plates (111)
+Two-sided end plate with compensating flange plates (112)
+Two sided end plate (115)
+Stub connection (119)
+Two sided end plate (142)
+End plate (144)
+End plate detail (1002)
+Connection plate (1026)
+Cap plate detail
+Bolted cap plate (27)
+Simple end plate (32)
+Two side end plate (34)
+LProf base detail (1020)
+FramesExpand
+Haunch connectionsExpand
+Joist connectionsExpand
+Moment connectionsExpand
+Notch connections and detailsExpand
+Offshore connectionsExpand
+Opening connectionsExpand
+Other connections, details, and detailing toolsExpand
+Base platesExpand
+Bent plate connectionsExpand
+Bracing componentsExpand
+PlateworkExpand
+Purlin connectionsExpand
+Safety detailsExpand
+Seated connections and detailsExpand
+Shear tab connectionsExpand
+Splice connectionsExpand
+Stairs, handrails and laddersExpand
+Stiffeners and gussetsExpand
+Tower componentsExpand
+Tube connectionsExpand
+Welded connections and detailsExpand
+Advanced steel component propertiesExpand
+Concrete componentsExpand
+Print page
+Print page and subpages
+End plate (101)
+Modified: 12 Dec 2025
+Tekla Structures 2025
+2025
+Tekla Structures
+End plate (101) connects a beam to another beam or to a column using an end plate. The end plate is welded to the secondary beam and bolted to the main part (beam or column).
+Objects created
+End plate
+Bolts
+Welds
+Cuts
+Use for
+Situation
+Description
+Beam to beam connection with a bolted end plate.
+Beam to column connection with a bolted end plate.
+Selection order
+Select the main part (beam or column).
+Select the secondary part (beam).
+The connection is created automatically when the secondary beam is selected.
+Part identification key
+Part
+1
+End plate
+Picture tab
+Use the Picture tab to control the position of the end plate.
+End plate position
+Description
+Default
+1
+Gap between the main part and the end plate.
+2 mm
+2
+End plate edge distance to the secondary part flange.
+End plate tab
+Use the End plate tab to control the properties of the end plate.
+Plate
+Part
+Description
+End plate
+Define the end plate thickness and height.
+Option
+Description
+Default
+Pos_No
+Prefix and start number for the part position number.
+Some components have a second row of fields where you can enter the assembly position number.
+The default part start number is defined in the
+Components settings in
+File menu > Settings > Options.
+Material
+Material grade.
+The default material is defined in the
+Part material box in the
+Components settings in
+File menu > Settings > Options.
+Name
+Name that is shown in drawings and reports.
+Option
+Description
+End plate edge type
+Define how the end plate is cut. The default is Rolled/Sawn.
+Adapt to secondary part slope
+Select whether to align the end plate with the secondary part
+slope.
+Notch tab
+Use the Notch tab to create notches for the secondary beam and to control the notch properties.
+BCSA notch definition
+Define whether the notch is created according to British Constructional Steelwork Association (BCSA) specifications.
+Option
+Description
+Default
+Notch dimensions.
+Yes
+Creates a 50 mm notch for simple beam-to-beam connections.
+No
+Use the options on this
+Notch tab to define the notch dimensions.
+Notch dimensions
+Define the top and the bottom dimensions of the notch if you have set the
+BCSA notch def option to
+No.
+Description
+1
+Vertical notch dimension.
+2
+Horizontal notch dimension.
+Notch shape
+Define the notch shape for the top and the bottom of the secondary beam.
+Option
+Option
+Description
+Default
+Creates a square notch on the top side or on the bottom side of the secondary beam.
+AutoDefaults can change this option.
+No notch
+Creates a square notch on the top side or on the bottom side of the secondary beam.
+Define the notch dimensions. In beam-to-beam connections with a sloped secondary beam, the depth is measured as shown in the picture.
+Creates a notch on both sides of the secondary part.
+Define the notch dimensions.
+Creates a chamfered notch on both sides of the secondary beam.
+Define the chamfer dimensions.
+Creates a strip.
+Define the length of the strip. The flanges are cut completely.
+Creates a special type of square notch.
+Define the notch dimensions. The notch is square to the secondary beam. There are no default values for the length or the depth.
+Notching side
+Define on which side of the secondary beam the notch is created. You can define the side for both the top and the bottom of the secondary beam.
+Option
+Description
+Default
+Creates notches on both sides.
+AutoDefaults can change this option.
+Creates notches on both sides.
+Creates a notch on the left side.
+Creates a notch on the right side.
+Bolts tab
+Use the Bolts tab to control the bolt properties.
+Bolt group dimensions
+Description
+1
+Select how to measure the dimensions for horizontal bolt group position.
+Left: From the left edge of the secondary part to the leftmost bolt.
+Middle: From the center line of the secondary part to the center line of the bolts.
+Right: From the right edge of the secondary part to the rightmost bolt.
+2
+Dimension for horizontal bolt group position.
+3
+Bolt edge distance.
+Edge distance is the distance from the center of a bolt to the edge of the part.
+4
+Number of bolts.
+5
+Bolt spacing.
+Use a space to separate bolt spacing values. Enter a value for each space between bolts. For example, if there are 3 bolts, enter 2 values.
+6
+Select how to measure the dimensions for vertical bolt group position.
+Top: From the upper edge of the secondary part to the uppermost bolt.
+Middle: From the center line of the bolts to the center line of the secondary part.
+Below: From the lower edge of the secondary part to the lowest bolt.
+7
+Dimension for vertical bolt group position.
+Staggering of bolts
+Option
+Description
+Default
+Not staggered
+AutoDefaults can change this option.
+Not staggered
+Staggered type 1
+Staggered type 2
+Staggered type 3
+Staggered type 4
+Bolt basic properties
+Option
+Description
+Default
+Bolt size
+Bolt diameter.
+Available sizes are defined in the bolt assembly catalog.
+Bolt standard
+Bolt standard to be used inside the component.
+Available standards are defined in the bolt assembly catalog.
+Tolerance
+Gap between the bolt and the hole.
+Thread in mat
+Defines whether the thread may be within the bolted parts when bolts are used with a shaft.
+This has no effect when full-threaded bolts are used.
+Yes
+Site/Workshop
+Location where the bolts should be attached.
+Site
+Comment
+You can define a comment.
+Slotted holes
+You can define slotted, oversized, or tapped holes.
+Option
+Description
+Default
+1
+Vertical dimension of slotted hole.
+0, which results in a round hole.
+2
+Horizontal dimension of slotted hole, or allowance for oversized holes.
+0, which results in a round hole.
+Hole type
+Slotted creates slotted holes.
+Oversized creates oversized holes.
+No hole does not create holes.
+Tapped creates tapped holes.
+Rotate Slots
+When the hole type is
+Slotted, this option rotates the slotted holes.
+Slots in
+Part(s) in which slotted holes are created. The options depend on the component in question.
+Bolt assembly
+The selected check boxes define which component objects (bolt, washers, and nuts) are used in the bolt assembly.
+If you want to create a hole only, clear all the check boxes.
+To modify the bolt assembly in an existing component, select the
+Effect in modify check box and click
+Modify.
+Bolt length increase
+Define how much the bolt length is increased. Use this option when, for example, painting requires the bolt length to be increased.
+General
+tab
+Click the link below to find out
+more:
+General tab
+Design tab
+Click the link below to find out more:
+Design tab
+Analysis tab
+Click the link below to find out more:
+Analysis tab
+Welds
+Click the link below to find out
+more:
+Create welds
+Was this helpful?Yes
+No
+How could we improve the content?
+Submit
+Leave this field blank
+Previous
+Next
+Table of Contents

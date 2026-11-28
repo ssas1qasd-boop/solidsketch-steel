@@ -1,0 +1,341 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "component": "End plate (144)",
+ "model_asked": "gemini-flash-latest",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    1170,
+    1198
+   ],
+   "span": [
+    "19:30",
+    "19:58"
+   ],
+   "ask": "Key values only. the Bolts tab horizontal group (number of bolts, spacing as written, edge distances) and vertical group; the status bar text; the component symbol colour and whether selected.",
+   "model_asked": "gemini-3.6-flash",
+   "model_served": "gemini-3.6-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 8452,
+    "candidatesTokenCount": 962,
+    "totalTokenCount": 11631,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 8093
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 359
+     }
+    ],
+    "thoughtsTokenCount": 2217,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "Column",
+       "profile": "HEA400",
+       "t": "19:30",
+       "how": "visual inspection",
+       "sure": true
+      },
+      {
+       "role": "Beam",
+       "profile": "HEA400",
+       "t": "19:30",
+       "how": "visual inspection",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Bolts",
+       "label": "Bolt size",
+       "value": "20",
+       "t": "19:30",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt standard",
+       "value": "A325N",
+       "t": "19:30",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Tolerance",
+       "value": "2.00",
+       "t": "19:30",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Thread in material",
+       "value": "No",
+       "t": "19:30",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Site/Assembly",
+       "value": "Site",
+       "t": "19:30",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Cut length",
+       "value": "100.00",
+       "t": "19:30",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical bolt group pitch",
+       "value": "3 120.00",
+       "t": "19:30",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal bolt group pitch",
+       "value": "4 70.00",
+       "t": "19:30",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal bolt group pitch",
+       "value": "4 30.00",
+       "t": "19:34",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Horizontal bolt group pitch",
+       "value": "4 80.00",
+       "t": "19:42",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "19:37",
+       "button": "Modify"
+      },
+      {
+       "t": "19:44",
+       "button": "Modify"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "19:30",
+       "text": "Bolt edge distance of the bolt with id 02dbe36a-277a-43c4-94ad-e6e8d353813c is too small",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "19:30",
+       "colour": "green",
+       "selected": true,
+       "how": "visual inspection",
+       "sure": true
+      }
+     ],
+     "geometry": "End plate connection (144) joining a column and beam with stiffener plates, haulage/flange plates, and a bolt group modified from 4x70mm to 4x80mm spacing.",
+     "notes": "User modifies horizontal bolt pitch in component End plate (144) to resolve edge distance warning."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    1452,
+    1468
+   ],
+   "span": [
+    "24:12",
+    "24:28"
+   ],
+   "ask": "Key values only. The Bolts tab as reviewed: vertical group (reference, edge distances, number of bolts, spacing as written) and horizontal group (number of bolts, spacing as written, edge distances). In the 3D view: how many bolts across the end plate and how many rows?",
+   "model_asked": "gemini-flash-latest",
+   "model_served": "gemini-3.8-flash",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 5005,
+    "candidatesTokenCount": 1151,
+    "totalTokenCount": 9442,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 4624
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 381
+     }
+    ],
+    "thoughtsTokenCount": 3286,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "HEA400",
+      "t": "24:12",
+      "how": "context",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "HEA400",
+      "t": "24:12",
+      "how": "context",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "A325N",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference",
+      "value": "Middle",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical top edge distance",
+      "value": "",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical number of bolts",
+      "value": "1",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt spacing",
+      "value": "120.00",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bottom edge distance",
+      "value": "30.00",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal reference",
+      "value": "Middle",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal left edge distance",
+      "value": "30.00",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal number of bolts",
+      "value": "4",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing",
+      "value": "90.00",
+      "t": "24:18",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal right edge distance",
+      "value": "30.00",
+      "t": "24:18",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "24:17",
+      "button": "Bolts tab"
+     },
+     {
+      "t": "24:20",
+      "button": "Design type tab"
+     },
+     {
+      "t": "24:21",
+      "button": "Holes tab"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "24:18",
+      "text": "1 objects and 0 handles selected",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "24:18",
+      "colour": "green",
+      "selected": false,
+      "how": "visible inside joint cone",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (144) connecting the beam to the column flange with continuity stiffeners in the column web. In the 3D model, the end plate has 2 columns of bolts across and 7 rows of bolts vertically (14 bolts total: 1 row above the top flange, 5 rows along the web, and 1 row below the bottom flange).",
+    "notes": "The dialog values in the Bolts tab show 4 bolts at 90.00 mm horizontally and 1 at 120.00 mm vertically, which are existing dialog parameters before modification/loading standard."
+   }
+  }
+ ],
+ "rotations": [
+  [
+   "gemini-flash-latest",
+   "busy (503) / no answer"
+  ]
+ ]
+}

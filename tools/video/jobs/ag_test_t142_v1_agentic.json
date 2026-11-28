@@ -1,0 +1,16 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "component": "Two sided end plate (142)",
+ "model": "gemini-3.6-flash",
+ "pass1": false,
+ "context": "Tekla Structures 2017, mm, Bengali speech. From about 09:11 the presenter adds component 142 'Two sided end plate' between a column and two beams, then fills its dialog tabs (Picture, Plates, Bolts, Haunch, ...).",
+ "pieces": [
+  {
+   "start": "10:35",
+   "end": "12:05",
+   "ask": "the second Plates tab (t, b, h); the Bolts tab: bolt size, standard, tolerance, thread in material, site/shop, hole type, the vertical bolt group (reference Top/Middle/Bottom, edge distance, number of bolts, spacing) and the horizontal group (reference, edge distance, number, spacing). Read the number-of-bolts boxes carefully."
+  }
+ ],
+ "mode": "agentic",
+ "pause": 5
+}
