@@ -1102,6 +1102,8 @@ Emulator result (CI 46074849242, both recording tests rc 0): the models the emul
 Accepted (pending phone OK) only after the main session's merge and delivery. R13 rebuild unchanged (no T144 geometry changes for existing settings).
 
 ## T142 · Two sided end plate (142): the two-video test (Group 1, agent g1-t142, 2026-11-28)
+
+**Status (owner, 2026-11-28): video evidence provisional (read without frames, quota-limited).** Delivered in DELIVERY_2026-11-28_3.md; no ✓ until both videos are re-read with the full Gemini model (docs/steel/HANDOFF.md, step 1).
 The first End plate (EP) component after T144; its golden / recording / composer code is the pattern for the rest of the family (two-sided: T115, T24, T34, T112). Evidence: `tests/steel/videos/T142/` (VIDEO_1.txt, VIDEO_2.txt, every Gemini read, YouTube's stills). R13 has **0** T142 instances (no R13 rows change).
 
 ### Step 1: videos
