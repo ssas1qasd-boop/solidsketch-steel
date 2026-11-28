@@ -1,0 +1,290 @@
+{
+ "url": "https://www.youtube.com/watch?v=VLQiysAuEr4",
+ "component": "End plate (144)",
+ "model_asked": "gemini-3-flash-preview",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    1455,
+    1480
+   ],
+   "span": [
+    "24:15",
+    "24:40"
+   ],
+   "ask": "ONLY the component symbol and the status bar, second by second. The component symbol is the small cone at the beam-column joint. Report its colour (green / yellow / red) at every change, with the time, and say each time whether the component is SELECTED (Tekla draws a selected object with a highlight outline; say what the highlight looks like) so the status colour is not confused with the selection highlight. Report the exact status bar text (bottom left of the window) at every change. Report each Modify / Apply / OK press with its time, especially the one at about 24:31: the cone colour and the status bar text just BEFORE and just AFTER it. Also report the cone colour at 24:40 (the last moment of this piece). Do not read dialog values except the number of bolt rows if a Modify changes it.",
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "usage": {
+    "api": "generateContent",
+    "promptTokenCount": 34132,
+    "candidatesTokenCount": 2044,
+    "totalTokenCount": 99089,
+    "promptTokensDetails": [
+     {
+      "modality": "VIDEO",
+      "tokenCount": 33625
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 507
+     }
+    ],
+    "thoughtsTokenCount": 62913,
+    "serviceTier": "standard"
+   },
+   "mode": "static",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "column",
+       "profile": "HEA360",
+       "t": "24:15.000",
+       "how": "read from title bar and model",
+       "sure": true
+      },
+      {
+       "role": "beam",
+       "profile": "IPE400",
+       "t": "24:15.000",
+       "how": "read from title bar and model",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Bolts",
+       "label": "Bolt size",
+       "value": "20",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt standard",
+       "value": "8.8S",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Tolerance",
+       "value": "2.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Thread in mat",
+       "value": "Yes",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt type",
+       "value": "Site",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Cut length",
+       "value": "50",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "1",
+       "value": "40.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "2",
+       "value": "80.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "3",
+       "value": "-40.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "4",
+       "value": "5",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "4",
+       "value": "4",
+       "t": "24:17.200",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "4",
+       "value": "5",
+       "t": "24:26.800",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "5",
+       "value": "120.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "6",
+       "value": "-40.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Hole type",
+       "value": "Slotted",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Rotate slots",
+       "value": "Parallel",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Slots in",
+       "value": "Default",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Slotted hole X",
+       "value": "0.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Slotted hole Y",
+       "value": "0.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Effect in modify",
+       "value": "checked",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Offset X",
+       "value": "0.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Offset Y",
+       "value": "0.00",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt assembly",
+       "value": "checked",
+       "t": "24:15.000",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Delete bolts",
+       "value": "checked",
+       "t": "24:15.000",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "24:18.400",
+       "button": "Modify"
+      },
+      {
+       "t": "24:20.800",
+       "button": "Modify"
+      },
+      {
+       "t": "24:28.400",
+       "button": "Modify"
+      },
+      {
+       "t": "24:31.000",
+       "button": "Modify"
+      },
+      {
+       "t": "24:38.200",
+       "button": "Modify"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "24:15.000",
+       "text": "Bolt edge distance of id 82ac12cc-97df-4080-a1d1-82af71051c35 is too small",
+       "sure": true
+      },
+      {
+       "t": "24:31.000",
+       "text": "",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "24:15.000",
+       "colour": "yellow",
+       "selected": true,
+       "how": "magenta highlight outline",
+       "sure": true
+      },
+      {
+       "t": "24:31.000",
+       "colour": "green",
+       "selected": true,
+       "how": "magenta highlight outline",
+       "sure": true
+      },
+      {
+       "t": "24:40.000",
+       "colour": "green",
+       "selected": true,
+       "how": "magenta highlight outline",
+       "sure": true
+      }
+     ],
+     "geometry": "The joint consists of an end plate welded to the IPE400 beam and bolted to the HEA360 column flange. Initially, there are 5 rows of bolts in 2 columns. The user modifies it to 4 rows and then back to 5 rows.",
+     "notes": "The component status changes from yellow (warning) to green (ok) after the Modify press at 24:31:000, which also clears the error message in the status bar."
+    }
+   ]
+  }
+ ],
+ "rotations": []
+}
