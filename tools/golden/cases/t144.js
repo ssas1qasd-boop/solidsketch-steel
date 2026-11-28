@@ -98,9 +98,14 @@ module.exports = [
     // checks must give the warnings Tekla shows in the video (tools/golden/video_status.js).
     videoFaithful: true,
     videoStatus: {
-      tekla: [{ t: '24:50', where: 'status bar (frame tests/steel/videos/T144/frames_VLQiysAuEr4_hd/f_1490.jpg; also 04:03 / 23:5x)', text: 'Bolt edge distance of the bolt with id 82ac12cc-... is too small' }],
-      expect: [{ check: 'edge' }],   // Tekla names the bolt only by id, so which bolt is not checked
-      symbol: 'not confirmed: at 24:50 the component is selected and its cone is drawn green; whether that is its status colour cannot be read from the frame',
+      // Owner decision 2026-11-28 (HANDOFF "T144 video 1 symbol: DECIDED"; VIDEO_1.txt "SYMBOL SETTLED"): the final state is GREEN after the
+      // Modify at 24:31 (yellow with the edge-distance message only at 24:21). Our rule check now measures the edge distance only in plates
+      // where the bolt has its own hole (web v70/rulecheck.js, app TkCheck), so bolts 1, 2, 9, 10 in the stiffeners (no hole there) give no warning.
+      tekla: [{ t: '24:21', where: 'status bar before the last Modify (VIDEO_1.txt SYMBOL SETTLED)', text: 'Bolt edge distance of the bolt with id 82ac12cc-... is too small' },
+              { t: '24:31', where: 'after the Modify (3.8, 3-flash-preview; green at 24:38 / 24:40 and in frame f_1490 at 24:50)', text: '(no message; symbol green)' }],
+      expect: [],
+      level: 1,   // green (owner, 2026-11-28)
+      symbol: 'green after the Modify at 24:31 (final state)',
       noWarning: 'Tekla shows no separate warning for the stiffener / bolt clash (the top and bottom rows pass through the stiffeners moved 40 up / down). The only clash check in the video (11:09, an earlier state) lists COLUMN - SPACER PLATE.',
     },
     description: 'Video 1 (VLQiysAuEr4, final state 27:18): HEA360 column, IPE400 beam on its flange. Picture 1 = -80, 2 = -80, gap 0; Plates: End plate t 20, b 180, h 560, Fitting plate 1 t 12; Stiffeners created t 10 (Top / Bottom NS / FS), positions 1 = 20, 2 / 5 = 40 (Tekla: up; saved sg2 / sg5 = -40), 3 / 4 = -40; Haunch top / bottom 12 x 80 x 80, chamfers 80 line, both; Bolts M20, 5 rows, s 120, 6 = -40 (Top), 3 = 40, 4 / 5 blank (spacing = b - 2 x 40 = 100); Tekla bolt length.',

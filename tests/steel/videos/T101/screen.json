@@ -809,6 +809,155 @@
     "units": "mm",
     "language": "English"
    }
+  },
+  "Uwy5zTz9RdY": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "03:07",
+      "end": "05:24",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle loss",
+       "Analysis"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "144",
+      "name": "End plate",
+      "start": "07:35",
+      "end": "07:46",
+      "tabs": [
+       "Picture",
+       "Plates",
+       "Stiffeners",
+       "General",
+       "Haunch",
+       "Notch",
+       "Bolts",
+       "Design type",
+       "Holes",
+       "Angle loss",
+       "Analysis"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "End plate (101) appears in the catalog search results at 01:48 but is not selected or used by the presenter.",
+    "tekla_version": "2021",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "pmKMSaW0ONM": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "10",
+      "name": "Angle box",
+      "start": "00:35",
+      "end": "06:55",
+      "tabs": [
+       "Picture",
+       "Parts",
+       "Stiffeners",
+       "General",
+       "Mesh",
+       "Notch"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The component modified in the video is 'Angle box (10)'. 'End plate (101)' is not used or mentioned.",
+    "tekla_version": "2020",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "NeoTX-cUSlM": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [
+     {
+      "number": "40",
+      "name": "Haunch",
+      "start": "00:31",
+      "end": "02:40",
+      "tabs": [
+       "Picture",
+       "Parameters",
+       "General",
+       "Haunch",
+       "Extra plates",
+       "Chamfers",
+       "Holes",
+       "Bolts",
+       "Upper beam",
+       "Design"
+      ],
+      "values_typed": true,
+      "how_seen": "dialog title"
+     },
+     {
+      "number": "40",
+      "name": "Haunch",
+      "start": "04:28",
+      "end": "05:10",
+      "tabs": [
+       "Picture",
+       "Parameters",
+       "General",
+       "Haunch",
+       "Extra plates",
+       "Chamfers",
+       "Holes",
+       "Bolts",
+       "Upper beam",
+       "Design"
+      ],
+      "values_typed": false,
+      "how_seen": "dialog title"
+     }
+    ],
+    "uses_target": false,
+    "target_evidence": "The component 'End plate (101)' is not used or mentioned in the video.",
+    "tekla_version": "13.0",
+    "units": "mm",
+    "language": "English"
+   }
+  },
+  "WcLroQmFRDA": {
+   "model_asked": "gemini-3-flash-preview",
+   "model_served": "gemini-3-flash-preview",
+   "read": {
+    "components": [],
+    "uses_target": false,
+    "target_evidence": "The presenter models the connection manually using basic parts (Column, Beam) and the Weld tool. No predefined connection components (macros) with numbers in brackets, such as 'End plate (101)', are used in the video.",
+    "tekla_version": "2017",
+    "units": "mm",
+    "language": "English"
+   }
   }
  }
 }
