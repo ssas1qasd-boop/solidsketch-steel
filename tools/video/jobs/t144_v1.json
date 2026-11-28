@@ -1,0 +1,5 @@
+{"url": "https://www.youtube.com/watch?v=VLQiysAuEr4", "component": "End plate (144)", "model": "gemini-3.5-flash", "pass1": false,
+ "context": "Tekla Structures 2026, English UI, Arabic speech, mm. Component 144 'End plate' between a HEA360 column and an IPE400 beam; the presenter's last Modify is at 24:28.",
+ "pieces": [
+  {"start": "24:15", "end": "25:15", "ask": "the component symbol's colour (green / yellow / red) after the last Modify, both while the component is selected and when it is not; the status bar text (for example 'Bolt edge distance of the bolt ... is too small') and its time. Say whether the cone's green could be the selection highlight rather than the status colour."}
+ ]}

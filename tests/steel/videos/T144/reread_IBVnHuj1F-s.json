@@ -1,0 +1,892 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "component": "End plate (144)",
+ "model_asked": "gemini-3.5-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    460,
+    545
+   ],
+   "span": [
+    "07:40",
+    "09:05"
+   ],
+   "ask": "the Plates tab: end plate t, b, h; fitting plate 1 t, number; the Picture tab boxes if shown.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "column",
+       "profile": "HEA400",
+       "t": "07:40",
+       "how": "visible in 3D view",
+       "sure": true
+      },
+      {
+       "role": "beam",
+       "profile": "HEA400",
+       "t": "07:40",
+       "how": "visible in 3D view",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Plates",
+       "label": "End Plate t",
+       "value": "20.00",
+       "t": "07:52",
+       "sure": true
+      },
+      {
+       "tab": "Plates",
+       "label": "Fitting Plate 1 t",
+       "value": "20.00",
+       "t": "08:48",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "07:42",
+       "button": "Plates tab"
+      },
+      {
+       "t": "07:52",
+       "button": "Modify"
+      },
+      {
+       "t": "08:33",
+       "button": "Material selection (...)"
+      },
+      {
+       "t": "08:48",
+       "button": "Modify"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "08:46",
+       "text": "The origin was set. Hold down the Ctrl key and rotate the view with the middle mouse button.",
+       "sure": true
+      },
+      {
+       "t": "08:51",
+       "text": "Pick the origin for view rotation.",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "07:40",
+       "colour": "green",
+       "selected": true,
+       "how": "component 144 cone symbol selected in 3D model",
+       "sure": true
+      }
+     ],
+     "geometry": "End plate connection (144) attaching beam flange/web end to column flange with end plate and optional shim/fitting plate.",
+     "notes": "Demonstrates setting end plate thickness and shim/fitting plate thickness in Tekla Structures component 144."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    650,
+    735
+   ],
+   "span": [
+    "10:50",
+    "12:15"
+   ],
+   "ask": "the Stiffeners tab: each stiffener's t, b, h, chamfer type and sizes, created / orientation, positions.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "Column",
+       "profile": "I-section (column)",
+       "t": "10:50",
+       "how": "visible in model view (purple)",
+       "sure": true
+      },
+      {
+       "role": "Main Beam",
+       "profile": "I-section (beam)",
+       "t": "10:50",
+       "how": "visible in model view connected via End plate (144) (green)",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Stiffeners",
+       "label": "Top NS t",
+       "value": "10.00",
+       "t": "10:50",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Top FS t",
+       "value": "10.00",
+       "t": "10:50",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Bottom NS t",
+       "value": "10.00",
+       "t": "10:50",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Bottom FS t",
+       "value": "10.00",
+       "t": "10:50",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Stiffener Chamfer horizontal dimension",
+       "value": "15.00",
+       "t": "11:18",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Stiffener Chamfer vertical dimension",
+       "value": "15.00",
+       "t": "11:19",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Stiffener Chamfer horizontal dimension",
+       "value": "25.00",
+       "t": "11:32",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Stiffener Chamfer vertical dimension",
+       "value": "25.00",
+       "t": "11:33",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Stiffener Chamfer horizontal dimension",
+       "value": "30.00",
+       "t": "11:38",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Stiffener Chamfer vertical dimension",
+       "value": "30.00",
+       "t": "11:40",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "11:21",
+       "button": "Modify"
+      },
+      {
+       "t": "11:34",
+       "button": "Modify"
+      },
+      {
+       "t": "11:41",
+       "button": "Modify"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "10:50",
+       "text": "1 objects and 0 handles selected",
+       "sure": true
+      },
+      {
+       "t": "11:48",
+       "text": "The origin was set. Hold down the Ctrl key and rotate the view with the middle mouse button.",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "10:50",
+       "colour": "green",
+       "selected": true,
+       "how": "highlighted green component symbol cone above beam end plate",
+       "sure": true
+      }
+     ],
+     "geometry": "End plate (144) connection with top and bottom column web stiffeners fitted inside column profile with corner chamfers adjusted from 15mm to 25mm and finally to 30mm.",
+     "notes": "Demonstrates setting column stiffener corner chamfer values to clear the root radius of rolled column sections in Tekla Structures."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    1085,
+    1175
+   ],
+   "span": [
+    "18:05",
+    "19:35"
+   ],
+   "ask": "the Bolts tab: bolt size, standard, tolerance, thread in material, hole type, the vertical group (reference, edge distances top/bottom, number, spacing) and the horizontal group (number, spacing, edge distances, reference); the Modify presses.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "HEA400",
+      "t": "18:05",
+      "how": "visible in 3D view",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "HEA400",
+      "t": "18:05",
+      "how": "visible in 3D view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Top edge distance",
+      "value": "30.00",
+      "t": "18:11",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bottom edge distance",
+      "value": "30.00",
+      "t": "18:12",
+      "sure": true
+     },
+     {
+      "tab": "Picture",
+      "label": "Flange clearance top",
+      "value": "",
+      "t": "18:28",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt group count",
+      "value": "2",
+      "t": "18:51",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing",
+      "value": "120.00",
+      "t": "18:52",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt group count",
+      "value": "3",
+      "t": "19:05",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt group count",
+      "value": "4",
+      "t": "19:11",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing",
+      "value": "60.00",
+      "t": "19:12",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing",
+      "value": "100.00",
+      "t": "19:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing",
+      "value": "70.00",
+      "t": "19:22",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Left edge distance",
+      "value": "30",
+      "t": "19:34",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "18:06",
+      "button": "Modify"
+     },
+     {
+      "t": "18:14",
+      "button": "Modify"
+     },
+     {
+      "t": "18:24",
+      "button": "Picture tab"
+     },
+     {
+      "t": "18:31",
+      "button": "Modify"
+     },
+     {
+      "t": "18:48",
+      "button": "Bolts tab"
+     },
+     {
+      "t": "18:55",
+      "button": "Modify"
+     },
+     {
+      "t": "18:55",
+      "button": "Modify"
+     },
+     {
+      "t": "19:07",
+      "button": "Modify"
+     },
+     {
+      "t": "19:13",
+      "button": "Modify"
+     },
+     {
+      "t": "19:19",
+      "button": "Modify"
+     },
+     {
+      "t": "19:24",
+      "button": "Modify"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "18:05",
+      "text": "Bolt edge distance of the bolt with id 02dbe36a-277a-43c4-94ad-e6e8d353813c is too small",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "18:05",
+      "colour": "green",
+      "selected": true,
+      "how": "component symbol 144 shown highlighted green in model",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (component 144) connecting HEA beam to column flange with end plate stiffness stiffeners and multi-row bolt group.",
+    "notes": "The demonstrator modifies edge distances, removes secondary plate offsets in Picture tab, and tests different horizontal bolt counts (2, 3, 4) and pitch spacings (60, 100, 70 mm) to achieve optimal bolt layout across beam flange width."
+   }
+  },
+  {
+   "seconds": [
+    1170,
+    1230
+   ],
+   "span": [
+    "19:30",
+    "20:30"
+   ],
+   "ask": "the status bar at the bottom of the window around 19:38: its exact text (for example 'Bolt edge distance of the bolt ... is too small'), when it appears and disappears; the component symbol's colour (green / yellow / red) at that time, and whether the component is selected; the Bolts tab values at that time.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "Column",
+      "profile": "HEA400",
+      "t": "19:30",
+      "how": "visible in 3D model view",
+      "sure": true
+     },
+     {
+      "role": "Beam",
+      "profile": "HEA400",
+      "t": "19:30",
+      "how": "visible in 3D model view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20",
+      "t": "19:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "A325N",
+      "t": "19:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "19:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "No",
+      "t": "19:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site / Workshop",
+      "value": "Site",
+      "t": "19:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "100.00",
+      "t": "19:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing count",
+      "value": "4",
+      "t": "19:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing value",
+      "value": "70.00",
+      "t": "19:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing value",
+      "value": "40",
+      "t": "19:31",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing value",
+      "value": "30",
+      "t": "19:34",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing count",
+      "value": "30",
+      "t": "19:36",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing count",
+      "value": "4",
+      "t": "19:40",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing value",
+      "value": "80",
+      "t": "19:42",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "19:37",
+      "button": "Modify"
+     },
+     {
+      "t": "19:44",
+      "button": "Modify"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "19:30",
+      "text": "Bolt edge distance of the bolt with id 02dbe36a-277a-43c4-94ad-e6e8d353813c is too small",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "19:30",
+      "colour": "green",
+      "selected": true,
+      "how": "visible green component symbol in 3D view",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (component 144) with top and bottom stiffener plates, backing plates, and bolt arrays connecting a beam flange/web to column web.",
+    "notes": "Presenter modifies horizontal bolt group parameters in the End plate (144) dialog window and applies changes using Modify."
+   }
+  },
+  {
+   "seconds": [
+    1330,
+    1420
+   ],
+   "span": [
+    "22:10",
+    "23:40"
+   ],
+   "ask": "the Haunch tab: top and bottom plate t, b, h; every chamfer box and its value (how many boxes are set to 55 and how many to 10, and what the boxes set to 10 are labelled or where they sit on the picture); the creation lists.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "Column",
+      "profile": "HEA400",
+      "t": "22:10",
+      "how": "Visual inspection of 3D model canvas",
+      "sure": true
+     },
+     {
+      "role": "Main beam",
+      "profile": "HEA400",
+      "t": "22:10",
+      "how": "Visual inspection of 3D model canvas",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Haunch",
+      "label": "Top plate b",
+      "value": "75.00",
+      "t": "22:21",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate b",
+      "value": "75.00",
+      "t": "22:21",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate h",
+      "value": "75.00",
+      "t": "22:25",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate h",
+      "value": "75.00",
+      "t": "22:25",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top plate t",
+      "value": "10.00",
+      "t": "22:31",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom plate t",
+      "value": "10.00",
+      "t": "22:33",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top haunch outer horizontal chamfer",
+      "value": "55.00",
+      "t": "22:49",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top haunch outer vertical chamfer",
+      "value": "55.00",
+      "t": "22:50",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom haunch outer horizontal chamfer",
+      "value": "55.00",
+      "t": "22:53",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom haunch outer vertical chamfer",
+      "value": "55.00",
+      "t": "22:54",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top haunch inner horizontal notch",
+      "value": "10.00",
+      "t": "22:58",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Top haunch inner vertical notch",
+      "value": "10.00",
+      "t": "23:01",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom haunch inner horizontal notch",
+      "value": "10.00",
+      "t": "23:05",
+      "sure": true
+     },
+     {
+      "tab": "Haunch",
+      "label": "Bottom haunch inner vertical notch",
+      "value": "10.00",
+      "t": "23:08",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "23:09",
+      "button": "Modify"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "22:10",
+      "text": "Pick the point from which to start measuring.",
+      "sure": true
+     },
+     {
+      "t": "22:13",
+      "text": "Distance is 75.00 mm (0.00, 0.00, 75.00 dx=0 dy=0 dz=75)",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "22:10",
+      "colour": "green",
+      "selected": true,
+      "how": "Green component cone symbol displayed on top flange connection point",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (144) between HEA column and HEA beam with extended top and bottom haunches/stiffeners attached using bolts and customized chamfered edges.",
+    "notes": "The presenter measures end plate projection (75mm), sets haunch plate dimensions to 75x75mm with 10mm thickness, chamfers outer corners by 55mm to create triangular stiffeners, and adds 10mm inner notches."
+   }
+  },
+  {
+   "seconds": [
+    1420,
+    1470
+   ],
+   "span": [
+    "23:40",
+    "24:30"
+   ],
+   "ask": "the last Modify and the final state: the status bar text and the component symbol's colour; the Bolts tab as reviewed at 24:14-24:24.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "column",
+       "profile": "HEA400",
+       "t": "23:40",
+       "how": "3D view",
+       "sure": true
+      },
+      {
+       "role": "beam",
+       "profile": "HEA400",
+       "t": "23:40",
+       "how": "3D view",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Haunch",
+       "label": "Top plate t",
+       "value": "10.00",
+       "t": "23:40",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate b",
+       "value": "75.00",
+       "t": "23:40",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Top plate h",
+       "value": "75.00",
+       "t": "23:40",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate t",
+       "value": "10.00",
+       "t": "23:40",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate b",
+       "value": "75.00",
+       "t": "23:40",
+       "sure": true
+      },
+      {
+       "tab": "Haunch",
+       "label": "Bottom plate h",
+       "value": "75.00",
+       "t": "23:40",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt size",
+       "value": "20",
+       "t": "24:17",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt standard",
+       "value": "A325N",
+       "t": "24:17",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Tolerance",
+       "value": "2.00",
+       "t": "24:17",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "23:45",
+       "button": "Modify"
+      },
+      {
+       "t": "23:48",
+       "button": "Modify"
+      },
+      {
+       "t": "23:58",
+       "button": "Modify"
+      },
+      {
+       "t": "24:05",
+       "button": "Notch tab"
+      },
+      {
+       "t": "24:16",
+       "button": "Bolts tab"
+      },
+      {
+       "t": "24:20",
+       "button": "Design type tab"
+      },
+      {
+       "t": "24:21",
+       "button": "Holes tab"
+      },
+      {
+       "t": "24:27",
+       "button": "Angle box tab"
+      },
+      {
+       "t": "24:29",
+       "button": "Analysis tab"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "23:40",
+       "text": "0 objects and 0 handles selected",
+       "sure": true
+      },
+      {
+       "t": "23:47",
+       "text": "1 objects and 0 handles selected",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "23:40",
+       "colour": "green",
+       "selected": false,
+       "how": "3D view",
+       "sure": true
+      },
+      {
+       "t": "23:47",
+       "colour": "yellow",
+       "selected": true,
+       "how": "3D view",
+       "sure": true
+      }
+     ],
+     "geometry": "End plate connection between HEA400 column and beam with top and bottom stiffener plates and double row of bolts.",
+     "notes": "Demonstration of removing and re-adding top and bottom stiffeners/haunches via End plate (144) dialog tab."
+    }
+   ]
+  }
+ ]
+}

@@ -34,3 +34,27 @@ Result (stills maxres1 / maxres2, ~04:19): one end plate per beam against the co
 
 Not readable / not used: the profiles (never named), the bolt standard, part names / materials, the bolt length (Tekla's rule used:
   grip 12.7 + 11 (the HEB300 web) + 12.7 = 36.4 -> M16 L60).
+
+RE-READ 2026-11-28 WITH THE FULL MODEL (owner, HANDOFF step 1). This section replaces the lite reads above where they differ.
+Model:    asked gemini-3.5-flash, Google served gemini-3.6-flash (modelVersion in every answer). Pass 1: the whole video at low resolution,
+          0.5 fps (reread_J2OINltOa4I.json "pass1"). Pass 2: 00:00-01:25, 01:25-02:55, 02:55-04:35 at high resolution, 1 fps
+          (reread_J2OINltOa4I.json "pass2"). Key-value check on a second full model: asked gemini-flash-latest, served gemini-3.8-flash,
+          01:45-04:30 (recheck_flashlatest_J2OINltOa4I.json).
+Frames:   none. No frame at a given time can be fetched: Apify's monthly limit is used up, YouTube refuses yt-dlp and the watch page, and
+          i.ytimg.com only serves fixed stills (maxres1/2/3, maxresdefault, already here). The status bar and the symbol colour below
+          are Gemini's timestamped descriptions, not frames.
+Values (both full models agree; UNCHANGED from the lite reads):
+  Plates 1 / 2  end plate t 1/2" (01:52-01:53 / 02:06-02:07), b and h blank.
+  Bolts         5/8" (02:23), tolerance 1/16" (02:24-02:25), standard Default, thread in mat Yes, Site; vertical reference Middle /
+                Middle (02:35 / 02:49); final vertical: edge 3 1/2" top and bottom, 3 bolts, spacing 5" (03:02-03:30, both plates);
+                horizontal: edge 2" / 2" (03:58-04:00), 2 bolts, spacing 3 1/2" (04:10-04:12); Modify 03:31 and 04:11-04:12,
+                Apply / OK 04:24-04:25.
+  Members       the beams land on the column WEB from both sides (3.6, 00:00-01:25: "beams connect directly to the column web on opposite
+                sides"). Profiles STILL NOT USED: the reads disagree (3.6 pass 1: beams W16X68, column not shown; 3.6 pass 2: column
+                W12X53, beams W16X31 "visible in 3D view"; 3.6 00:00-01:25: "not specified"; 3.8: "W-shape"). The HEB300 / IPE300
+                stand-ins of t142_v2 stay (not from the video; W shapes are not in the catalog).
+Status bar:   "Information: polygon depth value put as zero" at 01:13 (3.6, both passes) and after the last Modify 04:12 (3.8); "1 objects
+              and 0 handles selected" while the component is selected; no warning in any read.  (lite: 04:26, the same line)
+Symbol:       GREEN. Not selected at 01:13 (3.6, pass 1 and pass 2 agree); selected 01:40 / 02:55 (3.6) and 04:12 (3.8: "green cone with
+              yellow selection highlight"). After the last Modify it is only seen selected.  (lite: green, 3.1-lite only)
+Changed from the lite reads: nothing in the dialog values; the symbol's green is now read by the full model (unselected, 01:13).

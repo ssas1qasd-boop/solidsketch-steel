@@ -1,0 +1,128 @@
+{
+ "url": "https://www.youtube.com/watch?v=_Au1wpEDNzw",
+ "component": "Two sided end plate (142)",
+ "model_asked": "gemini-3.5-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    550,
+    575
+   ],
+   "span": [
+    "09:10",
+    "09:35"
+   ],
+   "ask": "ONLY the profile names of the column and the two beams if any is visible (property pane, labels, the narrator says them), and whether the beams meet the column's flanges or its web. Then the colour of the component symbol right after creation (09:30) and whether the component is selected.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "not visible",
+      "t": "09:20",
+      "how": "3D view",
+      "sure": false
+     },
+     {
+      "role": "beam (first secondary)",
+      "profile": "not visible",
+      "t": "09:23",
+      "how": "3D view",
+      "sure": false
+     },
+     {
+      "role": "beam (second secondary)",
+      "profile": "not visible",
+      "t": "09:25",
+      "how": "3D view",
+      "sure": false
+     }
+    ],
+    "fields": [],
+    "presses": [
+     {
+      "t": "09:16",
+      "button": "Two sided end plate (142) component icon"
+     },
+     {
+      "t": "09:20",
+      "button": "Left-click main column"
+     },
+     {
+      "t": "09:23",
+      "button": "Left-click left beam"
+     },
+     {
+      "t": "09:25",
+      "button": "Left-click right beam"
+     },
+     {
+      "t": "09:29",
+      "button": "Middle mouse click"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "09:18",
+      "text": "Pick main part",
+      "sure": true
+     },
+     {
+      "t": "09:21",
+      "text": "Pick secondary parts (at the maximum 2 parts)",
+      "sure": true
+     },
+     {
+      "t": "09:25",
+      "text": "Pick next secondary part. To finish, press the middle mouse button.",
+      "sure": true
+     },
+     {
+      "t": "09:30",
+      "text": "Information: polygon depth value put as zero - Pick main part",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "09:30",
+      "colour": "green",
+      "selected": false,
+      "how": "3D component cone symbol visible at joint location",
+      "sure": true
+     }
+    ],
+    "geometry": "Two beams attach to opposite sides of the column web using component 142 (Two sided end plate), secured with two bolts passing through both end plates and the column web.",
+    "notes": "No component dialog properties were modified during this clip."
+   }
+  },
+  {
+   "seconds": [
+    672,
+    712
+   ],
+   "span": [
+    "11:12",
+    "11:52"
+   ],
+   "ask": "ONLY the vertical bolt group boxes on the Bolts tab. For each box give its position on the picture (top edge, between bolts, bottom edge, beside the reference list) and its exact content. Tekla writes several equal spacings as 'n*s' (for example '4*90'): say whether the spacing box shows '90', '4*90', '1 90' or something else, and whether there is a separate 'number of bolts' box and what it shows. How many bolt rows are drawn in the dialog picture?",
+   "model_asked": "gemini-3.5-flash",
+   "error": "Gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 1h43m28.884101511s.\",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://aistudio.google.com/docs/rate-limits\"\n          }\n        ]\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.QuotaFailure\",\n        \"violations\": [\n          {\n            \"description\": \"Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\",\n            \"quotaMetric\": \"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\n            \"quotaId\": \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\n            \"quotaDimensions\": {\n              \"location\": \"global\",\n              \"model\": \"gemini-3.6-flash\"\n            },\n            \"quotaValue\": \"20\"\n        "
+  },
+  {
+   "seconds": [
+    726,
+    750
+   ],
+   "span": [
+    "12:06",
+    "12:30"
+   ],
+   "ask": "ONLY the 3D model view after Modify at 12:08: does each beam end plate sit against the column's FLANGE (the wide outer face of the I-section) or against the column's WEB (between the flanges)? Count the bolt rows and columns on one end plate. Do the bolts pass through the whole column (from one end plate through both column flanges to the other end plate) or only through one flange? Then the component symbol (cone) colour and whether the component is selected (highlighted) at that moment.",
+   "model_asked": "gemini-3.5-flash",
+   "error": "Gemini 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash, description: Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\\nPlease retry in 1h42m18.447024146s.\",\n    \"status\": \"RESOURCE_EXHAUSTED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.Help\",\n        \"links\": [\n          {\n            \"description\": \"Learn more about Gemini API quotas\",\n            \"url\": \"https://aistudio.google.com/docs/rate-limits\"\n          }\n        ]\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.QuotaFailure\",\n        \"violations\": [\n          {\n            \"description\": \"Generate content requests per day limit exceeded on Free Tier. See https://aistudio.google.com/docs/rate-limits.\",\n            \"quotaMetric\": \"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\n            \"quotaId\": \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\n            \"quotaDimensions\": {\n              \"model\": \"gemini-3.6-flash\",\n              \"location\": \"global\"\n            },\n            \"quotaValue\": \"20\"\n        "
+  }
+ ]
+}

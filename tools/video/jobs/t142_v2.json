@@ -1,0 +1,7 @@
+{"url": "https://www.youtube.com/watch?v=J2OINltOa4I", "component": "Two sided end plate (142)", "model": "gemini-3.5-flash", "pass1": true,
+ "context": "Tekla Structures, English, imperial units (feet-inches). The presenter models a column and two beams, then from about 00:57 adds component 142 'Two sided end plate' and fills its dialog (Picture, Plates, Bolts, ...).",
+ "pieces": [
+  {"start": "00:00", "end": "01:25", "ask": "every profile name that is visible or spoken for the column and the two beams (property pane, labels, toolbar profile box, the narrator); whether the beams land on the column's flange or web; the parts picked for the 142."},
+  {"start": "01:25", "end": "02:55", "ask": "the Picture tab boxes, the Plates tabs (end plate t, b, h for both plates), and the Bolts tab: bolt size, standard, tolerance, thread in material, site/shop, hole type, the vertical and horizontal references, edge distances, number of bolts and spacings."},
+  {"start": "02:55", "end": "04:35", "ask": "every change to the Bolts tab (vertical and horizontal edge distance, number of bolts, spacing) with the Modify presses, the final values, the Apply / OK presses; the result in the model; the status bar text after the last Modify; the component symbol's colour."}
+ ]}

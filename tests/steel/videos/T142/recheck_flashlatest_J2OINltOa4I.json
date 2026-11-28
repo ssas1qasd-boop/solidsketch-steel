@@ -1,0 +1,247 @@
+{
+ "url": "https://www.youtube.com/watch?v=J2OINltOa4I",
+ "component": "Two sided end plate (142)",
+ "model_asked": "gemini-flash-latest",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    105,
+    270
+   ],
+   "span": [
+    "01:45",
+    "04:30"
+   ],
+   "ask": "Key values only. end plate t (both plates), b, h; bolt size, tolerance; the FINAL vertical group (reference, edge distances, number of bolts, spacing) and horizontal group (edge distances, number, spacing) after the Modify at 04:11; the status bar text after it and the component symbol colour.",
+   "model_asked": "gemini-flash-latest",
+   "model_served": "gemini-3.8-flash",
+   "read": {
+    "members": [
+     {
+      "role": "main",
+      "profile": "W-shape column",
+      "t": "01:45",
+      "how": "visible in 3D model view",
+      "sure": true
+     },
+     {
+      "role": "secondary",
+      "profile": "W-shape beam",
+      "t": "01:45",
+      "how": "visible in 3D model view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Plates 1",
+      "label": "End Plate t",
+      "value": "1/2",
+      "t": "01:53",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate b",
+      "value": "",
+      "t": "01:53",
+      "sure": true
+     },
+     {
+      "tab": "Plates 1",
+      "label": "End Plate h",
+      "value": "",
+      "t": "01:53",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End plate t",
+      "value": "1/2",
+      "t": "02:06",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End plate b",
+      "value": "",
+      "t": "02:06",
+      "sure": true
+     },
+     {
+      "tab": "Plates 2",
+      "label": "End plate h",
+      "value": "",
+      "t": "02:06",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "5/8",
+      "t": "02:23",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "1/16",
+      "t": "02:25",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference (left secondary)",
+      "value": "Middle",
+      "t": "02:35",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical reference (right secondary)",
+      "value": "Middle",
+      "t": "02:49",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance top (left)",
+      "value": "3 1/2",
+      "t": "03:02",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance bottom (left)",
+      "value": "3 1/2",
+      "t": "03:38",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt count (left)",
+      "value": "3",
+      "t": "03:09",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt spacing (left)",
+      "value": "5\"",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance top (right)",
+      "value": "3 1/2",
+      "t": "03:22",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance bottom (right)",
+      "value": "3 1/2",
+      "t": "03:25",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt count (right)",
+      "value": "3",
+      "t": "03:26",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt spacing (right)",
+      "value": "5\"",
+      "t": "03:29",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance (left)",
+      "value": "2\"",
+      "t": "03:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance (right)",
+      "value": "2\"",
+      "t": "03:59",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt count",
+      "value": "2",
+      "t": "04:01",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing",
+      "value": "3 1/2",
+      "t": "04:12",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "01:55",
+      "button": "Modify"
+     },
+     {
+      "t": "02:09",
+      "button": "Modify"
+     },
+     {
+      "t": "02:26",
+      "button": "Modify"
+     },
+     {
+      "t": "02:52",
+      "button": "Modify"
+     },
+     {
+      "t": "03:31",
+      "button": "Modify"
+     },
+     {
+      "t": "04:11",
+      "button": "Modify"
+     },
+     {
+      "t": "04:24",
+      "button": "Apply"
+     },
+     {
+      "t": "04:25",
+      "button": "OK"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "04:12",
+      "text": "Information: polygon depth value put as zero",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "04:12",
+      "colour": "green",
+      "selected": true,
+      "how": "green cone component symbol with yellow selection highlight",
+      "sure": true
+     }
+    ],
+    "geometry": "Two-sided end plate connection (component 142) connecting secondary beams to a column web/flange. Each end plate is 1/2 inch thick, centered vertically on the beam, containing 2 columns of 3 bolts (5/8 inch bolt size) with 5-inch vertical pitch and 3 1/2-inch horizontal gauge.",
+    "notes": "Values entered in decimal like 3.5 automatically convert to fraction 3 1/2 upon clicking Modify."
+   }
+  }
+ ]
+}

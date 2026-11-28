@@ -5,6 +5,7 @@ import json, os, time, urllib.request, urllib.error, http.client
 MODEL = os.environ.get('GEMINI_MODEL', 'gemini-flash-latest')
 FALLBACK = 'gemini-flash-lite-latest'   # when MODEL stays busy (503) or its daily free quota (20 requests) is used up; the result records which model read it
 USED = []
+SERVED = []   # the modelVersion Google reports for each answer (it can differ from the requested name)
 
 def call(parts, tools=None, json_out=True, media_res=None, model=None, tries=4):
     for m in ([model] if model else [MODEL, FALLBACK]):
@@ -34,6 +35,7 @@ def _call(parts, tools, json_out, media_res, model, tries):
             err = 'connection: %s' % e
         time.sleep(20 * (k + 1))
     else: raise RuntimeError(err)
+    SERVED.append(d.get('modelVersion') or model)
     cand = (d.get('candidates') or [{}])[0]
     txt = ''.join(p.get('text', '') for p in cand.get('content', {}).get('parts', []))
     meta = cand.get('groundingMetadata') or {}

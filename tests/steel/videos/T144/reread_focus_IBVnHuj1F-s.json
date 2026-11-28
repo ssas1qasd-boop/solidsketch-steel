@@ -1,0 +1,435 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "component": "End plate (144)",
+ "model_asked": "gemini-3.5-flash",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    1173,
+    1198
+   ],
+   "span": [
+    "19:33",
+    "19:58"
+   ],
+   "ask": "ONLY the HORIZONTAL bolt group on the Bolts tab (the boxes under or beside the dialog picture for the bolts across the plate width): the number of bolts across, the spacing box content exactly as written (Tekla writes equal spacings as 'n*s', for example '3*80'), the two edge distances, and the reference. Then the status bar text and the component symbol's colour, and whether the component is selected. In the 3D view, how many bolts are across the end plate width?",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "column",
+      "profile": "HEA400",
+      "t": "19:33",
+      "how": "visible in 3D view",
+      "sure": true
+     },
+     {
+      "role": "beam",
+      "profile": "HEA400",
+      "t": "19:33",
+      "how": "visible in 3D view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20",
+      "t": "19:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "A325N",
+      "t": "19:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "19:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "No",
+      "t": "19:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site/Shop",
+      "value": "Site",
+      "t": "19:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance top",
+      "value": "30.00",
+      "t": "19:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical spacing",
+      "value": "5 120.00",
+      "t": "19:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance bottom",
+      "value": "30.00",
+      "t": "19:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance left",
+      "value": "70.00",
+      "t": "19:33",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance left",
+      "value": "30.00",
+      "t": "19:36",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal spacing",
+      "value": "4 80",
+      "t": "19:42",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance right",
+      "value": "30.00",
+      "t": "19:33",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "19:37",
+      "button": "Modify"
+     },
+     {
+      "t": "19:44",
+      "button": "Modify"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "19:33",
+      "text": "Bolt edge distance of the bolt with id 02dbe36a-277a-43c4-94ad-e6e8d353813c is too small",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "19:33",
+      "colour": "green",
+      "selected": true,
+      "how": "green component symbol / cone visible in 3D view",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (component 144) joining an I-beam to a column flange, with top/bottom stiffeners and multiple bolt rows.",
+    "notes": "User modifies horizontal bolt group parameters in the End plate (144) dialog and clicks Modify to update the model."
+   }
+  },
+  {
+   "seconds": [
+    1418,
+    1432
+   ],
+   "span": [
+    "23:38",
+    "23:52"
+   ],
+   "ask": "ONLY the component symbol (the cone at the joint): its colour when the component is NOT selected and when it IS selected (highlighted), with times; and the status bar text.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "column",
+       "profile": "HEA400",
+       "t": "23:38",
+       "how": "visible in 3D model view",
+       "sure": true
+      },
+      {
+       "role": "main beam",
+       "profile": "HEA400",
+       "t": "23:38",
+       "how": "visible in 3D model view",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Stiffeners",
+       "label": "Top plate t",
+       "value": "10.00",
+       "t": "23:38",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Top plate b",
+       "value": "75.00",
+       "t": "23:38",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Top plate h",
+       "value": "75.00",
+       "t": "23:38",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Bottom plate t",
+       "value": "10.00",
+       "t": "23:38",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Bottom plate b",
+       "value": "75.00",
+       "t": "23:38",
+       "sure": true
+      },
+      {
+       "tab": "Stiffeners",
+       "label": "Bottom plate h",
+       "value": "75.00",
+       "t": "23:38",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "23:44",
+       "button": "Stiffeners type dropdown"
+      },
+      {
+       "t": "23:46",
+       "button": "Modify"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "23:38",
+       "text": "1 objects and 0 handles selected",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "23:38",
+       "colour": "green",
+       "selected": false,
+       "how": "green cone visible at joint connection without selection outline",
+       "sure": true
+      },
+      {
+       "t": "23:46",
+       "colour": "green",
+       "selected": true,
+       "how": "green cone visible with yellow highlight outline around component",
+       "sure": true
+      }
+     ],
+     "geometry": "End plate connection with top and bottom stiffener plates attached to beam web/flange joint.",
+     "notes": "User modifies stiffener setup in End Plate (144) dialog, selecting the option without stiffeners and clicking Modify."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    1452,
+    1468
+   ],
+   "span": [
+    "24:12",
+    "24:28"
+   ],
+   "ask": "ONLY the Bolts tab as shown: every box with its content (bolt size, standard, tolerance, vertical group: reference, edge distances, number of bolts, spacing; horizontal group: number of bolts, spacing, edge distances, reference).",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "Column",
+      "profile": "HEA400",
+      "t": "24:12",
+      "how": "picked as main part",
+      "sure": false
+     },
+     {
+      "role": "Beam",
+      "profile": "HEA400",
+      "t": "24:12",
+      "how": "picked as secondary part",
+      "sure": false
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "20",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "7990",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "2.00",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in material",
+      "value": "No",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site/Workshop",
+      "value": "Site",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Cut length",
+      "value": "100.00",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Hole type",
+      "value": "Standard",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Rotate slots",
+      "value": "Parallel",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Slotted hole X",
+      "value": "0.00",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Slotted hole Y",
+      "value": "0.00",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt spacing",
+      "value": "3 120.00",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal bolt spacing",
+      "value": "90.00",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Left edge distance",
+      "value": "30.00",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Right edge distance",
+      "value": "30.00",
+      "t": "24:17",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bottom edge distance",
+      "value": "30.00",
+      "t": "24:17",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "24:16",
+      "button": "Bolts"
+     },
+     {
+      "t": "24:19",
+      "button": "Design type"
+     },
+     {
+      "t": "24:21",
+      "button": "Holes"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "24:12",
+      "text": "1 objects and 0 handles selected",
+      "sure": true
+     }
+    ],
+    "symbol": [
+     {
+      "t": "24:12",
+      "colour": "green",
+      "selected": true,
+      "how": "highlighted yellow outline in model view",
+      "sure": true
+     }
+    ],
+    "geometry": "End plate connection (144) between column flange and beam end with 4 rows of 2 bolts.",
+    "notes": "Reviewing connection dialog tabs for End plate (144)."
+   }
+  }
+ ]
+}

@@ -1,0 +1,579 @@
+{
+ "url": "https://www.youtube.com/watch?v=J2OINltOa4I",
+ "component": "Two sided end plate (142)",
+ "model_asked": "gemini-3.5-flash",
+ "pass1": {
+  "model_asked": "gemini-3.5-flash",
+  "model_served": "gemini-3.6-flash",
+  "read": {
+   "members": [
+    {
+     "role": "main part (column)",
+     "profile": "not explicitly displayed",
+     "t": "01:07",
+     "how": "picked column as main part",
+     "sure": true
+    },
+    {
+     "role": "secondary part 1 (beam)",
+     "profile": "W16X68",
+     "t": "01:09",
+     "how": "picked first beam as secondary part",
+     "sure": true
+    },
+    {
+     "role": "secondary part 2 (beam)",
+     "profile": "W16X68",
+     "t": "01:10",
+     "how": "picked second beam as secondary part",
+     "sure": true
+    }
+   ],
+   "tabs": [
+    {
+     "tab": "Picture",
+     "start": "01:42",
+     "end": "01:48",
+     "values": "default view"
+    },
+    {
+     "tab": "Plates 1",
+     "start": "01:48",
+     "end": "02:04",
+     "values": "End Plate thickness: 1/2\""
+    },
+    {
+     "tab": "Plates 2",
+     "start": "02:04",
+     "end": "02:16",
+     "values": "End Plate thickness: 1/2\""
+    },
+    {
+     "tab": "Bolts",
+     "start": "02:16",
+     "end": "04:25",
+     "values": "Bolt size: 5/8\", Tolerance: 1/16\", Vertical positioning: Middle, Vertical edge distance: 3 1/2\", Bolt rows: 3 @ 5\", Horizontal edge distance: 2\", Horizontal spacing: 3 1/2\""
+    }
+   ],
+   "presses": [
+    {
+     "t": "01:55",
+     "button": "Modify"
+    },
+    {
+     "t": "02:08",
+     "button": "Modify"
+    },
+    {
+     "t": "02:26",
+     "button": "Modify"
+    },
+    {
+     "t": "02:52",
+     "button": "Modify"
+    },
+    {
+     "t": "03:30",
+     "button": "Modify"
+    },
+    {
+     "t": "04:11",
+     "button": "Modify"
+    },
+    {
+     "t": "04:23",
+     "button": "Modify"
+    },
+    {
+     "t": "04:24",
+     "button": "Apply"
+    },
+    {
+     "t": "04:25",
+     "button": "OK"
+    }
+   ],
+   "status_bar": [
+    {
+     "t": "01:12",
+     "text": "Information: polygon depth value put as zero - Pick main part",
+     "sure": true
+    }
+   ],
+   "symbol": [
+    {
+     "t": "01:13",
+     "colour": "green",
+     "selected": false,
+     "sure": true
+    },
+    {
+     "t": "01:40",
+     "colour": "green",
+     "selected": true,
+     "sure": true
+    }
+   ],
+   "units": "inch",
+   "notes": "Component 142 (Two sided end plate) creates a double-sided beam-to-column connection with end plates on both sides using shared/through bolts."
+  }
+ },
+ "pass2": [
+  {
+   "seconds": [
+    0,
+    85
+   ],
+   "span": [
+    "00:00",
+    "01:25"
+   ],
+   "ask": "every profile name that is visible or spoken for the column and the two beams (property pane, labels, toolbar profile box, the narrator); whether the beams land on the column's flange or web; the parts picked for the 142.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "column",
+       "profile": "not specified",
+       "t": "00:13",
+       "how": "Steel > Column tool used",
+       "sure": true
+      },
+      {
+       "role": "main beam",
+       "profile": "not specified",
+       "t": "00:29",
+       "how": "Steel > Beam tool used",
+       "sure": true
+      },
+      {
+       "role": "secondary beam",
+       "profile": "not specified",
+       "t": "00:38",
+       "how": "Steel > Beam tool used",
+       "sure": true
+      }
+     ],
+     "fields": [],
+     "presses": [
+      {
+       "t": "00:56",
+       "button": "Ctrl+F (Applications & components)"
+      },
+      {
+       "t": "01:05",
+       "button": "Select Two sided end plate (142)"
+      },
+      {
+       "t": "01:07",
+       "button": "Left click Column (Main part)"
+      },
+      {
+       "t": "01:09",
+       "button": "Left click first Beam (Secondary part 1)"
+      },
+      {
+       "t": "01:11",
+       "button": "Left click second Beam (Secondary part 2)"
+      },
+      {
+       "t": "01:12",
+       "button": "Middle mouse button (Apply connection)"
+      },
+      {
+       "t": "01:19",
+       "button": "Ctrl+R (Rotate view origin)"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "00:17",
+       "text": "The column was created. Pick a point to create another column. To stop creating columns, press Esc.",
+       "sure": true
+      },
+      {
+       "t": "00:30",
+       "text": "Pick the start point for the beam.",
+       "sure": true
+      },
+      {
+       "t": "00:33",
+       "text": "Pick the end point for the beam.",
+       "sure": true
+      },
+      {
+       "t": "00:36",
+       "text": "The beam was created. Pick the start point for another beam. To stop creating beams, press Esc.",
+       "sure": true
+      },
+      {
+       "t": "01:06",
+       "text": "Pick main part",
+       "sure": true
+      },
+      {
+       "t": "01:08",
+       "text": "Pick secondary parts (at the maximum 2 parts)",
+       "sure": true
+      },
+      {
+       "t": "01:12",
+       "text": "Maximum number of secondary items picked. To finish, press the middle mouse button.",
+       "sure": true
+      },
+      {
+       "t": "01:13",
+       "text": "Information: polygon depth value put as zero -- Pick main part",
+       "sure": true
+      },
+      {
+       "t": "01:22",
+       "text": "Pick position",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "01:13",
+       "colour": "green",
+       "selected": false,
+       "how": "Component applied successfully",
+       "sure": true
+      }
+     ],
+     "geometry": "Two-sided end plate connection (142) connecting two opposite I-beams to the web of a central I-column using end plates and bolts.",
+     "notes": "Beams connect directly to the column web on opposite sides."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    85,
+    175
+   ],
+   "span": [
+    "01:25",
+    "02:55"
+   ],
+   "ask": "the Picture tab boxes, the Plates tabs (end plate t, b, h for both plates), and the Bolts tab: bolt size, standard, tolerance, thread in material, site/shop, hole type, the vertical and horizontal references, edge distances, number of bolts and spacings.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": [
+    {
+     "members": [
+      {
+       "role": "Column",
+       "profile": "W-shape column (Purple)",
+       "t": "01:25",
+       "how": "Modeled vertically",
+       "sure": true
+      },
+      {
+       "role": "Primary/Secondary Beams",
+       "profile": "W-shape beams (Green)",
+       "t": "01:25",
+       "how": "Framing into column web/flange",
+       "sure": true
+      }
+     ],
+     "fields": [
+      {
+       "tab": "Plates 1",
+       "label": "End Plate t",
+       "value": "1/2",
+       "t": "01:52",
+       "sure": true
+      },
+      {
+       "tab": "Plates 2",
+       "label": "End Plate t",
+       "value": "1/2",
+       "t": "02:07",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Bolt size",
+       "value": "5/8",
+       "t": "02:23",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Tolerance",
+       "value": "1/16",
+       "t": "02:24",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical reference 1",
+       "value": "Middle",
+       "t": "02:35",
+       "sure": true
+      },
+      {
+       "tab": "Bolts",
+       "label": "Vertical reference 2",
+       "value": "Middle",
+       "t": "02:49",
+       "sure": true
+      }
+     ],
+     "presses": [
+      {
+       "t": "01:40",
+       "button": "Double-click connection symbol"
+      },
+      {
+       "t": "01:49",
+       "button": "Plates 1 tab"
+      },
+      {
+       "t": "01:55",
+       "button": "Modify"
+      },
+      {
+       "t": "02:04",
+       "button": "Plates 2 tab"
+      },
+      {
+       "t": "02:09",
+       "button": "Modify"
+      },
+      {
+       "t": "02:16",
+       "button": "Bolts tab"
+      },
+      {
+       "t": "02:26",
+       "button": "Modify"
+      },
+      {
+       "t": "02:52",
+       "button": "Modify"
+      }
+     ],
+     "status_bar": [
+      {
+       "t": "01:25",
+       "text": "1 objects and 0 handles selected",
+       "sure": true
+      },
+      {
+       "t": "02:55",
+       "text": "1 objects and 0 handles selected",
+       "sure": true
+      }
+     ],
+     "symbol": [
+      {
+       "t": "01:25",
+       "colour": "green",
+       "selected": true,
+       "how": "Visible cone/symbol on joint",
+       "sure": true
+      }
+     ],
+     "geometry": "Two-sided end plate connection (Component 142) connecting two green secondary W-beams to a central purple column web/flange using shared bolts through 1/2 inch end plates.",
+     "notes": "Demonstrates modifying end plate thicknesses (1/2 in) and bolt sizes (5/8 in) along with vertical positioning (Middle) in Tekla Structures connection properties dialog."
+    }
+   ]
+  },
+  {
+   "seconds": [
+    175,
+    275
+   ],
+   "span": [
+    "02:55",
+    "04:35"
+   ],
+   "ask": "every change to the Bolts tab (vertical and horizontal edge distance, number of bolts, spacing) with the Modify presses, the final values, the Apply / OK presses; the result in the model; the status bar text after the last Modify; the component symbol's colour.",
+   "model_asked": "gemini-3.5-flash",
+   "model_served": "gemini-3.6-flash",
+   "read": {
+    "members": [
+     {
+      "role": "Column",
+      "profile": "W12X53",
+      "t": "02:55",
+      "how": "visible in 3D view",
+      "sure": true
+     },
+     {
+      "role": "Main Beam",
+      "profile": "W16X31",
+      "t": "02:55",
+      "how": "visible in 3D view",
+      "sure": true
+     },
+     {
+      "role": "Secondary Beam",
+      "profile": "W16X31",
+      "t": "02:55",
+      "how": "visible in 3D view",
+      "sure": true
+     }
+    ],
+    "fields": [
+     {
+      "tab": "Bolts",
+      "label": "Bolt size",
+      "value": "5/8",
+      "t": "02:55",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Bolt standard",
+      "value": "Default",
+      "t": "02:55",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Tolerance",
+      "value": "1/16",
+      "t": "02:55",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Thread in mat",
+      "value": "Yes",
+      "t": "02:55",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Site/Shop",
+      "value": "Site",
+      "t": "02:55",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance (top left)",
+      "value": "3'1/2",
+      "t": "03:02",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance (bottom left)",
+      "value": "3.5",
+      "t": "03:04",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Number of vertical bolts (left)",
+      "value": "3",
+      "t": "03:09",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt spacing (left)",
+      "value": "5'",
+      "t": "03:12",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance (top right)",
+      "value": "3.5",
+      "t": "03:22",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical edge distance (bottom right)",
+      "value": "3.5",
+      "t": "03:25",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Number of vertical bolts (right)",
+      "value": "3",
+      "t": "03:27",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Vertical bolt spacing (right)",
+      "value": "5'",
+      "t": "03:30",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance (left)",
+      "value": "2'",
+      "t": "03:58",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal edge distance (right)",
+      "value": "2'",
+      "t": "04:00",
+      "sure": true
+     },
+     {
+      "tab": "Bolts",
+      "label": "Horizontal spacing between bolts",
+      "value": "3.5",
+      "t": "04:10",
+      "sure": true
+     }
+    ],
+    "presses": [
+     {
+      "t": "03:31",
+      "button": "Modify"
+     },
+     {
+      "t": "04:12",
+      "button": "Modify"
+     },
+     {
+      "t": "04:24",
+      "button": "Apply"
+     },
+     {
+      "t": "04:25",
+      "button": "OK"
+     }
+    ],
+    "status_bar": [
+     {
+      "t": "02:55",
+      "text": "1 objects and 0 handles selected",
+      "sure": true
+     },
+     {
+      "t": "04:28",
+      "text": "Redraw View executed",
+      "sure": false
+     }
+    ],
+    "symbol": [
+     {
+      "t": "02:55",
+      "colour": "green",
+      "selected": true,
+      "how": "visible in 3D scene green cone component symbol",
+      "sure": true
+     }
+    ],
+    "geometry": "Two-sided end plate connection connecting two secondary beams to the column web/flange with two rows of 3 vertical bolts per side.",
+    "notes": "Demonstrates configuring bolt group spacing, edge distances, and horizontal gauge layout in Tekla Structures component 142."
+   }
+  }
+ ]
+}

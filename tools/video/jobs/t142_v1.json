@@ -1,0 +1,8 @@
+{"url": "https://www.youtube.com/watch?v=_Au1wpEDNzw", "component": "Two sided end plate (142)", "model": "gemini-3.5-flash", "pass1": true,
+ "context": "Tekla Structures 2017, mm, Bengali speech. From about 09:11 the presenter adds component 142 'Two sided end plate' between a column and two beams, then fills its dialog tabs (Picture, Plates, Bolts, Haunch, ...).",
+ "pieces": [
+  {"start": "09:05", "end": "10:35", "ask": "the parts picked (main part, secondary 1, secondary 2) and every profile name visible (column, beams); whether the beams land on the column's flanges or web; the Picture tab: every box including the numbered dimensions 1-5 (which are blank, which hold 2.00); the Plates tab (t, b, h, Pos_No, material, name)."},
+  {"start": "10:35", "end": "12:05", "ask": "the second Plates tab (t, b, h); the Bolts tab: bolt size, standard, tolerance, thread in material, site/shop, hole type, the vertical bolt group (reference Top/Middle/Bottom, edge distance, number of bolts, spacing) and the horizontal group (reference, edge distance, number, spacing). Read the number-of-bolts boxes carefully."},
+  {"start": "12:00", "end": "13:25", "ask": "the Modify press and the result in the model: do the bolts run across the whole column through both flanges, or only through each end plate and flange; the status bar text after Modify; the component symbol's colour; then the Haunch tab: each plate's t, b, h and the creation lists."},
+  {"start": "13:20", "end": "14:30", "ask": "the Haunch tab: plates t / b / h, Pos_No, material, name, the chamfer boxes 1-4 and the creation lists; the Modify / Apply / OK presses; the final status bar text and the component symbol's colour."}
+ ]}

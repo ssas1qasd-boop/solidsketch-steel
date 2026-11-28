@@ -1,0 +1,7 @@
+{"url": "https://www.youtube.com/watch?v=IBVnHuj1F-s", "component": "End plate (144)", "model": "gemini-3.5-flash", "pass1": false,
+ "context": "Tekla Structures 2022, mm. Component 144 'End plate' between a HEA400 column and a HEA400 beam (flange width 300). The Bolts tab is edited 18:05-19:50 and reviewed 24:14-24:24.",
+ "pieces": [
+  {"start": "19:33", "end": "19:58", "ask": "ONLY the HORIZONTAL bolt group on the Bolts tab (the boxes under or beside the dialog picture for the bolts across the plate width): the number of bolts across, the spacing box content exactly as written (Tekla writes equal spacings as 'n*s', for example '3*80'), the two edge distances, and the reference. Then the status bar text and the component symbol's colour, and whether the component is selected. In the 3D view, how many bolts are across the end plate width?"},
+  {"start": "24:12", "end": "24:28", "ask": "ONLY the Bolts tab as shown: every box with its content (bolt size, standard, tolerance, vertical group: reference, edge distances, number of bolts, spacing; horizontal group: number of bolts, spacing, edge distances, reference)."},
+  {"start": "23:38", "end": "23:52", "ask": "ONLY the component symbol (the cone at the joint): its colour when the component is NOT selected and when it IS selected (highlighted), with times; and the status bar text."}
+ ]}

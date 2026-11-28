@@ -1,0 +1,21 @@
+{
+ "url": "https://www.youtube.com/watch?v=IBVnHuj1F-s",
+ "component": "End plate (144)",
+ "model_asked": "gemini-flash-latest",
+ "pass1": null,
+ "pass2": [
+  {
+   "seconds": [
+    1170,
+    1198
+   ],
+   "span": [
+    "19:30",
+    "19:58"
+   ],
+   "ask": "Key values only. the Bolts tab horizontal group (number of bolts, spacing as written, edge distances) and vertical group; the status bar text; the component symbol colour and whether selected.",
+   "model_asked": "gemini-flash-latest",
+   "error": "Gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+  }
+ ]
+}
