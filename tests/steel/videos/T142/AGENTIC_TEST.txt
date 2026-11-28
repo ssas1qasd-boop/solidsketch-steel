@@ -1,0 +1,24 @@
+Agentic video understanding test (owner request, 2026-11-28; docs/steel/PARITY.md "Video reading (free tier only)")
+
+Piece:   T142 video 1 (_Au1wpEDNzw) 10:35-12:05 (Plates 2 + Bolts tab), the same prompt (tools/video/reread.py P2), model gemini-3.6-flash
+         (served gemini-3.6-flash both times), 08:01 UTC.
+How:     agentic = Interactions API (POST v1beta/interactions), video part {"type": "video", "uri": <YouTube URL>, "processing": "agentic"};
+         the time range is in the prompt (agentic mode refuses offsets: "The value 'agentic' is not supported for 'type' at
+         'input[1].processing'. Supported values: 'static'"). static = GenerateContent, video_metadata start/end offset, 1 fps,
+         mediaResolution HIGH. Files: agentic_test__Au1wpEDNzw.json, static_test__Au1wpEDNzw.json; jobs tools/video/jobs/ag_test_*.json.
+
+Values:  static = every earlier read (t 16 / b 150 / h 450, M16, 8.8XOX, tolerance 2, Middle / Middle, edge 45, spacing 90, number box 5,
+         horizontal edge 35 / 35, 2 columns; status bar "Information: polygon depth value put as zero").
+         agentic = NOT the same: Top reference, 2 bolts at 70, edge 40, horizontal 2 at 90, standard 7968, cut length 100, status bar
+         "Ready" (none of these is in any static read; it looks like defaults or another moment of the video).
+         -> NOT USED. All reads stay static with time-range clipping until a later test matches.
+
+Tokens (usage reported by the API, same piece, same model):
+                       static (GenerateContent)   agentic (Interactions)
+  video                26,011                     5,940 (tool use)        -77 %
+  text in                 432                       705 + 769 (tool use)
+  thinking              2,662                     7,670
+  output                1,638                     1,755
+  total                30,743                    16,839                   -45 %
+  (countTokens before the run, static input only: 27,522 = video 24,210 + audio 2,880 + text 432.)
+Probe on gemini-3.5-flash-lite (screening model, bolt size only): agentic 3,963 tokens, answer "16" (correct).
